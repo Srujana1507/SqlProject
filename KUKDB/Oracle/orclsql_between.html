@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlIntro"
+                            id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlDataTypes"
+                            id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlLanguages"
+                            id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlSelectTable"
+                            id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selectdistinct.html"
+                            id="sqlSelectDistinct">Select Distinct</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_logicaloperators.html"
+                            id="sqlLogicalOperators">Logical Operators</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_between.html"
+                            id="sqlBetween">Between</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not Null</a>
+                    </li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html"
+                            id="sqlCompOperators">Comparison Operators</a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual"
+                            id="sqlEqual">Equal = </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual"
+                            id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_outerjoin.html" id="sqlOuterJoin">Outer
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_leftouterjoin.html" id="sqlNull">Left
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_case.html" id="sqlCase">Case</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html"
+                            id="sqlNumaricFunctions">Numeric Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign"
+                            id="sqlAbsSign">Abs(x), Sign</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/oorclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlCeil"
+                            id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlExp"
+                            id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlMod"
+                            id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt"
+                            id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc"
+                            id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlAsin"
+                            id="sqlAsinAcos">ASIN(n), ACOS(n) </a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">SINH(n), COSH(n), TANH(n)</a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">ATAN(n), ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg"
+                            id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax"
+                            id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin"
+                            id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum"
+                            id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html"
+                            id="sqlStringFunctions">String Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlAscii"
+                            id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlChar"
+                            id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlconcat"
+                            id="sqlconcat">CONCAT</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlInstr"
+                            id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLength"
+                            id="sqlLength">Length</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLpadRpad"
+                            id="sqlLpadRpad">Lpad, Rpad</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlTrim"
+                            id="sqlTrim">Trim, RTrim, LTrim</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlSubstr"
+                            id="sqlSubstr">SUBSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlVSIZE"
+                            id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_corelatedsubqueries.html"
+                            id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_datefunctions.html"
+                            id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timestampfunctions.html"
+                            id="sqlTimestampFunctions">Timestamp Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timeintervalfunctions.html"
+                            id="sqlTimeIntervalFunctions">Time Interval Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timezonefunctions.html"
+                            id="sqlTimeZoneFunctions">Time Zone Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_truncate.html"
+                            id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_returning.html"
+                            id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_intersect.html"
+                            id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_constraints.html"
+                            id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_primarykey.html"
+                            id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_foreginkey.html"
+                            id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_default.html"
+                            id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dcl.html?topic=sqlGrant"
+                            id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dcl.html?topic=sqlRevoke"
+                            id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlCommit"
+                            id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlRollback"
+                            id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlSavepoint"
+                            id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html"
+                            id="sqlRankingFunctions">Ranking Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRownum"
+                            id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRank"
+                            id="sqlRank">RANK</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlNtile"
+                            id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html"
+                            id="sqlGroupFunctions">Group By Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlCube"
+                            id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlRollup"
+                            id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGrouping"
+                            id="sqlGrouping">GROUPING</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGroupId"
+                            id="sqlGroupId">GROUP_ID</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_mview.html"
+                            id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aliases.html"
+                            id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selectinto.html"
+                            id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_insertinto_select.html"
+                            id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlBetween">
+
+            <div class="topic-buttons">
+                <a href="orclsql_or.html?topic=sqlOr" class="previou-button">&laquo; Pevious</a>
+                <a href="orclsql_in.html?topic=sqlIN" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>BETWEEN Operator in Oracle SQL</h1>
+            <p>The BETWEEN operator in Oracle SQL is used to filter the rows that fall within a specified range.</p><br>
+            <ul>
+                <li>It is inclusive, meaning it includes the boundary values specified in the range.</li>
+                <li>It is a logical operator and is commonly used in the WHERE clause or HAVING clause.</li>
+                <li>The range specified with BETWEEN is inclusive, meaning the start and end values are part of the
+                    result.</li>
+            </ul><br>
+            <h2>Purpose of the BETWEEN Operator</h2>
+            <ul>
+                <li>To simplify range-based filtering conditions.</li>
+                <li>Commonly used with numbers, dates, and text (in alphabetical order).</li>
+            </ul>
+            <br>
+            <h2>Syntax</h2>
+            <h3>Basic Syntax:</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> column1, column2 <br>
+                        <span class="orclkey">FROM  </span> table_name <br>
+                        <span class="orclkey">WHERE </span>  column_name  <span class="orclkey"> BETWEEN  </span> < lower_bound > <span class="orclkey"> AND   </span> < upper_bound >
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>Using NOT BETWEEN:</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> column1, column2 <br>
+                        <span class="orclkey">FROM  </span> table_name <br>
+                        <span class="orclkey">WHERE </span>  column_name  <span class="orclkey">NOT BETWEEN  </span> < lower_bound > <span class="orclkey"> AND   </span> < upper_bound >
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <ul>
+                <li>column_name: The column being tested.</li>
+                <li>lower_bound: The starting value of the range.</li>
+                <li>upper_bound: The ending value of the range.</li>
+            </ul><br>
+            <h2>Key Points About the BETWEEN Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Simplifies Range Conditions</b></td>
+                        <td>Eliminates the need for combining conditions with >= and <=.< /td>
+                    </tr>
+                    <tr>
+                        <td><b>Inclusive of Boundaries</b></td>
+                        <td>Includes the lower and upper bounds of the specified range.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Works with Numbers, Dates, Text</b></td>
+                        <td>Can be used with numeric data, date/time data, and text values for filtering.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case Sensitivity</b></td>
+                        <td>When used with text, it respects case sensitivity depending on the database's collation
+                            settings.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+
+            <h2>Examples / Scenarios</h2>
+            <p><b>Scenario 1:- ( Numerical Range )</b> Retrieve employees with salaries between $50,000 and $80,000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, first_name, salary <br>
+                    <span class="orclkey">FROM  </span> employees <br>
+                    <ul><span class="orclkey">WHERE </span>  salary   <span class="orclkey"> BETWEEN  </span> 50000 <span class="orclkey"> AND   </span>80000
+                    <b> ; </b></ul><br><br>
+                    - - Equivalent Query <br>
+                            <span class="orclkey">SELECT </span> employee_id, first_name, salary <br>
+                            <span class="orclkey">FROM  </span> employees <br>
+                            <ul><span class="orclkey">WHERE </span>  salary >= 30000    <span class="orclkey"> AND   </span> salary <= 60000
+                            <b> ; </b> </ul>
+                    </code>
+            </div><br>
+
+            <p><b>Scenario 2:- ( Date Range )</b> Find orders placed between January 1, 2024, and December 31, 2024.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> order_id, order_date, total_amount <br>
+                    <span class="orclkey">FROM  </span> orders <br>
+                    <ul><span class="orclkey">WHERE </span>  order_date 
+                        <span class="orclkey"> BETWEEN  </span>
+                        <span class="orclfun"> TO_DATE  </span>( 
+                            <span class="orclg"> '2024-01-01'  </span> , <span class="orclg"> 'YYYY-MM-DD'  </span> )
+                           <span class="orclkey"> AND   </span>
+                           <span class="orclfun"> TO_DATE  </span>( 
+                            <span class="orclg"> '2024-12-31'  </span> , <span class="orclg"> 'YYYY-MM-DD'  </span> )
+                    <b> ; </b></ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 3:- ( Character Range )</b> List products with names alphabetically between 'Apple' and
+                'Mango'. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> product_id, product_name <br>
+                    <span class="orclkey">FROM  </span> Products <br>
+                    <ul><span class="orclkey">WHERE </span>  product_name 
+                        <span class="orclkey"> BETWEEN  </span>
+                            <span class="orclg"> 'Apple'  </span> 
+                           <span class="orclkey"> AND   </span>
+                            <span class="orclg"> 'Mango'  </span> 
+                    <b> ; </b></ul>
+                    </code>
+            </div><br>
+
+            <p><b>Scenario 4:- ( NOT BETWEEN )</b> Retrieve customers whose credit limits are not between 5000 and
+                20000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> customer_id, customer_name, credit_limit <br>
+                    <span class="orclkey">FROM  </span> customers <br>
+                    <span class="orclkey">WHERE </span>  credit_limit  <span class="orclkey"> NOT BETWEEN  </span> 5000 <span class="orclkey"> AND   </span> 20000
+                    <b> ; </b>
+                    </code>
+            </div><br>
+
+            <p><b>Scenario 5:- ( BETWEEN with Dates and Times )</b> Retrieve events scheduled between '01-11-2024
+                08:00:00' and '15-11-2024
+                18:00:00'.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> event_id, event_name, event_datetime<br>
+                    <span class="orclkey">FROM  </span> events <br>
+                    <span class="orclkey">WHERE </span>  event_datetime <span class="orclkey">  BETWEEN  </span>  <b>'</b>01-11-2024 08:00:00<b>'</b> 
+                    <span class="orclkey"> AND   </span> <b>'</b>15-11-2024 18:00:00<b>'</b>
+                    <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 6:- ( BETWEEN with AND )</b> Find employees whose salaries are between $60,000 and $90,000
+                and work in department 101.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, name, salary, department_id <br>
+                    <span class="orclkey">FROM  </span> employees <br>
+                    <span class="orclkey">WHERE </span>  salary  <span class="orclkey">  BETWEEN  </span>  60000 
+                    <span class="orclkey"> AND   </span> 90000 
+                    <ul>
+                        <span class="orclkey"> AND   </span> department_id = 101 <b> ; </b>
+                    </ul>
+                    
+                    </code>
+            </div><br>
+            <p><b>Scenario 7:- ( BETWEEN in HAVING )</b> Retrieve departments where the average salary of employees is
+                between $50,000 and $75,000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span>  department_id <span class="orclfun">AVG</span> (Salary)
+                    <span class="orclkey"> AS </span> avg_salary
+                    <br>
+                    <span class="orclkey">FROM  </span> employees <br>
+                    <span class="orclkey"> GROUP BY </span>  department_id
+                    <ul>
+                        <span class="orclkey"> HAVING   </span> <span class="orclfun">AVG</span> (Salary) <br>
+                        <span class="orclkey"> BETWEEN </span> 50000 <span class="orclkey"> AND </span> 75000
+                        <b> ; </b>
+                    </ul>
+                    </code>
+            </div><br>
+
+            <p><b>Scenario 8:- ( with Subqueries )</b> Retrieve products with prices within the range of the minimum and
+                maximum prices of a specific category.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> product_id, product_name, price<br>
+                    <span class="orclkey">FROM  </span> products <br>
+                    <span class="orclkey">WHERE </span>  price  <span class="orclkey">  BETWEEN  </span> <br>
+                    <ul>
+                        ( <span class="orclkey">SELECT </span> <span class="orclkey">MIN</span>(price) <br>
+                        <span class="orclkey">FROM  </span> products 
+                        <ul><span class="orclkey">WHERE </span>  category_id = 1 )<br>
+                        <span class="orclkey">AND </span><br>
+                        ( <span class="orclkey">SELECT </span> <span class="orclkey">MAX</span>(price)  
+                        <span class="orclkey">FROM  </span> products 
+                        <span class="orclkey">WHERE </span>  category_id = 1 )<b> ; </b>
+                    </ul>                    
+                </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 9:- ( with Negative Numbers )</b> Retrieve employees whose performance scores are between -10
+                and 10.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, first_name, performance_score<br>
+                    <span class="orclkey">FROM  </span> employees <br>
+                    <span class="orclkey">WHERE </span>  performance_score   <span class="orclkey">  BETWEEN  </span> -10  <span class="orclkey">  AND  </span> 10<b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 10:- ( BETWEEN with UPDATE )</b> Update customer statuses based on credit limits within a
+                range.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">UPDATE  </span> customers<br>
+                    <span class="orclkey">SET  </span> status  =  <b>'</b>Preferred<b>'</b> <br>
+                    <span class="orclkey">WHERE </span>  credit_limit <span class="orclkey">  BETWEEN  </span> 10000   <span class="orclkey">  AND  </span> 50000<b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 11:- ( BETWEEN with DELETE )</b> Delete orders placed within a specific date range.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> orders<br>
+                    <span class="orclkey">WHERE </span>  order_date  <span class="orclkey">  BETWEEN  </span> <b>'</b>01-01-2024<b>'</b> 
+                    <span class="orclkey"> AND   </span> <b>'</b>30-06-2024<b>'</b><b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 12:- ( BETWEEN in INSERT INTO SELECT )</b> Insert sales records from a specific period into a
+                historical archive table.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> sales_archive ( sale_id, sale_date, amount )<br>
+                    <span class="orclkey">SELECT </span> sale_id, sale_date, amount <br>
+                    <span class="orclkey">FROM  </span> sales <br>
+                    <span class="orclkey">WHERE </span>  sale_date   <span class="orclkey">  BETWEEN  </span> <b>'</b>01-01-2024<b>'</b> 
+                    <span class="orclkey"> AND   </span> <b>'</b>31-12-2024<b>'</b><b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 13:- ( BETWEEN in CASE )</b> Assign rating tiers based on sales revenue ranges.
+            </p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> sale_id, revenue, <br>
+                            <ul>
+                                <span class="orclkey">SELECT </span><br>
+                                <ul>
+                                    <span class="orclkey">WHEN </span>revenue  <span class="orclkey">BETWEEN  </span> 0<span class="orclkey"> AND </span> 1000 <span class="orclkey">THEN </span><b>'</b>Low<b>'</b><br>
+                                    <span class="orclkey">WHEN </span>revenue  <span class="orclkey">BETWEEN  </span> 1001<span class="orclkey"> AND </span> 5000 <span class="orclkey">THEN </span><b>'</b>Medium<b>'</b><br>
+                                    <span class="orclkey">WHEN </span>revenue  <span class="orclkey">BETWEEN  </span> 5001<span class="orclkey"> AND </span> 10000 <span class="orclkey">THEN </span><b>'</b>High<b>'</b><br>
+                                    <span class="orclkey">ELSE </span><b>'</b>Very High<b>'</b><br>
+                                </ul>
+                                <span class="orclkey">END AS </span> revenue_tier<br>
+                            </ul>
+                    <span class="orclkey">FROM  </span> sales <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 14:- ( BETWEEN in JOIN ) </b> Retrieve overlapping bookings between two tables.
+            </p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> b1.booking_id, b2.booking_id <br>
+                                <span class="orclkey">FROM  </span>bookings b1<br>
+                                    <span class="orclkey">JOIN  </span>bookings b2  <span class="orclkey">ON  </span> b1.start_date<span class="orclkey"> BETWEEN </span> b2.start_date <span class="orclkey">AND </span>b2.end_date<br>
+                                    <span class="orclkey">WHERE  </span>b1.booking_id <b>!= </b>b2.booking_id <b> ; </b>
+                    </code>
+            </div><br>
+
+            <p><b>Scenario 15:- ( BETWEEN with Window Functions )</b> Retrieve sales transactions within the middle 50%
+                (quartiles) of total sales.
+            </p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">WITH </span> SalesRank  <span class="orclkey">AS </span> ( <br>
+                            <ul>
+                                <span class="orclkey">SELECT </span> TransactionID, Amount, 
+                                <ul>
+                                    PERCENT_RANK () <span class="orclkey">OVER  </span>( <span class="orclkey">OVER  </span>(<span class="orclkey">ORDER BY  </span> Amount )
+                                    <span class="orclkey">AS</span>PercentRank <br>
+                                </ul>
+                                <span class="orclkey">FROM  </span>Sales <br>
+                            </ul>
+                                    ) <br>
+                            <span class="orclkey">SELECT </span> TransactionID, Amount<br>
+                                <span class="orclkey">FROM  </span>SalesRank <br>
+                                <span class="orclkey">WHERE  </span>PercentRank   <span class="orclkey">BETWEEN  </span> 0.25 <span class="orclkey"> AND </span> 0.75  <b> ; </b>
+                    </code>
+            </div><br><br>
+
+            <h2>Common Errors with BETWEEN Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Description</th>
+                        <th>Resolution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Reversed Bounds</b></td>
+                        <td>Using a larger lower bound and a smaller upper bound leads to no matching rows.</td>
+                        <td>Ensure the lower bound is smaller than the upper bound.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Values</b></td>
+                        <td>Rows with NULL values in the column are not included in the result.</td>
+                        <td>Handle NULL explicitly using IS NULL or COALESCE.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Incorrect Data Type</b></td>
+                        <td>Comparing incompatible data types (e.g., numeric and string).</td>
+                        <td>Ensure column and bounds have matching data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Non-Inclusive Ranges Misunderstood</b></td>
+                        <td>Forgetting that BETWEEN includes the boundaries.</td>
+                        <td>Use < and> operators if exclusive bounds are required.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Limitations of BETWEEN Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitations</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Inclusive Only</b></td>
+                        <td>Always includes boundary values; cannot create exclusive ranges directly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Static Ranges</b></td>
+                        <td>Cannot handle dynamic ranges unless explicitly coded.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No OR Combination</b></td>
+                        <td>Cannot directly specify multiple BETWEEN conditions in a single operator.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Null Ignorance</b></td>
+                        <td>Skips rows where the value being compared is NULL.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Do's and Don'ts of BETWEEN Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use BETWEEN for simple and readable range filtering.</td>
+                        <td>Avoid using BETWEEN with non-inclusive requirements (e.g., excluding boundaries).</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure the lower and upper bounds are provided in the correct order.</td>
+                        <td>Do not use BETWEEN if the range involves NULL values without proper handling.</td>
+                    </tr>
+                    <tr>
+                        <td>Use functions like TO_DATE for date ranges to ensure consistent formatting.</td>
+                        <td>Avoid using BETWEEN for overlapping ranges without careful design.</td>
+                    </tr>
+                </tbody>
+            </table><br><br><br>
+
+            <div class="topic-buttons">
+                <a href="orclsql_or.html?topic=sqlOr" class="previou-button">&laquo; Pevious</a>
+                <a href="orclsql_in.html?topic=sqlIN" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUK_Site_porject/KUK_abad_prod/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

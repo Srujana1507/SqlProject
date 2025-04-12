@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Viewer</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Sign Up and Login Page code END Here -->
+
+
+    <div class="resource-container">
+        <!-- Example Card 1 -->
+        <div class="dataset-card">
+            <img src="https://img.freepik.com/premium-photo/composition-with-html-system-websites_23-2150866282.jpg?w=900"
+                alt="img 1">
+            <div class="dataset-info">
+                <h2 class="dataset-title">Resource 1 Logo</h2>
+                <p class="dataset-description">This is a sample logo for preview and download testing.</p>
+                <div class="buttons">
+                    <a class="btns btn-previews" onclick="previewFile('Site_Images/KUK_logo.JPG')">Preview</a>
+                    <a class="btns btn-downloads" onclick="downloadFile('Site_Images/KUK_logo.JPG')">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Card 2 -->
+        <div class="dataset-card">
+            <img src="https://img.freepik.com/premium-photo/composition-with-html-system-websites_23-2150866282.jpg?w=900"
+                alt="img 1">
+            <div class="dataset-info">
+
+                <h2 class="dataset-title">Resource 2 PDF</h2>
+                <p class="dataset-description">This is a sample PDF file for preview and download testing.</p>
+                <div class="buttons">
+                    <a class="btns btn-previews"
+                        onclick="previewFile('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf')">Preview</a>
+                    <a class="btns btn-downloads"
+                        onclick="downloadFile('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf')">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dataset-card">
+            <img src="https://img.freepik.com/premium-photo/composition-with-html-system-websites_23-2150866282.jpg?w=900"
+                alt="img 1">
+            <div class="dataset-info">
+                <h2 class="dataset-title">Resource 3 PDF</h2>
+                <p class="dataset-description">This is a sample PDF file for preview and download testing.</p>
+
+                <div class="buttons">
+                    <a class="btns btn-previews" onclick="previewFile('Site_Images/sample.pdf')">Preview</a>
+                    <a class="btns btn-downloads" onclick="downloadFile('Site_Images/sample.pdf')">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dataset-card">
+            <img src="https://img.freepik.com/premium-photo/composition-with-html-system-websites_23-2150866282.jpg?w=900"
+                alt="img 1">
+            <div class="dataset-info">
+                <h2 class="dataset-title">Resource 4 PDF</h2>
+                <p class="dataset-description">This is a sample PDF file for preview and download testing.</p>
+
+                <div class="buttons">
+                    <a class="btns btn-previews" onclick="previewFile('Site_Images/sample.pdf')">Preview</a>
+                    <a class="btns btn-downloads" onclick="downloadFile('Site_Images/sample.pdf')">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dataset-card">
+            <img src="https://img.freepik.com/premium-photo/composition-with-html-system-websites_23-2150866282.jpg?w=900"
+                alt="img 1">
+            <div class="dataset-info">
+                <h2 class="dataset-title">Resource 5 PDF</h2>
+                <p class="dataset-description">This is a sample PDF file for preview and download testing.</p>
+
+                <div class="buttons">
+                    <a class="btns btn-previews" onclick="previewFile('Site_Images/sample.pdf')">Preview</a>
+                    <a class="btns btn-downloads" onclick="downloadFile('Site_Images/sample.pdf')">Download</a>
+                </div>
+            </div>
+        </div>
+        <div class="dataset-card">
+            <img src="https://img.freepik.com/premium-photo/composition-with-html-system-websites_23-2150866282.jpg?w=900"
+                alt="img 1">
+            <div class="dataset-info">
+                <h2 class="dataset-title">Resource 6 PDF</h2>
+                <p class="dataset-description">This is a sample PDF file for preview and download testing.</p>
+
+                <div class="buttons">
+                    <a class="btns btn-previews" onclick="previewFile('Site_Images/sample.pdf')">Preview</a>
+                    <a class="btns btn-downloads" onclick="downloadFile('Site_Images/sample.pdf')">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a class="pagination-btns prev"><i class="fa-solid fa-arrow-left"></i></a>
+            <a class="pagination-btns next"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Modal for preview -->
+    <div class="overlays" id="overlays"></div>
+    <div class="modals" id="modals">
+        <div class="modals-header">
+            <h2>File Preview</h2>
+            <button class="close-btns" onclick="closeModal()">×</button>
+        </div>
+        <div class="modals-content" id="modals-content">
+            <!-- Content loaded dynamically -->
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <script src="KUKscript.js">
+        // function downloadFile(fileUrl) {
+        //     try {
+        //         // Ensure the file URL is valid
+        //         if (!fileUrl) {
+        //             console.error('No file URL provided');
+        //             return;
+        //         }
+        //         // Create a temporary <a> element
+        //         const link = document.createElement('a');
+        //         link.href = fileUrl;
+        //         // Extract the filename from the URL or set a default name
+        //         const fileName = fileUrl.split('/').pop() || 'downloaded_file';
+        //         link.download = fileName;
+        //         // Append the link to the document, trigger the download, and clean up
+        //         document.body.appendChild(link);
+        //         link.click();
+        //         document.body.removeChild(link);
+        //     } catch (error) {
+        //         console.error('Error downloading the file:', error);
+        //     }
+        // }
+
+
+        // function previewFile(fileUrl) {
+        //     const modal = document.getElementById('modals');
+        //     const overlay = document.getElementById('overlays');
+        //     const modalContent = document.getElementById('modals-content');
+
+        //     // Clear previous content
+        //     modalContent.innerHTML = '';
+
+        //     // File type detection
+        //     const fileExtension = fileUrl.split('.').pop().toLowerCase();
+
+        //     if (['jpg', 'jpeg', 'png', 'gif'].includes(fileExtension)) {
+        //         // Display image
+        //         modalContent.innerHTML = `<img src="${fileUrl}" alt="File Preview" style="width: 100%; height: auto;" />`;
+        //     } else if (['pdf'].includes(fileExtension)) {
+        //         // Display PDF
+        //         modalContent.innerHTML = `<iframe src="${fileUrl}" title="PDF Preview"></iframe>`;
+        //     } else if (['txt', 'csv', 'json', 'xml'].includes(fileExtension)) {
+        //         // Fetch and display plain text
+        //         fetch(fileUrl)
+        //             .then(response => response.text())
+        //             .then(data => {
+        //                 modalContent.innerHTML = `<pre>${data}</pre>`;
+        //             })
+        //             .catch(err => {
+        //                 modalContent.innerHTML = '<p>Error loading file.</p>';
+        //             });
+        //     } else {
+        //         modalContent.innerHTML = '<p>Preview not available for this file type.</p>';
+        //     }
+
+        //     // Show modal
+        //     overlay.style.display = 'block';
+        //     modal.style.display = 'block';
+        // }
+
+        // function closeModal() {
+        //     document.getElementById('modals').style.display = 'none';
+        //     document.getElementById('overlays').style.display = 'none';
+        // }
+    </script>
+</body>
+
+</html>

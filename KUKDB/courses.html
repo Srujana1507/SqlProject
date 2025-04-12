@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        /* Initially hide courses section */
+        #courses-section {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Basic styles for course boxes */
+        .courses-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .course-box {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Scrollbar setup */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px rgb(17, 103, 124);
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: red;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b30000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <nav>
+            <a href="#courses-section" onclick="toggleCourses(); return false;">Courses</a>
+        </nav>
+    </header>
+
+    <!-- Courses Section -->
+    <section id="courses-section">
+        <h2>Our Courses</h2>
+        <div class="courses-container">
+            <div class="course-box">SQL</div>
+            <div class="course-box">Power BI</div>
+            <div class="course-box">Unix</div>
+            <div class="course-box">Tableau</div>
+            <div class="course-box">HTML</div>
+            <div class="course-box">CSS</div>
+            <div class="course-box">Java</div>
+        </div>
+    </section>
+
+    <script>
+        // Toggle visibility of Courses section
+        function toggleCourses() {
+            const coursesSection = document.getElementById("courses-section");
+
+            // Check current display state and toggle
+            if (coursesSection.style.display === "none" || coursesSection.style.display === "") {
+                coursesSection.style.display = "block";
+                coursesSection.scrollIntoView({ behavior: "smooth" });
+            } else {
+                coursesSection.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

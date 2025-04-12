@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlNot">
+
+            <div class="topic-buttons">
+                <a href="sql_or.html?topic=sqlOr" class="previou-button">&laquo; Previous</a>
+                <a href="sql_between.html?topic=sqlBetween" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1> IN Operator </h1>
+            <p>The IN operator is used to filter rows where a column matches any value from a given set of values.</p>
+            <br>
+            <p> It simplifies queries by allowing you to specify multiple values in a WHERE or HAVING clause, rather
+                than using multiple OR conditions.</p><br>
+            <p> <b>Execution:- </b>It picks one by one value from list of values.</p><br>
+            <p>We can use <b>IN</b> with <b>SELECT, Update, DELETE</b> statments.</p>
+            <h2>Key Features of the IN Operator</h2>
+            <ul>
+                <li><b>Simplifies Queries:-</b> Replaces long OR conditions with a concise syntax.</li>
+                <li><b>Used in WHERE and HAVING Clauses:-</b> Commonly applied to filter rows based on a list of values
+                    or the results of a subquery.</li>
+                <li><b>Supports Subqueries:-</b> Can compare column values to the results of a subquery.</li>
+                <li><b>Supports Datatypes:-</b> It supports Number , Characters and Date values.</li>
+                <li><b>Case-Sensitive in Some Databases:-</b> The behavior of IN can vary depending on the database
+                    collation.</li>
+            </ul>
+            <br>
+            <h2>Syntax</h2>
+            <h3>1. Basic IN Syntax</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> column1<b> , </b>column2<b> , </b><b> .  .  . </b> <br>
+                        <span class="orclkey">FROM </span> table_name <br>
+                        <span class="orclkey">WHERE </span> column_name   <span class="orclkey"> IN </span> ( column1<b> , </b>column2<b> , </b><b> .  .  . </b> ) <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>2. IN with Subquery</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> column1<b> , </b>column2<b> , </b><b> .  .  . </b> <br>
+                        <span class="orclkey">FROM </span> table_name <br>
+                        <span class="orclkey">WHERE </span> column_name   <span class="orclkey"> IN </span> (<span class="orclkey">SELECT   </span> column_name <span class="orclkey"> FROM </span> another_table )<b> ; </b>
+                    </code>
+            </div><br>
+            <h3> Basic Examples</h3>
+            <p><b>Scenario 1:- </b>Retrieve employees working in departments 10, 20, or 30.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>first_name  <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span> department_id <span class="orclkey"> IN </span> ( 10<b>,</b> 20<b>,</b> 30 ) <b> ; </b>
+                    </code>
+            </div><br>
+            <h4>Equivalent Query Using OR:</h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>first_name  <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span> department_id <b> = </b> 10  <span class="orclkey"> OR </span> department_id <b> = </b> 20<span class="orclkey"> OR </span> department_id <b> = </b> 30 <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 2:- </b>Retrieve customers located in "Hyderabad", "Mumbai", or "Chennai".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> customer_id<b> , </b>customer_name<b> , </b>city  <br>
+                        <span class="orclkey">FROM </span> customers <br>
+                        <span class="orclkey">WHERE </span> city  <span class="orclkey"> IN </span> ( <b>'</b>Hyderabad<b>' , '</b>Mumbai<b>' , '</b>Chennai<b>'</b> ) <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>Subquery with IN</h3>
+            <p><b>Scenario 1:- </b>Find all orders placed by customers from "California."</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> OrderID<b> , </b>CustomerID<b> , </b>OrderDate  <br>
+                        <span class="orclkey">FROM </span> Orders <br>
+                        <span class="orclkey">WHERE </span> CustomerID  <span class="orclkey">IN </span> (<br>
+                        <ul>
+                            <ul>
+                                <span class="orclkey">SELECT   </span> CustomerID <br>
+                                <span class="orclkey">FROM </span> customers <br>
+                                <span class="orclkey">WHERE </span> State <b>= '</b>Hyderabad<b>' </b><br>
+                            </ul>
+                        </ul>
+                        <b>) ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Retrieve products belonging to categories available in the categories table.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> product_id<b> , </b>product_name  <br>
+                        <span class="orclkey">FROM </span> products <br>
+                        <span class="orclkey">WHERE </span> category_id   <span class="orclkey">IN </span> (<br>
+                        <ul>
+                            
+                                <span class="orclkey">SELECT   </span> category_id  <br>
+                                <span class="orclkey">FROM </span> categories  <br>
+                                <span class="orclkey">WHERE </span> status  <b>= '</b>Active<b>'</b> <br>
+                            </ul>
+                        </ul>
+                        <b>) ; </b>
+                    </code>
+            </div><br>
+            <h3> IN with Date Values</h3>
+            <p><b>Scenario 1:- </b> Retrieve orders placed on specific dates.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> order_id<b> , </b>order_date<b> , </b>customer_id  <br>
+                        <span class="orclkey">FROM </span> orders <br>
+                        <span class="orclkey">WHERE </span> order_date    <span class="orclkey">IN </span> ( '2024-01-01', '2024-01-15', '2024-02-01' )         <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>IN with Multiple Columns (SQL Server and Oracle)</h3>
+            <p><b>Scenario 1:- </b> Retrieve employees whose department and job title match specific pairs of values.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>job_title  <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span> ( department_id, job_title )  <span class="orclkey">IN </span>( ( 10, 'Manager' ), ( 20, 'Analyst' ) )  <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>Combining with Other Conditions</h3>
+            <p><b>Scenario 1:- </b> Retrieve employees in departments 10, 20, or 30, who also earn more than $50,000.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EmployeeID<b> , </b>Name<b> , </b>department_id <b> , </b> Salary <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span>  department_id  <span class="orclkey">IN </span>( 10<b>, </b>20<b>, </b>30 ) <span class="orclkey">AND </span> Salary > 50000 <b> ; </b>
+                    </code>
+            </div><br>
+            <h2>Advanced Scenarios</h2>
+            <h3>1. Matching Multiple Columns (Using Subqueries)</h3>
+            <p><b>Scenario :- </b> Retrieve orders that match specific combinations of customer and product IDs.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> OrderID<b> , </b>CustomerID<b> , </b>ProductID  <br>
+                        <span class="orclkey">FROM </span> Orders <br>
+                        <span class="orclkey">WHERE </span>  (CustomerID, ProductID)  <span class="orclkey">IN </span>( <br>
+                        <ul>
+                            <ul>
+                                <span class="orclkey">SELECT   </span> CustomerID<b> , </b> ProductID<br>
+                                <span class="orclkey">FROM    </span> FavoriteProducts <br>
+                            </ul>) <b> ; </b>
+                        </ul> 
+                    </code>
+            </div><br>
+            <h3>2. Handling NULL with NOT IN</h3>
+            <p><b>Scenario :- </b> NOT IN excludes rows if any value in the list or subquery is NULL. This can lead to
+                unexpected results.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span>  department_id   <span class="orclkey">NOT IN </span>( 10 <b>, </b>20<b>, </b><span class="orclkey">NULL </span>)
+                        <b> ; </b>
+                    </code>
+                - - No rows are returned because the NULL value causes NOT IN to evaluate to UNKNOWN.
+            </div><br>
+            <p><b> Solutions</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span>  department_id   <span class="orclkey">NOT IN </span>( 10 <b>, </b>20)<span class="orclkey"> AND </span>
+                        <span class="orclkey"> AND </span> department_id <span class="orclkey"> IS NOT NULL </span>
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>3. IN with UPDATE Statement</h3>
+            <p><b>Scenario :- </b> Update the status of customers located in specific cities.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">UPDATE   </span> customers <br>
+                        <span class="orclkey">SET  </span> status  = <b>'</b>Inactive<b>'</b> <br>
+                        <span class="orclkey">WHERE </span>  city    <span class="orclkey"> IN </span>( <b>'</b>New York<b>' , '</b>Los Angeles<b>' , '</b>Chicago<b>'</b>)
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>4. IN with SET Clause (MySQL Specific Use)</h3>
+            <p><b>Scenario :- </b> Set the region code for customers based on their cities.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">UPDATE   </span> customers <br>
+                        <span class="orclkey">SET  </span> region_code   =  <span class="orclkey">CASE  </span><br>
+                        <ul>
+                        <span class="orclkey">WHEN </span>  city    <span class="orclkey"> IN </span>( <b>'</b>New York<b>' , '</b>Boston<b>' </b>) <span class="orclkey">THEN  </span><b>'</b>East<b>'</b> <br>
+                        <span class="orclkey">WHEN </span>  city    <span class="orclkey"> IN </span>( <b>'</b>Los Angeles<b>' , '</b>San Francisco<b>' </b>) <span class="orclkey">THEN  </span><b>'</b>West<b>'</b> <br>
+                        <span class="orclkey">WHEN </span>  <b>'</b>Central<b>'</b> <br>
+                        </ul>
+                        <span class="orclkey">END   </span><b> ; </b>
+                    </code>
+            </div><br>
+            <h3>5. IN with DELETE Statement</h3>
+            <p><b>Scenario :- </b> Delete products belonging to certain categories.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">DELETE FROM </span> products <br>
+                        <span class="orclkey">WHERE </span>  category_id <span class="orclkey"> IN </span>( 1, 2, 3 )
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>6. IN with Subqueries in DELETE</h3>
+            <p><b>Scenario :- </b> Delete customers who have not placed any orders.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">DELETE FROM </span> customers <br>
+                        <span class="orclkey">WHERE </span>  category_id <span class="orclkey"> NOT IN </span>( <span class="orclkey">SELECT DISTINCT </span> customer_id <span class="orclkey"> FROM </span> orders )
+                        <b> ; </b>
+                    </code>
+            </div><br>
+
+            <h3>7. IN with INSERT INTO SELECT Statement</h3>
+            <p><b>Scenario :- </b> Insert orders into an archive table for customers from specific countries.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">INSERT INTO </span> orders_archive ( order_id, customer_id, order_date ) <br>
+                        <span class="orclkey">SELECT   </span> order_id, customer_id, order_date <br>
+                        <span class="orclkey">FROM </span> orders <br>
+                        <span class="orclkey">WHERE </span>  country  <span class="orclkey"> IN </span>( <b>'</b>UAS<b>' , '</b>INDIA<b>' , '</b>UK<b>'</b> )
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>8. IN with JOIN Condition</h3>
+            <p><b>Scenario :- </b> Retrieve orders for products belonging to certain categories.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT  </span>  o.order_id, p.product_name <br>                      
+                        <span class="orclkey">FROM </span> orders o<br>
+                        <span class="orclkey">JOIN </span> products p <span class="orclkey">ON </span>  o.product_id = p.product_id<br>
+                        <span class="orclkey">WHERE </span>  p.category_id  <span class="orclkey"> IN </span>( <br>
+                        <span class="orclkey">SELECT   </span> category_id <span class="orclkey">FROM  </span> categories 
+                        <span class="orclkey">WHERE </span> category_name = 
+                          <b>'</b>Electronics<b>'</b>  )
+                        <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>9. IN with HAVING Clause</h3>
+            <p><b>Scenario :- </b> Retrieve categories with sales in specific years.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> category_id, SUM(sales) <span class="orclkey"> AS </span> total_sales
+                    <br>                      
+                    <span class="orclkey">SELECT  </span> order_id, customer_id
+                    <span class="orclkey">FROM </span> sales<br>
+                    <span class="orclkey">GROUP BY </span> category_id <br>
+                    <span class="orclkey">HAVING YEAR </span>  ( order_date )   <span class="orclkey"> IN </span>( 2020, 2021  )
+                    <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>10. IN with Dynamic Filters</h3>
+            <p>In stored procedures or dynamic queries, the IN operator is often used for passing multiple values as
+                parameters.</p>
+            <p><b>Scenario :- </b> IN with Dynamic Filters
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DECLARE </span>  @CustomerIDs VARCHAR( MAX ) = '101,102,103' ;
+                    <br>                      
+                    <span class="orclkey">FROM </span> orders<br>
+                    <span class="orclkey">WHERE  </span> customer_id  <br><span class="orclkey"> IN </span>( <br>
+                    <span class="orclkey">SELECT  value FROM  </span> STRING_SPLIT( @CustomerIDs, ',' )  )
+                    <b> ; </b>
+                    </code>
+            </div><br>
+            <h2>Using IN vs. OR</h2>
+            <p><b>Equivalent Query Using OR</b></p>
+            </h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">WHERE  </span> DepartmentID = 10  <span class="orclkey"> OR </span>DepartmentID = 20  <span class="orclkey"> OR </span>DepartmentID = 30  <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Preferred Query Using IN</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">WHERE  </span> DepartmentID <span class="orclkey"> IN </span>( 10, 20, 30) ; </b>
+                    </code>
+            </div><br>
+            <h4>Why prefer IN?</h4>
+            <ul>
+                <li><b>Readability :- </b>Easier to write and understand.</li>
+                <li><b>Performance :- </b>Optimized by the database engine, especially for indexed columns.</li>
+                <li><b>Scalability :- </b>Works well with dynamically generated lists or subqueries.</li>
+            </ul><br>
+            <h2>Common Errors</h2>
+            <h3>1.NULL in NOT IN</h3>
+            <div class="code-box">
+                <code>
+                    - - Always handling NULLs like below <br>
+                    <span class="orclkey">WHERE  </span> DepartmentID <span class="orclkey"> NOT IN </span>( 10, 20 ) <span class="orclkey">AND  </span> DepartmentID <span class="orclkey">IS NOT NULL  </span><b> ; </b>
+                    </code>
+            </div><br>
+            <h3>2.List Too Large</h3>
+            <div class="code-box">
+                <code>
+                    - - Providing a very long list can degrade performance. <br>
+                    <span class="orclkey">WHERE  </span> ID <span class="orclkey">  IN </span>( 1, 2, 3, . . . . . , 1000 ) <b> ; </b> - - -- Not efficient for large lists.
+                    </code>
+            </div><br>
+
+
+            <h2>Performance Considerations</h2>
+            <ul>
+                <li><b>Efficiency with Indexing:- </b> The IN operator can leverage indexes if the list contains indexed
+                    columns. However, it may not be as efficient as JOIN for large datasets.</li>
+                <li><b>Subquery Performance:- </b> Using IN with a subquery can be slower compared to EXISTS, especially
+                    if the subquery returns a large result set.</li>
+                <li><b>Alternatives for Large Lists:- </b>For large lists of values, consider using a temporary table or
+                    JOIN for better performance.</li>
+            </ul>
+            <h2>Use Cases</h2>
+            <p><b>1. Filtering Data :</b>Example: Retrieve products belonging to a specific set of categories.</p><br>
+            <p><b>2. Matching Against Subqueries :</b>Example: Find employees working on active projects.</p><br>
+            <p><b>3. Exclusion with NOT IN :</b>Example: Exclude products that belong to inactive categories.</p><br>
+            <p><b>4. Dynamic Filters :</b>Example: Use IN to filter rows dynamically based on user input or application
+                data.</p><br>
+            <h2>Best Practices</h2>
+
+            <p><b>1. Avoid NULL in NOT IN:- </b></p>
+            <ul>
+                <ul>
+                    <li>Always account for NULL values when using NOT IN to prevent unintended results.</li>
+                </ul>
+            </ul>
+            <p><b>2. Limit List Size:- </b></p>
+            <ul>
+                <ul>
+                    <li>Avoid excessively large lists in the IN clause as it may degrade performance.</li>
+                </ul>
+            </ul>
+            <p><b>3. Consider Alternative Operators:- </b></p>
+            <ul>
+                <ul>
+                    <li>For complex queries, EXISTS or JOIN may be more efficient than IN.</li>
+                </ul>
+            </ul>
+            <p><b>4. Use with Indexed Columns:- </b></p>
+            <ul>
+                <ul>
+                    <li>Apply the IN operator on columns that are indexed to improve performance.</li>
+                </ul>
+            </ul>
+            <p><b>5. Combine with EXISTS or JOIN:- </b></p>
+            <ul>
+                <ul>
+                    <li>For complex queries, consider alternatives like EXISTS for better scalability.</li>
+                </ul>
+            </ul>
+
+
+
+            <br>
+
+
+
+
+
+
+            <!-- END of Logical Operators ( IN ) Content -->
+
+            <div class="topic-buttons">
+                <a href="sql_or.html?topic=sqlOr" class="previou-button">&laquo; Previous</a>
+                <a href="sql_between.html?topic=sqlBetween" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

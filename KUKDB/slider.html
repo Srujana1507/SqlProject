@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+          .carousel {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid black;
+        }
+
+        /* Carousel slides styling */
+        .slides {
+            display: flex;
+            width: 500%;         /* 5 images */
+            transition: transform 1s ease-in-out; /* Smooth transition for sliding */
+            animation: slideLeft 20s infinite linear; 
+        }
+
+        /* Slide image styling */
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Keyframes for sliding from right to left
+        @keyframes slideLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-400%); } /* Moves to the last image 
+        } */
+        /* Pause animation on hover */
+                .carousel:hover .slides {
+                    animation-play-state: paused;
+                }
+        /* Navigation dots container */
+        .nav-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Individual dot styling */
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: flex;
+            gap: 10px; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Active dot styling */
+        .dot.active {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+     <!-- Image Carousel -->
+     <div class="carousel">
+        <div class="slides" id="slides">
+            <img src="./Site_Images/KUK_logo.JPG" alt="Slide 1">
+            <img src="./Site_Images/KUK_logo1.JPG" alt="Slide 2">
+            <img src="./Site_Images/KUKSolutions_bkrd.png" alt="Slide 3">
+            <img src="./Site_Images/Placeholder_welcoming scene.webp" alt="Slide 4">
+            <img src="./Site_Images/PrepareForInterview.JPG" alt="Slide 5">
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="nav-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+            <span class="dot" data-slide="4"></span>
+        </div>
+    </div>
+
+    <script>
+        // // JavaScript to handle dot navigation and slide transition
+        // const slides = document.querySelector('.slides');
+        // const dots = document.querySelectorAll('.dot');
+
+        // function currentSlide(index) {
+        //     // Calculate the percentage to translate slides
+        //     const translateX = -index * 100;
+        //     slides.style.transform = `translateX(${translateX}%)`;
+
+        //     // Reset animation and apply only the desired slide view
+        //     slides.style.animation = 'none';
+
+        //     // Remove 'active' class from all dots, add it to the clicked dot
+        //     dots.forEach(dot => dot.classList.remove('active'));
+        //     dots[index].classList.add('active');
+        // }
+
+
+
+        // // Auto-slide function
+        // function startAutoSlide() {
+        //     slideInterval = setInterval(() => {
+        //         currentIndex = (currentIndex + 1) % dots.length;
+        //         goToSlide(currentIndex);
+        //     }, 5000);  // Slide changes every 5 seconds
+        // }
+
+        // // Add event listeners to dots for hover and click
+        // dots.forEach((dot, index) => {
+        //     dot.addEventListener('mouseenter', () => goToSlide(index));  // Go to slide on hover
+        //     dot.addEventListener('click', () => goToSlide(index));       // Go to slide on click
+        // });
+
+        // // Initialize the auto-slide
+        // startAutoSlide();
+
+        // newly added code by KUK
+        const slides = document.getElementById('slides');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        let autoSlideInterval;
+        //let isManualChange = false;
+
+        // Function to go to a specific slide
+        function goToSlide(index) {
+            // isManualChange = true;
+            // clearInterval(autoSlideInterval);
+            
+            // Update the transform position
+            //slides.style.transition = 'transform 0.5s ease';
+            slides.style.transform = `translateX(-${index * 100}%)`;
+
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+
+            // Update the current index
+            currentIndex = index;
+
+            // Restart auto-slide after a delay
+        //     setTimeout(() => {
+        //         isManualChange = false;
+        //         startAutoSlide();
+        //     }, 100);
+        }
+
+        // Start automatic sliding
+        function startAutoSlide() {
+            // if (!isManualChange) {
+            //     autoSlideInterval = setInterval(() => {
+            //         currentIndex = (currentIndex + 1) % dots.length;
+            //         slides.style.transition = 'transform 1s linear';
+            //         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            //         // Update dots
+            //         dots.forEach(dot => dot.classList.remove('active'));
+            //         dots[currentIndex].classList.add('active');
+                    // Newly added by KUK
+                    autoSlideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % dots.length;
+                    goToSlide(currentIndex);
+                }, 3000);  // Slide changes every 3 seconds
+            }
+        //}
+            // Stop auto-slide on hover
+                slides.addEventListener('mouseenter', () => {
+                        clearInterval(autoSlideInterval);
+                    });
+            // Resume auto-slide on mouse leave
+                slides.addEventListener('mouseleave', () => {
+                    startAutoSlide();
+                    });
+        // // Event listeners for dots
+        // dots.forEach((dot, index) => {
+        //     dot.addEventListener('click', () => goToSlide(index));
+        // });
+                    // Event listeners for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(autoSlideInterval); // Stop the auto-slide
+                goToSlide(index); // Go to clicked dot
+                startAutoSlide(); // Restart auto-slide
+            });
+        });
+        // Initialize auto-slide
+            startAutoSlide();
+    </script>
+</body>
+</html>

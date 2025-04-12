@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlRelationalOperators">
+            <div class="topic-buttons">
+                <a href="sql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="previou-button">&laquo;
+                    Previous</a>
+                <a href="sql_logicaloperators.html?topic=sqlLogicalOperators" class="next-button">Next &raquo;</a>
+            </div>
+            <h1>Relational Operators in SQL</h1>
+            <ul>
+                <li>Relational operators (also known as comparison operators) are used to <b>compare two values or
+                        expressions</b>.</li>
+                <li>They form the backbone of conditions in SQL queries, allowing the filtering, matching, and
+                    comparison of data.</li>
+                <li>These operators return a Boolean result (TRUE, FALSE, or NULL) and are most commonly used in the
+                    WHERE clause, JOIN conditions, or filtering data.</li>
+            </ul>
+            <br>
+            <h2>List of Relational Operators :-</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> = </td>
+                        <td>Checks if two values are equal.</td>
+                        <td>column = 10</td>
+                    </tr>
+                    <tr>
+                        <td> != or <>
+                        </td>
+                        <td>Checks if two values are not equal.</td>
+                        <td>column != 10 or column <> 10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            < </td>
+                        <td>Checks if the left value is less than the right.</td>
+                        <td>column < 10</td>
+                    </tr>
+                    <tr>
+                        <td> > </td>
+                        <td>Checks if the left value is greater than the right.</td>
+                        <td>column > 10</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <= </td>
+                        <td>Checks if the left value is less than or equal to the right.</td>
+                        <td>column <= 10</td>
+                    </tr>
+                    <tr>
+                        <td> >= </td>
+                        <td>Checks if the left value is greater than or equal to the right. </td>
+                        <td>column >= 10</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Basic Syntax</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT   </span> column1 <b> , </b> column2 <br>
+                    <span class="orclkey">FROM   </span> table_name <br> 
+                    <span class="orclkey">WHERE  </span> column1  < operator > <span class="orclkey"> value </span>
+                    <b> ;</b> 
+                </code>
+            </div>
+            <br>
+            <h2>Examples of Each Operator</h2>
+            <h3>1. = (Equal to Operator)</h3>
+            <p><b>Scenario :-</b> Retrieves all employees who belong to department 10.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT   </span> <b> * </b> <br>
+                    <span class="orclkey">FROM   </span> employees <br> 
+                    <span class="orclkey">WHERE  </span> Salary = 50000
+                    <b> ;</b> 
+                </code>
+            </div>
+            <br>
+            <h3>2. Inequality ( != or <> ) </h3>
+            <p><b>Scenario :-</b> Find all products not in the category "Electronics."</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b> Category</b> <br>
+                    <span class="orclkey">FROM   </span> Products <br> 
+                    <span class="orclkey">WHERE  </span> Category <> <b>'</b>Electronic<b>'</b>
+                    <b> ;</b> 
+                </code><br>
+                <ul> - - or </ul>
+                <code>
+                    <span class="orclkey">SELECT   </span>  ProductID<b> , </b>Name<b> , </b> Category</b> <br>
+                    <span class="orclkey">FROM   </span> Products <br> 
+                    <span class="orclkey">WHERE  </span> Category != <b>'</b>Electronic<b>'</b>
+                    <b> ;</b> 
+                </code>
+            </div>
+            <br>
+            <h3>3. Greater Than ( > ) </h3>
+            <p><b>Scenario :-</b> Get customers whose age is greater than 30.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT   </span>  CustomerID<b> , </b>Name<b> , </b> Age</b> <br>
+                    <span class="orclkey">FROM   </span> Customers <br> 
+                    <span class="orclkey">WHERE  </span> Age > 30
+                    <b> ;</b> 
+                </code>
+            </div>
+            <br>
+            <h3>4. Less Than ( < ) </h3>
+                    <p><b>Scenario :-</b> Find orders with a total amount less than $100.</p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT   </span>  OrderID<b> , </b>TotalAmount <br>
+                    <span class="orclkey">FROM   </span> Orders <br> 
+                    <span class="orclkey">WHERE  </span> TotalAmount < 100
+                    <b> ;</b> 
+                </code>
+                    </div>
+                    <br>
+                    <h3>5. <= ( Less Than or Equal to Operator ) </h3>
+                            <p><b>Scenario :-</b> Retrieves all employees earning 50,000 or less.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> <b> * </b> <br>
+                    <span class="orclkey">FROM   </span> employees <br> 
+                    <span class="orclkey">WHERE  </span> salary <= 50000
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h3>6. >= ( Greater Than or Equal to Operator ) </h3>
+                            <p><b>Scenario :-</b> Retrieves all orders with a total amount of 1,000 or more.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> <b> * </b> <br>
+                    <span class="orclkey">FROM   </span> orders <br> 
+                    <span class="orclkey">WHERE  </span> total_amount >= 1000 
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h3>7. NULL Check ( IS NULL, IS NOT NULL ) </h3>
+                            <p>
+                                Relational operators return NULL if one of the values being compared is NULL. Use the
+                                <b>IS NULL</b> or <b>IS NOT NULL</b> operators to handle NULL explicitly.
+                            </p><br>
+                            <p><b>Scenario :-</b> List all orders without a shipping address.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span>  OrderID<b> , </b>CustomerID <br>
+                    <span class="orclkey">FROM   </span> Orders <br> 
+                    <span class="orclkey">WHERE  </span> ShippingAddress  <span class="orclkey"> IS NULL </span>
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h2>Combining Relational Operators</h2>
+                            <ul>
+                                You can combine relational operators with logical operators like AND, OR, and NOT to
+                                create complex conditions.
+                            </ul><br>
+                            <p><b>Scenario :- </b> Retrieves employees in department 10 whose salary exceeds 60,000.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> <b> * </b> <br>
+                    <span class="orclkey">FROM   </span> employees <br> 
+                    <span class="orclkey">WHERE  </span> department_id = 10  <span class="orclkey"> AND </span> salary > 60000
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h2>Advanced Scenarios</h2>
+                            <h3>1. Using BETWEEN</h3>
+                            <p>Retrieve products priced between $50 and $200.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Price <br>
+                    <span class="orclkey">FROM   </span> Products <br> 
+                    <span class="orclkey">WHERE  </span> Price  <span class="orclkey"> BETWEEN  </span> 50 <span class="orclkey"> AND  </span> 200
+                    <b> ;</b> 
+                </code>
+                            </div><br>
+                            <h3>2. Using IN</h3>
+                            <p>Get employees working in departments 10, 20, or 30.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> EmployeeID<b> , </b>Name<b> , </b>DepartmentID <br>
+                    <span class="orclkey">FROM   </span> Employees <br> 
+                    <span class="orclkey">WHERE  </span> department_id  <span class="orclkey"> IN  </span>( 10<b> , </b>20<b> , </b>30)
+                    <b> ;</b> 
+                </code>
+                            </div><br>
+                            <h3>3. Using LIKE for Pattern Matching.</h3>
+                            <p>Find customers whose names start with "A.".</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name <br>
+                    <span class="orclkey">FROM   </span> Customers <br> 
+                    <span class="orclkey">WHERE  </span> Name  <span class="orclkey"> LIKE  </span> <b>' </b>A% <b> '</b>
+                    <b> ;</b> <br><br>
+                    <b> % </b> matches zero or more characters. <br>
+                    <b> _ </b> matches exactly one character.
+                </code>
+                            </div>
+                            <br>
+                            <h3>4. Combining Relational Operators with AND/OR.</h3>
+                            <p>Find products priced above $100 but below $500 and belong to the "Electronics" category.
+                            </p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Price <b> , </b>Category<br>
+                    <span class="orclkey">FROM   </span> Products <br> 
+                    <span class="orclkey">WHERE  </span> Price > 100  <span class="orclkey"> AND  </span> Price < 500 <span class="orclkey"> AND  </span> Category = <b>' </b> Electronics <b> '</b>
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h3>5. Using Subqueries with Relational Operators.</h3>
+                            <p>List employees whose salary is higher than the average salary.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> EmployeeID<b> , </b>Name<b> , </b>Salary <br>
+                    <span class="orclkey">FROM   </span> Employees <br> 
+                    <span class="orclkey">WHERE  </span> Salary >  (<span class="orclkey"> SELECT  </span> AVG( Salary ) <span class="orclkey"> FROM  </span> Employees )
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h2>Real-World Scenarios</h2>
+                            <h3>1. Customer Retention: High-Spenders.</h3>
+                            <p>Retrieve customers who spent more than $10,000 but not more than $50,000 in the last
+                                year.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name<b> , </b>TotalSpent <br>
+                    <span class="orclkey">FROM   </span> Customers <br> 
+                    <span class="orclkey">WHERE  </span> TotalSpent    <span class="orclkey"> BETWEEN  </span> 10000  <span class="orclkey"> AND  </span> 50000
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h3>2. Inventory Management: Stock Levels.</h3>
+                            <p>List all products with low stock (less than 20 units) or no stock at all.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Stock <br>
+                    <span class="orclkey">FROM   </span> Products <br> 
+                    <span class="orclkey">WHERE  </span> Stock < 20    <span class="orclkey"> OR  </span> Stock   <span class="orclkey"> IS NULL  </span> 
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h3>3. Fraud Detection: Unusual Transactions.</h3>
+                            <p>Identify transactions with amounts greater than 3 times the average transaction amount.
+                            </p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> TransactionID<b> , </b>CustomerID<b> , </b>Amount <br>
+                    <span class="orclkey">FROM   </span> Transactions <br> 
+                    <span class="orclkey">WHERE  </span> Amount  >  (<span class="orclkey"> SELECT  </span> AVG( Amount  ) <b> * </b> 3<span class="orclkey"> FROM  </span> Transactions )
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h3>4. Marketing Campaign: Targeted Customers.</h3>
+                            <p>Find customers with names ending in "son" (e.g., "Johnson," "Anderson") for a targeted
+                                campaign.</p>
+                            <div class="code-box">
+                                <code>
+                    <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name <br>
+                    <span class="orclkey">FROM   </span> Customers <br> 
+                    <span class="orclkey">WHERE  </span> Name  <span class="orclkey"> LIKE  </span> <b>' </b>%son <b> '</b>
+                    <b> ;</b> 
+                </code>
+                            </div>
+                            <br>
+                            <h2>Do’s and Don’ts When Using ORDER BY </h2>
+                            <h4><u>Do's</u> :-</h4>
+                            <ul>
+                                <li><b>Understand Data Types : </b> Ensure that the data types of both operands in the
+                                    relational operation are compatible.Use explicit conversions if necessary.</li>
+                                <li><b>Handle NULL Values Explicitly :</b> Use IS NULL or IS NOT NULL when working with
+                                    nullable columns. Relational operators return NULL when compared to NULL. </li>
+                                <li><b>Use Indexes for Columns in Relational Conditions: </b> Use indexed columns in
+                                    relational operators to improve query performance.</li>
+                                <li><b>Combine Relational Operators with Logical Operators Thoughtfully: </b> Use AND,
+                                    OR, and NOT for complex filtering while maintaining readability.</li>
+                                <li><b>Use Boundaries Appropriately : </b> Specify inclusive or exclusive boundaries
+                                    clearly in range queries.</li>
+                                <li><b>Test Queries for Accuracy : </b> Validate queries with sample data to ensure
+                                    correct results, especially when combining multiple relational operators.</li>
+
+                            </ul>
+                            <h4><u>Don'ts</u> :-</h4>
+                            <ul>
+                                <li><b>Don’t Compare Incompatible Data Types: </b> Avoid comparing values of different
+                                    types (e.g., string vs. number), as it may lead to implicit conversion or errors.
+                                </li>
+                                <li><b>Don’t Overuse Wildcards in Filtering :- </b> Avoid using broad conditions with
+                                    relational operators when more specific filters are available.</li>
+                                <li><b>Don’t Overcomplicate Queries : </b>Avoid overly complex relational conditions
+                                    that make queries hard to read and maintain.</li>
+                                <li><b>Don’t Assume Relational Operators Work with All Data Types : </b>Avoid using
+                                    relational operators on unsupported or complex data types like JSON or XML.</li>
+                                <li><b>Don’t Ignore Query Optimization : </b>Avoid writing queries without considering
+                                    performance. For instance, filtering large datasets without indexes will result in
+                                    slower execution.</li>
+                            </ul>
+                            <br>
+
+                            <div class="topic-buttons">
+                                <a href="sql_arithmeticoperators.html?topic=sqlArithmeticOperators"
+                                    class="previou-button">&laquo; Previous</a>
+                                <a href="sql_logicaloperators.html?topic=sqlLogicalOperators" class="next-button">Next
+                                    &raquo;</a>
+                            </div>
+
+        </main>
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+
+    </script>
+
+</body>
+
+</html>

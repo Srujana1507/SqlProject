@@ -1,0 +1,2493 @@
+div
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <!-- <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            scroll-behavior: auto;
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+            scroll-margin-top: 80px;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+            scroll-margin-top: 80px;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* p b {
+            color: rgb(0, 0, 0);
+        } */
+
+        /* .topic-content li b {
+            color: rgb(255, 0, 255);
+        } */
+
+        /* footer code end hrere */
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="htmlBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlExpert" class="next-button">Expert</a>
+                </div>
+
+
+                <h1>HTML Bignner</h1>
+                <p><b>1. What is HTML?</b></p><br>
+                <ul>
+                    <li>HTML (HyperText Markup Language) is the standard language used to create and structure web
+                        pages. It defines the content of web pages using elements like headings, paragraphs, links,
+                        images, etc.</li>
+                </ul>
+                <br>
+                <p><b>2. What are HTML tags?</b></p><br>
+                <ul>
+                    <li>We use HTML tags to place the elements in the proper and appropriate format. Tags use the
+                        symbols <b>&#x003C;and&#x003E;</b> to set them apart from the HTML content.</li><br>
+                    <li>The HTML tags need not always be closed. For example, in the case of images, the closing tags
+                        are not required as <b>&#x003C;img&#x003E;</b> tags.</li>
+                </ul>
+                <br>
+                <p><b>3. What are the basic components of an HTML document?</b></p><br>
+                <ul>
+                    <li>An HTML document typically has the following components:</li><br>
+                    <li><b>&#x003C;!DOCTYPE html&#x003E; :</b> Declares the document type.</li><br>
+                    <li><b>&#x003C;html&#x003E; :</b> The root element.</li><br>
+                    <li><b>&#x003C;head&#x003E; :</b> Contains metadata, links to stylesheets, and other head-related
+                        elements.</li><br>
+                    <li><b>&#x003C;title&#x003E; :</b> Sets the title of the page.</li><br>
+                    <li><b>&#x003C;body&#x003E; :</b> Contains the content displayed on the webpage.</li>
+                </ul>
+                <br>
+                <p><b>4. What are semantic elements in HTML?</b></p><br>
+                <ul>
+                    <li>Semantic elements clearly describe their meaning in a way that both the browser and developers
+                        can understand.</li><br>
+                    <li>
+                        <p>Examples include:</p>
+                        <div class="interview-box">
+                            <ol><b>&#x003C;header&#x003E; :</b> Represents the header section of a document.</ol><br>
+                            <ol><b>&#x003C;footer&#x003E; :</b> Represents the footer section.</ol><br>
+                            <ol><b>&#x003C;article&#x003E; :</b> Represents an independent piece of content.</ol><br>
+                            <ol><b>&#x003C;section&#x003E; :</b> Defines a section in a document.</ol><br>
+                            <ol><b>&#x003C;aside&#x003E; :</b> Represents content aside from the main content.</ol>
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>5. What is the difference between an HTML tag and an HTML element?</b></p><br>
+                <ul>
+                    <li><b>Tag :</b> The building block of an HTML document, enclosed within angle brackets (e.g.,
+                        &#x003C;p&#x003E;).</li><br>
+                    <li><b>Element :</b> Includes the opening tag, content, and the closing tag (e.g.,
+                        &#x003C;p&#x003E;Hello&#x003C;/p&#x003E;).</li>
+                </ul>
+                <br>
+                <p><b>6. What is the difference between inline, block, and inline-block elements?</b></p><br>
+                <ul>
+                    <li><b>Inline Elements :</b> Do not start on a new line and only take up as much width as necessary
+                        (e.g., &#x003C;span&#x003E;, &#x003C;a&#x003E;).</li><br>
+                    <li><b>Block Elements :</b> Start on a new line and take up the full width available (e.g.,
+                        &#x003C;div&#x003E;, &#x003C;p&#x003E;).</li><br>
+                    <li><b>Inline-Block Elements :</b> Behave like inline elements but allow setting width and height.
+                    </li>
+                </ul>
+                <br>
+                <p><b>7. What is the purpose of the alt attribute in an &#x003C;img&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>The <b>alt</b> attribute provides alternative text for an image if the image cannot be
+                        displayed. It is also used for accessibility to describe images to screen readers.</li>
+                </ul>
+                <br>
+                <p><b>8. How do you create a hyperlink in HTML?</b></p><br>
+                <ul>
+                    <li>You can create a hyperlink using the <b>&#x003C;a&#x003E;</b> tag.</li><br>
+                    <li>
+                        <p>For example:</p>
+                        <div class="interview-box">
+                            &#x003C;a href="https://www.example.com"&#x003E;Visit Example&#x003C;/a&#x003E;
+                        </div>
+                    </li><br>
+                    <li>The <b>href</b> attribute specifies the URL of the link.</li>
+                </ul>
+                <br>
+                <p><b>9 .What is the difference between the <i>id</i> and <i>class</i> attributes in HTML?</b></p><br>
+                <ul>
+                    <li><b>id :</b> A unique identifier for a specific element. It is used for a single element and must
+                        be unique.</li><br>
+                    <li><b>class :</b> Used to group multiple elements with the same style or behavior.</li>
+                </ul>
+                <br>
+                <p><b>10. What are HTML attributes?</b></p><br>
+                <ul>
+                    <li>Attributes provide additional information about HTML elements. They are always specified in the
+                        opening tag and are written as name-value pairs,</li><br>
+                    <li>
+                        <p>Like:</p>
+                        <div class="interview-box">
+                            &#x003C;img src="image.jpg" alt="An image"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>11. What is a marquee in HTML?</b></p><br>
+                <ul>
+                    <li>Marquee is used for scrolling text on a web page. It automatically scrolls the image or text up,
+                        down, left, or right. You must use <b>&#x003C;/marquee&#x003E;</b> tags to apply for a marquee.
+                    </li>
+                </ul>
+                <br>
+                <p><b>12. How do you separate a section of text in HTML?</b></p><br>
+                <ul>
+                    <li>We separate a section of text in HTML using the below tags:</li><br>
+                    <li><b>&#x003C;br&#x003E;</b> tag – It separates the line of text. It breaks the current line and
+                        shifts the flow of the text to a new line.</li><br>
+                    <li><b>&#x003C;p&#x003E;</b> tag – This tag is used to write a paragraph of text.</li><br>
+                    <li><b>&#x003C;p&#x003E;</b> tag – This tag is used to write a paragraph of text.</li><br>
+                    <li><b>&#x003C;blockquote&#x003E;</b> tag – This tag defines large quoted sections.</li>
+                </ul>
+                <br>
+                <p><b>13. How can you add comments in HTML?</b></p><br>
+                <ul>
+                    <li>Comments in HTML are added using <b>&#x003C;!-- --&#x003E;</b>. </li><br>
+                    <li>
+                        <p>For example:</p>
+                        <div class="interview-box">
+                            &#x003C;!-- first Comment --&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>14. How can you include JavaScript in an HTML document?</b></p><br>
+                <ul>
+                    <li>JavaScript can be included using the <b>&#x003C;script&#x003E;</b> tag. </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;script&#x003E;<br>
+                            alert("Hello, World!");<br>
+                            &#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>15. What is the difference between &#x003C;ul&#x003E; and &#x003C;ol&#x003E; ?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;ul&#x003E; :</b> Creates an unordered list (bullet points).</li><br>
+                    <li><b>&#x003C;ol&#x003E; :</b> Creates an ordered list (numbered).</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;ul&#x003E;<br>
+                            &#x003C;li&#x003E;Item 1&#x003C;/li&#x003E;<br>
+                            &#x003C;li&#x003E;IItem 2&#x003C;/li&#x003E;<br>
+                            &#x003C;/ul&#x003E;<br>
+                            &#x003C;ol&#x003E;<br>
+                            &#x003C;li&#x003E;IItem 1&#x003C;/li&#x003E;<br>
+                            &#x003C;li&#x003E;IItem 2&#x003C;/li&#x003E;<br>
+                            &#x003C;/ol&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>16. How do you create a table in HTML?</b></p><br>
+                <ul>
+                    <li>Tables are created using the <b>&#x003C;table&#x003E;</b> tag, along with
+                        <b>&#x003C;tr&#x003E;</b> (table row), <b>&#x003C;th&#x003E;</b> (table header), and
+                        <b>&#x003C;td&#x003E;</b> (table data).
+                    </li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;table&#x003E; <br>
+                            &#x003C;tr&#x003E;<br>
+                            &#x003C;th&#x003E;id&#x003C;/th&#x003E;<br>
+                            &#x003C;th&#x003E;Name&#x003C;/th&#x003E;<br>
+                            &#x003C;th&#x003E;Address&#x003C;/th&#x003E;<br>
+                            &#x003C;/tr&#x003E;<br>
+                            &#x003C;tr&#x003E;<br>
+                            &#x003C;td&#x003E;24&#x003C;/td&#x003E;<br>
+                            &#x003C;td&#x003E;Harsha&#x003C;/td&#x003E;<br>
+                            &#x003C;td&#x003E;Hyderabad&#x003C;/td&#x003E;<br>
+                            &#x003C;/tr&#x003E;<br>
+                            &#x003C;/table&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>17. What is the use of the <i>target</i> attribute in the &#x003C;a&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>The target attribute specifies where to open the linked document. Common values:</li><br>
+                    <li><b> _self :</b> Default, opens in the same tab.</li><br>
+                    <li><b>_blank :</b> Opens in a new tab.</li><br>
+                    <li>
+                        <p>Example: </p>
+                        <div class="interview-box">
+                            &#x003C;a href="https://www.example.com" target="_blank" &#x003E;Open in same tab
+                            &#x003C;/a&#x003E; <br>
+                            &#x003C;a href="https://www.example.com" target="_blank" &#x003E;Open in new tab
+                            &#x003C;/a&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>18. What is the purpose of the &#x003C;meta&#x003E; tag in HTML?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;meta&#x003E;</b> tag provides metadata about the HTML document, such as character
+                        set,
+                        viewport settings, and description.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;meta charset="UTF-8"&#x003E;<br>
+                            &#x003C;meta name="viewport" content="width=device-width, initial-scale=1.0"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>19. What is the difference between HTML and CSS?</b></p><br>
+                <ul>
+                    <li>HTML creates a web page's structure and content, while CSS defines its appearance and layout.
+                    </li>
+                </ul>
+                <br>
+                <p><b>20. What is the difference between &#x003C;div&#x003E; and &#x003C;span&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;div&#x003E; :</b> A block-level element used to group other elements and apply styles
+                        or layouts.</li><br>
+                    <li><b>&#x003C;span&#x003E; :</b> An inline element used to style or group a part of text or other
+                        inline elements.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div style="background-color: lightblue;"&#x003E; This is a block element
+                            &#x003C;/div&#x003E;<br>
+                            &#x003C;span style="color: red;"&#x003E; This is an inline element &#x003C;/span&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>21. What is the purpose of the &#x003C;<i>iframe</i>&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;iframe&#x003E;</b> tag is used to embed another HTML page within the current
+                        page.
+                    </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;iframe src="https://www.example.com" width="600"
+                            height="400"&#x003E;&#x003C;/iframe&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>22. What are void elements in HTML?</b></p><br>
+                <ul>
+                    <li>Void elements are self-closing tags that do not require a closing tag.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;img&#x003E;<br>
+                            &#x003C;input&#x003E;<br>
+                            &#x003C;br&#x003E;<br>
+                            &#x003C;hr&#x003E;<br>
+                            &#x003C;meta&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+
+                <p><b>23. How can you embed multimedia (audio and video) in an HTML document?</b></p><br>
+                <ul>
+                    <li>Audio : Use the <b>&#x003C;audio&#x003E;</b> tag.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;audio controls&#x003E;<br>
+                            &#x003C;source src="audio.mp3" type="audio/mpeg"&#x003E;<br>
+                            Your browser does not support the audio element.<br>
+                            &#x003C;/audio&#x003E;
+                        </div>
+                    </li>
+                    <br>
+                    <li>Video : Use the <b>&#x003C;video&#x003E;</b> tag.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;video controls width="600"&#x003E;<br>
+                            &#x003C;source src="video.mp4" type="video/mp4"&#x003E;<br>
+                            Your browser does not support the video tag.<br>
+                            &#x003C;/video&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>24. What is the &#x003C;link&#x003E; tag used for?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;link&#x003E;</b> tag is used to link external resources like stylesheets. It is
+                        typically placed in the <b>&#x003C;head&#x003E;</b> section.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;link rel="stylesheet" href="styles.css"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>25. What is the difference between relative, absolute, and fixed paths in HTML?</b></p><br>
+                <ul>
+                    <li><b>Relative Path :</b> Refers to a file relative to the location of the HTML file.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            ./images/logo.png
+                        </div>
+                    </li><br>
+                    <li><b>Absolute Path :</b> Refers to the full path of the file, including the domain.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            https://www.example.com/images/logo.png
+                        </div>
+                    </li><br>
+                    <li><b>Fixed Path :</b> A non-relative, non-dynamic path used within the server. </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            /images/logo.png (root-relative)
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>26. What is the purpose of the &#x003C;form&#x003E; tag in HTML?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;form&#x003E;</b> tag is used to create a form for user input.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;form action="/submit" method="POST"&#x003E;<br>
+                            &#x003C;label for="name"&#x003E;Name:&#x003C;/label&#x003E;<br>
+                            &#x003C;input type="text" id="name" name="name"&#x003E;<br>
+                            &#x003C;button type="submit"&#x003E;Submit&#x003C;/button&#x003E;<br>
+                            &#x003C;/form&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>27. What are the different input types in HTML forms?</b></p><br>
+                <ul>
+                    <li>Some common input types include:</li><br>
+                    <li>
+                        <ol><b>text :</b> Single-line text input</ol><br>
+                        <ol><b>password :</b> Password field</ol><br>
+                        <ol><b>email :</b> Email address input</ol><br>
+                        <ol><b>number :</b> Numeric input</ol><br>
+                        <ol><b>date :</b> Date input</ol><br>
+                        <ol><b>file :</b> File upload</ol><br>
+                        <ol><b>radio :</b> Radio button</ol><br>
+                        <ol><b>checkbox :</b> Checkbox</ol><br>
+                        <ol><b>submit :</b> Submit button</ol><br>
+                    </li>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;input type="text" placeholder="Enter your name"&#x003E;&#x003C;/p&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>28. How can you create a dropdown in HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>&#x003C;select&#x003E;</b> tag to create a dropdown.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;select name="cars"&#x003E;<br>
+                            &#x003C;option value="volvo"&#x003E;Volvo&#x003C;/option&#x003E;<br>
+                            &#x003C;option value="bmw"&#x003E;BMW&#x003C;/option&#x003E;<br>
+                            &#x003C;/select&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>29. What is the difference between &#x003C;b&#x003E; and &#x003C;strong&#x003E;, &#x003C;i&#x003E;
+                        and &#x003C;em&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;b&#x003E; :</b> Bold text, without added importance.</li><br>
+                    <li><b>&#x003C;strong&#x003E; :</b> Bold text, with semantic importance.</li><br>
+                    <li><b>&#x003C;i&#x003E; :</b> Italic text, without added emphasis.</li><br>
+                    <li><b>&#x003C;em&#x003E; :</b> Italic text, with semantic emphasis.</li>
+                </ul>
+                <br>
+                <p><b>30. What is the viewport meta tag, and why is it important?</b></p><br>
+                <ul>
+                    <li>The viewport meta tag controls the layout of the page on different devices.</li> <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;meta name="viewport" content="width=device-width, initial-scale=1.0"&#x003E;<br>
+                        </div>
+                    </li><br>
+                    <li>It ensures the webpage is responsive and scales properly on
+                        mobile devices.</li>
+                </ul>
+                <br>
+                <p><b>31. How can you add an image to a webpage in HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>&#x003C;img&#x003E;</b> tag to add an image.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;img src="image.jpg" alt="Description of image" width="300" height="200"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>32. What is the difference between &#x003C;script&#x003E; and &#x003C; noscript &#x003E;?</b></p>
+                <br>
+                <ul>
+                    <li><b>&#x003C;script&#x003E; :</b> Used to include JavaScript code.</li><br>
+                    <li><b>&#x003C;noscript&#x003E; :</b> Provides fallback content for browsers that do not support
+                        JavaScript.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;script&#x003E;<br>
+                            alert("JavaScript is enabled!");<br>
+                            &#x003C;/script&#x003E;
+                            <br>
+                            <br>
+                            &#x003C;noscript&#x003E;<br>
+                            Your browser does not support JavaScript.<br>
+                            &#x003C;/noscript&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>33. How do you create a hyperlink that opens in a new tab?</b></p><br>
+                <ul>
+                    <li>Use the target="_blank" attribute in the &#x003C;a&#x003E; tag.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;a href="https://www.example.com" target="_blank"&#x003E;Visit
+                            Example&#x003C;/a&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>34. What is the difference between &#x003C;ol&#x003E;, &#x003C;ul&#x003E;, and
+                        &#x003C;dl&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;ol&#x003E; :</b> Ordered list (numbered).</li><br>
+                    <li><b>&#x003C;ul&#x003E; :</b> Unordered list (bullets).</li><br>
+                    <li><b>&#x003C;dl&#x003E; :</b> Description list.</li><br>
+                    <li><b>&#x003C;dl&#x003E; :</b> Description list.</li>
+                    <br>
+                    <li>
+                        <p>Example of&#x003C;dl&#x003E;:</p>
+                        <div class="interview-box">
+                            &#x003C;dl&#x003E;<br>
+                            &#x003C;dt&#x003E;HTML&#x003C;/dt&#x003E;<br>
+                            &#x003C;dd&#x003E;A markup language for creating webpages.&#x003C;/dd&#x003E;<br>
+                            &#x003C;dt&#x003E;CSS&#x003C;/dt&#x003E;<br>
+                            &#x003C;dd&#x003E;Stylesheet language for designing webpages.&#x003C;/dd&#x003E;<br>
+                            &#x003C;/dl&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>35. How can you include inline CSS in an HTML element?</b></p><br>
+                <ul>
+                    <li>Use the style attribute to include inline CSS.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;p style="color: blue; font-size: 16px;"&#x003E;This is a
+                            paragraph.&#x003C;/p&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>36. What is the purpose of the &#x003C;base&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;base&#x003E;</b> tag specifies the base URL for all relative URLs in the
+                        document.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;base href="https://www.example.com/"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+
+                <br>
+                <p><b>37. What are HTML entities?</b></p><br>
+                <ul>
+                    <li>HTML entities are used to display reserved characters.</li><br>
+                    <li><b><i>&</i>lt;</b> for &#x003C;</li><br>
+                    <li><b><i>&</i>gt;</b> for &#x003E;</li><br>
+                    <li><b><i>&</i>amp;</b> for & </li><br>
+                    <li><b><i>&</i>quot;</b> for " </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;p&#x003E; <i>&</i>lt; div<i>&</i>gt; This is a div<i>&</i>lt; /div <i>&</i>gt;
+                            &#x003C;/p&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>38. What is the use of the &#x003C;canvas&#x003E; element in HTML?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;canvas&#x003E;</b> element is used to draw graphics, animations, and games using
+                        JavaScript.</li> <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;canvas id="myCanvas" width="400" height="200" style="border:1px solid
+                            black;"&#x003E;&#x003C;/canvas&#x003E;<br>
+                            &#x003C;script&#x003E;<br>
+                            var canvas = document.getElementById('myCanvas');<br>
+                            var ctx = canvas.getContext('2d');<br>
+                            ctx.fillStyle = 'blue';<br>
+                            ctx.fillRect(50, 50, 150, 100);<br>
+                            &#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>39. What is the difference between &#x003C;head&#x003E; and &#x003C;body&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;head&#x003E; :</b> Contains metadata, links to stylesheets, scripts, and other
+                        non-visual
+                        elements.</li><br>
+                    <li><b>&#x003C;body&#x003E; :</b> Contains the content of the page that is visible to users, such as
+                        text,
+                        images, and videos.</li>
+                </ul>
+                <br>
+                <p><b>40.Can you nest HTML elements? Provide an example.</b></p><br>
+                <ul>
+                    <li>Yes, HTML elements can be nested.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div&#x003E;<br>
+                            &#x003C;p&#x003E;This is a paragraph inside a div.&#x003C;/p&#x003E;<br>
+                            &#x003C;ul&#x003E;<br>
+                            &#x003C;li&#x003E;List Item 1&#x003C;/li&#x003E;<br>
+                            &#x003C;li&#x003E;List Item 2&#x003C;/li&#x003E;<br>
+                            &#x003C;/ul&#x003E;<br>
+                            &#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>41. How do you make a button in HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>&#x003C;button&#x003E;</b> tag :</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;button&#x003E;Click Me&#x003C;/button&#x003E;
+                        </div>
+                    </li><br>
+                    <li>You can also use the <b>&#x003C;input&#x003E;</b> tag with type <i>button</i> :</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;input type="button" value="Click Me"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>42. What is the purpose of the &#x003C;fieldset&#x003E; and &#x003C;legend&#x003E; tags?</b></p>
+                <br>
+                <ul>
+                    <li><b>&#x003C;fieldset&#x003E; :</b> Groups related elements in a form.</li><br>
+                    <li><b>&#x003C;legend&#x003E; :</b> Provides a caption for the &#x003C;fieldset&#x003E;.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;fieldset&#x003E;<br>
+                            &#x003C;legend&#x003E;Personal Information&#x003C;/legend&#x003E;<br>
+                            &#x003C;label for="name"&#x003E;Name:&#x003C;/label&#x003E;<br>
+                            &#x003C;input type="text" id="name" name="name"&#x003E;<br>
+                            &#x003C;/fieldset&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>43. What are the global attributes in HTML?</b></p><br>
+                <ul>
+                    <li>Global attributes are attributes that can be applied to any HTML element. Common global
+                        attributes include:</li><br>
+                    <li><b>id :</b> Unique identifier for an element.</li><br>
+                    <li><b>class :</b> Groups elements with the same class name.</li><br>
+                    <li><b>style :</b> Inline CSS for styling.</li><br>
+                    <li><b>data-* :</b> Custom data attributes.</li><br>
+                    <li><b>title :</b> Tooltip text when hovered over the element.</li>
+                </ul>
+                <br>
+                <p><b>44. What is the difference between &#x003C;script&#x003E; in the &#x003C;head&#x003E; and at the
+                        bottom of the &#x003C;body&#x003E;</b></p><br>
+                <ul>
+                    <li>In <b>&#x003C;head&#x003E; :</b> JavaScript loads before the content, which may block rendering.
+                    </li>
+                    <br>
+                    <li>At the bottom of <b>&#x003C;body&#x003E; :</b> JavaScript loads after the page content,
+                        improving
+                        performance.</li>
+                </ul>
+                <br>
+                <p><b>45. How do you create an email link in HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>mailto :</b> scheme in the <b>href attribute :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;a href="mailto:example@example.com"&#x003E;Send Email&#x003C;/a&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>46. What is the purpose of the &#x003C;address&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;address&#x003E;</b> tag is used to define contact information for an individual
+                        or
+                        organization.</li><br>
+                    <div>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;address&#x003E;<br>
+                            Contact us at &#x003C;a
+                            href="mailto:support@example.com"&#x003E;support@example.com&#x003C;/a&#x003E;<br>
+                            &#x003C;/address&#x003E
+                        </div>
+                        </li>
+                </ul>
+                <br>
+                <p><b>47. What is the &#x003C;progress&#x003E; tag used for?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;progress&#x003E;</b> tag represents the progress of a task.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;progress value="70" max="100"&#x003E;&#x003C;/progress&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>48. How do you include external JavaScript in an HTML file?</b></p><br>
+                <ul>
+                    <li>Use the <b>&#x003C;script&#x003E;</b> tag with the src attribute: </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;script src="script.js"&#x003E;&#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>49. What is the difference between &#x003C;meta&#x003E; and &#x003C;link&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;meta&#x003E; :</b> Provides metadata like description, keywords, and viewport
+                        settings.</li><br>
+                    <li><b>&#x003C;link&#x003E; :</b> Links external resources like stylesheets or icons.</li>
+                </ul>
+                <br>
+                <p><b>50. What is the &#x003C;bdo&#x003E; tag in HTML?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;bdo&#x003E;</b> (Bi-Directional Override) tag is used to override the text
+                        direction.
+                    </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;bdo dir="rtl"&#x003E;This text is right-to-left&#x003C;/bdo&#x003E;
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="htmlAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlBignner" class="previous-button">Bignner</a>
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlExpert" class="next-button">Expert</a>
+                </div>
+                <h1>HTML Advanced</h1>
+                <p><b>1. What are data attributes, and how are they used?</b></p><br>
+                <ul>
+                    <li>Data attributes allow embedding custom data into HTML elements for use in JavaScript.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div data-id="123" data-role="admin"&#x003E;&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>2. What is the difference between &#x003C;link&#x003E; and @import for including CSS?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;link&#x003E;</b> loads stylesheets during page load, while <b>@import</b> can be used
+                        inside CSS
+                        and loads styles later.</li>
+                </ul>
+                <br>
+                <p><b>3. What is lazy loading in HTML?</b></p><br>
+                <ul>
+                    <li>Lazy loading delays loading resources (like images) until they’re needed.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;img src="image.jpg" loading="lazy" alt="Lazy Loaded Image"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>4. What is the &#x003C;picture&#x003E; element?</b></p><br>
+                <ul>
+                    <li>It provides multiple sources for an image for responsive design.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;picture&#x003E;<br>
+                            &#x003C;source srcset="image.webp" type="image/webp"&#x003E;<br>
+                            &#x003C;source srcset="image.jpg" type="image/jpeg"&#x003E;<br>
+                            &#x003C;img src="fallback.jpg" alt="Responsive Image"&#x003E;<br>
+                            &#x003C;/picture&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>5. What is the is attribute in custom elements?</b></p><br>
+                <ul>
+                    <li>It allows extending HTML elements.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;button is="custom-button"&#x003E;&#x003C;/button&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>6. How does the download attribute work in &#x003C;a&#x003E; tags?</b></p><br>
+                <ul>
+                    <li>Forces a file download when the link is clicked.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;a href="file.pdf" download&#x003E;Download PDF&#x003C;/a&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>7. What is the &#x003C;template&#x003E; element?</b></p><br>
+                <ul>
+                    <li>It defines reusable fragments of HTML that are not displayed until used.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;template id="my-template"&#x003E;<br>
+                            &#x003C;p&#x003E;This is a template&#x003C;/p&#x003E;<br>
+                            &#x003C;/template&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>8. What are custom elements in HTML?</b></p><br>
+                <ul>
+                    <li>Components with user-defined behavior using Web Components.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;custom-element&#x003E; &#x003C;/custom-element&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>9. What is the difference between <i>defer</i> and <i>async</i> in scripts?</b></p><br>
+                <ul>
+                    <li><b>defer</b>: Executes scripts in order after the document loads.</li><br>
+                    <li><b>async</b>: Executes as soon as the script loads, without preserving order.</li>
+                </ul>
+                <br>
+                <p><b>10. What is the Shadow DOM?</b></p><br>
+                <ul>
+                    <li>Encapsulation in web components to isolate styles and markup.</li>
+                </ul>
+                <br>
+                <p><b>11. What is the <i>slot</i> element in Web Components?</b></p><br>
+                <ul>
+                    <li>Placeholder for external content in a custom element.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;my-component&#x003E;<br>
+                            &#x003C;span slot="header"&#x003E;Header Content&#x003C;/span&#x003E;<br>
+                            &#x003C;/my-component&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>12. What is content security policy (CSP)?</b></p><br>
+                <ul>
+                    <li>A security feature to prevent attacks like XSS.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;meta http-equiv="Content-Security-Policy" content="default-src 'self';"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>13. What is ARIA in HTML?</b></p><br>
+                <ul>
+                    <li>Accessible Rich Internet Applications; provides better accessibility.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div role="alert"&#x003E;Error!&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>14. Explain the <i>draggable</i> attribute.</b></p><br>
+                <ul>
+                    <li>Allows elements to be dragged.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;img src="img.jpg" draggable="true"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>15. How does the &#x003C;dialog&#x003E; element work?</b></p><br>
+                <ul>
+                    <li>Defines a dialog box or modal.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;dialog open&#x003E;<br>
+                            &#x003C;p&#x003E;This is a dialog&#x003C;/p&#x003E;<br>
+                            &#x003C;/dialog&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>16. What are scoped styles in HTML?</b></p><br>
+                <ul>
+                    <li>Scoped styles limit CSS rules to specific elements.</li>
+                </ul>
+                <br>
+                <p><b>17. What is the difference between &#x003C;figure&#x003E; and &#x003C;figcaption&#x003E;?</b></p>
+                <br>
+                <ul>
+                    <li><b>&#x003C;figure&#x003E;</b> wraps media content, <b>&#x003C;figcaption&#x003E;</b> adds a
+                        caption.</li>
+                </ul>
+                <br>
+                <p><b>18. Explain the use of the <i>translate</i> attribute.</b></p><br>
+                <ul>
+                    <li>Indicates whether content should be translated.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;p translate="no"&#x003E;Untranslatable Text&#x003C;/p&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>19. What is the purpose of the &#x003C;wbr&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>Provides a line break opportunity.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            long&#x003C;wbr&#x003E;word
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>20. Explain the contenteditable attribute.</b></p><br>
+                <ul>
+                    <li>Makes an element editable.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div contenteditable="true"&#x003E;Edit this text&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>21. What is the <i>keygen</i> tag used for?</b></p><br>
+                <ul>
+                    <li>Deprecated, but was used to generate a public-private key pair.</li>
+                </ul>
+                <br>
+                <p><b>22. How do you declare a Web Worker in HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>&#x003C;script&#x003E;</b> with a dedicated worker thread.</li>
+                </ul>
+                <br>
+                <p><b>23. What is cross-origin resource sharing (CORS)?</b></p><br>
+                <ul>
+                    <li>A policy to allow resources to be shared between domains.</li>
+                </ul>
+                <br>
+                <p><b>24. What is the &#x003C;object&#x003E; tag?</b></p><br>
+                <ul>
+                    <li>Embeds external resources like PDFs or multimedia.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;object data="file.pdf" type="application/pdf" width="600"
+                            height="400"&#x003E;&#x003C;/object&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>25. What is the <i>sandbox</i> attribute in &#x003C;iframe&#x003E;?</b></p><br>
+                <ul>
+                    <li>Adds restrictions to <b>&#x003C;iframe&#x003E;</b>.</li><br>
+                    <li>Use the <b>sandbox</b> attribute to add security restrictions.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;iframe src="https://example.com" sandbox&#x003E; &#x003C;/iframe&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>26. How do you make an element <i>draggable</i> in HTML5?</b></p><br>
+                <ul>
+                    <li>Set the <b>draggable</b> attribute to <b>true</b> and handle drag events in JavaScript.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div draggable="true"&#x003E;Drag me!&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>27. What are <i>microdata</i> and <i>schema.org</i> in HTML?</b></p><br>
+                <ul>
+                    <li><b>Microdata</b> enables embedding metadata within HTML using vocabularies like Schema.org.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div itemscope itemtype="http://schema.org/Person"&#x003E;<br>
+                            &#x003C;span itemprop="name"&#x003E;Harsha&#x003C;/span&#x003E;<br>
+                            &#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>28. What is the &#x003C;details&#x003E; element?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;details&#x003E;</b> element is used for creating collapsible content.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;details&#x003E;<br>
+                            &#x003C;summary&#x003E;More Info&#x003C;/summary&#x003E;<br>
+                            &#x003C;p&#x003E;This is additional information.&#x003C;/p&#x003E;<br>
+                            &#x003C;/details&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>29. How can you optimize images for web using HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>srcset</b> attribute for responsive images:</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;img src="image-small.jpg" srcset="image-large.jpg 2x" alt="Description"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>30. What is the difference between &#x003C;output&#x003E; and &#x003C;progress&#x003E;?</b></p>
+                <br>
+                <ul>
+                    <li><b>&#x003C;output&#x003E; :</b> Displays the result of a calculation.</li><br>
+                    <li><b>&#x003C;progress&#x003E; :</b> Displays the progress of a task.</li>
+                </ul>
+                <br>
+                <p><b>31. How do you use the &#x003C;datalist&#x003E; element?</b></p><br>
+                <ul>
+                    <li>The <b>&#x003C;datalist&#x003E;</b> provides a list of predefined options for an input.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;input list="browsers" name="browser"&#x003E;<br>
+                            &#x003C;datalist id="browsers"&#x003E;<br>
+                            &#x003C;option value="Chrome"&#x003E;<br>
+                            &#x003C;option value="Firefox"&#x003E;<br>
+                            &#x003C;/datalist&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>32. What is the purpose of the &#x003C;time&#x003E; element?</b></p><br>
+                <ul>
+                    <li>Represents a specific time or duration.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;time datetime="2024-12-15"&#x003E;Dec 15, 2024&#x003C;/time&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>33. What is a polyfill in HTML5?</b></p><br>
+                <ul>
+                    <li>A JavaScript library or code that provides HTML5 features in older browsers.</li>
+                </ul>
+                <br>
+                <p><b>34. What are web workers in HTML5?</b></p><br>
+                <ul>
+                    <li>Web workers enable running JavaScript in the background without blocking the main thread.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            const worker = new Worker("worker.js");<br>
+                            worker.postMessage("Start");
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>35. What is the purpose of the <i>autocomplete</i> attribute in forms?</b></p><br>
+                <ul>
+                    <li>Allows forms to be prefilled based on user’s past inputs.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;input type="text" autocomplete="on"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>36. What is the difference between &#x003C;mark&#x003E; and &#x003C;cite&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;mark&#x003E; :</b> Highlights text.</li><br>
+                    <li><b>&#x003C;cite&#x003E; :</b> Indicates a reference or citation.</li>
+                </ul>
+                <br>
+                <p>
+                <p><b>37. What is the &#x003C;kbd&#x003E; element used for?</b></p><br>
+                </p><br>
+                <ul>
+                    <li>Represents user input from a keyboard.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;kbd&#x003E;Ctrl + C&#x003C;/kbd&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>38. What is the difference between <i>innerHTML</i> and <i>outerHTML</i>?</b></p><br>
+                <ul>
+                    <li><b>innerHTML</b>: Modifies content inside an element.</li><br>
+                    <li><b>outerHTML</b>: Includes the element itself when modifying content.</li>
+                </ul>
+                <br>
+                <p><b>39. How can you preload assets in HTML?</b></p><br>
+                <ul>
+                    <li>Use the <b>&#x003C;link&#x003E;</b> tag with <b>rel="preload"</b>.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;link rel="preload" href="styles.css" as="style"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>40. What are web components?</b></p><br>
+                <ul>
+                    <li>Web components allow developers to create reusable custom elements using HTML templates, Shadow
+                        DOM, and custom elements.</li>
+                </ul>
+                <br>
+                <p><b>41. How does the &#x003C;picture&#x003E; element improve image loading?</b></p><br>
+                <ul>
+                    <li>It enables responsive image loading by allowing multiple source options based on media queries.
+                    </li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;picture&#x003E;<br>
+                            &#x003C;source srcset="image-large.jpg" media="(min-width: 800px)"&#x003E;<br>
+                            &#x003C;img src="image-small.jpg" alt="Example image"&#x003E;<br>
+                            &#x003C;/picture&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>42. How do custom data attributes (data-*) work?</b></p><br>
+                <ul>
+                    <li>They store custom data in HTML elements for JavaScript.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div data-user="123"&#x003E;&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <p><b>43. What is the difference between &#x003C;section&#x003E; and &#x003C;div&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;section&#x003E; :</b> A semantic block for related content.</li><br>
+                    <li><b>&#x003C;div&#x003E; :</b> A non-semantic container.</li>
+                </ul>
+                <br>
+                <p><b>44. How do you create a responsive table in HTML?</b></p><br>
+                <ul>
+                    <li>Use CSS for overflow or <b>&#x003C;div&#x003E;</b> wrappers.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;div style="overflow-x:auto;"&#x003E;<br>
+                            &#x003C;table&#x003E;<br>
+                            . . . <br>
+                            &#x003C;/table&#x003E;<br>
+                            &#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>45. What is progressive enhancement?</b></p><br>
+                <ul>
+                    <li>A strategy focusing on core content first, then adding enhanced features for capable browsers.
+                    </li>
+                </ul>
+                <br>
+                <p><b>46. What is the purpose of rel="noopener" in links?</b></p><br>
+                <ul>
+                    <li>Prevents potential security risks from new tabs gaining access to the window.opener object.</li>
+                </ul>
+                <br>
+                <p><b>47. What is the <i>fetchpriority</i> attribute in &#x003C;img&#x003E;?</b></p><br>
+                <ul>
+                    <li>Hints the browser about the importance of image loading (high, low).</li>
+                </ul>
+                <br>
+                <p><b>48. What are the &#x003C;abbr&#x003E; and &#x003C;time&#x003E; elements?</b></p><br>
+                <ul>
+                    <li><b>&#x003C;abbr&#x003E; :</b> Defines abbreviations.</li><br>
+                    <li><b>&#x003C;time&#x003E; :</b> Represents dates or times.</li>
+                </ul>
+                <br>
+                <p><b>49. What is the difference between the <i>for</i> and <i>id</i> attributes in
+                        &#x003C;label&#x003E;?</b></p><br>
+                <ul>
+                    <li><b>for</b> links a label to an input with a matching <b>id</b>.</li>
+                </ul>
+                <br>
+                <p><b>50. Explain the &#x003C;nav&#x003E; element.</b></p><br>
+                <ul>
+                    <li>Defines navigation links in a document.</li>
+                </ul>
+                <div class="topic-buttons">
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlBignner" class="previous-button">Bignner</a>
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="htmlExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlBignner" class="next-button">Bignner</a>
+                </div>
+                <h1>HTML Expert</h1>
+
+                <p><b>1. How would you handle SEO optimization for a dynamic, single-page application (SPA)?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are developing a dynamic SPA with JavaScript frameworks like React or
+                        Angular. How
+                        would you ensure SEO compliance?</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Server-Side Rendering (SSR) :</b> Use frameworks like Next.js for React or Angular Universal
+                        to render content on the server for better crawlability.</li><br>
+                    <li><b>Dynamic Meta Tags :</b> Update meta tags dynamically using libraries like react-helmet or
+                        Angular’s Meta service.</li><br>
+                    <li><b>Structured Data :</b> Use JSON-LD to define structured data for search engines.</li><br>
+                    <li><b>Fallback &#x003C;noscript&#x003E; Tags :</b> Provide readable content for users with
+                        JavaScript disabled.</li><br>
+                    <li><b>Canonical URLs :</b> Ensure proper canonical tags to avoid duplicate content.</li>
+                </ul>
+                <br>
+                <p><b>2. Explain the implications of using <i>contenteditable</i> in a production environment.</b></p>
+                <br>
+                <ul>
+                    <li><b>Scenario :</b> You are building a WYSIWYG editor for a CMS. What challenges might you face
+                        using the contenteditable attribute?</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Security Concerns :</b> User input can inject malicious content. Use sanitization libraries
+                        like DOMPurify.</li><br>
+                    <li><b>Cross-Browser Inconsistencies :</b> Behavior of contenteditable varies across browsers,
+                        requiring extensive testing.</li><br>
+                    <li><b>Accessibility Issues :</b> Custom implementations may not be screen-reader-friendly.</li><br>
+                    <li><b>Complex Undo/Redo :</b> Managing undo/redo stacks programmatically can be challenging.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div contenteditable="true"&#x003E;Edit this text&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>3. How do you ensure optimal performance for a website with hundreds of images?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are creating an e-commerce site with high-resolution product images.</li>
+                    <br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Lazy Loading :</b> Use the <b>loading="lazy"</b> attribute to defer offscreen images</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;img src="image.jpg" loading="lazy" alt="Product Image"&#x003E;
+                        </div>
+                    </li>
+                    <br>
+                    <li><b>Responsive Images :</b> Use <b>&#x003C;picture&#x003E;</b> and <b>srcset</b> for adaptive
+                        image
+                        delivery based on device resolution.</li><br>
+                    <li><b>Image Compression :</b> Use formats like WebP or AVIF for smaller file sizes.</li><br>
+                    <li><b>CDN :</b> Host images on a Content Delivery Network for faster delivery.</li>
+                </ul>
+                <br>
+                <p><b>4. How do you structure your HTML for an accessible web application?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are building a dashboard for a visually impaired audience.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Use ARIA Roles :</b> Enhance interactive elements with roles (e.g., role="button" for
+                        non-button elements).</li><br>
+                    <li><b>Semantic HTML :</b> Use proper tags like <b>&#x003C;header&#x003E;</b>,
+                        <b>&#x003C;main&#x003E;</b>, and
+                        <b>&#x003C;footer&#x003E;</b> for better screen-reader navigation.
+                    </li><br>
+                    <li><b>Labeling :</b> Provide descriptive aria-label or aria-labelledby for interactive elements.
+                    </li><br>
+                    <li><b>Keyboard Navigation :</b> Ensure tabindex is managed for logical navigation order.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;button aria-label="Save changes"&#x003E;Save&#x003C;/button&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>5. What techniques would you use to reduce the initial load time of a large HTML page?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> Your client complains that their landing page takes too long to load.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Minify HTML, CSS, and JavaScript :</b> Remove unnecessary spaces and comments.</li><br>
+                    <li><b>Defer or Async Scripts :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;script src="script.js" defer&#x003E;&#x003C;/script&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>Critical CSS :</b> Inline above-the-fold CSS to render content faster.</li><br>
+                    <li><b>Lazy Load Assets :</b> Load non-critical assets after the main content.</li><br>
+                    <li><b>HTTP/2 or HTTP/3 :</b> Utilize multiplexing for faster asset delivery.</li>
+                </ul>
+                <br>
+                <p><b>6. How do you manage a large, complex form with conditional fields?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> A job application form requires dynamic fields based on user input.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Dynamic Updates with JavaScript :</b> Show/hide fields using JavaScript based on user
+                        actions.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;form&#x003E;<br>
+                            &#x003C;label for="jobType"&#x003E;Job Type:&#x003C;/label&#x003E;<br>
+                            &#x003C;select id="jobType" name="jobType" onchange="toggleFields()"&#x003E;<br>
+                            &#x003C;option value="full-time"&#x003E;Full-Time&#x003C;/option&#x003E;<br>
+                            &#x003C;option value="internship"&#x003E;Internship&#x003C;/option&#x003E;<br>
+                            &#x003C;/select&#x003E;<br>
+                            &#x003C;div id="internshipDetails" style="display: none;"&#x003E;<br>
+                            &#x003C;label for="internshipDuration"&#x003E;Duration:&#x003C;/label&#x003E;<br>
+                            &#x003C;input type="text" id="internshipDuration" name="internshipDuration"&#x003E;<br>
+                            &#x003C;/div&#x003E;<br>
+                            &#x003C;/form&#x003E;<br>
+                            &#x003C;script&#x003E;<br>
+                            function toggleFields() {<br>
+                            const jobType = document.getElementById("jobType").value;<br>
+                            document.getElementById("internshipDetails").style.display = jobType === "internship" ?<br>
+                            "block" : "none";<br>
+                            }<br>
+                            &#x003C;/script&#x003E;<br>
+                        </div>
+                    </li><br>
+                    <li><b>Validation :</b> Use both client-side and server-side validation to ensure data integrity.
+                    </li>
+                </ul>
+                <br>
+                <p><b>7. How do you ensure compatibility for a feature-rich application across multiple browsers?</b>
+                </p><br>
+                <ul>
+                    <li><b>Scenario :</b> Your web application has advanced features like custom video players and
+                        drag-and-drop.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Progressive Enhancement :</b> Build basic functionality with HTML and CSS; add JavaScript for
+                        advanced features.</li><br>
+                    <li><b>Feature Detection :</b> Use libraries like Modernizr to detect support and provide fallbacks.
+                    </li><br>
+                    <li><b>Polyfills :</b> Add polyfills for unsupported features (e.g., fetch API or Promise).</li><br>
+                    <li><b>Testing Tools :</b> Use tools like BrowserStack or Sauce Labs to test across browsers.</li>
+                </ul>
+                <br>
+                <p><b>8. What are your strategies for designing an interactive HTML-based email template?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are tasked with designing an interactive email that supports animations.
+                    </li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Inline CSS :</b> Use inline styles as most email clients don’t support external stylesheets.
+                    </li><br>
+                    <li><b>Use Tables :</b> Design layout using <b>&#x003C;table&#x003E;</b> as CSS-based layouts are
+                        inconsistent.</li><br>
+                    <li><b>Fallbacks :</b> Provide a plain text version for unsupported clients.</li><br>
+                    <li><b>Animation with GIFs :</b> Instead of JavaScript, use animated GIFs for interactivity.</li>
+                    <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;table&#x003E;<br>
+                            &#x003C;tr&#x003E;<br>
+                            &#x003C;td&#x003E;&#x003C;img src="header.jpg" alt="Header
+                            Image"&#x003E;&#x003C;/td&#x003E;<br>
+                            &#x003C;/tr&#x003E;<br>
+                            &#x003C;tr&#x003E;<br>
+                            &#x003C;td&#x003E;&#x003C;a href="https://example.com" style="color: #ffffff;
+                            text-decoration: none;"&#x003E;Click Here&#x003C;/a&#x003E;&#x003C;/td&#x003E;<br>
+                            &#x003C;/tr&#x003E;<br>
+                            &#x003C;/table&#x003E;
+                        </div>
+                    </li>
+                </ul>
+
+                <br>
+                <p><b>9. How do you implement real-time collaboration using HTML?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are building a collaborative text editor like Google Docs.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>WebSockets :</b> Use WebSocket-based communication to synchronize edits in real-time.</li>
+                    <br>
+                    <li><b>Editable Divs :</b> Use contenteditable for live editing.</li><br>
+                    <li><b>Conflict Resolution :</b> Implement Operational Transform (OT) or Conflict-Free Replicated
+                        Data Types (CRDT) to handle simultaneous edits.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div id="editor" contenteditable="true"&#x003E;&#x003C;/div&#x003E;<br>
+                            &#x003C;script&#x003E;<br>
+                            const ws = new WebSocket("wss://example.com/socket");<br>
+                            ws.onmessage = (event) => {<br>
+                            document.getElementById("editor").innerText = event.data;<br>
+                            };<br>
+                            document.getElementById("editor").addEventListener("input", (e) => {<br>
+                            ws.send(e.target.innerText);<br>
+                            });<br>
+                            &#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>10. How do you implement role-based access in an HTML page?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> Different users should see different content based on their roles (e.g.,
+                        Admin,
+                        Editor, Viewer).</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Server-Side Rendering :</b> Generate role-specific HTML on the server.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+
+                            &#x003C;!-- Rendered for Admin --&#x003E;<br>
+                            &#x003C;div id="adminTools"&#x003E;Admin Tools&#x003C;/div&#x003E;<br>
+
+                            &#x003C;!-- Rendered for Viewer --&#x003E;<br>
+                            &#x003C;div id="viewerMessage"&#x003E;Welcome Viewer&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>11. How do you implement a custom, accessible dropdown menu?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are tasked with building a dropdown menu that is keyboard and
+                        screen-reader
+                        accessible.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Keyboard Accessibility :</b> Use tabindex and handle keydown events for navigation.</li><br>
+                    <li><b>ARIA Roles :</b> Use aria-expanded, aria-haspopup, and aria-controls attributes.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;button id="dropdownButton" aria-haspopup="true" aria-expanded="false"
+                            aria-controls="dropdownMenu"&#x003E;
+                            Options
+                            &#x003C;/button&#x003E;<br>
+                            &#x003C;ul id="dropdownMenu" role="menu" hidden&#x003E;<br>
+                            &#x003C;li role="menuitem"&#x003E;&#x003C;a href="#"&#x003E;Profile&#x003C;/a&#x003E;<br>
+                            &#x003C;/li&#x003E;<br>
+                            &#x003C;li role="menuitem"&#x003E;&#x003C;a href="#"&#x003E;Settings&#x003C;/a&#x003E;<br>
+                            &#x003C;/li&#x003E;<br>
+                            &#x003C;li role="menuitem"&#x003E;&#x003C;a href="#"&#x003E;Logout&#x003C;/a&#x003E;<br>
+                            &#x003C;/li&#x003E;<br>
+                            &#x003C;/ul&#x003E;<br>
+                            &#x003C;script&#x003E;<br>
+                            const button = document.getElementById('dropdownButton');<br>
+                            const menu = document.getElementById('dropdownMenu');<br>
+                            button.addEventListener('click', () => {<br>
+                            const isExpanded = button.getAttribute('aria-expanded') === 'true';<br>
+                            button.setAttribute('aria-expanded', !isExpanded);<br>
+                            menu.hidden = isExpanded;<br>
+                            });<br>
+                            &#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>12. How do you design a fully responsive grid layout using only HTML and CSS?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are creating a dashboard layout with variable columns and rows.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use CSS Grid with media queries for responsiveness.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div class="grid-container"&#x003E;<br>
+                            &#x003C;div class="item"&#x003E;1&#x003C;/div&#x003E;<br>
+                            &#x003C;div class="item"&#x003E;2&#x003C;/div&#x003E;<br>
+                            &#x003C;div class="item"&#x003E;3&#x003C;/div&#x003E;<br>
+                            &#x003C;/div&#x003E;<br>
+                            &#x003C;style&#x003E;<br>
+                            .grid-container {<br>
+                            display: grid;<br>
+                            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));<br>
+                            gap: 10px;<br>
+                            }<br>
+                            .item {<br>
+                            background-color: #ccc;<br>
+                            text-align: center;<br>
+                            padding: 20px;<br>
+                            }<br>
+                            &#x003C;/style&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>13. How do you ensure dynamic content in iframes is secure?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> Your application uses third-party widgets loaded in iframes. How do you ensure
+                        security?</li><br>
+                    <li><b>Sandboxing :</b> Use the sandbox attribute to restrict iframe functionality.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;iframe src="widget.html" sandbox="allow-scripts
+                            allow-same-origin"&#x003E;&#x003C;/iframe&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>CSP (Content Security Policy) :</b> Define a CSP header to limit resources loaded in the
+                        iframe.</li><br>
+                    <li><b>PostMessage API :</b> Use <b>window.postMessage</b> for secure communication between the
+                        parent and iframe.</li>
+                </ul>
+                <br>
+                <p><b>14. How would you optimize the HTML and CSS for print media?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are tasked with creating a printable version of a web page.</li><br>
+                    <li><b>Solutions :-</b></li><br>
+                    <li><b>Use a Print-Specific CSS File :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;link rel="stylesheet" href="print.css" media="print"&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>Print Media Queries :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            @media print {<br>
+                            body font-size: 12pt; color: #000; <br>
+                            a { text-decoration: none; color: #000; }<br>
+                            .no-print { display: none; }<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>15. How do you handle file uploads securely in an HTML form?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are building a form for users to upload profile pictures.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use accept attribute to restrict file types.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;input type="file" accept="image/*"&#x003E;
+                        </div>
+                    </li><br>
+                    <li>Validate files on the server to prevent malicious uploads (e.g., only allow specific MIME
+                        types).</li><br>
+                    <li>Display uploaded images securely using a generated URL or temporary storage.</li>
+                </ul><br>
+                <p><b>16. Explain how you would implement infinite scrolling on a web page.</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are designing a news feed with infinite scrolling.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>HTML Structure :</b></li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;div id="feed"&#x003E;<br>
+                            &#x003C;!-- Content dynamically loaded --&#x003E;<br>
+                            &#x003C;/div&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>JavaScript for Lazy Loading :</b></li><br>
+                    <li>
+                        <div class="interview-box">
+                            window.addEventListener('scroll', () => {<br>
+                            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) { <br>
+                            fetch('/api/feed') <br>
+                            .then(response => response.text()) <br>
+                            .then(data => { <br>
+                            document.getElementById('feed').innerHTML += data; <br>
+                            }); <br>
+                            } <br>
+                            });
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>17. How do you handle dynamic form generation based on user roles?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are building an admin panel where form fields change based on user roles
+                        (Admin, Editor, Viewer).</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Server-Side Rendering :</b> Generate HTML for forms based on roles.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;form&#x003E;<br>
+                            &#x003C;input type="text" name="username" required&#x003E;<br>
+                            &#x003C;input type="password" name="password" required&#x003E;<br>
+                            &#x003C;input type="text" name="role" value="Admin" readonly&#x003E;<br>
+                            &#x003C;/form&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>Client-Side Logic :</b> Hide or disable irrelevant fields using JavaScript.</li>
+                </ul>
+                <br>
+                <p><b>18. How do you implement a multi-step form with progress tracking?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> A registration process involves multiple steps with a progress bar.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>HTML Structure :</b></li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;div id="progress-bar"&#x003E;&#x003C;/div&#x003E;<br>
+                            &#x003C;form id="multi-step-form"&#x003E;<br>
+                            &#x003C;div class="step" id="step1"&#x003E;Step 1 Content&#x003C;/div&#x003E;<br>
+                            &#x003C;div class="step" id="step2" hidden&#x003E;Step 2 Content&#x003C;/div&#x003E;<br>
+                            &#x003C;button type="button" onclick="nextStep()"&#x003E;Next&#x003C;/button&#x003E;<br>
+                            &#x003C;/form&#x003E;
+                        </div>
+                    </li>
+                    <br>
+                    <li><b>JavaScript for Navigation :</b></li><br>
+                    <li>
+                        <div class="interview-box">
+
+                            let currentStep = 1;<br>
+                            function nextStep() {<br>
+                            document.getElementById(`step${currentStep}`).hidden = true;<br>
+                            currentStep++;<br>
+                            document.getElementById(`step${currentStep}`).hidden = false;<br>
+                            updateProgressBar();<br>
+                            }<br>
+                            function updateProgressBar() {<br>
+                            document.getElementById('progress-bar').style.width = (currentStep / 2) * 100 + '%';<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>19. How do you design a form that saves state when the page is refreshed?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are creating a large form where users may lose data on refresh.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use LocalStorage to save field values:</li><br>
+                    <li>
+                        <div class="interview-box">
+
+                            const form = document.getElementById('form');<br>
+                            form.addEventListener('input', () => {<br>
+                            localStorage.setItem('formData', JSON.stringify(new FormData(form)));<br>
+                            });<br>
+                            window.addEventListener('load', () => {<br>
+                            const data = JSON.parse(localStorage.getItem('formData'));<br>
+                            if (data) {<br>
+                            for (let [key, value] of Object.entries(data)) {<br>
+                            document.querySelector(`[name=${key}]`).value = value;<br>
+                            }<br>
+                            }<br>
+                            });
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>20. How do you implement a progressive web app (PWA) using HTML?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are converting an e-commerce site into a PWA.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>HTML Manifest :</b></li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;link rel="manifest" href="manifest.json"&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>Service Worker :</b></li><br>
+                    <li>
+                        <div class="interview-box">
+                            if ('serviceWorker' in navigator) {<br>
+                            navigator.serviceWorker.register('/sw.js').then(() => console.log('Service Worker
+                            Registered'));<br>
+                            }
+                        </div>
+                    </li><br>
+                    <li><b>Caching Static Assets :</b> Use a service worker to cache key files for offline use.</li>
+                </ul>
+                <br>
+                <p><b>21. How would you implement a sticky header and footer for a content-heavy webpage?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are designing a blog site with a sticky navigation header and footer while
+                        the main content scrolls.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use CSS <b>position: sticky</b> for modern browsers to keep the header and footer fixed as the
+                        user scrolls.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;header class="sticky-header"&#x003E;Header Content&#x003C;/heade&#x003E;<br>
+                            &#x003C;main&#x003E;<br>
+                            &#x003C;p&#x003E;Long page content...&#x003C;/p&#x003E;<br>
+                            &#x003C;/main&#x003E;<br>
+                            &#x003C;footer class="sticky-footer"&#x003E;Footer Content&#x003C;/footer&#x003E;<br>
+
+                            &#x003C;style&#x003E;<br>
+                            .sticky-header {<br>
+                            position: sticky;<br>
+                            top: 0;<br>
+                            background: #f8f8f8;<br>
+                            padding: 10px;<br>
+                            z-index: 1000;<br>
+                            }<br>
+
+                            .sticky-footer {<br>
+                            position: sticky;<br>
+                            bottom: 0;<br>
+                            background: #f8f8f8;<br>
+                            padding: 10px;<br>
+                            z-index: 1000;<br>
+                            }<br>
+
+                            main {<br>
+                            height: 1500px;<br>
+                            }<br>
+                            &#x003C;/style&#x003E;
+
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>22. How do you prevent content shifting caused by loading external resources like ads or
+                        images?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b>You notice that content shifts on a webpage when images or third-party ads
+                        load.
+                    </li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Define Dimensions for Images :</b> Always specify width and height attributes.</li><br>
+                    <li><b>CSS aspect-ratio :</b> Maintain image proportions dynamically.</li><br>
+                    <li><b>Reserve Space for Ads :</b> Use placeholder containers with fixed height/width.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+
+                            &#x003C;img src="image.jpg" width="600" height="400" alt="Example Image"&#x003E;<br>
+                            &#x003C;style&#x003E;<br>
+                            .placeholder {<br>
+                            width: 100%;<br>
+                            aspect-ratio: 16/9;<br>
+                            background-color: #ccc;<br>
+                            }<br>
+                            &#x003C;/style&#x003E;<br>
+                            &#x003C;div class="placeholder"&#x003E;&#x003C;/div&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>23. How do you handle multilingual support in an HTML application?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are building a global application that supports multiple languages.</li>
+                    <br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use the <b>lang</b> attribute to define the language for the page or specific sections.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;html lang="en"&#x003E;<br>
+                            &#x003C;p lang="es"&#x003E;Hola Mundo!&#x003C;/p&#x003E;<br>
+                            &#x003C;/html&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>Dynamic Content Loading :</b> Use JavaScript to fetch translations (e.g., JSON-based
+                        localization).</li><br>
+                    <li><b>Accessibility :</b> Ensure correct screen-reader behavior by defining <b>lang</b> attributes.
+                    </li>
+                    <br>
+                    <li><b>Right-to-Left (RTL) Support :</b> Use <b>dir="rtl"</b> for languages like Telugu.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            &#x003C;html lang="ar" dir="rtl"&#x003E;<br>
+                            &#x003C;p&#x003E;తెలుగులో వచనం&#x003C;/p&#x003E;<br>
+                            &#x003C;/html&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>24. How do you prevent inline HTML scripts from being executed in a web application?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b>Your web application allows user-generated HTML, and you need to prevent script
+                        execution.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Sanitize User Input :</b> Use libraries like <b>DOMPurify</b> to strip malicious scripts.
+                    </li>
+                    <br>
+                    <li>
+                        <div class="interview-box">
+                            const clean = DOMPurify.sanitize('&#x003C;img src=x onerror=alert(1)&#x003E;');
+                        </div>
+                    </li><br>
+                    <li><b>Content Security Policy (CSP) :</b> Restrict inline scripts with a strict CSP header</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            Content-Security-Policy: script-src 'self';
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>25. How do you build a custom, reusable modal dialog with HTML, CSS, and JavaScript?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b>You are creating a confirmation modal dialog that is reusable across the site.
+                    </li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>HTML Structure :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div id="customModal" class="modal" hidden&#x003E;<br>
+                            &#x003C;div class="modal-content"&#x003E;<br>
+                            &#x003C;span class="close-btn"&#x003E;&times;&#x003C;/span&#x003E;<br>
+                            &#x003C;p&#x003E;Are you sure you want to proceed?&#x003C;/p&#x003E;<br>
+                            &#x003C;button id="confirm"&#x003E;Yes&#x003C;/button&#x003E;<br>
+                            &#x003C;button id="cancel"&#x003E;No&#x003C;/button&#x003E;<br>
+                            &#x003C;/div&#x003E;<br>
+                            &#x003C;/div&#x003E;
+                        </div>
+                    </li><br>
+                    <li><b>CSS for Styling :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            .modal {<br>
+                            display: flex;<br>
+                            justify-content: center;<br>
+                            align-items: center;<br>
+                            position: fixed;<br>
+                            top: 0; left: 0; right: 0; bottom: 0;<br>
+                            background-color: rgba(0,0,0,0.5);<br>
+                            }<br>
+                            .modal-content {<br>
+                            background: #fff;<br>
+                            padding: 20px;<br>
+                            border-radius: 5px;<br>
+                            }<br>
+                            .close-btn {<br>
+                            cursor: pointer;<br>
+                            font-size: 20px;<br>
+                            float: right;<br>
+                            }
+                        </div>
+                    </li>
+                    <br>
+                    <li><b>JavaScript to Show/Hide Modal :</b></li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            const modal = document.getElementById('customModal');<br>
+                            const closeBtn = document.querySelector('.close-btn');<br>
+                            const confirmBtn = document.getElementById('confirm');<br>
+                            <br>
+                            function showModal() {<br>
+                            modal.hidden = false;<br>
+                            }<br>
+                            <br>
+                            closeBtn.onclick = () => modal.hidden = true;<br>
+                            confirmBtn.onclick = () => {<br>
+                            console.log('Confirmed!');<br>
+                            modal.hidden = true;<br>
+                            };<br>
+                            <br>
+                            showModal(); // Example to trigger modal
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>26. How do you make an image gallery accessible and keyboard navigable?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b> You are building an image gallery where users can navigate images using the
+                        keyboard.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use tabindex and ARIA attributes for accessibility.</li><br>
+                    <li>Add keyboard event listeners for navigation.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+
+                            &#x003C;div id="gallery" role="region" aria-label="Image Gallery" tabindex="0"&#x003E;<br>
+                            &#x003C;img src="img1.jpg" alt="Image 1" class="gallery-image"&#x003E;<br>
+                            &#x003C;img src="img2.jpg" alt="Image 2" class="gallery-image" hidden&#x003E;<br>
+                            &#x003C;/div&#x003E;<br>
+                            <br>
+
+                            &#x003C;script&#x003E;<br>
+                            const images = document.querySelectorAll('.gallery-image');<br>
+                            let current = 0;<br>
+                            <br>
+                            document.getElementById('gallery').addEventListener('keydown', (e) => {<br>
+                            if (e.key === 'ArrowRight') {<br>
+                            images[current].hidden = true;<br>
+                            current = (current + 1) % images.length;<br>
+                            images[current].hidden = false;<br>
+                            } else if (e.key === 'ArrowLeft') {<br>
+                            images[current].hidden = true;<br>
+                            current = (current - 1 + images.length) % images.length;<br>
+                            images[current].hidden = false;<br>
+                            }<br>
+                            });<br>
+                            &#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>27. How do you improve rendering performance for a page with thousands of DOM elements?</b></p>
+                <br>
+                <ul>
+                    <li><b>Scenario :</b> You are building a large data table with thousands of rows.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li><b>Virtual Scrolling :</b> Render only visible rows using libraries like React Virtualized.</li>
+                    <br>
+                    <li><b>Pagination :</b> Divide content into smaller chunks to reduce DOM size.</li><br>
+                    <li><b>Debounce Rendering :</b> Avoid excessive re-rendering using debouncing for events.</li><br>
+                    <li><b>Use Document Fragments :</b> Add multiple DOM elements in one batch.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            const fragment = document.createDocumentFragment();<br>
+                            for (let i = 0; i &#x003C;div 1000; i++) { <br>
+                            const div=document.createElement('div');<br>
+                            div.textContent=`Row ${i}`;<br>
+                            fragment.appendChild(div);<br>
+                            }<br>
+                            document.body.appendChild(fragment);
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>28. How do you ensure forms are accessible for screen-reader users?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b>Your application has forms that must be screen-reader friendly.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use <b>&#x003C;label&#x003E;</b> tags and associate them with inputs using the <b>for</b>
+                        attribute.
+                    </li><br>
+                    <li>Add ARIA attributes for custom form controls.</li><br>
+                    <li>Provide clear focus states with CSS.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;label for="email"&#x003E; Address: &#x003C;/label&#x003E;<br>
+                            &#x003C;input type="email" id="email" aria-required="true"&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>29. What strategies do you use to support dark mode on a website?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b>The client requests both light and dark themes for their website.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use <b>CSS</b> <b>prefers-color-scheme</b> media query:</li><br>
+                    <li>
+                        <div class="interview-box">
+                            @media (prefers-color-scheme: dark) {<br>
+                            body { background: #333; color: #fff; }<br>
+                            }
+                        </div>
+                    </li><br>
+                    <li>Allow manual toggling using a button and store the preference in <b>localStorage</b>.</li>
+                </ul>
+                <br>
+                <p><b>30. How would you implement drag-and-drop functionality natively with HTML5?</b></p><br>
+                <ul>
+                    <li><b>Scenario :</b>You are building a file upload interface with drag-and-drop support.</li><br>
+                    <li><b>Solution :-</b></li><br>
+                    <li>Use HTML5 <b>drag</b> and <b>drop</b> events.</li><br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            &#x003C;div id="dropzone" style="border: 2px dashed #000; padding: 20px;"&#x003E;Drop files
+                            here&#x003C;/div&#x003E;<br>
+                            &#x003C;script&#x003E;<br>
+                            const dropzone = document.getElementById('dropzone');<br>
+                            dropzone.addEventListener('dragover', (e) => e.preventDefault());<br>
+                            dropzone.addEventListener('drop', (e) => {<br>
+                            e.preventDefault();<br>
+                            const files = e.dataTransfer.files;<br>
+                            console.log(files);<br>
+                            });<br>
+                            &#x003C;/script&#x003E;
+                        </div>
+                    </li>
+                </ul>
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/htmlinterview.html?topic=htmlBignner" class="next-button">Bignner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+        // Scroll to the top when the page loads
+        window.addEventListener("load", () => {
+            // Add a slight delay to allow the topic to update
+            setTimeout(() => {
+                window.scrollTo(0, 0); // Scroll to the top of the page
+            }, 50); // Delay ensures topic content finishes loading
+        });
+
+
+        // Add click event listeners for previous and next buttons
+        document.querySelectorAll(".previous-button, .next-button").forEach(button => {
+            button.addEventListener("click", () => {
+                window.scrollTo(0, 0); // Ensure the page scrolls to the top
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

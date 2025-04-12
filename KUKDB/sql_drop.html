@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlDrop">
+            <div class="topic-buttons">
+                <a href="sql_trunk.html?topic=sqlTruncate" class="previou-button">&laquo; Previous</a>
+                <a href="sql_insert.html?topic=sqlInsert" class="next-button">Next &raquo;</a>
+            </div>
+            <h1>DROP Command in SQL</h1>
+            <ul>
+                <li>DROP command is a Data Definition Language (DDL) statement, used to permanently delete an entire
+                    database object such as a table, database, view, index, or schema.</li>
+                <li>When a DROP command is executed, it removes the object and all associated data completely from
+                    the database system.</li>
+                <li><b class="important">Note:-DROP command is powerful and must be used carefully to avoid
+                        unintended data loss.</b></li>
+            </ul>
+            <br>
+            <h2>Key Characteristics of the DROP:</h2>
+            <ul>
+                <li>Once a DROP command is executed, the object and its data are permanently deleted and cannot be
+                    recovered.</li>
+                <li>Dropping an object may affect dependent objects (e.g., foreign key relationships, views,
+                    triggers), called <b>Cascading Effects.</b></li>
+                <li>Only users with the necessary privileges can execute a DROP command.</li>
+                <li>You cannot drop system-defined objects or system databases.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ALTER TABLE </span> emp
+                    <br>
+                    <span class="orclkey">WHERE</span> dept_name = 'HR' ;
+                </code>
+            </div>
+            <br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP </span> object_type  Object_name ;
+                </code>
+                <ul>
+                    <li>Object_types are - Table, View, Index, Database, and Constraint.</li>
+                    <li>Object_name - the name of the Object you want to drop.</li>
+                </ul>
+            </div><br>
+            <h2>Scenarios of DROP</h2>
+            <h3>1. Dropping a Table</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP TABLE</span> employees ;
+                </code>
+                <ul>
+                    <li>All data and the table definition are removed.</li>
+                    <li>Any dependent foreign keys must be dropped or updated first.</li>
+                </ul>
+            </div>
+            <br>
+            <h3>2. Dropping a View</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP VIEW</span> employee_view ;
+                </code>
+                <ul>
+                    <li>Deletes a view(employee_view) definition from the database.</li>
+                    <li>The underlying tables remain intact.</li>
+                </ul>
+            </div>
+            <h3>3. Dropping a Index</h3><br>
+            <ul>
+                <li>
+                    <h5>Oracle</h5>
+                    <div class="code-box">
+                        <code>
+                        <span class="orclkey">DROP </span> INDEX emp_index ;
+                    </code>
+                    </div>
+                </li>
+
+                <li>
+                    <h5> SQL Server and MySQL</h5>
+                    <div class="code-box">
+                        <code>
+                        <span class="orclkey">DROP </span> INDEX emp_index <span class="orclkey">ON</span> employees ;
+                    </code>
+                    </div>
+                </li>
+            </ul>
+
+            <h3>4. Dropping a Database</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP DATABSE</span> sales_db ;
+                    <br>
+                    <ul>
+                        <li>Removes an entire database(sales_db), including all its objects.</li>
+                        <li>Ensure no active connections to the database before executing.</li>
+                        <li>Typically requires administrative privileges.</li>
+                    </ul>
+                </code>
+            </div>
+            <br>
+            <h2>Advanced Example</h2>
+            <h3>1. Dropping a Schema with CASCADE</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP </span>SCHEMA hr_schema CASCADE ;
+                    <ul>
+                        <li>Deletes a schema and all objects within it.</li>
+                        <li>CASCADE: Drops all dependent objects like tables, views, etc., in the schema.</li>
+                        <li>RESTRICT: Prevents the schema from being dropped if it contains any objects.</li>
+                    </ul>
+                </code>
+            </div>
+            <br>
+            <h3>2. Dropping a Constraint</h3>
+            <ul>
+                <li>Removes a specific constraint (e.g., foreign key or unique constraint) from a table.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ALTER TABLE </span>employee  <span class="orclkey">DROP CONSTRAINT</span> fk_department_id ;
+                </code>
+            </div>
+            <br>
+            <h3>3. Dropping a Table IF EXISTS (MySQL)</h3>
+            <ul>
+                <li>IF EXISTS: Prevents errors if the table does not exist.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP TABLE </span>IF  <span class="orclkey">EXISTS </span> employees ;
+                </code>
+            </div>
+            <br>
+            <h3>4. Dropping a Table with CASCADE (PostgreSQL)</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP TABLE </span>employee  CASCADE ;
+                    <ul>
+                        <li>CASCADE: Automatically removes dependent objects like foreign keys.</li>
+                        <li>RESTRICT: Prevents dropping if there are dependent objects.</li>
+                    </ul>
+                </code>
+            </div>
+            <br>
+            <h3>5. Dropping a Table (SQL Server)</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP TABLE </span>dbo.employee ;
+                    <ul>
+                        <li>Objects are referenced with their schema (e.g., dbo).</li>
+                    </ul>
+                </code>
+            </div>
+            <br>
+            <h3>6. Dropping a Table with PURGE (Oracle)</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP TABLE </span> employee PURGE;
+                    <ul>
+                        <li>PURGE: Permanently removes the table without placing it in the recycle bin.</li>
+                    </ul>
+                </code>
+            </div>
+            <br>
+            <h3>7. Dropping a table with multiple dependencies</h3>
+            <div class="code-box">
+                <code>
+                    <ul><li>Drop the foreign key constraint first</li></ul>
+                    <span class="orclkey">ALTER TABLE </span>employee  <span class="orclkey">DROP CONSTRAINT</span> fk_department_id ;
+                    <br>
+                    <ul>
+                        <li>Then drop the table.</li>
+                    </ul>
+                    <span class="orclkey">DROP TABLE </span>employee  CASCADE ;
+                </code>
+            </div>
+            <br>
+            <h3>Common Errors</h3>
+            <h4>1. Error: Cannot drop object because it is referenced by a foreign key constraint.</h4>
+            <ul>
+                <li>Solution: Drop or update the foreign key first or use CASCADE.</li>
+            </ul>
+            <h4>2. Error: Object does not exist.</h4>
+            <ul>
+                <li>Solution: Use IF EXISTS to avoid errors if the object is missing.</li>
+            </ul>
+            <h4>3. Error: Active connections exist.</h4>
+            <ul>
+                <li>Solution: Close all active connections (e.g., in MySQL use FLUSH TABLES or terminate sessions in
+                    PostgreSQL).</li>
+            </ul>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Always take a backup before using the DROP command.</li>
+                <li>Use IF EXISTS to prevent errors when unsure if the object exists.</li>
+                <li>Understand cascading effects to avoid unintended consequences.</li>
+                <li>Test on a development or staging environment before executing on production.</li>
+            </ul>
+            <br>
+            <h2>Do’s and Don’ts When Using DROP </h2>
+            <h4><u>Do's</u> :-</h4>
+            <ul>
+                <li><b>Do use</b> IF EXISTS if supported, to avoid errors when the object doesn’t exist.</li>
+                <li><b>Do review dependencies</b> on the object before dropping, especially for tables with
+                    relationships.</li>
+                <li><b>Do confirm backup availability </b> of data or schema before executing DROP on important
+                    objects.</li>
+            </ul>
+            <h4><u>Don'ts</u> :-</h4>
+            <ul>
+                <li><b>Don’t drop objects on impulse: </b> Double-check the need to remove the object, especially in
+                    production.</li>
+                <li><b>Don’t use DROP on high-level objects (like databases) </b> without proper authorization and
+                    review.</li>
+                <li><b>Don’t rely on DROP for regular maintenance - </b> Instead, use more selective deletion
+                    strategies like DELETE or TRUNCATE.</li>
+            </ul>
+            <br>
+            <table>
+                <caption>Difference Between DELETE, TRUNCATE, and DROP in SQL</caption>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>DELETE</th>
+                        <th>TRUNCATE</th>
+                        <th>DROP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Purpose</b></td>
+                        <td>Removes specific rows from a table based on a condition.</td>
+                        <td>Removes all rows from a table but keeps the table structure intact.</td>
+                        <td>Removes the entire table or database, including its structure.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Can Filter Rows</b></td>
+                        <td>Yes, you can specify a WHERE clause to delete specific rows.</td>
+                        <td>No, all rows are removed unconditionally.</td>
+                        <td>Not applicable; removes the entire object (table/database).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Syntax</b></td>
+                        <td>DELETE FROM table_name WHERE condition;</td>
+                        <td>TRUNCATE TABLE table_name;</td>
+                        <td>DROP TABLE table_name; or DROP DATABASE database_name;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Affects Structure</b></td>
+                        <td>No, only data is removed; the table structure remains unchanged.</td>
+                        <td>No, only data is removed; the table structure remains unchanged.</td>
+                        <td>Yes, deletes the entire table or database including structure and data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Transaction Support</b></td>
+                        <td>Fires triggers if defined for the table.</td>
+                        <td>Does not fire triggers.</td>
+                        <td>Triggers are not involved as the table or database is removed entirely.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance</b></td>
+                        <td>Slower for large datasets as it operates row by row.</td>
+                        <td>Faster as it bypasses row-level logging and does minimal logging.</td>
+                        <td>Fastest since it directly removes the object without considering rows.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Locks Used</b></td>
+                        <td>Acquires row-level locks (or table locks for some databases).</td>
+                        <td>Acquires a schema-level (or table-level) lock.</td>
+                        <td>Acquires a schema-level lock (or database-level lock).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Restoration</b></td>
+                        <td>Deleted rows can be restored using a transaction rollback.</td>
+                        <td>Deleted rows cannot be restored (unless using database backups).</td>
+                        <td>The table or database cannot be restored (unless using database backups).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Case</b></td>
+                        <td>When you need to delete specific rows or need to maintain transaction logs for data
+                            changes.</td>
+                        <td>When you need to quickly remove all data but keep the table for future use.</td>
+                        <td>When you no longer need the table or database and want to free up resources.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+
+            <div class="topic-buttons">
+                <a href="sql_trunk.html?topic=sqlTruncate" class="previou-button">&laquo; Previous</a>
+                <a href="sql_insert.html?topic=sqlInsert" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+
+    </script>
+
+</body>
+
+</html>

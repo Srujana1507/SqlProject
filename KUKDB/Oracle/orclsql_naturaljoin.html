@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlIntro"
+                            id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlDataTypes"
+                            id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlLanguages"
+                            id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlSelectTable"
+                            id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selectdistinct.html"
+                            id="sqlSelectDistinct">Select Distinct</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_logicaloperators.html"
+                            id="sqlLogicalOperators">Logical Operators</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_between.html"
+                            id="sqlBetween">Between</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html"
+                            id="sqlCompOperators">Comparison Operators</a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual"
+                            id="sqlEqual">Equal = </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual"
+                            id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_leftouterjoin.html"
+                            id="sqlLeftJoin">Left
+                            Outer Join</a>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_fullouterjoin.html"
+                            id="sqlFullOuterJoin">Full Outer Join</a>
+                    </li>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_crossjoin.html" id="sqlCrossJoin">Cross
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selfjoin.html" id="sqlSelfJoin">Self
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_naturaljoin.html"
+                            id="sqlNaturalJoin">Natural Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_equijoin.html" id="sqlEquiJoin">Equi
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_nonequijoin.html"
+                            id="sqlNonEquiJoin">Non-Equi Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html"
+                            id="sqlNumaricFunctions">Numeric Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign"
+                            id="sqlAbsSign">Abs(x), Sign</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/oorclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlCeil"
+                            id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlExp"
+                            id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlMod"
+                            id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt"
+                            id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc"
+                            id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlAsin"
+                            id="sqlAsinAcos">ASIN(n), ACOS(n) </a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">SINH(n), COSH(n), TANH(n)</a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">ATAN(n), ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg"
+                            id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax"
+                            id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin"
+                            id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum"
+                            id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html"
+                            id="sqlStringFunctions">String Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlAscii"
+                            id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlChar"
+                            id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlconcat"
+                            id="sqlconcat">CONCAT</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlInstr"
+                            id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLength"
+                            id="sqlLength">Length</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLpadRpad"
+                            id="sqlLpadRpad">Lpad, Rpad</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlTrim"
+                            id="sqlTrim">Trim, RTrim, LTrim</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlSubstr"
+                            id="sqlSubstr">SUBSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlVSIZE"
+                            id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_corelatedsubqueries.html"
+                            id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_datefunctions.html"
+                            id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timestampfunctions.html"
+                            id="sqlTimestampFunctions">Timestamp Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timeintervalfunctions.html"
+                            id="sqlTimeIntervalFunctions">Time Interval Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timezonefunctions.html"
+                            id="sqlTimeZoneFunctions">Time Zone Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_truncate.html"
+                            id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_returning.html"
+                            id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_intersect.html"
+                            id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_constraints.html"
+                            id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_primarykey.html"
+                            id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_foreginkey.html"
+                            id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_default.html"
+                            id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dcl.html?topic=sqlGrant"
+                            id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dcl.html?topic=sqlRevoke"
+                            id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlCommit"
+                            id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlRollback"
+                            id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlSavepoint"
+                            id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html"
+                            id="sqlRankingFunctions">Ranking Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRownum"
+                            id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRank"
+                            id="sqlRank">RANK</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlNtile"
+                            id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html"
+                            id="sqlGroupFunctions">Group By Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlCube"
+                            id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlRollup"
+                            id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGrouping"
+                            id="sqlGrouping">GROUPING</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGroupId"
+                            id="sqlGroupId">GROUP_ID</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_mview.html"
+                            id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aliases.html"
+                            id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selectinto.html"
+                            id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_insertinto_select.html"
+                            id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+        <main class="sidebar-content" data-topic="sqlCase">
+
+            <div class="topic-buttons">
+                <a href="orclsql_selfjoin.html?topic=sqlSelfJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_equijoin.html?topic=sqlEquiJoin" class="next-button">Next
+                    &raquo;</a>
+            </div>
+            <br>
+
+            <h1>Natural Join in Oracle SQL</h1>
+
+            <p>A <b>Natural Join </b>is a type of join operation that automatically matches columns between two tables
+                based on their <b>common column names</b> and <b>data types</b>.
+            </p>
+            <ul>
+                <li> It eliminates the need for explicitly specifying the join condition.</li>
+                <li>Unlike other joins, a natural join does not require explicit ON or USING clauses to specify the join
+                    condition.</li>
+            </ul>
+
+            <h2>Key Features of NATURAL JOIN</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <b>Automatic Matching</b>
+                        </td>
+                        <td>Matches columns with the same name and compatible data types from the joined tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Simplified Syntax</b></td>
+                        <td>Reduces the need for explicitly specifying join conditions.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Readable Queries</b></td>
+                        <td>Easier to write and read for queries with straightforward matching conditions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Eliminates Redundant Columns</b></td>
+                        <td>Automatically avoids duplicate columns in the result set.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Explicit Join Condition</b></td>
+                        <td>You don't need to specify the ON clause, as the condition is derived automatically.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Result</b></td>
+                        <td>Combines rows from two tables based on matching values in the common columns.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
+            <h2>Syntax</h2>
+
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> column_list <br>
+                            <span class="orclkey">FROM </span> table1 <br>
+                            <span class="orclkey"> NATURAL JOIN </span> table2
+                             <b> ;</b>      <br>     
+                        </code>
+                <ul>
+                    <li>column_list: List of columns to retrieve from the joined tables.</li>
+                    <li>table1 and table2: The tables to be joined.</li>
+                </ul>
+            </div><br>
+            <h2>How Natural Join Works</h2>
+            <ul>
+                <li>Oracle identifies common columns between the two tables by comparing <b>column names</b> and <b>data
+                        types</b>.</li>
+                <li>Rows with matching values in these common columns are included in the result set.
+                </li>
+                <li>The common columns are included only once in the output.
+                </li>
+            </ul> <br>
+            <h2>Advantages of Natural Join</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Simplified Syntax</b></td>
+                        <td>Reduces query complexity by eliminating the need for explicit join conditions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Readable Queries</b></td>
+                        <td>Enhances readability for simple table relationships.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Automatic Matching</b></td>
+                        <td>Matches columns with identical names and data types automatically.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Disadvantages of Natural Join</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disadvantages</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Limited Flexibility</b></td>
+                        <td>Cannot customize the join condition.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Risk of Ambiguity</b></td>
+                        <td>May unintentionally match columns with the same name but unrelated meaning.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Difficult Debugging</b></td>
+                        <td>Troubleshooting issues can be harder due to the implicit join condition.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Limitations of Natural Join</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Implicit Join Condition</b></td>
+                        <td>Relies on matching column names, which can lead to unintended results if column names are
+                            not standardized.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Column Name Dependency</b></td>
+                        <td>Fails if no common column names exist between the tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Less Explicit</b></td>
+                        <td>May obscure the join logic, making debugging more difficult in complex queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Risk of Misinterpretation</b></td>
+                        <td>Unintended matches or mismatches if columns have the same name but different semantics.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2> Examples / Scenarios </h2>
+            <p><b>Scenario 1:- </b> Fetch customer names and their order details.
+            </p>
+            <ul>
+                <li><b>Orders:</b> Contains order_id, customer_id, and order_date.</li>
+                <li><b>Customers:</b> Contains customer_id, customer_name, and email.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>  customer_name, order_id, order_date
+                    <span class="orclkey"> FROM </span>  customers <br>
+                    <span class="orclkey">NATURAL JOIN </span> orders
+                       <b> ; </b>            
+                        </code>
+                - - The Orders and Customers tables are joined based on the common column customer_id. <br>
+                - - Combines rows where the customer_id in both tables matches.
+            </div><br>
+            <p><b>Scenario 2:- </b> Retrieve employee names and their department details.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_name, department_name
+                     <br>
+                    <span class="orclkey"> FROM </span>  employees <br>
+                    <span class="orclkey"> NATURAL JOIN </span> departments
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Fetch product names and their corresponding sales details.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>  product_name, sale_amount <br>
+                    <span class="orclkey"> FROM </span>  products <br>
+                    <span class="orclkey"> NATURAL JOIN </span> sales
+                          <b> ; </b>     
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- ( Mismatched Column Names ) </b> If the column names between two tables don’t match, a
+                Natural Join will fail to find any common columns. For example:
+            </p>
+            <ul>
+                <li><b>Employees:</b> Contains employee_id and dept_id</li>
+                <li><b>Departments:</b> Contains department_id and dept_name.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees <br>
+                    <span class="orclkey"> NATURAL JOIN </span> Departments
+                       <b> ; </b>   <br>         
+                        </code>
+                - - No rows will be returned because dept_id and department_id are not the same.
+            </div><br>
+
+            <p><b>Scenario 5:- </b> Retrieve customer names, total order amount, and the date
+                of their last purchase for all customers who have made purchases totaling more than $10,000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> <ul>
+                        customer_name, <br>
+                        <span class="orclfun">SUM</span>(order_amount) <span class="orclkey">AS  </span> total_amount, <br>
+                        <span class="orclfun">MAX</span>(order_date) <span class="orclkey">AS  </span> last_purchase_date 
+                     </ul>  
+                    <span class="orclkey"> FROM </span>  customers <br>
+                    <span class="orclkey">NATURAL JOIN </span> orders <br>
+                    <span class="orclkey"> NATURAL JOIN </span> order_details <br>
+                    <span class="orclkey">GROUP BY </span> customer_name <br>
+                    <span class="orclkey">HAVING </span><span class="orclfun">SUM</span>(order_amount) > 10000
+                       <b> ; </b>            
+                        </code>
+                <p>Explanation </p> <br>
+                <ul>
+                    <li>Combines customers, orders, and order_details tables based on matching column names.</li>
+                    <li>Aggregates data to calculate total order amount and last purchase date.</li>
+                    <li>Uses HAVING to filter results for customers with total purchases exceeding $10,000.</li>
+                </ul>
+            </div><br>
+            <p><b>Scenario 6:- </b> Retrieve product names and total sales for each region, but only for regions where
+                the total sales exceed the average sales across all regions.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> region_name, product_name, <br>
+                    <span class="orclfun">SUM</span>(sale_amount)<span class="orclkey"> AS </span> total_sales 
+                    <span class="orclkey"> FROM </span>  regions <br>
+                    <span class="orclkey"> NATURAL JOIN </span> sales <br>
+                    <span class="orclkey"> NATURAL JOIN </span> products <br>
+                    <span class="orclkey"> GROUP BY </span> region_name, product_name <br>
+                    <span class="orclkey"> HAVING </span> <span class="orclfun">SUM</span> (sale_amount) >
+                    <ul>
+                        (<span class="orclkey"> SELECT  </span><span class="orclfun">AVG</span>(total_sales) <br>
+                        <span class="orclkey"> FROM </span>(<span class="orclkey"> SELECT  </span> region_name, <span class="orclfun">SUM</span> (sale_amount) <span class="orclkey"> AS </span> total_sales  <br> 
+                        <ul>
+                            <span class="orclkey"> FROM </span> regions  <span class="orclkey"> NATURAL JOIN </span> sales 
+                            <span class="orclkey"> GROUP BY </span> region_name
+                        </ul>
+                        ) )<b> ; </b>
+                    </ul>
+                                   
+                        </code>
+                <p><b>Explanation:</b></p> <br>
+                <ul>
+                    <li>Combines regions, sales, and products tables using natural join.</li>
+                    <li>Aggregates data to calculate total sales for each product in a region.</li>
+                    <li>Uses a subquery to calculate the average sales across all regions and filters the results using
+                        HAVING.</li>
+                </ul>
+            </div><br>
+            <p><b>Scenario 7:- </b> Retrieve the names of employees who have worked on projects in the same city as
+                their department and have project expenses exceeding the average project expense for that city.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_name, project_name, project_city, department_name
+                     <br>
+                    <span class="orclkey"> FROM </span>  employees <br>
+                    <span class="orclkey"> NATURAL JOIN </span> departments <br>
+                    <span class="orclkey"> NATURAL JOIN </span> projects
+                    <span class="orclkey"> WHERE </span> project_city = department_city <br>
+                    <span class="orclkey"> AND </span> project_expense > 
+                    <ul>
+                        (
+                            <span class="orclkey">SELECT  </span> <span class="orclfun">AVG  </span>(project_expense) <br>
+                            <span class="orclkey"> FROM </span> projects  <br>
+                            <span class="orclkey"> WHERE </span> project_city = projects.project_city
+                        )<b> ; </b> 
+                    </ul>
+                                  
+                        </code>
+                <p><b>Explanation:</b></p><br>
+                <ul>
+                    <li>Joins employees, departments, and projects tables to match employee and department data with
+                        project information.</li>
+                    <li>Filters rows where the project city matches the department city.</li>
+                    <li>Uses a subquery to calculate the average project expense for the city and filters projects where
+                        the expense exceeds this average.</li>
+                </ul>
+            </div><br> <br>
+
+
+
+            <h2>Common Errors in Natural Join</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Description</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01790</b></td>
+                        <td>Column ambiguity due to identical column names in both tables but not participating in the
+                            join.</td>
+                        <td>Ensure that columns with the same name are appropriately matched or excluded from the join.
+                            Use explicit column selection if needed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00904 </b></td>
+                        <td>Invalid column name in the SELECT statement after using a NATURAL JOIN.</td>
+                        <td>Verify that the selected columns exist in the resulting join table and match valid column
+                            names.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00918</b></td>
+                        <td>Ambiguous column reference in the SELECT statement.</td>
+                        <td>Avoid selecting columns with the same name directly; use AS to rename one of the ambiguous
+                            columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ambiguity in Column Names (ORA-00918)</b></td>
+                        <td>Can cause confusion when troubleshooting or debugging complex queries.</td>
+                        <td>Use explicit joins to clearly define the logic and conditions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01747</b></td>
+                        <td>Attempting to use an alias or expression in the NATURAL JOIN clause.</td>
+                        <td>Do not use column aliases or expressions in the NATURAL JOIN clause; instead, reference
+                            original column names.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-25155</b></td>
+                        <td>Specified column in the NATURAL JOIN has a mismatch in data type.</td>
+                        <td>Ensure that the columns being joined have compatible data types (e.g., VARCHAR2 to VARCHAR2,
+                            NUMBER to NUMBER).</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01427</b></td>
+                        <td>Subquery in the NATURAL JOIN results in more than one row.</td>
+                        <td>Ensure subqueries used in filtering or selection criteria return a single row when
+                            appropriate.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00933</b></td>
+                        <td>SQL command is not properly terminated, often due to a syntax error near the NATURAL JOIN.
+                        </td>
+                        <td>Review the SQL syntax for proper placement of NATURAL JOIN and ensure it follows valid SQL
+                            structure.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01400</b></td>
+                        <td>Trying to insert null values into columns that are part of the NATURAL JOIN but defined as
+                            NOT NULL.</td>
+                        <td>Ensure that all NOT NULL columns participating in the join have valid non-null values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01722</b></td>
+                        <td>Invalid number error occurs when comparing columns with mismatched data types.</td>
+                        <td>Check that numeric and string data types align in the columns being joined.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts of Natural Join</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ensure column names and data types match in the tables being joined.</td>
+                        <td>Don’t use a natural join if tables have unintended matching columns.</td>
+                    </tr>
+                    <tr>
+                        <td>Use natural joins for simple queries where the matching logic is obvious.</td>
+                        <td>Don’t use it for complex queries where explicit join conditions are needed.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test queries to validate matching logic and output.</td>
+                        <td>Avoid using natural joins if column names are inconsistent across tables.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Combine with filters (WHERE, ORDER BY, etc.) for better results.</td>
+                        <td>
+                            Don’t rely solely on natural joins in cases requiring detailed join conditions. </td>
+                    </tr>
+
+                </tbody>
+            </table> <br>
+            <h2>Natural Join vs Other Joins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Natural Join</th>
+                        <th>Inner Join</th>
+                        <th>Outer Joins</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Condition</b></td>
+                        <td>Implicit (based on common column names).</td>
+                        <td>Explicit (requires ON or USING clause).</td>
+                        <td>Explicit (requires ON or USING clause).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Column Matching</b></td>
+                        <td>Automatic.</td>
+                        <td>Manual.</td>
+                        <td>Manual.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Result Columns</b></td>
+                        <td>Eliminates duplicate columns.</td>
+                        <td>May include duplicate columns.</td>
+                        <td>May include duplicate columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Readability</b></td>
+                        <td>Simpler syntax.</td>
+                        <td>More verbose.</td>
+                        <td>More verbose.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br><br>
+
+            <div class="topic-buttons">
+                <a href="orclsql_selfjoin.html?topic=sqlSelfJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_equijoin.html?topic=sqlEquiJoin" class="next-button">Next
+                    &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUK_Site_porject/KUK_abad_prod/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+\
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #060330, #1d1d8f);
+            color: #fff;
+            padding: 10px 20px;
+            text-align: left;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        header .kuk-solutions {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        header nav {
+            display: flex;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        .quiz-container {
+            padding: 20px;
+            margin: 100px auto 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .btn-grid {
+            display: grid;
+            margin: 20px 0;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .btn {
+            border: none;
+            background-color: #1d1d8f;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #060330;
+        }
+
+        .correct {
+            background-color: #4CAF50 !important;
+        }
+
+        .wrong {
+            background-color: #FF4C4C !important;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .progress {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .btn-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header nav a {
+                font-size: 14px;
+                margin: 0 8px;
+            }
+        }
+
+        #certificate {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #download-btn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #download-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+                alt="logo">
+            <h1 class="kuk-solutions">KUK DB</h1>
+        </div>
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        <div class="container">
+            <h2 id="question">Question goes here</h2>
+            <div id="answer-buttons" class="btn-grid"></div>
+            <div class="controls">
+                <button id="start-btn" class="btn">Start</button>
+                <button id="next-btn" class="btn hide">Next</button>
+                <button id="retake-btn" class="btn hide">Retake</button>
+            </div>
+            <div class="progress">
+                <span id="progress-text">Question 1 of 3</span>
+                <span id="right-answers">Score: 0</span>
+            </div>
+            <div id="certificate" class="hide">
+                <p>Certificate of Completion</p>
+                <p>This is to certify that <span id="username"></span> has completed the <span
+                        id="course-name">Quiz</span></p>
+                <button id="download-btn">Download Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('start-btn');
+        const nextButton = document.getElementById('next-btn');
+        const retakeButton = document.getElementById('retake-btn');
+        const questionElement = document.getElementById('question');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const progressText = document.getElementById('progress-text');
+        const scoreElement = document.getElementById('right-answers');
+        const certificateElement = document.getElementById('certificate');
+        const usernameElement = document.getElementById('username');
+        const downloadButton = document.getElementById('download-btn');
+
+        let shuffledQuestions, currentQuestionIndex;
+        let quizScore = 0;
+
+        startButton.addEventListener('click', startGame);
+        nextButton.addEventListener('click', () => {
+            currentQuestionIndex++;
+            setNextQuestion();
+        });
+        retakeButton.addEventListener('click', startGame);
+        downloadButton.addEventListener('click', downloadCertificate);
+
+        function startGame() {
+            startButton.classList.add('hide');
+            retakeButton.classList.add('hide');
+            certificateElement.classList.add('hide');
+            shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            updateProgress();
+            setNextQuestion();
+        }
+
+        function setNextQuestion() {
+            resetState();
+            showQuestion(shuffledQuestions[currentQuestionIndex]);
+        }
+
+        function showQuestion(question) {
+            questionElement.innerText = question.question;
+            question.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer.text;
+                button.classList.add('btn');
+                if (answer.correct) button.dataset.correct = answer.correct;
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextButton.classList.add('hide');
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === "true";
+            Array.from(answerButtonsElement.children).forEach(button => {
+                setStatusClass(button, button.dataset.correct === "true");
+            });
+
+            if (correct) quizScore++;
+            updateProgress();
+
+            if (shuffledQuestions.length > currentQuestionIndex + 1) {
+                nextButton.classList.remove('hide');
+            } else {
+                startButton.innerText = "Restart";
+                startButton.classList.remove('hide');
+                retakeButton.classList.remove('hide');
+                showFinalScore();
+            }
+        }
+
+        function setStatusClass(element, correct) {
+            clearStatusClass(element);
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        function clearStatusClass(element) {
+            element.classList.remove('correct');
+            element.classList.remove('wrong');
+        }
+
+        function updateProgress() {
+            progressText.innerText = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            scoreElement.innerText = `Score: ${quizScore}`;
+        }
+
+        function showFinalScore() {
+            if ((quizScore / questions.length) * 100 > 80) {
+                const name = prompt("Congratulations! Enter your name for the certificate:");
+                if (name) {
+                    usernameElement.innerText = name;
+                    certificateElement.classList.remove('hide');
+                }
+            }
+        }
+
+        function downloadCertificate() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            const name = usernameElement.innerText;
+
+            pdf.text("Certificate of Completion", 105, 30, null, null, "center");
+            pdf.text(`This is to certify that ${name} has completed the Quiz.`, 105, 50, null, null, "center");
+
+            pdf.save('Certificate.pdf');
+        }
+
+        const questions = [
+            {
+                question: 'Which of the following is not a programming language?',
+                answers: [
+                    { text: 'Python', correct: false },
+                    { text: 'English', correct: true },
+                    { text: 'Java', correct: false },
+                    { text: 'SQL', correct: false }
+                ]
+            },
+            {
+                question: 'Which of the following is a programming language?',
+                answers: [
+                    { text: 'Python', correct: true },
+                    { text: 'English', correct: false },
+                    { text: 'Telugu', correct: false },
+                    { text: 'Hindi', correct: false }
+                ]
+            },
+            {
+                question: 'What is 4 * 5?',
+                answers: [
+                    { text: '45', correct: false },
+                    { text: '25', correct: false },
+                    { text: '20', correct: true },
+                    { text: '30', correct: false }
+                ]
+            }
+        ];
+    </script>
+</body>
+
+</html>

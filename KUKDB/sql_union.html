@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlUnion">
+
+            <div class="topic-buttons">
+                <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="sql_unionall.html?topic=sqlUnionall" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>UNION Operator</h1>
+            <p>The UNION operator is a set operator that combines the results of two or more SELECT statements into a
+                single result set.</p><br>
+            <p>It <b>removes duplicate rows</b> by default, ensuring the final output contains only unique rows.</p><br>
+            <h2>Key Characteristics of UNION</h2>
+            <ul>
+                <li><b>Combines Results:- </b> Merges results from multiple SELECT statements.</li>
+                <li><b>Duplicates:- </b> Removes duplicates unless specified with UNION ALL.</li>
+                <li><b>Data Type Compatibility:- </b>
+                    <ul>
+                        <li>The number of columns in each SELECT must be the same.</li>
+                        <li>Data types of corresponding columns must be compatible.</li>
+                    </ul>
+                <li><b>Order of Data:- </b> Sorting in the combined result can be achieved using ORDER BY at the end of
+                    the UNION query.</li>
+            </ul>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1, column2, . . .<br>
+                    <span class="orclkey">FROM </span> table1  <br>
+                    <span class="orclkey">WHERE </span> condition1  <br><br>
+                    <span class="orclkey">UNION </span>   <br><br>
+                    <span class="orclkey">SELECT  </span> column1, column2, . . .<br>
+                    <span class="orclkey">FROM </span> table2  <br>
+                    <span class="orclkey">WHERE </span> condition2 <b> ; </b>
+                </code>
+            </div><br>
+            <h2>Examples</h2>
+            <h3>1. Basic UNION Example</h3>
+            <p><b>Scenario :- </b> Combine lists of employees from two tables.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name, department <br>
+                    <span class="orclkey">FROM </span> employees_2023  <br>
+                    
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> employee_id, name, department<br>
+                    <span class="orclkey">FROM </span> employees_2024
+                    <b> ; </b><br><br>
+                    - - Combines employees from both tables.<br>
+                    - - Duplicates are removed in the final result.
+                </code>
+            </div><br>
+            <h3>2. Using UNION with Different WHERE Conditions</h3>
+            <p><b>Scenario 1:- </b> Get all active and terminated employees from separate tables.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name, status <br>
+                    <span class="orclkey">FROM </span> employees  <br>
+                    <span class="orclkey">WHERE </span> status = 'Active' <br>                    
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> employee_id, name, status<br>
+                    <span class="orclkey">FROM </span> terminated_employees
+                    <b> ; </b>
+                </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Retrieves products priced over $50 from both the US and UK markets, with an
+                indicator column specifying the market.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> ProductID, ProductName, 'USA' <span class="orclkey"> AS  </span> Market <br> 
+                    <span class="orclkey"> FROM </span> Products_US <br>
+                    <span class="orclkey">WHERE </span> Price > 50 <br>                    
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> ProductID, ProductName, 'UK' <span class="orclkey"> AS  </span> Market <br> 
+                    <span class="orclkey">FROM </span> Products_UK <br>
+                    <span class="orclkey">WHERE </span> Price > 50 
+                    <b> ; </b>
+                </code>
+            </div><br>
+            <h3>3. UNION with Expressions</h3>
+            <p><b>Scenario :- </b> Combine sales data with calculated fields.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, sales  <span class="orclkey"> AS  </span> total_sales, '2023' <span class="orclkey"> AS </span>year<br>
+                    <span class="orclkey">FROM </span> sales_2023  <br>                   
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> product_id, sales * 1.1 <span class="orclkey"> AS  </span> total_sales, '2024' <span class="orclkey"> AS </span>year<br>
+                    <span class="orclkey">FROM </span> sales_2024
+                    <b> ; </b>
+                </code>
+            </div><br>
+            <h3>4. Using UNION with ORDER BY</h3>
+            <p><b>Scenario 1:- </b> Combine sales data with calculated fields.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name  <br>
+                    <span class="orclkey">FROM </span> employees_2023  <br>                   
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> employee_id, name <br>
+                    <span class="orclkey">FROM </span> employees_2024
+                    <span class="orclkey">ORDER BY </span> name
+                    <b> ; </b> <br><br>
+                    - - ORDER BY applies to the entire result set, not individual queries.
+                </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Combines employee names and sorts the combined result set by LastName in ascending
+                order.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> FirstName, LastName <br>
+                    <span class="orclkey">FROM </span> Employees_US  <br>                   
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> FirstName, LastName <br>
+                    <span class="orclkey">FROM </span> Employees_UK
+                    <span class="orclkey">ORDER BY </span> LastName <span class="orclkey"> ASC </span>
+                    <b> ; </b> <br><br>
+                    - - ORDER BY applies to the entire result set, not individual queries.
+                </code>
+            </div><br>
+            <h2>Common Use Cases</h2>
+            <h4>1. Merging Data Across Tables: </h4>
+            <p>Combine similar data from multiple tables, such as annual records or regional data.</p>
+            <h4>2. Combining Different Conditions:</h4>
+            <p>Use different conditions for fetching related data.</p>
+            <h4>3. Aggregating Results:</h4>
+            <p>Merge results from aggregated data sets (e.g., totals, averages).</p><br>
+            <h2>Advanced Use Cases</h2>
+            <h3>1. Combining Data from Different Sources</h3>
+            <p><b>Scenario :-</b> Combine customer records from multiple databases.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, name, country <br>
+                    <span class="orclkey">FROM </span> db1.customers  <br>                   
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> customer_id, name, country <br>
+                    <span class="orclkey">FROM </span> db2.customers
+                    <b> ; </b> 
+                </code>
+            </div><br>
+            <h3>2. Creating a Unified View</h3>
+            <p><b>Scenario :-</b> Create a view combining employee data from multiple years.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE VIEW  </span> all_employees  <span class="orclkey">AS  </span> <br>
+                    <span class="orclkey">SELECT  </span> employee_id, name, department, '2023' <span class="orclkey"> AS </span>year<br>
+                    <span class="orclkey">FROM </span> employees_2023  <br>                   
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> employee_id, name, department, '2024' <span class="orclkey"> AS </span>year<br>
+                    <span class="orclkey">FROM </span> employees_2024
+                    <b> ; </b> 
+                </code>
+            </div><br>
+            <h3>3. UNION with Aggregation</h3>
+            <p><b>Scenario :-</b> Combine sales totals across regions.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> region, SUM( sales ) <span class="orclkey"> AS </span>total_sales <br>
+                    <span class="orclkey">FROM </span> sales_north  <br>   
+                    <span class="orclkey">GROUP BY </span> region              
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> region, SUM( sales ) <span class="orclkey"> AS </span>total_sales <br>
+                    <span class="orclkey">FROM </span> sales_south <br>
+                    <span class="orclkey">GROUP BY </span> region
+                    <b> ; </b> 
+                </code>
+            </div><br>
+            <h3>4. Combining Queries with Different Filters</h3>
+            <p><b>Scenario :-</b> Combines recent orders from the Orders table and historical orders from the
+                HistoricalOrders table</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> OrderID, CustomerID <br>
+                    <span class="orclkey">FROM </span> Orders  <br>   
+                    <span class="orclkey">WHERE  </span> OrderDate >= '01-01-2023'         
+                    <span class="orclkey">UNION </span>   <br>
+                    <span class="orclkey">SELECT  </span> OrderID, CustomerID <br>
+                    <span class="orclkey">FROM </span> HistoricalOrders <br>
+                    <span class="orclkey">WHERE </span> OrderDate <span class="orclkey">BETWEEN </span> '01-01-2023'<span class="orclkey"> AND </span> '01-01-2024'
+                    <b> ; </b> 
+                </code>
+            </div><br>
+            <h2>Database-Specific Notes</h2>
+            <h4>Oracle:</h4>
+            <ul>
+                <li>Fully supports UNION and UNION ALL.</li>
+                <li>Use ORDER BY only after all SELECT statements.</li>
+            </ul>
+            <h4>SQL Server:</h4>
+            <ul>
+                <li>Syntax and behavior are consistent with the standard.</li>
+                <li>Aliases from the first query are used for column naming in the result set.</li>
+            </ul>
+            <h4>MySQL:</h4>
+            <ul>
+                <li>Supported and behaves similarly to other databases.</li>
+                <li>Enforces column compatibility.</li>
+            </ul><br>
+            <h2>Performance Considerations</h2>
+
+            <p><b>UNION vs. UNION ALL :</b></p>
+            <ul>
+                <ul>
+                    <li>
+                        UNION performs an additional DISTINCT operation, which can be slow for large data sets.
+                    </li>
+                    <li>
+                        Use UNION ALL if you don’t need duplicate elimination.
+                    </li>
+                </ul>
+            </ul>
+
+
+            <p><b>Indexing :</b></p>
+            <ul>
+                <ul>
+                    <li>
+                        Ensure proper indexing on the columns used in SELECT statements to improve performance.
+                    </li>
+                </ul>
+            </ul>
+
+            <p><b>Batch Processing :</b></p>
+            <ul>
+                <ul>
+                    <li>
+                        Divide large queries into smaller batches to avoid performance bottlenecks.
+                    </li>
+                </ul>
+            </ul>
+            <br>
+            <h2>Do's and Don'ts</h2>
+            <h3>Do's</h3>
+            <ul>
+                <li><b>Ensure Compatibility:- </b> Verify that the number of columns and their data types match
+                    across
+                    all SELECT queries.
+                </li>
+                <li><b>Use Aliases for Clarity:- </b> Rename columns for consistency, especially when combining
+                    tables
+                    with different column names.</li>
+                <li><b>Use UNION ALL for Performance:- </b>Prefer UNION ALL when duplicates do not need to be
+                    removed,
+                    as it is faster than UNION.</li>
+                <li><b>Apply ORDER BY at the End:- </b>Use ORDER BY in the final result set to avoid errors.</li>
+            </ul><br>
+            <h3>Don'ts</h3>
+            <ul>
+                <li><b>Mismatch Columns:- </b>
+                    Avoid combining queries with different numbers or types of columns.
+                </li>
+                <li><b>Apply ORDER BY in Individual Queries:- </b>
+                    Sorting must be applied only in the final result set.
+                </li>
+                <li><b>Ignore Performance:- </b>
+                    Avoid using UNION where UNION ALL is sufficient to reduce computational overhead.
+                </li>
+                <li>Don’t use UNION when a JOIN would be more appropriate.</li>
+            </ul> <br>
+            <h2>Limitations</h2>
+            <ul>
+                <li><b>Column Count:- </b> All queries must have the same number of columns.</li>
+                <li><b>Column Data Types:- </b> Corresponding columns must have compatible data types.</li>
+                <li><b>Order of Columns:- </b> Columns must appear in the same order in all queries.</li>
+            </ul><br>
+            <h2>Comparison: UNION vs UNION ALL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>UNION</th>
+                        <th>UNION ALL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Duplicates </td>
+                        <td>Removes duplicates</td>
+                        <td>Includes duplicates</td>
+                    </tr>
+                    <tr>
+                        <td> Performance </td>
+                        <td>Slower ( requires sorting and comparison )</td>
+                        <td>Faster (no duplicate check)</td>
+                    </tr>
+                    <tr>
+                        <td> Use Case </td>
+                        <td>When unique rows are needed</td>
+                        <td>When all rows are needed</td>
+                    </tr>
+
+                </tbody>
+            </table><br><br>
+
+            <div class="topic-buttons">
+                <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="sql_unionall.html?topic=sqlUnionall" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

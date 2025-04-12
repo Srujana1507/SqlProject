@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlArithmeticOperators">
+
+            <div class="topic-buttons">
+                <a href="sql_dual.html?topic=sqlDual" class="previou-button">&laquo; Previous</a>
+                <a href="sql_relationaloperators.html?topic=sqlRelationalOperators" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Arithmetic Operators</h1>
+            <p>Arithmetic operators are used to perform basic mathematical calculations in SQL.</p>
+            <ul>
+                <li>They are applied within queries to manipulate and calculate values in expressions or directly in
+                    table data.</li>
+                <li>They can be applied to numeric columns, constants, and expressions.</li>
+            </ul>
+            <table>
+                <caption>Arithmetic Operators are</caption>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b> + </b></td>
+                        <td>Addition</td>
+                        <td>Used to add two or more numeric values. It works like the plus symbol in basic mathematics.
+                        </td>
+                        <td>10 + 20 = 30</td>
+                    </tr>
+                    <tr>
+                        <td><b> - </b></td>
+                        <td>Subtraction</td>
+                        <td>Used to subtract one numeric value from another. It is similar to the minus symbol in basic
+                            mathematics.</td>
+                        <td>100 - 20 = 80 </td>
+                    </tr>
+                    <tr>
+                        <td><b>*</b></td>
+                        <td>Multiplication</td>
+                        <td>Used to multiply two numeric values. It functions like the multiplication symbol in
+                            mathematics.</td>
+                        <td>5 * 6 = 30</td>
+                    </tr>
+                    <tr>
+                        <td><b> / </b></td>
+                        <td>Division</td>
+                        <td>Used to divide one numeric value by another. It performs the division operation as in basic
+                            mathematics.</td>
+                        <td> 50/5 = 10</td>
+                    </tr>
+                    <tr>
+                        <td><b> % </b></td>
+                        <td>Modulus (remainder after division)</td>
+                        <td>Returns the remainder of a division operation. Commonly used to check for even/odd values or
+                            to cycle through numbers.</td>
+                        <td> 7/2 = 1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+            <h3>Sample Table</h3>
+            <caption>EMPLOYEE table: CREATE Table script</caption>
+            <div class="code-box">
+                <code>
+                <span class="orclkey">CREATE TABLE</span> EMPLOYEE(<br>
+                EMP_ID <span class="orclkey">INT  NOT NULL </span>   <b>,</b>    - - EMP_ID ( Employee ID )<br>
+                ENAME <span class="orclkey">VARCHAR</span>(15) <span class="orclkey">NOT NULL</span>   <b>,</b>       - - ENAME ( Employee Name )<br>
+                CITY <span class="orclkey">CHAR</span>(15)  <b>,</b><br>
+                SALARY <span class="orclkey">DECIMAL</span>(10, 2)    <b>,</b><br>
+                DOJ <span class="orclkey">DATE <b>,</b>  </span>      - - DOJ ( Date Of Join )<br>
+                <span class="orclkey"> PRIMARY KEY  </span>(EMP_ID)<br>)<b> ;</b>  
+            </code>
+            </div>
+            <br>
+            <caption>INSERT script for EMPLOYEE table</caption>
+            <div class="code-box">
+                <code>
+                    <!-- <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span> -->
+                    <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span>
+                    (101<b>, </b><b>'</b>Uday<b>'</b><b>, </b><b>'</b>Hyderabad<b>'</b><b>, </b>80000<b>, </b><b>'</b>05-04-2023<b>'</b> ) <b> ;</b> <br><br>
+                    <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span>
+                    (102<b>, </b><b>'</b>Kumar<b>'</b><b>, </b><b>'</b>Pune<b>'</b><b>, </b>60000<b>, </b><b>'</b>15-10-2023<b>'</b> ) <b> ;</b><br><br>
+                    <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span>
+                    (103<b>, </b><b>'</b>Harsha<b>'</b><b>, </b><b>'</b>Bangolore<b>'</b><b>, </b>70000<b>, </b><b>'</b>08-05-2023<b>'</b> ) <b> ;</b><br><br>
+                    <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span>
+                    (104<b>, </b><b>'</b>Darshan<b>'</b><b>, </b><b>'</b>Chennai<b>'</b><b>, </b>40000<b>, </b><b>'</b>22-10-2024<b>'</b> ) <b> ;</b><br><br>
+                    <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span>
+                    (105<b>, </b><b>'</b>Niraj<b>'</b><b>, </b><b>'</b>Hyderabad<b>'</b><b>, </b>30000<b>, </b><b>'</b>13-04-2024<b>'</b> ) <b> ;</b><br><br>
+                    <span class="orclkey">INSERT INTO</span> EMPLOYEE(EMP_ID<b>, </b>ENAME<b>, </b>CITY<b>, </b>SALARY<b>, </b>DOJ )<br>
+                    <span class="orclkey">VALUES</span>
+                    (106<b>, </b><b>'</b>Rudra<b>'</b><b>, </b><b>'</b>Kolkata<b>'</b><b>, </b>30000<b>, </b><b>'</b>26-06-2023<b>'</b> ) <b> ;</b> 
+                </code>
+            </div>
+            <br>
+            <caption>EMPLOYEE table</caption>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>CITY</th>
+                        <th>SALARY</th>
+                        <th>DOJ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101 </td>
+                        <td>Uday</td>
+                        <td>Hyderabad </td>
+                        <td>80000</td>
+                        <td>05-04-2023</td>
+                    </tr>
+                    <tr>
+                        <td>102 </td>
+                        <td>Kumar</td>
+                        <td>Pune </td>
+                        <td>60000</td>
+                        <td>15-10-2023</td>
+                    </tr>
+                    <tr>
+                        <td>103 </td>
+                        <td>Harsha</td>
+                        <td>Bangolore </td>
+                        <td>70000</td>
+                        <td>08-05-2023</td>
+                    </tr>
+                    <tr>
+                        <td>104 </td>
+                        <td>Darshan</td>
+                        <td>Chennai</td>
+                        <td>40000</td>
+                        <td>22-10-2024</td>
+                    </tr>
+                    <tr>
+                        <td>105 </td>
+                        <td>Niraj</td>
+                        <td>Hyderabad </td>
+                        <td>30000</td>
+                        <td>13-04-2024</td>
+                    </tr>
+                    <tr>
+                        <td>106 </td>
+                        <td>Rudra</td>
+                        <td>Kolkata</td>
+                        <td>30000</td>
+                        <td>26-06-2023</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Basic Examples</h3>
+            <h4> Addition ( + ) Operator a Constants value</h4>
+            <p><b>Scenario :-</b> 5000(Constants value) as bonus to all employees and Add the bonus to salary and
+                display it as new_salary in output.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>SALARY + 5000 <span class="orclkey"> AS </span> NEW_SALARY <span class="orclkey"> FROM   </span> EMPLOYEE 
+                        <b> ;</b> 
+                    </code>
+            </div>
+            <br>
+            <h3>Output:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>SALARY</th>
+                        <th>NEW_SALARY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101 </td>
+                        <td>Uday</td>
+                        <td>80000</td>
+                        <td>85000</td>
+                    </tr>
+                    <tr>
+                        <td>102 </td>
+                        <td>Kumar</td>
+                        <td>60000</td>
+                        <td>65000</td>
+                    </tr>
+                    <tr>
+                        <td>103 </td>
+                        <td>Harsha</td>
+                        <td>70000</td>
+                        <td>75000</td>
+                    </tr>
+                    <tr>
+                        <td>104 </td>
+                        <td>Darshan</td>
+                        <td>40000</td>
+                        <td>45000</td>
+                    </tr>
+                    <tr>
+                        <td>105 </td>
+                        <td>Niraj</td>
+                        <td>30000</td>
+                        <td>35000</td>
+                    </tr>
+                    <tr>
+                        <td>106 </td>
+                        <td>Rudra</td>
+                        <td>30000</td>
+                        <td>35000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4> Subtraction ( - ) Operator with a Constants value</h4>
+            <p><b>Scenario :-</b>Calculate Net_amount after deductions of PF (2300 - Constants value) for all employee.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>SALARY - 2300 <span class="orclkey"> AS </span> NET_AMOUNT <span class="orclkey"> FROM   </span> EMPLOYEE 
+                        <b> ;</b> 
+                    </code>
+            </div>
+            <br>
+            <h3>Output:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>SALARY</th>
+                        <th>NET_AMOUNT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101 </td>
+                        <td>Uday</td>
+                        <td>80000</td>
+                        <td>77700</td>
+                    </tr>
+                    <tr>
+                        <td>102 </td>
+                        <td>Kumar</td>
+                        <td>60000</td>
+                        <td>57700</td>
+                    </tr>
+                    <tr>
+                        <td>103 </td>
+                        <td>Harsha</td>
+                        <td>70000</td>
+                        <td>67700</td>
+                    </tr>
+                    <tr>
+                        <td>104 </td>
+                        <td>Darshan</td>
+                        <td>40000</td>
+                        <td>37700</td>
+                    </tr>
+                    <tr>
+                        <td>105 </td>
+                        <td>Niraj</td>
+                        <td>30000</td>
+                        <td>27700</td>
+                    </tr>
+                    <tr>
+                        <td>106 </td>
+                        <td>Rudra</td>
+                        <td>30000</td>
+                        <td>27700</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4> Multiplication ( * ) Operator </h4>
+            <p><b>Scenario :-</b>Calculate annual income for each employee and display as Annual_Income in output.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>SALARY * 12 <span class="orclkey"> AS </span> Annual_Income <span class="orclkey"> FROM   </span> EMPLOYEE 
+                        <b> ;</b> 
+                    </code>
+            </div>
+            <br>
+            <h3>Output:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>SALARY</th>
+                        <th>Annual_Income</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101 </td>
+                        <td>Uday</td>
+                        <td>80000</td>
+                        <td>960000</td>
+                    </tr>
+                    <tr>
+                        <td>102 </td>
+                        <td>Kumar</td>
+                        <td>60000</td>
+                        <td>720000</td>
+                    </tr>
+                    <tr>
+                        <td>103 </td>
+                        <td>Harsha</td>
+                        <td>70000</td>
+                        <td>840000</td>
+                    </tr>
+                    <tr>
+                        <td>104 </td>
+                        <td>Darshan</td>
+                        <td>40000</td>
+                        <td>480000</td>
+                    </tr>
+                    <tr>
+                        <td>105 </td>
+                        <td>Niraj</td>
+                        <td>30000</td>
+                        <td>360000</td>
+                    </tr>
+                    <tr>
+                        <td>106 </td>
+                        <td>Rudra</td>
+                        <td>30000</td>
+                        <td>360000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4> Division ( / ) Operator </h4>
+            <p><b>Scenario :-</b>Calculate daily salary portion of all employees.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>SALARY / 30 <span class="orclkey"> AS </span> Day_Salary <span class="orclkey"> FROM   </span> EMPLOYEE 
+                        <b> ;</b> <br><br>
+                        - - <b>ROUND(SALARY / 30) </b>- This function rounds the result to two decimal places (by default or as specified).<br>
+                        - - Instead of getting 2666.666666666666666666666666666666666667, the value will be rounded to <b>2666.67</b> when using ROUND. <br>
+                        <div class="note-box">
+                            <b> NOTE : -</b> <ul> <li>It is recommended to use <b>ROUND</b> or <b>TRUNC</b> in divisions to control the number of decimal places and avoid unexpected results.</li>
+                            <li><b>2 decimal places</b> is most common for financial or general applications, while more precision (e.g., 4-6) is used in scientific or specialized fields.</li>
+                        </ul>
+                        </div>
+                    </code>
+            </div>
+            <br>
+            <h3>Output:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>SALARY</th>
+                        <th>Day_Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101 </td>
+                        <td>Uday</td>
+                        <td>80000</td>
+                        <td>2666.67</td>
+                    </tr>
+                    <tr>
+                        <td>102 </td>
+                        <td>Kumar</td>
+                        <td>60000</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td>103 </td>
+                        <td>Harsha</td>
+                        <td>70000</td>
+                        <td>2333.33</td>
+                    </tr>
+                    <tr>
+                        <td>104 </td>
+                        <td>Darshan</td>
+                        <td>40000</td>
+                        <td>1333.33</td>
+                    </tr>
+                    <tr>
+                        <td>105 </td>
+                        <td>Niraj</td>
+                        <td>30000</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>106 </td>
+                        <td>Rudra</td>
+                        <td>30000</td>
+                        <td>1000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4> Modulus ( % ) Operator. In Oracle MOD(column1,2) </h4>
+            <p> <b>Scenario :-</b>Find out the employees having an even employee ID.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> * <span class="orclkey"> FROM   </span> EMPLOYEE <span class="orclkey"> WHERE </span> EMP_ID % 2 = 0 
+                        <b> ;</b> <br><br>
+                    </code>
+            </div>
+            <br>
+            <h3>Output:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>CITY</th>
+                        <th>SALARY</th>
+                        <th>DOJ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>102 </td>
+                        <td>Kumar</td>
+                        <td>Pune </td>
+                        <td>60000</td>
+                        <td>15-10-2023</td>
+                    </tr>
+                    <tr>
+                        <td>104 </td>
+                        <td>Darshan</td>
+                        <td>Chennai </td>
+                        <td>40000</td>
+                        <td>22-10-2024</td>
+                    </tr>
+                    <tr>
+                        <td>106 </td>
+                        <td>Rudra</td>
+                        <td>Kolkata</td>
+                        <td>30000</td>
+                        <td>26-06-2023</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>Advanced Examples</h2>
+            <h3>Example 1: Arithmetic in WHERE Clause</h3>
+            <p>Find employees with a yearly salary (calculated as monthly_salary * 12) greater than 500,000.</p><br>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> * <span class="orclkey"> FROM   </span> EMPLOYEE <span class="orclkey"> WHERE </span> SALARY *12 > 500000
+                        <b> ;</b> <br><br>
+                    </code>
+            </div>
+            <br>
+            <h3>Example 2: Combining Multiple Operators</h3>
+            <p>Calculate total profit percentage</p><br>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> Product_id<b>, </b><br>
+                        (revenue - cost) / revenue * 100 <span class="orclkey">AS   </span> profit_percentage <br>
+                        <span class="orclkey"> FROM   </span> sales  
+                        <b> ;</b> <br><br>
+                    </code>
+            </div>
+            <br>
+            <h2>Order of Precedence for Arithmetic Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Precedence Level</th>
+                        <th>Associativity</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b> * , / , % </b></td>
+                        <td>High</td>
+                        <td>Left to Right</td>
+                        <td>Multiplication, Division, Modulus</td>
+                    </tr>
+                    <tr>
+                        <td><b>+ , - </b></td>
+                        <td>Low</td>
+                        <td>Left to Right</td>
+                        <td>Addition, Subtraction </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3> Key Points :</h3>
+            <ul>
+                <li>Operators with higher precedence (*, /, %) are evaluated before those with lower precedence (+, -).
+                </li>
+                <li>When operators have the same precedence, evaluation proceeds from left to right.</li>
+                <li>Parentheses () can override the default precedence and force specific order of execution.</li>
+            </ul>
+            <br>
+            <h4>Sample Example</h4>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey">FROM   </span> DUAL <b> ;</b>  - - In Oracle<br> 
+                            <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br> 
+                            - - result = 49
+                        </code>
+            </div><br>
+            <h4>Step-by-Step Execution of above exampls</h4>
+            <ul>
+                <li><b>Evaluate Multiplication (*) :</b> 20 * 2= 40</li>
+                <li><b>Evaluate Division (/) :</b> 5 / 5 = 1</li>
+                <li><b>Evaluate Addition (+) :</b> 10 + 40 = 50</li>
+                <li><b>Evaluate Subtraction (-) :</b> 50 - 1 = 49</li>
+            </ul>
+            <br>
+            <h4>Sample Example</h4>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey"> AS </span>Final_result<span class="orclkey">FROM   </span> DUAL <b> ;</b>  - - In Oracle<br> 
+                            <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br> 
+                            - - result = 49
+                        </code>
+            </div><br>
+            <h4>Using Parentheses for Explicit Precedence</h4>
+            <p>To change the order of execution, use parentheses. Operations inside parentheses are always evaluated
+                first.</p>
+            <h4>Example with Parentheses</h4>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT   </span> ( 10 + 20 ) <b> * </b>( 2 - 5 / 5 ) <span class="orclkey"> AS </span>Final_result<span class="orclkey">FROM   </span> DUAL <b> ;</b>  - - In Oracle<br> 
+                            <span class="orclkey">SELECT   </span> ( 10 + 20 ) <b> * </b>( 2 - 5 / 5 ) <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br> 
+                            - - result = 30
+                        </code>
+            </div><br>
+            <h4>Step-by-Step Execution of above exampls</h4>
+            <ul>
+                <li><b>Evaluate Division (/) in Parentheses: </b> 5 / 5 = 1.</li>
+                <li><b>Evaluate Subtraction (-) in Parentheses :</b> 2 - 1 = 1.</li>
+                <li><b>Evaluate Addition (+) in Parentheses: </b> 10 + 20 = 30.</li>
+                <li><b>Evaluate Multiplication (*): </b> 30 * 1 = 30.</li>
+            </ul>
+            <br>
+            <h3>Example 3: Handling NULL Values</h3>
+            <p>If any operand is NULL, the result of the operation is NULL</p><br>
+            <ul>
+                <li> Let assume, for EMPID = 107 salary was credited (null).</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>CITY</th>
+                        <th>SALARY</th>
+                        <th>DOJ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>107 </td>
+                        <td>Vardhan</td>
+                        <td>Noida </td>
+                        <td>(null)</td>
+                        <td>20-07-2023</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span>  EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>
+                        SALARY / 30 <span class="orclkey"> AS </span> Day_Salary <br>
+                        SALARY + 5000 <span class="orclkey"> AS </span> NEW_SALARY <br>
+                        SALARY - 2300 <span class="orclkey"> AS </span> NET_AMOUNT <br>
+                        SALARY * 12 <span class="orclkey"> AS </span> Annual_Income <br>
+                        <span class="orclkey"> FROM   </span> EMPLOYEE  
+                        <b> ;</b> <br><br>
+                    </code>
+            </div>
+            <br>
+            <h4> Output</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>SALARY</th>
+                        <th>Day_Salary</th>
+                        <th>NEW_SALARY</th>
+                        <th>NET_AMOUNT</th>
+                        <th>Annual_Income</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>107 </td>
+                        <td>Vardhan</td>
+                        <td>(null)</td>
+                        <td>(null)</td>
+                        <td>(null)</td>
+                        <td>(null)</td>
+                        <td>(null)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4> Solution:</h4>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT   </span>  EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>
+                            COALESCE(SALARY<b> , </b>0 ) / 30 <span class="orclkey"> AS </span> Day_Salary <br>
+                            COALESCE(SALARY<b> , </b>0 ) + 5000 <span class="orclkey"> AS </span> NEW_SALARY <br>
+                            COALESCE(SALARY<b> , </b>0 ) - 2300 <span class="orclkey"> AS </span> NET_AMOUNT <br>
+                            COALESCE(SALARY<b> , </b>0 ) * 12 <span class="orclkey"> AS </span> Annual_Income <br>
+                            <span class="orclkey"> FROM   </span> EMPLOYEE  
+                            <b> ;</b> <br><br>
+                        </code>
+            </div>
+            <br>
+            <h4> Output</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>EMP_ID</th>
+                        <th>ENAME</th>
+                        <th>SALARY</th>
+                        <th>Day_Salary</th>
+                        <th>NEW_SALARY</th>
+                        <th>NET_AMOUNT</th>
+                        <th>Annual_Income</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>107 </td>
+                        <td>Vardhan</td>
+                        <td>(null)</td>
+                        <td>0</td>
+                        <td>-1200</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Example 4: Using Arithmetic in GROUP BY</h3>
+            <p>Calculate average profit for products with a cost greater than 100.</p><br>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> product_id <b> , </b>AVG( revenue - cost ) <span class="orclkey"> AS    </span> avg_profit <br>
+                        <span class="orclkey"> FROM  </span> sales <br>
+                        <span class="orclkey"> GROUP BY  </span> product_id <br>
+                        <span class="orclkey"> HAVING   </span> AVG( revenue - cost ) > 100 
+                        <b> ;</b> <br><br>
+                    </code>
+            </div>
+            <br>
+            <h3>Example 5: Conditional Arithmetic</h3>
+            <p>Compute a 10% tax for products priced above $100, otherwise, apply a 5% tax.</p><br>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EMP_ID <b> , </b>ENAME<b> , </b>SALARY<b> , </b> <br>
+                        <ul>
+                            <span class="orclkey"> CASE  </span> <br>
+                            <ul>
+                                
+                                    <span class="orclkey"> WHEN  </span> SALARY >= 50000  <span class="orclkey"> THEN  </span> SALARY * 0.2 <br>
+                                    <span class="orclkey"> WHEN  </span> SALARY <span class="orclkey"> BETWEEN  </span> 30000 <span class="orclkey"> AND  </span> 50000 <span class="orclkey"> THEN  </span> SALARY * 0.1 <br>
+                                    <span class="orclkey"> ELSE  </span> SALARY <br>
+                                
+                            </ul>
+                            <span class="orclkey"> END AS </span> TaxAmount<br>
+                        </ul>
+                        <span class="orclkey"> FROM  </span> EMPLOYEE 
+                        <b> ;</b> <br><br>
+                    </code>
+            </div>
+            <br>
+            <h3>Example 6: Percentage Contribution</h3>
+            <p>Calculate the percentage of sales contributed by each product.</p><br>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT   </span> ProductID <b> , </b>Price * Quantity <span class="orclkey"> AS  </span> ProductRevenue<b> , </b> <br>
+                            <ul>
+                                <ul>
+                                    <ul>
+                                        ( Price * Quantity ) <b> * </b> 100.0 / SUM( Price * Quantity ) <span class="orclkey"> OVER </span> ( ) <span class="orclkey"> AS  </span> PercentageContribution <br>
+                                    </ul>
+                                </ul>
+                            </ul>
+                            <span class="orclkey"> FROM  </span> Sales 
+                            <b> ;</b> <br><br>
+                            - -  SUM(Price * Quantity) OVER () computes the total revenue. <br>
+                            - -  (Price * Quantity) * 100.0 / SUM(...) calculates the percentage contribution. <br>
+                        </code>
+            </div>
+            <br>
+            <h2>Common Errors :-</h2>
+            <h4>1. Division by Zero</h4><br>
+            <ul>
+                <li><b>Cause :- </b> Using / where the divisor is zero.</li>
+                <li><b>Fix :- </b> Use a conditional check to avoid zero division (NULLIF)</li>
+                <div class="code-box">
+                    <code>
+                                    <span class="orclkey">SELECT   </span> Price / NULLIF( Discount, 0 ) <span class="orclkey"> AS    </span> SafeDivision <br>
+                                    <span class="orclkey"> FROM  </span> Products 
+                                    <b> ;</b> <br><br>
+                                </code>
+                </div>
+            </ul>
+            <h4>2. Data Type Mismatch</h4> <br>
+            <ul>
+                <li><b>Cause :- </b> Applying arithmetic on non-numeric data types (e.g., strings).</li>
+                <li><b>Fix :- </b> Ensure the columns are numeric or use CAST/CONVERT.</li>
+                <div class="code-box">
+                    <code>
+                                    <span class="orclkey">SELECT   </span> CAST( Price <span class="orclkey"> AS </span> FLOAT) * Quantity <span class="orclkey"> AS </span> Total <br>
+                                    <span class="orclkey"> FROM  </span> Products 
+                                    <b> ;</b> <br><br>
+                                </code>
+                </div>
+            </ul>
+            <h4>3. Overflow Errors</h4>
+            <ul>
+                <li><b>Cause :- </b> Operations exceeding the data type's limit (e.g., adding large numbers to an INT
+                    column).</li>
+                <li><b>Fix :- </b> Use appropriate data types like BIGINT or DECIMAL.</li>
+            </ul><br>
+            <h2>Database-Specific Notes</h2>
+            <h3>Oracle : </h3>
+            <ul>
+                <li>Fully supports arithmetic operations.</li>
+                <li>Division by zero raises an error. Handle it using CASE.</li> Here give link to example.
+            </ul><br>
+            <h3>SQL Server : </h3>
+            <ul>
+                <li>Supports all arithmetic operations, including modulus (%).</li>
+                <li>Division by zero raises an error. Handle it using TRY...CATCH or NULLIF.</li> Here give link to
+                example.
+            </ul> <br>
+            <h3>MySQL : </h3>
+            <ul>
+                <li>Similar to SQL Server, supports % for modulus.</li>
+                <li>Division by zero results in NULL. Use IF or CASE for handling:.</li> Here give link to example.
+                <div class="code-box">
+                    <code>
+                                    <span class="orclkey">SELECT   </span> order_id<b>,</b><br>
+                                    IF( quantity = 0<b>,</b> <span class="orclkey"> NULL </span> <b> , </b> total_price / quantity )<span class="orclkey"> AS </span> unit_price <br>
+                                    <span class="orclkey"> FROM  </span> orders 
+                                    <b> ;</b> <br><br>
+                                </code>
+                </div>
+            </ul>
+            <br>
+            <h2>Best Practices for Using Arithmetic Operators</h2>
+            <ul>
+                <li><b>Handle Division by Zero :-</b> Use CASE, IF, or NULLIF to avoid errors</li>
+                <li><b>Null-Safe Operations :- </b> Always handle NULL values with COALESCE or similar functions.</li>
+                <li><b>Optimize Expressions :- </b> Avoid redundant calculations in SELECT or WHERE. Instead, use
+                    computed columns or common table expressions (CTEs).</li>
+                <li><b>Be Aware of Data Types :- </b> Ensure operands are compatible data types (e.g., integer with
+                    integer, decimal with decimal).</li>
+                <li><b>Avoid Complex Expressions in WHERE :- </b> Use pre-computed values or indexed columns to improve
+                    query performance.</li>
+            </ul>
+            <br>
+            <div class="topic-buttons">
+                <a href="sql_dual.html?topic=sqlDual" class="previou-button">&laquo; Previous</a>
+                <a href="sql_relationaloperators.html?topic=sqlRelationalOperators" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+
+    </script>
+
+</body>
+
+</html>

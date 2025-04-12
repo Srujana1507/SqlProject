@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content">
+            <div class="topic-content" data-topic="sqlDcl">
+
+                <div class="topic-buttons">
+                    <a href="sql_default.html?topic=sqlDefault" class="previou-button">&laquo; Pevious</a>
+                    <a href="sql_dcl.html?topic=sqlGrant" class="next-button">Next &raquo;</a>
+                </div>
+
+                <h1>Data Control Language</h1>
+
+                <div class="topic-buttons">
+                    <a href="sql_default.html?topic=sqlDefault" class="previou-button">&laquo; Pevious</a>
+                    <a href="sql_dcl.html?topic=sqlGrant" class="next-button">Next &raquo;</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="sqlGrant">
+
+                <div class="topic-buttons">
+                    <a href="sql_dcl.html?topic=sqlDcl" class="previou-button">&laquo; Pevious</a>
+                    <a href="sql_dcl.html?topic=sqlRevoke" class="next-button">Next &raquo;</a>
+                </div>
+                <h1>Data Control Language (DCL)</h1>
+                <h2>What is DCL?</h2>
+                <ul>
+                    <li>Data Control Language (DCL) is a subset of SQL commands that manage access and permissions on
+                        database objects like tables, views, and procedures.</li>
+                    <li>It allows database administrators to control who can perform specific operations (e.g., SELECT,
+                        INSERT, DELETE) on database objects.</li>
+                </ul><br>
+                <h2>Why Do We Need DCL</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reson</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Security</b></td>
+                            <td>Ensures sensitive data is accessible only to authorized users.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Access Management</b></td>
+                            <td>Provides granular control over what operations users can perform.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Role Management</b></td>
+                            <td>Assigns privileges to roles or users based on organizational needs.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Collaboration</b></td>
+                            <td>Allows multiple users to collaborate securely in a shared database.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Compliance</b></td>
+                            <td>Helps in adhering to organizational and regulatory policies on data access.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Audit and Compliance</b></td>
+                            <td>Helps organizations comply with data privacy and security regulations by enforcing
+                                restrictions.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Prevention of Unauthorized Access</b></td>
+                            <td>Limits unauthorized actions, ensuring data integrity and confidentiality.</td>
+                        </tr>
+                    </tbody>
+                </table> <br><br>
+                <h1>GRANT Statement</h1>
+                <ul>
+                    <li>It allows administrators to define who can perform operations such as SELECT, INSERT, UPDATE,
+                        DELETE, and execute stored procedures or other database actions.</li>
+                    <li>The GRANT statement is used to assign specific permissions to users or roles on database objects
+                        like tables, views, sequences, or procedures.</li>
+                </ul><br>
+                <h2>Syntax</h2>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> GRANT </span>  privilege_name  <br>
+                            <span class="orclkey"> ON </span> object_name  <br>
+                            <span class="orclkey"> TO  </span>user_or_role <br>
+                            [ <span class="orclkey"> WITH GRANT </span> OPTION ]
+                            <b> ;</b> 
+                     </code>
+                </div><br>
+                <h3>Explanation</h3>
+                <ul>
+                    <li>privilege_name: The type of access to grant (e.g., SELECT, INSERT, UPDATE).</li>
+                    <li>object_name: The database object (e.g., table, view) for which access is granted.</li>
+                    <li>user_or_role: The user or role receiving the permissions.</li>
+                    <li>WITH GRANT OPTION: Allows the user to further grant the same privileges to others.</li>
+                </ul><br>
+                <h2>Examples</h2>
+                <p><b>Scenario 1:- (Grant SELECT Privilege on a Table ) </b> Grant read-only access to the employees
+                    table to the user Uday.</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey"> GRANT SELECT ON </span>  employees  <span class="orclkey"> TO  </span> Uday<b> ;</b>  
+                 </code>
+                </div><br>
+                <p><b>Scenario 2:- (Grant All Privileges on a Table ) </b> Allow the user manager to perform all
+                    operations on the sales table.</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey"> GRANT ALL </span>  PRIVILEGES <span class="orclkey"> ON  </span> Sales 
+                <span class="orclkey"> TO  </span> manager<b> ;</b>  
+                 </code>
+                </div><br>
+                <p><b>Scenario 3:- (Grant SELECT Privilege on a View ) </b> Grant read access to the department_view
+                    view for the role reporting_team.</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey"> GRANT SELECT ON </span>  department_view <span class="orclkey"> TO  </span> reporting_team <b> ;</b>  
+                 </code>
+                </div><br>
+                <p><b>Scenario 4:- (Grant EXECUTE Privilege on a Procedure ) </b> Allow the user developer to execute
+                    the generate_report stored procedure.</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey"> GRANT EXECUTE ON PROCEDURE </span>  generate_report <span class="orclkey"> TO  </span> developer <b> ;</b>  
+                 </code>
+                </div><br>
+                <p><b>Scenario 5:- (Grant Privileges With Grant Option ) </b> Allow the user admin to insert data into
+                    the products table and grant the same privilege to others.</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey">GRANT INSERT ON </span>  products <span class="orclkey"> TO  </span> admin
+                <span class="orclkey"> WITH GRANT </span> OPTION
+                 <b> ;</b>  
+                 </code>
+                </div><br>
+                <p><b>Scenario 6:- (Granting Privileges to a Role ) </b> Grant INSERT and UPDATE permissions to a role
+                    HRTeam for the Payroll table.</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey">GRANT INSERT, UPDATE ON </span>  Payroll  <span class="orclkey"> TO  </span> HRTeam
+                 <b> ;</b>  
+                 </code>
+                </div><br>
+                <p><b>Scenario 7:- (Using WITH GRANT OPTION ) </b> Allow user AdminUser to grant SELECT permissions on
+                    the Products table to other users</p>
+                <div class="code-box">
+                    <code>
+                <span class="orclkey">GRANT SELECT ON </span>  Products  <span class="orclkey"> TO  </span> AdminUser
+                <span class="orclkey"> WITH GRANT  </span> OPTION
+                 <b> ;</b>  
+                 </code>
+                </div><br>
+                <h2>Advantages of GRANT</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Advantage</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Fine-Grained Access Control</b></td>
+                            <td>Allows precise control over who can access specific data and perform actions.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Scalability with Roles</b></td>
+                            <td>Privileges can be assigned to roles, simplifying the management of large numbers of
+                                users.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Delegation of Permissions</b></td>
+                            <td>The WITH GRANT OPTION enables users to delegate permissions to others.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Enhanced Security</b></td>
+                            <td>Restricts unauthorized actions, improving data confidentiality and integrity.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Compliance with Regulations</b></td>
+                            <td>Helps organizations meet regulatory requirements by enforcing strict access controls.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <h2>Common Errors </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error</th>
+                            <th>Description</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Object Does Not Exist</b></td>
+                            <td>Trying to grant privileges on a non-existent table or object.</td>
+                            <td>Verify that the object exists before using the GRANT command.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Insufficient Privileges</b></td>
+                            <td>The user issuing the GRANT does not have sufficient privileges to do so.</td>
+                            <td>Ensure the user has GRANT OPTION or is an administrator.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Syntax Errors</b></td>
+                            <td>Incorrect syntax used in the GRANT statement.</td>
+                            <td>Verify the SQL syntax for GRANT based on the database system.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Invalid User or Role</b></td>
+                            <td>The user or role specified in the GRANT statement does not exist.</td>
+                            <td>Create the user or role before granting privileges.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Cascading Effects with GRANT OPTION</b></td>
+                            <td>Privileges granted with WITH GRANT OPTION can lead to unintended propagation of
+                                permissions.</td>
+                            <td>Monitor and review permissions regularly to prevent excessive access.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Permission Denied</b></td>
+                            <td>User issuing the GRANT doesn’t have the required privileges.</td>
+                            <td>Ensure the issuer has the necessary permissions or is an administrator.</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Do's and Don'ts </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Do's</th>
+                            <th>Don'ts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Use roles to manage permissions.</td>
+                            <td>Don’t assign permissions directly to individual users unless absolutely necessary.</td>
+                        </tr>
+                        <tr>
+                            <td>Assign minimal permissions initially.</td>
+                            <td>Don’t grant unnecessary privileges that may lead to security risks.</td>
+                        </tr>
+                        <tr>
+                            <td>Regularly audit granted permissions.</td>
+                            <td>Don’t ignore periodic reviews of access permissions to prevent privilege creep.</td>
+                        </tr>
+                        <tr>
+                            <td>Use WITH GRANT OPTION cautiously.</td>
+                            <td>Don’t use WITH GRANT OPTION unless you trust the recipient to manage access responsibly.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Document all GRANT statements.</td>
+                            <td>Don’t leave permission assignments undocumented—it may lead to mismanagement or
+                                confusion.</td>
+                        </tr>
+                    </tbody>
+                </table> <br><br>
+
+
+                <div class="topic-buttons">
+                    <a href="sql_dcl.html?topic=sqlDcl" class="previou-button">&laquo; Previous</a>
+                    <a href="sql_dcl.html?topic=sqlRevoke" class="next-button">Next &raquo;</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="sqlRevoke">
+
+                <div class="topic-buttons">
+                    <a href="sql_dcl.html?topic=sqlGrant" class="previou-button">&laquo; Pevious</a>
+                    <a href="sql_tcl.html?topic=sqlTcl" class="next-button">Next &raquo;</a>
+                </div>
+
+                <h1>REVOKE Statement</h1>
+                <ul>
+                    <li>The REVOKE command is a part of SQL Data Control Language (DCL). </li>
+                    <li>It is used to remove <b>previously granted permissions</b> from users or roles on database
+                        objects.</li>
+                </ul><br>
+                <h2>Purpose of REVOKE</h2>
+                <ul>
+                    <li><b>Security Maintenance:- </b>Ensures that outdated or unnecessary permissions are removed.</li>
+                    <li><b>Access Control Adjustment:- </b>Helps in modifying user or role privileges as per changing
+                        requirements.</li>
+                    <li><b>Compliance:- </b> Aids in adhering to organizational policies by restricting access to
+                        sensitive data.</li>
+                </ul> <br>
+                <h2>Syntax</h2>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE </span>  privilege_name [, privilege_name . . . ] <br>
+                        <ul>
+                            <span class="orclkey"> ON </span> object_name  <br>
+                           <span class="orclkey">  FROM </span> user_or_role [ CASCADE | RESTRICT ] <b> ;</b>
+                            </ul>
+                     </code>
+                </div><br>
+                <h3>Explanation</h3>
+                <ul>
+                    <li>privilege_name: The permission(s) being removed (e.g., SELECT, INSERT, etc.).</li>
+                    <li>object_name: The database object (table, view, procedure, etc.) from which the permissions are
+                        being revoked.</li>
+                    <li>user_or_role: The user or role losing the permissions.</li>
+                    <li>CASCADE: Removes all dependent permissions from others granted by the user.</li>
+                    <li>RESTRICT: Prevents revocation if it would affect dependent permissions.</li>
+                </ul><br>
+                <h2>Examples</h2>
+                <p><b>Scenario 1:- ( Revoke SELECT Privilege from a User ) </b> Revoke the read-only access from the
+                    user
+                    Harsha on the employees table.</p>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE SELECT ON  </span>  employees 
+                            <span class="orclkey"> FROM </span> Harsha 
+                        <b> ;</b>
+                     </code>
+                </div><br>
+                <p><b>Scenario 2:- ( Revoke Multiple Privileges ) </b> Revoke both INSERT and UPDATE permissions from
+                    the
+                    user manager on the sales table.</p>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE INSERT, UPDATE ON  </span>  Sales 
+                            <span class="orclkey"> FROM </span> manager 
+                        <b> ;</b>
+                     </code>
+                </div><br>
+                <p><b>Scenario 3:- ( Revoke All Privileges ) </b> Revoke all permissions previously granted to the role
+                    reporting_team on the department_view view.</p>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE ALL  </span>  PRIVILEGES  
+                        <span class="orclkey"> ON </span> department_view 
+                            <span class="orclkey"> FROM </span> reporting_team 
+                        <b> ;</b>
+                     </code>
+                </div><br>
+                <p><b>Scenario 4:- ( Revoke EXECUTE Privilege ) </b> Revoke the ability to execute the generate_report
+                    stored procedure from the user developer.</p>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE EXECUTE ON PROCEDURE  </span>  generate_report  
+                            <span class="orclkey"> FROM </span> developer 
+                        <b> ;</b>
+                     </code>
+                </div><br>
+                <p><b>Scenario 5:- ( Revoke Privileges Granted Using WITH GRANT OPTION ) </b> Revoke the permission to
+                    insert data into the products table from the user admin, including their ability to grant this
+                    permission to others.</p>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE INSERT ON  </span>  Products  
+                            <span class="orclkey"> FROM </span> admin CASCADE 
+                        <b> ;</b>
+                     </code>
+                </div><br>
+                <p><b>Scenario 6:-</b> Remove the ability of supervisor to grant INSERT on the projects table while
+                    allowing
+                    them to retain their own INSERT privilege.</p>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey"> REVOKE GRANT  </span>  OPTION  
+                            <span class="orclkey"> FOR INSERT ON </span> projects <span class="orclkey"> FROM </span> supervisor
+                        <b> ;</b>
+                     </code>
+                </div><br>
+                <p><b>Scenario 7:- (Revoke Column-Level Permissions)</b> Remove the ability of supervisor to grant
+                    INSERT on the projects table while allowing
+                    them to retain their own INSERT privilege.</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey"> REVOKE SELECT  </span>  (salary)  
+                        <span class="orclkey"> ON </span> employees <span class="orclkey"> FROM </span> auditor
+                    <b> ;</b>
+                 </code>
+                </div><br>
+                <h2>Key Points</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key Point</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Granularity</b></td>
+                            <td>Allows precise revocation of specific privileges for specific users or roles.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Impact on Dependent Users</b></td>
+                            <td>Use CASCADE to ensure dependent permissions are also revoked.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Cumulative Permissions</b></td>
+                            <td>Revoking a single privilege doesn’t remove others if multiple privileges were granted.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>System-Specific Syntax</b></td>
+                            <td>Syntax and behavior may vary between database systems (e.g., Oracle, SQL Server,
+                                PostgreSQL).</td>
+                        </tr>
+                        <tr>
+                            <td><b>No Implicit Revocation</b></td>
+                            <td>REVOKE doesn’t implicitly affect permissions granted to roles unless explicitly
+                                mentioned.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <h2>Advantages of REVOKE</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Advantage</th>
+                            <th>Explanation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Enhanced Security</b></td>
+                            <td>Removes unnecessary access to protect sensitive data.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Controlled Collaboration</b></td>
+                            <td>Adjusts permissions as project roles and responsibilities change.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Flexibility</b></td>
+                            <td>Provides fine-grained control over specific permissions.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Compliance</b></td>
+                            <td>Helps ensure regulatory compliance by restricting unauthorized data access.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <h2>Common Errors</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error</th>
+                            <th>Explanation</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Permission Not Granted</b></td>
+                            <td>Attempting to revoke a privilege that was never granted.</td>
+                            <td>Verify the existing privileges using system views like USER_TAB_PRIVS.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Invalid User or Role</b></td>
+                            <td>Specifying a user or role that doesn’t exist in the database.</td>
+                            <td>Ensure the user or role exists before issuing the REVOKE command.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Dependent Permissions Exist</b></td>
+                            <td>Revoking privileges without using CASCADE when dependent permissions exist.</td>
+                            <td>Use the CASCADE option to handle dependencies.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Object Not Found</b></td>
+                            <td>The specified object doesn’t exist or isn’t accessible to the issuer.</td>
+                            <td>Verify that the object exists and is in the accessible schema.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Syntax Error</b></td>
+                            <td>Incorrect REVOKE statement syntax.</td>
+                            <td>Check the syntax specific to the database system being used.</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Do's and Don'ts</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Do's</th>
+                            <th>Don'ts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Regularly review and revoke unused permissions.</td>
+                            <td>Don’t leave unnecessary permissions active; they pose security risks.</td>
+                        </tr>
+                        <tr>
+                            <td>Use CASCADE carefully to revoke dependent permissions.</td>
+                            <td>Don’t revoke permissions blindly without considering their impact on dependent users.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Maintain proper documentation for all REVOKE statements.</td>
+                            <td>Don’t make undocumented changes to permissions; it can lead to confusion.</td>
+                        </tr>
+                        <tr>
+                            <td>Test the revocation impact in non-production environments.</td>
+                            <td>Don’t perform critical revocations directly in production without prior testing.</td>
+                        </tr>
+                        <tr>
+                            <td>Use REVOKE to enforce least privilege principles.</td>
+                            <td>Don’t over-rely on GRANT without periodic reviews and revocations.</td>
+                        </tr>
+                    </tbody>
+                </table> <br><br>
+
+
+                <div class="topic-buttons">
+                    <a href="sql_dcl.html?topic=sqlGrant" class="previou-button">&laquo; Previous</a>
+                    <a href="sql_tcl.html?topic=sqlTcl" class="next-button">Next &raquo;</a>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

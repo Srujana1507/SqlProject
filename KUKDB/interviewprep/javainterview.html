@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <!-- <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* footer code end hrere */
+        /* footer code end hrere */
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="javaBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/javainterview.html?topic=javaAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/javainterview.html?topic=javaExpert" class="next-button">Expert</a>
+                </div>
+
+
+                <h1>Java Bignner</h1>
+
+                <p><b>1. What are the features of Java?</b></p><br>
+                <ul>
+                    <li>Platform Independent</li><br>
+                    <li> Object-Oriented</li><br>
+                    <li> Robust and Secure</li><br>
+                    <li> Multi-threaded</li><br>
+                    <li> High Performance</li><br>
+                    <li> Dynamic and Extensible</li><br>
+                    <li> Distributed</li>
+                </ul>
+                <br>
+                <p><b>2. Explain the concept of OOPs in Java.</b></p><br>
+                <ul>
+                    <li>OOPs (Object-Oriented Programming) is a programming paradigm based on objects and classes.</li>
+                    <br>
+                    <li><b>Key concepts include :</b><br></li><br>
+                    <li>
+                        <ul>
+                            <li><b>Inheritance :</b> Acquiring properties of a parent class.</li><br>
+                            <li><b>Polymorphism :</b> Performing tasks in multiple ways (method
+                                overloading/overriding).</li><br>
+                            <li><b>Encapsulation :</b> Wrapping data and code into a single unit (class).</li><br>
+                            <li><b>Abstraction :</b> Hiding implementation details and showing only functionality.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                <p><b>3. What is the difference between JDK, JRE, and JVM?</b></p><br>
+                <ul>
+                    <li><b>JDK (Java Development Kit) :</b> Includes tools for developing and debugging Java
+                        applications.</li><br>
+                    <li><b> JRE (Java Runtime Environment) :</b> Provides libraries and JVM required to run Java
+                        applications.</li><br>
+                    <li><b> JVM (Java Virtual Machine) :</b> Executes Java bytecode and provides runtime environment.
+                    </li>
+                </ul>
+                <br>
+                <p><b>4. What are access modifiers in Java?</b></p><br>
+                <ul>
+                    <li>Access modifiers define the scope of access :</li><br>
+                    <li><b>Public :</b> Accessible everywhere.</li><br>
+                    <li><b> Private :</b> Accessible within the same class only.</li><br>
+                    <li><b> Protected :</b> Accessible within the same package and subclasses.</li><br>
+                    <li><b> Default (no modifier) :</b> Accessible within the same package.</li>
+                </ul>
+                <br>
+                <p><b>5. What is the difference between <i>==</i> and <i>equals()</i> in Java?</b></p><br>
+                <ul>
+                    <li><b>== :</b> Compares reference (memory location) of objects.</li><br>
+                    <li><b>equals() :</b> Compares content or value of objects (default implementation in Object class
+                        can be overridden).</li>
+                </ul>
+                <br>
+                <p><b>6. What is a constructor in Java?</b></p><br>
+                <ul>
+                    <li> A constructor is a special method used to initialize objects.</li><br>
+                    <li><b>Characteristics:</b></li><br>
+                    <li>Same name as the class.</li><br>
+                    <li>No return type.</li><br>
+                    <li>Called automatically when an object is created.</li><br>
+                    <li>Can be overloaded.</li>
+                </ul>
+                <br>
+                <p><b>7. What is the difference between method overloading and overriding?</b></p><br>
+                <ul>
+                    <li><b>Overloading :</b> Same method name but different parameters (compile-time polymorphism).</li>
+                    <br>
+                    <li><b>Overriding :</b> Subclass redefines a method of the parent class (runtime polymorphism).</li>
+                </ul>
+                <br>
+                <p><b>8. What is the difference between <i>ArrayList</i> and <i>LinkedList</i>?</b></p><br>
+                <ul>
+                    <li><b>ArrayList :</b></li><br>
+                    <ul>
+                        <li>Uses a dynamic array.</li><br>
+                        <li>Faster for retrieval.</li><br>
+                        <li>Slower for insertion/deletion in the middle.</li>
+                    </ul><br>
+                    <li><b>LinkedList :</b></li><br>
+                    <ul>
+                        <li>Uses a doubly linked list.</li><br>
+                        <li>Slower for retrieval.</li><br>
+                        <li>Faster for insertion/deletion.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>9. What are exceptions in Java? How are they handled?</b></p><br>
+                <ul>
+                    <li>Exceptions are unwanted events that disrupt normal flow.</li><br>
+                    <li><b>Handled using :</b></li><br>
+                    <ul>
+                        <li><b>try-catch</b> block</li><br>
+                        <li><b>finally</b> block (optional, for cleanup)</li><br>
+                        <li><b>throw</b> and <b>throws</b> keywords</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>10. What is the difference between <i>abstract</i> class and <i>interface</i>?</b></p><br>
+                <ul>
+                    <li><b>Abstract Class:</b></li><br>
+                    <ul>
+                        <li>Can have abstract and non-abstract methods.</li><br>
+                        <li>Supports constructors.</li><br>
+                        <li>Allows single inheritance.</li>
+                    </ul>
+                    <br>
+                    <li><b>Interface :</b></li><br>
+                    <ul>
+                        <li>All methods are abstract by default (from Java 8, can have default/static methods).</li><br>
+                        <li>No constructors.</li><br>
+                        <li>Supports multiple inheritance.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>11. What is the <i>final</i> keyword in Java?</b></p><br>
+                <ul>
+                    <li><b>Final Variable :</b> Cannot be changed once assigned.</li><br>
+                    <li><b>Final Method :</b> Cannot be overridden.</li><br>
+                    <li><b>Final Class :</b> Cannot be subclassed.</li>
+                </ul>
+                <br>
+                <p><b>12. Explain the concept of <i>static</i> keyword in Java.</b></p><br>
+                <ul>
+                    <li><b>Static Variable :</b> Shared among all instances of the class.</li><br>
+                    <li><b>Static Method :</b> Can be called without creating an object.</li><br>
+                    <li><b>Static Block :</b> Used for static initialization.</li>
+                </ul>
+                <br>
+                <p><b>13. What is the difference between <i>String, StringBuilder,</i> and <i>StringBuffer</i>?</b></p>
+                <br>
+                <ul>
+                    <li><b>String :</b> Immutable, thread-safe.</li><br>
+                    <li><b>StringBuilder :</b> Mutable, not thread-safe, faster.</li><br>
+                    <li><b>StringBuffer :</b> Mutable, thread-safe, slower than <b>StringBuilder</b>.</li>
+                </ul>
+                <br>
+                <p><b>14. Write a program to check if a number is prime.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        public class PrimeCheck {<br>
+                        <ul>
+                            public static void main(String[] args) {
+                            <ul>
+                                int num = 29; // Example number<br>
+                                boolean isPrime = true;<br>
+                                if (num &lt;= 1) {<br>
+                                <ul>
+                                    isPrime = false;
+                                </ul>
+                                } else {<br>
+                                <ul>
+                                    for (int i = 2; i &lt;= Math.sqrt(num); i++) {
+                                    <ul>
+                                        if (num % i == 0) {<br>
+                                        <ul>
+                                            isPrime = false;<br>
+                                            break;<br>
+                                        </ul>
+                                        }
+                                    </ul>
+                                    }<br>
+                                </ul>
+                                }<br>
+                                System.out.println(num + " is " + (isPrime ? "a prime number" : "not a prime
+                                number"));<br>
+                            </ul>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </ul>
+                <br>
+                <p><b>15. Write a program to reverse a string.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        public class ReverseString {<br>
+                        <ul>
+                            public static void main(String[] args) {
+                            <ul>
+                                String str = "Hello";<br>
+                                String reversed = new StringBuilder(str).reverse().toString();<br>
+                                System.out.println("Reversed String: " + reversed);<br>
+                            </ul>
+                            }
+                        </ul>
+                        }
+
+                    </div>
+                </ul>
+                <br>
+                <p><b>16. What is the difference between an interface and a class?</b></p><br>
+                <ul>
+                    <li><b>Class :</b> Can have fields, methods, constructors, and blocks of code. It can implement
+                        multiple interfaces.</li><br>
+                    <li><b>Interface :</b> Defines a contract that implementing classes must follow. All methods are
+                        abstract (before Java 8). Cannot have constructors.</li>
+                </ul>
+                <br>
+                <p><b>17. What is the difference between <i>this</i> and <i>super</i> in Java?</b></p><br>
+                <ul>
+                    <li><b>this :</b> Refers to the current object. Used to access the current class members.</li><br>
+                    <li><b>super :</b> Refers to the immediate parent class object. Used to access the parent class
+                        methods and constructors.</li>
+                </ul>
+                <br>
+                <p><b>18. Explain the concept of garbage collection in Java.</b></p><br>
+                <ul>
+                    <li>Garbage collection is the process of automatically reclaiming memory occupied by unused objects
+                        to avoid memory leaks.</li><br>
+                    <ul>
+                        <li><b>System.gc()</b> can be used to request garbage collection, but it is not guaranteed.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>19. What is the difference between throw and throws?</b></p><br>
+                <ul>
+                    <li><b>throw :</b> Used to explicitly throw an exception from a method or block.</li><br>
+                    <li><b>throws :</b> Declares the exceptions that a method might throw to the caller.</li>
+                </ul>
+                <br>
+                <p><b>20. What are Wrapper Classes in Java?</b></p><br>
+                <ul>
+                    <li>Wrapper classes convert primitive data types into objects.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            <b>int → Integer</b>,<br>
+                            <b>double → Double</b>.
+                        </div><br>
+                        They are used in collections (which work with objects, not primitives).
+                    </li>
+                </ul>
+                <br>
+                <p><b>21. What is the difference between HashMap and HashTable?</b></p><br>
+                <ul>
+                    <li><b>HashMap :</b></li><br>
+                    <ul>
+                        <li>Not synchronized.</li><br>
+                        <li>Allows one <i>null key</i> and multiple <i>null values</i>.</li>
+                    </ul>
+                    <br>
+                    <li><b>HashTable :</b></li><br>
+                    <ul>
+                        <li>Synchronized.</li><br>
+                        <li>Does not allow <i>null keys or values</i>.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>22. What is the use of the <i>finalize()</i> method?</b></p><br>
+                <ul>
+                    <li>The <b>finalize()</b> method is called by the garbage collector before reclaiming the memory of
+                        an object. It is used for cleanup activities like closing files or database connections.</li>
+                </ul>
+                <br>
+                <p><b>23. What is method chaining in Java?</b></p><br>
+                <ul>
+                    <li>Method chaining allows calling multiple methods on the same object in a single statement by
+                        returning this from methods.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            class Demo {
+                            <ul>
+                                Demo method1() {
+                                <ul>
+                                    System.out.println("Method1");<br>
+                                    return this;
+                                </ul>
+                                }
+                            </ul>
+                            <ul>
+                                Demo method2() {
+                                <ul>
+                                    System.out.println("Method2");<br>
+                                    return this;
+                                </ul>
+                                }
+                            </ul>
+                            }<br>
+                            public class Main {
+                            <ul>
+                                public static void main(String[] args) {
+                                <ul>
+                                    new Demo().method1().method2();
+                                </ul>
+                                }
+                            </ul>
+                            }
+
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>24. What is the difference between <i>Abstract class</i> and <i>Concrete class</i>?</b></p><br>
+                <ul>
+                    <li><b>Abstract Class :</b> Cannot be instantiated; may have abstract and concrete methods.</li><br>
+                    <li><b>Concrete Class :</b> Can be instantiated and must implement all abstract methods if it
+                        extends an abstract class.</li>
+                </ul>
+                <br>
+                <p><b>25. Explain the <i>try-with-resources</i> statement.</b></p><br>
+                <ul>
+                    <li>The <b>try-with-resources</b> statement is used to automatically close resources like streams or
+                        files that implement the <b>AutoCloseable</b> interface.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+                            <ul>
+                                System.out.println(br.readLine());
+                            </ul>
+                            } catch (IOException e) {
+                            <ul>e.printStackTrace();</ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>26. Explain the <i>volatile</i> keyword in Java</b></p><br>
+                <ul>
+                    <li>The <i>volatile</i> keyword ensures that the value of a variable is always read from the main
+                        memory, preventing threads from caching the value.</li>
+                </ul>
+                <br>
+                <p><b>27. What is the difference between <i>wait()</i> and <i>sleep()</i>?</b></p><br>
+                <ul>
+                    <li><b>wait() :</b> Used for thread communication; releases the lock.</li><br>
+                    <li><b>sleep() :</b> Pauses execution for a specified time; does not release the lock.</li>
+                </ul>
+                <br>
+                <p><b>28. What are <i>Comparator</i> and <i>Comparable</i> in Java?</b></p><br>
+                <ul>
+                    <li><b>Comparable :</b> Used to define natural ordering by overriding <b>compareTo()</b>.</li><br>
+                    <li><b>Comparator :</b> Used for custom ordering by overriding <b>compare()</b>.</li><br>
+                    <li>
+                        <p>Example with <b>Comparator :</b></p>
+                        <div class="interview-box">
+                            import java.util.*;<br>
+                            <br>
+                            class Student {
+                            <ul>
+                                int id;
+                                String name;
+                            </ul>
+                            <ul>
+                                Student(int id, String name) {
+                                <ul>
+                                    this.id = id;
+                                    this.name = name;
+                                </ul>
+                                }
+                            </ul>
+                            }<br>
+
+                            class SortByName implements Comparator&#x003C;&#x003E; {
+                            <ul>
+                                public int compare(Student a, Student b) {
+                                <ul>
+                                    return a.name.compareTo(b.name);
+                                </ul>
+                                }
+                            </ul>
+                            }<br>
+
+                            public class Main {
+                            <ul>
+                                public static void main(String[] args) {
+                                <ul>
+                                    List&#x003C;Student&#x003E; list = new ArrayList&#x003C;&#x003E;();<br>
+                                    list.add(new Student(1, "John"));<br>
+                                    list.add(new Student(2, "Alice"));<br>
+                                    <br>
+                                    Collections.sort(list, new SortByName());
+                                </ul>
+                                <ul>
+                                    for (Student s : list) {
+                                    <ul>
+                                        System.out.println(s.name);
+                                    </ul>
+                                    }
+                                </ul>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>29. What is the <i>transient</i> keyword in Java?</b></p><br>
+                <ul>
+                    <li>The <b>transient</b> keyword prevents a variable from being serialized.</li>
+                </ul>
+                <br>
+                <p><b>30. What are the main differences between <i>String, StringBuilder,</i> and
+                        <i>StringBuffer</i>?</b></p><br>
+                <ul>
+                    <li><b>tring :</b> Immutable; slow for modifications.</li><br>
+                    <li><b>StringBuilder :</b> Mutable, not thread-safe, faster.</li><br>
+                    <li><b>StringBuffer :</b> Mutable, thread-safe, slower than StringBuilder.</li>
+                </ul>
+                <br>
+                <p><b>31. Write a Java program to find the factorial of a number.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        public class Factorial {
+                        <ul>
+                            public static void main(String[] args) {
+                            <ul>
+                                int num = 5; // Example number<br>
+                                int fact = 1;<br>
+                                <br>
+                                for (int i = 1; i &#x003C;= num; i++) {
+                                <ul>
+                                    fact *= i;
+                                </ul>
+                                }<br>
+                                System.out.println("Factorial: " + fact);
+                            </ul>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </ul>
+                <br>
+                <p><b>32. Write a Java program to check if a string is a palindrome.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        public class PalindromeCheck {
+                        <ul>
+                            public static void main(String[] args) {
+                            <ul>
+                                String str = "madam";<br>
+                                String reversed = new StringBuilder(str).reverse().toString();<br>
+                                <br>
+                                if (str.equals(reversed)) {
+                                <ul>
+                                    System.out.println(str + " is a palindrome.");
+                                </ul>
+                                } else {
+                                <ul>
+                                    System.out.println(str + " is not a palindrome.");
+                                </ul>
+                                }
+                            </ul>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </ul>
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/javainterview.html?topic=javaAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/javainterview.html?topic=javaExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="javaAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/javainterview.html?topic=javaBignner" class="previous-button">Bignner</a>
+                    <a href="/interviewprep/javainterview.html?topic=javaExpert" class="next-button">Expert</a>
+                </div>
+                <h1>Java Advanced</h1>
+                <p><b>1. What is the difference between <i>HashMap</i> and <i>ConcurrentHashMap</i>?</b></p><br>
+                <ul>
+                    <li><b>HashMap :</b></li><br>
+                    <ul>
+                        <li>Not thread-safe.</li><br>
+                        <li>Allows one null <b>key</b> and multiple <b>null</b> values.</li>
+                    </ul><br>
+                    <li><b>ConcurrentHashMap :</b></li><br>
+                    <ul>
+                        <li>Thread-safe using segment-level locking (concurrency level).</li><br>
+                        <li>Does not allow <b>null</b> keys or values.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>2. What is the significance of the <i>synchronized</i> keyword in Java?</b></p><br>
+                <ul>
+                    <li>The <b>synchronized</b> keyword is used to control access to critical sections or blocks of code
+                        by threads. It ensures only one thread can execute a block of code or a method at a time.</li>
+                    <br>
+                    <ul>
+                        <li>Can be applied to methods or blocks.</li><br>
+                        <li>Helps prevent race conditions.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>3. What is a Singleton Design Pattern? How can you implement it?</b></p><br>
+                <ul>
+                    <li>A Singleton Design Pattern ensures a class has only one instance globally.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            public class Singleton {
+                            <ul>
+                                private static Singleton instance;<br>
+                                <br>
+                                private Singleton() {}<br>
+                                <br>
+                                public static synchronized Singleton getInstance() {
+                                <ul>
+                                    if (instance == null) {
+                                    <ul>
+                                        instance = new Singleton();
+                                    </ul>
+                                    }
+                                </ul>
+                                return instance;<br>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>4. What is the difference between <i>Callable</i> and <i>Runnable</i>?</b></p><br>
+                <ul>
+                    <li><b>Runnable :</b> Does not return a result or throw checked exceptions.</li><br>
+                    <li><b>Callable :</b> Returns a result and can throw checked exceptions.</li>
+                </ul>
+                <br>
+                <p><b>5. What is the use of <i>volatile</i> in Java?</b></p><br>
+                <ul>
+                    <li>The <b>volatile</b> keyword ensures that changes to a variable are visible to all threads. It
+                        prevents threads from caching the variable's value and always reads it from main memory.</li>
+                </ul>
+                <br>
+                <p><b>6. Explain Java Memory Model (JMM).</b></p><br>
+                <ul>
+                    <li>The JMM defines how threads interact through memory and ensures :</li><br>
+                    <ul>
+                        <li>Visibility of changes to variables across threads.</li><br>
+                        <li>Ordering of instructions (happens-before relationship).</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>7. How does Garbage Collection work in Java?</b></p><br>
+                <ul>
+                    <li>Garbage Collection (GC) automatically reclaims memory from objects no longer referenced.</li>
+                    <br>
+                    <li><b>Phases :</b></li><br>
+                    <ul>
+                        <li><b>Mark :</b> Identify unreachable objects.</li><br>
+                        <li><b>Sweep :</b> Reclaim memory.</li><br>
+                        <li><b>Compact :</b> Reorganize memory.</li>
+                    </ul><br>
+                    <li><b>Collectors :</b></li><br>
+                    <ul>
+                        <li>Serial, Parallel, CMS (Concurrent Mark-Sweep), G1 (Garbage First).</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>8. What is the difference between <i>Comparable</i> and <i>Comparator</i>?</b></p><br>
+                <ul>
+                    <li><b>Comparable :</b></li><br>
+                    <ul>
+                        <li>Used for natural ordering.</li><br>
+                        <li>Implements <b>compareTo()</b>.</li><br>
+                        <li>
+                            <p>Example :</p>
+                            <div class="interview-box">
+                                Collections.sort(list);.
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <li><b>Comparator :</b></li><br>
+                    <ul>
+                        <li>Used for custom ordering.</li><br>
+                        <li>Implements <b>compare()</b>.</li><br>
+                        <li>
+                            <p>Example :</p>
+                            <div class="interview-box">
+                                Collections.sort(list, new ComparatorClass());.
+                            </div>
+                        </li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>9. What are Java Streams?</b></p><br>
+                <ul>
+                    <li>Streams in Java (introduced in Java 8) are used for processing sequences of elements with
+                        functional-style operations.</li><br>
+                    <li><b>Operations :</b></li><br>
+                    <ul>
+                        <li><b>Intermediate :</b> map(), filter().</li><br>
+                        <li><b>Terminal :</b> forEach(), collect().</li>
+                    </ul>
+                    <br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            List&#x003C;String&#x003E; names = Arrays.asList("John", "Jane", "Jack");<br>
+                            names.stream()
+                            <ul>
+                                .filter(name -&#x003E; name.startsWith("J"))<br>
+                                .map(String::toUpperCase)<br>
+                                .forEach(System.out::println);
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>10. What is the difference between ForkJoinPool and ExecutorService?</b></p><br>
+                <ul>
+                    <li><b>ForkJoinPool :</b></li><br>
+                    <ul>
+                        <li>Suitable for divide-and-conquer tasks.</li><br>
+                        <li>Uses work-stealing algorithm.</li>
+                    </ul>
+                    <br>
+                    <li><b>ExecutorService :</b></li><br>
+                    <ul>
+                        <li>Suitable for managing threads in a pool.</li><br>
+                        <li>Does not support divide-and-conquer.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>11. What is Dependency Injection (DI)?</b></p><br>
+                <ul>
+                    <li>DI is a design pattern where objects are provided with their dependencies at runtime, promoting
+                        loose coupling.</li><br>
+                    <li><b>Types :</b></li><br>
+                    <ul>
+                        <li>Constructor Injection.</li><br>
+                        <li>Setter Injection.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>12. Explain the Spring Bean Lifecycle.</b></p><br>
+                <ul>
+                    <li>Bean Instantiation.</li><br>
+                    <li>Dependency Injection.</li><br>
+                    <li><b>setBeanName()</b> (BeanNameAware).</li><br>
+                    <li><b>setApplicationContext()</b> (ApplicationContextAware).</li><br>
+                    <li><b>postProcessBeforeInitialization()</b> (BeanPostProcessor).</li><br>
+                    <li>Initialization (<b>@PostConstruct</b>, <b>init-method</b>).</li><br>
+                    <li><b>postProcessAfterInitialization().</b></li><br>
+                    <li>Ready to use.</li><br>
+                    <li>Destruction (<b>@PreDestroy, destroy-method</b>).</li>
+                </ul>
+                <br>
+                <p><b>13. What is the difference between <i>@Component, @Service, @Repository</i>, and
+                        <i>@Controller</i>?</b></p><br>
+                <ul>
+                    <li><b>@Component :</b> Generic stereotype for any Spring-managed component.</li><br>
+                    <li><b>@Service :</b> Specialization for service layer classes.</li><br>
+                    <li><b>@Repository :</b> Specialization for persistence layer; supports exception translation.</li>
+                    <br>
+                    <li><b>@Controller :</b> Specialization for web controllers in Spring MVC.</li>
+                </ul>
+                <br>
+                <p><b>14. Write a Java program to count duplicate characters in a string.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        import java.util.HashMap;<br>
+                        <br>
+                        public class DuplicateCharacters {
+                        <ul>
+                            public static void main(String[] args) {
+                            <ul>
+                                String str = "programming";<br>
+                                HashMap&#x003C;Character, Integer&#x003E; charCount = new HashMap&#x003C;&#x003E;();<br>
+                                <br>
+                                for (char c : str.toCharArray()) {
+                                <ul>
+                                    charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+                                </ul>
+                                }
+                            </ul>
+                            <ul>
+                                charCount.forEach((k, v) -&#x003E; {
+                                <ul>
+                                    if (v > 1) {
+                                    <ul>
+                                        System.out.println(k + ": " + v);
+                                    </ul>
+                                    }
+                                </ul>
+                                });
+                            </ul>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </ul>
+                <br>
+                <p><b>15. Write a Java program to implement a thread-safe Singleton.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        public class ThreadSafeSingleton {
+                        <ul>
+                            private static ThreadSafeSingleton instance;<br>
+                            <br>
+                            private ThreadSafeSingleton() {}<br>
+                            <br>
+                            public static synchronized ThreadSafeSingleton getInstance() {
+                            <ul>
+                                if (instance == null) {
+                                <ul>
+                                    instance = new ThreadSafeSingleton();
+                                </ul>
+                                }<br>
+                                return instance;
+                            </ul>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </ul>
+                <br>
+                <p><b>16. Write a Java program to find the maximum element in an array using Streams.</b></p><br>
+                <ul>
+                    <div class="interview-box">
+                        import java.util.Arrays;<br>
+                        <br>
+                        public class MaxElement {
+                        <ul>
+                            public static void main(String[] args) {
+                            <ul>
+                                int[] numbers = {1, 2, 3, 4, 5};<br>
+                                int max = Arrays.stream(numbers).max().orElseThrow();<br>
+                                System.out.println("Max: " + max);
+                            </ul>
+                            }
+                        </ul>
+                        }
+                    </div>
+                </ul>
+                <br>
+                <p><b>17. What are the different types of class loaders in Java?</b></p><br>
+                <ul>
+                    <li><b>Bootstrap ClassLoader :</b> Loads core Java classes from <b>rt.jar</b>.</li><br>
+                    <li><b>Extension ClassLoader :</b> Loads classes from the <b>ext</b> directory.</li><br>
+                    <li><b>Application (System) ClassLoader :</b> Loads classes from the application's classpath.</li>
+                </ul>
+                <br>
+                <p><b>18. What is the difference between <i>fail-fast</i> and <i>fail-safe</i> iterators?</b></p><br>
+                <ul>
+                    <li><b>Fail-fast :</b> Throws <b>ConcurrentModificationException</b> if the collection is modified
+                        during iteration (e.g., <b>ArrayList, HashMap</b>).</li><br>
+                    <li><b>Fail-safe :</b> Works on a copy of the collection and does not throw an exception (e.g.,
+                        <b>CopyOnWriteArrayList, ConcurrentHashMap</b>).
+                    </li>
+                </ul>
+                <br>
+                <p><b>19. What is the <i>transient</i> keyword in Java?</b></p><br>
+                <ul>
+                    <li>The <b>transient</b> keyword prevents a variable from being serialized. Transient variables are
+                        skipped during the serialization process.</li>
+                </ul>
+                <br>
+                <p><b>20. What are the different types of references in Java?</b></p><br>
+                <ul>
+                    <li><b>Strong Reference :</b> Default type; object is not eligible for garbage collection unless
+                        explicitly nullified.</li><br>
+                    <li><b>Weak Reference :</b> Referenced object is collected during the next GC cycle.</li><br>
+                    <li><b>Soft Reference :</b> Collected only if memory is low.</li><br>
+                    <li><b>Phantom Reference :</b> Used to schedule cleanup actions before an object is removed from
+                        memory.</li>
+                </ul>
+                <br>
+                <p><b>21. Explain the difference between <i>String, StringBuilder</i>, and <i>StringBuffer</i>.</b></p>
+                <br>
+                <ul>
+                    <li><b>String :</b> Immutable, thread-safe, slower for modifications.</li><br>
+                    <li><b>StringBuilder :</b> Mutable, not thread-safe, faster.</li><br>
+                    <li><b>StringBuffer :</b> Mutable, thread-safe, slower than StringBuilder.</li>
+                </ul>
+                <br>
+                <p><b>22. What is the <i>hashCode()</i> and <i>equals()</i> contract?</b></p><br>
+                <ul>
+                    <li>If two objects are equal, their <b>hashCode()</b> must return the same value.</li><br>
+                    <li>If two objects have the same <b>hashCode()</b>, they may or may not be equal.</li><br>
+                    <li><b>equals()</b> checks logical equality, and <b>hashCode()</b> is used in hashing-based
+                        collections (e.g., <b>HashMap</b>).</li>
+                </ul>
+                <br>
+                <p><b>23. What is the purpose of the <i>join()</i> method in threads?</b></p><br>
+                <ul>
+                    <li>The <b>join()</b> method ensures that one thread waits for another to complete before
+                        proceeding.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            Thread t1 = new Thread(() -> System.out.println("Thread 1"));<br>
+                            t1.start();<br>
+                            t1.join(); // Main thread waits for t1 to finish.<br>
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>24. What are Functional Interfaces?</b></p><br>
+                <ul>
+                    <li>Functional Interfaces have exactly one abstract method. Examples: <b>Runnable, Callable,
+                            Predicate, Function</b>.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            @FunctionalInterface<br>
+                            interface Calculator {
+                            <ul>
+                                int calculate(int a, int b);
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>25. What are default methods in Java 8?</b></p><br>
+                <ul>
+                    <li>Default methods are methods in interfaces with a default implementation.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            interface MyInterface {
+                            <ul>
+                                default void show() {
+                                <ul>
+                                    System.out.println("Default method");
+                                </ul>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>26. What is the use of <i>Optional</i> in Java 8?</b></p><br>
+                <ul>
+                    <li><b>Optional</b> is used to avoid <b>null</b> checks and handle <b>null</b> values gracefully.
+                    </li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            Optional&#x003C;String&#x003E; name = Optional.ofNullable(null);<br>
+                            System.out.println(name.orElse("Default Name"));
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>27. Explain <i>Stream.collect()</i> methods.</b></p><br>
+                <ul>
+                    <li>The <b>collect()</b> method is used to accumulate elements into a collection or perform
+                        operations like joining strings.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            List&#x003C;String&#x003E; list = Arrays.asList("A", "B", "C");<br>
+                            String result = list.stream().collect(Collectors.joining(","));<br>
+                            System.out.println(result); // Output: A,B,C
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>28. Explain the concept of Deadlock in Java.</b></p><br>
+                <ul>
+                    <li>A deadlock occurs when two or more threads are blocked forever, waiting for each other to
+                        release resources.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            class Deadlock {
+                            <ul>
+                                public static void main(String[] args) {
+                                <ul>
+                                    final String resource1 = "Resource1";<br>
+                                    final String resource2 = "Resource2";<br>
+                                    <br>
+                                    Thread t1 = new Thread(() -> {
+                                    <ul>
+                                        synchronized (resource1) {
+                                        <ul>
+                                            System.out.println("Thread 1 locked Resource 1");<br>
+                                            synchronized (resource2) {
+                                            <ul>
+                                                System.out.println("Thread 1 locked Resource 2");
+                                            </ul>
+                                            }
+                                        </ul>
+                                        }
+                                    </ul>
+                                    });
+                                </ul>
+                                <br>
+
+                                Thread t2 = new Thread(() -> {
+                                <ul>
+                                    synchronized (resource2) {
+                                    <ul>
+                                        System.out.println("Thread 2 locked Resource 2");<br>
+                                        synchronized (resource1) {
+                                        <ul>
+                                            System.out.println("Thread 2 locked Resource 1");
+                                        </ul>
+                                        }
+                                    </ul>
+                                    }
+                                </ul>
+                                });<br>
+                                <br>
+                                t1.start();<br>
+                                t2.start();<br>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>29. What are ThreadLocal variables?</b></p><br>
+                <ul>
+                    <li>ThreadLocal variables provide thread-local storage, meaning each thread has its own independent
+                        instance of the variable.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            ThreadLocal&#x003C;Integer&#x003E; threadLocal = ThreadLocal.withInitial(() -&#x003C; 0);
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>30. Explain the difference between <i>notify()</i> and <i>notifyAll()</i>.</b></p><br>
+                <ul>
+                    <li><b>notify() :</b> Wakes up one thread waiting on the object's monitor.</li><br>
+                    <li><b>notifyAll() :</b> Wakes up all threads waiting on the object's monitor.</li>
+                </ul>
+                <br>
+                <p><b>31. What is the difference between <i>ApplicationContext</i> and <i>BeanFactory</i>?</b></p><br>
+                <ul>
+                    <li><b>BeanFactory :</b> Basic container, lazy initialization.</li><br>
+                    <li><b>ApplicationContext :</b> Advanced container with features like event propagation,
+                        internationalization, and eager initialization.</li>
+                </ul>
+                <br>
+                <p><b>32. What are the scopes of a Spring Bean?</b></p><br>
+                <ul>
+                    <li><b>Singleton :</b> Single instance per Spring container.</li><br>
+                    <li><b>Prototype :</b> New instance for each request.</li><br>
+                    <li><b>Request :</b> Single instance per HTTP request (web apps).</li><br>
+                    <li><b>Session :</b> Single instance per HTTP session (web apps).</li><br>
+                    <li><b>Global Session :</b> Single instance per global HTTP session (portlet apps).</li>
+                </ul>
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/javainterview.html?topic=javaBignner" class="previous-button">Bignner</a>
+                    <a href="/interviewprep/javainterview.html?topic=javaExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="javaExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/javainterview.html?topic=javaAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/javainterview.html?topic=javaBignner" class="next-button">Bignner</a>
+                </div>
+                <h1>Java Expert</h1>
+
+                <p><b>1. Explain the key differences between <i>synchronized</i> and <i>Lock</i> in Java.</b></p><br>
+                <ul>
+                    <li><b>synchronized :</b></li><br>
+                    <ul>
+                        <li>Implicit locking mechanism.</li><br>
+                        <li>Acquires and releases the lock automatically.</li><br>
+                        <li>Cannot interrupt threads waiting for a lock.</li>
+                    </ul>
+                    <br>
+                    <li><b>Lock :</b></li><br>
+                    <ul>
+                        <li>Explicit locking mechanism (<b>java.util.concurrent.locks</b>).</li><br>
+                        <li>Provides more flexibility, such as <b>tryLock()</b> for timed locking.</li><br>
+                        <li>Can interrupt threads waiting for a lock.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>2. How would you optimize a Java application for performance?</b></p><br>
+                <ul>
+                    <li><b>Efficient Algorithms :</b> Use appropriate data structures and algorithms.</li><br>
+                    <li><b>Memory Management :</b> Minimize object creation, use pooling.</li><br>
+                    <li><b>Concurrency :</b> Use thread pools, avoid contention.</li><br>
+                    <li><b>Profiling Tools :</b> Use tools like JVisualVM, YourKit to identify bottlenecks.</li><br>
+                    <li><b>Database Optimization :</b> Indexing, connection pooling.</li><br>
+                    <li><b>Garbage Collection Tuning :</b> Configure GC as per workload.</li>
+                </ul>
+                <br>
+                <p><b>3. Explain the importance of <i>CompletableFuture</i> in Java.</b></p><br>
+                <ul>
+                    <li><b>CompletableFuture</b> is used for asynchronous programming. It supports chaining multiple
+                        tasks and combining results.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+
+                            CompletableFuture.supplyAsync(() -> "Hello")
+                            <ul>
+                                .thenApply(result -> result + " World")<br>
+                                .thenAccept(System.out::println); // Output: Hello World
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>4. What is the difference between a <i>Heap</i> and a <i>Stack</i> in memory management?</b></p>
+                <br>
+                <ul>
+                    <li><b>Heap :</b> Stores objects and global variables. Managed by the garbage collector.</li><br>
+                    <li><b>Stack :</b> Stores method-specific data like local variables and function calls. Follows LIFO
+                        (Last In, First Out).</li>
+                </ul>
+                <br>
+                <p><b>5. What is the significance of immutability in Java?</b></p><br>
+                <ul>
+                    <li>Thread-safe by design.</li><br>
+                    <li>Easy to use as keys in collections.</li><br>
+                    <li>Prevents accidental modifications.</li><br>
+                    <li>Examples: <b>String, Integer, LocalDate</b>.</li>
+                </ul>
+                <br>
+                <p><b>6. How would you troubleshoot OutOfMemoryError?</b></p><br>
+                <ul>
+                    <li>Analyze heap dumps using tools like Eclipse MAT.</li><br>
+                    <li>Identify memory leaks.</li><br>
+                    <li>Check for unbounded collections.</li><br>
+                    <li>Optimize object creation.</li><br>
+                    <li>Increase heap size if necessary (-Xms and -Xmx JVM options).</li>
+                </ul>
+                <br>
+                <p><b>7. Explain the role of GC (Garbage Collector) and its types.</b></p><br>
+                <ul>
+                    <li>GC automates memory management by reclaiming unused objects.</li><br>
+                    <li><b>Types of Collectors :</b></li><br>
+                    <ul>
+                        <li><b>Serial GC :</b> Single-threaded, best for small applications.</li><br>
+                        <li><b>Parallel GC :</b> Multi-threaded, good for throughput.</li><br>
+                        <li><b>CMS GC :</b> Low latency, concurrent phases.</li><br>
+                        <li><b>G1 GC :</b> Balances throughput and low latency.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>8. Explain the Producer-Consumer problem and its solution in Java.</b></p><br>
+                <ul>
+                    <li>The Producer-Consumer problem involves synchronization between threads.</li><br>
+                    <li>Using <b>BlockingQueue :</b></li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            BlockingQueue&#x003C;Integer&#x003E; queue = new ArrayBlockingQueue&#x003C;&#x003E;(10);
+                            <ul>
+                                new Thread(() -> {
+                                <ul>
+                                    try {
+                                    <ul>
+                                        queue.put(1); // Producer
+                                    </ul>
+                                    } catch (InterruptedException e) { }
+                                </ul>
+                                }).start();
+                            </ul>
+                            new Thread(() -&#x003E; {
+                            <ul>
+                                try {
+                                <ul>
+                                    queue.take(); // Consumer
+                                </ul>
+                                } catch (InterruptedException e) { }
+                            </ul>
+                            }).start();
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>9. What is a Thread Dump? How do you analyze it?</b></p><br>
+                <ul>
+                    <li>A thread dump captures the state of all threads in the JVM.</li><br>
+                    <li><b>Analysis Tools :</b></li><br>
+                    <ul>
+                        <li>JVisualVM, Thread Dump Analyzer.</li><br>
+                        <li>Look for deadlocks, thread contention, and blocked threads.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>10. What is the difference between <i>@Transactional</i> and <i>@Transactional(readOnly =
+                            true)</i>?</b></p><br>
+                <ul>
+                    <li><b>@Transactional :</b> Supports read and write operations with full transaction features.</li>
+                    <br>
+                    <li><b>@Transactional(readOnly = true) :</b> Optimized for read-only operations, prevents
+                        unnecessary locking.</li>
+                </ul>
+                <br>
+                <p><b>11. How does Spring Boot simplify microservices development?</b></p><br>
+                <ul>
+                    <li><b>Auto-Configuration :</b> Reduces boilerplate code.</li><br>
+                    <li><b>Embedded Servers :</b> No external dependency on app servers.</li><br>
+                    <li><b>Spring Actuator :</b> Provides monitoring tools.</li><br>
+                    <li><b>Spring Cloud :</b> Integrates with distributed systems (e.g., Eureka, Zuul).</li>
+                </ul>
+                <br>
+                <p><b>12. Explain caching in Spring with examples.</b></p><br>
+                <ul>
+                    <li>Spring provides caching with annotations like <b>@Cacheable, @CacheEvict</b>.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            @Cacheable("students")<br>
+                            public Student getStudentById(Long id) {
+                            <ul>
+                                return studentRepository.findById(id).orElse(null);
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>13. How would you implement the Factory Design Pattern?</b></p><br>
+                <ul>
+                    <li>The Factory Pattern creates objects without exposing the creation logic.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            interface Shape { void draw(); }<br>
+                            <br>
+                            class Circle implements Shape {
+                            <ul>
+                                public void draw() { System.out.println("Circle"); }
+                            </ul>
+                            }<br>
+                            <br>
+                            class ShapeFactory {
+                            <ul>
+                                public Shape getShape(String type) {
+                                <ul>
+                                    if ("Circle".equals(type)) {
+                                    <ul>
+                                        return new Circle();
+                                    </ul>
+                                    }
+                                </ul>
+                                return null;<br>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>14. What is the Singleton Design Pattern? How do you make it thread-safe?</b></p><br>
+                <ul>
+                    <li>Thread-safe Singleton Example:</li><br>
+                    <li>
+                        <div class="interview-box">
+                            public class Singleton {
+                            <ul>
+                                private static volatile Singleton instance;<br>
+                                <br>
+                                private Singleton() {}<br>
+                                <br>
+                                public static Singleton getInstance() {
+                                <ul>
+                                    if (instance == null) {
+                                    <ul>
+                                        synchronized (Singleton.class) {
+                                        <ul>
+                                            if (instance == null) {
+                                            <ul>
+                                                instance = new Singleton();
+                                            </ul>
+                                            }
+                                        </ul>
+                                        }
+                                    </ul>
+                                    }
+                                </ul>
+                                return instance;<br>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>15. What is the N+1 query problem in Hibernate? How do you solve it?</b></p><br>
+                <ul>
+                    <li>The N+1 query problem occurs when an additional query is executed for each element in a
+                        collection.</li><br>
+                    <li>Use <b>JOIN FETCH</b> or batch fetching.</li><br>
+                    <li>
+                        <div class="interview-box">
+                            List&#x003C;Department&#x003E; departments = session.createQuery(
+                            <ul>
+                                "FROM Department d JOIN FETCH d.employees").list();
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>16. How do you optimize database transactions in a Java application?</b></p><br>
+                <ul>
+                    <li>Use connection pooling.</li><br>
+                    <li>Optimize queries using indexing.</li><br>
+                    <li>Use batching for updates/inserts.</li><br>
+                    <li>Reduce transaction scope.</li><br>
+                    <li>Leverage caching mechanisms (e.g., EhCache, Redis).</li>
+                </ul>
+                <br>
+
+
+
+
+
+
+
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/javainterview.html?topic=javaAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/javainterview.html?topic=javaBignner" class="next-button">Bignner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+        // Scroll to the top when the page loads
+        window.addEventListener("load", () => {
+            // Add a slight delay to allow the topic to update
+            setTimeout(() => {
+                window.scrollTo(0, 0); // Scroll to the top of the page
+            }, 50); // Delay ensures topic content finishes loading
+        });
+
+
+        // Add click event listeners for previous and next buttons
+        document.querySelectorAll(".previous-button, .next-button").forEach(button => {
+            button.addEventListener("click", () => {
+                window.scrollTo(0, 0); // Ensure the page scrolls to the top
+            });
+        });
+    </script>
+</body>
+
+</html>

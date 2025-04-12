@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlConstraints">
+
+            <div class="topic-buttons">
+                <a href="sql_fullouterjoin.html?topic=sqlFullouterjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_notnull.html?topic=sqlNotnull" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Constraints</h1>
+            <p>Constraints rules applied to table columns to ensure the validity, integrity, and accuracy of the data
+                stored in a database.</p> <br>
+            <p>These rules define valid data for a table column and restrict unwanted or incorrect data entry.</p><br>
+            <p>They define specific conditions that must be met for data to be inserted, updated, or maintained in a
+                table.</p><br>
+            <h4>For Example</h4>
+            <ul>
+                <li>Constraints ensure that a column cannot have duplicate values (UNIQUE constraint).</li>
+                <li>Constraints ensure a column cannot accept NULL values (NOT NULL constraint).</li>
+                <li>They enforce relationships between tables (FOREIGN KEY constraint).</li>
+            </ul> <br>
+            <h2>Why Do We Need Constraints in a Database?</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reason</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Data Integrity</b></td>
+                        <td>Constraints ensure the accuracy and reliability of data (e.g., NOT NULL prevents missing
+                            values).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Data Redundancy</b></td>
+                        <td>Constraints like UNIQUE prevent duplicate entries, reducing redundant data in the database.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Maintain Relationships</b></td>
+                        <td>FOREIGN KEY ensures that relationships between tables remain consistent and valid.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Error Prevention</b></td>
+                        <td>Automatically rejects invalid data during insert or update operations, reducing human
+                            errors.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Enforce Business Rules</b></td>
+                        <td>Helps in implementing business logic directly within the database (e.g., CHECK ensures age >
+                            18 for eligibility).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Improved Performance</b></td>
+                        <td>Constraints like PRIMARY KEY and UNIQUE create indexes, speeding up queries and improving
+                            efficiency.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Standardized Validation</b></td>
+                        <td>Centralizes data validation within the database, reducing reliance on application-layer
+                            validation.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ease of Maintenance</b></td>
+                        <td>Ensures consistency across the database, making it easier to maintain and enforce standards.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Database Reliability</b></td>
+                        <td>Ensures consistent behavior in multi-user environments, even when simultaneous transactions
+                            occur.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Types of Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constraint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>NOT NULL</b></td>
+                        <td>Ensures that a column cannot have a NULL value.</td>
+                    </tr>
+                    <tr>
+                        <td><b>UNIQUE</b></td>
+                        <td>Ensures all values in a column or combination of columns are unique.</td>
+                    </tr>
+                    <tr>
+                        <td><b>PRIMARY KEY</b></td>
+                        <td>Combines NOT NULL and UNIQUE. Uniquely identifies each row in a table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>FOREIGN KEY</b></td>
+                        <td>Establishes a relationship between two tables, enforcing referential integrity.</td>
+                    </tr>
+                    <tr>
+                        <td><b>CHECK</b></td>
+                        <td>Ensures a column value satisfies a specific condition.</td>
+                    </tr>
+                    <tr>
+                        <td><b>DEFAULT</b></td>
+                        <td>Assigns a default value to a column if no value is provided during data insertion.</td>
+                    </tr>
+                    <tr>
+                        <td><b>INDEX</b> (optional)</td>
+                        <td>Used for performance enhancement, but technically not a constraint; helps retrieve data
+                            faster.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Advantages of Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Data Accuracy and Consistency</b></td>
+                        <td>Constraints ensure that only valid data is stored in the database.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Enforces Business Rules</b></td>
+                        <td>Automatically enforces business rules at the database level.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Prevents Invalid Data</b></td>
+                        <td>Rejects invalid or duplicate data during insertion or updates.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Improved Performance</b></td>
+                        <td>Constraints like PRIMARY KEY and UNIQUE automatically create indexes for faster data access.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Reduces Application Logic</b></td>
+                        <td>Shifts data validation from the application layer to the database layer.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Maintains Relationships </b></td>
+                        <td>Ensures referential integrity across related tables.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Disadvantages of Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><b>Disadvantage</b></th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Reduced Flexibility</b></td>
+                        <td>Constraints may limit the type of data operations (e.g., deletion of rows referenced by
+                            FOREIGN KEY).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Overhead</b></td>
+                        <td>Checking constraints during inserts or updates can impact performance, especially for large
+                            datasets.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Complexity in Maintenance</b></td>
+                        <td>Updating or altering constraints on large tables can be challenging and time-consuming.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Dependency on Database Rules</b></td>
+                        <td>Applications relying heavily on constraints may face portability issues when switching
+                            databases.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Hard to Debug</b></td>
+                        <td>Errors triggered by constraints can sometimes be difficult to trace without clear messages.
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors and Solutions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Explanation</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Duplicate Key Error</b></td>
+                        <td>Occurs when inserting duplicate values into a column with a UNIQUE constraint.</td>
+                        <td>Ensure data uniqueness before insertion or update the constraint.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Value in NOT NULL Column</b></td>
+                        <td>Happens when attempting to insert a NULL into a column with NOT NULL.</td>
+                        <td>Always provide a value for NOT NULL columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Foreign Key Violation</b></td>
+                        <td>Occurs when a referenced key in a FOREIGN KEY constraint does not exist.</td>
+                        <td>Ensure referenced values exist in the parent table before inserting.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Check Constraint Violation</b></td>
+                        <td>Triggered when a value does not meet the CHECK condition.</td>
+                        <td>Validate data before insertion or modify the CHECK condition if required.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Default Value Conflict</b></td>
+                        <td>Inserting conflicting data in a column with a DEFAULT value.</td>
+                        <td>Specify correct default values that align with business requirements.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use constraints to enforce business rules.</td>
+                        <td>Don’t rely solely on application logic for data validation; enforce rules at the database
+                            level.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name constraints clearly for better readability.
+                        </td>
+                        <td>Avoid using system-generated constraint names; they can be confusing to manage.</td>
+                    </tr>
+                    <tr>
+                        <td>Test constraints thoroughly with sample data.</td>
+                        <td>Don’t overuse constraints; overly restrictive rules can make development and testing
+                            cumbersome.</td>
+                    </tr>
+                    <tr>
+                        <td>Use composite keys if necessary.</td>
+                        <td>Don’t use NULL values in columns that are part of constraints (e.g., UNIQUE, PRIMARY KEY).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Document constraints for easier maintenance.</td>
+                        <td>Don’t ignore performance impacts of constraints on large datasets.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Best Practices</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Use case</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Plan Constraints Early</b></td>
+                        <td>Define constraints during the table design phase to avoid future rework.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Combine Constraints</b></td>
+                        <td>Use a combination of constraints (e.g., NOT NULL + UNIQUE) for stricter validation.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Monitor Performance</b></td>
+                        <td>Constraints can slow down bulk inserts or updates; balance validation with performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Key Columns</b></td>
+                        <td>Ensure columns involved in constraints like FOREIGN KEY or UNIQUE are indexed for better
+                            performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Keep It Simple</b></td>
+                        <td>Avoid overly complex CHECK conditions that can confuse developers or hinder performance.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_fullouterjoin.html?topic=sqlFullouterjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_notnull.html?topic=sqlNotnull" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

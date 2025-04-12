@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlAnd">
+
+            <div class="topic-buttons">
+                <a href="sql_logicaloperators.html?topic=sqlLogicalOperators" class="previou-button">&laquo;
+                    Previous</a>
+                <a href="sql_or.html?topic=sqlOr" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1> AND Operator </h1>
+            <p>The AND operator returns <b>TRUE if all conditions</b> joined by it are TRUE. If <b>any condition is
+                    FALSE</b>, the result is FALSE.</p><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> column1<b> , </b>column2<b> , </b><b> .  .  . </b> <br>
+                        <span class="orclkey">FROM </span> table_name <br>
+                        <span class="orclkey">WHERE </span> condition1  <span class="orclkey"> AND </span> condition2 <b> ; </b>
+                    </code>
+            </div><br>
+            <h3> Examples</h3>
+            <p><b>Scenario 1 - ( Filtering Employees by Department and Salary ):- </b>Retrieve employees from department
+                10 with salaries greater than 50,000.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary  <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span> department_id  = 10  <span class="orclkey"> AND </span> salary <b> > </b> 50000 <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 2 - ( Finding Products with Specific Criteria ) :- </b> Find products that are in the
+                "Electronics" category and have a stock quantity greater than 100.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Category<b> , </b>Stock<b></b>  <br>
+                        <span class="orclkey">FROM </span> Products <br>
+                        <span class="orclkey">WHERE </span> Category = <b> '</b>Electronics<b>' </b>  <span class="orclkey"> AND </span> Stock  <b> > </b> 100 <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 3 - ( Filtering Orders by Date and Status ) :- </b>Retrieve all orders placed after January
+                1, 2023, that are still pending.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> OrderID<b> , </b>CustomerID<b> , </b>OrderDate<b> , </b>Status<b></b>  <br>
+                        <span class="orclkey">FROM </span> Orders <br>
+                        <span class="orclkey">WHERE </span> OrderDate  <b> > </b> <b> '</b>2023-01-01<b>' </b>  <span class="orclkey"> AND </span> Stock  <b> = </b> <b> '</b>Pending<b>' </b> <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 4 - ( Combining Numeric and String Conditions ):- </b>Get all students enrolled in the
+                "Mathematics" course with grades above 80.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> StudentID<b> , </b>Name<b> , </b>Course<b> , </b>Grade<b></b>  <br>
+                        <span class="orclkey">FROM </span> Students <br>
+                        <span class="orclkey">WHERE </span> Course  <b>=  '</b>Mathematics<b>' </b>  <span class="orclkey"> AND </span> Grade   <b> > </b> 80 <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 5 - ( Filtering Products by Multiple Numeric Ranges ):- </b>Get all students enrolled in the
+                "Mathematics" course with grades above 80.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Price<b> , </b>Discount<b></b>  <br>
+                        <span class="orclkey">FROM </span> Products <br>
+                        <span class="orclkey">WHERE </span> Price <span class="orclkey"> BETWEEN </span> 50   <span class="orclkey"> AND </span> 500 <span class="orclkey"> AND </span>Discount  <b> > </b> 10<b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 6 - ( Combining Date and Textual Filters ):- </b>Retrieve events that are scheduled after
+                today and have the status "Confirmed."</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> EventID<b> , </b>Name<b> , </b>EventDate<b> , </b>Status<b></b>  <br>
+                        <span class="orclkey">FROM </span> Events <br>
+                        <span class="orclkey">WHERE </span> EventDate  <b> > </b> CURRENT_DATE <span class="orclkey"> AND </span> Status   <b> = </b> <b> '</b>Confirmed<b>' </b> <b> ; </b>
+                    </code>
+            </div><br>
+            <h2>Operator Precedence</h2>
+            <p>When multiple logical operators are used in a query, they are evaluated in the following order of
+                precedence:<b>NOT , AND , OR</b></p>
+            <p>Use parentheses to override the default precedence and clarify intent.</p>
+            <h3>Example 1: </h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary  <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span> department_id<b> = ' </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  <span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
+                    </code>
+                - - 1. Evaluate NOT job_title = 'Manager'. <br>
+                - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
+                - - 3. Evaluate department_id = 10 OR result_of_AND. <br>
+            </div><br>
+            <h3>To change precedence:</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary  <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span>( department_id<b> = ' </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  )<span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
+                    </code>
+                - - 1. Evaluate NOT job_title = 'Manager'. <br>
+                - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
+                - - 3. Evaluate department_id = 10 OR result_of_AND. <br>
+            </div><br>
+            <h3>Example 2: </h3>
+            <p>Retrieve employees from department 20 who are either earning more than 60,000 or have a job title other
+                than 'Salesman'.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary <b> , </b>job_title <br>
+                        <span class="orclkey">FROM </span> employees <br>
+                        <span class="orclkey">WHERE </span> department_id<b> = ' </b>20 <span class="orclkey"> AND </span>( salary <b> > </b> 70000  <span class="orclkey"> OR NOT </span> job_title  <b> = </b> <b> '</b>Salesman<b>' )</b><b> ; </b>
+                    </code>
+                - - 1. Evaluate NOT job_title = 'Manager'. <br>
+                - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
+                - - 3. Evaluate department_id = 10 OR result_of_AND. <br>
+            </div><br>
+            <h2>Advanced Scenarios</h2>
+            <h3>1. Combining AND with OR</h3>
+            <p><b>Scenario :- </b> Retrieve customers from "USA" or "Canada" who have spent more than $5,000.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name<b> , </b>Country<b> , </b>TotalSpending<b></b>  <br>
+                        <span class="orclkey">FROM </span> Customers <br>
+                        <span class="orclkey">WHERE </span> ( Country  <b> = ' </b>USA <b>'</b> <span class="orclkey"> OR </span> Country   <b> = </b> <b> '</b>Canada<b>' </b> )<span class="orclkey"> AND </span>TotalSpending  <b>></b> 5000<b> ; </b>
+                    </code>
+            </div><br>
+            <h3>2. Joining Tables with AND in Conditions</h3>
+            <p><b>Scenario :- </b> Find employees who belong to "Sales" or "Marketing" departments and have completed at
+                least two projects.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name<b> , </b>COUNT ( p.ProjectID ) <span class="orclkey">AS   </span> ProjectCount <br>
+                        <span class="orclkey">FROM </span> Employees e <br>
+                        <span class="orclkey">JOIN  </span> Projects p <span class="orclkey">ON  </span>e.EmployeeID = p.EmployeeID<br>
+                        <span class="orclkey">WHERE </span> ( e.DepartmentID  <b> = ' </b>Sales <b>'</b><span class="orclkey">OR  </span> e.department_name<b> = ' </b>Marketing <b>'</b> )<br>
+                        <span class="orclkey">AND </span> p.Status <b> = ' </b>Completed <b>'</b> <br>
+                        <span class="orclkey">GROUP BY </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name
+                        <span class="orclkey">HAVING </span> COUNT( p.ProjectID ) <b>>= </b>2 <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>2. Using Subqueries with AND</h3>
+            <p><b>Scenario :- </b> Retrieve orders placed by customers who live in "California" and have placed more
+                than three orders.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT   </span> OrderID<b> , </b>CustomerID<b> , </b>OrderDate<b> , </b>Amount<br>
+                        <span class="orclkey">FROM </span> Orders <br>
+                        <span class="orclkey">WHERE  </span> CustomerID  <span class="orclkey">IN  </span> ( <br>
+                        <ul>
+                            <ul>
+                                <span class="orclkey">SELECT   </span> CustomerID <br>
+                                <span class="orclkey">FROM </span> Orders <br>
+                                <span class="orclkey">WHERE </span> State <b> = ' </b>California <b>'</b> <br>
+                            </ul>
+                        </ul>
+                        ) <br>
+                        <span class="orclkey">AND </span> OrderCount  <b> > </b> 3 <b> ; </b>
+                    </code>
+            </div><br>
+            <h2>Common Errors</h2>
+            <h3>1. Misusing AND/OR</h3>
+            <p>Using OR without parentheses can lead to unintended results due to operator precedence.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">WHERE </span> DepartmentID   <b> =  </b>10  <span class="orclkey"> OR </span> DepartmentID    <b> = </b> 20 <span class="orclkey"> AND </span>Salary   <b>></b> 60000<b> ; </b>
+                    </code>
+                - - This will first evaluate DepartmentID = 20 AND Salary > 60000.
+            </div><br>
+            <h3>Fix</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">WHERE </span>( DepartmentID   <b> =  </b>10  <span class="orclkey"> OR </span> DepartmentID    <b> = </b> 20 )<span class="orclkey"> AND </span>Salary   <b>></b> 60000<b> ; </b>
+                    </code>
+            </div><br>
+            <h3>2. Logical Conflicts</h3>
+            <p>Contradictory conditions result in no rows.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">WHERE </span>Price  <b> < </b>50  <span class="orclkey"> AND </span> Price     <b> > </b> 100 <b> ; </b>
+                    </code>
+                - - Always false.
+            </div><br>
+            <h3>3. Null Values</h3>
+            <p>Conditions involving NULL without IS NULL can lead to errors.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">WHERE </span>Category  <span class="orclkey"> IS NOT NULL AND </span> Stock<b> > </b> 0 <b> ; </b>
+                    </code>
+                - - Always false.
+            </div><br>
+
+
+
+
+
+
+            <!-- END of Logical Operators ( AND ) Content -->
+
+            <div class="topic-buttons">
+                <a href="sql_logicaloperators.html?topic=sqlLogicalOperators" class="previou-button">&laquo;
+                    Previous</a>
+                <a href="sql_or.html?topic=sqlOr" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

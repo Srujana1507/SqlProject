@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <!-- <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: circle;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* p b {
+            color: rgb(0, 0, 0);
+        } */
+
+        /* .topic-content li b {
+            color: rgb(255, 0, 255);
+        } */
+
+        /* footer code end hrere */
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="cssBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/cssinterview.html?topic=cssAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/cssinterview.html?topic=cssExpert" class="next-button">Expert</a>
+                </div>
+
+
+                <h1>CSS Bignner</h1>
+                <p><b>1. What is CSS?</b></p><br>
+                <ul>
+                    <li>Cascading Style Sheets fondly referred to as CSS, is a simply designed language intended to
+                        simplify the process of making web pages presentable. CSS allows you to apply styles to web
+                        pages.</li>
+                </ul>
+                <br>
+                <p><b>2. Why do we use CSS?</b></p><br>
+                <ul>
+                    <li><b>CSS saves time :</b> You can write CSS once and reuse the same sheet on multiple HTML pages.
+                    </li><br>
+                    <li><b>Easy Maintenance :</b> To make a global change simply change the style, and all elements in
+                        all the
+                        webpages will be updated automatically.</li><br>
+                    <li><b>Search Engines :</b> CSS is considered a clean coding technique, which means search engines
+                        won’t
+                        have to struggle to “read” its content.</li><br>
+                    <li><b>Superior styles to HTML :</b> CSS has a much wider array of attributes than HTML, so you can
+                        give a
+                        far better look to your HTML page in comparison to HTML attributes.</li><br>
+                    <li><b>Offline Browsing :</b> CSS can store web applications locally with the help of an offline
+                        cache.
+                        Using of this we can view offline websites.</li>
+                </ul>
+                <br>
+                <p><b>3. What are the advantages of CSS?</b></p><br>
+                <ul>
+                    <li>CSS plays an important role, by using CSS you simply got to specify a repeated style for an
+                        element once & use it multiple times because CSS will automatically apply the required styles.
+                    </li><br>
+                    <li>The main advantage of CSS is that style is applied consistently across a variety of sites. One
+                        instruction can control several areas which are advantageous.</li><br>
+                    <li>Web designers need to use a few lines of programming for every page improving site speed.</li>
+                    <br>
+                    <li>Cascading sheet not only simplifies website development but also simplifies maintenance as a
+                        change of one line of code affects the whole website and maintenance time.</li><br>
+                    <li>It is less complex therefore the effort is significantly reduced.It helps to form spontaneous
+                        and consistent changes.</li>
+                </ul>
+                <br>
+                <p><b>4. What are the disadvantages of CSS?</b></p><br>
+                <ul>
+                    <li>CSS, CSS 1 up to CSS3, result in creating confusion among web browsers.</li><br>
+                    <li>With CSS, what works with one browser might not always work with another. The web developers
+                        need to test for compatibility, running the program across multiple browsers.</li><br>
+                    <li>There exists a scarcity of security.</li><br>
+                    <li>After making the changes we need to confirm the compatibility if they appear. A similar change
+                        affects all the browsers.</li><br>
+                    <li>Browser compatibility (some style sheets are supported and some are not).</li><br>
+                    <li>CSS works differently on different browsers. IE and Opera support CSS as different logic.</li>
+                </ul>
+                <br>
+                <p><b>5. What is the current version of CSS?</b></p><br>
+                <ul>
+                    <li>CSS3 is the latest version of CSS.</li>
+                </ul>
+                <br>
+                <p><b>6. List the CSS Frameworks.</b></p><br>
+                <ul>
+                    <li><b>The best CSS frameworks are:</b></li><br>
+                    <ul>
+                        Bootstrap,<br> Foundation,<br> Bulma,<br> UIKit,<br> Semantic UI,<br> Materialize,<br>
+                        Pure,<br> Tailwind CSS.
+                    </ul>
+
+                    </li>
+                </ul>
+                <br>
+                <p><b>7. In how many ways can we add CSS to our HTML file?</b></p><br>
+                <ul>
+                    <li>Cascading Style Sheet(CSS) is used to set the style in web pages that contain HTML elements.
+                        It sets the background color, font size, font family, color, … etc properties of elements on a
+                        web page.</li><br>
+                    <li><b>There are three types of CSS :</b></li><br>
+                    <ul>
+                        Inline CSS,<br> Internal or Embedded CSS,<br>
+                        External CSS.
+                    </ul>
+                </ul>
+                <br>
+                <p><b>8. Explain Inline CSS?</b></p><br>
+                <ul>
+                    <li>Inline CSS refers to applying CSS directly within an HTML element using the style attribute.
+                        This style declaration affects only the specific element it is applied to.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            &#x003C;p style="color: red; font-size: 20px;"&#x003E;This is styled using Inline
+                            CSS.&#x003C;/p&#x003E;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>9. Explain Internal CSS?</b></p><br>
+                <ul>
+                    <li>This can be used when a single HTML document must be styled uniquely. The CSS ruleset should be
+                        within the HTML file in the head section i.e the CSS is embedded within the HTML file.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            &#x003C;!DOCTYPE html&#x003E;<br>
+                            &#x003C;html&#x003E;<br>
+
+                            &#x003C;head&#x003E;<br>
+                            &#x003C;style&#x003E;<br>
+                            body {<br>
+                            background-color: lightblue;<br>
+                            }<br>
+
+                            h1 {<br>
+                            color: navy;<br>
+                            text-align: center;<br>
+                            }<br>
+
+                            p {<br>
+                            font-size: 18px;<br>
+                            }<br>
+                            &#x003C;/style&#x003E;<br>
+                            &#x003C;/head&#x003E;<br>
+
+                            &#x003C;body&#x003E;<br>
+                            &#x003C;h1&#x003E;Internal CSS Example&#x003C;/h&#x003E;<br>
+                            &#x003C;p&#x003E;This paragraph is styled using Internal CSS.&#x003C;/p&#x003E;<br>
+                            &#x003C;/body&#x003E;<br>
+                            &#x003C;/html&#x003E;
+                        </div>
+
+                    </li>
+                </ul>
+                <br>
+                <p><b>10. Explain External CSS?</b></p><br>
+                <ul>
+                    <li>External CSS contains a separate CSS file which contains only style property with the help of
+                        tag attributes (For example class, id, heading, … etc). CSS property is written in a separate
+                        file with <b>.css</b> extension and should be linked to the HTML document using the link tag
+                    </li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            <p><b>index.html</b></p><br>
+                            &#x003C;!DOCTYPE html&#x003E;<br>
+                            &#x003C;html&#x003E;<br>
+
+                            &#x003C;head&#x003E;<br>
+                            &#x003C;link rel="stylesheet" href="style.css"&#x003C;
+                            &#x003C;/head&#x003E;<br>
+
+                            &#x003C;body&#x003E;<br>
+                            &#x003C;h1&#x003E;Internal CSS Example&#x003C;/h&#x003E;<br>
+                            &#x003C;p&#x003E;This paragraph is styled using Internal CSS.&#x003C;/p&#x003E;<br>
+                            &#x003C;/body&#x003E;<br>
+                            &#x003C;/html&#x003E;
+                        </div><br>
+                        <div class="interview-box">
+                            <p><b>style.css</b></p><br>
+                            body {<br>
+                            background-color: lightblue;<br>
+                            }<br>
+
+                            h1 {<br>
+                            color: navy;<br>
+                            text-align: center;<br>
+                            }<br>
+
+                            p {<br>
+                            font-size: 18px;<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>11. Which type of CSS holds the highest priority?</b></p><br>
+                <ul>
+                    <li>Inline CSS has the highest priority, then comes Internal/Embedded followed by External CSS which
+                        has the least priority. Multiple style sheets can be defined on one page. If for an HTML tag,
+                        styles are defined in multiple style sheets then the below order will be followed.</li>
+                </ul>
+                <br>
+                <p><b>12. What are CSS Selectors?</b></p><br>
+                <ul>
+                    <li>CSS Selectors are used to selecting HTML elements based on their element name, id, attributes,
+                        etc. It can select one or more elements simultaneously.</li>
+                </ul>
+                <br>
+                <p><b>13. What are Element Selectors?</b></p><br>
+                <ul>
+                    <li>An element selector (also known as a type selector) targets HTML elements directly by their tag
+                        name. It applies styles to all instances of the specified element within a webpage.</li><br>
+                    <li>The element selector in CSS is used to select HTML elements which are required to be styled. In
+                        a selector declaration, there is the name of the HTML element,
+                        and the CSS properties which are to be applied to that element is written inside the brackets
+                        <b>{}</b>.
+                    </li><br>
+                    <li>
+                        <p>Example :</p>
+                        <p>The p element selector applies the styles (font-size and color) to all &#x003C;p&#x003E;
+                            elements on the page.</p>
+                        <div class="interview-box">
+                            p {<br>
+                            font-size: 16px;<br>
+                            color: gray;<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>14. What are id Selectors?</b></p><br>
+                <ul>
+                    <li>The <b>#id</b> selector is used to set the style of the given id. The id attribute is the unique
+                        identifier in an HTML document. The id selector is used with a <b>#</b> character.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            #idName {<br>
+                            property: value;<br>
+                            }
+                        </div>
+
+                    </li>
+                </ul>
+                <br>
+                <p><b>15. What are Class Selectors?</b></p><br>
+                <ul>
+                    <li>The <b>.class</b> selector is used to select all elements which belong to a particular class
+                        attribute.
+                        To select the elements with a particular class, use the (<b>&#x2022;</b>) character with
+                        specifying the
+                        class name. The class name is mostly used to set the CSS property to the given class.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            .className {<br>
+                            property: value;<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>16. How can we add comments in CSS?</b></p><br>
+                <ul>
+                    <li>Comments are the statements in your code that are ignored by the compiler and are not executed.
+                        Comments are used to explain the code. They make the program more readable and understandable.
+                        Comments can be
+                        single-line or multi-line.</li><br>
+                    <li>
+                        <p>Syntax:</p>
+                        <div class="interview-box">
+                            /* content */
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>17. What does the ‘a’ in rgba mean?</b></p><br>
+                <ul>
+                    <li><b>RGBA</b> contains <b>A</b> (Alpha) which specifies the transparency of elements. The value of
+                        alpha lies between 0.0 to 1.0 where 0.0. represents fully <b>transparent</b> and 1.0 represents
+                        <b>not transparent</b>.
+                    </li>
+                </ul>
+                <br>
+                <p><b>18. What are CSS HSL Colors?</b></p><br>
+                <ul>
+                    <li><b>HSL :</b> HSL stands for Hue, Saturation, and Lightness respectively. This format uses the
+                        coordinate
+                        system.</li><br>
+                    <li><b>Hue :</b> Hue is the degree of the color wheel. Its value lies between <b>0 to 360</b> where
+                        <b>0</b> represents <b>red</b>,
+                        <b>120</b> represents <b>green</b> and <b>240</b> represents a <b>blue</b> color.</b>
+                    </li><br>
+                    <li><b>Saturation :</b> It takes a percentage value, where <b>100%</b> represents completely
+                        <b>saturated</b>, while <b>0%</b> represents completely unsaturated (<b>gray</b>).
+                    </li><br>
+                    <li><b>Lightness :</b> It takes a percentage value, where <b>100%</b> represents <b>white</b>, while
+                        <b>0%</b> represents <b>black</b>.
+                    </li>
+                </ul>
+                <br>
+                <p><b>19. What are CSS backgrounds, list the properties?</b></p><br>
+                <ul>
+                    <li>The CSS background properties are used to define the background effects for elements.</li><br>
+                    <li><b>background-color :</b> This property specifies the background color of an element.</li><br>
+                    <li><b>background-image :</b> This property specifies an image to use as the background of an
+                        element.
+                        By default, the image is repeated so it covers the entire element.</li><br>
+                    <li><b>background-repeat :</b> By default, the background image property repeats the image both
+                        horizontally
+                        and vertically.
+                    </li><br>
+                    <li><b>background-attachment :</b> This property is used to fix the background ground image. The
+                        image will
+                        not scroll with
+                        the page.</li><br>
+                    <li><b>background-position :</b> This property is used to set the image to a particular position.
+                    </li>
+                </ul>
+                <br>
+                <p><b>20. What are the different CSS border properties?</b></p><br>
+                <ul>
+                    <li>CSS border properties allow us to set the style, color, and width of the border.</li><br>
+                    <li><b>Border Style :</b> The border-style property specifies the type of border. None of the other
+                        border properties will work without setting the border style.</li><br>
+                    <li><b>Border Width :</b> Border width sets the width of the border. The width of the border can be
+                        in <b>px, pt, cm or thin, medium and thick</b>.</li><br>
+                    <li><b>Border Color :</b> This property is used to set the color of the border. Color can be set
+                        using the <b>color name, hex value, or RGB value</b>. If the color is not specified border
+                        inherits the color of the element itself.</li>
+                </ul>
+                <br>
+                <p><b>21. What is the difference between margin and padding?</b></p><br>
+                <ul>
+                    <li>Margin is used to create space around elements and padding is used to create space around
+                        elements inside the border.</li><br>
+                    <li>We can set the margin property to auto but we cannot set the padding property to auto.</li><br>
+                    <li>In Margin property we can allow negative or float number but in padding we cannot allow negative
+                        values.</li><br>
+                    <li>Margin and padding target all the 4 sides of the element. Margin and padding will work without
+                        the border property also.</li>
+                </ul>
+                <br>
+                <p><b>22. What is CSS Box Model?</b></p><br>
+                <ul>
+                    <li>The CSS box model is a container that contains multiple properties including borders, margin,
+                        padding, and the content itself. It is used to create the design and layout of web pages.</li>
+                    <br>
+                    <li>It can be used as a toolkit for customizing the layout of different elements. The web browser
+                        renders every element as a rectangular box according to the CSS box model.</li><br>
+                    <li>Box-Model has multiple properties in CSS. They are borders, margins, padding, content</li>
+                </ul>
+                <br>
+                <p><b>23. Explain about border area?</b></p><br>
+                <ul>
+                    <li>It is the area between the box’s padding and margin. Its dimensions are given by the width and
+                        height of the border.</li>
+                </ul>
+                <br>
+                <p><b>24. Explain about margin area?</b></p><br>
+                <ul>
+                    <li>This area consists of space between border and margin. The dimensions of the Margin area are the
+                        margin-box width and the margin-box height. It is useful to separate the element from its
+                        neighbors.</li>
+                </ul>
+                <br>
+                <p><b>25. Explain about padding area?</b></p><br>
+                <ul>
+                    <li>It includes the element’s padding. This area is actually the space around the content area and
+                        within the border box. Its dimensions are given by the width of the padding-box and the height
+                        of the padding-box.</li>
+                </ul>
+                <br>
+                <p><b>26. Explain about content area?</b></p><br>
+                <ul>
+                    <li>This area consists of content like text, images, or other media content. It is bounded by the
+                        content edge and its dimensions are given by content box width and height.</li>
+                </ul>
+                <br>
+                <p><b>27. What is the difference between CSS border and outline?</b></p><br>
+                <ul>
+                    <li>CSS border properties allow us to set the style, color, and width of the border.</li><br>
+                    <li>CSS outline property allows us to draw a line around the element, outside the border.</li><br>
+                    <li>Unlike borders, outlines don’t allow us to set each edge to a different width, or set different
+                        colors and styles for each edge. An outline is the same on all sides.</li><br>
+                    <li>Outlines cannot be circular.</li><br>
+                    <li>Outlines do not take up space, because they are always placed on top of the box of the element.
+                    </li>
+                </ul>
+                <br>
+                <p><b>28. How can we format text in CSS?</b></p><br>
+                <ul>
+                    <li>CSS text formatting properties are used to format text and style text.</li><br>
+                    <li>CSS text formatting includes the following properties:</li><br>
+                    <ul>
+                        <ol>1. Text-color</ol>
+                        <ol>2. Text-alignment</ol>
+                        <ol>3. Text-decoration</ol>
+                        <ol>4. Text-transformation</ol>
+                        <ol>5. Text-indentation</ol>
+                        <ol>6. Letter spacing</ol>
+                        <ol>7. Line height</ol>
+                        <ol>8. Text-direction</ol>
+                        <ol>9. Text-shadow</ol>
+                        <ol>10. Word spacing</ol>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>29. What are the different CSS link states?</b></p><br>
+                <ul>
+                    <li>A link is a connection from one web page to another web page. CSS property can be used to style
+                        the links in
+                        various different ways.</li><br>
+                    <li><strong>States of Link:</strong> Before discussing CSS properties, it is important to know the
+                        states of a link. Links can exist in different states and they can be styled using
+                        pseudo-classes.</li><br>
+                    <ul>
+                        <ol>1. <b>a:link :</b> This is a normal, unvisited link.</ol>
+                        <ol>2. <b>a:visited :</b> This is a link visited by a user at least once</ol>
+                        <ol>3. <b>a:hover :</b> This is a link when the mouse hovers over it</ol>
+                        <ol>4. <b>a:active :</b> This is a link that is just clicked.</ol>
+                    </ul>
+                </ul>
+                <br>
+                <p><b>30. Can we add an image as a list item marker?</b></p><br>
+                <ul>
+                    <li>To add an image as the list-item marker in a list, we use the list-style-image property in CSS.
+                    </li><br>
+                    <li>
+                        <p>Syntax:</p>
+                        <div class="interview-box">
+                            list-style-image: none | url | initial | inherit;
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>31. How can we hide an element in CSS?</b></p><br>
+                <ul>
+                    <li>The style display property is used to hide and show the content of HTML DOM by accessing the DOM
+                        element using JavaScript/jQuery.</li><br>
+                    <li>To hide an element, set the style display property to <b>“none”</b>.</li><br>
+                    <li>To show an element, set the style display property to <b>“block”</b>.</li>
+                </ul>
+                <br>
+                <p><b>32. What is meant by visibility property?</b></p><br>
+                <ul>
+                    <li>The visibility property is used to hide or show the content of HTML elements. The visibility
+                        property specifies that the element is currently visible on the page.</li><br>
+                    <li> The ‘hidden’ value can be used to hide the element. This hides the element but does not remove
+                        the space taken by the element, unlike the display property.</li>
+                </ul>
+                <br>
+                <p><b>33. What is the difference between <i>display: none</i> and <i>visibility: hidden</i>?</b></p><br>
+                <ul>
+                    <li>Both of the property is quite useful in CSS. The <b>visibility: “hidden”;</b> property is used
+                        to specify whether an element is visible or not in a web document but the hidden elements take
+                        up space in the web document. </li><br>
+                    <li>The visibility is a property in CSS that specifies the visibility behavior of an
+                        element and <b>display: “none”;</b> property is used to specify whether an element is exist or
+                        not on the website.</li><br>
+                    <li>So, the difference between <b>display: “none”;</b> and <b>visibility: “hidden”;</b>, right from
+                        the name itself we can tell the difference as <b>display: “none”;</b>, <br>completely gets rids
+                        of the tag, as it had never existed in the HTML page whereas <b>visibility: “hidden”;</b>, just
+                        makes the tag invisible it will still be on the HTML page occupying space it’s just invisible.
+                    </li>
+                </ul>
+                <br>
+                <p><b>34. Can we overlap elements in CSS?</b></p><br>
+                <ul>
+                    <li>Creating an overlay effect simply means putting two div together at the same place but both the
+                        div appear when needed i.e while hovering or while clicking on one of the div to make the second
+                        one appear.</li><br>
+                    <li>Overlays are very clean and give the webpage a tidy look. It looks sophisticated and
+                        is simple to design.</li><br>
+                    <li>The z-index property is used to displace elements on the z-axis i.e in or out of the screen.
+                        It is used to define the order of elements if they overlap with each other.</li><br>
+                    <li>The position property in CSS tells about the method of positioning for an element or an HTML
+                        entity. </li>
+                </ul>
+                <br>
+                <p><b>35. What are the various positioning properties in CSS?</b></p><br>
+                <ul>
+                    <li>The position property in CSS tells about the method of positioning for an element or an HTML
+                        entity. There are five different types of position properties available in CSS:</li><br>
+                    <li>Fixed, Static, Relative, Absolute, Sticky</li><br>
+                    <li>The positioning of an element can be done using the top, right, bottom, and left properties.
+                        These specify the distance of an HTML element from the edge of the viewport.
+                        To set the position by these four properties, we have to declare the positioning method.</li>
+                </ul>
+                <br>
+                <p><b>36. Explain about fixed property?</b></p><br>
+                <ul>
+                    <li>Any HTML element with position: fixed property will be positioned relative to the viewport.
+                        An element with fixed positioning allows it to remain at the same position even as we scroll
+                        the page. We can set the position of the element using the top, right, bottom, and left.</li>
+                </ul>
+                <br>
+                <p><b>37. Explain about static property?</b></p><br>
+                <ul>
+                    <li>This method of positioning is set by default. If we don’t mention the method of positioning for
+                        any element, the element has the position: static method by default. By defining Static, the
+                        top, right, bottom and left will not have any control over the element. The element will be
+                        positioned with the normal flow of the page.</li>
+                </ul>
+                <br>
+                <p><b>38. Explain about relative property?</b></p><br>
+                <ul>
+                    <li>An element with position: relative is positioned relatively with the other elements which are
+                        sitting at top of it. If we set its top, right, bottom, or left, other elements will not fill up
+                        the gap left by this
+                        element.</li>
+                </ul>
+                <br>
+                <p><b>39. Explain about absolute property?</b></p><br>
+                <ul>
+                    <li>An element with position: absolute will be positioned with respect to its parent. The
+                        positioning of this element does not depend upon its siblings or the elements which are at the
+                        same level.</li>
+                </ul>
+                <br>
+                <p><b>40. Explain about Sticky property?</b></p><br>
+                <ul>
+                    <li>Element with position: sticky and top: 0 played a role between fixed & relative based on the
+                        position where it is placed. If the element is placed in the middle of the document then when
+                        the user scrolls the document, the sticky element starts scrolling until it touches the top.
+                        When it touches the top, it will be fixed at that place in spite of further scrolling. We can
+                        stick the
+                        element at the bottom, with the bottom property.</li>
+                </ul>
+                <br>
+                <p><b>41. What is CSS overflow?</b></p><br>
+                <ul>
+                    <li>The CSS overflow controls the big content. It tells whether to clip content or to add scroll
+                        bars.</li><br>
+                    <li>visible, hidden, scroll, auto</li>
+                </ul>
+                <br>
+                <p><b>42. Explain visible property of overflow?</b></p><br>
+                <ul>
+                    <li>The content is not clipped and is visible outside the element box.</li>
+                </ul>
+                <br>
+                <p><b>43. Explain hidden property of overflow?</b></p><br>
+                <ul>
+                    <li>The overflow is clipped and the rest of the content is invisible.</li>
+                </ul>
+                <br>
+                <p><b>44. Explain scroll property of overflow?</b></p><br>
+                <ul>
+                    <li>The overflow is clipped but a scrollbar is added to see the rest of the content. The scrollbar
+                        can be horizontal or vertical.</li>
+                </ul>
+                <br>
+                <p><b>45. Explain auto property of overflow?</b></p><br>
+                <ul>
+                    <li>It automatically adds a scrollbar whenever it is required.</li><br>
+                    <li><b>Overflow-x and Overflow-y :</b> This property specifies how to change the overflow of
+                        elements. x deals with horizontal edges and y deals with vertical edges.</li>
+                </ul>
+                <br>
+                <p><b>46. What does the CSS float property do?</b></p><br>
+                <ul>
+                    <li>Float is a CSS property written in a CSS file or directly in the style of an element.</li><br>
+                    <li>The float property defines the flow of content.</li>
+                </ul>
+                <br>
+                <p><b>47. What does display:inline-block do?</b></p><br>
+                <ul>
+                    <li>This feature uses both properties: block and inline. </li><br>
+                    <li>So, this property aligns the div inline but the difference is it can edit the height and the
+                        width of the block. </li><br>
+                    <li>Basically, this will align the div both in the block and inline fashion.</li>
+                </ul>
+                <br>
+                <p><b>48. What are CSS Combinators?</b></p><br>
+                <ul>
+                    <li>CSS combinators are explaining the relationship between two selectors.</li><br>
+                    <li>CSS selectors are the patterns used to select the elements for style purposes. </li><br>
+                    <li>A CSS selector can be a simple selector or a complex selector consisting of more than one
+                        selector connected using combinators.</li><br>
+                    <li>There are four types of combinators available in CSS which are discussed below:</li><br>
+                    <ul>
+                        <ol>General Sibling selector (~)</ol>
+                        <ol>Adjacent Sibling selector (+)</ol>
+                        <ol>Child selector (>)</ol>
+                        <ol>Descendant selector (space)</ol>
+                    </ul>
+
+                </ul>
+                <br>
+                <p><b>49. Explain about General Sibling selector.</b></p><br>
+                <ul>
+                    <li> The general sibling selector is used to select the element that follows the first selector
+                        element and also shares the same parent as the first selector element. </li><br>
+                    <li>This can be used to select a group of elements that share the same parent element.</li>
+                </ul>
+                <br>
+                <p><b>50. Explain about Adjacent Sibling selector.</b></p><br>
+                <ul>
+                    <li>The Adjacent sibling selector is used to select the element that is adjacent or the element that
+                        is next to the specified selector tag.</li><br>
+                    <li>This combinator selects only one tag that is just next to the specified tag.</li>
+                </ul>
+                <br>
+                <p><b>51. Explain about Child selector.</b></p><br>
+                <ul>
+                    <li>This selector is used to select the element that is the immediate child of the specified tag.
+                    </li><br>
+                    <li>This combinator is stricter than the descendant selector because it selects only the second
+                        selector if it has the first selector element as its parent.</li>
+                </ul>
+                <br>
+                <p><b>52. Explain about Descendant selector (space).</b></p><br>
+                <ul>
+                    <li>This selector is used to select all the child elements of the specified tag. The tags can be the
+                        direct child of the specified tag or can be very deep in the specified tag. This combinator
+                        combines the two selectors such that selected elements have an ancestor same as the first
+                        selector element.</li>
+                </ul>
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/cssinterview.html?topic=cssAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/cssinterview.html?topic=cssExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="cssAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/cssinterview.html?topic=cssBignner" class="previous-button">Bignner</a>
+                    <a href="/interviewprep/cssinterview.html?topic=cssExpert" class="next-button">Expert</a>
+                </div>
+                <h1>CSS Advanced</h1>
+                <p><b>1. How to Choose a CSS Library?.</b></p><br>
+                <ul>
+                    <li><b>Project Requirements :</b> Choose a library that aligns with the design and functionality
+                        needs of
+                        your project.</li><br>
+                    <li><b>File Size :</b> Lightweight libraries like Pure.css and Skeleton are great for
+                        performance-focused
+                        projects.</li><br>
+                    <li><b>Customization :</b> Tailwind CSS and Bootstrap offer excellent customization options.</li>
+                    <br>
+                    <li><b>Community Support :</b> Libraries like Bootstrap and Tailwind CSS have extensive
+                        documentation and
+                        community support.</li><br>
+                    <li><b>Design Philosophy :</b> Consider design principles like Material Design (Materialize) or Flat
+                        Design
+                        (Metro 4).</li>
+                </ul>
+                <br>
+                <p><b>2. What do you understand by the universal sector?</b></p><br>
+                <ul>
+                    <li>The universal selector (<b>*</b>) is a CSS selector that matches all elements in a document,
+                        regardless of their type, class, or ID. It is the most generic selector and is often used to
+                        apply styles globally or as a base for more specific rules.</li><br>
+                    <li>
+                        <p>Example :</p>
+                        <div class="interview-box">
+                            * {<br>
+                            property: value;<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>3. Tell us about the use of the ruleset.</b></p><br>
+                <ul>
+                    <li>The ruleset is used to identify selectors, which can be attached to other selectors. The two
+                        parts of a ruleset are:</li><br>
+                    <li><b>Declaration block :</b> contains one or more semicolon-separated declarations</li><br>
+                    <li><b>Sector :</b> indicates the HTML element needed to be styled</li>
+                </ul>
+                <br>
+                <p><b>4. What are the elements of the CSS Box Model?</b></p><br>
+                <ul>
+                    <li>The CSS box model defines the layout and design of CSS elements. The elements are content like
+                        text and images, padding (the area around content), border (the area around padding), and
+                        margin (the area around the border). </li>
+                </ul>
+                <br>
+                <p><b>5. Differentiate between CSS3 and CSS2.</b></p><br>
+                <ul>
+                    <li>The main difference between CSS3 and CSS2 is that CSS divides different sections into modules
+                        and supports many browsers.</li><br>
+                    <li>It also contains new General Sibling Combinators responsible for matching similar elements.
+                    </li>
+                </ul>
+                <br>
+                <p><b>6. How can CSS be integrated into an HTML page?</b></p><br>
+                <ul>
+                    <li>There are three ways of integrating CSS into HTML: using style tags in the head section, inline
+                        styling, writing CSS in a separate file, and linking to the HTML page by the link tag.</li>
+                </ul>
+                <br>
+                <p><b>7. Explain a few advantages of CSS. </b></p><br>
+                <ul>
+                    <li>With CSS, different documents can be controlled using a single site, styles can be grouped in
+                        complex situations using selectors and grouping methods, and multiple HTML elements can have
+                        classes. </li>
+                </ul>
+                <br>
+                <p><b>8. What is meant by RGB stream?</b></p><br>
+                <ul>
+                    <li>RGB represents colors in CSS. The three streams are namely Red, Green, and Blue. The intensity
+                        of colors is represented using numbers 0 to 256. This allows CSS to have a spectrum of visible
+                        colors.</li>
+                </ul>
+                <br>
+                <p><b>9. What was the purpose of developing CSS?</b></p><br>
+                <ul>
+                    <li>CSS was developed to define websites' visual appearances. It allows developers to separate the
+                        structure and content of a website, which was not possible before.</li>
+                </ul>
+                <br>
+                <p><b>10. What is the difference between a class and an ID?</b></p><br>
+                <ul>
+                    <li>Class is a way of using HTML elements for styling. It is not unique and has multiple elements,
+                        whereas ID is unique and can be assigned to a single element. </li>
+                </ul>
+                <br>
+                <p><b>11. Define z-index.</b></p><br>
+                <ul>
+                    <li>This is one of the most frequently asked CSS interview questions. Z-index is used to specify the
+                        stack order of elements that overlap each other. </li><br>
+                    <li>Its default value is zero, and it can take both negative and positive values. A higher z-index
+                        value is stacked above the lower index element. It takes the following values- auto, number,
+                        initial, and inherit. </li>
+                </ul>
+                <br>
+                <p><b>12. What are the benefits of CSS Sprites?</b></p><br>
+                <ul>
+                    <li>With CSS sprites, loading multiple images is not an issue. </li>
+                    <li>Blinking is not seen. </li><br>
+                    <li>Advanced downloading of assets does not take place until needed. </li>
+                </ul>
+                <br>
+                <p><b>13. How can you target h3 and h2 with the same styling?</b></p><br>
+                <ul>
+                    <li>Multiple elements can be targeted by separating with a comma:</li> <br>
+                    <li>
+                        <p>Example :-</p>
+                        <div class="interview-box">
+                            h2, h3 {<br>
+                            color: red;<br>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <p><b>14. Name media types allowed by CSS.</b></p><br>
+                <ul>
+                    <li>The different media types allowed by CSS are: speech, audio, visual, tactile media, continuous
+                        or paged media, grip media or bitmap, interactive media</li>
+                </ul>
+                <br>
+                <p><b>15. Tell us about the property used for image scroll controlling.</b></p><br>
+                <ul>
+                    <li>The background-attachment property sets whether the background image is fixed or scrolls with
+                        the rest of the page. </li>
+                </ul>
+                <br>
+                <p><b>16. Name some font-related CSS attributes. </b></p><br>
+                <ul>
+                    <li>The font-related attributes are Font- style, variant, weight, family, size, etc. </li>
+                </ul>
+                <br>
+                <p><b>17. Define contextual selectors.</b></p><br>
+                <ul>
+                    <li>In CSS, contextual selectors allow developers to specify styles for different parts of the
+                        document. Styles can be assigned directly to specific HTML tags or created as independent
+                        classes and assigned tags
+                        to them. </li>
+                </ul>
+                <br>
+                <p><b>18. Explain responsive web design. </b></p><br>
+                <ul>
+                    <li>Responsive Design is a web page creation approach that uses flexible images, layouts, and CSS
+                        media queries.</li><br>
+                    <li>This design approach aims to build web pages that detect visitors' orientation and screen size
+                        so that the layout can be changed accordingly.</li>
+                </ul>
+                <br>
+                <p><b>19. Tell us about the general CSS nomenclature.</b></p><br>
+                <ul>
+                    <li>In CSS, the styling commands are written in value and property fashion. CSS includes a system
+                        terminator—a semicolon.</li><br>
+                    <li>The entire style is wrapped in curly braces and attached to the selector. This creates a style
+                        sheet that can be applied to an HTML page.</li>
+                </ul>
+                <br>
+                <p><b>20. What are the limitations of CSS?</b></p><br>
+                <ul>
+                    <li>CSS does not always guarantee compatibility with every browser; you need to be cautious when
+                        choosing the style selector.</li><br>
+                    <li>The parent selector tag is not available; thus, you can’t select the parent selector tag.</li>
+                    <br>
+                    <li>Some selectors can lead to cross-browser issues due to their less browser-friendly behavior.
+                    </li><br>
+                    <li>We cannot request a webpage through CSS.</li>
+                </ul>
+                <br>
+                <p><b>21. How to include CSS in the webpage?</b></p><br>
+                <ul>
+                    <li>A link tag allows you to include an external style sheet file as a CSS file in your HTML file.
+                    </li><br>
+                    <li>You can add CSS styles to your HTML page and write it in the stand-alone stylesheet form of CSS.
+                    </li><br>
+                    <li>CSS can be included directly in the HTML tag by adding an inline style to HTML elements.</li>
+                    <br>
+                    <li>One can import an external stylesheet file as a new CSS file by using the <b>@import</b> rule.
+                    </li>
+                </ul>
+                <br>
+                <p><b>22. What are the different types of Selectors in CSS?</b></p><br>
+                <ul>
+                    <li>Universal Selector, Element type Selector, ID selector, Class selector, Descendant combinatory,
+                        Child Combinator, General Sibling Combinator, Adjacent sibling combinator, and Attribute
+                        selector.</li>
+                </ul>
+                <br>
+                <p><b>23. What is a CSS Preprocessor? What are Sass, Less, and Stylus? Why do people use them?</b></p>
+                <br>
+                <ul>
+                    <li>CSS preprocessor is a tool that enhances basic functionality and allows us to use complex
+                        logical syntax, such as variables, functions, mixins, and code nesting, within vanilla CSS
+                        scripts.</li><br>
+                    <li>1. Sass (Syntactically Awesome Style Sheets) uses .sass extension. It is used for indentation;
+                        it doesn’t use semicolons or curly brackets.</li><br>
+                    <li>2. Less (Leener Stylesheets) uses .less extension. Adding to any JavaScript Project is easy by
+                        using NPM or less.js file. Here, <b>@</b> is used to define the variables. </li><br>
+                    <li>3. Stylus provides great flexibility in writing syntax. It can use native CSS and exclude
+                        brackets, colons, and semicolons. There is no need to use <b>@ or $</b> to define the variables.
+                    </li><br>
+                    <li>People use SASS, LESS, and Stylus to extend the basic functionality of vanilla CSS.</li>
+                </ul>
+                <br>
+                <p><b>24. What is the Difference between reset vs normalized CSS? How do they differ?</b></p><br>
+                <ul>
+                    <li>Reset CSS removes all built-in styles in the browser, such as paddings, margins, and font sizes.
+                        It can be reset using all the elements.</li><br>
+                    <li>Normalize CSS is used to make all built-in styles in the browser consistent and correct bugs as
+                        per varying browsers.</li>
+                </ul>
+                <br>
+                <p><b>25. What is the difference between inline, inline-block, and block?</b></p><br>
+                <ul>
+                    <li> Block Elements are "div" and "p". They usually start on a new line and can take space for an
+                        entire row or width.</li><br>
+                    <li> Inline elements are "a", "span", "strong", and "img" tags. They don't start on a new line.
+                        However, they appear on the same line as the content and tags beside them.</li><br>
+                    <li> Inline block elements have padding and margins and set height and width values. Though, they
+                        are similar to inline elements. </li>
+                </ul>
+                <br>
+                <p><b>26. Is it important to test the webpage in different browsers?</b></p><br>
+                <ul>
+                    <li>Yes, it is the most crucial trial to do when you design a webpage and make changes to it for the
+                        first time.</li><br>
+                    <li>Testing your website periodically in different browsers will help you make every webpage
+                        compatible with it, as browsers have undergone many updates.</li>
+                </ul>
+                <br>
+                <p><b>27. What are Pseudo classes?</b></p><br>
+                <ul>
+                    <li>Pseudo-classes are pseudo-elements that don’t exist in a normal document tree. It allows
+                        selecting the regular elements under certain conditions, especially when we try to hover over
+                        the link; the anchor tags are :link, :visited, :hover, :active,
+                        :focus.</li>
+                </ul>
+                <br>
+                <p><b>28. Does margin-top or margin-bottom have an effect on inline elements?</b></p><br>
+                <ul>
+                    <li>No, mMargin-top or margin-bottom does not affect the inline elements.</li>
+                </ul>
+                <br>
+                <p><b>29. What property is used for changing the font face?</b></p><br>
+                <ul>
+                    <li>The font-family property is used to change the font face that is applied to the element in the
+                        DOM.</li>
+                </ul>
+                <br>
+                <p><b>30. Explain about adaptive design?</b></p><br>
+                <ul>
+                    <li>Main focus is to develop a website in multiple fixed layout sizes.</li><br>
+                    <li>Offers good control over the design to develop variation in screens.</li><br>
+                    <li>Building the best possible adaptive design is very time-consuming and requires a lot of effort,
+                        as examining it will require considering many options with respect to the realities of the end
+                        user.</li><br>
+                    <li>There are six standard screen sizes for the appropriate layouts: 320px, 480px, 760px, 960px,
+                        1200px, and 1600px. </li>
+                </ul>
+                <br>
+                <p><b>31. Explain about responsive design?</b></p><br>
+                <ul>
+                    <li>Main focus is to show content concerning browser space.</li><br>
+                    <li>Offers less control over the design.</li><br>
+                    <li>The design takes less time to build, and there is no screen size issue regardless of content.
+                    </li><br>
+                    <li>It uses CSS media queries to design the screen layouts for specific devices and property
+                        changes.</li>
+                </ul>
+                <br>
+                <p><b>32. How is opacity specified in CSS3?</b></p><br>
+                <ul>
+                    <li>Opacity measures content transparency. It ranges from 0 to 1. Value 1 means the content is
+                        completely opaque and not supported by the internet browser. Also, 60% opacity applies in the
+                        div section, where
+                        we need to apply the filter property (polyfill) to make it completely opaque.</li>
+                </ul>
+                <br>
+                <p><b>33. What is cascading in CSS?</b></p><br>
+                <ul>
+                    <li>Cascading is defined as the process of style declaration and its weight, which helps the browser
+                        select the styling rules with respect to time.</li>
+                </ul>
+                <br>
+                <p><b>34. When does DOM reflow occur?</b></p><br>
+                <ul>
+                    <li>DOM reflow occurs when you insert, move, update, remove, and animate the elements in the DOM, as
+                        well as when you modify the page's content and style.</li>
+                </ul>
+                <br>
+                <p><b>35. Different Box Sizing Property?</b></p><br>
+                <ul>
+                    <li>Content-box, Padding-box and Border-box.</li>
+                </ul>
+                <br>
+                <p><b>36. How do you center align a div inside another div?</b></p><br>
+                <ul>
+                    <li>A div inside another div A is center aligned with the help of aligning div property to content
+                        via HTML script and CSS to the element in the DOM.</li>
+                </ul>
+                <br>
+                <p><b>37. What is the grid system?</b></p><br>
+                <ul>
+                    <li>The CSS grid system is a powerful layout for 2-dimensional systems with respect to columns and
+                        rows.</li>
+                </ul>
+                <br>
+                <p><b>38. What are the different ways to hide the element using CSS?</b></p><br>
+                <ul>
+                    <li>display: none, <br>
+                        visibility: hidden, <br>
+                        position: absolute</li>
+                </ul>
+                <br>
+                <p><b>39. What does the: root pseudo-class refer to?</b></p><br>
+                <ul>
+                    <li>The: root selector pseudo-class refers to the CSS selector level 3. It helps to target the
+                        highest-level parent element present in the DOM.</li>
+                </ul>
+                <br>
+                <p><b>40. What does Accessibility (a11y) mean?</b></p><br>
+                <ul>
+                    <li>Accessibility is making the system accessible so that the website should have text-to-speech
+                        capability for people with physical disabilities, designed using software or hardware
+                        combinations.</li>
+                </ul>
+                <br>
+                <p><b>41. How do I restore the default value of a property?</b></p><br>
+                <ul>
+                    <li>keyword “initial” is used to restore the default value of a property.</li>
+                </ul>
+                <br>
+                <p><b>42. Difference between CSS grid vs flexbox?0</b></p><br>
+                <ul>
+                    <li>CSS Grid Layout is a two-dimensional system along with rows and columns. It is used for
+                        large-sized layouts.
+                    </li><br>
+                    <li>Flexbox is a Grid layout with a one-dimensional system either within a row or a column. It is
+                        used for an
+                        application's components.</li>
+                </ul>
+                <br>
+                <p><b>43. How does Calc work?</b></p><br>
+                <ul>
+                    <li>Calc can be used to specify the result of the mathematical operation of two or more elements.
+                    </li>
+                </ul>
+                <br>
+                <p><b>44. What do CSS Custom properties variables mean?</b></p><br>
+                <ul>
+                    <li>CSS Custom properties variables are defined for CSS variables as well as cascading variables
+                        with specific
+                        values that can be reused.</li>
+                </ul>
+                <br>
+                <p><b>45. What is the difference between CSS variables and pre-processor (SASS, LESS, Stylus)
+                        variables?</b></p><br>
+                <ul>
+                    <li>CSS variables don’t need a pre-processor. It is cascaded, accessed, and manipulated in
+                        JavaScript.</li><br>
+                    <li>Preprocessor variables don’t cascade.</li>
+                </ul>
+                <br>
+                <p><b>46. What does * { box-sizing: border-box; } do? What are its advantages?</b></p><br>
+                <ul>
+                    <li><b>Box-sizing :</b> The border box provides the inner dimension for the elements in the document
+                        by providing padding
+                        and a border with respect to the height and width of the content.</li>
+                </ul>
+                <br>
+                <p><b>47. What does !important mean in CSS?</b></p><br>
+                <ul>
+                    <li>The style “<b>!important</b>” in the CSS has the highest precedence. Also, the cascaded property
+                        will be overridden
+                        with it.</li>
+                </ul>
+                <br>
+                <p><b>48. What is progressive rendering? How do you implement progressive rendering on the website?
+                        What are its
+                        advantages?</b></p><br>
+                <ul>
+                    <li>Progressive rendering is the process of improving the performance of a webpage for loading time
+                        to display the
+                        content speedily. The use of loading the lazy loading of the image with the help of Intersection
+                        Observer API
+                        via viewport. </li>
+                </ul>
+                <br>
+                <p><b>49. Does style1.css have to be downloaded and parsed before style2.css can be fetched?</b></p><br>
+                <ul>
+                    <li>No. The CSS file will be downloaded via browser in order to appear on the HTML page.</li>
+                </ul>
+                <br>
+                <p><b>50. How to determine if the browser supports a certain feature?</b></p><br>
+                <ul>
+                    <li>@support tag in the CSS is used to scan and determine whether the browser supports a certain
+                        feature or not.
+                    </li>
+                </ul>
+                <div class="topic-buttons">
+                    <a href="/interviewprep/cssinterview.html?topic=cssBignner" class="previous-button">Bignner</a>
+                    <a href="/interviewprep/cssinterview.html?topic=cssExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="cssExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/cssinterview.html?topic=cssAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/cssinterview.html?topic=cssBignner" class="next-button">Bignner</a>
+                </div>
+                <h1>CSS Expert</h1>
+                <p><b>1. How does absolute positioning work?</b></p><br>
+                <ul>
+                    <li>Absolute positioning is used to place the element which is then removed from the HTML document
+                        from the normal
+                        workflow without creating any space for the element in the HTML page layout.</li><br>
+                    <li>The element can be positioned respectively to the closest positioned ancestor; otherwise, if the
+                        ancestor is not
+                        found, the element is placed with respect to the initial container box. The values provided to
+                        the top, right, left and bottom determine the final position of the element.</li>
+                </ul>
+                <br>
+                <p><b>2. Does this property work overflow: hidden?</b></p><br>
+                <ul>
+                    <li>The hidden property is used to specify the content’s clipping. We need to add scrollbars to the
+                        content area when the specified container size exceeds the content limit where the content gets
+                        enclosed. This makes the content invisible via clipping, and the overflow value will also be
+                        hidden.</li>
+                </ul>
+                <br>
+                <p><b>3. When should you use translate () instead of absolute positioning?</b></p><br>
+                <ul>
+                    <li>Translate is a CSS transform value. On changing opacity or transform, browser reflow or repaint
+                        is not triggered.</li><br>
+                    <li>Transform requires the browser to create a GPU layer for elements but using the CPU changes
+                        absolutes positioning properties. Translate () is more efficient and results in shorter paint
+                        times. On
+                        using translate (), element occupies original space,
+                        unlike in changing absolute positioning. </li>
+                </ul>
+                <br>
+                <p><b>4. Name different ways to position some aspects in CSS. </b></p><br>
+                <ul>
+                    <li>The positioning property specifies the positioning method type. The five different position
+                        values are fixed, static, absolute, sticky, and relative.</li><br>
+                    <li>The elements are positioned using top, left, right, and bottom properties. These properties need
+                        to be set first, and they work depending on position value. </li>
+                </ul>
+                <br>
+                <p><b>5. What are mixins?</b></p><br>
+                <ul>
+                    <li>A mixin is similar to a function block of code returning a single value—mixin output lines of
+                        Sass code that
+                        directly compiles into CSS styles.</li><br>
+                    <li>At the same time, the function returns a value that becomes the value for a CSS property or
+                        something that can
+                        be passed to another mixin.</li>
+                </ul>
+                <br>
+                <p><b>6. How can you optimize the webpage for prints?</b></p><br>
+                <ul>
+                    <li>Identify and control 'content areas' of the website. A website generally has a footer, header,
+                        sidebar, navbar, and main content area. Most of the work is done by controlling the content
+                        area.</li><br>
+                    <li> So, conquer print media without changing the website's integrity by using page breaks, creating
+                        a stylesheet for print, size your page for print, and avoid unnecessary HTML tables.</li>
+                </ul>
+                <br>
+                <p><b>7. What is meant by CSS working under the hood?</b></p><br>
+                <ul>
+                    <li>When a browser displays a document, it combines style information and document content. The
+                        document is
+                        processed in two stages:</li>
+                    <ol>Conversion of HTML and CSS into Document Object Model</ol>
+                    <ol>DOM displays contents of browser</ol>
+                </ul>
+                <br>
+                <p><b>8. Tell us about CSS float property.</b></p><br>
+                <ul>
+                    <li>The float property of CSS positions an image to the right or left as needed, including text
+                        wrapping around it. All properties of elements used before it remain unchanged. </li>
+                </ul>
+                <br>
+                <p><b>9. What do you understand by pseudo-elements?</b></p><br>
+                <ul>
+                    <li>Pseudo-elements provide special effects to some selectors. CSS is used to apply styles in HTML
+                        markups. </li><br>
+                    <li>If additional markup or style is not feasible for a document, pseudo-elements help by allowing
+                        extra markup
+                        without interfering with the original document. </li>
+                </ul>
+                <br>
+                <p><b>10. Differentiate between logical and physical tags.</b></p><br>
+                <ul>
+                    <li>Logical tags mainly focus on content and are older than physical ones. In terms of aesthetics,
+                        logical tags are
+                        not used much, while physical ones are. </li>
+                </ul>
+                <br>
+                <p><b>11. What does the CSS overflow property do?</b></p><br>
+                <ul>
+                    <li>The overflow property in CSS controls how bigger content is handled. It decides whether to clip
+                        the content or
+                        add scrollbars to the element. The property can have the following values:</li>
+                    <ol>1. Visible: Content is not clipped and can overflow outside the element box.</ol>
+                    <ol>2. Hidden: Content is clipped, and the overflow is not visible.</ol>
+                    <ol>3. Scroll: The content is clipped, but scrollbars are added so the user can view the rest of the
+                        content.</ol>
+                    <ol>4. Auto: A scrollbar is added automatically when the content overflows.</ol>
+                </ul>
+                <br>
+                <p><b>12. What is the difference between relative, absolute, fixed, and sticky positioning?</b></p><br>
+                <ul>
+                    <li><b>relative :</b> The element is positioned relative to its normal flow.</li>
+                    <ol>Example: Moving an element 10px right using top: 0; left: 10px;.</ol>
+                    <li><b>absolute :</b> The element is positioned relative to its nearest positioned (non-static)
+                        ancestor.</li>
+                    <ol>Example: Inside a container with position: relative;.</ol>
+                    <li><b>fixed :</b> The element is positioned relative to the viewport and doesn’t move with
+                        scrolling.</li>
+                    <ol>Example: Sticky headers or footers.</ol>
+                    <li><b>sticky: </b>The element switches between relative and fixed based on the scroll position.
+                    </li>
+                    <ol>Example: A table header sticking to the top of the viewport.</ol>
+                </ul>
+                <br>
+                <p><b>13. What are CSS variables, and how are they different from Sass variables?</b></p><br>
+                <ul>
+                    <li><b>CSS Variables :</b> Declared with -- and can be dynamically updated in the browser.</li><br>
+                    <li><b>Sass Variables :</b> Declared with $ and are static at compile time.</li>
+                </ul>
+                <br>
+                <p><b>14. What is critical CSS, and why is it important?</b></p><br>
+                <ul>
+                    <li>Critical CSS refers to the styles required to render above-the-fold content. It improves
+                        performance by loading only essential styles first, reducing perceived load time. Tools like
+                        Critical or PurgeCSS can
+                        help extract critical CSS.</li>
+                </ul>
+                <br>
+                <p><b>15. How can you minimize reflows and repaints?</b></p><br>
+                <ul>
+                    <li>Use transform instead of properties like top and left for animations.</li><br>
+                    <li>Batch DOM updates using requestAnimationFrame.</li><br>
+                    <li>Avoid inline styles for frequent updates.</li><br>
+                    <li>Use will-change for optimizations cautiously.</li>
+                </ul>
+                <br>
+                <p><b>16. How do rem and em units differ?</b></p><br>
+                <ul>
+                    <li><b>rem (Root EM) :</b> Relative to the root element’s font size (usually &#x003C;html&#x003E;).
+                    </li><br>
+                    <li><b>em :</b> Relative to the font size of the element's parent.</li>
+                </ul>
+                <br>
+                <p><b>17. How do you ensure CSS contributes to accessibility?</b></p><br>
+                <ul>
+                    <li>Use :focus-visible for better focus styles.</li><br>
+                    <li>Avoid color-only indicators; combine color with text/icons.</li><br>
+                    <li>Ensure sufficient color contrast (WCAG guidelines).</li><br>
+                    <li>Use semantic HTML to enhance assistive technology support.</li>
+                </ul>
+                <br>
+                <p><b>18. How do CSS Grid and Flexbox differ? When would you use one over the other?</b></p><br>
+                <ul>
+                    <li><b>CSS Grid :</b> Ideal for 2D layouts (rows and columns).</li><br>
+                    <li>
+                        <p>Example
+                        <p>: Creating a dashboard layout.
+                    </li><br>
+                    <li><b>Flexbox :</b> Best for 1D layouts (row OR column).</li><br>
+                    <li>
+                        <p>Example</p>: Centering elements horizontally and vertically.
+                    </li>
+                </ul>
+                <br>
+                <p><b>19. What is the difference between CSS transitions and animations?</b></p><br>
+                <ul>
+                    <li><b>Transitions :</b> Triggered by user actions like hover, and can transition between two
+                        states.
+                    </li><br>
+                    <li><b>Animations :</b> Allow keyframes to create more complex sequences.</li>
+                </ul>
+                <br>
+                <p><b>20. What is feature detection, and how is it implemented using @supports?</b></p><br>
+                <ul>
+                    <li>Feature detection checks if a browser supports a specific CSS feature using @supports.</li>
+                </ul>
+                <br>
+                <p><b>21. What is the Shadow DOM, and how does it affect styling?</b></p><br>
+                <ul>
+                    <li>The Shadow DOM encapsulates a component's styles, preventing CSS leakage into or out of it. Use
+                        ::part and ::slotted for styling parts of shadow-root elements.</li>
+                </ul>
+                <br>
+                <p><b>22. How can you make a website responsive via CSS?</b></p><br>
+                <ul>
+                    <li>Media queries are very important for responsive web design. Hence, it ensures a web page's view
+                        varies based on screen or media types. They check the viewport, device width and height,
+                        orientation, and
+                        resolution. If true, a style sheet is applied. This ensures that the page's viewing experience
+                        is according to the
+                        device.</li>
+                </ul>
+                <br>
+                <p><b>23. What are CSS Animations?</b></p><br>
+                <ul>
+                    <li>CSS Animations is a web page technique that alters the appearance and behavior of elements by
+                        adjusting their motions or display. It consists of CSS properties and keyframes.</li>
+                </ul>
+                <br>
+                <p><b>24. How can you use the shorthand transition property in CSS?</b></p><br>
+                <ul>
+                    <li>We can combine all four individual transition properties into one single declaration to use the
+                        shorthand transition property in CSS. The order of the values is important.</li>
+                </ul>
+                <br>
+                <p><b>25. What is the difference between visibility: hidden and display: none?</b></p><br>
+                <ul>
+                    <li><b>visibility: hidden :</b> The element remains in the layout but is invisible.</li><br>
+                    <li><b>display: none :</b> The element is removed from the layout entirely, and no space is taken
+                        up.
+                    </li>
+                </ul>
+                <br>
+                <p><b>26. How does the :not() pseudo-class work, and why is it useful?</b></p><br>
+                <ul>
+                    <li>The :not() pseudo-class allows you to apply styles to all elements except those that match the
+                        selector. It is
+                        useful for excluding specific elements without creating additional classes.</li>
+                </ul>
+                <br>
+                <p><b>27. What are the differences between inline, block, and inline-block elements?</b></p><br>
+                <ul>
+                    <li><b>Inline :</b> Elements flow with text and do not respect width/height. Ex: span</li><br>
+                    <li><b>Block :</b> Takes the full width of its container and starts on a new line. Ex: div</li><br>
+                    <li><b>Inline-block :</b> Behaves like inline but respects width/height. Example: Useful for
+                        aligning
+                        elements in a
+                        row.</li>
+                </ul>
+                <br>
+                <p><b>28. What is the contain property, and how does it improve performance?</b></p><br>
+                <ul>
+                    <li>The contain property helps browsers optimize rendering by limiting the scope of an element’s
+                        styles, layout, and paint effects.</li>
+                </ul>
+                <br>
+                <p><b>29. What is the purpose of the will-change property, and how can it be misused?</b></p><br>
+                <ul>
+                    <li>will-change hints to the browser about elements likely to change, allowing optimizations like
+                        GPU acceleration. However, overusing it can degrade performance by consuming resources
+                        unnecessarily.</li>
+                </ul>
+                <br>
+                <p><b>30. How can you implement a responsive image using CSS?</b></p><br>
+                <ul>
+                    <li>Use the max-width property.</li><br>
+                    <li>Use picture elements in HTML for art direction.</li><br>
+                    <li>Use media queries for background images.</li>
+                </ul>
+                <br>
+                <p><b>31. What are the pros and cons of using utility-first CSS frameworks like Tailwind CSS?</b></p>
+                <br>
+                <ul>
+                    <li><b>Pros :</b> Faster development, consistent styles, smaller CSS file size (unused classes can
+                        be
+                        purged).</li><br>
+                    <li><b>Cons :</b> Reduced readability in HTML, steep learning curve for beginners, less semantic
+                        class names.</li>
+                </ul>
+                <br>
+                <p><b>32. How does @layer in CSS help with stylesheet organization?</b></p><br>
+                <ul>
+                    <li>@layer allows you to define CSS layers, which determine the order in which styles are applied,
+                        avoiding specificity conflicts.</li>
+                </ul>
+                <br>
+                <p><b>33. What is the cascade in CSS, and how does it resolve conflicts?</b></p><br>
+                <ul>
+                    <li>The cascade resolves conflicts between CSS rules by considering:</li>
+                    <ol>1. Importance: Inline styles or !important.</ol>
+                    <ol>2. Specificity: How specific a selector is.</ol>
+                    <ol>3. Source Order: Later rules override earlier ones if specificity and importance are equal.</ol>
+                </ul>
+                <br>
+                <p><b>34. How do you debug CSS specificity issues in a large project?</b></p><br>
+                <ul>
+                    <li>Use browser developer tools to inspect the computed styles and find overridden rules.</li><br>
+                    <li>Refactor CSS to reduce unnecessary nesting.</li><br>
+                    <li>Use tools like specificity calculator to understand specificity scores.</li><br>
+                    <li>Apply !important only as a last resort.</li>
+                </ul>
+                <br>
+                <p><b>35. How does the z-index property work?</b></p><br>
+                <ul>
+                    <li>z-index specifies the stack order of elements. Higher values are displayed in front of lower
+                        values.</li><br>
+                    <li>It works only on positioned elements (relative, absolute, fixed, or sticky).</li>
+                </ul>
+                <br>
+                <p><b>36. what factors can override it?</b></p><br>
+                <ul>
+                    <li><b>Stacking Context :</b> Created by properties like position, transform, opacity, or filter.
+                    </li><br>
+                    <li><b>Parent-Child Relationships :</b> Child elements cannot escape their parent’s stacking
+                        context.
+                    </li>
+                </ul>
+                <br>
+                <p><b>37. What is the difference between opacity: 0 and visibility: hidden?</b></p><br>
+                <ul>
+                    <li><b>opacity: 0 :</b> Makes the element transparent but still interactive and occupies space in
+                        the
+                        layout.</li><br>
+                    <li><b>visibility: hidden :</b> Hides the element visually and makes it non-interactive while
+                        keeping
+                        its space in
+                        the layout.</li>
+                </ul>
+                <br>
+                <p><b>38. When would you use opacity: 0 and visibility: hidden?</b></p><br>
+                <ul>
+                    <li>Use opacity: 0 for transitions or animations where interaction is required.</li><br>
+                    <li>Use visibility: hidden when you want the element to be completely hidden but retain its layout
+                        presence.</li>
+                </ul>
+                <br>
+                <p><b>40. How does the browser render a webpage, and where does CSS fit in?</b></p><br>
+                <ul>
+                    <li><b>DOM Construction :</b> HTML is parsed into a DOM tree.</li><br>
+                    <li><b>CSSOM Construction :</b> CSS rules are parsed into a CSSOM tree.</li><br>
+                    <li><b>Render Tree :</b> DOM and CSSOM are combined to form a render tree.</li><br>
+                    <li><b>Layout :</b> Calculates positions and sizes of elements.</li><br>
+                    <li><b>Painting :</b> Converts elements into pixels.</li><br>
+                    <li><b>Compositing :</b> Combines painted layers for display.</li>
+                </ul>
+                <br>
+                <p><b>41. How can you reduce the impact of a large CSS file on page performance?</b></p><br>
+                <ul>
+                    <li>Use critical CSS to load above-the-fold styles first.</li><br>
+                    <li>Minify CSS files to reduce size.</li><br>
+                    <li>Implement lazy-loading for non-critical styles using media queries or loadCSS.</li><br>
+                    <li>Break styles into smaller, modular files and load them conditionally.</li><br>
+                    <li>Use PurgeCSS or uncss to remove unused styles.</li>
+                </ul>
+                <br>
+                <p><b>42. What is the difference between GPU and CPU rendering in CSS?</b></p><br>
+                <ul>
+                    <li><b>CPU Rendering :</b> Handles layout, paint, and compositing tasks. It’s slower for animations
+                        involving geometry changes (e.g., width, height).</li><br>
+                    <li><b>GPU Rendering :</b> Handles tasks like transform and opacity, which bypass layout and paint
+                        steps, making animations smoother.</li><br>
+                    <li>Prefer transform: translate() and opacity for GPU-accelerated animations.</li>
+                </ul>
+                <br>
+                <p><b>43. How would you create a responsive layout without using media queries?</b></p><br>
+                <ul>
+                    <li>Use flexbox or grid to create flexible layouts.</li><br>
+                    <li>Use percentage-based widths or auto for fluid containers.</li><br>
+                    <li>Leverage clamp() for dynamic sizing.</li>
+                </ul>
+                <br>
+                <p><b>44. What challenges arise with position: sticky?</b></p><br>
+                <ul>
+                    <li>Sticky positioning doesn’t work if the parent has overflow: hidden, auto, or scroll.</li><br>
+                    <li>It depends on both the parent’s and viewport dimensions.</li>
+                </ul>
+                <br>
+                <p><b>45. how do you troubleshoot position: sticky?</b></p><br>
+                <ul>
+                    <li>Ensure the parent element is large enough for the sticky behavior to activate.</li><br>
+                    <li>Use browser dev tools to check stacking context issues.</li>
+                </ul>
+                <br>
+                <p><b>46. What is subgrid in CSS Grid, and when should you use it?</b></p><br>
+                <ul>
+                    <li>subgrid allows child grid items to inherit the grid tracks of their parent.</li><br>
+                    <li>Use subgrid for nested grids where alignment with the parent grid is needed.</li>
+                </ul>
+                <br>
+                <p><b>47. How do you manage styles in a large-scale project with multiple developers?</b></p><br>
+                <ul>
+                    <li>Use a component-based architecture (e.g., BEM or CSS Modules).</li><br>
+                    <li>ools like PostCSS for modularity.</li><br>
+                    <li>Define and enforce a design system with reusable variables, mixins, and utilities.</li><br>
+                    <li>Use a CSS-in-JS library (e.g., styled-components or Emotion) for scoped styles in React/Angular.
+                    </li>
+                </ul>
+                <br>
+                <p><b>48. What is the purpose of the clip-path property, and how is it used?</b></p><br>
+                <ul>
+                    <li>clip-path defines a visible area for an element, hiding everything outside the specified region.
+                    </li><br>
+                    <li>It’s often used for advanced animations, masks, or custom shapes.</li>
+                </ul>
+                <br>
+                <p><b>49. How do you debug complex CSS issues effectively?</b></p><br>
+                <ul>
+                    <li>Use browser dev tools to inspect computed styles and identify overridden rules.</li><br>
+                    <li>Apply the outline property to visualize element boundaries.</li><br>
+                    <li>Simplify the CSS by isolating problematic sections.</li><br>
+                    <li>Test changes incrementally to narrow down the issue.</li>
+                </ul>
+                <br>
+                <p><b>50. How does @keyframes interact with animation-timing-function?</b></p><br>
+                <ul>
+                    <li>The animation-timing-function defines how intermediate steps are calculated between keyframes.
+                    </li><br>
+                    <li>You can set a timing function globally or per keyframe.</li>
+                </ul>
+                <div class="topic-buttons">
+                    <a href="/interviewprep/cssinterview.html?topic=cssAdvanced" class="previous-button">Advanced</a>
+                    <a href="/interviewprep/cssinterview.html?topic=cssBignner" class="next-button">Bignner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li><br>
+                    <li><a href="#">Learning Paths</a></li><br>
+                    <li><a href="#">Guided Projects</a></li><br>
+                    <li><a href="#">Cohort Learning</a></li><br>
+                    <li><a href="#">Crash Courses</a></li><br>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li><br>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li><br>
+                    <li><a href="#">Data Challenges</a></li><br>
+                    <li><a href="#">Data Playground</a></li><br>
+                    <li><a href="#">Guides & Reports</a></li><br>
+                    <li><a href="#">Mavens Of Data</a></li><br>
+                    <li><a href="#">Data Literacy Assessment</a></li><br>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li><br>
+                    <li><a href="#">Product Updates</a></li><br>
+                    <li><a href="#">Request A Feature</a></li><br>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li><br>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li><br>
+                    <li><a href="#">Resource Hub</a></li><br>
+                    <li><a href="#">Customer Stories</a></li><br>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+        // Scroll to the top when the page loads
+        window.addEventListener("load", () => {
+            window.scrollTo(0, 0); // Scroll to the top of the page
+        });
+
+        // Add click event listeners for previous and next buttons
+        document.querySelectorAll(".previous-button, .next-button").forEach(button => {
+            button.addEventListener("click", () => {
+                window.scrollTo(0, 0); // Ensure the page scrolls to the top
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUKDB/KUKstyles.css">
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Sign Up and Login Page code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlIntro"
+                            id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlDataTypes"
+                            id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlLanguages"
+                            id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlSelectTable"
+                            id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectdistinct.html"
+                            id="sqlSelectDistinct">Select Distinct</a></li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_logicaloperators.html"
+                            id="sqlLogicalOperators">Logical Operators</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_between.html"
+                            id="sqlBetween">Between</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUKDB/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUKDB/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html"
+                            id="sqlCompOperators">Comparison Operators</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual"
+                            id="sqlEqual">Equal = </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual"
+                            id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_leftouterjoin.html"
+                            id="sqlLeftJoin">Left
+                            Outer Join</a>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_fullouterjoin.html"
+                            id="sqlFullOuterJoin">Full Outer Join</a>
+                    </li>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_crossjoin.html" id="sqlCrossJoin">Cross
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selfjoin.html" id="sqlSelfJoin">Self
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_naturaljoin.html"
+                            id="sqlNaturalJoin">Natural Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_equijoin.html" id="sqlEquiJoin">Equi
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_nonequijoin.html"
+                            id="sqlNonEquiJoin">Non-Equi Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html"
+                            id="sqlNumaricFunctions">Numeric Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign"
+                            id="sqlAbsSign">Abs(x), Sign</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/oorclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlCeil"
+                            id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlExp"
+                            id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlMod"
+                            id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt"
+                            id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc"
+                            id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAsin"
+                            id="sqlAsinAcos">ASIN(n), ACOS(n) </a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">SINH(n), COSH(n), TANH(n)</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">ATAN(n), ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUKDB/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUKDB/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg"
+                            id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax"
+                            id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin"
+                            id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum"
+                            id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html"
+                            id="sqlStringFunctions">String Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlAscii"
+                            id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlChar"
+                            id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlconcat"
+                            id="sqlconcat">CONCAT</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlInstr"
+                            id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlLength"
+                            id="sqlLength">Length</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlLpadRpad"
+                            id="sqlLpadRpad">Lpad, Rpad</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlTrim"
+                            id="sqlTrim">Trim, RTrim, LTrim</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlSubstr"
+                            id="sqlSubstr">SUBSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_Stringfunctions.html?topic=sqlVSIZE"
+                            id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_corelatedsubqueries.html"
+                            id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_datefunctions.html"
+                            id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timestampfunctions.html"
+                            id="sqlTimestampFunctions">Timestamp Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timeintervalfunctions.html"
+                            id="sqlTimeIntervalFunctions">Time Interval Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timezonefunctions.html"
+                            id="sqlTimeZoneFunctions">Time Zone Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_truncate.html"
+                            id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_returning.html"
+                            id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_intersect.html"
+                            id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_constraints.html"
+                            id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_primarykey.html"
+                            id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_foreginkey.html"
+                            id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_default.html"
+                            id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlGrant"
+                            id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlRevoke"
+                            id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlCommit"
+                            id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlRollback"
+                            id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlSavepoint"
+                            id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html"
+                            id="sqlRankingFunctions">Ranking Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownum"
+                            id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRank"
+                            id="sqlRank">RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlNtile"
+                            id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html"
+                            id="sqlGroupFunctions">Group By Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlCube"
+                            id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlRollup"
+                            id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGrouping"
+                            id="sqlGrouping">GROUPING</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupId"
+                            id="sqlGroupId">GROUP_ID</a></li>
+
+                    <li><a href="/KUKDB/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+
+
+                    <li><a href="/KUKDB/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_mview.html"
+                            id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aliases.html"
+                            id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectinto.html"
+                            id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insertinto_select.html"
+                            id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <!-- <div class="resizer" id="resizer"></div> -->
+            </aside>
+        </div>
+    </div>
+
+
+    <main class="sidebar-content">
+        <!-- <h2>SQL Course Content</h2> -->
+        <div class="topic-content" data-topic="sqlIntro">
+            <div class="topic-buttons">
+                <!-- <a href="" class="previou-button">&laquo; Previous</a> -->
+                <a href="orclsql.html?topic=sqlDataTypes" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Introduction to ORACLE</h1>
+            <h2>What is Oracle Database?</h2>
+            <ul>
+                <li>Oracle Database, often referred to as Oracle DB or simply Oracle, is a multi-model database
+                    management system (DBMS) / a <b>relational database management system (RDBMS).</b> developed by
+                    Oracle Corporation.</li>
+            </ul><br>
+            <h2>Key Features of Oracle</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Multi-Model Database</b></td>
+                        <td>Supports relational, JSON, XML, spatial, and object-oriented data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ease of Management</b></td>
+                        <td>Provides tools like SQL Developer, Oracle Enterprise Manager, and APEX.</td>
+                    </tr>
+                    <tr>
+                        <td><b>High Availability</b></td>
+                        <td>Ensures uptime with RAC (Real Application Clusters) and Data Guard.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Scalability</b></td>
+                        <td>Supports very large databases, high transaction volumes, and multiple concurrent users.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Portability</b></td>
+                        <td>Runs on multiple operating systems, including Windows, UNIX, and Linux.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Advanced Analytics</b></td>
+                        <td>Supports data warehousing, machine learning, and business intelligence.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Security</b></td>
+                        <td>Offers features like Data Encryption, Role-Based Access Control (RBAC), and Auditing.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Optimization</b></td>
+                        <td>Includes Query Optimizer, partitioning, and indexing for high performance.Optimized for
+                            transaction processing and data analytics</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cloud Integration</b></td>
+                        <td>Compatible with on-premises and cloud environments like Oracle Cloud Infrastructure
+                            (OCI).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Backup and Recovery</b></td>
+                        <td>Includes tools like RMAN (Recovery Manager) for efficient database recovery.</td>
+                    </tr>
+                    <tr>
+                        <td><b>PL/SQL Support</b></td>
+                        <td>Provides a procedural extension to SQL called PL/SQL for advanced programming.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Why Oracle</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reason</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>High Performance</b></td>
+                        <td>Optimized for faster query execution and data retrieval.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Flexibility</b></td>
+                        <td>Supports hybrid models, on-premises, and cloud setups.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Reliability</b></td>
+                        <td>Widely trusted for mission-critical enterprise applications.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Robust Tools</b></td>
+                        <td>Includes SQL Developer, Data Pump, and more for easier database management.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Innovation</b></td>
+                        <td>Regular updates introduce new features like Autonomous Database.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wide Industry Use</b></td>
+                        <td>Preferred in banking, healthcare, telecom, and government sectors.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>How is Oracle in the Present Market</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Market Leadership</b></td>
+                        <td>A leading choice among DBMS solutions, competing with SQL Server and NoSQL databases.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Continuous Innovation</b></td>
+                        <td>New features like machine learning, in-memory capabilities, and blockchain support.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Enterprise Focus</b></td>
+                        <td>Widely used for ERP, CRM, and SCM applications.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Job Market</b></td>
+                        <td>High demand for Oracle DBAs, SQL developers, and data analysts.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cloud Adoption</b></td>
+                        <td>Gaining traction with Oracle Cloud Infrastructure and Autonomous Database.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Oracle SQL</h2>
+            <ul>
+                <li>Oracle SQL (Structured Query Language) is the standard language used to interact with Oracle
+                    Database. </li>
+                <li>It enables users to perform a wide variety of operations, such as querying data, modifying
+                    records, and managing database objects.</li>
+                <li>It's a dialect of the standard SQL language, meaning it shares many commonalities with SQL used
+                    in other database systems. </li>
+                <li> However, Oracle SQL also includes unique extensions and features specific to the Oracle
+                    database platform.</li>
+                <li>Oracle SQL is foundational for anyone working in Oracle-based environments, enabling robust data
+                    manipulation and querying.</li>
+                <li>Understanding Oracle SQL opens doors to advanced features like partitioning, parallel execution,
+                    and in-memory capabilities.</li>
+                <li>The combination of <b>SQL and PL/SQL</b> makes Oracle a powerhouse for data-driven applications.
+                </li>
+            </ul><br>
+            <h2>Advantages of Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Performance Optimization</b></td>
+                        <td>Advanced tools and Query Optimizer ensure faster execution and high efficiency.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Comprehensive Data Handling</b></td>
+                        <td>Manages structured, semi-structured, and unstructured data seamlessly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>High Availability</b></td>
+                        <td>RAC and Data Guard enable continuous availability and disaster recovery.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Scalability</b></td>
+                        <td>Handles increasing data volume and user load effectively.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Security Features</b></td>
+                        <td>Offers encryption, auditing, and access control for secure data management.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Developer-Friendly</b></td>
+                        <td>PL/SQL extensions provide powerful procedural capabilities beyond standard SQL.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Comparisons</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Oracle</th>
+                        <th>SQL Server</th>
+                        <th>MySQL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Performance</b></td>
+                        <td>High, with advanced tools</td>
+                        <td>Moderate</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cost</b></td>
+                        <td>Expensive</td>
+                        <td>Moderate</td>
+                        <td>Free (open-source)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cloud Support</b></td>
+                        <td>Yes, Oracle Cloud Infrastructure(OCI)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Scalability</b></td>
+                        <td>Excellent</td>
+                        <td>Good</td>
+                        <td>Limited</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Cases</b></td>
+                        <td>Enterprise applications</td>
+                        <td>Enterprise/SME</td>
+                        <td>SME, Startups</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h2>Oracle SQL Architecture</h2>
+            <p>Oracle Database architecture includes the following key components</p> <br>
+            <p><b>1. Instance</b></p>
+            <ul>
+                <li>A combination of memory structures ( SGA- System Global Area ) and background processes that
+                    interact with the database.</li>
+            </ul><br>
+            <p><b>2. Database</b></p>
+            <ul>
+                <li>Contains the physical files, such as data files, control files, and redo log files.</li>
+            </ul><br>
+            <p><b>3. Schemas</b></p>
+            <ul>
+                <li>A schema is a collection of database objects like tables, views, indexes, and stored procedures.
+                </li>
+            </ul><br>
+            <p><b>4. Data Dictionary</b></p>
+            <ul>
+                <li>A centralized repository of metadata describing the structure and objects in the database.</li>
+            </ul><br><br>
+            <h2>Best Practices for Using Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Best Practices</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><b>Normalize Data</b></td>
+                        <td>Design databases to follow normalization principles to reduce redundancy and improve
+                            consistency.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Limit Transactions</b></td>
+                        <td>Keep transactions short to avoid locking issues and ensure consistency.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Regularly Update Statistics</b></td>
+                        <td>Use DBMS_STATS to gather and update table statistics for the query optimizer.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Bind Variables</b></td>
+                        <td>Avoid hardcoding values in queries; use bind variables to enhance query performance and
+                            prevent SQL injection.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Archive Old Data</b></td>
+                        <td>Use partitioning or tablespaces to archive historical data, reducing the size of active
+                            tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Views and Materialized Views</b></td>
+                        <td>Simplify complex queries using views and improve performance for read-heavy workloads
+                            with materialized views.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Optimize Indexing</b></td>
+                        <td>Select appropriate index types (e.g., B-Tree, Bitmap) based on query requirements and
+                            patterns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Regular Backups</b></td>
+                        <td>Implement automated database backups using RMAN to prevent data loss in case of failure.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Analyze Execution Plans</b></td>
+                        <td>Use EXPLAIN PLAN or AUTOTRACE to understand and optimize query performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Implement Constraints</b></td>
+                        <td>Use PRIMARY KEY, FOREIGN KEY, NOT NULL, and CHECK constraints to ensure data integrity.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Leverage PL/SQL</b></td>
+                        <td>For complex logic, write PL/SQL procedures, functions, and triggers to reduce the load
+                            on the client side.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Dynamic SQL</b></td>
+                        <td>Use static SQL where possible; dynamic SQL can introduce security risks and performance
+                            overhead.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Oracle SQL Tools</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Purpose</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Oracle SQL Developer</b></td>
+                        <td>Integrated Development Environment (IDE) for SQL and PL/SQL development.</td>
+                        <td>GUI-based, supports query execution, database design, and reporting.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Toad for Oracle</b></td>
+                        <td>Third-party tool for Oracle SQL development and database management.</td>
+                        <td>Advanced query optimization, code quality analysis, and debugging.</td>
+                    </tr>
+                    <tr>
+                        <td><b>SQL*Plus</b></td>
+                        <td>Command-line tool to execute SQL and PL/SQL statements.</td>
+                        <td>Lightweight, supports scripting, debugging, and basic database interaction.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Oracle APEX</b></td>
+                        <td>Low-code platform for building web applications using Oracle SQL and PL/SQL.</td>
+                        <td>Drag-and-drop UI, report generation, and robust data handling capabilities.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle Forms & Reports</b></td>
+                        <td>Tools for designing and deploying interactive forms and reports.</td>
+                        <td>Supports enterprise application development with seamless Oracle DB integration.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle Data Pump</b></td>
+                        <td>High-performance utility for exporting and importing large volumes of data.</td>
+                        <td>Supports parallel execution, selective data extraction, and metadata-only exports.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle BI Publisher</b></td>
+                        <td>Reporting and business intelligence tool for Oracle SQL users.</td>
+                        <td>Generates pixel-perfect reports, integrates with Oracle DB, and supports data
+                            visualization.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle Enterprise Manager (OEM)</b></td>
+                        <td>Comprehensive database management and monitoring tool.</td>
+                        <td>Real-time performance monitoring, tuning, and administration.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle SQLcl</b></td>
+                        <td>Command-line interface similar to SQL*Plus with additional modern features.</td>
+                        <td>Tab completion, in-line query formatting, and JSON support.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Oracle GoldenGate</b></td>
+                        <td>Real-time data replication and integration tool.</td>
+                        <td>Ensures high availability and supports multi-directional replication.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Oracle Database Express</b></td>
+                        <td>Lightweight web-based interface for database management and query execution.</td>
+                        <td>Simple interface for quick operations, ideal for small to medium-scale applications.
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table><br><br>
+            <h2>Oracle Database Editions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Editions</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Oracle Standard Edition (SE)</b></td>
+                        <td>Designed for small- and medium-sized businesses.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle Enterprise Edition (EE)</b></td>
+                        <td>Includes advanced features like data warehousing, security, and analytics for
+                            large-scale enterprises.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle Express Edition (XE)</b></td>
+                        <td>A free, lightweight version for beginners and developers.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Oracle Cloud</b></td>
+                        <td>A fully managed cloud-based database service.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h2>Common Use Cases</h2>
+            <ul>
+                <li><b>Business Applications:- </b> ERP, CRM, and financial systems.</li>
+                <li><b>E-commerce:- </b> Transactional systems to handle inventory and order management.</li>
+                <li><b>Cloud-Based Applications:- </b> Oracle Cloud services for database-as-a-service.</li>
+                <li><b>Data Warehousing:- </b> Analytical queries for large datasets.</li>
+            </ul> <br><br>
+
+            <div class="topic-buttons">
+                <!-- <a href="" class="previou-button">&laquo; Previous</a> -->
+                <a href="orclsql.html?topic=sqlDataTypes" class="next-button">Next &raquo;</a>
+            </div>
+        </div>
+
+        <div class="topic-content" data-topic="sqlDataTypes">
+            <div class="topic-buttons">
+                <a href="orclsql.html?topic=sqlIntro" class="previou-button">&laquo; Previous</a>
+                <a href="orclsql.html?topic=sqlLanguages" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Data Type in Oracle SQL</h1>
+            <h2>What is Data Type?</h2>
+            <p>A <b> Data Type </b>defines the type of data that can be stored in a column, variable, or parameter.
+            </p><br>
+            <ul>
+                <li>It specifies the <b>characteristics </b>of the data, such as its size, format, and allowed
+                    operations.
+                </li>
+                <li>Data types ensure that only valid and compatible data is stored in the database, thus
+                    maintaining <b>data integrity</b>.</li>
+            </ul> <br>
+            <h2>Purpose of Data Types</h2>
+            <ul>
+                <li><b>Consistency:- </b> Ensures the data stored in the database adheres to the defined format and
+                    constraints.</li>
+                <li><b>Validation:- </b> Prevents invalid data entries by enforcing rules (e.g., storing text in a
+                    numeric column is not allowed).</li>
+                <li><b>Optimization:- </b> Helps optimize storage and query performance by allocating appropriate
+                    space and resources.</li>
+                <li><b>Ease of Manipulation:- </b> Facilitates efficient data retrieval, comparisons, and
+                    transformations.</li>
+                <li><b>Memory Efficiency:- </b> Allocates storage based on the size and type of data.</li>
+            </ul><br>
+            <h2>Oracle SQL Data Types</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Purpose</th>
+                        <th>Limitations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>CHAR(size)</b></td>
+                        <td>Fixed-length character string. Pads extra spaces if the string is shorter than the
+                            defined size.</td>
+                        <td>To store text or alphanumeric data of fixed length.</td>
+                        <td>Maximum size is 2,000 bytes. Inefficient for storing variable-length data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>VARCHAR2(size)</b></td>
+                        <td>Variable-length character string. The size specifies the maximum length (in bytes or
+                            characters).</td>
+                        <td>To store text or alphanumeric data of varying lengths.</td>
+                        <td>Maximum length is 32,767 bytes in PL/SQL and 4,000 bytes in SQL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>CLOB</b></td>
+                        <td>Character Large Object, used to store large text data up to 4 GB.</td>
+                        <td>To store large text documents, XML, or JSON data.</td>
+                        <td>Slower operations compared to standard text data types; requires LOB-specific functions.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>NUMBER(p,s)</b></td>
+                        <td>Numeric data type with precision (p) and scale (s). Precision is the total number of
+                            digits, and scale is the number of digits after the decimal.</td>
+                        <td>Suitable for integers, decimals, and floating-point values.</td>
+                        <td>Precision and scale must be defined for specific applications.</td>
+                    </tr>
+                    <tr>
+                        <td><b>FLOAT(p)</b></td>
+                        <td>Floating-point number with a precision of up to p.</td>
+                        <td>To store approximate numeric values.</td>
+                        <td>Precision and accuracy may vary depending on the hardware.</td>
+                    </tr>
+                    <tr>
+                        <td><b>BINARY_FLOAT</b></td>
+                        <td>A single-precision floating-point number (32-bit).</td>
+                        <td>To store approximate numeric values with low precision.</td>
+                        <td>Lower precision and accuracy than BINARY_DOUBLE.</td>
+                    </tr>
+                    <tr>
+                        <td><b>BINARY_DOUBLE</b></td>
+                        <td>A double-precision floating-point number (64-bit).</td>
+                        <td>To store approximate numeric values with high precision.</td>
+                        <td>Consumes more storage than BINARY_FLOAT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>DATE</b></td>
+                        <td>Stores date and time values (up to seconds) in the format DD-MON-YYYY HH24:MI:SS.</td>
+                        <td>Useful for applications requiring date and time storage.Useful for applications
+                            requiring date and time storage.</td>
+                        <td>Cannot store fractions of seconds; limited to a range from 4712 BC to 9999 AD.</td>
+                    </tr>
+                    <tr>
+                        <td><b>TIMESTAMP(n)</b></td>
+                        <td>Extends DATE by adding fractional seconds (up to n, where n is 0 to 9).</td>
+                        <td>To store high-precision date and time values.</td>
+                        <td>Fractional seconds increase storage size.</td>
+                    </tr>
+                    <tr>
+                        <td><b>TIMESTAMP WITH TIME ZONE</b></td>
+                        <td>Extends TIMESTAMP by including a time zone offset.</td>
+                        <td>To store date and time values with time zone information.</td>
+                        <td>Time zone offsets need to be managed; increases storage requirements.</td>
+                    </tr>
+                    <tr>
+                        <td><b>INTERVAL YEAR TO MONTH</b></td>
+                        <td>Represents a period in years and months.</td>
+                        <td>Useful for tracking durations or differences in months.</td>
+                        <td>Cannot represent finer granularity like days or seconds.</td>
+                    </tr>
+                    <tr>
+                        <td><b>INTERVAL DAY TO SECOND</b></td>
+                        <td>Represents a time interval in days, hours, minutes, seconds, and fractional seconds.
+                        </td>
+                        <td>To measure precise differences between timestamps.</td>
+                        <td>Limited to the precision specified; cannot handle larger time intervals.</td>
+                    </tr>
+                    <tr>
+                        <td><b>RAW(size)</b></td>
+                        <td>Stores variable-length binary data in hexadecimal format.</td>
+                        <td>To store binary data that does not require processing.</td>
+                        <td>Maximum size is 2,000 bytes; cannot perform arithmetic or character functions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>BLOB</b></td>
+                        <td>Binary Large Object, used to store large binary data up to 4 GB.</td>
+                        <td>Ideal for storing multimedia files (images, videos).</td>
+                        <td>Similar limitations as CLOB; requires more disk space.</td>
+                    </tr>
+                    <tr>
+                        <td><b>LONG</b></td>
+                        <td>Stores variable-length character data up to 2 GB.</td>
+                        <td>Historically used for large text storage.</td>
+                        <td>Deprecated; cannot be indexed or used in functions like WHERE clauses. Use CLOB instead.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>ROWID</b></td>
+                        <td>Represents a unique address for a row in a table.</td>
+                        <td>Useful for identifying rows directly in internal operations.</td>
+                        <td>Cannot be relied upon for long-term or logical row identification.</td>
+                    </tr>
+                    <tr>
+                        <td><b>UROWID</b></td>
+                        <td>Extends ROWID to include addresses for rows stored in index-organized tables.</td>
+                        <td>Used in distributed database systems.</td>
+                        <td>Limited to specific use cases, primarily advanced database applications.</td>
+                    </tr>
+                    <tr>
+                        <td><b>XMLType</b></td>
+                        <td>Used for storing XML data.</td>
+                        <td>Ideal for applications working with structured XML documents.</td>
+                        <td>Complex to query and process; requires additional XML functions and storage space.</td>
+                    </tr>
+                    <tr>
+                        <td><b>BOOLEAN (PL/SQL)</b></td>
+                        <td>Stores logical values (TRUE, FALSE, or NULL).</td>
+                        <td>Common in procedural logic within PL/SQL.</td>
+                        <td>Not supported in SQL directly; limited to PL/SQL contexts.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <h2>Points to Remember</h2>
+            <ul>
+                <li>For character and binary data types, Oracle recommends using VARCHAR2 and RAW over CHAR and LONG
+                    for efficiency.</li>
+                <li>Use modern types like CLOB, BLOB, and XMLType instead of legacy types like LONG.</li>
+                <li>Always choose the data type based on the specific requirements of precision, storage, and
+                    performance.</li>
+                <li>Properly define the size and scale to avoid storage and performance issues.</li>
+                <li>Always choose a data type based on expected data and business requirements.</li>
+                <li>Avoid using legacy types (e.g., LONG) in new designs.</li>
+                <li>Define size (size, precision, scale) to optimize storage and prevent errors.</li>
+            </ul><br><br>
+
+
+            <div class="topic-buttons">
+                <a href="orclsql.html?topic=sqlIntro" class="previou-button">&laquo; Previous</a>
+                <a href="orclsql.html?topic=sqlLanguages" class="next-button">Next &raquo;</a>
+            </div>
+        </div>
+
+        <div class="topic-content" data-topic="sqlLanguages">
+            <div class="topic-buttons">
+                <a href="orclsql.html?topic=sqlDataTypes" class="previou-button">&laquo; Previous</a>
+                <a href="orclsql.html?topic=sqlSelectTable" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Languages Within Oracle SQL</h1>
+
+            <p>Oracle SQL can be broadly classified into the following <b>four SQL language components.</b></p><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Language Component</th>
+                        <th>Purpose</th>
+                        <th>Key Commands</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Data Query Language (DQL)</b></td>
+                        <td>Retrieve data from the database</td>
+                        <td>SELECT</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Manipulation Language (DML)</b></td>
+                        <td>Used to modify data in the database</td>
+                        <td>INSERT, UPDATE, DELETE</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Definition Language (DDL)</b></td>
+                        <td>Used for creating and modifying database objects like tables, indexes, and views.</td>
+                        <td>CREATE, ALTER, DROP, TRUNCATE</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Control Language (DCL)</b></td>
+                        <td>Manage user access and permissions</td>
+                        <td>GRANT, REVOKE</td>
+                    </tr>
+                    <tr>
+                        <td><b>Transaction Control Language (TCL)</b></td>
+                        <td>Manage transactions in the database</td>
+                        <td>COMMIT, ROLLBACK, SAVEPOINT</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+
+            <h2>1. Data Query Language (DQL):</h2>
+            <p>DML statements can range from simple queries to complex multi-clause commands. Here are the
+                components</p>
+            <ul>
+                <li><b>Basic Purpose :</b> Used to fetch and query data from the database.</li>
+                <li>Key Command: <b><a href="orclsql.html?topic=sqlSelectTable">SELECT</a></b></li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>components</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Expressions</b></td>
+                        <td>Used to calculate or derive values.</td>
+                        <td><code>SELECT Price * Quantity AS TotalCost FROM ORDERS;</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>Clauses</b></td>
+                        <td>Specify the purpose or limits of a statement, like WHERE, GROUP BY, or ORDER BY.</td>
+                        <td><code>SELECT ProductID, SUM(Sales)  
+                            FROM SALES  
+                            GROUP BY ProductID  
+                            ORDER BY SUM(Sales) DESC;</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>Predicates</b></td>
+                        <td>Define conditions for filtering rows.</td>
+                        <td><code>SELECT CustomerID,customer_name  
+                                FROM CUSTOMER
+                                WHERE Age > 30 AND City = 'Chicago'</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>Logical Connectives</b></td>
+                        <td>Combine multiple conditions (e.g., AND, OR, NOT).</td>
+                        <td><code>SELECT CustomerID,customer_name  
+                                    FROM CUSTOMER 
+                                    WHERE City = 'New York' OR City = 'Los Angeles'</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>Aggregate Functions</b></td>
+                        <td>Perform calculations across rows (e.g., SUM, AVG, COUNT).</td>
+                        <td>
+                            <code>SELECT COUNT(*) AS TotalCustomers  
+                                    FROM CUSTOMER  
+                                    WHERE City = 'New York';
+                                </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Subqueries</b></td>
+                        <td>Queries embedded within other queries.</td>
+                        <td>
+                            <code>SELECT FirstName, LastName  
+                                    FROM CUSTOMER  
+                                    WHERE CustomerID IN (SELECT CustomerID FROM ORDERS WHERE Total > 500);
+                                </code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>2. Data Definition Language (DDL):</h2>
+            <h3>Purpose:</h3>
+            <p>Data Definition Language (DDL) is a part of SQL used to create, modify, and
+                delete database structures.
+                It defines what the database will look like and how it will store information.</p>
+            <ul>
+                <li>It deals with the basic elements of a database, like tables, views, schemas, and catalogs.</li>
+                <li>Creates tables, databases, and other structures.</li>
+                <li>Changes or deletes existing database structures.</li>
+                <li>DDL commands define how data is stored and organized within a relational database.</li>
+            </ul>
+            <h3>Key Commands:</h3>
+            <ul>
+                <li><b>CREATE :</b> Used to create new tables, schemas, views, or databases.</li>
+            </ul>
+            <ul>
+                <code>CREATE TABLE Students (ID INT, Name VARCHAR(100), Age INT);</code>
+            </ul>
+            <ul>
+                <li><b>ALTER :</b> Used to modify the structure of an existing table (e.g., add, remove,
+                    rename or change data type columns).</li>
+            </ul>
+            <ul>
+                <code>ALTER TABLE Students ADD COLUMN Grade CHAR(1);</code>
+            </ul>
+            <ul>
+                <li><b>DROP: </b>Used to delete tables, schemas, or databases when they are no longer
+                    needed.</li>
+            </ul>
+            <ul>
+                <code>DROP TABLE Students;</code>
+            </ul>
+            <br>
+            <table>
+                <caption>Steps to follow to Design a Database</caption>
+                <thead>
+                    <tr>
+                        <th>Steps</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Identify All Tables</b></td>
+                        <td>List all entities (like customers, products,sales, or orders) that need to be stored.
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><b>Define Columns for Each Table</b></td>
+                        <td>Specify the attributes each table should have (e.g., CustomerID, FirstName).</td>
+
+                    </tr>
+                    <tr>
+                        <td><b>Assign a Primary Key</b></td>
+                        <td>Ensure each table has a unique identifier (e.g., CustomerID) to differentiate rows.</td>
+
+                    </tr>
+                    <tr>
+                        <td><b>Establish Relationships</b></td>
+                        <td>Include common columns in related tables to create logical links between them.</td>
+
+                    </tr>
+                    <tr>
+                        <td><b>Normalize the Data</b></td>
+                        <td>Structure the database to avoid duplication and anomalies by using third normal form
+                            <b>(3NF)</b> or better.
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Document Everything</b>
+                        <td>Plan the design on paper first to avoid errors or inefficiencies.</td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <table>
+                <caption>Best Practices for Using DDL</caption>
+                <thead>
+                    <tr>
+                        <th>Practices</th>
+                        <th>To Do</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Plan Before You Code</b> </td>
+                        <td>
+                            <li>Write down the structure, relationships, and constraints on paper or a whiteboard.
+                            </li>
+                            <li>Avoid jumping into SQL commands without proper planning.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Understand the Database Requirements</b> </td>
+                        <td>Write down the structure, relationships, and constraints on paper or a whiteboard.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Validate Primary Keys</b> </td>
+                        <td>Always ensure primary keys are unique and non-NULL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Test the Design</b> </td>
+                        <td>Verify the design for anomalies or errors before implementing it in a live environment.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <!-- Note Section -->
+            <div class="note-box">
+                <b>Note :</b> Not all SQL implementations support the same syntax. Adjust for specific DBMS
+                (e.g., Oracle, MySQL). Many DBMSs offer graphical tools for creating tables to simplify the process.
+                graphical Tools are like "Oracle SQL Developer", "Oracle Data Modeler", "SQL Server Management
+                Studio (SSMS)", "Azure Data Studio", "MySQL Workbench", "pgAdmin", or "Studio 3T", etc...
+            </div>
+            <br>
+            <h2>3. Data Manipulation Language (DML)</h2>
+            <h3>Purpose :</h3>
+            <p><b>Manipulation Language (DML)</b> is a subset
+                of SQL used to manage and manipulate the actual data stored in a database.</p>
+            <ul>
+                <li>DML is used to handle the actual data inside the database.</li>
+                <li>It helps you add, update, delete, or retrieve information.</li>
+                <li>Unlike DDL (Data Definition Language), which defines database structure, DML focuses on the
+                    <b>contents </b>within those structures.
+                </li>
+            </ul>
+            <h3>Why is DML Important in SQL? </h3>
+            <ul>
+                <li>DML bridges the gap between <b>data storage </b>and <b>real-world application
+                        requirements.</b></li>
+                <li>It allows for the dynamic and interactive management of data, which is crucial for businesses,
+                    applications, and decision-making processes.</li>
+            </ul>
+            <br>
+            <h3>Key Commands :</h3>
+            <ul>
+                <li><b>INSERT :</b> Adds new rows of data to a table.</li>
+            </ul>
+            <ul>
+                <code>INSERT INTO CUSTOMER (CustomerID, FirstName, LastName, City)  VALUES (101, 'Yash', 'Man', 'New York'); </code>
+            </ul>
+            <ul>
+                <li><b>UPDATE :</b>Modifies existing data in a table.</li>
+            </ul>
+            <ul>
+                <code>UPDATE CUSTOMER  
+                        SET City = 'Los Angeles'  
+                        WHERE CustomerID = 101;
+                    </code>
+            </ul>
+            <ul>
+                <li><b>DELETE :</b>Removes specific rows of data from a table based on a condition.</li>
+            </ul>
+            <ul><code>DELETE FROM CUSTOMER  
+                        WHERE CustomerID = 101;
+                    </code>
+            </ul>
+            <ul>
+                <li><b>SELECT : </b>Retrieves data from one or more tables. It is also subset of DQL.</li>
+            </ul>
+            <ul><code>SELECT FirstName, LastName, City  
+                        FROM CUSTOMER  
+                        WHERE City = 'New York';
+                    </code>
+            </ul>
+            <br>
+
+            <h3>Best Practices to Write DML Statements:</h3>
+            <ul>
+                <li><b>Break Down Complex Queries - </b> Analyze and test components of complex queries
+                    step by step.</li>
+                <li><b>Use Conditions (WHERE) Thoughtfully - </b> Prevent unintended data manipulation by
+                    always specifying conditions where needed.</li>
+                <li><b>Test Queries on Sample Data - </b> Run queries on a small dataset before applying
+                    them to the entire database.</li>
+                <li><b>Comment Your Code - </b> Use comments to explain logic for future reference.</li>
+            </ul>
+
+            <div class="note-box">
+                <p><b>Note :</b>Avoid Modifying Data Directly. Always take a backup before running UPDATE or
+                    DELETE commands.</p>
+            </div>
+            <br>
+            <h3>Importance of DML:</h3>
+            <br>
+            <ul>
+                <li><b>Data Interaction: </b>Provides mechanisms to interact directly with data stored in
+                    relational databases.</li>
+                <li><b>Fine-Tuned Control: </b>Enables precise control over what data to retrieve, update,
+                    or delete.</li>
+                <li><b>Dynamic Data Handling: </b>Essential for applications that require real-time data
+                    updates and retrieval.</li>
+            </ul>
+            <br>
+            <h2>4. Data Control Language (DCL)</h2>
+            <p>Data Control Language (DCL) is a subset of SQL that focuses on managing and securing access to
+                the
+                database and ensuring that database operations occur reliably. DCL commands are used to control
+                permissions, manage transactions, and safeguard data integrity.</p>
+            <br>
+            <table>
+                <caption>DCL Commands:</caption>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Purpose</th>
+                        <th>Usage</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>GRANT</b></td>
+                        <td>Assigns specific permissions or privileges to users or roles.</td>
+                        <td>Depends on user and depatment</td>
+                        <td><code>GRANT SELECT, INSERT ON Employees TO User1;
+                                </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>REVOKE</b></td>
+                        <td>Removes previously granted permissions from users or roles.</td>
+                        <td>Depends on user and depatment</td>
+                        <td><code>REVOKE INSERT ON Employees FROM User1;
+                                    </code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Data Integrity and Security with DCL</h3>
+            <h4>Preventing Data Corruption</h4>
+            <ul>
+                <li> SQL transactions ensure that operations are logged and can be rolled back in case of
+                    errors.
+                </li>
+                <li>Logging minimizes risks during failures, as incomplete transactions can be undone.</li>
+            </ul>
+            <h4>Managing Multi-User Environments</h4>
+            <ul>
+                <li>DCL restricts simultaneous conflicting operations by isolating user actions.</li>
+                <li>Example Problems Addressed:</li>
+                <ul>
+                    <li><b>Lost Updates: </b>When one user's changes overwrite another's without
+                        knowledge.</li>
+                    <li><b>Dirty Reads: </b>When a user reads uncommitted changes made by another user.
+                    </li>
+                    <li><b>Inconsistent Data: </b>When changes are partially visible to other users.</li>
+                </ul>
+            </ul>
+
+            <h4>What is User Role?</h4>
+            <ul>
+                <li><b>user roles - </b>are a way to group and manage permissions for multiple users within a
+                    database system. Instead of assigning permissions individually to each user,
+                    roles simplify the process by allowing database administrators to assign permissions to
+                    roles,
+                    and
+                    then assign those roles to users.</li>
+                <li><b>Authentication - </b>Ensures that only authorized users can access the database.
+                </li>
+                <li><b>Authorization - </b>Controls what actions an authenticated user can perform.</li>
+            </ul>
+            <h4>Advantages of Roles:</h4>
+            <ul>
+                <li> <b>Centralized Access Control - </b>Simplifies permission management by grouping
+                    users with similar access requirements. </li>
+                <li> <b>Enhanced Security - </b>Avoids granting excessive permissions directly to users.
+                </li>
+                <li> <b>Scalability - </b>Easily add or remove users from a role as team compositions
+                    change. </li>
+            </ul>
+            <h4>User Roles in few SQL Systems</h4>
+            <ul>
+                <h5>1. SQL Server</h5>
+                <ul>
+                    <li><b>Predefined roles - </b> db_owner, db_reader, db_writer.</li>
+                    <li><b>Custom roles - </b> Supported.</li>
+                </ul>
+                <h5>2. Oracle</h5>
+                <ul>
+                    <li>Supports roles with the CREATE ROLE command.</li>
+                    <li>Example predefined roles: CONNECT, RESOURCE, DBA.</li>
+                </ul>
+                <h5>3. PostgreSQL</h5>
+                <ul>
+                    <li>Combines roles and users. Roles can log in if given login privileges.</li>
+                    <li>Uses GRANT and REVOKE for role management.</li>
+                </ul>
+                <h5>4. MySQL</h5>
+                <ul>
+                    <li>Introduced roles in version 8.0.</li>
+                    <li>Roles can be created, granted privileges, and assigned to users.</li>
+                </ul>
+                <h5>5. MongoDB</h5>
+                <ul>
+                    <li>Role-based access control (RBAC) system with built-in roles like read, readWrite, and
+                        custom
+                        roles.</li>
+                </ul>
+            </ul>
+            <h4>Advanced Features of DCL</h4>
+
+            <ul>
+                <li><b>Role Management - </b>DCL allows grouping privileges into roles that can be
+                    assigned to users</li>
+
+            </ul>
+            <ul>
+                <li><b>Protection of Database Objects</b></li>
+
+                <ul>
+                    <li><b>Tables - </b>Control who can see or modify table data.</li>
+                    <li><b>Columns - </b>Restrict access to specific attributes.</li>
+                    <li><b>Views - </b>Grant access to derived or aggregated data.</li>
+                    <li><b>Domains and Constraints - </b>Protect schema-level objects like constraints
+                        and types.</li>
+                </ul>
+            </ul>
+            <br>
+            <table>
+                <caption>Types of Privileges:</caption>
+                <caption>1. Data Access Privileges</caption>
+                <thead>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>GRANT SELECT</b></td>
+                        <td>Used to provide the privilege (or permission) for a user or role to retrieve data
+                            from a specific table or view.
+                            This allows the specified user or role to read the data but not modify it.</td>
+                    </tr>
+                    <tr>
+                        <td><b>REVOKE SELECT</b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to retrieve data
+                            from a specific table or view.
+                            This ensures that the specified user or role can no longer read the data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>GRANT INSERT</b></td>
+                        <td>Used to provide the privilege (or permission) for a user or role to add new rows of
+                            data into a specific table or view.
+                            This allows the specified user or role to insert data but not necessarily view,
+                            update, or delete it. </td>
+                    </tr>
+                    <tr>
+                        <td><b>REVOKE INSERT</b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to insert new rows
+                            into a specific table or view.
+                            This ensures that the specified user or role cannot add new data to the table or
+                            view.</td>
+                    </tr>
+                    <tr>
+                        <td><b>GRANT UPDATE </b></td>
+                        <td>Used to provide the privilege (or permission) for a user or role to modify existing
+                            data in specific columns of a table or view.
+                            This allows the specified user or role to update data but does not permit inserting,
+                            deleting, or viewing data unless explicitly granted.</td>
+                    </tr>
+                    <tr>
+                        <td><b>REVOKE UPDATE </b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to modify existing
+                            data in specific columns of a table or view.
+                            This ensures that the specified user or role can no longer update the data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>GRANT DELETE </b></td>
+                        <td>Used to provide the privilege (or permission) for a user or role to remove rows from
+                            a specific table or view.
+                            This allows the specified user or role to delete data but does not permit inserting,
+                            updating, or viewing data unless explicitly granted.</td>
+                    </tr>
+                    <tr>
+                        <td><b>REVOKE DELETE</b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to delete rows from
+                            a specific table or view.
+                            This ensures that the specified user or role can no longer remove data from the
+                            table or view.</td>
+                    </tr>
+                    <tr>
+                        <td><b>REVOKE DELETE</b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to delete rows from
+                            a specific table or view.
+                            This ensures that the specified user or role can no longer remove data from the
+                            table or view.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <table>
+                <caption>2. Object Usage Privileges</caption>
+                <ul>
+                    <li>A <b>domain </b>is a user-defined data type that specifies a data type along with
+                        optional constraints, such as a range or specific allowed values.</li>
+                    <li>A <b>collation </b>determines the rules for comparing and sorting strings of text,
+                        including case sensitivity, accent sensitivity, and language-specific ordering.</li>
+                    <li>A <b>translation </b>defines a mapping or transformation between character sets or
+                        encodings, allowing data to be converted from one format to another.</li>
+                </ul>
+
+                <thead>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b><code>GRANT USAGE ON DOMAIN</code></b></td>
+                        <td>Used to grant a user or role the privilege to use a specific<b>
+                                domain</b>.
+                            By granting USAGE on a domain, the user or role is permitted to reference the domain
+                            in their operations, such as creating tables or defining columns using that domain.
+                            This privilege is useful for managing access to shared, standardized data types in a
+                            database.</td>
+
+                    </tr>
+                    <tr>
+                        <td><b><code>GRANT USAGE ON CHARACTER SET</code></b></td>
+                        <td>Used to grant a user or role the privilege to use a specific <b>character set
+                            </b>in the database.
+                            By granting USAGE on a domain, the user or role is permitted to reference the domain
+                            in their operations, such as creating tables or defining columns using that domain.
+                            This privilege is useful for managing access to shared, standardized data types in a
+                            database.</td>
+
+                    </tr>
+                    <tr>
+                        <td><b><code>GRANT USAGE ON COLLATION</code></b></td>
+                        <td>Used to grant a user or role the privilege to use a specific
+                            <b>collation</b> in the database. By granting USAGE on a collation,
+                            you allow the specified user or role to reference that collation when defining or
+                            altering database objects, such as columns, tables, or queries.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><code>GRANT USAGE ON TRANSLATION</code></b></td>
+                        <td>Used to grant a user or role the privilege to use a specific <b>translation
+                            </b>in the database.
+                            By granting USAGE on a translation, you permit the specified user or role to
+                            reference and apply the translation when performing operations that require
+                            character set conversion.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><code>REVOKE USAGE ON DOMAIN</code></b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                            <b>domain </b>in the database.
+                            By revoking USAGE on a domain, you ensure that the specified user or role can no
+                            longer create or reference columns or objects based on that domain.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><code>REVOKE USAGE ON CHARACTER SET</code></b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                            <b>character set</b> in the database.
+                            By revoking USAGE on a character set, you restrict the specified user or role from
+                            creating or modifying objects (such as tables or columns) that depend on that
+                            character set.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><code>REVOKE USAGE ON COLLATION</code></b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                            <b>collation</b> in the database.
+                            By revoking USAGE on a collation, you restrict the specified user or role from
+                            applying that collation to database objects like tables, views, or columns.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><code>REVOKE USAGE ON TRANSLATION</code></b></td>
+                        <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                            <b>translation </b>in the database.
+                            By revoking USAGE on a translation, the specified user or role is restricted from
+                            applying that translation to character data within the database.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <table>
+                <caption>3. Object References Privileges</caption>
+
+                <thead>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Operation</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b><code>GRANT REFERENCES</code></b></td>
+                        <td>Used to give a user or role the privilege to create foreign key constraints that
+                            reference a specific table or column.</td>
+                        <td>It allows user or Role to Define relationships between tables by referencing the
+                            primary or unique key of the table on which the privilege is granted.</td>
+                        <td><code>GRANT REFERENCES ON TableName TO UserName;</code></td>
+                    </tr>
+                    <tr>
+                        <td><b><code>REVOKE REFERENCES</code></b></td>
+                        <td>Used to remove the privilege of a user or role to create foreign key constraints
+                            that reference a specific table or column.</td>
+                        <td>Prevents the user or role from creating foreign key relationships that reference the
+                            specified table or column.</td>
+                        <td><code>REVOKE REFERENCES ON TableName FROM UserName;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>5. Transaction Control Language (TCL)</h2>
+            <ul>Transaction Control Language (TCL) is a subset of SQL that manages transactions in a database.
+                Transactions are sequences of SQL operations performed as a single logical unit of work.
+                TCL commands ensure that these transactions maintain data integrity and consistency.</ul>
+            <h3>Key Features </h3>
+            <ul>
+                <li><b>Atomicity - </b> Ensures that all operations in a transaction are completed
+                    successfully. If any operation fails, the entire transaction is rolled back.</li>
+                <li><b>Consistency - </b> Guarantees that a transaction brings the database from one
+                    valid state to another, maintaining defined rules and constraints.</li>
+                <li><b>Isolation - </b> Ensures that transactions are executed independently of one
+                    another.</li>
+                <li><b>Durability - </b> Once a transaction is committed, changes are permanent even
+                    in case of a system failure.</li>
+            </ul>
+            <table>
+                <caption>TCL Commands</caption>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                        <th>Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>COMMIT</b></td>
+                        <td>Saves all the changes made during the transaction permanently in the database.</td>
+                        <td><code>COMMIT;</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>ROLLBACK</b></td>
+                        <td>Reverts all changes made during the current transaction, restoring the database to
+                            its previous state.</td>
+                        <td><code>ROLLBACK;</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>SAVEPOINT</b></td>
+                        <td>Creates a checkpoint within a transaction to enable partial rollbacks.</td>
+                        <td><code>SAVEPOINT sp1;</code></td>
+                    </tr>
+                    <tr>
+                        <td><b>SET TRANSACTION</b></td>
+                        <td>Sets transaction properties like isolation levels.</td>
+                        <td><code>SET TRANSACTION READ ONLY;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4>COMMIT</h4>
+            <ul>
+                <li><b>Purpose - </b> Saves all the changes made during the transaction permanently in
+                    the database.</li>
+                <li><b>Use Case - </b> Finalizing successful operations.</li>
+                <li><b>Example</b></li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">BEGIN TRANSACTION</span>;<br>
+                                <span class="orclkey">INSERT INTO </span>Employees (ID, Name, Department) <span class="orclkey">VALUES</span> (1, 'Alice', 'HR');<br>
+                                <span class="orclkey">UPDATE</span> Employees <span class="orclkey">SET</span> Department = 'Finance' <span class="orclkey">WHERE</span> ID = 1;<br>
+                                <span class="orclkey">COMMIT</span>;
+                            </code>
+                    <h5>In the above example: </h5>
+                    <ul>
+                        <li>The transaction inserts and updates records.</li>
+                        <li>The COMMIT statement makes these changes permanent.</li>
+                    </ul>
+                </div>
+
+            </ul>
+            <h4>ROLLBACK</h4>
+            <ul>
+                <li><b>Purpose - </b> Reverts all changes made during the current transaction,
+                    restoring the database to its previous state.</li>
+                <li><b>Use Case - </b> Used when errors occur or when a transaction must be aborted.
+                </li>
+                <li><b>Example</b></li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">BEGIN TRANSACTION</span>; <br>
+                                <span class="orclkey">INSERT INTO </span>Employees (ID, Name, Department) <span class="orclkey">VALUES</span> (2, 'Bob', 'IT');<br>
+                                <span class="orclkey">UPDATE </span>Employees SET Department = 'Marketing' <span class="orclkey">WHERE</span> ID = 2;<br>
+                                <span class="orclkey">ROLLBACK</span>;
+                            </code>
+                    <h5>In the above example: </h5>
+                    <ul>
+                        <li> Any changes made by the INSERT and UPDATE statements are undone by ROLLBACK</li>
+                    </ul>
+                </div>
+
+            </ul>
+            <h4>SAVEPOINT</h4>
+            <ul>
+                <li><b>Purpose - </b> Creates a savepoint or checkpoint within a transaction. You can
+                    roll back to a specific savepoint instead of rolling back the entire transaction.</li>
+                <li><b>Use Case - </b> Used for partial rollback within a transaction.</li>
+                <li><b>Example</b></li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">BEGIN TRANSACTION</span>;<br>
+                                <span class="orclkey">INSERT INTO </span>Employees (ID, Name, Department) <span class="orclkey">VALUES </span>(3, 'Charlie', 'Sales');<br>
+                                <span class="orclkey">SAVEPOINT</span> sp1;<br>
+                                <span class="orclkey">UPDATE </span>Employees <span class="orclkey">SET </span>Department = 'Operations' <span class="orclkey">WHERE </span>ID = 3;<br>
+                                <span class="orclkey">ROLLBACK TO </span>sp1;<br>
+                                <span class="orclkey">COMMIT</span>;
+                            </code>
+                    <h5>In the above example: </h4>
+                        <ul>
+                            <li>The INSERT operation is saved with SAVEPOINT sp1.</li>
+                            <li>The UPDATE operation is undone with ROLLBACK TO sp1.</li>
+                            <li>The transaction is committed with only the INSERT operation.</li>
+                        </ul>
+                </div>
+            </ul>
+            <h4>SET TRANSACTION</h4>
+            <ul>
+                <li><b>Purpose - </b> Sets properties for a transaction, such as isolation level.</li>
+                <li><b>Use Case - </b> Used to control how data modifications and reads interact in a
+                    multi-user environment.</li>
+                <li><b>Example</b></li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">SET TRANSACTION READ ONLY</span>;<br>
+                                <span class="orclkey">SELECT</span> * <span class="orclkey">FROM</span> Employees <span class="orclkey">WHERE</span> Department = 'HR';<br>
+                            </code>
+                    <h5>In the above example: </h4>
+                        <ul>
+                            <li>The transaction is set to READ ONLY, ensuring no changes can be made to the
+                                data.
+                            </li>
+                        </ul>
+                </div>
+
+            </ul>
+            <br>
+            <h3>Properties of Transactions</h3>
+            <p>TCL ensures that every transaction adheres to the ACID properties.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Properties</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Atomicity</td>
+                        <td>Ensures that all operations in a transaction succeed or fail as a unit.</td>
+                    </tr>
+                    <tr>
+                        <td>Consistency</td>
+                        <td>Guarantees that a transaction leaves the database in a valid state.</td>
+                    </tr>
+                    <tr>
+                        <td>Isolation</td>
+                        <td>Ensures that transactions do not interfere with each other.</td>
+                    </tr>
+                    <tr>
+                        <td>Durability</td>
+                        <td>Ensures that committed changes persist, even in the event of a system crash.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Real-World Use Cases</h3>
+            <h4>Banking System</h4>
+            <ul>
+                <li>
+                    Transferring money between accounts involves multiple steps
+                    <ul>
+                        <li>Debit from one account.</li>
+                        <li>Credit to another account.</li>
+                    </ul>
+                </li>
+                <li>TCL ensures that both steps succeed or fail as a unit to maintain consistency.</li>
+            </ul>
+            <h4>E-Commerce Transactions</h4>
+            <ul>
+                <li>
+                    Processing an order involves:
+                    <ul>
+                        <li>Updating inventory.</li>
+                        <li>Recording payment.</li>
+                        <li>Generating invoices</li>
+                    </ul>
+                </li>
+                <li>Transactions ensure that all these steps are completed successfully, or none of them are
+                    applied.</li>
+            </ul>
+            <!-- Add advanced sections for DDL, DML, DCL, TCL -->
+            <br>
+            <h2>SQL Languages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Language</th>
+                        <th>Purpose</th>
+                        <th>Key Commands</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DQL</td>
+                        <td>Query data</td>
+                        <td>SELECT</td>
+                    </tr>
+                    <tr>
+                        <td>DDL</td>
+                        <td>Define and modify database structure</td>
+                        <td>CREATE, ALTER, DROP</td>
+                    </tr>
+                    <tr>
+                        <td>DML</td>
+                        <td>Manipulate data</td>
+                        <td>INSERT, UPDATE, DELETE</td>
+                    </tr>
+                    <tr>
+                        <td>DCL</td>
+                        <td>Manage access control</td>
+                        <td>GRANT, REVOKE</td>
+                    </tr>
+                    <tr>
+                        <td>TCL</td>
+                        <td>Manage transactions</td>
+                        <td>COMMIT, ROLLBACK, SAVEPOINT</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="topic-buttons">
+                <a href="orclsql.html?topic=sqlDataTypes" class="previou-button">&laquo; Previous</a>
+                <a href="orclsql.html?topic=sqlSelectTable" class="next-button">Next &raquo;</a>
+            </div>
+        </div>
+
+        <div class="topic-content" data-topic="sqlSelectTable">
+            <div class="topic-buttons">
+                <a href="orclsql.html?topic=sqlLanguages" class="previou-button">&laquo; Previous</a>
+                <a href="orclsql_selectdistinct.html?topic=sqlSelectDistinct" class="next-button">Next &raquo;</a>
+            </div>
+            <h1>SELECT Statement in Oracle SQL</h1>
+            <p>The SELECT statement is one of the most fundamental and widely used commands in Oracle SQL.</p><br>
+            <ul>
+                <li>It is part of the Data Query Language (DQL) and is used to retrieve data from one or more
+                    tables, views, or other database objects.</li>
+                <li>It allows you to retrieve specific rows and columns from a table or set of tables, and it can be
+                    executed in various ways to access data exactly as required.</li>
+                <li>The SELECT statement in Oracle SQL is used to retrieve data from one or more tables, views, or
+                    other database objects.</li>
+                <li>It is one of the most fundamental and commonly used commands in SQL.</li>
+            </ul><br>
+            <h2>Syntax of the SELECT Statement</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> column1, column2, ...<br>
+                    <span class="orclkey">FROM</span> table_name<br>
+                    [<span class="orclkey">WHERE</span> condition]<br>
+                    [<span class="orclkey">GROUP BY</span> column]<br>
+                    [<span class="orclkey">HAVING</span> condition]<br>
+                    [<span class="orclkey">ORDER BY</span> column [<span class="orclkey">ASC  |DESC ]</span> ] <br>
+                    <span class="orclkey">FETCH FIRST</span>;
+                </code>
+            </div>
+            <br><br>
+            <h2>Features of SELECT in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <th>Feature</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Column Selection</b></td>
+                        <td>Allows selection of specific columns or all columns (SELECT *).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Aliases</b></td>
+                        <td>Assigns an alias to a column or table for better readability using AS. Example: SELECT
+                            col1 AS alias.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Expressions</b></td>
+                        <td>Enables the use of arithmetic operations, functions, and concatenations in queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Subqueries</b></td>
+                        <td>Allows embedding a query within another query. Example: SELECT * FROM employees WHERE
+                            salary > (SELECT AVG(salary) FROM employees);.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Joins</b></td>
+                        <td>Combines rows from multiple tables based on related columns. Includes INNER, OUTER,
+                            CROSS, and SELF JOIN.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Set Operators</b></td>
+                        <td>Combines results from multiple SELECT statements (e.g., UNION, INTERSECT, MINUS).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Aggregate Functions</b></td>
+                        <td>Performs calculations on a set of values, returning a single result. Examples: SUM, AVG,
+                            MAX.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Row Limiting Clause</b></td>
+                        <td>Limits the number of rows returned. Example: FETCH FIRST 5 ROWS ONLY.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Components of SELECT</h2>
+            <table>
+                <tr>
+                    <th>Clause</th>
+                    <th>Purpose</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>SELECT </td>
+                    <td>Specifies the columns to retrieve or expressions to evaluate. </td>
+                    <td>
+                        SELECT first_name, last_name FROM employees;
+                    </td>
+                </tr>
+                <tr>
+                    <td>DISTINCT </td>
+                    <td>Identifies the table(s) from which data is to be retrieved.</td>
+                    <td>You can use single table or multiple tables with Joins.</td>
+                </tr>
+                <tr>
+                    <td>FROM </td>
+                    <td>Specifies the table(s) or view(s) to query data from.</td>
+                    <td>SELECT * FROM employees;</td>
+                </tr>
+                <tr>
+                    <td>WHERE</td>
+                    <td>Filters rows based on specified conditions.</td>
+                    <td>SELECT * FROM employees WHERE salary > 5000;</td>
+                </tr>
+                <tr>
+                    <td>GROUP BY</td>
+                    <td>Groups rows sharing a common value in specified columns for aggregate functions.</td>
+                    <td>SELECT department_id, AVG(salary) FROM employees GROUP BY department_id;</td>
+                </tr>
+                <tr>
+                    <td> HAVING </td>
+                    <td>Filters grouped rows based on aggregate function conditions.</td>
+                    <td>SELECT department_id, AVG(salary) FROM employees GROUP BY department_id HAVING AVG(salary) >
+                        5000;</td>
+                </tr>
+                <tr>
+                    <td>ORDER BY</td>
+                    <td>Sorts the result set by one or more columns in ascending (ASC) or descending (DESC) order.
+                    </td>
+                    <td>SELECT * FROM employees ORDER BY hire_date DESC;</td>
+                </tr>
+                <tr>
+                    <td>FETCH FIRST</td>
+                    <td>Limits the number of rows returned in the result set (introduced in Oracle 12c).</td>
+                    <td>SELECT * FROM employees ORDER BY salary DESC FETCH FIRST 5 ROWS ONLY;</td>
+                </tr>
+            </table>
+            <br>
+            <h2>SELECT Scenarios</h2>
+            <p><b>Scenario 1:- (Retrieve Specific Columns)</b> Fetch only specific columns, such as employee_name
+                and department_id, from the employees table.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT</span> employee_name, department_id <br> 
+                        <span class="orclkey">FROM</span> employees;
+                    </code>
+            </div>
+            <br>
+            <p><b>Scenario 2:- (Retrieve Specific Columns)</b> Fetch only specific columns, such as employee_name
+                and department_id, from the employees table.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> * <br>
+                    <span class="orclkey">FROM</span> customer; <br>
+                    <br>
+                    - - The asterisk symbol ( * ) is used to select all columns in a table.
+                </code>
+            </div><br>
+
+            <p><b>Scenario 3:- (WHERE)</b> Retrieve employees from the employees table who belong to department 10.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> employee_id, employee_name, salary <br>
+                    <span class="orclkey">FROM</span> employees <br>
+                    <ul>
+                    <span class="orclkey">WHERE</span> department_id = 10;</ul>
+                </code>
+            </div><br>
+            <p><b>Scenario 4:- (WHERE and logical operators)</b> Retrieve employees with a salary greater than 5000
+                in a specific department 10.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> * <br>
+                    <span class="orclkey">FROM</span> employee<br>
+                <ul><span class="orclkey">WHERE</span> salary > 5000  <span class="orclkey"> AND </span> department_id = 10 ;</ul>
+                </code>
+            </div><br>
+
+            <p><b>Scenario 5:- (ORDER BY)</b> Display all employees sorted by their salary date in descending order.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span>first_name, salary <br>
+                    <span class="orclkey">FROM</span> employee<br>
+                <ul><span class="orclkey">ORDER BY </span> salary   <span class="orclkey"> DESC </span>  ;</ul> <br><br>
+                        - - By Default ORDER BY will sort in ascending order.
+                </code>
+            </div><br>
+            <p><b>Scenario 6:- (GROUP BY)</b> Calculate the average salary for each department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> department_id, <span class="orclfun">AVG</span>(salary) <span class="orclkey">AS</span> Avg_Salary<br>
+                    <span class="orclkey">FROM</span> employee<br>
+                <ul><span class="orclkey">GROUP BY</span> department_id ; </ul>
+                </code>
+            </div><br>
+            <p><b>Scenario 7:- (HAVING)</b>
+                Retrieve departments with an average salary greater than 5000.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT</span> department_id, <span class="orclfun">AVG</span>(salary) <span class="orclkey">AS</span> Avg_Salary<br>
+                        <span class="orclkey">FROM</span> employee<br>
+                    <ul><span class="orclkey">GROUP BY</span> department_id 
+                        <ul><span class="orclkey">HAVING </span> <span class="orclfun">AVG</span>(salary) > 5000 ;</ul>
+                    </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 8:- (GROUP BY)</b>
+                Retrieve the top 3 highest-paid employees.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> first_name, salary  <span class="orclfun">COUNT</span>(*) <span class="orclkey">AS</span> Empcount<br>
+                    <span class="orclkey">FROM</span> employee<br>
+                    <ul>
+                    <span class="orclkey"> ORDER BY </span> salary <span class="orclkey"> DESC </span> <br>
+                     <ul>
+                        <span class="orclkey"> FETCH FIRST </span> 5 <span class="orclkey"> ROWS ONLY </span> ;
+                     </ul>
+                    </ul>
+                </code>
+
+            </div><br>
+            <p><b>Scenario 9:- (DISTINCT)</b> Find the distinct job roles available in the employees table. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT DISTINCT </span> job_id <br>
+                    <span class="orclkey">FROM</span> employee ; 
+                    </code>
+            </div><br>
+            <p><b>Scenario 10:- (Aliases )</b> Retrieve employee details but assign aliases to column names for
+                better readability. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> emp_name <span class="orclkey"> AS </span> "Employee Name",<br>
+                    salary  <span class="orclkey"> AS </span> "Monthly Salary"
+                    <span class="orclkey">FROM</span> employee ; 
+                    </code>
+            </div><br>
+            <p><b>Scenario 11:- (Arithmetic Operations )</b> Calculate the annual salary of employees by multiplying
+                their monthly salary by 12. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> employee_name, <br> 
+                    salary,  <br>
+                    salary * 12 <span class="orclkey"> AS </span> "Annual Salary" <br>
+                    <span class="orclkey">FROM</span> employee ; 
+                    </code>
+            </div><br>
+            <p><b>Scenario 12:- (Subqueries )</b> Find employees whose salary is above the average salary of all
+                employees. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> employee_name, <br> 
+                    salary  <br>
+                    <span class="orclkey"> FROM </span> employee 
+                    <ul>
+                        <span class="orclkey"> WHERE </span> salary > ( <br>
+                        <ul>
+                            <span class="orclkey"> SELECT </span> <span class="orclfun"> AVG </span> (salary) 
+                            <span class="orclkey"> FROM </span> employees  ) ;
+                        </ul>
+                    </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 13:- (Joins )</b> Get the list of employees along with their department names from the
+                employees and departments tables.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> e.employee_name,  <br>
+                    d.department_name <br>
+                    <span class="orclkey"> FROM </span> employee e <br>
+                    <span class="orclkey"> JOIN </span> departments d 
+                    <ul>
+                            <span class="orclkey"> ON </span> e.department_id = d.department_id ;
+                        </ul> 
+                    </code>
+            </div><br>
+            <p><b>Scenario 14:- ( Set Operators )</b> Find job IDs that are either in the employees table or in the
+                jobs table, but not in both.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> job_id   <br>
+                    <span class="orclkey"> FROM </span> employee <br>
+                    MINUS <br>
+                    <span class="orclkey"> SELECT </span>
+                    job_id   <br>
+                    <span class="orclkey"> FROM </span> jobs ;
+                    </code>
+            </div><br>
+            <p><b>Scenario 15:- ( Built-In Functions )</b> Convert employee names to uppercase and calculate the
+                length of each name.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> <span class="orclfun"> UPPER </span>   ( employee_name )  <span class="orclkey"> AS </span> "Uppercase Name" ,<br>
+                    <ul><span class="orclfun"> LENGTH </span> ( employee_name ) <span class="orclkey"> AS </span> "Name Length"  </ul>
+                    <span class="orclkey"> FROM </span> employee  ;
+                    </code>
+            </div><br>
+            <p><b>Scenario 16:- ( Conditional Logic with CASE )</b> Categorize employees based on their salary
+                range.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> employee_name,  <br>
+                    <ul>
+                    salary, <br>
+                    <span class="orclkey"> CASE </span> <br>
+                    <ul>
+                        <span class="orclkey"> WHEN </span> salary < <span class="orclkey"> THEN </span> 'Low' <br>
+                        <span class="orclkey"> WHEN </span> salary <span class="orclkey"> BETWEEN  </span> 30000 
+                        <span class="orclkey"> AND  </span> 70000 <span class="orclkey"> THEN </span> 'Medium' <br>
+                        <span class="orclkey"> ELSE </span> 'High'
+                    </ul>
+                    <span class="orclkey"> END AS </span> "Salary Category" 
+                </ul>
+                    <span class="orclkey"> FROM </span> employee  ;
+                    </code>
+            </div><br>
+            <p><b>Scenario 17:- ( Use of Grouping Sets )</b> Find the total salary grouped by department and job
+                role, including subtotals for each department.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> department_id,  <br>
+                    <ul>
+                        job_id, <br>
+                    salary, <br>
+                    <span class="orclfun"> SUM </span> ( salary ) <span class="orclkey"> AS </span> "Total Salary" <br>
+                    <span class="orclkey"> FROM </span> employee 
+                    </ul>
+                    <span class="orclkey"> GROUP BY GROUPING </span> SETS ( ( department_id, job_id ), ( department_id ) ) ;
+                    </code>
+            </div><br>
+            <p><b>Scenario 18:- ( JSON )</b> Query employee details stored in a JSON column.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> employee_data.<span class="orclfun">json_value </span>(
+                        <span class="orclg">'$.name'</span> ) <span class="orclkey"> AS </span>  "Employee Name", 
+                     <br><ul>
+                     employee_data.<span class="orclfun">json_value </span>(
+                        <span class="orclg">'$.department'</span> ) <span class="orclkey"> AS </span>  "Department" 
+                    </ul>
+                    <span class="orclkey"> FROM </span> employee_table  ;
+                    </code>
+            </div><br><br>
+            <h2>Common Errors in SELECT Statements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-00904</b></td>
+                        <td>Invalid identifier: Occurs when a column or alias is misspelled or doesn't exist.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00933</b></td>
+                        <td>SQL command not properly ended: Typically caused by a syntax error in the query.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01722</b></td>
+                        <td>Invalid number: Happens when trying to compare a numeric column to a non-numeric value.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00942</b></td>
+                        <td>Table or view does not exist: Happens if the table name is incorrect or not accessible.
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Best Practices for SELECT Statements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Best Practice</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Use Specific Columns</b></td>
+                        <td>Avoid using SELECT *; specify only required columns to reduce overhead.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Aliases for Clarity</b></td>
+                        <td>Assign meaningful aliases to columns or tables for better readability. Example: SELECT
+                            e.name AS EmployeeName.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Awareness</b></td>
+                        <td>Use indexed columns in the WHERE clause to improve query performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Complex Calculations</b></td>
+                        <td>Avoid complex calculations in WHERE clauses if possible, as they can slow down query
+                            execution.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Filter Data Early</b></td>
+                        <td>Apply filters (WHERE) to reduce the number of rows processed by subsequent operations.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Leverage Bind Variables</b></td>
+                        <td>Use bind variables in dynamic queries to improve performance and security.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Comment Queries</b></td>
+                        <td>Add comments to complex queries for clarity. Example: -- This query fetches top 5
+                            employees by salary.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Dos and Don’ts of the SELECT Statement in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <th>Category</th>
+                    <th>Do's</th>
+                    <th>Don'ts</th>
+                    </td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>General Usage</b></td>
+                        <td>Use specific column names instead of SELECT * to improve performance and clarity.</td>
+                        <td>Avoid using SELECT * unless all columns are explicitly required.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Column Aliases</b></td>
+                        <td>Use meaningful aliases for columns to enhance readability in the result set.</td>
+                        <td>Don’t use vague or misleading aliases that can confuse the purpose of the query.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Filtering Data</b></td>
+                        <td>
+                            <ul>
+                                <li>Use the WHERE clause to limit the data retrieved, reducing unnecessary rows.
+                                </li>
+                                <li>Use logical operators (AND, OR) carefully to avoid redundant or conflicting
+                                    conditions.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Avoid complex filters without indexes, as they can degrade performance.</li>
+                                <li>Avoid hardcoding values excessively; use bind variables instead.</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Sorting Results</b></td>
+                        <td>Use ORDER BY judiciously, and sort only when necessary to avoid unnecessary overhead.
+                        </td>
+                        <td>Don’t assume default order; the database doesn’t guarantee row order without ORDER BY.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Usage</b></td>
+                        <td> Use indexed columns in the WHERE, JOIN, or GROUP BY clauses for better performance.
+                        </td>
+                        <td>Don’t force full table scans on large datasets without considering performance impacts.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Distinct Values</b></td>
+                        <td>Use DISTINCT only when necessary to eliminate duplicate rows.</td>
+                        <td>Don’t overuse DISTINCT, as it can add computational overhead unnecessarily.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Pagination</b></td>
+                        <td>Use FETCH FIRST n ROWS ONLY or ROWNUM for limiting results in large datasets.</td>
+                        <td>Don’t fetch all rows when only a subset of data is required for analysis or display.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Joins</b></td>
+                        <td>Use appropriate JOIN types and conditions to avoid Cartesian products.</td>
+                        <td>Don’t forget to specify join conditions, as it may lead to large, unintended datasets.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Subqueries</b></td>
+                        <td>Use subqueries or Common Table Expressions (CTEs) to simplify complex queries.</td>
+                        <td>Don’t write deeply nested subqueries that are hard to debug or optimize.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Aggregations</b></td>
+                        <td>Use GROUP BY with aggregate functions for summarizing data efficiently.</td>
+                        <td>Don’t use GROUP BY without understanding the data distribution and purpose.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance</b></td>
+                        <td>Analyze execution plans using EXPLAIN PLAN to optimize query performance.</td>
+                        <td>Don’t ignore performance tuning for queries running on large datasets.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Error Handling</b></td>
+                        <td>Validate column names and table references to avoid runtime errors.</td>
+                        <td>Don’t hard-code values in queries that are subject to change (use bind variables).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Comments</b></td>
+                        <td>Add comments for complex queries to ensure maintainability.</td>
+                        <td>Don’t write queries without documentation, especially for large or critical operations.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Formatting</b></td>
+                        <td>Format SQL queries for better readability and collaboration.</td>
+                        <td>Don’t write unformatted or poorly indented SQL, making it harder to debug or modify.
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql.html?topic=sqlLanguages" class="previou-button">&laquo; Previous</a>
+                <a href="sql_selectdistinct.html?topic=sqlSelectDistinct" class="next-button">Next &raquo;</a>
+            </div>
+        </div>
+
+
+        <div class="topic-content" data-topic="sqlCreateTable">
+            <div class="topic-buttons">
+                <a href="sql_nvl.html?topic=sqlNvl" class="previou-button">&laquo; Previous</a>
+                <a href="sql_alter.html?topic=sqlAlter" class="next-button">Next &raquo;</a>
+            </div>
+            <h1>CREATE Table</h1>
+            <ul>
+                <li>The<b> CREATE TABLE </b>statement in SQL is used to define a new table within a
+                    database. </li>
+                <li>It specifies the table’s structure, including its columns, data types, constraints, and default
+                    values. </li>
+                <li>Creating tables carefully with a well-thought-out design is crucial because it forms the
+                    foundation of a database's schema and ensures that data is stored, managed, and queried
+                    effectively.</li>
+            </ul>
+            <div class="note-box">
+                <b>Note :</b> Each SQL database (like Oracle, SQL Server, and MySQL) has its own set of
+                supported data types,
+                with slight variations in syntax, but the core purpose and functionality remain consistent.
+            </div><br>
+            <p> Sample tables and Datasets are Available at <a href="#">Resources</a></p>
+            <br>
+            <h2>Basic Syntax</h2>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> table_name ( <br>
+                        column1 Datatype constraint ,<br>
+                        column2 Datatype constraint ,<br>
+                        column3 Datatype ,<br>
+                        column4 datatype ,<br>
+                        ...........<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h3>Examples of CREATE TABLE </h3>
+            <h4>1. Creating a Simple Table Without Constraints</h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> employee (<br>
+                        emp_id INT ,<br>
+                        first_name VARCHAR(15) ,<br>
+                        last_name VARCHAR(15) ,<br>
+                        DOB DATE<br>
+                        ) ;
+                    </code>
+            </div>
+            <h4>2. Creating a Table with Constraints and Default Values</h4>
+            <h5>Oracle:</h5>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> employee (<br>
+                        emp_id NUMBER(5) <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        first_name VARCHAR2(15) <span class="orclkey">NOT NULL</span>,<br>
+                        last_name VARCHAR2(15) <span class="orclkey">NOT NULL</span>,<br>
+                        DOB DATE <span class="orclkey">DEFAULT</span> SYSDATE,<br>
+                        salary NUMBER( 8, 2) <span class="orclkey">CHECK</span> ( salary > 0)<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h5>SQL Server:</h5>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> employee (<br>
+                        emp_id INT <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        first_name NVARCHAR(15) <span class="orclkey">NOT NULL</span>,<br>
+                        last_name NVARCHAR(15) <span class="orclkey">NOT NULL</span>,<br>
+                        DOB DATE <span class="orclkey">DEFAULT</span> GETDATE( ),<br>
+                        salary DECIMAL( 8, 2) <span class="orclkey">CHECK</span> ( salary > 0)<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h5>MySQL:</h5>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> employee (<br>
+                        emp_id INT <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        first_name VARCHAR(15) <span class="orclkey">NOT NULL</span>,<br>
+                        last_name VARCHAR(15) <span class="orclkey">NOT NULL</span>,<br>
+                        DOB DATE <span class="orclkey">DEFAULT</span> CURRENT_DATE,<br>
+                        salary DECIMAL( 8, 2) <span class="orclkey">CHECK</span> ( salary > 0)<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h4>3. Creating a Table with Foreign Key Constraints</h4>
+            <h5>Oracle:</h5>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> department (<br>
+                        dept_id NUMBER(5) <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        dept_name VARCHAR2(20) ,<br>
+                        ) ;<br><br>
+
+                        <span class="orclkey">CREATE TABLE</span> employee (<br>
+                        emp_id NUMBER(5) <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        first_name VARCHAR2(15) <span class="orclkey">NOT NULL</span>,<br>
+                        last_name VARCHAR2(15) <span class="orclkey">NOT NULL</span>,<br>
+                        DOB DATE ,<br>
+                        salary NUMBER( 8, 2) ,<br>
+                        dept_id NUMBER(5),<br>
+                        <span class="orclkey">FOREIGN KEY </span> (dept_id) <span class="orclkey">REFERENCES</span><br>
+                        department(dept_id)<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h5>SQL Server and MySQL:</h5>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> department (<br>
+                        dept_id INT <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        dept_name NVARCHAR2(20)<br>
+                        ) ;<br><br>
+
+                        <span class="orclkey">CREATE TABLE</span> employee (<br>
+                        emp_id INT <span class="orclkey">PRIMARY KEY</span> ,<br>
+                        first_name NVARCHAR2(15) <span class="orclkey">NOT NULL</span>,<br>
+                        last_name NVARCHAR2(15) <span class="orclkey">NOT NULL</span>,<br>
+                        DOB DATE ,<br>
+                        salary DECIMAL( 8, 2) ,<br>
+                        dept_id INT,<br>
+                        <span class="orclkey">FOREIGN KEY </span> (dept_id) <span class="orclkey">REFERENCES</span><br>
+                        department(dept_id)<br>
+                        ) ;
+                    </code>
+            </div>
+
+            <br>
+            <h2>4. Advanced Features</h2>
+            <h4>Temporary Tables</h4>
+            <p>Temporary tables are used to store intermediate results. They exist only for the duration of the
+                database session.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE</span> TEMPORARY <span class="orclkey">TABLE</span> Tempsales (<br>
+                        saleID INT ,<br>
+                        Prod_id INT ,<br>
+                        SaleAmount DECIMAL( 10, 2 )<br>
+                        ) ;
+                    </code>
+            </div>
+            <h4>Partitioned Tables (MySQL Example)</h4>
+            <p>Partitioning divides a table into smaller parts for performance and manageability.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> Sales (<br>
+                        SaleID INT ,<br>
+                        SaleDate DATE,<br>
+                        Amount DECIMAL( 10, 2 )<br>
+                        )<br>
+                        <span class="orclkey">PARTITION BY RANGE </span>( <span class="orclkey">YEAR </span> (SaleDate)) (<br>
+                        <span class="orclkey">PARTITION </span> p1 <span class="orclkey">VALUES </span> LESS THAN (2000),<br>
+                        <span class="orclkey">PARTITION </span> p2 <span class="orclkey">VALUES </span> LESS THAN (2000),<br>
+                        <span class="orclkey">PARTITION </span> p3 <span class="orclkey">VALUES </span> LESS THAN (2000)<br>
+                        );<br>
+                    </code>
+            </div>
+            <h4>Tables with Auto-Increment (MySQL Example)</h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> Customer (<br>
+                        CustID INT AUTO_INCREMENT <span class="orclkey">PRIMARY KEY </span>,<br>
+                        CustName VARCHAR(20) <span class="orclkey"> NOT NULL </span>,<br>
+                        City VARCHAR (25)<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h3>Database-Specific Features</h3>
+            <h4>Oracle: Tablespaces </h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> Employees (<br>
+                        EmpID NUMBER <span class="orclkey">PRIMARY KEY </span>,<br>
+                        EmpName VARCHAR2(30)<br>
+                        ) TABLESPACE hr_data ;
+                    </code>
+
+            </div>
+
+            <h4>PostgreSQL: Inheritance </h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> Employee (<br>
+                        EmpID SERIAL <span class="orclkey">PRIMARY KEY </span>,<br>
+                        Name VARCHAR(30) ,<br>
+                        Position VARCHAR(30)<br>
+                        ) ;<br><br>
+                        <span class="orclkey">CREATE TABLE</span> Manager (<br>
+                        Department VARCHAR(30)<br>
+                        ) INHERITS ( Employee );
+                    </code>
+
+            </div>
+            <h4>SQL Server: Computed Columns </h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> Orders (<br>
+                        OrderID INT <span class="orclkey">PRIMARY KEY </span>,<br>
+                        Quantity INT <span class="orclkey"> NOT NULL </span>,<br>
+                        UnitPrice DECIMAL( 10, 2 ) <span class="orclkey"> NOT NULL </span>,<br>
+                        Total <span class="orclkey"> AS </span> ( Quantity * UnitPrice ) PERSISTED<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h2>6. Expert-Level Example</h2>
+            <h4>Complex Table with Indexes, Constraints, and Defaults</h4>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> Orders (<br>
+                        OrderID INT <span class="orclkey">PRIMARY KEY </span>,<br>
+                        Quantity INT <span class="orclkey"> NOT NULL </span>,<br>
+                        UnitPrice DECIMAL( 10, 2 ) <span class="orclkey"> NOT NULL </span>,<br>
+                        Total <span class="orclkey"> AS </span> ( Quantity * UnitPrice ) PERSISTED<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h2>7. Common Errors and Tips </h2>
+            <h4> Table Already Exists</h4>
+            <ul>Use IF NOT EXISTS to prevent errors:</ul>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">CREATE TABLE</span> IF <span class="orclkey">NOT EXISTS </span><br>
+                        Employee (<br>
+                        EmpID SERIAL <span class="orclkey">PRIMARY KEY </span>,<br>
+                        Name VARCHAR(30) ,<br>
+                        Position VARCHAR(30)<br>
+                        ) ;
+                    </code>
+            </div>
+            <br>
+            <h2>8. Best Practices for Using CREATE TABLE</h2>
+            <h4>1. Define Primary and Foreign Keys</h4>
+            <ul>
+                <li>Always define PRIMARY KEY constraints on tables for unique row identification, and use FOREIGN
+                    KEY
+                    constraints for establishing relationships between tables. This ensures data integrity.</li>
+            </ul>
+            <h4>2. Choose Appropriate Data Types</h4>
+            <ul>
+                <li>Choose data types that match the data as closely as possible.</li>
+                <li>Avoid large data types if not needed (e.g., using VARCHAR(50) for short text fields instead of
+                    VARCHAR(255)).</li>
+                <li>Numeric columns should have sufficient precision but should be as compact as possible.</li>
+            </ul>
+            <h4>3. Use Constraints to Enforce Data Integrity</h4>
+            <ul>
+                <li>Use NOT NULL on columns that require values.</li>
+                <li>UNIQUE constraints can enforce uniqueness.</li>
+                <li>CHECK constraints validate column values within specific ranges or conditions.</li>
+            </ul>
+            <h4>4. Consider Default Values</h4>
+            <ul>
+                <li>Default values simplify data entry and can serve as placeholders when data is missing or
+                    optional.</li>
+                <li>Avoid hard-coding dates as defaults; use system functions like SYSDATE, GETDATE(), or
+                    CURRENT_DATE.</li>
+            </ul>
+            <h4>5. Naming Conventions</h4>
+            <ul>
+                <li>Use consistent naming conventions for table and column names (e.g., snake_case or camelCase) to
+                    enhance readability.</li>
+                <li>Prefix foreign key columns with the table name they reference (e.g., department_id instead of
+                    just id).</li>
+            </ul>
+            <br>
+            <h2>9. Do’s and Don’ts When Using CREATE TABLE</h2>
+            <h4><u>Do's</u> :-</h4>
+            <ul>
+                <li><b>Do document your schema :</b> Add comments on tables and columns for clarity (some
+                    databases support COMMENT for this).</li>
+                <li><b>Do plan for scalability :</b> Choose a table design that can accommodate potential
+                    growth.</li>
+                <li><b>Do optimize for indexing: </b> When possible, design tables with columns that can
+                    efficiently support indexing.</li>
+            </ul>
+            <br>
+            <h4><u>Don'ts</u> :-</h4>
+            <ul>
+                <li><b>Don’t use overly large data types: </b> Avoid VARCHAR(MAX) or TEXT unless
+                    necessary; they can hinder performance.</li>
+                <li><b>Don’t ignore normalization :</b> Properly normalize data to avoid redundancy and
+                    potential anomalies in data storage.</li>
+                <li><b>Don’t mix data types: </b> Avoid columns where inconsistent types are stored, like
+                    mixing text and numbers, to maintain data consistency.</li>
+            </ul>
+
+            <!-- <div class="code-box language-sql" contenteditable="text">
+                    <code>
+                        <span class="orclkey">CREATE TABLE</span> Customer (<br>
+                        CustID INT AUTO_INCREMENT <span class="orclkey">PRIMARY KEY </span>,<br>
+                        CustName VARCHAR(20) <span class="orclkey"> NOT NULL </span>,<br>
+                        City VARCHAR (25)<br>
+                        ) ;
+                    </code>
+                </div> -->
+
+            <div class="topic-buttons">
+                <a href="sql_nvl.html?topic=sqlNvl" class="previou-button">&laquo; Previous</a>
+                <a href="sql_alter.html?topic=sqlAlter" class="next-button">Next &raquo;</a>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+
+    <!-- Footer Section -->
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUKDB/KUKscript.js">
+
+    </script>
+
+</body>
+
+</html>

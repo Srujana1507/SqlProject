@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlAny">
+
+            <div class="topic-buttons">
+                <a href="sql_all.html?topic=sqlAll" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_exists.html?topic=sqlExists" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>ANY Operator</h1>
+            <p>The ANY operator is used to compare a value to <b>any value</b> in a list or the result of a subquery.
+            </p><br>
+            <p>It is also known as the <b>SOME</b> operator (in some databases) because it evaluates to <b>TRUE if any
+                    one </b>of the conditions matches.</p><br>
+            <h2>Key Features of the ANY Operator</h2>
+            <p><b>1. Set Comparison: </b>The ANY operator allows comparisons against multiple values.</b></p><br>
+            <p><b>2. Logical Meaning: </b>Returns TRUE if the condition is true for <b>at least one value</b> in the
+                set.</b></p><br>
+            <p><b>3. Common Use Cases: </b></p><br>
+            <ul>
+                <li>Filtering rows by comparing a column to values from a subquery or list.</li>
+                <li>Handling scenarios where partial matches are required.</li>
+            </ul><br>
+            <h2>Purpose of the ANY Operator</h2>
+            <p><b>1. Dynamic Filtering:- </b>Compare a value against one or more values dynamically retrieved from
+                another query.</p><br>
+            <p><b>2. Flexible Querying:- </b>Allows combining multiple logical comparisons in a concise manner.</p><br>
+            <p><b>3. Subset Comparisons:- </b>Ensures conditions are met for at least one value in a subset.</p><br>
+            <h2>Basic Syntax</h2>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> column1, column2 <br>
+                            <span class="orclkey">FROM   </span>table_name <br>
+                            <span class="orclkey">WHERE </span>expression  operator <span class="orclkey"> ANY </span> ( subquery ) <b> ; </b>
+                        </code>
+                <ul>
+                    <li><b>expression:- </b>The column or value being compared.</li>
+                    <li><b>operator:- </b>A comparison operator such as =, >, <,>=, <=, or !=.</li>
+                    <li><b>subquery:- </b>A query that returns a set of values to compare against.</li>
+                </ul>
+            </div><br>
+            <h2>How ANY Works</h2>
+            <p>The ANY operator evaluates to:</p><br>
+            <ul>
+                <ul>
+                    <li><b>TRUE: </b>If the comparison is true for at least one value returned by the subquery.</li>
+                    <li><b>FALSE: </b> If the subquery returns no matching value or all comparisons fail.</li>
+                    <li><b>NULL: </b> If the subquery contains NULL and no condition matches.</li>
+                </ul>
+            </ul><br>
+            <h2>Basic Examples</h2>
+            <h3>1. ANY with Greater Than ( > )</h3>
+            <p><b>Scenario :- </b>Find employees whose salary is greater than the salary of any employee in the
+                "Finance" department.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> employee_id, name, salary <br>
+                            <span class="orclkey">FROM </span>employees <br>
+                            <span class="orclkey">WHERE </span> salary > <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> salary <br>
+                            <span class="orclkey">FROM  </span> employees <br>
+                            <span class="orclkey">WHERE </span> department_name  =  <b>'</b>Finance<b>'</b> <br>
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+                - - This query selects employees with a salary higher than <b>at least one </b>salary in the HR
+                department.
+                <br>
+            </div><br>
+            <h3>2. ANY with Equality ( = )</h3>
+            <p><b>Scenario :- </b>Retrieve products that have the same price as <b>any</b> product in the "Electronics"
+                category.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> product_id, product_name <br>
+                            <span class="orclkey">FROM </span>products <br>
+                            <span class="orclkey">WHERE </span> price = <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> price <br>
+                            <span class="orclkey">FROM  </span> products <br>
+                            <span class="orclkey">WHERE </span> category   =  <b>'</b>Electronics<b>'</b> <br>
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+                <br>
+            </div><br>
+            <h3>3. ANY with NOT</h3>
+            <p><b>Scenario 1:- </b>Find orders where the total amount is <b>not greater than any</b> amount in "Pending"
+                orders.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> order_id, total_amount <br>
+                            <span class="orclkey">FROM </span>orders <br>
+                            <span class="orclkey">WHERE NOT</span> total_amount > <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> total_amount <br>
+                            <span class="orclkey">FROM  </span> orders <br>
+                            <span class="orclkey">WHERE </span> status    =  <b>'</b>Pending<b>'</b> <br>
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+                <br>
+            </div><br>
+            <p><b>Scenario 2:- </b> Retrieve employees who are not earning less than any of the salaries in the Sales
+                department.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
+                            <span class="orclkey">FROM </span>Employees <br>
+                            <span class="orclkey">WHERE NOT</span> Salary < <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> Salary <br>
+                            <span class="orclkey">FROM  </span> Employees <br>
+                            <span class="orclkey">WHERE </span> department_name    =  <b>'</b>Sales<b>'</b> <br>
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+                - - This ensures that an employee's salary is <b>not less than any </b>salary in the Sales department,
+                meaning it is<b> greater than or equal to the highest</b>.
+            </div><br>
+            <h3>4. Equal to Any Value</h3>
+            <p><b>Scenario :- </b>Retrieve customers located in any of the regions specified.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> CustomerID, Name, Region <br>
+                            <span class="orclkey">FROM </span>Customers <br>
+                            <span class="orclkey">WHERE </span> Region =  <span class="orclkey"> ANY </span> (<b>'</b>North<b>' , '</b>South<b>' , '</b>East<b>'</b>
+                        )<b> ; </b>
+                        </code>
+                - - This query returns customers whose Region matches <b>any of the values</b> in the list.
+            </div><br>
+            <h3>5. Less Than or Equal to Any Value</h3>
+            <p><b>Scenario :- </b>Retrieve products priced lower than or equal to the price of any product in the
+                "Books" category.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                            <span class="orclkey">FROM </span>Products <br>
+                            <span class="orclkey">WHERE </span> Price <=  <span class="orclkey"> ANY </span> ( <br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> Price <br>
+                            <span class="orclkey">FROM  </span> Products <br>
+                            <span class="orclkey">WHERE </span> Category     =  <b>'</b>Books<b>'</b> <br>
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+                - - This fetches products priced less than or equal to <b>at least one</b> product in the "Books"
+                category.
+
+            </div><br>
+            <h2>ANY vs ALL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>ANY</th>
+                        <th>ALL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Condition </td>
+                        <td>TRUE if <b>any one value</b> matches the condition.</td>
+                        <td>TRUE only <b>if all values</b> match.</td>
+                    </tr>
+                    <tr>
+                        <td> Use Case </td>
+                        <td>Subset comparison or partial match.</td>
+                        <td>Full set comparison or universal match.</td>
+                    </tr>
+                    <tr>
+                        <td>Performance </td>
+                        <td>Faster for small subsets or when matches are likely.</td>
+                        <td>Slower due to broader evaluation.</td>
+                    </tr>
+                    <tr>
+                        <td>Example Comparison</td>
+                        <td>Price > ANY (1, 2, 3) → True if greater than <b>at least one</b>.</td>
+                        <td>Price > ALL (1, 2, 3) → True if greater than <b>all values</b>.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Advanced Examples</h2>
+            <h3>1. Using ANY with Aggregates</h3>
+            <p><b>Scenario :- </b>Retrieve employees earning less than the highest salary in the IT department.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
+                            <span class="orclkey">FROM </span>Employees <br>
+                            <span class="orclkey">WHERE </span> Salary < <span class="orclkey"> ANY </span> ( <br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> MAX( Salary ) <br>
+                            <span class="orclkey">FROM  </span> Employees <br>
+                            <span class="orclkey">WHERE </span> department_name      =  <b>'</b>IT<b>'</b> <br>
+                            <span class="orclkey">GROUP BY </span> department_name
+                        </ul></ul>
+                        )<b> ; </b>
+                        </code>
+                - - Compares each employee's salary with the maximum salary in the IT department.
+            </div><br>
+            <h3>2. ANY with Explicit List</h3>
+            <p><b>Scenario :- </b>Retrieve products with a price equal to any value in a given range.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                            <span class="orclkey">FROM </span>Products <br>
+                            <span class="orclkey">WHERE </span> Price = <span class="orclkey"> ANY </span> ( 10, 20, 30
+                        )<b> ; </b>
+                        </code>
+                - - This query selects products priced at 10, 20, or 30.
+            </div><br>
+            <h3>3. Advanced Filtering with Correlated Subqueries</h3>
+            <p><b>Scenario :- </b>Find employees whose salaries are greater than any employee in the same department but
+                with less experience.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> e1.employee_id, e1.name, e1.salary <br>
+                            <span class="orclkey">FROM </span>employees e1 <br>
+                            <span class="orclkey">WHERE </span> e1.salary >  <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> e2.salary <br>
+                            <span class="orclkey">FROM  </span> employees e2 <br>
+                            <span class="orclkey">WHERE </span> e1.department_id = e2.department_id <br>
+                            <span class="orclkey">AND </span>e1.years_experience > e2.years_experience
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+            </div><br>
+            <h3>4. Advanced Filtering with Correlated Subqueries</h3>
+            <p><b>Scenario :- </b>Find students whose grades are higher than the maximum grade in any class they are not
+                enrolled in.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> student_id, name, grade <br>
+                            <span class="orclkey">FROM </span>students <br>
+                            <span class="orclkey">WHERE </span> grade > <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> MAX( grade ) <br>
+                            <span class="orclkey">FROM  </span> classes <br>
+                            <span class="orclkey">WHERE </span> class_id  <span class="orclkey"> NOT IN </span> (<br>
+                            <ul>
+                                <ul>
+                                    <span class="orclkey">SELECT </span> class_id <br>
+                                    <span class="orclkey">FROM  </span> enrollments <br>
+                                    <span class="orclkey">WHERE </span> enrollments.student_id = students.student_id <br>
+                                    )
+                                </ul>
+                            
+                            </ul>
+                            )<b> ; </b>
+                            </ul>
+                        
+                    </ul>
+                        </code>
+            </div><br>
+            <h3>4. Using ANY in HAVING Clause</h3>
+            <p><b>Scenario :- </b>Find departments where the total salary is greater than the salary of any individual
+                employee in the "Sales" department.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> department_id, SUM(salary) <span class="orclkey"> AS </span> total_salary <br>
+                            <span class="orclkey">FROM </span>employees <br>
+                            <span class="orclkey">GROUP BY </span> department_id <br>
+                            <span class="orclkey">HAVING </span> SUM( salary )  >  <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> salary <br>
+                            <span class="orclkey">FROM  </span> employees <br>
+                            <span class="orclkey">WHERE </span> department_name      =  <b>'</b>Sales<b>'</b>  <br>
+                        </ul>
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+            </div><br>
+            <h3>6. Using ANY in UPDATE Statement</h3>
+            <p><b>Scenario :- </b>Update prices for products that are cheaper than <b>any</b> product in the
+                "Electronics" category.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">UPDATE </span> products <br>
+                            <span class="orclkey">SET </span> price = price + 10 <br>
+                            <span class="orclkey">GROUP BY </span> department_id <br>
+                            <span class="orclkey">WHERE </span> price  < <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> price <br>
+                            <span class="orclkey">FROM  </span> products <br>
+                            <span class="orclkey">WHERE </span> category    =  <b>'</b>Electronics<b>'</b>  <br>
+                        </ul>
+                        )<b> ; </b>
+                            </ul>
+                </code>
+            </div><br>
+            <h3>6. Using ANY in DELETE Statement</h3>
+            <p><b>Scenario :- </b>Update prices for products that are cheaper than <b>any</b> product in the
+                "Electronics" category.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">DELETE FROM </span> orders <br>
+                            <span class="orclkey">WHERE </span> total_amount < <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> total_amount <br>
+                            <span class="orclkey">FROM  </span> orders <br>
+                            <span class="orclkey">WHERE </span> status  =  <b>'</b>Pending<b>'</b>  <br>
+                        </ul>
+                        )<b> ; </b>
+                            </ul>
+                </code>
+            </div><br>
+            <h3>6. Using ANY in GROUP BY Clause</h3>
+            <p>The ANY operator is not directly usable in the GROUP BY clause itself but can influence the groups by
+                being part of a condition in the WHERE or HAVING clauses.</p><br><br>
+            <p><b>Scenario :- </b>Find departments where the total sales amount is greater than the sales amount of any
+                sales representative in the "East" region.</p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> department_id, SUM(sales_amount) <span class="orclkey"> AS </span> total_sales <br>
+                            <span class="orclkey">FROM  </span> Sales <br>
+                            <span class="orclkey">WHERE </span> sales_amount  > <span class="orclkey"> ANY </span> (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> sales_amount <br>
+                            <span class="orclkey">FROM  </span> Sales <br>
+                            <span class="orclkey">WHERE </span> region   =  <b>'</b>East<b>'</b>  <br>
+                        </ul>)
+                        
+                            </ul>
+                            <span class="orclkey">GROUP BY  </span><b> ; </b> <br><br>
+                            - - The <b>subquery </b>retrieves the sales_amount of all sales representatives in the "East" region. <br><br>
+                            - - The <b>WHERE </b>clause filters the rows in the sales table to include only those where the sales_amount is greater than <b>any of the values</b> in the subquery (e.g., > 5000, > 7500, or > 10000). <br><br>
+                            - - After filtering rows based on the <b>ANY </b>condition, the remaining rows are grouped by department_id. <br><br>
+                            - - The <b>SUM(sales_amount) </b>function calculates the total sales for each department.
+                </code>
+            </div><br>
+            <h2>Common Errors</h2>
+            <h4>1. Empty Subquery Result:</h4>
+            <ul>
+                <li>If the subquery returns no rows, the condition evaluates to FALSE because there are no values to
+                    compare against.</li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">WHERE </span> Price  > <span class="orclkey"> ANY </span> ( <span class="orclkey">SELECT </span> sales_amount 
+                                <span class="orclkey">FROM  </span> Products  
+                                <span class="orclkey">WHERE </span> 1 = 0 )<b> ;</b>
+                          </code>
+                </div><br>
+            </ul><br>
+            <h4>2. Mismatched Data Types:</h4>
+            <ul>
+                <li>The column and the values in the subquery or list must be of comparable data types. For instance.
+                </li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">WHERE </span> Age  > <span class="orclkey"> ANY </span> ( <span class="orclkey">SELECT </span> Name 
+                                <span class="orclkey">FROM  </span> Students  )<b> ;</b>
+                          </code>
+                    - - This results in an error because Age (numeric) and Name (text) are incompatible.
+                </div><br>
+            </ul>
+            <h4>3. Ambiguous Logic with NOT:</h4>
+            <ul>
+                <li>Combining NOT with ANY can be confusing. Ensure you understand its meaning:
+                    <Ul>
+                        <li>
+                            NOT Salary < ANY (...) → Means salary is <b>greater than or equal to the maximum.</b>
+                        </li>
+                    </Ul>
+                </li>
+            </ul><br>
+            <h2>Best Practices</h2>
+            <h4>Do's</h4><br>
+            <ul>
+                <b>1. Use with Appropriate Operators :</b><br>
+                <ul>
+                    <li>Combine ANY with =, <,>, etc., for precise comparisons.</li>
+                    <li>Example: WHERE price > ANY (subquery).</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>2. Index Columns in Subqueries :</b><br>
+                <ul>
+                    <li>Ensure columns in subqueries are indexed for better performance.</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>3. Handle NULL Values :</b><br>
+                <ul>
+                    <li>Filter out NULL values in the subquery to avoid unexpected behavior.</li>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">WHERE </span> value = <span class="orclkey"> ANY </span> ( <br>
+                    <ul>
+                        <span class="orclkey">SELECT </span> column <br>
+                        <span class="orclkey">FROM </span> table <br>
+                        <span class="orclkey">WHERE </span> column <span class="orclkey"> IS NOT NULL </span><br>
+                    </ul>
+                    )<b> ;</b>
+                        </code>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>4. Pair with Aggregate Functions :</b><br>
+                <ul>
+                    <li>Use ANY to make aggregate comparisons against subsets.</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>5. Simplify Complex Queries :</b><br>
+                <ul>
+                    <li>Use ANY in place of multiple OR conditions for better readability.</li>
+                </ul>
+            </ul>
+            <h4>Don'ts</h4><br>
+            <ul>
+                <b>1. Avoid Using with Large Subqueries :</b><br>
+                <ul>
+                    <li>Subqueries returning many rows can cause performance bottlenecks.</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>2. Don't Ignore Data Type Mismatches :</b><br>
+                <ul>
+                    <li>Ensure the data type of the column matches the subquery result.</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>3. Avoid Overusing :</b><br>
+                <ul>
+                    <li>Use ANY only when you genuinely need to compare against any one value in the set. For universal
+                        conditions, use ALL.</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <b>4. Don't Assume ALL Behavior :</b><br>
+                <ul>
+                    <li>ANY checks for partial matches, whereas ALL checks for universal matches. Misuse can lead to
+                        incorrect results.</li>
+                </ul>
+            </ul><br><br>
+
+            <h2>Alternatives to ANY</h2>
+            <h3>1. EXISTS</h3>
+            <ul>
+                <li>Use EXISTS when you want to check if at least one value exists in the subquery.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> * <br>
+                            <span class="orclkey">FROM  </span> products <br>
+                            <span class="orclkey">WHERE EXISTS </span>  (<br>
+                            <ul>
+                                <ul>
+                            <span class="orclkey">SELECT </span> 1 <br>
+                            <span class="orclkey">FROM  </span> categories <br>
+                            <span class="orclkey">WHERE </span> categories.category_id = products.category_id  <br>
+                        </ul>)<b> ; </b>
+                            </ul>
+                             <br><br>
+                </code>
+            </div><br>
+            <h3>2. IN</h3>
+            <ul>
+                <li>Use IN for a simpler match against a list of values.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> product_id <br>
+                            <span class="orclkey">FROM  </span> products <br>
+                            <span class="orclkey">WHERE </span> category_id <span class="orclkey"> IN </span> ( 1, 2, 3)
+                            <b> ; </b>
+                </code>
+            </div><br>
+
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_all.html?topic=sqlAll" class="previou-button">&laquo; Previous</a>
+                <a href="sql_exists.html?topic=sqlExists" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

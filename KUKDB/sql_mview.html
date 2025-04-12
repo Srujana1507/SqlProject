@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlMaterializedviews">
+
+            <div class="topic-buttons">
+                <a href="sql_views.html?topic=sqlViews" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_aliases.html?topic=sqlAliases" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Materialized Views</h1><br>
+            <h2>What is a Materialized View?</h2>
+            <p>A Materialized View is a database object that contains the results of a query and allows faster access to
+                data by avoiding re-execution of complex queries. </p><br>
+            <ul>
+                <li>Unlike a regular view (which is a virtual table), a materialized view contains actual data, making
+                    it faster to retrieve large or complex query results and can be refreshed periodically or on demand.
+                </li>
+                <li>It is commonly used in scenarios requiring frequent access to aggregated or precomputed data.</li>
+            </ul><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> view_name <br>
+                [BUILD IMMEDIATE | BUILD DEFERRED] <br>
+                [REFRESH FAST | REFRESH COMPLETE | REFRESH FORCE | REFRESH <span class="orclkey"> ON  </span> DEMAND | REFRESH <span class="orclkey"> ON COMMIT </span> ]<br>
+                <span class="orclkey"> AS  </span>  <br>
+                <ul><span class="orclkey"> SELECT  </span>
+                    column1, column2, . . . <br>
+                    <span class="orclkey"> FROM  </span> <br>
+                    <span class="orclkey"> WHERE  condition</span> <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h2>Key Points</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Definition</b></td>
+                        <td>Materialized views store query results physically on disk, unlike regular views that execute
+                            the query dynamically each time they are accessed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Usage</b></td>
+                        <td>Ideal for precomputing expensive queries, aggregations, or joins on large datasets to
+                            improve performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Refresh Modes</b></td>
+                        <td>
+                            <ul>
+                                <li><b>FAST:- </b> Refreshes only changed data using logs.</li>
+                                <li><b>COMPLETE:- </b> Rebuilds the entire view.</li>
+                                <li><b>FORCE:- </b>Chooses between FAST or COMPLETE automatically.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Build Options</b></td>
+                        <td>
+                            <ul>
+                                <li><b>IMMEDIATE:- </b> Builds the materialized view immediately after creation.</li>
+                                <li><b>DEFERRED:- </b> Builds it later when the first refresh occurs.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Refresh Timing</b></td>
+                        <td>
+                            <ul>
+                                <li><b>ON DEMAND:- </b> Refreshes manually when triggered.</li>
+                                <li><b>ON COMMIT:- </b> Refreshes automatically when changes occur in the base tables.
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Indexes</b></td>
+                        <td>Can have indexes for faster querying, unlike regular views.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Storage</b></td>
+                        <td>Requires additional storage since the data is physically stored on disk.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Advantages of Materialized View</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Performance Improvement</td>
+                        <td>Speeds up complex queries by avoiding repeated computation and directly fetching precomputed
+                            results.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Aggregated Data Storage</b></td>
+                        <td>Stores pre-aggregated results, reducing the load on the base tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Reduced Server Load</b></td>
+                        <td>Minimizes the need to recompute heavy queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Reduced Query Complexity</b></td>
+                        <td>Simplifies application queries by encapsulating complex logic within the materialized view.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Periodic or On-Demand Refresh</b></td>
+                        <td>Keeps data up to date based on refresh intervals or manual triggers.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Scalability</b></td>
+                        <td>Enhances query performance in data-intensive applications and large-scale databases.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Optimized Aggregation</b></td>
+                        <td>Ideal for analytical and reporting use cases involving complex calculations.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Flexibility in Refreshing Data</b></td>
+                        <td>Allows refresh modes to balance accuracy and performance based on application needs.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Basic Scenarios</h2>
+            <p><b>Scenario 1:- (Precomputed Regional Sales Summary)</b> Summarize sales data by region to improve
+                performance in reporting.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> regional_sales_summary_mv   <br>
+                REFRESH COMPLETE  <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>region, SUM(sales) <span class="orclkey"> AS  </span> total_sales
+                </ul>
+                <span class="orclkey"> FROM  </span> sales_data  <br>
+                <span class="orclkey"> GROUP BY  </span>  region                 
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 2:- (Frequent Access to Recent Orders)</b>Create a materialized view to quickly retrieve
+                orders placed in the last 7 days.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> Latest_orders_mv    <br>
+                REFRESH <span class="orclkey"> ON  </span> DEMAND  <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>order_id, customer_id, order_date, total_amount
+                </ul>
+                <span class="orclkey"> FROM  </span> Orders  <br>
+                <span class="orclkey"> GROUP BY  </span>  order_date > SYSDATE - 7             
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 3:- (Regional Customer Summary)</b>Create a materialized view that precomputes the number of
+                customers in each region.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> RegionalCustomerSummary_mv    <br>
+                BUILD IMMEDIATE <br>
+                REFRESH FAST <span class="orclkey"> ON COMMIT </span>   <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>RegionID,  <br>
+                    COUNT(CustomerID) <span class="orclkey"> AS  </span> TotalCustomers
+                </ul>
+                <span class="orclkey"> FROM  </span> Customers  <br>
+                <span class="orclkey"> GROUP BY  </span>  RegionID            
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 4:- (Frequently Accessed Product Details)</b>Create a materialized view to store product
+                details for high-traffic queries.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> ProductDetails_mv    <br>
+                BUILD IMMEDIATE <br>
+                REFRESH COMPLETE <span class="orclkey"> ON </span> DEMAND  <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>ProductID, <br>
+                    ProductName, <br>
+                    Price, <br>
+                    Category
+                </ul>
+                <span class="orclkey"> FROM  </span> Products         
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h2>Comprehensive Scenarios</h2>
+            <p><b>Scenario 1:- (Frequently Accessed Product Details)</b>Create a materialized view to store product
+                details for high-traffic queries.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> sales_performance_mv    <br>
+                REFRESH FAST <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>category, <br>
+                    SUM(sales) <span class="orclkey"> AS  </span> total_sales, <br>
+                    COUNT(order_id) <span class="orclkey"> AS  </span> total_orders 
+                </ul>
+                <span class="orclkey"> FROM  </span> Orders <br>   
+                <span class="orclkey"> WHERE  </span> order_date >= TRUNC(SYSDATE, 'Q') <br>  
+                <span class="orclkey"> GROUP BY  </span>   category 
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 2:- (Sales Growth Analysis)</b>Precompute sales growth percentage for reporting.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> SalesGrowth_mv    <br>
+                BUILD IMMEDIATE <br>
+                REFRESH COMPLETE <span class="orclkey"> ON  </span> DEMAND <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>
+                    <span class="orclkey"> Year  </span>, <br>
+                    SUM(SaleAmount) <span class="orclkey"> AS  </span> TotalSales, <br>
+                    LAG( SUM(SaleAmount) )  <span class="orclkey"> OVER  </span>(<span class="orclkey"> ORDER BY Year  </span>) 
+                    <span class="orclkey"> AS  </span> PreviousYearSales, <br>
+                    ((SUM(SaleAmount) - LAG(SUM(SaleAmount)) <span class="orclkey"> OVER  </span>(<span class="orclkey"> ORDER BY Year  </span>) ) / <br>
+                    LAG(SUM(SaleAmount)) <span class="orclkey"> OVER  </span>(<span class="orclkey"> ORDER BY Year  </span>) ) * 100 
+                    <span class="orclkey"> AS  </span> GrowthPercentage 
+                    
+                </ul>
+                <span class="orclkey"> FROM  </span> Sales <br>     
+                <span class="orclkey"> GROUP BY  </span>   <span class="orclkey"> Year  </span> 
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 3:- (Data Warehousing (Star Schema))</b> Precompute aggregated metrics for faster reporting
+                in a star schema.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> StarSchemaMetrics_mv    <br>
+                BUILD IMMEDIATE <br>
+                REFRESH COMPLETE <span class="orclkey"> ON  </span> DEMAND <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>
+                    d.DateID, <br>
+                    p.ProductID,  <br>
+                    SUM( f.SaleAmount ) <span class="orclkey"> AS  </span> TotalSales, <br>
+                    COUNT( f.SaleID ) <span class="orclkey"> AS  </span>TotalTransactions                     
+                </ul>
+                <span class="orclkey"> FROM  </span> <br>
+                <ul>FactSales f </ul>
+                <span class="orclkey"> JOIN  </span> 
+                  <ul>
+                    DimDate d <span class="orclkey"> ON  </span> f.DateID = d.DateID
+                  </ul>
+                  <span class="orclkey"> JOIN  </span> 
+                  <ul>
+                    DimProduct p <span class="orclkey"> ON  </span> f.ProductID = p.ProductID
+                  </ul>
+                <span class="orclkey"> GROUP BY  </span> <br>
+                <ul>
+                    d.DateID, p.ProductID
+                </ul>   
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 4:- (Revenue Impact of Promotions)</b> Calculate revenue impact by comparing sales during
+                promotional periods to regular sales periods.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> promo_revenue_impact_mv    <br>
+                REFRESH COMPLETE  <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>
+                    promotion_id, <br>
+                    SUM( 
+                    <ul>
+                        <span class="orclkey"> CASE  WHEN </span> is_promo = 1 <span class="orclkey"> THEN  </span> sales <br>
+                        <span class="orclkey"> ELSE </span> 0 <br>
+                        <span class="orclkey"> END  </span>)   <span class="orclkey"> AS  </span> promo_sales,<br>
+                    </ul> 
+                    SUM( 
+                    <ul>
+                        <span class="orclkey"> CASE  WHEN </span> is_promo = 0 <span class="orclkey"> THEN  </span> sales <br>
+                        <span class="orclkey"> ELSE </span> 0 <br>
+                        <span class="orclkey"> END  </span>)   <span class="orclkey"> AS  </span> regular_sales 
+                    </ul>                 
+                </ul>
+                <span class="orclkey"> FROM  </span> <br>
+                <ul>sales_data  </ul>
+                
+                <span class="orclkey"> GROUP BY  </span> <br>
+                <ul>
+                    promotion_id
+                </ul>   
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 5:- (Multi-Dimensional Revenue and Profit Analysis)</b> Create a materialized view that
+                calculates revenue, profit margins, and growth rates across multiple dimensions (region, product
+                category, and quarter) for the last 3 years. This view supports business intelligence tools by providing
+                pre-aggregated data for faster analysis.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> revenue_profit_analysis_mv    <br>
+                BUILD IMMEDIATE <br>
+                REFRESH COMPLETE  <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>
+                    region, <br>
+                    category, <br>
+                    TO_CHAR(order_date, 'YYYY-Q') <span class="orclkey"> AS  </span> quarter, <br>
+                    SUM( sales_amount ) <span class="orclkey"> AS  </span> total_revenue, <br>
+                    SUM(sales_amount - cost_amount) <span class="orclkey"> AS  </span> total_profit, <br>
+                    ROUND(( SUM( sales_amount - cost_amount ) / NULLIF( SUM( cost_amount), 0 )) * 100, 2 ) <span class="orclkey"> AS  </span> profit_margin , <br>
+                    ROUND((SUM(sales_amount) - <br>
+                    LAG(SUM(sales_amount)) <span class="orclkey"> OVER </span>(  <span class="orclkey"> PARTITION BY </span>   region, category <span class="orclkey"> ORDER BY </span> TO_CHAR(order_date, 'YYYY-Q'))) / <br>
+                    <span class="orclkey"> NULLIF  </span>( LAG(SUM(sales_amount)) <span class="orclkey"> OVER </span>(  <span class="orclkey"> PARTITION BY </span>   region, category <span class="orclkey"> ORDER BY </span> TO_CHAR(order_date, 'YYYY-Q')), 0) <br>
+                    * 100, 2) <span class="orclkey"> AS  </span> revenue_growth
+                    </ul>                 
+                </ul>
+                <span class="orclkey"> FROM  </span> <br>
+                <ul>sales_data  </ul>
+                <span class="orclkey"> WHERE  </span> <br>
+                <ul>order_date >= ADD_MONTHS(TRUNC(SYSDATE, 'YYYY'), -36)</ul>
+                <span class="orclkey"> GROUP BY  </span> <br>
+                <ul>
+                    region, category, TO_CHAR(order_date, 'YYYY-Q')
+                </ul>   
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 6:- (Real-Time Fraud Detection Metrics)</b> Monitor potential fraudulent transactions by
+                creating a materialized view that tracks transaction anomalies in real-time. The view identifies
+                customers with unusually high transaction amounts compared to their average, flagging them for further
+                review.</p>
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE MATERIALIZED VIEW  </span> fraud_detection_metrics_mv    <br>
+                BUILD IMMEDIATE <br>
+                REFRESH FAST  <br>
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>
+                    t.customer_id,<br>
+                    COUNT(t.transaction_id) <span class="orclkey"> AS  </span> total_transactions, <br>
+                    AVG(t.amount) <span class="orclkey"> AS  </span> avg_transaction_amount, <br>
+                    MAX(t.amount) <span class="orclkey"> AS  </span> highest_transaction_amount,
+                    <ul>
+                        <span class="orclkey"> CASE  </span>
+                        <ul>
+                        <span class="orclkey"> WHEN </span> MAX(t.amount) > ( AVG( t.amount) * 3 ) <span class="orclkey"> THEN  </span> 'High Risk' <br>
+                        <span class="orclkey"> WHEN </span> MAX(t.amount) > ( AVG( t.amount) * 2 ) <span class="orclkey"> THEN  </span> 'Medium Risk' <br>
+                        <span class="orclkey"> ELSE </span> 'Low Risk'
+                        </ul>
+                    <span class="orclkey"> END AS</span> fraud_risk_level   
+                    </ul>
+                                   
+                </ul>
+                <span class="orclkey"> FROM  </span> <br>
+                <ul>transactions t  </ul>
+                <span class="orclkey"> JOIN  </span> <br>
+                <ul>customer_profiles c <span class="orclkey"> ON  </span> t.customer_id = c.customer_id</ul>
+                <span class="orclkey"> WHERE  </span> <br>
+                <ul>t.transaction_date >= SYSDATE - 30  - - Last 30 days</ul>
+                <span class="orclkey"> GROUP BY  </span> <br>
+                <ul>
+                    t.customer_id
+                </ul>   
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h2>Common Errors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Explanation</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-12008: Error in Refresh Path</b></td>
+                        <td>Occurs during refresh due to issues in base table configuration or missing logs.</td>
+                        <td>Check if the base table has necessary materialized view logs for FAST refresh.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-12015: Cannot Create FAST Refresh</b></td>
+                        <td>Happens if the query is not eligible for FAST refresh (e.g., lacks primary key or uses
+                            unsupported clauses).</td>
+                        <td>Simplify the query or use COMPLETE refresh mode.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Insufficient Storage Space</b></td>
+                        <td>Materialized views consume disk space and may exceed allocated storage limits.</td>
+                        <td>Monitor and allocate sufficient storage for materialized views.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Stale Data in View </b></td>
+                        <td>Data may become outdated if the refresh is not frequent enough.</td>
+                        <td>Use REFRESH ON COMMIT or schedule frequent manual refreshes.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Overhead During Refresh</b></td>
+                        <td>Heavy refresh operations may impact database performance.</td>
+                        <td>Schedule refresh operations during low-traffic periods.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Hints to Write Materialized Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hint</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Choose Appropriate Refresh Mode</b></td>
+                        <td>Use FAST refresh for incremental updates and COMPLETE refresh for full rebuilds.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Materialized View Logs</b></td>
+                        <td>Enable logs on base tables to improve refresh performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Key Columns</b></td>
+                        <td>Add indexes to frequently queried columns to speed up query execution.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Monitor View Usage</b></td>
+                        <td>Regularly analyze materialized view usage to determine if it's still relevant and
+                            cost-effective.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Partition Large Tables</b></td>
+                        <td>Partition base tables to improve refresh performance for large datasets.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Filter Unnecessary Data</b></td>
+                        <td>Use WHERE clauses to limit the data stored in the view.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Schedule Refresh Intervals</b></td>
+                        <td>Optimize refresh times during low database traffic.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <br>
+            <h2>Do's and Don'ts </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use materialized views for complex queries accessed frequently.</td>
+                        <td>Don't use materialized views for data that changes constantly unless necessary.</td>
+                    </tr>
+                    <tr>
+                        <td>Regularly refresh materialized views to maintain data accuracy.</td>
+                        <td>Avoid nesting materialized views within other materialized views unless explicitly required.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Use ON COMMIT refresh mode for near real-time updates.</td>
+                        <td>Don't store unnecessary columns or excessive data in materialized views to save storage
+                            space.</td>
+                    </tr>
+                    <tr>
+                        <td>Monitor query performance and rebuild views as needed.</td>
+                        <td>Avoid creating materialized views with overly complex queries that are hard to maintain.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test refresh performance on production-like data.</td>
+                        <td>Don't rely solely on materialized views for critical operations without considering refresh
+                            overhead.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_views.html?topic=sqlViews" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_aliases.html?topic=sqlAliases" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

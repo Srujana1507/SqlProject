@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* footer code end hrere */
+
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-family: Arial;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="pythonBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previous-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+
+                <!-- START OF Python Interview Questions. -->
+                <h1>Python Beginner</h1><br>
+                <p><b>1. What is Python?</b></p><br>
+                <p>Python is a high-level, interpreted programming language created by Guido van Rossum in 1991. It is
+                    known for its simple syntax and readability, which makes it easy to learn and use. Python is
+                    cross-platform (works on Windows, Linux, and macOS) and is widely used for:</p><br>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Software Development</li>
+                    <li>Data Analysis</li>
+                    <li>Machine Learning</li>
+                    <li>Automation</li>
+                </ul><br><br>
+                <p><b>2. What is namespace in python</b></p><br>
+                <p>A namespace in Python is a container that holds names (variables, functions, objects) and maps them
+                    to their corresponding values to avoid naming conflicts.</p><br>
+                <p><b>Types of Namespaces:</b></p><br>
+
+                <li><b>Local:</b>Names defined inside a function (temporary).</li><br>
+                <li><b>Global:</b>Names defined at the top level of a script or module.</li><br>
+                <li><b>Built-in:</b>Predefined names like print() and len().</li><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    x = "global" <span class="comment"> # Global namespace</span><br>
+                    <span class="interview-keyword">def</span> my_function():<br>
+                    <ul>
+                        x = "local"<span class="comment"> # Local namespace</span><br>
+                        <span class="interview-keyword">print</span>(x)<br>
+                    </ul>
+                    <span class="interview-keyword">my_function</span>()<br>
+                    <span class="interview-keyword">print</span>(x)<br>
+                </div><br>
+                <p><b>Output:</b></p>
+
+                <div class="interview-box">
+                    <code>
+                    <span class="interview-keyword">local</span><br>
+                    <span class="interview-keyword">global</span><br>
+                    </code>
+                </div>
+                <br><br>
+                <p><b>3. What is a Python dictionary? Give an example.</b></p><br>
+                <p>A dictionary is a collection of key-value pairs. Keys must be unique.</p><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                    my_dict = {'name': 'Alice', 'age': 25}<br>
+                    <span class="interview-keyword">print</span> (my_dict['name'])<br>
+                    </code>
+                </div><br>
+                <p><b>Output:</b></p>
+
+                <div class="interview-box">
+                    <span class="interview-keyword">Alice</span>
+                </div><br>
+                </code>
+
+                <p><b>4. What is a Python list? Provide an example.</b></p><br>
+                <p>A list is an ordered, mutable collection used to store multiple items. It is defined using square
+                    brackets <code>[]</code>.</p><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                        my_list = [1, 2, 3, "hello"]<br>
+                        <span class="interview-keyword">print</span>(my_list[2])<br>
+                    </code>
+                </div><br>
+                <p><b>Output:</b></p>
+                <div class="interview-box">
+                    <span class="interview-keyword">3</span>
+                </div><br><br>
+                <p><b>5. What is a tuple in Python? Provide an example.</b></p><br>
+                <p>A tuple is an ordered, immutable collection. It is defined using parentheses <code>()</code>.</p><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                        my_tuple = (1, 2, 3, "hello")<br>
+                        <span class="interview-keyword">print</span>(my_tuple[3])<br>
+                    </code>
+                </div><br>
+                <p><b>Output:</b></p>
+                <div class="interview-box">
+                    <span class="interview-keyword">hello</span>
+                </div><br>
+
+
+                <p><b>6.What are Python data types?</b></p><br>
+
+                <li><b>Text Type:</b> <span class="interview-keyword">str</span></li><br>
+                <li><b>Numeric Types:</b> <span class="interview-keyword">int, float, complex</span></li><br>
+                <li><b>Sequence Types:</b> <span class="interview-keyword">list, tuple, range</span></li><br>
+                <li><b>Mapping Type:</b> <span class="interview-keyword">dict</span></li><br>
+                <li><b>Set Types:</b> <span class="interview-keyword">set, frozenset</span></li><br>
+                <li><b>Boolean Type:</b> <span class="interview-keyword">bool</span></li><br>
+                <li><b>Binary Types:</b> <span class="interview-keyword">bytes, bytearray, memoryview</span></li>
+                <br><br>
+                <p><b>7. What is indentation in Python? Provide an example.</b></p><br>
+                <p>In Python, indentation refers to the spaces or tabs used at the beginning of a line to define the
+                    structure and blocks of code. Unlike many other programming languages that use curly braces {} or
+                    keywords to define blocks, Python uses indentation to group statements.</p><br>
+                <p></p>Proper indentation is mandatory in Python. Improper or inconsistent indentation will result in a
+                IndentationError.</p><br>
+                <p><b>Example 1: Correct Indentation</b></p>
+                <div class="interview-box">
+                    <code>
+                        if True:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="interview-keyword">print</span>("Indented correctly")  # Indented block<br>
+                    </code>
+                </div><br>
+                <p><b>Output:</b></p>
+                <div class="interview-box">
+                    <span class="interview-keyword">Indented correctly</span>
+                </div><br>
+                <p><b>Example 2: Incorrect Indentation</b></p>
+                <div class="interview-box">
+                    <code>
+                        if True:<br>
+                        <span class="interview-keyword">print</span>("This is not indented correctly.")  # No indentation for block<br>
+                    </code>
+                </div><br>
+                <p><b>Output:</b></p>
+                <div class="interview-box">
+                    <span class="interview-keyword">IndentationError: expected an indented block</span>
+                </div><br><br>
+                <p><b>8. How do you write a comment in Python? Provide an example.</b></p><br>
+                <p>In Python, you can write comments in two ways:</p><br>
+
+                <li><b>Single-line comment:</b> Use <code><span class="interview-keyword">#</span></code> before the
+                    comment.</li><br>
+                <li><b>Multi-line comment:</b> Use triple quotes <code><span class="interview-keyword">"""</span></code>
+                    or
+                    <code><span class="interview-keyword">'''</code></span>.
+                </li>
+                <br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                        <span class="interview-keyword"> # </span>This is a single-line comment<br><br>
+                        <span class="interview-keyword">"""</span><br>
+                        This is a multi-line comment.<br>
+                        <span class="interview-keyword">"""</span><br>
+                    </code>
+                </div><br><br>
+
+                <p><b>9. What are Python control statements?</b></p><br>
+                <p>Control statements manage the flow of execution in a program. They include:</p><br>
+                <li><b>if, elif, else:</b> Conditional statements to perform actions based on conditions.</li><br>
+                <li><b>for, while:</b> Looping statements to repeat actions.</li><br>
+                <li><b>break, continue, pass:</b> Loop control statements to modify the flow inside loops.</li><br>
+                <br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    x = 5<br>
+                    <code>
+
+                        if x > 0:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="interview-keyword">print</span>("Positive number")<br>
+                        elif x < 0:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="interview-keyword">print</span>("Negative number")<br>
+                        else:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="interview-keyword">print</span>("Zero")<br>
+                    </code>
+                </div><br>
+                <p><b>Output:</b></p>
+                <div class="interview-box">
+                    <span class="interview-keyword">Positive number</span>
+                </div><br><br>
+
+                <p><b>10. What is the difference between <code>is</code> and <code>==</code>?</b></p><br>
+                <li><span class="interview-keyword">is</span>: Checks if two objects refer to the same memory location.
+                    </p>
+                    <br>
+                </li>
+                <li><span class="interview-keyword">==</span>: Checks if the values of two objects are equal.</p><br>
+                </li>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                    a = [1, 2, 3]<br>
+                    b = [1, 2, 3]<br>
+                    c = a<br><br>
+                    <span class="interview-keyword">print</span>(a == b)  # True, values are equal<br>
+                    <span class="interview-keyword">print</span>(a is b)   # False, different memory locations<br>
+                    <span class="interview-keyword">print</span>(a is c)   # True, same memory location<br>
+                </code>
+                </div><br>
+                <p><b>Output:</b></p>
+                <div class="interview-box">
+                    <span class="interview-keyword">True</span><br>
+                    <span class="interview-keyword">False</span><br>
+                    <span class="interview-keyword">True</span>
+                </div><br>
+
+
+
+
+
+
+
+
+
+
+                <!-- END OF Python Interview Questions. -->
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previous-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner"
+                        class="previous-button">Bignner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+
+                <h1>Python Advanced</h1>
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner"
+                        class="previous-button">Bignner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previous-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Bignner</a>
+                </div>
+
+                <h1>Python Expert</h1>
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previous-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Bignner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+        // Scroll to the top when the page loads
+        window.addEventListener("load", () => {
+            // Add a slight delay to allow the topic to update
+            setTimeout(() => {
+                window.scrollTo(0, 0); // Scroll to the top of the page
+            }, 50); // Delay ensures topic content finishes loading
+        });
+
+
+        // Add click event listeners for previous and next buttons
+        document.querySelectorAll(".previous-button, .next-button").forEach(button => {
+            button.addEventListener("click", () => {
+                window.scrollTo(0, 0); // Ensure the page scrolls to the top
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

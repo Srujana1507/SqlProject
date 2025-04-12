@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlArithmeticFunctions">
+
+            <div class="topic-buttons">
+                <a href="sql_minus.html?topic=sqlMinus" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Arithmetic Functions</h1>
+            <p>Arithmetic functions are built-in functions that perform mathematical calculations on numeric data types.
+            </p><br>
+            <ul>
+                <ul>
+                    <li>These functions enable operations like rounding, generating absolute values, calculating power,
+                        and
+                        more.
+                    </li>
+                    <li>They are essential for data analysis, financial calculations, and transforming numeric data.
+                    </li>
+
+                    <li>They simplify complex arithmetic operations and are used in SELECT statements, WHERE clauses, or
+                        as
+                        part
+                        of other SQL operations.</li>
+                </ul>
+            </ul><br>
+            <h2>Key Arithmetic Functions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                        <th>Uses</th>
+                        <th>Limits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ABS(x)</b> </td>
+                        <td>Return absolute value</td>
+                        <td>Removes the negative sign from a number.</td>
+                        <td>Calculate differences, normalize values.</td>
+                        <td>Only works on numeric data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>CEIL(x) / CEILING(x)</b> </td>
+                        <td>Round up to nearest integer</td>
+                        <td>Rounds a number upwards to the smallest integer greater than or equal to the number.</td>
+                        <td>Inventory calculations, pricing adjustments.</td>
+                        <td>Cannot handle NULL values or non-numeric data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>FLOOR(x)</b> </td>
+                        <td>Round down to nearest integer</td>
+                        <td>Rounds a number downwards to the largest integer less than or equal to the number.</td>
+                        <td>Logistics and budgeting scenarios.</td>
+                        <td>Same as CEIL( ).</td>
+                    </tr>
+                    <tr>
+                        <td><b>ROUND(x, d)</b> </td>
+                        <td>Round to specified decimals</td>
+                        <td>Rounds a number to the specified number of decimal places.</td>
+                        <td>Financial calculations, reports formatting.</td>
+                        <td>Overuse may lead to rounding errors over multiple computations.</td>
+                    </tr>
+                    <tr>
+                        <td><b>MOD(x, y) / x % y</b> </td>
+                        <td>Find remainder of division</td>
+                        <td>Returns the remainder when one number is divided by another.</td>
+                        <td>Scheduling (e.g., odd/even weeks), grouping.</td>
+                        <td>Division by zero will throw an error.</td>
+                    </tr>
+                    <tr>
+                        <td><b>POWER(x, y)</b> </td>
+                        <td>Exponentiation</td>
+                        <td>Raises a number to the power of another number.</td>
+                        <td>Exponential growth, compound interest calculations.</td>
+                        <td>Overflows for very large exponents or bases.</td>
+                    </tr>
+                    <tr>
+                        <td><b>EXP(x)</b> </td>
+                        <td>Calculate e^x</td>
+                        <td>Returns the exponential value of a number (e^x).</td>
+                        <td>Predictive models, population growth, scientific calculations.</td>
+                        <td>Limited to numerical data; large exponents can cause overflow errors.</td>
+                    </tr>
+                    <tr>
+                        <td><b>LN(x)</b> </td>
+                        <td>Find natural logarithm</td>
+                        <td>Returns the natural logarithm (log base e) of a number.</td>
+                        <td>Normalizing data, solving logarithmic equations.</td>
+                        <td>Undefined for negative or zero values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>LOG( base, x )</b> </td>
+                        <td>Find logarithm of specified base</td>
+                        <td>Returns the logarithm of a number with a given base (base-10 or custom depending on the
+                            database).</td>
+                        <td>Financial modeling, analyzing rates of change.</td>
+                        <td>Undefined for non-positive values; some databases have limited base support.</td>
+                    </tr>
+                    <tr>
+                        <td><b>SQRT(x)</b> </td>
+                        <td>Find square root</td>
+                        <td>Returns the square root of a number.</td>
+                        <td>Standard deviation, geometric calculations.</td>
+                        <td>Undefined for negative values; returns NULL in such cases.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Notes on Limits:</h2>
+            <ul>
+                <li><b>NULL Values:- </b> Most arithmetic functions return NULL when applied to NULL values. Always
+                    handle NULL explicitly with functions like COALESCE.</li>
+                <li><b>Overflow Errors:- </b> Functions like POWER and EXP can produce extremely large numbers, leading
+                    to overflows. Be cautious when working with high exponents or bases.</li>
+                <li><b>Division by Zero:- </b> The MOD() or % function will throw errors if the divisor is zero.</li>
+                <li><b>Non-Numeric Data:- </b> Functions are strictly for numeric data types. Applying them to text or
+                    incompatible types results in errors.</li>
+            </ul><br>
+            <h2>Detailed Explanation with Examples</h2>
+            <h3>1. ABS (Absolute Value)</h3>
+            <p>Returns the absolute value of a number (removes the negative sign if present).</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ABS  </span> ( number )<br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Financial Analysis:- </b> Calculate the absolute difference in profit/loss across regions.</li>
+                <li><b>Error Handling:- </b> Remove negative values caused by errors.</li>
+            </ul>
+            <h4>Examples</h4>
+            <p><b>Scenario 1:-</b> Basic example</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>ABS(-45) <span class="orclkey"> AS </span> AbsoluteValue  <b> ;</b> - - SQL Server, MySQL<br>
+                    - - Output: 45 <br>
+                    <span class="orclkey">SELECT  </span>ABS(-45) <span class="orclkey"> AS </span> AbsoluteValue  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 45
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Find the absolute difference between budgeted_sales and actual_sales</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, <br>
+                    ABS ( budgeted_sales - actual_sales )<span class="orclkey"> AS </span> difference <br>
+                    <span class="orclkey"> FROM  </span> sales_data <b> ;</b>
+                </code>
+            </div><br>
+            <h3>2. CEIL and FLOOR</h3>
+            <p>Rounds a number up to the nearest integer.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CEIL</span> ( number ) - - in Oracle, MySQL.<br>
+                    <span class="orclkey">CEILING</span> ( number ) - - in SQL Server.<br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Inventory Management:- </b> Round up the number of required boxes to pack items.
+                </li>
+                <li><b>Pricing Adjustments:- </b> Round prices up to the nearest dollar.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example ( Pricing adjustments where values are rounded up. )</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> CEIL(12.34) <span class="orclkey"> AS </span> RoundedUp  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 13 <br>
+                    <span class="orclkey">SELECT  </span> CEIL(12.34) <span class="orclkey"> AS </span> RoundedUp  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output : 13
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Calculate the minimum number of cartons needed for items.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, <br>
+                    CEIL( quantity / carton_size )<span class="orclkey"> AS </span> cartons_needed <br>
+                    <span class="orclkey"> FROM  </span> inventory <b> ;</b>
+                </code>
+            </div><br>
+            <h3>3. FLOOR( )</h3>
+            <p>Rounds a number down to the nearest integer.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">FLOOR</span> ( number ) <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Logistics:- </b> Calculate full truckloads required for shipping. </li>
+                <li><b>Budgeting:- </b> Allocate full dollar amounts while ignoring cents.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> FLOOR(12.34) <span class="orclkey"> AS </span> Roundedown  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 12 <br>
+                    <span class="orclkey">SELECT  </span> FLOOR(12.34) <span class="orclkey"> AS </span> RoundedUp  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output : 12
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Calculate the number of full containers required for shipments.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> shipment_id, <br>
+                    FLOOR( weight / container_capacity )  <span class="orclkey"> AS </span> full_containers <br>
+                    <span class="orclkey"> FROM  </span> shipments <b> ;</b>
+                </code>
+            </div><br>
+            <h3>4. ROUND( )</h3>
+            <p>Rounds a number to a specified number of decimal places.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ROUND</span> ( number, decimals ) <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Finance:- </b> Round monetary values to two decimal places. </li>
+                <li><b>Data Presentation:- </b> Format values for reports.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example ( Financial calculations where rounding to a specific precision is
+                required. )</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> ROUND(123.4567, 2) <span class="orclkey"> AS </span> Roundedown  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 123.46 <br>
+                    <span class="orclkey">SELECT  </span> ROUND(123.4567, 2) <span class="orclkey"> AS </span> RoundedUp  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output : 123.46
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Round the average scores to one decimal place.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> student_id,  <br>
+                    ROUND( AVG( score), 1 ) <span class="orclkey"> AS </span> average_score <br>
+                    <span class="orclkey"> FROM  </span> exam_results <br>
+                    <span class="orclkey"> GROUP BY  </span> student_id
+                     <b> ;</b>
+                </code>
+            </div><br>
+            <h3>5. MOD( ) or % (Modulo)</h3>
+            <p>Returns the remainder of a division operation.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">MOD</span> (number, divisor )  - - Oracle, MySQL<br>
+                    number  %  divisor  - - SQL  Server
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Scheduling:- </b> Determine odd/even weeks for task assignments. </li>
+                <li><b>Grouping:- </b> Assign records into groups based on remainders.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example ( Grouping operations (e.g., odd/even checks) )</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> MOD(23, 3) <span class="orclkey"> AS </span> ModResult  <b> ;</b> - -  MySQL<br> 
+                    - - Output: 3 <br>
+                    <span class="orclkey">SELECT  </span> MOD(34, 4) <span class="orclkey"> AS </span> ModResult  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 1 <br>
+                    <span class="orclkey">SELECT  </span> 15 % 4 <span class="orclkey"> AS </span> ModResult  <b> ;</b> - -  MySQL<br> 
+                    - - Output: 3
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Identify employees assigned to odd-numbered groups.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id,  <br>
+                    MOD(employee_id, 2) <span class="orclkey"> AS </span> group_assignment <br>
+                    <span class="orclkey"> FROM  </span> employees <br>
+                    <span class="orclkey"> WHERE  </span> MOD( employee_id, 2 ) = 1
+                     <b> ;</b>
+                </code>
+            </div><br>
+            <h3>6. POWER( )</h3>
+            <p>Raises a number to the power of another number.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">POWER</span> (base, exponent )  <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Finance:- </b> Calculate compound interest. </li>
+                <li><b>Mathematics:- </b> Compute exponential growth or decay.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example ( Statistical computations and geometric calculations )</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>POWER(2, 3) <span class="orclkey"> AS </span> Powerof2  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 8 <br>
+                    <span class="orclkey">SELECT  </span> POWER(2, 3) <span class="orclkey"> AS </span> Powerof2  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 8 <br>
+                    
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Calculate compound interest for accounts.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> account_id,  <br>
+                    principal_amount * POWER( 1 + interest_rate, years ) <span class="orclkey"> AS </span> total_amount <br>
+                    <span class="orclkey"> FROM  </span> accounts  <b> ;</b>
+                </code>
+            </div><br>
+            <h3>7. EXP( )</h3>
+            <p>Calculates the exponential value of a number (e^x).</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">EXP</span> ( Number )  <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Statistics:- </b> Model exponential growth (e.g., population growth) </li>
+                <li><b>Data Science:- </b> Calculate natural exponential values in algorithms.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example ( Financial calculations like compound interest. )</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>EXP(2) <span class="orclkey"> AS </span> Exp2Result  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 7.389 <br>
+                    <span class="orclkey">SELECT  </span> EXP(5) <span class="orclkey"> AS </span> Exp2Result  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 148.413 <br>
+                    
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Predict population growth using an exponential formula.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> city_id,  <br>
+                    EXP( growth_rate * years ) * initial_population <span class="orclkey"> AS </span> Total_population <br>
+                    <span class="orclkey"> FROM  </span> population  <b> ;</b>
+                </code>
+            </div><br>
+            <h3>8. LN( )</h3>
+            <p>Returns the natural logarithm of a number.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">LN</span> ( Number )  <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Data Science:- </b> Normalize data. </li>
+                <li><b>Mathematics:- </b> Solve equations involving logarithms.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>LN(10) <span class="orclkey"> AS </span> NaturalLog10  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 2.302 <br>
+                    <span class="orclkey">SELECT  </span> LN(7) <span class="orclkey"> AS </span> NaturalLog7  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 1.945 <br>
+                    
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Calculate the natural logarithm of revenue.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id,  <br>
+                    LN( revenue ) <span class="orclkey"> AS </span> logrth_revenue <br>
+                    <span class="orclkey"> FROM  </span> Financials  <b> ;</b>
+                </code>
+            </div><br>
+            <h3>9. LOG()</h3>
+            <p>Returns the logarithm of a number with a specified base.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">LOG</span> ( base, number )  - - MySQL <br>
+                    <span class="orclkey">LOG</span> ( number )  - - SQL Server (base 10 by default) <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Analytics:- </b> Perform base-specific logarithmic transformations. </li>
+                <li><b>Math:- </b> Solve problems involving logarithms.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example ( Financial calculations like compound interest. ) </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span>LOG(10, 100) <span class="orclkey"> AS </span> Logarithm  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 2 <br>
+                    <span class="orclkey">SELECT  </span> LOG(10, 100) <span class="orclkey"> AS </span> NaturalLog7  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 2 <br>
+                    
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Calculate base-10 logarithms of user engagement rates.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> user_id,  <br>
+                    LOG(10, engagement_rate) <span class="orclkey"> AS </span> log_engagement <br>
+                    <span class="orclkey"> FROM  </span> user_metrics  <b> ;</b>
+                </code>
+            </div><br>
+            <h3>10. SQRT()</h3>
+            <p>Returns the square root of a number.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SQRT</span> ( number )   <br>
+                </code>
+            </div><br>
+            <p><b>Scenarios</b></p>
+            <ul>
+                <li><b>Statistics:- </b> Calculate the standard deviation. </li>
+                <li><b>Engineering:- </b> Solve geometric problems.</li>
+            </ul>
+            <p><b>Scenario 1:-</b> Basic example </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> SQRT(16) <span class="orclkey"> AS </span> SquareRoot  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 4 <br>
+                    <span class="orclkey">SELECT  </span> SQRT(16) <span class="orclkey"> AS </span> SquareRoot  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 4 <br>
+                    
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Compute the standard deviation of sales.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> 
+                    SQRT(AVG( sales ) - POWER(AVG( sales ), 2))  <span class="orclkey"> AS </span> Sqrt_diff <br>
+                    <span class="orclkey"> FROM  </span> sales_data  <b> ;</b>
+                </code>
+            </div><br>
+            <h3>11. PI()</h3>
+            <p>Calculate the circumference of a circle.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">PI</span> (  )   <br>
+                </code>
+            </div><br>
+            <p><b>Scenario 1:-</b> Basic example ( Returns the mathematical constant π. ) </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> PI() <span class="orclkey"> AS </span> PiValue  <b> ;</b> - - SQL Server, MySQL<br> 
+                    - - Output: 3.141592653589793 <br>
+                    <span class="orclkey">SELECT  </span> PI() <span class="orclkey"> AS </span> PiValue  <span class="orclkey"> FROM  </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Output: 3.141592653589793 <br>
+                    
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Calculate the circumference of a circle.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> 
+                    2 * PI() * 5  <span class="orclkey"> AS </span> circumference <br>
+                    <span class="orclkey"> FROM  </span> DUAL  <b> ;</b> <br>
+                    - - Result: 31.41592653589793
+                </code>
+            </div><br>
+            <h3>12. TRUNCATE(x, d) - ( MySQL-Specific ) </h3>
+            <p> Truncates a number to a specific number of decimal places without rounding.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">TRUNCATE</span> ( number, decimals )   <br>
+                </code>
+            </div><br>
+            <p><b>Scenario 1:-</b> Basic example </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  TRUNCATE</span> (359.4567, 2) <span class="orclkey"> AS </span> TruncValue  <b> ;</b> <br>
+                    - - Output: 359.45                   
+                </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Truncate product prices to 2 decimals.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  TRUNCATE</span> 
+                    (Price, 2)  <span class="orclkey"> AS </span> TruncatedPrice <br>
+                    <span class="orclkey"> FROM  </span> Products  <b> ;</b> <br>
+                </code>
+            </div><br>
+            <h3>13. SIGN(x) </h3>
+            <p> Identify the sign of a number.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SIGN</span> ( number )   <br>
+                </code>
+            </div><br>
+            <p><b> Basic example </b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> SIGN(-10)<span class="orclkey"> AS </span> sign_of_negative   <br>
+                    <span class="orclkey">SELECT </span> SIGN(0)<span class="orclkey"> AS </span> sign_of_zero <br>
+                    <span class="orclkey">SELECT </span> SIGN(10)<span class="orclkey"> AS </span> sign_of_positive <b> ;</b>
+                    - - Output:  -1 (for -10), 0 (for 0), 1 (for 10)                  
+                </code>
+            </div><br>
+
+            <h3>14. RANDOM() / RAND() </h3>
+            <p> Generate random numbers.</p>
+            <h4>Syntax</h4>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">RAND</span> (  )  - -  MySQL, SQL Server  <br>
+                   
+                    <span class="orclkey">DBMS_RANDOM</span> (  )  - -  Oracle  <br>
+                    </code>
+            </div><br>
+            <p><b>Scenario 1:-</b> Basic example </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> RAND() <span class="orclkey"> AS </span> random_value  <b> ;</b>  <br>
+                    - -   Result: A random value between 0 and 1 (e.g., 0.726345). <br><br>
+                    <span class="orclkey">SELECT </span> RAND() * 100 <span class="orclkey"> AS </span> scaled_random <b> ;</b> - - SQL Server<br>
+                    - -  Result: A random number between 0 and 100 (e.g., 56.348734). <br><br>
+                    <span class="orclkey">SELECT </span> DBMS_RANDOM.VALUE(1, 10)<span class="orclkey"> AS </span> random_1_10_10 <span class="orclkey"> FROM </span> DUAL<b> ;</b> - - Oracle <br>
+                    - - Result: A random value between 1 and 10.
+                </code>
+            </div><br>
+            <h2>Key Notes on Limits</h2>
+            <ul>
+                <li><b>PI() :</b> Fixed value and cannot be modified.</li>
+                <li><b>TRUNCATE(x, d) :</b> Negative d values may reduce precision; not all databases support it
+                    natively
+                    (e.g., SQL Server uses ROUND(x, d, 1) for truncation).</li>
+                <li><b>SIGN(x) :</b> Undefined for NULL inputs.</li>
+                <li><b>RANDOM() / RAND() :</b></li>
+                <ul>
+                    <li>Randomness quality varies between databases.</li>
+                    <li>Use seeds (RAND(seed) in MySQL or SETSEED in Oracle) for reproducible results if required.</li>
+                </ul>
+            </ul><br>
+            <h2>Advanced Examples</h2>
+            <h3>1. Using Arithmetic Functions in WHERE Clause</h3>
+            <p><b>Scenario :-</b> Retrieves orders where the absolute value of the discount exceeds 10. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> * <span class="orclkey"> FROM </span> Orders <br>
+                    <span class="orclkey">WHERE  </span> ABS(Discount) > 10 <b> ;</b> <br>                
+                </code>
+            </div><br>
+            <h3>2. Calculate Compound Interest</h3>
+            <p><b>Scenario :-</b> Retrieves orders where the absolute value of the discount exceeds 10. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> Principal, Rate, Years, <br>
+                    Principal * POWER( ( 1 + Rate / 100 ), Years )<span class="orclkey"> AS </span> Compound_Interest <br>
+                    <span class="orclkey"> FROM </span> Investments <b> ;</b> <br>                
+                </code>
+            </div><br>
+            <h3>3. Determine Odd or Even</h3>
+            <p><b>Scenario :-</b> Returns 1 for odd Employee IDs and 0 for even. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> EmployeeID, MOD(EmployeeID, 2)
+                    <span class="orclkey"> AS </span> IsOdd <br>
+                    <span class="orclkey"> FROM </span> Employees <b> ;</b> <br>                
+                </code>
+            </div><br>
+            <h3>4. Rounding and Truncation</h3>
+            <p><b>Scenario :-</b> Compares rounded and truncated prices. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> ProductID, ROUND(Price, 2)
+                    <span class="orclkey"> AS </span> RoundedPrice, <br>
+                    <span class="orclkey"> TRUNCATE </span> ( Price, 2 ) <span class="orclkey"> AS </span> Truncated_Price
+                    <span class="orclkey"> FROM </span> Products <b> ;</b> <br>                
+                </code>
+            </div><br>
+            <h3>5. Randomized Sampling</h3>
+            <p><b>Scenario :-</b> Randomly selects customers with a probability greater than 0.5.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> CustomerID <br>
+                    <span class="orclkey"> FROM </span> Customers 
+                    <span class="orclkey"> WHERE </span> RAND() > 0.5<b> ;</b> <br>                
+                </code>
+            </div><br>
+            <h2>Common Errors and Fixes</h2>
+            <h3>1. Null Values</h3>
+            <ul>
+                <ul>
+                    <li>Any arithmetic function with NULL input returns NULL.</li>
+                    <li><b>Fix :</b> Use COALESCE() to replace NULL values.</li>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT  </span> ABS( COALESCE( value, 0 ) ) 
+                            <span class="orclkey"> FROM </span> Customers <b> ;</b> <br>                
+                        </code>
+                    </div>
+                </ul>
+            </ul> <br>
+            <h3>2. Division by Zero</h3>
+            <ul>
+                <li><b>Fix :</b> Use NULLIF() to handle zero values.</li>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey">SELECT  </span> 100 / NULLIF( column, 0 )
+                        <span class="orclkey"> FROM </span> Table <b> ;</b> <br>                
+                    </code>
+                </div>
+            </ul><br>
+            <h3>3. Invalid Input for SQRT</h3>
+            <ul>
+                <li>Negative numbers in SQRT throw errors.</li>
+                <li><b>Fix :</b> Validate input using a CASE statement.</li>
+                <div class="code-box">
+                    <code>
+                        <span class="orclkey">SELECT  CASE WHEN value </span> >= 0 <br>
+                        <span class="orclkey"> THEN  </span> SQRT(value) <span class="orclkey">ELSE NULL END AS Result FROM Table </span> <b> ;</b> <br>                
+                    </code>
+                </div>
+            </ul>
+
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_minus.html?topic=sqlMinus" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="next-button">Next
+                    &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="KUKscript.js">
+    </script>
+
+</body>
+
+</html>

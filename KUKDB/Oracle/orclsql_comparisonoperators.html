@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlIntro"
+                            id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlDataTypes"
+                            id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlLanguages"
+                            id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql.html?topic=sqlSelectTable"
+                            id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selectdistinct.html"
+                            id="sqlSelectDistinct">Select Distinct</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_logicaloperators.html"
+                            id="sqlLogicalOperators">Logical Operators</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_between.html"
+                            id="sqlBetween">Between</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html"
+                            id="sqlCompOperators">Comparison Operators</a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual"
+                            id="sqlEqual">Equal = </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual"
+                            id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan"
+                            id="sqlLessThan">Less than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_outerjoin.html" id="sqlOuterJoin">Outer
+                            Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_leftouterjoin.html" id="sqlNull">Left
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_case.html" id="sqlCase">Case</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html"
+                            id="sqlNumaricFunctions">Numeric Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign"
+                            id="sqlAbsSign">Abs(x), Sign</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/oorclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlCeil"
+                            id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlExp"
+                            id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlMod"
+                            id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt"
+                            id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc"
+                            id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic=sqlAsin"
+                            id="sqlAsinAcos">ASIN(n), ACOS(n) </a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">SINH(n), COSH(n), TANH(n)</a> </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_numericfunctions.html?topic="
+                            id="sqlNull">ATAN(n), ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg"
+                            id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax"
+                            id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin"
+                            id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum"
+                            id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html"
+                            id="sqlStringFunctions">String Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlAscii"
+                            id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlChar"
+                            id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlconcat"
+                            id="sqlconcat">CONCAT</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlInstr"
+                            id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLength"
+                            id="sqlLength">Length</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlLpadRpad"
+                            id="sqlLpadRpad">Lpad, Rpad</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlTrim"
+                            id="sqlTrim">Trim, RTrim, LTrim</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlSubstr"
+                            id="sqlSubstr">SUBSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_Stringfunctions.html?topic=sqlVSIZE"
+                            id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_corelatedsubqueries.html"
+                            id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_datefunctions.html"
+                            id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timestampfunctions.html"
+                            id="sqlTimestampFunctions">Timestamp Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timeintervalfunctions.html"
+                            id="sqlTimeIntervalFunctions">Time Interval Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_timezonefunctions.html"
+                            id="sqlTimeZoneFunctions">Time Zone Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_truncate.html"
+                            id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_returning.html"
+                            id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_intersect.html"
+                            id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_constraints.html"
+                            id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_primarykey.html"
+                            id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_foreginkey.html"
+                            id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_default.html"
+                            id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dcl.html?topic=sqlGrant"
+                            id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_dcl.html?topic=sqlRevoke"
+                            id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlCommit"
+                            id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlRollback"
+                            id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_tcl.html?topic=sqlSavepoint"
+                            id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html"
+                            id="sqlRankingFunctions">Ranking Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRownum"
+                            id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlRank"
+                            id="sqlRank">RANK</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlNtile"
+                            id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html"
+                            id="sqlGroupFunctions">Group By Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlCube"
+                            id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlRollup"
+                            id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGrouping"
+                            id="sqlGrouping">GROUPING</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclGroupfunctions.html?topic=sqlGroupId"
+                            id="sqlGroupId">GROUP_ID</a></li>
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsqlWindowFunctions.html"
+                            id="sqlWindowFunctions">Window Functions</a></li>
+
+
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_mview.html"
+                            id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_aliases.html"
+                            id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_selectinto.html"
+                            id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_insertinto_select.html"
+                            id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUK_Site_porject/KUK_abad_prod/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+        <main class="sidebar-content" data-topic="sqlCase">
+
+            <div class="topic-buttons">
+                <a href="orclsql_case.html?topic=sqlCase" class="previou-button">&laquo; Pevious</a>
+                <a href="orclsql_comparisonoperators.html?topic=sqlComparisonOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+
+            <h1>Comparison Operators in Oracle SQL</h1>
+            <p>Comparison operators are used in Oracle SQL to compare two values. </p><br>
+            <ul>
+                <li>They return a Boolean result (TRUE, FALSE, or NULL). </li>
+                <li>These operators are commonly used in WHERE, HAVING, and other conditional clauses to filter or
+                    evaluate data.</li>
+            </ul><br><br>
+
+
+            <h2>Key Features of Comparison Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Basic Evaluation</b></td>
+                        <td>Compare two expressions or values for equality, inequality, or relative magnitude.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Handling</b></td>
+                        <td>
+                            Some operators treat NULL differently, requiring special care with IS NULL.
+                        </td>
+
+                    <tr>
+                        <td><b>Wide Applicability</b></td>
+                        <td>Usable in conditions, joins, subqueries, and more.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Combines with Logical Ops</b></td>
+                        <td>Often combined with logical operators (AND, OR, NOT) for complex conditions.</td>
+                    </tr>
+
+                </tbody>
+            </table><br><br>
+            <h2>List of Comparison Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>=</b></td>
+                        <td>Checks if two values are equal.</td>
+                        <td>salary = 5000</td>
+                    </tr>
+                    <tr>
+                        <td><b>!= or <></b></td>
+                        <td>Checks if two values are not equal.</td>
+                        <td>department_id != 10</td>
+                    </tr>
+                    <tr>
+                        <td><b>></b></td>
+                        <td>Checks if the left value is greater than the right value.</td>
+                        <td>salary > 10000</td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                                < </b>
+                        </td>
+                        <td>Checks if the left value is less than the right value.</td>
+                        <td>salary < 5000</td>
+                    </tr>
+                    <tr>
+                        <td><b>>=</b></td>
+                        <td>Checks if the left value is greater than or equal to the right value.</td>
+                        <td>hire_date >= '2023-01-01'</td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                                <= </b>
+                        </td>
+                        <td>Checks if the left value is less than or equal to the right value.</td>
+                        <td>bonus <= 1000</td>
+                    </tr>
+
+                </tbody>
+            </table><br><br>
+            <h2>Key Points</h2>
+            <p><b>Operator Precedence:- </b> Operators like = and <> are evaluated after logical operators like AND or
+                    OR. Parentheses can be used to control precedence.</p><br>
+            <p><b>Case Sensitivity:- </b> Character comparisons are case-sensitive unless explicitly handled using
+                functions like UPPER() or LOWER().</p> <br>
+            <h2>Behavior with NULLs</h2>
+            <p><b>Comparison with NULL: </b></p>
+            <ul>
+                <li>Any comparison involving NULL will always result in FALSE unless explicitly handled.</li>
+                <li>Use the IS NULL or IS NOT NULL operators.</li>
+            </ul><br><br>
+            <h2>Limitations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitations</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>NULL Comparisons</b></td>
+                        <td>Using = or <> with NULL always returns FALSE. Use IS NULL instead.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Precision Issues</b></td>
+                        <td>Comparisons involving floating-point numbers can result in rounding errors.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Overhead</b></td>
+                        <td>Complex comparisons with large datasets can impact query performance.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Common Errors with Comparison Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722: Invalid Number</b></td>
+                        <td>Comparing a numeric column with a string that cannot be converted.</td>
+                        <td>Ensure consistent data types in the comparison.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00932: Inconsistent Datatypes</b></td>
+                        <td>Using incompatible data types in a comparison.</td>
+                        <td>Use explicit type conversion if required (e.g., TO_CHAR, TO_NUMBER).</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Evaluation Issues</b></td>
+                        <td>NULL values are not explicitly handled in comparisons.</td>
+                        <td>Use IS NULL or NVL to handle NULLs explicitly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Mismatch</b></td>
+                        <td>Comparing incompatible data types (e.g., string and number).</td>
+                        <td>Ensure data types are compatible.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Precision Inaccuracy</b></td>
+                        <td>Floating-point comparisons failing due to rounding.</td>
+                        <td>Use rounding functions or approximations.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Best Practices for Comparison Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Practice</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Use Explicit Comparisons</b></td>
+                        <td>Always specify the exact comparison to avoid ambiguity.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Hardcoding Values</b></td>
+                        <td>Use bind variables or parameterized queries to improve performance and security.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Combine with Logical Operators</b></td>
+                        <td>Combine comparison operators with AND, OR, or NOT for more complex conditions.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Do's and Don'ts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use IS NULL and IS NOT NULL for NULL evaluations.</td>
+                        <td>Avoid direct comparisons with NULL.</td>
+                    </tr>
+                    <tr>
+                        <td>Use BETWEEN for inclusive range checks.</td>
+                        <td>Don’t assume = works for approximate floating points.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine comparison operators with logical operators for complex conditions.</td>
+                        <td>Avoid unnecessary comparisons that increase query cost.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h2>Equal (=) Operator in Oracle SQL</h2>
+            <p>The <b>Equal (=) operator</b> in Oracle SQL is one of the most fundamental comparison operators.</p>
+            <br>
+            <ul>
+                <li>The = operator is a comparison operator used to check for equality between two values or
+                    expressions. </li>
+                <li>It is used to compare two values for equality.</li>
+                <li>If the values are equal, the condition evaluates to TRUE, and the corresponding rows are included in
+                    the result set.</li>
+            </ul><br>
+            <h2>Key Features of the Equal (=) Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Basic Equality Check</b></td>
+                        <td>Compares two values to determine if they are equal.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Support</b></td>
+                        <td>Works with numeric, character, date, and other data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports Literal Values</b></td>
+                        <td>Compares a column value with a constant (literal) value.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Behavior</b></td>
+                        <td>Returns NULL if one or both values being compared are NULL. Use IS NULL to handle such
+                            cases.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wide Usage</b></td>
+                        <td>Commonly used in SELECT, UPDATE, DELETE, WHERE, ON, and other SQL clauses.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity</b></td>
+                        <td>Comparisons involving strings are case-sensitive in Oracle SQL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Column-to-Column Comparison</b></td>
+                        <td>Compares values between two columns in the same or different tables.</td>
+                    </tr>
+
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+
+            <div class="code-box">
+                <code>
+                    column_name = value      <br>  <br>
+                    ( OR )         <br> <br>
+                    expression1 = expression2 <br> 
+                        </code>
+                expression1 and expression2: Can be column names, constants, or expressions.
+            </div><br>
+            <h2> Examples / Scenarios </h2>
+            <p><b>Scenario 1:- ( Basic Example )</b> Retrieve employees who work in department 10.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, department_id <br>
+                           <span class="orclkey"> FROM </span>  Employees   <br>
+                           <span class="orclkey"> WHERE </span> department_id = 10 <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- ( Basic Example )</b> Retrieve employees whose job title is 'Manager'.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, last_name <br>
+                           <span class="orclkey"> FROM </span>  Employees   <br>
+                           <span class="orclkey"> WHERE </span> job_title =  <span class="orclg">'Manager' </span> <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- ( With JOIN Condition )</b> Get the names of employees along with their department names.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.first_name, d.department_name <br>
+                           <span class="orclkey"> FROM </span>  employees e   <br>
+                           <span class="orclkey"> JOIN </span> departments d
+                           <span class="orclkey"> ON </span> e.department_id = d.department_id <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- ( Column-to-Column Comparison )</b> Find employees whose salary matches their commission.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, commi_pct <br>
+                           <span class="orclkey"> FROM </span>  employees    <br>
+                           <span class="orclkey"> WHERE </span> salary = commi_pct <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- ( Case-Sensitivity in Strings )</b> Retrieve employees whose last name is 'Uday'
+                (case-sensitive).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, last_name <br>
+                           <span class="orclkey"> FROM </span>  employees    <br>
+                           <span class="orclkey"> WHERE </span> last_name = <span class="orclg"> 'Uday' </span> <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5.1:- ( Case-Sensitivity in Strings )</b> Retrieve customers with the name "Harsha"
+                regardless of case.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, first_name <br>
+                           <span class="orclkey"> FROM </span>  customers    <br>
+                           <span class="orclkey"> WHERE </span> <span class="orclfun"> UPPER </span>(first_name)
+                            = <span class="orclg"> 'HARSHA' </span> <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- ( with Subqueries )</b> Find employees whose salaries match the average salary of their
+                departments.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                           <span class="orclkey"> FROM </span>  employees    <br>
+                           <span class="orclkey"> WHERE </span> salary  = ( <span class="orclkey">SELECT  </span> 
+                           <span class="orclfun"> AVG( Salary )  </span> <span class="orclkey"> FROM </span> 
+                           employees <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- ( Matching Products in Different Warehouses )</b> Retrieve products that are available in
+                two different warehouses.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p1.product_id, p1.product_name, p1.warehouse_id <span class="orclkey"> AS  </span> warehouse_1, 
+                    p2.warehouse_id <span class="orclkey"> AS  </span> warehouse_2 <br>
+                           <span class="orclkey"> FROM </span>  products p1    <br>
+                           <span class="orclkey"> JOIN </span> products p2
+                           <ul>
+                            <span class="orclkey"> ON </span> p1.product_id = p2.product_id
+                           </ul>
+                           <span class="orclkey"> WHERE </span> p1.warehouse_id <> p2.warehouse_id <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 8:- </b> Find employees who work in multiple departments with the same job title.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e1.employee_id, e1.department_id <span class="orclkey"> AS  </span> dept1, 
+                    e2.department_id <span class="orclkey"> AS  </span> dept2 <br>
+                           <span class="orclkey"> FROM </span>  employees e1    <br>
+                           <span class="orclkey"> JOIN </span> employees e2
+                           <ul>
+                            <span class="orclkey"> ON </span> e1.employee_id = e2.employee_id
+                           </ul>
+                           <span class="orclkey"> WHERE </span> e1.department_id <> e2.department_id
+                           <ul>
+                            <span class="orclkey"> AND </span> e1.job_id = e2.job_id <b> ; </b> 
+                           </ul>            
+                        </code>
+            </div><br>
+            <h2>Behavior with NULL Values</h2>
+            <ul>
+                <li>The = operator does not handle NULL values as equal to anything (not even another NULL).</li>
+                <li>To compare NULL values, use the IS NULL operator instead.</li>
+            </ul><br>
+            <p><b>Example :- </b>
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> * 
+                           <span class="orclkey"> FROM </span>  employees 
+                           <span class="orclkey"> WHERE </span> email = <span class="orclkey"> NULL </span>
+                            <b> ; </b> -- No rows will return <br><br>
+                            <span class="orclkey">SELECT  </span> * 
+                            <span class="orclkey"> FROM </span>  employees 
+                            <span class="orclkey"> WHERE </span> email <span class="orclkey">IS NULL </span>
+                             <b> ; </b>       - - Correct approach         
+                        </code>
+            </div><br>
+            <h2>Limitations of = Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Handle NULLs</b></td>
+                        <td>Comparing with NULL using = always returns NULL. Use IS NULL or IS NOT NULL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case Sensitivity for Strings</b></td>
+                        <td>String comparisons are case-sensitive unless handled with functions like UPPER() or LOWER().
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Implicit Data Type Conversion</b></td>
+                        <td>May result in performance overhead if implicit conversion is needed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Restrictions</b></td>
+                        <td>Both operands must be of compatible data types; otherwise, an error occurs.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors with = Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722: Invalid Number</b></td>
+                        <td>Comparing numeric and non-numeric values.</td>
+                        <td>Ensure data types match or use explicit type casting (e.g., TO_NUMBER).</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Value Comparison Issues</b></td>
+                        <td>Using = to compare with NULL.</td>
+                        <td>Use IS NULL instead of = to handle NULL comparisons.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case Sensitivity Mismatch</b></td>
+                        <td>Comparing strings with mismatched cases.</td>
+                        <td>Use UPPER() or LOWER() functions to standardize string comparison.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Mismatch</b></td>
+                        <td>Comparing incompatible data types (e.g., a string with a number).</td>
+                        <td>Ensure data types of both sides are compatible.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts of = Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use = for equality comparisons between values or columns.</td>
+                        <td>Don’t use = for comparing NULL; use IS NULL instead.</td>
+                    </tr>
+                    <tr>
+                        <td>Use = in JOIN conditions to match columns from different tables.</td>
+                        <td>Don’t rely on implicit conversion of data types (e.g., comparing VARCHAR2 with NUMBER).</td>
+                    </tr>
+                    <tr>
+                        <td>Handle case-sensitivity when comparing string values.</td>
+                        <td>Avoid assuming NULL equals anything; NULL comparisons always evaluate to FALSE.</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure data types match when using = for comparisons.</td>
+                        <td>Avoid comparing incompatible data types without explicit type conversion.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+
+            <h2>Not Equal (!= or <>) Operator in Oracle SQL</h2>
+            <p>The <b>Not Equal (!= or <>) operator</b> is used in Oracle SQL to test whether two values are not equal.
+            </p>
+            <ul>
+                <li>If the values are not equal, the condition evaluates to TRUE, and the corresponding rows are
+                    included in the result set.</li>
+            </ul><br>
+            <h2>Key Features of != or <> Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Inequality Check</b></td>
+                        <td>Compares two values or expressions to see if they are not equal.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Behavior</b></td>
+                        <td>Returns NULL if either or both values being compared are NULL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wide Usage</b></td>
+                        <td>Can be used in SELECT, WHERE, JOIN, HAVING, and other clauses.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports All Data Types</b></td>
+                        <td>Works with numbers, strings, dates, and other supported data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Synonymous Operators</b></td>
+                        <td>Both != and <> function identically in Oracle SQL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity</b></td>
+                        <td>For strings, the comparison is case-sensitive in Oracle SQL.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+
+            <div class="code-box">
+                <code>
+                    column_name != <span class="orclfun"> value  </span>      <br>  
+                    column_name <> <span class="orclfun"> value  </span>      <br><br>
+                    ( OR )         <br> <br>
+                    expression1 != expression2 <br> 
+                    expression1 <> expression2  
+                        </code>
+
+            </div><br>
+            <h2> Examples / Scenarios </h2>
+            <p><b>Scenario 1:- ( Basic Inequality Check )</b> Retrieve employees who do not belong to department 10.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, department_id <br>
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> department_id != 10<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- ( String Inequality )</b> Retrieve employees who are not in the 'IT_PROG' job role.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, last_name, job_id <br>
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> job_id !=  <span class="orclg">'IT_PROG'</span><b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2.1:- ( String Inequality )</b> Find products that are not in the category "Electronics".
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name, category <br>
+                    <span class="orclkey"> FROM </span>  products   <br>
+                    <span class="orclkey"> WHERE </span> category <>   <span class="orclg">'Electronics'</span><b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- ( Column-to-Column Comparison )</b> Find employees whose salary is not equal to their
+                commission amount.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, comm_pct <br>
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary <> comm_pct<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- ( Numeric Comparison )</b> Retrieve orders where the total amount is not 1000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, customer_id, total_amount <br>
+                    <span class="orclkey"> FROM </span>  orders   <br>
+                    <span class="orclkey"> WHERE </span> total_amount <> 1000<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- ( Exclude Specific Departments )</b> Retrieve all employees who are not in departments
+                10, 20, or 30.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, department_id, salary <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> department_id  <span class="orclkey"> NOT IN </span> ( 10, 20, 30 )<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- ( Inequality with Subquery )</b> Retrieve employees whose salaries are not equal to the
+                average salary of their department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary, department_id <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> salary != (  
+                        <ul>
+                        <span class="orclkey"> SELECT </span> 
+                    <span class="orclfun"> AVG </span>( salary ) <span class="orclkey"> FROM </span> employees e2
+                    <ul>
+                        <span class="orclkey"> WHERE </span> e2.department_id = employees.department_id ) <b> ; </b> 
+                    </ul>
+                               </ul>
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- ( Inequality in Joins )</b> Find orders placed by customers who are not from the same
+                city as the company.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, c.customer_name, c.city, co.company_city <br>
+                    <span class="orclkey"> FROM </span>  orders o   <br>
+                    <span class="orclkey"> JOIN </span> customers c 
+                       
+                        <span class="orclkey"> ON </span>  o.customer_id = c.customer_id <br>
+                    <span class="orclkey"> JOIN </span>company co <span class="orclkey"> ON </span> c.city <> co.company_city  <b> ; </b>
+                        </code>
+            </div><br>
+            <p><b>Scenario 8:- ( Inequality in Joins )</b> Find orders placed by customers who are not from the same
+                city as the company.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, c.customer_name, c.city, co.company_city <br>
+                    <span class="orclkey"> FROM </span>  orders o   <br>
+                    <span class="orclkey"> JOIN </span> customers c 
+                       
+                        <span class="orclkey"> ON </span>  o.customer_id = c.customer_id <br>
+                    <span class="orclkey"> JOIN </span>company co <span class="orclkey"> ON </span> c.city <> co.company_city  <b> ; </b>
+                        </code>
+            </div><br>
+            <p><b>Scenario 9:- ( with Date Comparison )</b> Find employees who were not hired in the year 2023.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, hire_date <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> 
+                       
+                        <span class="orclfun"> EXTRACT </span>( <span class="orclkey"> YEAR FROM </span> hire_date )  != 2023 <b> ; </b>
+                        </code>
+            </div><br>
+            <p><b>Scenario 10:- ( with Case Expression )</b> Label customers as "New" or "Returning" based on order
+                count not equal to 1.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, 
+                    <ul>
+                        <span class="orclkey"> CASE </span>
+                        <ul>
+                            <span class="orclkey"> WHEN </span> order_count != 1 <span class="orclkey"> THEN </span> <span class="orclg"> 'Returning' </span> <br>
+                            <span class="orclkey"> ELSE </span> <span class="orclg"> 'New' </span>
+                        </ul>
+                        <span class="orclkey"> END AS </span> customer_type
+                    </ul>
+                    <span class="orclkey"> FROM </span>  customers    <b> ; </b>
+                        </code>
+            </div><br><br>
+            <h2>Limitations of != or <>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Handle NULLs Directly</b></td>
+                        <td>Comparing with NULL using != or <> always returns NULL. Use IS NOT NULL for such cases.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Restrictions</b></td>
+                        <td>Both operands must have compatible data types; otherwise, an error will occur.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity for Strings</b></td>
+                        <td>String comparisons are case-sensitive, which can cause unexpected results if case is not
+                            handled.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Concerns</b></td>
+                        <td>Using != or <> on indexed columns can sometimes bypass indexes, leading to slower queries.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Precision Issues in Floating-Point</b></td>
+                        <td>Inequality comparisons with floating-point numbers can be affected by rounding.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors with != or <>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722: Invalid Number</b></td>
+                        <td>Comparing numeric columns with non-numeric values.</td>
+                        <td>Ensure consistent data types for both operands.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Comparison with NULL</b></td>
+                        <td>Using != or <> to compare NULL values.</td>
+                        <td>Use IS NOT NULL for checking non-NULL values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Mismatch</b></td>
+                        <td>Comparing incompatible data types (e.g., a string with a number).</td>
+                        <td>Ensure data types are compatible.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity Mismatch</b></td>
+                        <td>Comparing strings with mismatched cases.</td>
+                        <td>Use UPPER() or LOWER() functions to standardize case in comparisons.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use != or <> to filter out rows with non-matching values.</td>
+                        <td>Don’t use != or <> to compare NULL; use IS NOT NULL instead.</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure data type compatibility between the compared values.</td>
+                        <td>Avoid assuming strings with different cases will be considered unequal (case-sensitive).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Combine != or <> with logical operators (AND, OR, NOT) for more complex queries.</td>
+                        <td>Don’t use != or <> without understanding the impact on query performance.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine with logical operators for complex conditions.</td>
+                        <td>Avoid using inequality unnecessarily, which can reduce performance.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Greater Than (>) Operator in Oracle SQL</h2>
+            <p>The <b>Greater Than (>) operator </b>in Oracle SQL is a comparison operator used to filter or compare
+                rows where one value is greater than another. </p><br>
+            <ul>
+                <li>It evaluates whether the value on the left side is greater than the value on the right side.</li>
+                <li> If the condition is met, it returns TRUE; otherwise, it returns FALSE.</li>
+            </ul><br>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Numeric Comparison</b></td>
+                        <td>Used to compare numeric values for filtering or evaluation.</td>
+                    </tr>
+                    <tr>
+                        <td><b>String Comparison</b></td>
+                        <td>Compares strings based on their lexicographical order.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Date and Timestamp Comparison</b></td>
+                        <td>Compares date and timestamp values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Handling</b></td>
+                        <td>Returns FALSE if either operand is NULL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Works in Joins and Subqueries</b></td>
+                        <td>Can be used in joins, subqueries, and complex SQL conditions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wide Usage</b></td>
+                        <td>Can be used with SELECT, WHERE, HAVING, JOIN, and other clauses.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+
+            <div class="code-box">
+                <code>
+
+                    column_name > <span class="orclfun"> value  </span>      <br><br>
+                    ( OR )         <br> <br>
+                    expression1 > expression2  
+                        </code>
+            </div><br>
+            <h2>Behavior with NULL Values</h2>
+            <ul>
+                <li>If either operand is NULL, the result of the comparison is <b>FALSE</b>.</li>
+                <li>To handle NULL explicitly, use the NVL() function or COALESCE() to provide a default value.</li>
+            </ul><br>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary > <span class="orclkey"> NULL </span><b> ; </b>  -- No rows will return <br>  
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary  <span class="orclkey"> IS NULL </span><b> ; </b>  -- Correct approach <br>         
+                        </code>
+            </div><br>
+            <h2> Examples / Scenarios </h2>
+            <p><b>Scenario 1:- ( Basic Numeric Comparison )</b> Retrieve employees with a salary greater than 50,000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary > 50000<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- ( String Comparison )</b> Find products with names greater than 'M' alphabetically.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name <br>
+                    <span class="orclkey"> FROM </span>  products   <br>
+                    <span class="orclkey"> WHERE </span> product_name >  <span class="orclg"> 'M' </span><b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- ( Date Comparison )</b> Retrieve orders placed after January 1, 2023.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, customer_id, order_date <br>
+                    <span class="orclkey"> FROM </span>  orders   <br>
+                    <span class="orclkey"> WHERE </span> order_date > <span class="orclfun"> TO_DATE </span>(
+                         <span class="orclg">'2023-01-01', 'YYYY-MM-DD' </span>)<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- ( With Subquery )</b> Find employees whose salaries are greater than the department's
+                average salary.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> salary > ( <span class="orclkey">SELECT  </span>
+                    <span class="orclfun"> AVG  </span> (salary) <span class="orclkey"> FROM </span> employees
+                         )<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- ( With JOINs )</b> Retrieve product orders where the quantity ordered is greater than the
+                available stock.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, p.product_id, o.quantity, p.stock <br>
+                    <span class="orclkey"> FROM </span>  orders o   <br>
+                    <span class="orclkey"> JOIN </span> products p <span class="orclkey"> ON  </span> o.product_id = p.product_id <br>
+                    <span class="orclfun"> WHERE  </span> o.quantity > p.stock <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- ( With Aggregate Functions )</b> Retrieve product orders where the quantity ordered is
+                greater than the
+                available stock.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, <span class="orclfun"> COUNT  </span>(*) <span class="orclkey"> AS </span>emp_count<br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> GROUP BY </span> department_id  <br>
+                    <span class="orclfun"> HAVING   </span> <span class="orclfun"> COUNT  </span>(*) > 5 <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- </b> Retrieve regions where the total sales exceed the sales in the 'North' region.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> region_name, total_sales <br> 
+                    <span class="orclkey"> FROM </span>  sales_regions   <br>
+                    <span class="orclkey"> WHERE </span> total_sales > (  
+                        <ul>
+                            <span class="orclkey">SELECT  </span> total_sales <br>
+                            <span class="orclkey"> FROM </span> sales_regions <br>
+                            <span class="orclkey"> WHERE </span> region_name = <span class="orclg"> 'North' </span>
+                        </ul>
+                    ) <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 8:- ( Using CASE )</b> Categorize products as "High Stock" or "Low Stock" based on a stock
+                threshold of 100.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name,<br> 
+                    <ul>
+                        <span class="orclkey">CASE  </span>
+                        <ul>
+                            <span class="orclkey">WHEN  </span> stock > 100 <span class="orclkey"> THEN  </span> <span class="orclg">'High Stock'  </span><br>
+                            <span class="orclkey">ELSE  </span> <span class="orclg">'Low Stock'  </span>
+                        </ul>
+                        <span class="orclkey">END AS  </span> stock_status
+                    </ul>
+                    
+                    <span class="orclkey"> FROM </span>  products  <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Limitations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Handle NULLs</b></td>
+                        <td>The > operator does not evaluate NULL values, resulting in no rows being returned.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity for Strings</b></td>
+                        <td>String comparisons are case-sensitive, which can lead to unexpected results.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Issues</b></td>
+                        <td>Can cause performance issues if used on unindexed columns or with functions applied to
+                            columns.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors with > Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722: Invalid Number</b></td>
+                        <td>Comparing numeric values with non-numeric data.</td>
+                        <td>Ensure both operands are of compatible numeric types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Value Handling</b></td>
+                        <td>Using > with NULL values results in no rows being returned.</td>
+                        <td>Use NVL() or COALESCE() to replace NULL values with default values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity in Strings</b></td>
+                        <td>String comparisons are case-sensitive.</td>
+                        <td>Use UPPER() or LOWER() for consistent case handling.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts of > Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use > for numeric, string, or date comparisons where appropriate.</td>
+                        <td>Don’t use > to compare NULL values; handle NULL explicitly.</td>
+                    </tr>
+                    <tr>
+                        <td>Use > with subqueries to implement dynamic filters.</td>
+                        <td>Don’t assume strings of different cases will compare accurately without handling case.</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure both operands are of compatible data types to avoid runtime errors.</td>
+                        <td>Avoid unnecessary functions on indexed columns in > conditions to maintain performance.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine > with logical operators (AND, OR, NOT) for complex conditions.</td>
+                        <td>Avoid comparing incompatible data types without explicit conversion (e.g., DATE vs VARCHAR).
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Best Practices for > Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Practice</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Explicit NULL Handling</b></td>
+                        <td>Use NVL() or COALESCE() to provide default values for NULL before comparison.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Normalize String Comparisons</b></td>
+                        <td>Use UPPER() or LOWER() to ensure consistent string comparisons.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use with Subqueries</b></td>
+                        <td>Combine > with subqueries to create dynamic and flexible filters.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Unnecessary Functions</b></td>
+                        <td>Avoid applying functions to columns in > conditions to prevent index bypass.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Optimize Performance</b></td>
+                        <td>Ensure that indexed columns are used in the > conditions for optimal query performance.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Greater Than or Equal To (>=) Operator in Oracle SQL</h2>
+            <p>The <b>Greater Than or Equal To (>=) </b>operator in Oracle SQL is a comparison operator used to retrieve
+                rows where the value in the left-hand operand is either greater than or equal to the value in the
+                right-hand operand.</p><br>
+            <p>If the condition is true, it returns TRUE; otherwise, it returns FALSE.</p> <br>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Inclusive Comparison</b></td>
+                        <td>Ensures the value is greater than or equal to the given threshold.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports Multiple Data Types</b></td>
+                        <td>Can be used with numbers, dates, and strings.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Behavior</b></td>
+                        <td>Returns NULL if any operand is NULL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wide Usage</b></td>
+                        <td>Applicable in WHERE, HAVING, JOIN, and other clauses.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+
+            <div class="code-box">
+                <code>
+
+                    column_name >= <span class="orclfun"> value  </span>      <br><br>
+                    ( OR )         <br> <br>
+                    expression1 >= expression2  
+                        </code>
+            </div><br>
+            <h2>Behavior with NULL Values</h2>
+            <ul>
+                <li>Comparisons involving NULL always return <b>FALSE</b>.</li>
+                <li>To include rows with NULL explicitly, use functions like NVL or COALESCE to provide default values.
+                </li>
+            </ul><br>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary >= <span class="orclkey"> NULL </span><b> ; </b>  -- No rows will return <br> 
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> <span class="orclkey"> NVL </span>(salary, 0) >= 5000<b> ; </b>  -- Correct usage <br>           
+                        </code>
+            </div><br>
+            <h2> Examples / Scenarios </h2>
+            <p><b>Scenario 1:- ( Basic Numeric Comparison )</b> Retrieve employees with a salary of 60,000 or higher.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary >= 60000 <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- ( String Comparison )</b> Retrieve products where the product name is alphabetically
+                greater than or equal to 'H'.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name <br>
+                    <span class="orclkey"> FROM </span>  products   <br>
+                    <span class="orclkey"> WHERE </span> product_name >=  <span class="orclg"> 'H' </span><b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- ( Date Comparison )</b> Retrieve orders placed on or after July 1, 2023.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, order_date, customer_id <br>
+                    <span class="orclkey"> FROM </span>  orders   <br>
+                    <span class="orclkey"> WHERE </span> order_date >= <span class="orclfun"> TO_DATE </span>(
+                         <span class="orclg">'2023-07-01', 'YYYY-MM-DD' </span>)<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- ( With Subquery )</b> Retrieve employees whose salaries are greater than or equal to the
+                average salary in their department. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> salary >= ( <span class="orclkey">SELECT  </span>
+                    <span class="orclfun"> AVG  </span> (salary) <span class="orclkey"> FROM </span> employees
+                         )<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- ( Combining Conditions )</b> Find customers whose total purchase amount is greater than
+                or equal to 10,000 and who joined after January 1, 2022.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, first_name, total_purchases, join_date <br>
+                    <span class="orclkey"> FROM </span>  customers   <br>
+                    <span class="orclkey"> WHERE </span> total_purchases >= 10000 <span class="orclkey"> AND  </span>
+                    join_date >= TO_DATE( <span class="orclg">'2023-07-01', 'YYYY-MM-DD' </span>)<b> ; </b>          
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Retrieve employees who have been with the company for 5 or more years.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, hire_date, SYSDATE - hire_date <span class="orclkey"> AS </span> years_with_company <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> (SYSDATE - hire_date) >= 5 * 365 <b> ; </b>          
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- ( With JOINs )</b> Retrieve product orders where the ordered quantity is greater than or
+                equal to the minimum stock level. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.product_id, o.quantity, p.min_stock <br>
+                    <span class="orclkey"> FROM </span>  orders o   <br>
+                    <span class="orclkey"> JOIN </span> products p <span class="orclkey"> ON  </span> o.product_id = p.product_id <br>
+                    <span class="orclfun"> WHERE  </span> o.quantity >= p.min_stock <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 8:- ( With Aggregate Functions )</b> Retrieve product orders where the quantity ordered is
+                greater than the
+                available stock.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, <span class="orclfun"> SUM  </span>(salary) <span class="orclkey"> AS </span> total_salary<br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> GROUP BY </span> department_id  <br>
+                    <span class="orclfun"> HAVING   </span> <span class="orclfun"> SUM  </span>(salary) >= 1000000 <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 9:- ( Compare Dates in Subqueries )</b> Retrieve orders placed on or after the earliest order
+                date in 2023. </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, order_date <br> 
+                    <span class="orclkey"> FROM </span>  orders   <br>
+                    <span class="orclkey"> WHERE </span> order_date >= (  
+                        <ul>
+                            <span class="orclkey">SELECT  </span><span class="orclfun"> MIN </span> (order_date) <br>
+                            <span class="orclkey"> FROM </span> orders <br>
+                            <span class="orclkey"> WHERE </span><span class="orclfun"> EXTRACT </span>(  <span class="orclkey"> YEAR FROM </span> order_date) = 2023
+                        </ul>
+                    ) <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 10:- ( Using CASE )</b> Categorize employees based on whether their salaries are above or
+                equal to 75,000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary,<br> 
+                    <ul>
+                        <span class="orclkey">CASE  </span>
+                        <ul>
+                            <span class="orclkey">WHEN  </span> salary >= 75000 <span class="orclkey"> THEN  </span> <span class="orclg">'High Salary'  </span><br>
+                            <span class="orclkey">ELSE  </span> <span class="orclg">'Standard Salary'  </span>
+                        </ul>
+                        <span class="orclkey">END AS  </span> salary_category
+                    </ul>
+                    
+                    <span class="orclkey"> FROM </span>  employees  <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Limitations of >= Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>NULL Handling</b></td>
+                        <td>Comparisons with NULL always return FALSE.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Case-Sensitivity for Strings</b></td>
+                        <td>String comparisons are case-sensitive unless explicitly normalized using UPPER() or LOWER().
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Optimization </b></td>
+                        <td>Indexes might not be utilized if columns are wrapped in functions or expressions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Concerns</b></td>
+                        <td>Using >= on large datasets or unindexed columns can lead to slower query performance.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors with >= Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722: Invalid Number</b></td>
+                        <td>Comparing numeric columns with non-numeric data.</td>
+                        <td>Ensure operands have compatible numeric data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Value Handling</b></td>
+                        <td>Using >= with NULL returns no rows.</td>
+                        <td>Use NVL or COALESCE to handle NULL explicitly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Date Format Issues</b></td>
+                        <td>Comparing dates without proper conversion.</td>
+                        <td>Use TO_DATE for consistent date comparisons.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Mismatch</b></td>
+                        <td>Comparing incompatible types (e.g., string and number).</td>
+                        <td>Ensure both operands have matching data types.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts of >= Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use >= for numeric, string, or date comparisons to include the boundary value.</td>
+                        <td>Don’t use >= with NULL; handle NULL values explicitly using NVL or COALESCE.</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure consistent data types between both operands.</td>
+                        <td>Avoid applying functions to indexed columns when using >= to maintain query performance.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Combine >= with logical operators (AND, OR, NOT) for complex filters.</td>
+                        <td>Don’t assume string comparisons are case-insensitive; account for case differences.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Best Practices for >= Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Practice</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Explicit NULL Handling</b></td>
+                        <td>Use NVL or COALESCE to ensure NULL values are replaced with defaults.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Leverage Indexing</b></td>
+                        <td>Ensure that indexed columns are used in the >= condition for better performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Normalize String Comparisons</b></td>
+                        <td>Apply UPPER or LOWER to standardize case for string comparisons.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Functions on Columns</b></td>
+                        <td>Avoid using functions on columns in >= conditions to prevent index bypass.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use with Subqueries</b></td>
+                        <td>Leverage subqueries to create dynamic filters with the >= operator.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Less Than or Equal To (<=) Operator in Oracle SQL</h2>
+                    <p>The <b>Less Than or Equal To (<=) </b> operator in Oracle SQL is a comparison operator used to
+                                filter or
+                                compare rows where the left-hand operand is either less than or equal to the right-hand
+                                operand. </p> <br>
+                    <p>If the condition is true, it returns TRUE; otherwise, it returns FALSE.</p><br>
+                    <h2>Key Features</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Inclusive Comparison</b></td>
+                                <td>Ensures the value is less than or equal to the given threshold.</td>
+                            </tr>
+                            <tr>
+                                <td><b>Supports Multiple Data Types</b></td>
+                                <td>Can be used with numbers, dates, and strings.</td>
+                            </tr>
+                            <tr>
+                                <td><b>Versatility</b></td>
+                                <td>Can be used in WHERE, HAVING, JOIN, and other SQL clauses.</td>
+                            </tr>
+                            <tr>
+                                <td><b>Numeric Comparison</b></td>
+                                <td>Filters rows where numeric values are less than or equal to a specified value.</td>
+                            </tr>
+                            <tr>
+                                <td><b>String Comparison</b></td>
+                                <td>Compares strings based on lexicographical order (character-by-character).</td>
+                            </tr>
+                            <tr>
+                                <td><b>Works in Joins and Subqueries</b></td>
+                                <td>Can be used in complex queries involving joins, subqueries, or logical operators.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+                    <h2>Syntax</h2>
+
+                    <div class="code-box">
+                        <code>
+
+                    column_name <= <span class="orclfun"> value  </span>      <br><br>
+                    ( OR )         <br> <br>
+                    expression1 <= expression2  
+                        </code>
+                    </div><br>
+                    <h2>Behavior with NULL Values</h2>
+                    <ul>
+                        <li>If either operand is NULL, the result of the comparison is <b>FALSE</b>.</li>
+                        <li>Handle NULL values explicitly using NVL() or COALESCE() to avoid unexpected results.
+                        </li>
+                    </ul><br>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary <= <span class="orclkey"> NULL </span><b> ; </b>  -- No rows will return <br> 
+                    <span class="orclkey">SELECT  </span> * 
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> <span class="orclkey"> NVL </span>(salary, 0) <= 5000<b> ; </b>  -- Correct usage <br>           
+                        </code>
+                    </div><br>
+                    <h2> Examples / Scenarios </h2>
+                    <p><b>Scenario 1:- ( Basic Numeric Comparison )</b> Retrieve employees with a salary of 40,000 or
+                        less.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                    <span class="orclkey"> FROM </span>  Employees   <br>
+                    <span class="orclkey"> WHERE </span> salary >= 40000 <b> ; </b>            
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 2:- ( String Comparison )</b> Retrieve products where the product name is
+                        alphabetically less than or equal to 'U'.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name <br>
+                    <span class="orclkey"> FROM </span>  products   <br>
+                    <span class="orclkey"> WHERE </span> product_name <=  <span class="orclg"> 'U' </span><b> ; </b>            
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 3:- ( Date Comparison )</b> Retrieve orders placed on or before June 30, 2023.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> order_id, order_date, customer_id <br>
+                    <span class="orclkey"> FROM </span>  orders   <br>
+                    <span class="orclkey"> WHERE </span> order_date >= <span class="orclfun"> TO_DATE </span>(
+                         <span class="orclg">'2023-06-30', 'YYYY-MM-DD' </span>)<b> ; </b>            
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 4:- ( With Subquery )</b> Retrieve employees whose salaries are less than or equal to
+                        the average salary of their department. </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> WHERE </span> salary <= ( <span class="orclkey">SELECT  </span>
+                    <span class="orclfun"> AVG  </span> (salary) <span class="orclkey"> FROM </span> employees
+                         )<b> ; </b>            
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 5:- ( Combining Conditions )</b> Find customers who spent less than or equal to
+                        $5,000 or joined on or before January 1, 2020.</p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> customer_id, first_name, total_purchases, join_date <br>
+                    <span class="orclkey"> FROM </span>  customers   <br>
+                    <span class="orclkey"> WHERE </span> total_purchases <= 5000 <span class="orclkey"> OR  </span>
+                    join_date >= TO_DATE( <span class="orclg">'2020-01-01', 'YYYY-MM-DD' </span>)<b> ; </b>          
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 6:- </b> Retrieve orders where the delivery time was 7 days or fewer.
+                        years.</p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> order_id, delivery_days  <br>
+                    <span class="orclkey"> FROM </span>  orders   <br>
+                    <span class="orclkey"> WHERE </span> delivery_days <= 7 <b> ; </b>          
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 7:- ( With JOINs )</b> Retrieve orders where the ordered quantity is less than or
+                        equal to the maximum stock level of the products. </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.product_id, o.quantity, p.max_stock <br>
+                    <span class="orclkey"> FROM </span>  orders o   <br>
+                    <span class="orclkey"> JOIN </span> products p <span class="orclkey"> ON  </span> o.product_id = p.product_id <br>
+                    <span class="orclfun"> WHERE  </span> o.quantity <= p.max_stock <b> ; </b>            
+                        </code>
+                    </div><br>
+                    <p><b>Scenario 8:- ( With Aggregate Functions )</b> Get departments where the average salary is less
+                        than or equal to 75,000.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> department_id, <span class="orclfun"> AVG  </span>(salary) <span class="orclkey"> AS </span> average_salary<br>
+                    <span class="orclkey"> FROM </span>  employees   <br>
+                    <span class="orclkey"> GROUP BY </span> department_id  <br>
+                    <span class="orclfun"> HAVING   </span> <span class="orclfun"> AVG  </span>(salary) <= 75000 <b> ; </b>            
+                        </code>
+                    </div><br>
+
+                    <p><b>Scenario 9:- ( Using CASE )</b> Categorize customers based on whether their total purchases
+                        are below or equal to 10,000.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                    <span class="orclkey">SELECT  </span> customer_id, first_name, total_purchases,<br> 
+                    <ul>
+                        <span class="orclkey">CASE  </span>
+                        <ul>
+                            <span class="orclkey">WHEN  </span> total_purchases  <= 10000 <span class="orclkey"> THEN  </span> <span class="orclg">'Low Spender'  </span><br>
+                            <span class="orclkey">ELSE  </span> <span class="orclg">'High Spender'  </span>
+                        </ul>
+                        <span class="orclkey">END AS  </span> spending_category
+                    </ul>
+                    
+                    <span class="orclkey"> FROM </span>  customers  <b> ; </b>            
+                        </code>
+                    </div><br>
+                    <h2>Limitations</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Limitation</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>NULL Comparisons</b></td>
+                                <td>If any operand is NULL, the result is NULL.</td>
+                            </tr>
+                            <tr>
+                                <td><b>Index Optimization</b></td>
+                                <td>Indexes might not be utilized if columns are wrapped in functions or expressions.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Case Sensitivity for Strings</b></td>
+                                <td>String comparisons are case-sensitive unless normalized using UPPER() or LOWER().
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+                    <h2>Common Errors</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Error</th>
+                                <th>Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>NULL Comparison</b></td>
+                                <td>Comparing a NULL value using <= results in NULL.</td>
+                                <td>Use IS NOT NULL to handle NULL values.</td>
+                            </tr>
+                            <tr>
+                                <td><b>Date Format Issues</b></td>
+                                <td>Comparing dates without proper conversion.</td>
+                                <td>Use TO_DATE for consistent date comparisons.</td>
+                            </tr>
+                            <tr>
+                                <td><b>Data Type Mismatch</b></td>
+                                <td>Comparing incompatible types (e.g., string and number).</td>
+                                <td>Ensure both operands have matching data types.</td>
+                            </tr>
+
+                        </tbody>
+                    </table><br>
+                    <h2>Do's and Don'ts of <= Operator</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Do's</th>
+                                        <th>Don'ts</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Use <= for numeric, string, or date comparisons where an upper limit is
+                                                required.</td>
+                                        <td>Don’t use <= with NULL without handling NULL values explicitly.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Use <= in conjunction with logical operators like AND, OR, and
+                                                subqueries.</td>
+                                        <td>Don’t assume case-insensitivity in string comparisons; handle case
+                                            explicitly.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ensure both operands have compatible data types for comparison.</td>
+                                        <td>Avoid applying functions to columns in the <= condition, as it can bypass
+                                                indexes.</td>
+                                    </tr>
+                                </tbody>
+                            </table><br>
+                            <h2>Best Practices for <= Operator</h2>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Practice</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Explicit NULL Handling</b></td>
+                                                <td>Use NVL() or COALESCE() to replace NULL with default values.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>String Normalization</b></td>
+                                                <td>Use UPPER() or LOWER() for consistent case in string comparisons.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Leverage Indexing</b></td>
+                                                <td>Ensure columns used in <= conditions are indexed for better
+                                                        performance.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Avoid Functions on Columns</b></td>
+                                                <td>Avoid applying functions directly to columns in the condition to
+                                                    ensure indexes are utilized.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Combine with Subqueries</b></td>
+                                                <td>Use <= in subqueries to dynamically define upper bounds for
+                                                        filtering.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table><br><br>
+
+
+
+                                    <div class="topic-buttons">
+                                        <a href="orclsql_case.html?topic=sqlCase" class="previou-button">&laquo;
+                                            Pevious</a>
+                                        <a href="orclsql_comparisonoperators.html?topic=sqlComparisonOperators"
+                                            class="next-button">Next
+                                            &raquo;</a>
+                                    </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUK_Site_porject/KUK_abad_prod/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

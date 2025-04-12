@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUK Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        /* Course Full screen Navigation START from hear  */
+        /* The Overlay (background) */
+        .overlay {
+            /* Height & width depends on how you want to reveal the overlay (see JS below) */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            background-color: rgb(0, 0, 0);
+            /* Black fallback color */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Black w/opacity */
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        }
+
+        /* Position the content inside the overlay */
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            /* 25% from the top */
+            width: 100%;
+            /* 100% width */
+            text-align: center;
+            /* Centered text/links */
+            margin-top: 30px;
+            /* 30px top margin to avoid conflict with the close button on smaller screens */
+        }
+
+        /* The navigation links inside the overlay */
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            /* Display block instead of inline */
+            transition: 0.3s;
+            /* Transition effects on hover (color) */
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        /* Position the close button (top right corner) */
+        .coursesoverlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+
+        /* Course FUll screen Navigation END hear */
+
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #7fb9cf; /* Sky blue background 
+            scroll-behavior: smooth; /* Smooth scrolling 
+        }  Commented on 8th Nov 2024 */
+        /* Set the entire page background */
+        body {
+            background-image: url('./Site_Images/KUKSolutions_bkrd.png');
+            background-size: auto;
+            /* Ensures the image covers the entire background */
+            background-position: center;
+            /* Centers the image */
+            background-repeat: no-repeat;
+            /* Prevents the image from repeating */
+
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: hsl(244, 88%, 10%);
+            /* Royal blue */
+            color: #fff;
+            padding: 1em 20px;
+            /* Padding on sides to avoid edge overflow */
+            text-align: left;
+            /* Aligns content to the left */
+            position: fixed;
+            /* To position buttons */
+            box-shadow: 0 2px 10px #00000033;
+            /* Shadow effect */
+            border-radius: 20px;
+            /* overflow: hidden;  */
+            /* margin-bottom: 500px; */
+        }
+
+        .kuk-solutions {
+            color: hsl(200, 50%, 98%);
+            font-size: 2em;
+            letter-spacing: 2px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            /* Add transitions for shadow, border, and font weight */
+            border: 2px solid transparent;
+            /* Initial border */
+            padding: 5px;
+            /* Padding for visual effect */
+            border-radius: 15px;
+            /* Rounded corners for the border */
+
+            display: inline-block;
+            /* Ensures border and padding only affect the text */
+        }
+
+        .kuk-solutions:hover {
+            transform: scale(1.05);
+            /* Scale on hover */
+            box-shadow: 0 0 15px hsl(56, 96%, 48%);
+            /* Violet shadow */
+            font-style: italic;
+            /* Italic on hover */
+            border: 2px solid blue;
+            /* Blue border on hover */
+            font-weight: bold;
+            /* Bold on hover */
+            background-color: #3f3385;
+        }
+
+
+        header nav {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        header nav a {
+            color: hsl(240, 60%, 51%);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Sign Up and Log In button styling */
+        .auth-button {
+            position: absolute;
+            top: 20px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            /* Makes it pill-shaped */
+            font-size: 0.9em;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sign-in {
+            right: 120px;
+            /* Position Log In button */
+            background-color: rgb(90, 90, 168);
+            /* Navy color */
+            color: white;
+        }
+
+        .sign-in:hover {
+            background-color: #4b8683;
+            /* Darker shade on hover */
+            transform: scale(1.05);
+            /* Scale on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* Shadow on hover */
+        }
+
+        .sign-up {
+            right: 20px;
+            /* Position Sign Up button */
+            background-color: #32CD32;
+            /* Lime green color */
+            color: white;
+        }
+
+        .sign-up:hover {
+            background-color: #228B22;
+            /* Darker shade on hover */
+            transform: scale(1.05);
+            /* Scale on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* Shadow on hover */
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: linear-gradient(to bottom right, #FFFFF0, #E6E6FA);
+            /* Gradient background */
+            border-radius: 8px;
+            opacity: 0;
+            /* Initial opacity for fade-in effect */
+            transform: translateY(20px);
+            /* Initial translate for zoom effect */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            /* Transition for fade and zoom */
+        }
+
+        section.visible {
+            opacity: 1;
+            /* Set opacity to fully visible */
+            transform: translateY(0);
+            /* Reset translate */
+        }
+
+        h2 {
+            color: #333;
+            transition: color 0.3s;
+            /* Transition for color change */
+        }
+
+        h2:hover {
+            color: #4169E1;
+            /* Change color on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-color: #4169E1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Sign Up Button */
+        .sign-up-btn {
+            padding: 10px 20px;
+            background-color: #4169E1;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        /* The Pop-Up Form - hidden by default */
+        .form-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid hsl(86, 94%, 45%);
+            z-index: 9;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(2, 41, 126, 0.2);
+        }
+
+        /* Form container styling */
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="tel"],
+        .form-container select {
+            width: 100%;
+            padding: 5px;
+            margin: 8px 0;
+            border-color: hsl(303, 84%, 48%);
+            border: 1px solid hsl(308, 74%, 44%);
+            border-radius: 4px;
+        }
+
+        /* Submit and Close buttons */
+        .form-container .btn {
+            background-color: #4169E1;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .form-container .btn.cancel {
+            background-color: hsl(0, 93%, 27%);
+            margin-top: 5px;
+        }
+
+        .form-container .btn.cancel:hover {
+            font-style: italic;
+            /* Italic on hover */
+            /*border: 0.5px solid blue; /* Blue border on hover */
+            font-weight: bold;
+            /* Bold on hover */
+            outline: #333;
+            background-color: rgb(180, 77, 8);
+        }
+
+        /* Pop-Up Form - Adjusted width and layout */
+        .form-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 8px;
+            width: 400px;
+            /* Adjust width to make it wider */
+            max-width: 90%;
+            /* Ensures the form fits smaller screens */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form container styling for input fields */
+        .form-container label {
+            font-weight: bold;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="tel"],
+        .form-container select {
+            width: 100%;
+            padding: 2px;
+            margin-bottom: 10px;
+            border: 1px solid hwb(197 2% 11%);
+            border-radius: 3px;
+            font-size: 1rem;
+        }
+
+        /* Adjusted Button Styling */
+        .form-container .btn {
+            background-color: #4169E1;
+            /* Primary button color */
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 40%;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .form-container .btn.cancel {
+            background-color: #777;
+            /* Cancel button color */
+            margin-top: 5px;
+            width: 40%;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        /* About Section Container */
+        .about-section {
+            display: flex;
+            background-color: #f8f8ff;
+            /* Light background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Black shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 800px;
+            margin-left: 120px;
+            margin-bottom: 20px;
+        }
+
+        .about-section:hover {
+            transform: scale(1.02);
+            /* Slight zoom on hover */
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            /* Enhanced shadow on hover */
+        }
+
+
+        /* Image Styling */
+        .about-image {
+            width: 200px;
+            /* Adjust size as needed */
+            height: 200px;
+            /* Ensure a square aspect ratio */
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* Shadow around the image */
+            margin-right: 20px;
+            /* Space between image and text */
+            transition: box-shadow 0.3s ease;
+            object-fit: cover;
+            /* Ensures image covers circle shape */
+        }
+
+        /* Text Styling */
+        /*.about-text h3 {
+            font-family: 'Georgia', serif; /* Choose a stylish font 
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .about-text p {
+            font-family: 'Arial', sans-serif; /* Readable font for paragraphs 
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+        */
+        /* About Us Heading with 3D Shadow */
+        .about-heading {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            color: #333;
+            /* margin-left: 20px; */
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            /* Align to the left */
+            margin-bottom: 70px;
+        }
+
+
+        .about-image:hover {
+            transform: scale(1.05);
+            /* Slight zoom on hover */
+        }
+
+        /* About Text Styling */
+        .about-text h3 {
+            font-family: 'Lora', serif;
+            /* Stylish serif font */
+            font-size: 1.8em;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .about-text p {
+            font-family: 'Open Sans', sans-serif;
+            /* Clean sans-serif for readability */
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .about-text {
+            max-width: 600px;
+        }
+
+        .about-text h3 {
+            margin-bottom: 10px;
+            color: #4169E1;
+        }
+
+        .about-text p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .about-text ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .about-section:nth-child(2n) .about-image {
+            order: 2;
+            /* Image on right for even sections */
+            margin-right: 0;
+            margin-left: 50px;
+
+        }
+
+        .about-section:nth-child(3n) {
+            justify-content: center;
+            /* Center alignment for every third section */
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                margin: 0 0 20px 0;
+            }
+
+        }
+
+
+        /* General Section Styling */
+        .section h2 {
+            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Services List Styling */
+        .services-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            background-color: #87CEEB;
+            grid-template-columns: repeat(3, 1fr);
+            /* Three-column layout */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* Shadow around the Service List */
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .services-list li {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            /* 3D shadow effect */
+            padding: 20px;
+            width: 80%;
+            box-shadow: 0 4px 10px rgba(207, 6, 6, 0.2);
+            /* Shadow around the Service List */
+            max-width: 600px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+
+        .services-list li:hover {
+            transform: translateY(-5px);
+            /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Service Title Styling */
+        .services-list li strong {
+            font-size: 1.1rem;
+            color: #1a73e8;
+            /* Stylish blue color */
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .services-list li p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Slider code START here */
+
+        /* Code is there at D:\KUK_Site_porject\Slider_Code */
+        /* Slider code END here */
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <a href="#signup" class="auth-button sign-up" onclick="openForm(); return false;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in">Log In</a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <!-- <a href="#courses">Courses</a> -->
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <!-- <a href="Courses" onclick="openNav()"> Courses</a>
+        <span onclick="openNav()">Courses</span> -->
+            <a href="#interview-prep">Interview Prep</a>
+            <a href="#blog">Blog/Articles</a>
+            <a href="#community">Community</a>
+            <a href="#resources">Resources</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#Our services">Our Services</a>
+            <a href="#contact">Contact Us</a>
+
+
+        </nav>
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">SQL</a>
+            <a href="#">Power BI</a>
+            <a href="#">Unix</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">CSS</a>
+            <a href="#">Java</a>
+        </div>
+    </div>
+
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="form-popup">
+        <form class="form-container">
+            <h2>Sign Up</h2>
+
+            <label for="email">Email</label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <label for="psw">Password</label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <label for="designation">Designation</label>
+            <input type="text" placeholder="Enter Designation" name="designation" required>
+
+            <label for="company">Company/College</label>
+            <input type="text" placeholder="Enter Company or College" name="company" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+
+            <label for="user-type">User Type</label>
+            <select name="user-type" required>
+                <option value="fresher">Fresher</option>
+                <option value="professional">Professional</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+
+            <button type="submit" class="btn">Sign Up</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <!-- <section id="home" class="section">
+        <h2>Welcome to KUK Solutions</h2>
+        <p>Your one-stop solution for all things technology – from SQL and Power BI to Salesforce, HTML, and CSS.</p>
+    </section> -->
+    <!-- Slider code START here -->
+    <!-- Code is there at D:\KUK_Site_porject\Slider_Code -->
+    <!-- Slider code END here -->
+
+    <h2 class="about-heading">About Us </h2>
+    <!-- Vision and Mission -->
+    <div class="about-section">
+        <img src="Site_Images/Placeholder_welcoming scene.webp" alt="Our Vision and Mission" class="about-image">
+        <div class="about-text">
+            <h3>Our Vision and Mission</h3>
+            <p>At <strong>KUK Solutions</strong>, our mission is to make technology learning accessible and
+                comprehensive for everyone—from freshers to experienced professionals. We aim to bridge the skills gap
+                in the tech industry by offering detailed, hands-on learning experiences that equip learners with the
+                knowledge they need to succeed in real-world applications.</p>
+        </div>
+    </div>
+
+
+    <!-- <p>KUK Solutions specializes in helping businesses leverage cutting-edge technologies. Our team provides expert support in SQL, Power BI, Salesforce, and more.</p> -->
+
+    <!-- Why Choose KUK Solutions -->
+    <div class="about-section">
+        <img src="Site_Images/WhyChooseKUK.JPG" alt="Why Choose KUK Solutions" class="about-image">
+        <div class="about-text">
+            <h3>Why Choose KUK Solutions?</h3>
+            <ul>
+                <li><strong>Comprehensive Learning Pathways</strong>: Our courses cover everything from the basics to
+                    advanced levels.</li>
+                <li><strong>In-Depth Coverage of Concepts</strong>: Detailed explanations for each topic, covering
+                    theoretical and practical aspects.</li>
+                <li><strong>Real-World Relevance</strong>: Reflecting current trends and best practices in the industry.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Interview Preparation Resources -->
+    <div class="about-section">
+        <img src="Site_Images/PrepareForInterview.JPG" alt="Interview Preparation" class="about-image">
+        <div class="about-text">
+            <h3>Interview Preparation Resources</h3>
+            <p>Each course includes interview questions, tips, and mock interview sessions with our mentors to simulate
+                the interview experience.</p>
+        </div>
+    </div>
+    <!-- Hands-On Projects and Real-Life Applications -->
+    <div class="about-section">
+        <img src="placeholder.jpg" alt="Hands-On Projects" class="about-image">
+        <div class="about-text">
+            <h3>Hands-On Projects and Real-Life Applications</h3>
+            <p>Engage in real-life projects throughout your course, building your portfolio with practical examples that
+                showcase your skills.</p>
+        </div>
+    </div>
+    </section>
+
+
+
+
+    <section id="courses" class="section">
+        <h2>Courses</h2>
+        <p>Explore our technology courses, designed for all skill levels from freshers to experts.</p>
+    </section>
+
+    <section id="interview-prep" class="section">
+        <h2>Interview Prep</h2>
+        <p>Access interview questions, tips, and resources to help you succeed in tech interviews.</p>
+    </section>
+    <!--
+    <section id="blog" class="section">
+        <h2>Blog/Articles</h2>
+        <p>Read in-depth articles, tutorials, and tech insights to keep you updated.</p>
+    </section>
+    
+    <section id="community" class="section">
+        <h2>Community</h2>
+        <p>Join our forums and engage with other learners and experts.</p>
+    </section>
+    -->
+    <section id="resources" class="section">
+        <h2>Resources</h2>
+        <p>Find study guides, reference links, and downloadable materials to support your learning.</p>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <p>Get hands-on experience with project ideas and templates for different skill levels.</p>
+    </section>
+    <!--
+    <section id="certifications" class="section">
+        <h2>Certifications</h2>
+        <p>Learn about industry-recognized certifications to enhance your skills and career.</p>
+    </section>
+    */ 
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Have questions? Get in touch with us for support or feedback.</p>
+    </section>
+    -->
+    <section id="Our services" class="section">
+        <h2>Our Services</h2>
+        <ul class="services-list">
+            <li><strong>Website Design & Development</strong> - Crafting responsive, user-centric websites using HTML,
+                CSS, and modern frameworks.</li>
+            <li><strong>Application Development</strong> - Custom software solutions for both desktop and mobile
+                applications tailored to your needs.</li>
+            <li><strong>Database Design & Modeling</strong> - Designing efficient, scalable databases to organize and
+                manage your data effectively.</li>
+            <li><strong>SQL Development & Optimization</strong> - SQL query development, performance tuning, and
+                database management.</li>
+            <li><strong>Power BI Dashboards & Data Visualization</strong> - Creating interactive, insightful Power BI
+                dashboards for data-driven decision-making.</li>
+            <li><strong>Salesforce Customization</strong> - Tailoring Salesforce solutions to optimize workflows and
+                improve CRM efficiency.</li>
+            <li><strong>Unix Commands & Scripting</strong> - Unix command-line expertise, including automation via shell
+                scripting.</li>
+            <li><strong>Shell Script Development</strong> - Building efficient shell scripts for automated processes and
+                task management.</li>
+            <li><strong>Technology Consultancy</strong> - Expert guidance on technology strategy, tool selection, and
+                implementation plans.</li>
+            <li><strong>Business Intelligence Solutions</strong> - Designing and implementing BI strategies to
+                streamline reporting and analytics.</li>
+            <li><strong>Data Migration & Integration</strong> - Seamless data migration and integration across platforms
+                and databases.</li>
+        </ul>
+    </section>
+
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 KUK Solutions. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Function to open the form
+        function openForm() {
+            document.getElementById("signUpForm").style.display = "block";
+        }
+
+        // Function to close the form
+        function closeForm() {
+            document.getElementById("signUpForm").style.display = "none";
+        }
+
+        // JavaScript to handle form submission and validation (optional)
+        document.querySelector("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for contacting KUK Solutions! We'll get back to you soon.");
+        });
+
+        // JavaScript for section visibility effect
+        const sections = document.querySelectorAll('.section');
+        const options = {
+            threshold: 0.1 // Adjust as needed
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // START of Courses Full page Navigation
+
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+
+        // /* Open when someone clicks on the Courses element */
+        //         function openNav() {
+        //         document.getElementById("CoursersNav").style.width = "100%";
+        //         }
+
+        //         /* Close when someone clicks on the "x" symbol inside the overlay */
+        //         function closeNav() {
+        //         document.getElementById("CoursersNav").style.width = "0%";
+        //         }
+        // END of Courses Full page Navigation
+        // Slider code START here
+        // Code is there at D:\KUK_Site_porject\Slider_Code
+        // Slider code END here
+    </script>
+</body>
+
+</html>

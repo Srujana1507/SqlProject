@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUKDB/KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="/KUKDB/Oracle/orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlSelectTable" id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectdistinct.html" id="sqlSelectDistinct">Select Distinct</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_logicaloperators.html" id="sqlLogicalOperators">Logical
+                            Operators</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_between.html" id="sqlBetween">Between</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUKDB/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUKDB/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html" id="sqlCompOperators">Comparison
+                            Operators</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual" id="sqlEqual">Equal =
+                        </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual" id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_leftouterjoin.html" id="sqlLeftJoin">Left
+                            Outer Join</a>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_fullouterjoin.html" id="sqlFullOuterJoin">Full Outer Join</a>
+                    </li>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_crossjoin.html" id="sqlCrossJoin">Cross
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selfjoin.html" id="sqlSelfJoin">Self
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_naturaljoin.html" id="sqlNaturalJoin">Natural Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_equijoin.html" id="sqlEquiJoin">Equi
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_nonequijoin.html" id="sqlNonEquiJoin">Non-Equi Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html" id="sqlNumaricFunctions">Numeric
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign" id="sqlAbsSign">Abs(x),
+                            Sign</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlCeil" id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlExp" id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlMod" id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt" id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc" id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAsin" id="sqlAsinAcos">ASIN(n),
+                            ACOS(n) </a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">SINH(n), COSH(n),
+                            TANH(n)</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">ATAN(n),
+                            ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUKDB/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUKDB/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg" id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax" id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin" id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum" id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html" id="sqlstringfunctions">String
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlAscii" id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlChar" id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlconcat" id="sqlconcat">CONCAT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlInstr" id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLength" id="sqlLength">Length</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLpadRpad" id="sqlLpadRpad">Lpad,
+                            Rpad</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlTrim" id="sqlTrim">Trim, RTrim,
+                            LTrim</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlSubstr" id="sqlSubstr">SUBSTR</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlVSIZE" id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated
+                            Sub Queries</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timestampfunctions.html" id="sqlTimestampFunctions">Timestamp
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timeintervalfunctions.html" id="sqlTimeIntervalFunctions">Time
+                            Interval Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timezonefunctions.html" id="sqlTimeZoneFunctions">Time Zone
+                            Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_truncate.html" id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_returning.html" id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_primarykey.html" id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_foreginkey.html" id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_default.html" id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a>
+                    </li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html" id="sqlRankingFunctions">Ranking Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownum" id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRank" id="sqlRank">RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlNtile" id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html" id="sqlGroupFunctions">Group By Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlCube" id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlRollup" id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGrouping" id="sqlGrouping">GROUPING</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupId" id="sqlGroupId">GROUP_ID</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+
+
+                    <li><a href="/KUKDB/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insertinto_select.html" id="sqlInsertintoselect">Insert into
+                            Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+        <main class="sidebar-content" data-topic="sqlCase">
+
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+            <br>
+
+            <h1>Arithmetic Operators in Oracle SQL </h1>
+
+            <p><b>Arithmetic operations</b> are mathematical computations that manipulate numeric values in SQL queries.
+            </p><br>
+            <p>These operations are performed on numerical columns, constants, or expressions to derive meaningful
+                insights.</p><br>
+            <p>These operators can be used in SELECT queries, WHERE conditions, GROUP BY, ORDER BY, and expressions.</p>
+            <br>
+            <p>Works with both integer and decimal values.</p>
+            <br>
+            <h2>List of Arithmetic Operators in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>+ (Addition)</b></td>
+                        <td>Adds two numbers.</td>
+                        <td>10+5</td>
+                    </tr>
+                    <tr>
+                        <td><b>- (Subtraction)</b></td>
+                        <td>Subtracts second number from first.</td>
+                        <td>10 - 5</td>
+                    </tr>
+                    <tr>
+                        <td><b>* (Multiplication)</b></td>
+                        <td>Multiplies two numbers.</td>
+                        <td>10 * 5</td>
+                    </tr>
+                    <tr>
+                        <td><b>/ (Division)</b></td>
+                        <td>Divides first number by second.</td>
+                        <td>10 / 2</td>
+                    </tr>
+                    <tr>
+                        <td><b>MOD() (Modulo)</b></td>
+                        <td>Returns the remainder of division.</td>
+                        <td>MOD(10,3)</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Features of Arithmetic Operations in Oracle SQL</h2>
+            <ul>
+                <li><b>Performed on Numeric Data Types -</b> Arithmetic operations can only be executed on numeric data
+                    types (NUMBER, INTEGER, FLOAT, etc.).</li>
+                <li><b>Supports Column, Constants, and Expressions – </b> Operations can be performed on table columns,
+                    constants, and expressions in SQL queries.</li>
+                <li><b>Works with Functions –</b> Can be used with aggregate functions like SUM(), AVG(), etc.</li>
+                <li><b>NULL Handling –</b> If any operand in an arithmetic operation is NULL, the result will also be
+                    NULL.</li>
+                <li><b>Supports Order of Operations –</b> Follows standard mathematical precedence rules
+                    (BODMAS/PEMDAS).</li>
+            </ul>
+            <br>
+            <h2>Common Errors with Arithmetic Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01722: invalid number</td>
+                        <td>Using arithmetic operations on non-numeric columns.</td>
+                        <td>Ensure the column contains only numeric values.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01476: divisor is equal to zero</td>
+                        <td>Dividing by zero in a calculation.</td>
+                        <td>Use CASE WHEN column != 0 THEN column1 / column2 END.</td>
+                    </tr>
+                    <td>NULL result</td>
+                    <td>Performing arithmetic on a NULL value.</td>
+                    <td>Use NVL(column, 0) to replace NULLs.</td>
+                </tbody>
+            </table> <br>
+            <h2>Limitations of Arithmetic Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Workaround</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Division by Zero Error</b></td>
+                        <td>Division by zero causes an error in Oracle SQL.</td>
+                        <td>10 / 0 causes an error→ ORA-01476: divisor is equal to zero</td>
+                        <td>Use CASE or NULLIF() to avoid division by zero:
+                            SELECT 10 / NULLIF(0, 0) FROM dual;</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Values Impact</b></td>
+                        <td>Any arithmetic operation involving NULL results in NULL.</td>
+                        <td>SELECT 10 + NULL FROM dual; → Result: NULL</td>
+                        <td>Use NVL() to replace NULL with a default value:
+                            SELECT 10 + NVL(NULL, 0) FROM dual;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Implicit Data Type Conversion</b></td>
+                        <td>Arithmetic operations on non-numeric values may cause conversion errors.</td>
+                        <td>SELECT 'ABC' + 10 FROM dual; → ORA-01722: invalid number</td>
+                        <td>Ensure the column is numeric before performing calculations.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Precision Loss in Division</b></td>
+                        <td>Integer division may lead to precision loss if not handled correctly.</td>
+                        <td>SELECT 10 / 3 FROM dual; → Result: 3 (instead of 3.3333)</td>
+                        <td>Use CAST() to ensure decimal precision:
+                            SELECT CAST(10 AS NUMBER(10,2)) / 3 FROM dual;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Operator Precedence Issues</b></td>
+                        <td>Wrong precedence can lead to unexpected results.</td>
+                        <td>SELECT 10 + 5 * 2 FROM dual; → Result: 20 (instead of 30)</td>
+                        <td>Use parentheses () to enforce correct evaluation:
+                            SELECT (10 + 5) * 2 FROM dual;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Overhead</b></td>
+                        <td>Using arithmetic operations on indexed columns can degrade performance.</td>
+                        <td>SELECT * FROM employees WHERE salary * 1.1 > 50000;</td>
+                        <td>Perform calculations outside conditions or use computed columns.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts of Arithmetic Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Do's</td>
+                        <td>Don'ts</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use NVL(column, 0) to handle NULL values.</td>
+                        <td>Don’t divide by zero—handle it using CASE or NULLIF().</td>
+                    </tr>
+                    <tr>
+                        <td>Use parentheses () to control order of execution.</td>
+                        <td>Don’t use arithmetic operators on non-numeric columns.</td>
+                    </tr>
+                    <tr>
+                        <td>Use MOD() for remainder calculations.</td>
+                        <td>Don’t assume division will always return an integer—handle decimals properly.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+
+            <h1>+ Operator in Oracle SQL</h1>
+            <ul>
+                <li>The + operator is a basic arithmetic operator in Oracle SQL used to add two numeric values together.
+                </li>
+                <li>It is commonly used in queries to compute totals, sums, or combined values in SELECT statements, or
+                    within expressions in the SELECT, WHERE, or HAVING clauses.</li>
+            </ul><br>
+            <h2>Purpose of + Addition Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Perform Addition</td>
+                        <td>Adds two numeric values, either from columns, literals (constants), or expressions.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine Numeric Data</td>
+                        <td>Useful for computing total amounts, combining salaries and bonuses, or adding quantities and
+                            adjustments.</td>
+                    </tr>
+                    <tr>
+                        <td>Support in Expressions</td>
+                        <td>Works seamlessly with numeric functions, CASE expressions, and subqueries.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1 + column2   
+                    <span class="orclkey"> AS  </span> result <br>
+                    <span class="orclkey"> FROM </span>  table_name
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Key Features</h2>
+            <ul>
+                <li>Works only with numeric data types (NUMBER, INTEGER, FLOAT, etc.).</li>
+                <li>Returns NULL if either operand is NULL (unless handled using NVL() or COALESCE()).</li>
+                <li>Supports addition of column values, literals, and expressions.</li>
+                <li>Standard arithmetic precedence applies when combined with other operators.</li>
+            </ul><br>
+            <h2> Examples </h2>
+            <p><b>Scenario 1:- </b> Calculate the total salary of employees, including their bonuses.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary, bonus, salary + bonus   
+                    <span class="orclkey"> AS  </span> total_salary <br>
+                    <span class="orclkey"> FROM </span>  employees
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Add 1000 to each employee’s salary.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, salary + 1000
+                    <span class="orclkey"> AS  </span> increased_salary <br>
+                    <span class="orclkey"> FROM </span>  employees
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Find the discount amount applied on each product.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name, price, discount, price - discount
+                    <span class="orclkey"> AS  </span> final_price <br>
+                    <span class="orclkey"> FROM </span>  products
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Calculate total price after adding a fixed service fee.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, product_id, total_price, total_price + 50
+                    <span class="orclkey"> AS  </span> price_with_service_fee <br>
+                    <span class="orclkey"> FROM </span>  orders
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Calculate annual compensation including bonus.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, (salary * 12) + bonus
+                    <span class="orclkey"> AS  </span> annual_compensation  <br>
+                    <span class="orclkey"> FROM </span>  employees
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Combine results from two different subqueries — calculate overall inventory (from
+                two warehouses).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p.product_id, 
+                    <br>( <span class="orclkey">SELECT  </span> <span class="orclfun"> SUM </span> (quantity)  <span class="orclkey"> FROM </span>
+                    warehouse_a  <span class="orclkey"> WHERE  </span> product_id = p.product_id) +  <br>
+                    (<span class="orclkey">SELECT  </span> <span class="orclfun"> SUM </span> (quantity)  <span class="orclkey"> FROM </span>
+                    warehouse_b  <span class="orclkey"> WHERE  </span> product_id = p.product_id)
+                    <span class="orclkey"> AS  </span> total_inventory <br>
+                    <span class="orclkey"> FROM </span>  products p
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- ( Handling NULL Values )</b> Safely compute salary + bonus even if bonus is NULL.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary, <br>
+                     <span class="orclfun"> NVL </span> (bonus, 0), salary +  <span class="orclfun"> NVL </span> (bonus, 0)
+                     <span class="orclkey"> AS  </span> total_compensation <br>
+                    <span class="orclkey"> FROM </span>  employees           
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <p><b>Scenario 8:- ( CASE Expressions )</b> Add extra bonus for employees based on their department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, bonus, <br>
+                    <ul>
+                        salary + bonus + <br>
+                        <span class="orclkey"> CASE  </span> 
+                        <ul>
+                            <span class="orclkey"> WHERE  </span> department = <span class="orclg"> 'SALES'  </span> <span class="orclkey"> THEN  </span> 1000 <br>
+                            <span class="orclkey"> WHERE  </span> department = <span class="orclg"> 'IT'  </span> <span class="orclkey"> THEN  </span> 500 <br>
+                            <span class="orclkey"> ELSE  </span> 0
+                        </ul>
+                        <span class="orclkey"> END AS  </span> total_salary_with_bonus
+                    </ul>
+                    <span class="orclkey"> FROM </span>  employees           
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <h2>Limitations of + Addition Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NULL Propagation</td>
+                        <td>If any operand is NULL, the result will be NULL.</td>
+                    </tr>
+                    <tr>
+                        <td>Data Type Restrictions</td>
+                        <td>Only works on numeric columns; applying on non-numeric columns causes errors.</td>
+                    </tr>
+                    <tr>
+                        <td>Type Conversion Issues</td>
+                        <td>Implicit conversion from VARCHAR to NUMBER can fail if the data is not numeric.</td>
+                    </tr>
+                    <tr>
+                        <td>Overflows</td>
+                        <td>Adding very large numbers can lead to overflow errors if the column data type has restricted
+                            precision.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Common Errors in + Addition Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722</b></td>
+                        <td>Invalid number when trying to add numeric and non-numeric values.</td>
+                        <td>Ensure both operands are numeric.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01476</b></td>
+                        <td>Division by zero when division is part of a combined expression.</td>
+                        <td>Validate denominator in expressions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01438</b></td>
+                        <td>Value larger than precision allowed for the column.</td>
+                        <td>Use larger numeric data types (NUMBER(p,s)).</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do’s and Don’ts for + Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <th>Do's</th>
+                    <th>Don'ts</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use with numeric columns or constants only.</td>
+                        <td>Don’t apply directly to non-numeric columns like VARCHAR.</td>
+                    </tr>
+                    <tr>
+                        <td>Handle NULL using NVL() or COALESCE().</td>
+                        <td>Don’t assume NULL is treated as zero — it’s not.</td>
+                    </tr>
+                    <tr>
+                        <td>Use in combination with CASE for conditional addition.</td>
+                        <td>Don’t rely on implicit type conversion from VARCHAR to NUMBER.</td>
+                    </tr>
+                    <tr>
+                        <td>Consider data type precision in addition-heavy calculations.</td>
+                        <td>Don’t apply addition in indexed columns within WHERE clause (impacts performance).</td>
+                    </tr>
+                    <tr>
+                        <td>Use parentheses to enforce precedence if combining with other operators.</td>
+                        <td>Don’t write complex expressions without proper clarity (use comments or split logic).</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h1>- Operator in Oracle SQL</h1>
+            <ul>
+                <li>The - operator is a basic arithmetic operator in Oracle SQL used to subtract one numeric value from
+                    another.
+                </li>
+                <li>It is used to calculate differences between columns, literals, or expressions.</li>
+            </ul><br>
+            <h2>Purpose of + Addition Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Perform Subtraction</td>
+                        <td>Subtracts the right operand from the left operand.</td>
+                    </tr>
+                    <tr>
+                        <td>Calculate Differences</td>
+                        <td>Useful in financial reports, inventory adjustments, and date calculations.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine with Expressions</td>
+                        <td>Works well with numeric functions and analytical calculations.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1 - column2   
+                    <span class="orclkey"> AS  </span> result <br>
+                    <span class="orclkey"> FROM </span>  table_name
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Key Features</h2>
+            <ul>
+                <li>Operates on numeric data types (NUMBER, FLOAT, INTEGER).</li>
+                <li>Returns NULL if any operand is NULL, unless handled by NVL() or COALESCE().</li>
+                <li>Used in SELECT, WHERE, HAVING, ORDER BY, and GROUP BY clauses.</li>
+                <li>Can also work with dates, returning the difference in days.</li>
+            </ul><br>
+            <h2> Examples </h2>
+            <p><b>Scenario 1:- </b> Calculate net profit after subtracting expenses from revenue.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> revenue, expenses, revenue - expenses  
+                    <span class="orclkey"> AS  </span> net_profit <br>
+                    <span class="orclkey"> FROM </span>  financials
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Calculate discount amount by subtracting the discounted price from the regular
+                price.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, price, <br> price - 100
+                    <span class="orclkey"> AS  </span> discounted_price <br>
+                    <span class="orclkey"> FROM </span>  products
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Find how many days have passed since the order date.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, order_date, <br> SYSDATE - order_date
+                    <span class="orclkey"> AS  </span> days_since_order <br>
+                    <span class="orclkey"> FROM </span>  orders
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Calculate net monthly income after tax deduction (20% of salary) and standard
+                deductions.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, <br>
+                    salary - (salary * 0.20) - 500 
+                    <span class="orclkey"> AS  </span> net_income <br>
+                    <span class="orclkey"> FROM </span>  employees
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Find the difference between max and min salary within each department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, <br>
+                    <span class="orclfun"> MAX  </span> (salary) - <span class="orclfun"> MIN  </span> (salary)
+                    <span class="orclkey"> AS  </span> salary_difference  <br>
+                    <span class="orclkey"> FROM </span>  employees <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Calculate stock shortage by subtracting available stock from required stock.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p.product_id, 
+                    <br>( <span class="orclkey">SELECT  </span> required_quantity  <span class="orclkey"> FROM </span>
+                    orders o  <span class="orclkey"> WHERE  </span> o.product_id = p.product_id <span class="orclkey"> AND </span> order_id = 1001) -  <br>
+                    (<span class="orclkey">SELECT  </span> <span class="orclfun"> SUM </span> (quantity)  <span class="orclkey"> FROM </span>
+                    warehouse_stock ws  <span class="orclkey"> WHERE  </span> ws.product_id = p.product_id)
+                    <span class="orclkey"> AS  </span> shortage <br>
+                    <span class="orclkey"> FROM </span>  products p  <br>
+                    <span class="orclkey"> WHERE  </span> p.product_id
+                    <span class="orclkey"> IN  </span>( 
+                    <span class="orclkey"> SELECT </span> product_id 
+                    <span class="orclkey"> FROM  </span> orders 
+                    <span class="orclkey"> WHERE  </span> order_id = 1001 )
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 7:- ( CASE Expressions )</b> Deduct penalty from salary for late joiners (joining date after
+                1st day of month).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, <br>
+                    <ul>
+                        salary + bonus + <br>
+                        <span class="orclkey"> CASE  </span> 
+                        <ul>
+                            <span class="orclkey"> WHERE  </span>
+                            <span class="orclfun"> EXTRACT </span>( <span class="orclkey"> DAY FROM  </span>hire_date) > 1 
+                            <span class="orclkey"> THEN  </span> salary - 1000 <br>
+                            <span class="orclkey"> ELSE  </span> salary
+                        </ul>
+                        <span class="orclkey"> END AS  </span> salary_after_penalty
+                    </ul>
+                    <span class="orclkey"> FROM </span>  employees           
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <h2>Limitations of - Subtraction Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NULL Propagation</td>
+                        <td>Any subtraction involving NULL results in NULL.</td>
+                    </tr>
+                    <tr>
+                        <td>Non-Numeric Data</td>
+                        <td>Can’t directly subtract non-numeric columns (e.g., VARCHAR).</td>
+                    </tr>
+                    <tr>
+                        <td>Type Conversion Issues</td>
+                        <td>Implicit conversion might cause errors if non-numeric data is involved.</td>
+                    </tr>
+                    <tr>
+                        <td>Date Arithmetic Specificity</td>
+                        <td>Subtracting dates returns days, not time components (hours, minutes).</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Common Errors in - Subtraction Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722</b></td>
+                        <td>Invalid number error when trying to subtract numeric and non-numeric values.</td>
+                        <td>Ensure both operands are numeric.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01476</b></td>
+                        <td>Division by zero in expressions that use division after subtraction.</td>
+                        <td>Validate divisor before operation.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01438</b></td>
+                        <td>Value larger than column precision after subtraction.</td>
+                        <td>Use larger numeric data types or handle overflow cases.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts for - Subtraction Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use with numeric columns, constants, or date columns.</td>
+                        <td>Don’t use on non-numeric columns directly.</td>
+                    </tr>
+                    <tr>
+                        <td>Handle NULL values using NVL() or COALESCE().</td>
+                        <td>Don’t assume NULL is zero — subtraction with NULL returns NULL.</td>
+                    </tr>
+                    <tr>
+                        <td>Use parentheses for clear precedence when combining with other operations.</td>
+                        <td>Don’t perform unnecessary nested calculations — flatten where possible.</td>
+                    </tr>
+                    <tr>
+                        <td>Use with date columns to calculate day differences.</td>
+                        <td>Don’t rely on - to compute time differences; use INTERVAL for that.</td>
+                    </tr>
+                    <tr>
+                        <td>Use subtraction in CASE to implement conditional adjustments.</td>
+                        <td>Don’t perform subtraction in filter conditions without understanding NULL behavior.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+
+            <h1>* (Multiplication) Operator in Oracle SQL</h1>
+            <ul>
+                <li>The * (Multiplication) operator in Oracle SQL is used to multiply two numeric values, which can be:
+                </li>
+                <ul>
+                    <li>Columns</li>
+                    <li>Constants</li>
+                    <li>Expressions</li>
+                    <li>Results of functions</li>
+                </ul>
+            </ul><br>
+            <h2>Purpose of * Multiplication Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Perform Multiplication</td>
+                        <td>Multiplies two numeric operands.</td>
+                    </tr>
+                    <tr>
+                        <td>Calculations</td>
+                        <td>Used for price calculations, revenue estimations, or financial projections.</td>
+                    </tr>
+                    <tr>
+                        <td>Works with Aggregations</td>
+                        <td>Can be combined with SUM(), AVG(), etc.</td>
+                    </tr>
+                    <tr>
+                        <td>Used in Expressions</td>
+                        <td>Works in SELECT, WHERE, GROUP BY, HAVING, and ORDER BY clauses.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1 * column2   
+                    <span class="orclkey"> AS  </span> result <br>
+                    <span class="orclkey"> FROM </span>  table_name
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Key Features</h2>
+            <ul>
+                <li>Works only with numeric types (NUMBER, FLOAT, etc.).</li>
+                <li>Propagates NULL — if any operand is NULL, result is NULL.</li>
+                <li>Can be used in expressions, comparisons, and joins.</li>
+                <li>Supports arithmetic precedence, so it can be combined with +, -, /.</li>
+            </ul><br>
+            <h2> Examples </h2>
+            <p><b>Scenario 1:- </b> Calculate total cost for each product by multiplying price and quantity.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, quantity, price,  <br> 
+                    quantity * price <span class="orclkey"> AS  </span> total_cost <br>
+                    <span class="orclkey"> FROM </span>  products
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Calculate total salary including a 10% bonus.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, salary, <br>
+                    salary * 1.10 <span class="orclkey"> AS  </span> salary_with_bonus <br>
+                    <span class="orclkey"> FROM </span>  employees
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Calculate fine for delayed orders at $5 per day.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, SYSDATE - delivery_due_date <span class="orclkey"> AS  </span> delay_days,<br>
+                    <ul>
+                        (SYSDATE - delivery_due_date) * 5  <span class="orclkey"> AS  </span> fine_amount
+                    </ul>
+                    <span class="orclkey"> FROM </span>  orders <br>
+                    <span class="orclkey"> WHERE </span> SYSDATE > delivery_due_date
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Calculate department-level projected budget by multiplying average salary with
+                estimated new hires.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, 
+                    <ul>
+                        <span class="orclfun"> AVG  </span> (salary) * ( <span class="orclfun"> COUNT  </span>(employee_id) + 5) 
+                        <span class="orclkey"> AS  </span> projected_budget 
+                    </ul>
+                    <span class="orclkey"> FROM </span>  employees <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Apply different salary multipliers based on department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, department_id, salary, <br>
+                    <ul>
+                       <span class="orclkey"> CASE  </span> 
+                        <ul>
+                            <span class="orclkey"> WHEN  </span> department_id = 10
+                            <span class="orclkey"> THEN  </span> salary * 1.15 <br>
+                            <span class="orclkey"> WHEN  </span> department_id = 20
+                            <span class="orclkey"> THEN  </span> salary * 1.10 <br>
+                            <span class="orclkey"> ELSE  </span> salary * 1.05
+                        </ul>
+                        <span class="orclkey"> END AS  </span> adjusted_salary
+                    </ul>
+                    <span class="orclkey"> FROM </span>  employees           
+                       <b> ; </b>              
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Calculate total cost per order by multiplying order quantity with the product price
+                from the product table.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.product_id, o.quantity, <br> 
+                    o.quantity * ( 
+                    <span class="orclkey">SELECT  </span> p.price  <span class="orclkey"> FROM </span>
+                    products p <span class="orclkey"> WHERE  </span> p.product_id = o.product_id) 
+                    <span class="orclkey"> AS  </span> order_cost 
+                    <span class="orclkey"> FROM  </span> order_details o
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 7:- </b> Rank employees by total sales value (quantity * price) within each department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, department_id, product_id,  <br>
+                    <ul>
+                        quantity * price  <span class="orclkey"> AS  </span> sales_value,<br>
+                        <span class="orclfun"> RANK()  </span> 
+                        <span class="orclkey"> OVER  </span>(
+                            <span class="orclfun"> PARTITION BY </span> department_id <span class="orclkey"> ORDER BY </span> quantity * price 
+                            <span class="orclkey"> DESC  </span>) <span class="orclkey"> AS  </span> sales_rank <br>
+                        </ul>
+                    <span class="orclkey"> FROM </span>  sales           
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <h2>Limitations of * Multiplication Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NULL Propagation</td>
+                        <td>Multiplication with NULL returns NULL.</td>
+                    </tr>
+                    <tr>
+                        <td>Non-Numeric Data</td>
+                        <td>Cannot multiply non-numeric columns directly.</td>
+                    </tr>
+                    <tr>
+                        <td>Overflow Risk</td>
+                        <td>Large multiplications may exceed column precision.</td>
+                    </tr>
+                    <tr>
+                        <td>Implicit Type Conversion</td>
+                        <td>May cause errors if strings or incompatible data types are involved.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Common Errors in - Subtraction Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01722</b></td>
+                        <td>Invalid number when non-numeric data is involved.</td>
+                        <td>Ensure both operands are numeric.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01476</b></td>
+                        <td>Division by zero in later calculations when using multiplication results in further
+                            expressions.</td>
+                        <td>Check divisor before dividing.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01438</b></td>
+                        <td>Value larger than column precision after multiplication.</td>
+                        <td>Use larger data types (NUMBER(20, 5) etc.).</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-06502</b></td>
+                        <td>Numeric or value error (overflow).</td>
+                        <td>Review value ranges and calculations.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts for * Multiplication Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use with numeric columns and constants.</td>
+                        <td>Don’t use with non-numeric columns.</td>
+                    </tr>
+                    <tr>
+                        <td>Handle potential NULL values using NVL() or COALESCE().</td>
+                        <td>Don’t assume NULL equals 0.</td>
+                    </tr>
+                    <tr>
+                        <td>Use for quantity-price calculations, financial projections, etc.</td>
+                        <td>Don’t use with unvalidated data, especially if type conversions are possible.</td>
+                    </tr>
+                    <tr>
+                        <td>Use parentheses to ensure proper order of operations.</td>
+                        <td>Don’t mix with string concatenation operators accidentally.</td>
+                    </tr>
+                    <tr>
+                        <td>Use for calculating percentages, ratios, and projections.</td>
+                        <td>Don’t perform unnecessary nested multiplications; flatten logic where possible.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h1>/ (Division) Operator in Oracle SQL</h1>
+            <ul>
+                <li>The / (Division) operator divides one numeric value by another. It’s primarily used to compute:
+                </li>
+                <ul>
+                    <li>Ratios</li>
+                    <li>Averages</li>
+                    <li>Percentages</li>
+                    <li>Per-unit costs</li>
+                </ul>
+            </ul><br>
+            <h2>Purpose of / Division Operator</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Divide Numeric Values</td>
+                        <td>Divides the numerator by the denominator.</td>
+                    </tr>
+                    <tr>
+                        <td>Financial Calculations</td>
+                        <td>Used to calculate per-unit costs, cost per employee, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>Percentage/Ratio Computation</td>
+                        <td>Easily calculate percentages or proportions.</td>
+                    </tr>
+                    <tr>
+                        <td>Data Analysis</td>
+                        <td>Useful in analytical and statistical calculations.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1 / column2   
+                    <span class="orclkey"> AS  </span> result <br>
+                    <span class="orclkey"> FROM </span>  table_name
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Key Features</h2>
+            <ul>
+                <li>Works only on numeric columns (NUMBER, FLOAT, etc.).</li>
+                <li>NULL propagation — if any operand is NULL, the result is NULL.</li>
+                <li>Division by Zero is NOT allowed, and causes ORA-01476 error.</li>
+                <li>Can be used in SELECT, WHERE, HAVING, ORDER BY clauses.</li>
+                <li>Supports combination with other arithmetic operators.</li>
+            </ul><br>
+            <h2> Examples </h2>
+            <p><b>Scenario 1:- </b> Calculate per-unit cost by dividing total price by quantity.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, total_price, quantity,  <br> 
+                    total_price / quantity <span class="orclkey"> AS  </span> unit_price <br>
+                    <span class="orclkey"> FROM </span>  product_sales  <br>
+                    <span class="orclkey"> WHERE </span> quantity > 0
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Calculate each product's contribution to total revenue.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, total_revenue, 
+                    <ul>
+
+                        (total_revenue / (<span class="orclkey"> SELECT </span> <span class="orclfun"> SUM </span>(total_revenue) 
+                        <span class="orclkey"> FROM </span> product_sales)) * 100 <span class="orclkey"> AS  </span> revenue_percentage
+                    </ul>
+                    <span class="orclkey"> FROM </span>  product_sales
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Calculate employee performance score, but handle cases where targets are zero.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, achieved_target, target,
+                    <ul>
+                        <span class="orclkey">CASE  </span>
+                        <ul>
+                            <span class="orclkey">WHEN  </span> target = 0 <span class="orclkey"> THEN  </span> 0 <br>
+                            <span class="orclkey">ELSE  </span> (achieved_target / target) * 100 <br>
+                        </ul>
+                        <span class="orclkey"> END AS </span> performance_score
+                    </ul>
+                    <span class="orclkey"> FROM </span> employee_targets
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Calculate turnover ratio per product category.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> category_id, 
+                    <ul>
+                        <span class="orclfun"> SUM  </span> (total_sales) /  <span class="orclfun"> NULLIF  </span>( 
+                            <span class="orclfun"> SUM  </span> (average_inventory), 0) 
+                        <span class="orclkey"> AS  </span> turnover_ratio 
+                    </ul>
+                    <span class="orclkey"> FROM </span>  product_inventory <br>
+                    <span class="orclkey"> GROUP BY </span> category_id
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> For each order, calculate price-to-quantity ratio and rank by ratio
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, product_id, price, quantity,
+                    <ul>
+                        price / <span class="orclfun"> NULLIF  </span> (quantity, 0) <span class="orclkey"> AS  </span> price_quantity_ratio, <br>
+                        <span class="orclfun"> RANK  </span> () 
+                            <span class="orclkey"> OVER  </span> (
+                            <span class="orclkey"> ORDER BY  </span> price / 
+                            <span class="orclfun"> NULLIF  </span> (quantity, 0)
+                            <span class="orclkey"> DESC  </span> ) 
+                            <span class="orclkey"> AS  </span> rank_by_ratio
+                        </ul>
+                    <span class="orclkey"> FROM </span> order_details                        
+                       <b> ; </b>              
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Calculate profit margin for products across multiple categories.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, category_id, <br> 
+                    <ul>
+                        (selling_price - cost_price) / <span class="orclfun"> NULLIF  </span> (selling_price, 0) <span class="orclkey"> AS  </span> profit_margin
+                    </ul>
+                    <span class="orclkey"> FROM  </span> product_pricing
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 7:- </b> Calculate average lifetime value per order for customers over multiple years.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id
+                    <ul>
+                        <span class="orclfun"> SUM  </span> (total_spent) /
+                        <span class="orclfun"> NULLIF  </span> ( <span class="orclfun"> COUNT  </span>
+                        ( <span class="orclkey"> DISTINCT </span> order_id ), 0 )
+                        <span class="orclkey"> AS  </span> lifetime_value_per_order
+                        </ul>
+                    <span class="orclkey"> FROM </span>  customer_orders <br>
+                    <span class="orclkey"> GROUP BY </span> customer_id       
+                       <b> ; </b>                       
+                        </code>
+            </div><br>
+            <h2>Limitations of / Division Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Division by Zero</td>
+                        <td>Direct division by zero throws error ORA-01476.</td>
+                    </tr>
+                    <tr>
+                        <td>NULL Propagation</td>
+                        <td>Division with NULL operands results in NULL.</td>
+                    </tr>
+                    <tr>
+                        <td>Non-Numeric Data</td>
+                        <td>Can’t divide non-numeric data directly.</td>
+                    </tr>
+                    <tr>
+                        <td>Precision Loss</td>
+                        <td>Divisions of large or small numbers might suffer precision loss.</td>
+                    </tr>
+                    <tr>
+                        <td>Implicit Conversion Risk</td>
+                        <td>If columns are different types, implicit conversion may happen and cause errors.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Common Errors in / Division Operator </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-01476</b></td>
+                        <td>Division by zero error.</td>
+                        <td>Use NULLIF() to prevent division by zero.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01722</b></td>
+                        <td>Invalid number when non-numeric data is involved.</td>
+                        <td>Ensure both operands are numeric.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01438</b></td>
+                        <td>Value exceeds column precision after division.</td>
+                        <td>Use larger numeric data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-06502</b></td>
+                        <td>Numeric or value error due to overflow.</td>
+                        <td>Review numeric data type sizes.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts for / Division Operator in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use only with numeric columns or expressions.</td>
+                        <td>Don’t divide non-numeric columns directly.</td>
+                    </tr>
+                    <tr>
+                        <td>Handle division by zero using NULLIF() or CASE.</td>
+                        <td>Don’t assume all denominators are greater than zero.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine with aggregates for ratio/percentage calculations.</td>
+                        <td>Don’t divide directly in poorly controlled data sets.</td>
+                    </tr>
+                    <tr>
+                        <td>Use parentheses to ensure proper order of operations.</td>
+                        <td>Don’t nest divisions unnecessarily — flatten calculations where possible.</td>
+                    </tr>
+                    <tr>
+                        <td>Validate data ranges to avoid precision overflow.</td>
+                        <td>Don’t expect integer division when working with floats.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUKDB/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

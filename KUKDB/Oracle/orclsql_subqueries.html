@@ -1,0 +1,3088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUKDB/KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="/KUKDB/Oracle/orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlSelectTable" id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectdistinct.html" id="sqlSelectDistinct">Select Distinct</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_logicaloperators.html" id="sqlLogicalOperators">Logical
+                            Operators</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_between.html" id="sqlBetween">Between</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUKDB/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUKDB/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html" id="sqlCompOperators">Comparison
+                            Operators</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual" id="sqlEqual">Equal =
+                        </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual" id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_leftouterjoin.html" id="sqlLeftJoin">Left
+                            Outer Join</a>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_fullouterjoin.html" id="sqlFullOuterJoin">Full Outer Join</a>
+                    </li>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_crossjoin.html" id="sqlCrossJoin">Cross
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selfjoin.html" id="sqlSelfJoin">Self
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_naturaljoin.html" id="sqlNaturalJoin">Natural Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_equijoin.html" id="sqlEquiJoin">Equi
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_nonequijoin.html" id="sqlNonEquiJoin">Non-Equi Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html" id="sqlNumaricFunctions">Numeric
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign" id="sqlAbsSign">Abs(x),
+                            Sign</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlCeil" id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlExp" id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlMod" id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt" id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc" id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAsin" id="sqlAsinAcos">ASIN(n),
+                            ACOS(n) </a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">SINH(n), COSH(n),
+                            TANH(n)</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">ATAN(n),
+                            ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUKDB/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUKDB/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg" id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax" id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin" id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum" id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html" id="sqlstringfunctions">String
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlAscii" id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlChar" id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlconcat" id="sqlconcat">CONCAT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlInstr" id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLength" id="sqlLength">Length</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLpadRpad" id="sqlLpadRpad">Lpad,
+                            Rpad</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlTrim" id="sqlTrim">Trim, RTrim,
+                            LTrim</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlSubstr" id="sqlSubstr">SUBSTR</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlVSIZE" id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated
+                            Sub Queries</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timestampfunctions.html" id="sqlTimestampFunctions">Timestamp
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timeintervalfunctions.html" id="sqlTimeIntervalFunctions">Time
+                            Interval Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timezonefunctions.html" id="sqlTimeZoneFunctions">Time Zone
+                            Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_truncate.html" id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_returning.html" id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_primarykey.html" id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_foreginkey.html" id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_default.html" id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a>
+                    </li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html" id="sqlRankingFunctions">Ranking Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownum" id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRank" id="sqlRank">RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlNtile" id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html" id="sqlGroupFunctions">Group By Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlCube" id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlRollup" id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGrouping" id="sqlGrouping">GROUPING</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupId" id="sqlGroupId">GROUP_ID</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+
+
+                    <li><a href="/KUKDB/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insertinto_select.html" id="sqlInsertintoselect">Insert into
+                            Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+        <main class="sidebar-content" data-topic="sqlCase">
+
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+            <br>
+
+            <h1>Subquery in Oracle SQL </h1>
+
+            <p>A subquery (also known as an inner query or nested query) is a query within another query.
+            </p><br>
+            <p>It is used to retrieve data that will be used by the main query (also called the outer query).</p><br>
+            <p> Subqueries can return a single value, a row, or even a full table result.</p>
+            <br>
+            <p>It is enclosed within parentheses and executed first, returning a result set that the outer query uses.
+            </p>
+            <br>
+            <h2>Why Use Subqueries</h2>
+            <p>Subqueries helps you to: </p>
+            <ul>
+                <li>Breaking down complex problems into smaller, manageable parts.</li>
+                <li>Writing dynamic and flexible queries.</li>
+                <li>Fetching data based on conditions that depend on another query.</li>
+                <li>Improving readability and maintainability of SQL statements.</li>
+            </ul><br>
+            <h2>Importance of Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Importance</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td>Allows complex logic that can't be easily handled with simple joins or filters.</td>
+                    </tr>
+                    <tr>
+                        <td>Data Isolation</td>
+                        <td>The outer query doesn’t directly need to know the data logic of the subquery — subqueries
+                            isolate that logic.</td>
+                    </tr>
+                    <tr>
+                        <td>Improved Readability</td>
+                        <td>Sometimes simplifies complex queries by breaking them into smaller, manageable parts.</td>
+                    </tr>
+                    <tr>
+                        <td>Dynamic Conditions</td>
+                        <td>Allows you to dynamically retrieve values to filter the outer query.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Features of Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nested Queries</td>
+                        <td>Subqueries can be nested within SELECT, FROM, WHERE, HAVING clauses.</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple Return Types</td>
+                        <td>Can return a single value, a single row, or a full table (multiple rows and columns).</td>
+                    </tr>
+                    <tr>
+                        <td>Used in Various Clauses</td>
+                        <td>Subqueries can work in SELECT, UPDATE, DELETE, INSERT, WHERE, FROM, HAVING clauses.</td>
+                    </tr>
+                    <tr>
+                        <td>Supports Correlated Logic</td>
+                        <td>Subqueries can reference columns from the outer query (Correlated Subqueries).</td>
+                    </tr>
+                    <tr>
+                        <td>Works with All Operators</td>
+                        <td>Subqueries work with operators like IN, EXISTS, ANY, ALL, =, !=, <,> etc.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Types of Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subquery Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Single Row Subquery</b></td>
+                        <td>Returns only one row with one column. Usually used with =, <,>, <=,>= operators.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Multiple Row Subquery</b></td>
+                        <td>Returns multiple rows, usually used with IN, ANY, ALL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Multiple Column Subquery</b></td>
+                        <td>Returns multiple columns, often used with EXISTS or for comparison with tuples.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Correlated Subquery</b></td>
+                        <td>References a column from the outer query. This subquery executes once for each row processed
+                            by the outer query.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Nested Subquery</b></td>
+                        <td>A subquery within another subquery (multi-level nesting).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Inline View</b></td>
+                        <td>A subquery used in the FROM clause as a temporary table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Scalar Subquery</b></td>
+                        <td>Returns a single value and can be used in SELECT, WHERE, HAVING clauses.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Where Can we use Subqueries</h2>
+            <ul>
+                <li><b>SELECT</b> - A Subquery can act as a column to fetch some computed value.</li>
+                <li><b>FROM </b> - A Subquery can act as a table, called Inline View.</li>
+                <li><b>WHERE </b> - A Most common — subquery filters rows dynamically.</li>
+                <li><b>HAVING </b> - A Subquery helps apply aggregate conditions.</li>
+                <li><b>INSERT </b> - A Subquery can be used to insert rows fetched from another table.</li>
+                <li><b>UPDATE </b> - A Subquery can be used to update rows based on values fetched.</li>
+                <li><b>DELETE </b> - A Subquery can help delete rows based on a condition derived from another table.
+                </li>
+            </ul><br>
+            <h2>Operators Used with Subqueries</h2>
+            <ul>
+                <li><b> = </b>:- Used in single-row subqueries when expecting exactly one result.</li>
+                <li><b> IN </b>:- Used in multi-row subqueries to check for multiple matching values.</li>
+                <li><b> ANY </b>:- Compares a value to any result returned by the subquery.</li>
+                <li><b> ALL </b>:- Compares a value to all results returned by the subquery.</li>
+                <li><b> EXISTS </b>:- Checks if the subquery returns any records (true/false).</li>
+                <li><b>NOT IN </b>:- Excludes values returned by the subquery.</li>
+                <li><b> NOT EXISTS </b>:- Returns true if the subquery finds no matching records.</li>
+            </ul> <br>
+            <h2>Rules for Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rule</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Column Count</td>
+                        <td>Subquery must return only 1 column when used in WHERE or HAVING.</td>
+                    </tr>
+                    <tr>
+                        <td>Row Count</td>
+                        <td>Subquery must return 1 row when used with =, <,> operators.</td>
+                    </tr>
+                    <tr>
+                        <td>Placement</td>
+                        <td>Subqueries can be placed in any SQL clause — SELECT, FROM, WHERE, HAVING.</td>
+                    </tr>
+                    <tr>
+                        <td>Nesting Limit</td>
+                        <td>Oracle supports up to 255 nested subqueries.</td>
+                    </tr>
+                    <tr>
+                        <td>Data Type Matching</td>
+                        <td>Columns compared between subquery and outer query should have compatible data types.</td>
+                    </tr>
+                    <tr>
+                        <td>Correlated Subquery</td>
+                        <td>When using correlated subqueries, outer query columns should be referenced in subquery
+                            condition.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Subqueries vs. Joins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Subquery</th>
+                        <th>Join</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Performance</b></td>
+                        <td>Slower in some cases, as it executes separately for each row.</td>
+                        <td>Faster for large datasets, especially with indexed columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Readability</b></td>
+                        <td>Easier to read and understand for filtering or aggregation.</td>
+                        <td>Better for retrieving related data from multiple tables.</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>Used when a query depends on a dynamic condition from another table.</td>
+                        <td>Used when data needs to be combined from multiple related tables.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Limitations of Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Subqueries (especially correlated subqueries) can be slow on large datasets.</td>
+                    </tr>
+                    <tr>
+                        <td>Nesting Limit</td>
+                        <td>Maximum nesting is limited to 255 levels.</td>
+                    </tr>
+                    <tr>
+                        <td>Data Type Matching</td>
+                        <td>Subquery results must match the data type of the outer query columns being compared.</td>
+                    </tr>
+                    <tr>
+                        <td>Readability</td>
+                        <td>Deeply nested subqueries become hard to read and maintain.</td>
+                    </tr>
+                    <tr>
+                        <td>Not Always Optimized</td>
+                        <td>Sometimes subqueries prevent the optimizer from performing efficient operations like join
+                            elimination.</td>
+                    </tr>
+                    <tr>
+                        <td>Cannot Modify the Same Table</td>
+                        <td>In UPDATE or DELETE, the subquery cannot reference the same table being modified.</td>
+                    </tr>
+                    <tr>
+                        <td>Single-Row Subquery Errors</td>
+                        <td>Using a single-row operator (=) with a subquery that returns multiple rows causes an error.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Correlated Subqueries Can Be Slow</td>
+                        <td>They execute once per outer row, leading to performance degradation.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Common Errors in Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>Subquery returns more than one row where only one row is expected.</td>
+                        <td>Use IN, ANY, EXISTS, or revise subquery logic.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00913</td>
+                        <td>Too many values (when comparing columns).</td>
+                        <td>Ensure the subquery returns only matching columns for comparison.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01799</td>
+                        <td>Column not allowed in correlated subquery.</td>
+                        <td>Ensure the correlated column is correctly used and referenced.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00936</td>
+                        <td>Missing expression — Subquery not returning expected column.</td>
+                        <td>Ensure correct SELECT list and column names.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>Invalid identifier.</td>
+                        <td>Column or table referenced is incorrect or misspelled.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Disadvantages of Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disadvantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Performance Impact</td>
+                        <td>Subqueries are often slower than joins.</td>
+                    </tr>
+                    <tr>
+                        <td>Hard to Debug</td>
+                        <td>Deeply nested subqueries are hard to debug.</td>
+                    </tr>
+                    <tr>
+                        <td>Readability</td>
+                        <td>Complex subqueries reduce query readability.</td>
+                    </tr>
+                    <tr>
+                        <td>Optimizer Issues</td>
+                        <td>Oracle Optimizer might fail to apply certain performance improvements when subqueries are
+                            involved.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <h1>Single Row Subquery in Oracle SQL</h1>
+            <p>A Single Row Subquery is a subquery that returns only one row and one column.</p><br>
+            <p>It is typically used in the WHERE or HAVING clause of the outer query to filter results based on a single
+                value.</p><br>
+            <h2>Characteristics of Single Row Subqueries:</h2>
+            <ul>
+                <li>They return exactly one row and one column.</li>
+                <li>They are often used with comparison operators, such as:</li>
+                <ul>
+                    <li>=, >, <,>=, <=, <>
+                    </li>
+                </ul>
+            </ul><br>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Number of Rows</td>
+                        <td>Returns exactly 1 row</td>
+                    </tr>
+                    <tr>
+                        <td>Columns</td>
+                        <td>Returns exactly 1 column</td>
+                    </tr>
+                    <tr>
+                        <td>Operators Used</td>
+                        <td>=, >, <,>=, <=, <>
+                        </td>
+                    </tr>
+                    <td>Common Use Case</td>
+                    <td>To compare a column to a single computed value (e.g., highest salary, average revenue)</td>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1, column2 <br>
+                      <span class="orclkey">FROM </span> table_name <br> 
+                      <span class="orclkey">WHERE </span> columnX operator (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> columnY <br>
+                        <span class="orclkey">FROM </span> table_name2 <br>
+                        <span class="orclkey">WHERE condition</span>
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Examples</h2>
+            <p><b>Scenario 1:- </b> Find Employee with the Highest Salary in the Company
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, salary <br>
+                      <span class="orclkey">FROM </span> employees <br> 
+                      <span class="orclkey">WHERE </span> salary = (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> MAX  </span> (salary)<br>
+                        <span class="orclkey">FROM </span> employees 
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find the Department with the Lowest Budget
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, department_name, budget <br>
+                      <span class="orclkey">FROM </span> departments <br> 
+                      <span class="orclkey">WHERE </span> salary = (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> MIN  </span> (budget)<br>
+                        <span class="orclkey">FROM </span> departments 
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Find Employee in 'Sales' Department with Highest Commission
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, department_id, commission_pct <br>
+                      <span class="orclkey">FROM </span> employees <br> 
+                      <span class="orclkey">WHERE </span> department_id = (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> department_id <br>
+                        <span class="orclkey"> FROM  </span> departments<br>
+                        <span class="orclkey">WHERE </span> department_name =  <span class="orclg"> 'Sales' </span>
+                      </ul>
+                    )
+                    <span class="orclkey"> AND  </span> commission_pct = ( <br>
+                    <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> MAX  </span>(commission_pct) <br>
+                        <span class="orclkey">FROM </span> employees <br> 
+                      <span class="orclkey">WHERE </span> department_id = (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> department_id <br>
+                        <span class="orclkey"> FROM  </span> departments<br>
+                        <span class="orclkey">WHERE </span> department_name =  <span class="orclg"> 'Sales' </span>
+                        </ul>
+                      )
+                    </ul>
+                    )<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Find Product with the Highest Revenue in 2024
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name, revenue <br>
+                      <span class="orclkey">FROM </span> product_sales <br> 
+                      <span class="orclkey">WHERE </span> revenue = (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> MAX  </span>(revenue) <br>
+                        <span class="orclkey"> FROM  </span> product_sales<br>
+                        <span class="orclkey">WHERE </span> sales_year = 2024
+                      </ul>
+                    )
+                    <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Find Manager with the Highest Number of Direct Reports
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> manager_id, first_name, department_id <br>
+                      <span class="orclkey">FROM </span> employees <br> 
+                      <span class="orclkey">WHERE </span> employee_id = (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> manager_id <br>
+                            <span class="orclkey">FROM </span>(
+                        
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> manager_id, <span class="orclfun"> COUNT  </span>(*) 
+                        <span class="orclkey"> AS  </span> report_count<br>
+                        <span class="orclkey"> FROM  </span> employees<br>
+                        <span class="orclkey">WHERE </span> manager_id  <span class="orclkey"> IS NOT NULL </span> <br>
+                        <span class="orclkey">GROUP BY </span> manager_id <br>
+                        <span class="orclkey">ORDER BY </span> report_count   <span class="orclkey"> DESC </span>
+                      </ul>
+                    )
+                    <span class="orclkey">WHERE </span> ROWNUM = 1
+                </ul>
+                      )<b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Common Errors with Single Row Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Error Message</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>single-row subquery returns more than one row</td>
+                        <td>Subquery returned more than 1 row when used with =</td>
+                        <td>Review subquery logic to ensure only 1 row is returned (limit with MAX, MIN, or ROWNUM = 1)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00932</td>
+                        <td>inconsistent datatypes: expected X got Y</td>
+                        <td>Column type in subquery doesn't match outer query</td>
+                        <td>Ensure subquery and outer query columns have compatible data types</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Advantages of Single Row Subqueries</h2>
+            <ul>
+                <li><b>Simple Logic </b>:- Easy to implement for single value lookups.</li>
+                <li><b>Flexible Use </b>:- Can be used in SELECT, WHERE, and HAVING.</li>
+                <li><b>Efficient </b>:- If properly indexed, performs well.</li>
+            </ul> <br>
+            <h2>Limitations of Single Row Subqueries</h2>
+            <ul>
+                <li><b>Only 1 Row Allowed </b>:- Fails if more than 1 row is returned.</li>
+                <li><b>Performance </b>:- May be slower than JOINs if not optimized.</li>
+                <li><b>Dependency </b>:- Changes in subquery logic directly impact outer query.</li>
+            </ul> <br>
+            <h2>Do's and Don'ts of Single Row Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use when you need exactly 1 value</td>
+                        <td>Don't use when subquery might return multiple rows</td>
+                    </tr>
+                    <tr>
+                        <td>Use functions like MAX, MIN, AVG to ensure 1 row</td>
+                        <td>Don’t forget to handle nulls if the subquery might return nothing</td>
+                    </tr>
+                    <tr>
+                        <td>Use proper data type matching</td>
+                        <td>Don’t over-nest if you can rewrite with a join</td>
+                    </tr>
+                </tbody>
+            </table><br><br><br>
+
+            <h1>Multi-Row Subqueries in Oracle SQL</h1>
+            <p>A Multi-Row Subquery is a subquery that returns more than one row.</p><br>
+            <p>Unlike Single Row Subqueries (which return only one row and one column), these subqueries can return
+                multiple rows with a single column.</p><br>
+            <p>They are typically used with set operators or multi-row comparison operators, such as:</p>
+            <ul>
+                <li>IN, ANY, ALL, EXISTS</li>
+            </ul>
+            <br>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Number of Rows</td>
+                        <td>Returns one or more rows</td>
+                    </tr>
+                    <tr>
+                        <td>Columns</td>
+                        <td>Typically returns one column, but can return more for EXISTS</td>
+                    </tr>
+                    <tr>
+                        <td>Operators Used</td>
+                        <td>IN, ANY, ALL, EXISTS
+                        </td>
+                    </tr>
+                    <td>Common Use Case</td>
+                    <td>When you need to compare a value against a set of values</td>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1, column2 <br>
+                      <span class="orclfun">FROM </span> table1 <br> 
+                      <span class="orclfun">WHERE </span> columnX operator(IN, ANY, ALL, EXISTS) (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> columnY <br>
+                        <span class="orclfun">FROM </span> table2 <br>
+                        <span class="orclfun">WHERE condition</span>
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Examples</h2>
+            <p><b>Scenario 1:- </b> list all employees working in departments located in 'New York' or 'Los Angeles'.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name, department_id <br>
+                      <span class="orclkey">FROM </span> employees <br> 
+                      <span class="orclkey">WHERE </span> department_id <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> department_id <br>
+                        <span class="orclkey">FROM </span> departments <br>
+                        <span class="orclkey">WHERE </span> location <span class="orclkey"> IN </span>
+                        (<span class="orclg"> 'New York', 'Los Angeles' </span>)
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find all orders placed by VIP customers (customers with a loyalty level of 'Gold' or
+                'Platinum').
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, customer_id, order_date, total_amount <br>
+                      <span class="orclkey">FROM </span> orders <br> 
+                      <span class="orclkey">WHERE </span> customer_id <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> customer_id <br>
+                        <span class="orclkey">FROM </span> customers <br>
+                        <span class="orclkey">WHERE </span> loyalty_level  <span class="orclkey"> IN </span>
+                        (<span class="orclg"> 'New York', 'Los Angeles' </span>)
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Find Products Sold in More Than One Region
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name <br>
+                      <span class="orclkey">FROM </span> products <br> 
+                      <span class="orclkey">WHERE </span> product_id  <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> product_id <br>
+                        <span class="orclkey"> FROM  </span> sales<br>
+                        <span class="orclkey">GROUP BY </span> product_id <br>
+                        <span class="orclkey">HAVING </span> <span class="orclfun">COUNT </span>(<span class="orclkey"> DISTINCT </span>region) > 1
+                      </ul>
+                    )
+                    <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Find Employees Who Report to More Than One Manager
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, first_name <br>
+                      <span class="orclkey">FROM </span> employees <br> 
+                      <span class="orclkey">WHERE </span> employee_id  <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> employee_id  <br>
+                        <span class="orclkey"> FROM  </span> employee_manager_log<br>
+                        <span class="orclkey">GROUP BY </span> employee_id <br>
+                        <span class="orclkey">HAVING </span> <span class="orclfun">COUNT </span>(<span class="orclkey"> DISTINCT </span> manager_id) > 1
+                      </ul>
+                    )
+                    <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Find list of products whose prices were changed more than once in the past year.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, product_name <br>
+                      <span class="orclkey">FROM </span> products <br> 
+                      <span class="orclkey">WHERE </span> product_id  <span class="orclkey"> IN </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> product_id <br>
+                            <span class="orclkey">FROM </span>product_price_history <br>
+                            <span class="orclkey">WHERE </span> change_date >= <span class="orclfun">ADD_MONTHS </span>(SYSDATE, -12) <br>
+                            <span class="orclkey">GROUP BY </span> product_id <br>
+                            <span class="orclkey">HAVING </span> <span class="orclfun">COUNT </span>(<span class="orclkey"> DISTINCT </span> price) > 1
+                      <ul>
+                      )<b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Multi-Row Subquery Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>IN</b></td>
+                        <td>Matches any value in the subquery result set</td>
+                        <td>Employees in specific departments</td>
+                    </tr>
+                    <tr>
+                        <td><b>ANY</b></td>
+                        <td>Compares a value to any value in the subquery (works with =, >, <, etc.)</td>
+                        <td>Find products more expensive than any in a specific category</td>
+                    </tr>
+                    <tr>
+                        <td><b>ALL</b></td>
+                        <td>Compares a value to all values in the subquery (works with =, >, <, etc.)</td>
+                        <td>Find employees with salary higher than all in 'Marketing'</td>
+                    </tr>
+                    <tr>
+                        <td><b>EXISTS</b></td>
+                        <td>Checks if the subquery returns any rows (boolean test)</td>
+                        <td>Check if a customer has placed any orders</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors with Multi-Row Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Error Message</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>Single-row subquery returns more than one row</td>
+                        <td>Multi-row subquery used with a single-row operator like =</td>
+                        <td>Use multi-row operators like IN, ANY, ALL, or EXISTS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>invalid identifier</td>
+                        <td>Column in subquery is not recognized</td>
+                        <td>Check for typos or missing aliases</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01722</td>
+                        <td>invalid number</td>
+                        <td>Data type mismatch between subquery column and outer query column</td>
+                        <td>Ensure column types match (number vs. varchar)</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Advantages of Multi-Row Subqueries</h2>
+            <ul>
+                <li><b>Flexibility </b>:- Handles cases where you need to match against a set of values.</li>
+                <li><b>Works with Groups </b>:- Works well with aggregated subqueries (like HAVING COUNT)</li>
+                <li><b>Nesting Power </b>:- Can be nested inside other subqueries for complex logic</li>
+            </ul> <br>
+            <h2>Limitations of Multi-Row Subqueries</h2>
+            <ul>
+                <li><b>Performance </b>:- Can be slower than JOINs if not properly indexed.</li>
+                <li><b>Readability </b>:- Complex nested multi-row subqueries can be difficult to understand.</li>
+                <li><b>Data Type Issues </b>:- Outer and inner query columns must match in data type.</li>
+            </ul> <br>
+            <h2>Do’s and Don’ts for Multi-Row Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use with IN, ANY, ALL, EXISTS</td>
+                        <td>Don’t use with = or other single-row operators</td>
+                    </tr>
+                    <tr>
+                        <td>Make sure subquery columns match outer query columns in type</td>
+                        <td>Don’t forget to handle null values in subqueries if needed</td>
+                    </tr>
+                    <tr>
+                        <td>Use for dynamic filtering based on lookup tables</td>
+                        <td>Don’t use if a simple JOIN would work faster</td>
+                    </tr>
+                </tbody>
+            </table><br><br><br>
+
+            <h1>Multiple Column Subquery in Oracle SQL</h1>
+            <p>A Multiple Column Subquery is a subquery that returns more than one column.</p><br>
+            <p> It can return one row with multiple columns or multiple rows with multiple columns, depending on the
+                logic.</p><br>
+            <p>This is different from single row subqueries (which return only one value) and multiple row subqueries
+                (which typically return one column but many rows).</p><br>
+            <h2>Key Characteristics</h2>
+            <ul>
+                <li><b>Result Set :- </b>Multiple columns (could be single or multiple rows).</li>
+                <li><b>Comparison Type :- </b>Column-to-column comparison (pairwise).</li>
+                <li><b>Usage :- </b> Mostly in WHERE, IN, EXISTS, or in FROM (inline views).</li>
+                <li><b>Operator Support :- </b> Supports (col1, col2) IN syntax for pairwise comparison.</li>
+                <li><b>Common Use Case :- </b> Comparing two or more columns from a main query to matching columns from
+                    a subquery.</li>
+            </ul><br>
+            <h2>Syntax for Multiple Column Subquery</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1, column2 <br>
+                      <span class="orclkey">FROM </span> table1  <br> 
+                      <span class="orclkey">WHERE </span> (column1, column2) <span class="orclkey"> IN </span>(
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> columnA, columnB <br>
+                        <span class="orclkey">FROM </span> table2 <br>
+                        <span class="orclkey">WHERE condition </span> 
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Where Multiple Column Subqueries are Used</h2>
+            <ul>
+                <li><b>WHERE :- </b> Matching column pairs like (dept_id, job_id).</li>
+                <li><b>FROM (Inline View) :- </b> Subqueries returning multiple columns used in a join.</li>
+                <li><b>EXISTS :- </b> Checking for the existence of rows with matching column pairs.</li>
+            </ul><br>
+            <h2>Examples</h2>
+            <p><b>Scenario 1:- </b> List employees whose department and job role match an open job posting.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name <br>
+                      <span class="orclkey">FROM </span> employees e <br> 
+                      <span class="orclkey">WHERE </span> (e.department_id, e.job_id) <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> department_id, job_id <br>
+                        <span class="orclkey">FROM </span> job_openings <br>
+                        <span class="orclkey">WHERE </span> status =  <span class="orclg"> 'OPEN' </span>
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find sales orders that match a customer and product combination eligible for a
+                discount.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, customer_id, product_id, order_date <br>
+                      <span class="orclkey">FROM </span> sales_orders so <br> 
+                      <span class="orclkey">WHERE </span> (so.customer_id, so.product_id) <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> customer_id, product_id <br>
+                        <span class="orclkey">FROM </span> promotions <br>
+                        <span class="orclkey">WHERE </span> valid_until >= SYSDATE
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Find product price changes where the product ID and region match an entry in the new
+                price table.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, region, old_price, new_price <br>
+                      <span class="orclkey">FROM </span> product_prices p <br> 
+                      <span class="orclkey">WHERE </span> (p.product_id, p.region) <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> product_id, region <br>
+                        <span class="orclkey">FROM </span> regional_price_updates <br>
+                        <span class="orclkey">WHERE </span> update_date > SYSDATE - 30
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Identify employees who have transferred to a new department and new location
+                matching a list of authorized transfers.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name, department_id, location_id <br>
+                      <span class="orclkey">FROM </span> employee_transfers <br> 
+                      <span class="orclkey">WHERE </span> (department_id, location_id) <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> department_id, location_id <br>
+                        <span class="orclkey">FROM </span> approved_transfers 
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Validate Supplier and Product Combinations.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> supplier_id, product_id, product_name <br>
+                      <span class="orclkey">FROM </span> supplier_products <br> 
+                      <span class="orclkey">WHERE </span> (supplier_id, product_id) <span class="orclkey"> IN </span> (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> supplier_id, product_id <br>
+                        <span class="orclkey">FROM </span> approved_suppliers_products 
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Comparison with Single Column Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Single Column Subquery</th>
+                        <th>Multiple Column Subquery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Returns</b></td>
+                        <td>1 column</td>
+                        <td>Multiple columns</td>
+                    </tr>
+                    <tr>
+                        <td><b>Matches</b></td>
+                        <td>1 value</td>
+                        <td>Combination of values (pairs, triples, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Operators</b></td>
+                        <td>IN, ANY, ALL, EXISTS</td>
+                        <td>IN, EXISTS</td>
+                    </tr>
+                    <tr>
+                        <td><b>Complexity</b></td>
+                        <td>Low</td>
+                        <td>Medium to High</td>
+                    </tr>
+                    <tr>
+                        <td><b>Common Example</b></td>
+                        <td>Department IDs</td>
+                        <td>(Department ID, Job ID) pairs</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Advantages & Disadvantages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantages</th>
+                        <th>Disadvantages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Directly handles pairwise (or multi-column) comparisons</td>
+                        <td>May have performance overhead when subquery returns many rows</td>
+                    </tr>
+                    <tr>
+                        <td>Reduces need for multiple JOINs for pair checking</td>
+                        <td>Not all Oracle tools and ORMs easily handle multi-column subqueries</td>
+                    </tr>
+                    <tr>
+                        <td>Works well for historical comparisons</td>
+                        <td>Syntax can get complex for more than 2 columns</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors of Multiple Column Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-00913</b></td>
+                        <td>Too many values</td>
+                        <td>Ensure subquery returns the exact number of columns being compared</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-00904</b></td>
+                        <td>Invalid column name</td>
+                        <td>Check column names are correct</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01427</b></td>
+                        <td>Single-row subquery returning too many rows</td>
+                        <td>Use pair comparison with (col1, col2) format</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Limitations for Multiple Column Subqueries</h2>
+            <ul>
+                <li><b>Column Pair Limit :- </b> Limited to reasonable number of columns (pairs/triplets manageable,
+                    larger gets messy).</li>
+                <li><b>Performance :- </b> Can degrade if the subquery returns too many rows without proper indexing.
+                </li>
+                <li><b>Readability :- </b> Complex subqueries with many columns are harder to read and debug.</li>
+            </ul><br>
+
+            <br><br><br>
+
+            <h1>Correlated Subquery in Oracle SQL</h1>
+            <p>A Correlated Subquery is a type of subquery that refers to a column from the outer query.</p><br>
+            <p>This means that the subquery is executed once for each row processed by the outer query.</p><br>
+            <p>Because of this dependency, the subquery cannot be executed independently.</p>
+
+            <h2>Key Features</h2>
+            <ul>
+                <li><b>Dependency :- </b>Subquery depends on values from the outer query.</li>
+                <li><b>Execution :- </b>Subquery runs once for each row in the outer query.</li>
+                <li><b>Performance :- </b>Generally slower than standard subqueries.</li>
+                <li><b>Use Case :- </b> Row-by-row comparisons (like "find the maximum order date for each customer")
+                </li>
+            </ul>
+            <br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> column1, column2 <br>
+                      <span class="orclfun">FROM </span> table1 outer_alias <br> 
+                      <span class="orclfun">WHERE </span> columnX = (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> columnY <br>
+                        <span class="orclfun">FROM </span> table2 <br>
+                        <span class="orclfun">WHERE </span> table2.related_column = outer_alias.outer_column
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Examples</h2>
+            <p><b>Scenario 1:- </b> Find employees whose salary is higher than the average salary in their own
+                department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.first_name, e.salary, e.department_id <br>
+                      <span class="orclkey">FROM </span> employees e <br> 
+                      <span class="orclkey">WHERE </span> e.salary > (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span>(salary) <br>
+                        <span class="orclkey">FROM </span> employees sub <br>
+                        <span class="orclkey">WHERE </span> sub.department_id = e.department_id
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find Products That Have Higher Price Than Category Average (Retail).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p.product_id, p.product_name, p.price, p.category_id <br>
+                      <span class="orclkey">FROM </span> products p <br> 
+                      <span class="orclkey">WHERE </span> p.price > (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (price) <br>
+                        <span class="orclkey">FROM </span> products sub <br>
+                        <span class="orclkey">WHERE </span> sub.category_id = p.category_id
+                      </ul>
+                    )
+                       <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Find employees who earn more than the average salary for their department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.first_name, e.salary, e.department_id <br>
+                      <span class="orclkey">FROM </span> employees e <br> 
+                      <span class="orclkey">WHERE </span> e.salary > (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span>(salary) <br>
+                        <span class="orclkey"> FROM  </span> employees sub<br>
+                        <span class="orclkey">WHERE </span> sub.department_id = e.department_id
+                      </ul>
+                    )
+                    <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Identify Most Recent Orders per Customer (E-commerce).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.customer_id, o.order_date <br>
+                      <span class="orclkey">FROM </span> orders o <br> 
+                      <span class="orclkey">WHERE </span> o.order_date = (
+                      <ul>
+                        <span class="orclkey"> SELECT  </span> <span class="orclfun"> MAX  </span> (order_date) <br>
+                        <span class="orclkey"> FROM  </span> orders sub<br>
+                        <span class="orclkey">WHERE </span> sub.customer_id = o.customer_id 
+                      </ul>
+                    )
+                    <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Find the most senior employee (earliest hire date) in each department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.first_name, e.department_id, e.hire_date <br>
+                      <span class="orclkey">FROM </span> employees e <br> 
+                      <span class="orclkey">WHERE </span> e.hire_date = (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> MIN  </span> (hire_date)<br>
+                            <span class="orclkey">FROM </span>employees sub <br>
+                            <span class="orclkey">WHERE </span> sub.department_id = e.department_id
+                      <ul>
+                      )<b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Identify customers whose orders are higher than their personal average order value.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.customer_id, o.total_amount <br>
+                      <span class="orclkey">FROM </span> orders o <br> 
+                      <span class="orclkey">WHERE </span> o.total_amount > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (total_amount)<br>
+                            <span class="orclkey">FROM </span> orders sub <br>
+                            <span class="orclkey">WHERE </span> sub.customer_id = o.customer_id
+                      <ul>
+                      )<b> ; </b>            
+                        </code>
+            </div><br>
+
+            <h2>Common Errors in Correlated Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Error Message</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>Invalid identifier</td>
+                        <td>Outer query column is not accessible in subquery</td>
+                        <td>Make sure outer query table alias is correctly referenced </td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>Single-row subquery returns more than one row</td>
+                        <td>Using single-row operator (=) with subquery returning multiple rows</td>
+                        <td>Review subquery logic; use IN if necessary</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00942</td>
+                        <td>Table or view does not exist</td>
+                        <td>Subquery references invalid table/view</td>
+                        <td>Double-check table names and schema</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Advantages of Correlated Subqueries</h2>
+            <ul>
+                <li><b>Row-wise Comparison :- </b> Great for comparing a row against an aggregated or calculated value
+                    specific to that row.</li>
+                <li><b>Flexibility :- </b> Enables dynamic calculations based on the outer row. </li>
+                <li><b>Complex Conditions :- </b> Good for finding "most recent", "earliest", "highest" type of queries
+                    within groups.</li>
+            </ul> <br>
+            <h2>Limitations of Correlated Subqueries</h2>
+            <ul>
+                <li><b>Performance :- </b> Executes the subquery once per outer row, which can be slow for large
+                    datasets.</li>
+                <li><b>Readability :- </b> More difficult to read and debug compared to JOIN-based solutions.</li>
+                <li><b>Index Dependency :- </b> Performance relies heavily on proper indexing of join columns.</li>
+            </ul> <br>
+            <h2>Do’s and Don’ts of Correlated Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use for row-specific comparisons</td>
+                        <td>Don’t use for simple lookups where a JOIN would work better</td>
+                    </tr>
+                    <tr>
+                        <td>Optimize with indexes on subquery columns</td>
+                        <td>Don’t use if performance is critical on large datasets</td>
+                    </tr>
+                    <tr>
+                        <td>Use clear table aliases in both queries</td>
+                        <td>Don’t forget to correlate properly (outer query column in subquery)</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Correlated vs Non-Correlated Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Correlated Subquery</th>
+                        <th>Non-Correlated Subquery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dependency</td>
+                        <td>Depends on outer query columns</td>
+                        <td>Independent of outer query</td>
+                    </tr>
+                    <tr>
+                        <td>Execution</td>
+                        <td>Runs once per outer query row</td>
+                        <td>Runs once per entire query</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Generally slower</td>
+                        <td>Generally faster</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>Row-specific calculations</td>
+                        <td>Static filtering using unrelated table</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Performance Comparison Example</h2>
+            <h3>Business Case</h3>
+            <p><b>Requirement:-</b> Find all orders where the order amount is greater than the average order amount for
+                the same customer.</p><br>
+            <h2>Approach 1: Using Correlated Subquery</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">EXPLAIN PLAN FOR </span>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.customer_id, o.order_amount <br>
+                      <span class="orclkey">FROM </span> orders o <br> 
+                      <span class="orclkey">WHERE </span> o.order_amount > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (sub.order_amount)<br>
+                            <span class="orclkey">FROM </span> orders sub <br>
+                            <span class="orclkey">WHERE </span> sub.customer_id = o.customer_id
+                      <ul>
+                      )<b> ; </b>            
+                        </code>
+            </div><br>
+            <p>Explanation:</p>
+            <ul>
+                <li>The subquery calculates the average order amount per customer.</li>
+                <li>This subquery runs once for each order in the outer query (row-by-row correlation).</li>
+                <li>On a large dataset, this is highly inefficient.</li>
+            </ul>
+            <br><br>
+            <h2>Approach 2: Using Inline View with JOIN (Better Option)</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">EXPLAIN PLAN FOR </span>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.customer_id, o.order_amount <br>
+                      <span class="orclkey">FROM </span> orders o <br> 
+                      <span class="orclkey">JOIN </span>  (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (order_amount) <span class="orclkey"> AS  </span> avg_order_amount<br>
+                            <span class="orclkey">FROM </span> orders <br>
+                            <span class="orclkey">GROUP BY </span> customer_id
+                      <ul>
+                      )avg_orders <br>
+                      <span class="orclkey">ON </span> o.customer_id = avg_orders.customer_id <br>
+                      <span class="orclkey">WHERE </span> o.order_amount > avg_orders.avg_order_amount
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p>Explanation:</p>
+            <ul>
+                <li>The average order amount per customer is pre-calculated using an inline view.</li>
+                <li>Then the outer query joins each order to its customer’s average order amount.</li>
+                <li>This removes the row-by-row subquery execution, making it much faster. </li>
+            </ul>
+            <br><br>
+            <h2>Compare Performance Using DBMS_XPLAN.DISPLAY</h2>
+            <div class="code-box">
+                <code>
+
+                    <span class="orclkey">SELECT  </span> * 
+                      <span class="orclkey">FROM TABLE</span>  
+                      (DBMS_XPLAN.DISPLAY)
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Sample Output - Correlated Subquery (Bad Plan Example)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Operation</th>
+                        <th>Name</th>
+                        <th>Rows</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>SELECT STATEMENT</td>
+                        <td></td>
+                        <td>100K</td>
+                        <td>150K</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>TABLE ACCESS FULL</td>
+                        <td>ORDERS</td>
+                        <td>100K</td>
+                        <td>150K</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>FILTER</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>SORT AGGREGATE</td>
+                        <td></td>
+                        <td>1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>TABLE ACCESS FULL</td>
+                        <td>ORDERS</td>
+                        <td>100K</td>
+                        <td>150K</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <p>Explanation:</p>
+            <ul>
+                <li>TABLE ACCESS FULL (Line 1): Full table scan of orders.</li>
+                <li>TABLE ACCESS FULL inside the correlated subquery (Line 4) is executed once for each row of the outer
+                    query — a serious performance hit.</li>
+            </ul>
+            <br><br>
+            <h2>Sample Output - Inline View with JOIN (Good Plan Example)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Operation</th>
+                        <th>Name</th>
+                        <th>Rows</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>SELECT STATEMENT</td>
+                        <td></td>
+                        <td>100K</td>
+                        <td>25K</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>HASH JOIN</td>
+                        <td></td>
+                        <td>100K</td>
+                        <td>25K</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>VIEW</td>
+                        <td></td>
+                        <td>10K</td>
+                        <td>1K</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>HASH GROUP BY</td>
+                        <td></td>
+                        <td>10K</td>
+                        <td>1K</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>TABLE ACCESS FULL</td>
+                        <td>ORDERS</td>
+                        <td>100K</td>
+                        <td>15K</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>TABLE ACCESS FULL</td>
+                        <td>ORDERS</td>
+                        <td>100K</td>
+                        <td>15K</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <p>Explanation:</p>
+            <ul>
+                <li>HASH JOIN (Line 1) efficiently joins the orders to the pre-aggregated average amounts.</li>
+                <li>Only one full scan of orders is needed (Line 4) to precompute averages.</li>
+                <li>Overall cost is dramatically lower.</li>
+            </ul>
+            <br><br>
+            <h2>Key Takeaways</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Correlated Subquery</th>
+                        <th>Inline View with Join</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Execution Time</td>
+                        <td>Slow (Runs Subquery per Row)</td>
+                        <td>Fast (Precompute Once)</td>
+                    </tr>
+                    <tr>
+                        <td>Table Scans</td>
+                        <td>Multiple</td>
+                        <td>Single</td>
+                    </tr>
+                    <tr>
+                        <td>Plan Cost</td>
+                        <td>High</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Scalability</td>
+                        <td>Poor</td>
+                        <td>Good</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>Rare cases (row-specific checks)</td>
+                        <td>Recommended for aggregated comparisons</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h1>Inline View in Oracle SQL</h1>
+            <p>An Inline View is a subquery that appears in the FROM clause of a SELECT statement.</p><br>
+            <p>It acts as a temporary view that exists only for the duration of the query.</p><br>
+            <h2>Purpose of Inline View</h2>
+            <ul>
+                <li>Used to simplify complex queries by breaking them into manageable subqueries.</li>
+                <li>Enables pre-aggregation (like totals or averages) before joining with other tables.</li>
+                <li>Allows filtering or sorting on aggregated or derived data.</li>
+            </ul><br>
+            <h2>Key Features of Inline Views</h2>
+            <ul>
+                <li><b>Location :- </b> Defined inside the FROM clause.</li>
+                <li><b>Temporary :- </b> Exists only for the current query execution.</li>
+                <li><b>Alias Required :- </b> Must always have an alias to reference it.</li>
+                <li><b>Optimization :- </b> Can help Oracle’s optimizer choose better execution plans.</li>
+                <li><b>Nested Queries :- </b> Can contain aggregations, joins, or even other inline views.</li>
+            </ul><br>
+            <h2>Syntax of Inline View</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> columns <br>
+                      <span class="orclkey">FROM </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> columns <br>
+                            <span class="orclkey">FROM </span> table_name <br>
+                            <span class="orclkey">WHERE </span> conditions
+                        </ul>
+                      ) inline_view_alias
+                      <span class="orclkey">WHERE </span> outer_conditions
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Benefits of Inline Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Benfit</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Query Simplification</td>
+                        <td>Breaks down complex logic into smaller, manageable steps.</td>
+                    </tr>
+                    <tr>
+                        <td>Pre-aggregation</td>
+                        <td>Allows aggregation (SUM, AVG, etc.) in the inline view before final filtering or joining.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>In some cases, pre-aggregating data in inline views can improve performance.</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td>Can combine multiple tables, filters, or calculations inside the inline view.</td>
+                    </tr>
+                    <tr>
+                        <td>Temporary</td>
+                        <td>No need to create physical views in the database — it's a one-time use view.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Use Cases of Inline Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aggregation</td>
+                        <td>Calculate total sales per region inside an inline view, then filter regions with sales > 1M.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ranking Data</td>
+                        <td>Use ROW_NUMBER() or RANK() inside an inline view to filter top N rows.</td>
+                    </tr>
+                    <tr>
+                        <td>Complex Joins</td>
+                        <td>Pre-join two tables in an inline view before joining to a third table.</td>
+                    </tr>
+                    <tr>
+                        <td>Pre-filtering</td>
+                        <td>Filter data inside an inline view to reduce rows before outer joins.</td>
+                    </tr>
+                    <tr>
+                        <td>Subqueries with Aggregates</td>
+                        <td>Aggregate by customer, then join back to orders for detailed analysis.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <p><b>Scenario 1:- </b> Get departments where the average salary exceeds $5000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, avg_salary <br>
+                      <span class="orclkey">FROM </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (salary)
+                            <span class="orclkey"> AS  </span> avg_salary <br>
+                            <span class="orclkey">FROM </span> employees <br>
+                            <span class="orclkey">GROUP BY </span> department_id
+                        </ul> ) dept_avg
+                      <span class="orclkey">WHERE </span> avg_salary > 5000
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find the top 2 orders per customer based on order amount.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, order_id, order_amount <br>
+                      <span class="orclkey">FROM </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> customer_id, order_id, order_amount, 
+                            <ul>
+                                <span class="orclfun"> ROW_NUMBER  </span>()  <span class="orclkey"> OVER  </span>(<span class="orclkey"> PARTITION BY  </span> customer_id 
+                                <span class="orclkey"> ORDER BY  </span> order_amount 
+                                <span class="orclkey">DESC </span>  )
+                                <span class="orclkey">AS </span> Rank
+                            </ul>
+                            <span class="orclkey">FROM </span> orders
+                        </ul> ) ranked_orders <br>
+                      <span class="orclkey">WHERE </span> rank <= 2
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>When to Use Inline Views</h2>
+            <p>Use inline views when:</p>
+            <ul>
+                <li>Pre-calculating aggregates.</li>
+                <li>Performing ranking or window functions.</li>
+                <li>Simplifying deeply nested subqueries.</li>
+                <li>Filtering data before final joins.</li>
+            </ul><br>
+            <p>Avoid inline views when:</p>
+            <ul>
+                <li>A simple join or filter can achieve the same result.</li>
+                <li>The same logic is reusable (consider a physical view instead).</li>
+                <li>Inline view returns too much unnecessary data (filter as early as possible).</li>
+            </ul><br>
+            <p><b>Scenario 3:- </b> Retrieve the total sales per product category where the total sales exceed $50,000.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> c.category_id, c.category_name, sales_summary.total_sales <br>
+                      <span class="orclkey">FROM </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> p.category_id,<span class="orclfun"> SUM  </span>(s.sale_amount)<span class="orclkey">AS </span>
+                            total_sales <br>
+                            <span class="orclkey">FROM </span> sales s <br>
+                            <span class="orclkey">JOIN </span> products p <span class="orclkey">ON </span> s.product_id = p.product_id <br>
+                            <span class="orclkey">GROUP BY </span> p.category_id
+                        </ul> ) sales_summary <br>
+                      <span class="orclkey">JOIN </span> categories c <span class="orclkey">ON </span> sales_summary.category_id = c.category_id <br>
+                      <span class="orclkey">WHERE </span> sales_summary.total_sales > 50000
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Find the top 2 highest-paid employees in each department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, employee_id, salary <br>
+                      <span class="orclkey">FROM </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> employee_id, department_id, salary, 
+                            <ul>
+                                <span class="orclfun"> ROW_NUMBER  </span> ()
+                                <span class="orclkey"> OVER  </span>(<span class="orclkey"> PARTITION BY  </span> department_id 
+                                <span class="orclkey"> ORDER BY  </span> salary 
+                                <span class="orclkey">DESC </span> ) <span class="orclkey">AS </span> Rank
+                            </ul><span class="orclkey">FROM </span> employees
+                            
+                        </ul> ) ranked_employees <br>
+                      <span class="orclkey">WHERE </span> rank <= 2
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Join orders with customers, but only include active orders placed in the last 30
+                days.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> c.customer_id, c.customer_name, o.order_id, o.order_date, o.order_status <br>
+                      <span class="orclkey">FROM </span> (                      
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> order_id, customer_id, order_date, order_status <br>
+                            <span class="orclkey">FROM </span> orders <br>
+                            <span class="orclkey"> WHERE  </span> order_status = <span class="orclg"> 'Active'  </span>
+                            <span class="orclkey"> AND  </span> order_date >= SYSDATE - 30
+                        </ul>
+                                 ) o <br>
+                      <span class="orclkey">JOIN </span> customers c <span class="orclkey">ON </span> o.customer_id = c.customer_id
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> For each product with inventory below the reorder threshold, calculate how many
+                items need to be ordered.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p.product_id, p.product_name, inventory_summary.current_stock, p.reorder_level, <br>
+                    (p.reorder_level - inventory_summary.current_stock) <span class="orclkey"> AS  </span> order_quantity <br>
+                      <span class="orclkey">FROM </span> (                      
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> product_id, <span class="orclfun"> SUM  </span>(current_stock)
+                            <span class="orclkey">AS </span> current_stock <br>
+                            <span class="orclkey">FROM </span> inventory <br>
+                            <span class="orclkey"> GROUP BY  </span> product_id
+                        </ul>
+                                 ) inventory_summary <br>
+                      <span class="orclkey">JOIN </span> products p <span class="orclkey">ON </span> inventory_summary.product_id = p.product_id <br>
+                      <span class="orclkey">WHERE </span> inventory_summary.current_stock < p.reorder_level
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- </b> Find the total revenue and total number of orders for each customer who placed
+                orders this year.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_orders.customer_id, <br>
+                    customer_orders.total_orders, <br>
+                    customer_revenue.total_revenue <br>
+                      <span class="orclkey">FROM </span> (                      
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> customer_id, <span class="orclfun"> COUNT  </span>(order_id)
+                            <span class="orclkey">AS </span> total_orders <br>
+                            <span class="orclkey">FROM </span> orders <br>
+                            <span class="orclkey"> WHERE  </span> <span class="orclfun"> EXTRACT  </span>
+                            (<span class="orclkey"> YEAR FROM  </span> order_date ) = 
+                            <span class="orclfun"> EXTRACT  </span> (<span class="orclkey"> YEAR FROM  </span> SYSDATE ) <br>
+                            <span class="orclkey"> GROUP BY  </span> customer_id
+                        </ul>
+                                 ) customer_orders <br>
+                      <span class="orclkey">JOIN </span>(
+                        <span class="orclkey"> SELECT  </span>
+                        customer_id, <span class="orclfun"> SUM </span> (order_amount) <span class="orclkey">AS </span> total_revenue <br>
+                        <span class="orclkey">FROM </span> orders <br>
+                        <span class="orclkey"> WHERE  </span> <span class="orclfun"> EXTRACT  </span>
+                            (<span class="orclkey"> YEAR FROM  </span> order_date ) = 
+                            <span class="orclfun"> EXTRACT  </span> (<span class="orclkey"> YEAR FROM  </span> SYSDATE ) <br>
+                            <span class="orclkey"> GROUP BY  </span> customer_id
+                      ) customer_revenue <br>
+                      <span class="orclkey"> ON </span> customer_orders.customer_id = customer_revenue.customer_id
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Inline View vs Subquery</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Inline View</th>
+                        <th>Subquery (Non-Inline)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Location</td>
+                        <td>From Clause</td>
+                        <td>SELECT, WHERE, HAVING</td>
+                    </tr>
+                    <tr>
+                        <td>Scope</td>
+                        <td>Temporary table within query</td>
+                        <td>Conditional filtering or value fetching</td>
+                    </tr>
+                    <tr>
+                        <td>Alias</td>
+                        <td>Required</td>
+                        <td>Optional</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>Pre-aggregating, sorting, or filtering before main query</td>
+                        <td>Conditions or value lookups for each row</td>
+                    </tr>
+                    <tr>
+                        <td>Optimization</td>
+                        <td>More optimizer-friendly in complex queries</td>
+                        <td>May lead to performance issues if not designed well</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors with Inline Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>Column not found in outer query (forgot alias)</td>
+                        <td>Use the correct alias.column_name reference.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00942</td>
+                        <td>Table or view does not exist</td>
+                        <td>Ensure inline view query is correct and all tables exist.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00933</td>
+                        <td>SQL command not properly ended</td>
+                        <td>Check for missing parentheses or misplaced commas.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00918</td>
+                        <td>Column ambiguously defined</td>
+                        <td>Use aliases to prevent column name conflicts.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00979</td>
+                        <td>Not a GROUP BY expression</td>
+                        <td>If using aggregation, ensure non-aggregated columns are in GROUP BY.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do's and Don'ts for Inline Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use aliases for the inline view and its columns.</td>
+                        <td>Don’t forget the inline view alias — it's mandatory.</td>
+                    </tr>
+                    <tr>
+                        <td>Use inline views to pre-aggregate or pre-filter data.</td>
+                        <td>Don’t over-nest too many inline views — it hurts readability and performance.</td>
+                    </tr>
+                    <tr>
+                        <td>Optimize inline views by selecting only necessary columns.</td>
+                        <td>Don’t select unnecessary columns inside the inline view.</td>
+                    </tr>
+                    <tr>
+                        <td> Use inline views to simplify complex joins.</td>
+                        <td>Avoid using inline views to just hide bad logic — use them purposefully.</td>
+                    </tr>
+                    <tr>
+                        <td>Use EXPLAIN PLAN to review performance impact.</td>
+                        <td>Don’t assume inline views always improve performance — test your queries.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h1>Correlated Subquery in Oracle SQL</h1>
+            <p>A correlated subquery is a subquery that refers to a column from the outer query (parent query).</p><br>
+            <p>This type of subquery is evaluated once per row processed by the outer query — making it row-by-row
+                dependent.</p><br>
+
+            <h2>Key Features of Correlated Subqueries</h2>
+            <ul>
+                <li><b>Row Dependency :- </b> Each subquery execution depends on data from the current row being
+                    processed in the outer query.</li>
+                <li><b>Performance Impact :- </b> Due to row-by-row execution, correlated subqueries tend to be slower
+                    than joins or non-correlated subqueries.</li>
+                <li><b>Use Case :- </b> Useful when comparing each row to a set of data derived from the same table or
+                    related tables.</li>
+                <li><b>Typical Use :- </b> Exists in WHERE, HAVING, or SELECT clauses.</li>
+            </ul><br>
+            <h2>Syntax of Correlated Subquery</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> column1, column2, ... <br>
+                      <span class="orclkey">FROM </span> outer_table o <br>
+                      <span class="orclkey">WHERE </span> columnX (operator) (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> columnY <br>
+                            <span class="orclkey">FROM </span> inner_table i <br>
+                            <span class="orclkey">WHERE </span> i.related_column = o.related_column
+                        </ul>
+                      ) <b> ; </b>    <br>
+                      <br>
+                      <ul>
+                        <li>outer_table: Parent query table</li>
+                        <li>inner_table: Subquery table (refers to outer table columns)</li>
+                      </ul>        
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 1:- </b> Find Employees Earning More Than the Average Salary of Their Own Department.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.department_id, e.salary <br>
+                      <span class="orclkey">FROM </span> employees e <br>
+                      <span class="orclkey">WHERE </span> e.salary > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (salary)
+                            <span class="orclkey">FROM </span> employees sub <br>
+                            <span class="orclkey">WHERE </span> sub.department_id = e.department_id
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find Orders With Total Amount Greater Than the Customer's Average Order Amount.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.customer_id, o.order_amount <br>
+                      <span class="orclkey">FROM </span> orders o <br>
+                      <span class="orclkey">WHERE </span> o.order_amount > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (order_amount)
+                            <span class="orclkey">FROM </span> orders sub <br>
+                            <span class="orclkey">WHERE </span> sub.customer_id = o.customer_id
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 3:- </b> Find Products Priced Higher Than The Category’s Average Price.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p.product_id, p.category_id, p.price <br>
+                      <span class="orclkey">FROM </span> products p <br>
+                      <span class="orclkey">WHERE </span> p.price > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (price)
+                            <span class="orclkey">FROM </span> products sub <br>
+                            <span class="orclkey">WHERE </span> sub.category_id = p.category_id
+                        </ul> ) 
+                      <b> ; </b>           
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Retrieve Customers Who Placed Orders After Their First Order Date.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> c.customer_id, c.customer_name <br>
+                      <span class="orclkey">FROM </span> customers c <br>
+                      <span class="orclkey">WHERE EXISTS </span>(
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> orders o <br>
+                            <span class="orclkey">WHERE </span> o.customer_id = c.customer_id <br>
+                            <span class="orclkey">AND </span> o.order_date > (
+                            <ul>
+                                <span class="orclkey"> SELECT  </span> <span class="orclkey"> MIN  </span> (order_date)  <br>
+                                <span class="orclkey"> FROM  </span> orders sub 
+                                <span class="orclkey">WHERE </span> sub.customer_id = o.customer_id
+                            </ul>)
+                            
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Identify Employees Earning Above Their Department's Median Salary.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.department_id, e.salary <br>
+                      <span class="orclkey">FROM </span> employees e <br>
+                      <span class="orclkey"> WHERE  </span> e.salary > (          
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> MEDIAN  </span> (salary)<br>
+                            <span class="orclkey">FROM </span> employees sub <br>
+                            <span class="orclkey"> WHERE  </span> sub.department_id = e.department_id
+                        </ul>
+                                 ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> Compare Orders Against Maximum Order Amount Per Product.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> o.order_id, o.product_id, o.order_amount <br>
+                    <span class="orclkey"> FROM  </span> orders o <br>
+                      <span class="orclkey">WHERE </span> o.order_amount = (                   
+                        <ul>
+                            <span class="orclkey"> SELECT  </span>  <span class="orclfun"> MAX  </span>(order_amount) <br>
+                            <span class="orclkey">FROM </span> orders sub <br>
+                            <span class="orclkey"> WHERE  </span>sub.product_id = o.product_id
+                        </ul>
+                                 ) <b> ; </b>            
+                        </code>
+            </div><br>
+
+            <h2>Limitations of Correlated Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Performance</td>
+                        <td>They can be slow on large tables since they execute once per row in the outer query.</td>
+                    </tr>
+                    <tr>
+                        <td>Index Dependence</td>
+                        <td>If properly indexed columns are missing, performance degrades further.</td>
+                    </tr>
+                    <tr>
+                        <td>Limited Optimization</td>
+                        <td>Oracle's optimizer has fewer rewrite options compared to joins or inline views.</td>
+                    </tr>
+                    <tr>
+                        <td>Complex Logic</td>
+                        <td>Writing and debugging becomes complex with multi-level correlations.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Common Errors in Correlated Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Description</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>Invalid Identifier</td>
+                        <td>Outer query column referenced in subquery may be misspelled or not qualified correctly.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>Single-row subquery returns more than one row</td>
+                        <td>Subquery expected to return only one row, but it returned multiple.</td>
+                        <td>Use IN or EXISTS instead of = where applicable.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01722</td>
+                        <td>Invalid Number</td>
+                        <td>Column type mismatch when comparing numeric and string.</td>
+                        <td>Verify column data types in the outer and inner queries</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts of Correlated Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use correlated subqueries for row-by-row comparisons where no alternative exists</td>
+                        <td>Don’t use correlated subqueries for simple joins — use JOINs instead</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure indexes exist on columns in the subquery filter</td>
+                        <td>Don’t forget to test performance on large datasets</td>
+                    </tr>
+                    <tr>
+                        <td>Use EXISTS for existence checks to improve performance</td>
+                        <td>Don’t overuse them inside highly nested queries</td>
+                    </tr>
+                    <tr>
+                        <td> Use EXPLAIN PLAN to check query cost</td>
+                        <td>Don’t ignore rewriting to INLINE VIEWS if performance is critical</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h1>Nested Subquery in Oracle SQL</h1>
+            <p>A Nested Subquery (also called Inner Subquery) is a subquery placed inside another query (usually inside
+                a WHERE, FROM, or SELECT clause).</p><br>
+            <p>This is the most common type of subquery where one query is nested inside another to filter, compute, or
+                derive data.</p><br>
+
+            <h2>Key Features of Nested Subqueries</h2>
+            <ul>
+                <li><b>Nesting Level :- </b> Can have single-level or multi-level nesting (nested inside another
+                    subquery).</li>
+                <li><b>Independence :- </b> Inner subquery can run independently of the outer query (in most cases).
+                </li>
+                <li><b>Common Use :- </b> Typically used for filtering, conditional checks, and dynamic data retrieval.
+                </li>
+                <li><b>Location :- </b> Can appear in WHERE, HAVING, FROM, SELECT clauses.</li>
+                <li><b>Performance :- </b> If not optimized, they can cause performance issues especially in multi-level
+                    nested scenarios.</li>
+            </ul><br>
+            <h2>Syntax of Nested Subquery</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> column_list <br>
+                      <span class="orclkey">FROM </span> table1 <br>
+                      <span class="orclkey">WHERE </span> column1 = (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> column2 <br>
+                            <span class="orclkey">FROM </span> table2 <br>
+                            <span class="orclkey">WHERE condition</span> 
+                        </ul>
+                      ) <b> ; </b>   
+                      <br>
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 1:- </b> Find Employees with Maximum Salary.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name, salary <br>
+                      <span class="orclkey">FROM </span> employees <br>
+                      <span class="orclkey">WHERE </span> salary = (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> MAX  </span> (salary)
+                            <span class="orclkey">FROM </span> employees
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find Customers Who Have Placed Orders.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, customer_name <br>
+                      <span class="orclkey">FROM </span> customers <br>
+                      <span class="orclkey">WHERE </span> customer_id <span class="orclkey"> IN </span> (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> customer_id <br>
+                            <span class="orclkey">FROM </span> orders
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 3:- </b> Find Products That Cost More Than The Average Product Price.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> product_id, name, price <br>
+                      <span class="orclkey">FROM </span> products <br>
+                      <span class="orclkey">WHERE </span> p.price > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (price)
+                            <span class="orclkey">FROM </span> products 
+                        </ul> ) 
+                      <b> ; </b>           
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Find Employees in Departments With Above-Average Salaries.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, department_id, salary <br>
+                      <span class="orclkey">FROM </span> employees <br>
+                      <span class="orclkey">WHERE </span> salary > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (salary) <br>
+                            <span class="orclkey">FROM </span> employees <br>
+                            <span class="orclkey">WHERE </span> department_id = employees.department_id
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Find Orders Placed by VIP Customers.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> order_id, customer_id, order_date <br>
+                      <span class="orclkey">FROM </span> orders <br>
+                      <span class="orclkey"> WHERE  </span> customer_id <span class="orclkey"> IN </span>   (       
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> customer_id <br>
+                            <span class="orclkey">FROM </span> customers <br>
+                            <span class="orclkey"> WHERE  </span> status = <span class="orclg"> 'VIP'  </span> <br>
+                            <span class="orclkey"> AND  </span> customer_id <span class="orclkey"> IN </span> (
+                                <ul>
+                                    <span class="orclkey"> SELECT DISTINCT  </span> customer_id <br>
+                                    <span class="orclkey"> FROM  </span> orders <br>
+                                    <span class="orclkey"> WHERE  </span> order_date > ADD_MONTHS(SYSDATE, -12)
+                                </ul>)
+                        </ul>
+                                 ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 6:- </b> ( Subquery in SELECT Clause ) Retrieve each employee’s department name using a
+                subquery in the SELECT clause.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id <br>
+                    <ul>
+                        (
+                            <span class="orclkey">SELECT  </span> department_name <br>
+                            <span class="orclkey">FROM  </span> departments <br>
+                            <span class="orclkey">WHERE  </span> department_id = e.department_id ) <span class="orclkey"> AS  </span>department_name
+                    </ul>
+                    <span class="orclkey"> FROM  </span> employees e <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 7:- </b> ( Subquery in FROM Clause ) Retrieve departments where the total salary of employees
+                exceeds 50,000 using a subquery in the FROM clause.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> department_id, total_salary <br>
+                    <span class="orclkey"> FROM  </span>(
+                    <ul>
+                        <span class="orclkey">SELECT  </span> department_id, <span class="orclfun"> SUM  </span> (salary) 
+                        <span class="orclkey"> AS  </span> total_salary <br>
+                            <span class="orclkey">FROM  </span> employees <br>
+                            <span class="orclkey">GROUP BY  </span> department_id 
+                    </ul>) dept_salary <br>
+                    <span class="orclkey"> WHERE </span> total_salary > 50000 <b> ; </b>            
+                        </code>
+            </div><br>
+            <h2>Advantages & Disadvantages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Disadvantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modular way to break down logic</td>
+                        <td>Slower on large data sets compared to joins</td>
+                    </tr>
+                    <tr>
+                        <td>Great for dynamic filters & calculations</td>
+                        <td>Can get complex & hard to debug</td>
+                    </tr>
+                    <tr>
+                        <td>Works well for hierarchical or multi-level filters</td>
+                        <td>Nested queries may execute multiple times (in unoptimized cases)</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
+            <h2>Common Errors & Solutions for Nested Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>Subquery returns more than 1 row in a single-row context</td>
+                        <td>Use IN, ANY, or EXISTS instead of =.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>Column name not found in subquery</td>
+                        <td>Double-check column names & aliases.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00933</td>
+                        <td>SQL command not properly ended</td>
+                        <td>Misplaced parenthesis or wrong syntax</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts for Nested Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use for multi-level filtering when required</td>
+                        <td>Don’t over-nest (keep maximum nesting to 2-3 levels)</td>
+                    </tr>
+                    <tr>
+                        <td>Use EXISTS for better performance in existence checks</td>
+                        <td>Don’t use nested subqueries if the logic can be rewritten using JOINs</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure subqueries return the correct number of columns & rows</td>
+                        <td>Avoid deeply nested queries unless absolutely necessary</td>
+                    </tr>
+                    <tr>
+                        <td> Use inline views (subquery in FROM) for derived aggregates</td>
+                        <td>Avoid subqueries with unindexed columns in large datasets</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <h1>Scalar Subquery in Oracle SQL</h1>
+            <p>A Scalar Subquery is a type of **subquery that returns exactly one single value (one row, one column).
+            </p><br>
+            <p>It can be used in places where a single value (or expression) is expected — such as:</p>
+            <ul>
+                <li>In the SELECT list (for computed columns)</li>
+                <li>In WHERE, HAVING, ORDER BY clauses (for comparisons)</li>
+            </ul> <br>
+
+            <h2>Key Characteristics of Scalar Subqueries</h2>
+            <ul>
+                <li><b>Returns :- </b> Exactly one value (one row, one column).</li>
+                <li><b>Common Usage :- </b> Used in SELECT, WHERE, HAVING, ORDER BY, etc.
+                </li>
+                <li><b>Failure on Multi-Row Output :- </b> If it returns more than one row, Oracle raises ORA-01427:
+                    single-row subquery returns more than one row.
+                </li>
+                <li><b>Flexibility :- </b> Often used to dynamically compute column values or filter conditions based on
+                    other tables.</li>
+                <li><b>Performance :- </b> Faster than correlated subqueries in most cases, but still should be used
+                    carefully for large datasets.</li>
+            </ul><br>
+            <h2>Syntax </h2>
+            <h3>In SELECT Clause</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, <br>
+                     <ul>
+                        (
+                            <span class="orclkey"> SELECT  </span> department_name <br>
+                            <span class="orclkey">FROM </span> departments <br>
+                            <span class="orclkey">WHERE </span>  department_id = e.department_id ) <span class="orclkey"> AS </span> department_name
+                        </ul>
+                        <span class="orclkey">FROM </span> employees e
+                       <b> ; </b>   
+                        </code>
+            </div><br>
+            <h3>In WHERE Clause</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, salary <br>
+                    <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">WHERE </span> salary > (
+                     <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (salary) <br>
+                            <span class="orclkey">FROM </span> employees 
+                     </ul>)
+                       <b> ; </b>   
+                        </code>
+            </div><br>
+            <h2>When to Use Scalar Subqueries</h2>
+            <ul>
+                <li>To dynamically fetch a related value in a SELECT query.</li>
+                <li>To perform comparisons with dynamically calculated values (in WHERE, HAVING).</li>
+                <li>To replace a JOIN if you only need one value and don't want row duplication (but with caution).</li>
+            </ul><br>
+            <h2>Where Scalar Subqueries Can Be Used</h2>
+            <ul>
+                <li><b>SELECT :- </b> To fetch a related or computed column.</li>
+                <li><b>WHERE :- </b> To compare with a dynamic value.</li>
+                <li><b>HAVING :- </b> To filter aggregated data with a subquery result.</li>
+                <li><b>ORDER BY :- </b> To sort using a dynamically computed value.</li>
+            </ul>
+            <p><b>Scenario 1:- </b> Fetch Each Employee's Department Name (Scalar in SELECT).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> e.employee_id, e.name, 
+                    <ul>
+                        (
+                            <span class="orclkey">SELECT  </span> d.department_name <br>
+                            <span class="orclkey">FROM </span> departments d <br>
+                            <span class="orclkey">WHERE </span> d.department_id = e.department_id ) <span class="orclkey"> AS </span> department_name
+                    </ul>
+                      <span class="orclkey">FROM </span> employees e 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Find Employees with Above-Average Salary (Scalar in WHERE).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name, salary <br>
+                      <span class="orclkey">FROM </span> employees <br>
+                      <span class="orclkey">WHERE </span> salary > (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> <span class="orclfun"> AVG  </span> (salary) <br>
+                            <span class="orclkey">FROM </span> employees
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 3:- </b> Get Customer Order Count in Each Row (Scalar in SELECT)
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> customer_id, customer_name, 
+                    <ul>
+                        (
+                            <span class="orclkey">SELECT  </span> <span class="orclfun"> COUNT </span>(*) <br>
+                            <span class="orclkey">FROM  </span> orders o <br>
+                            <span class="orclkey">WHERE </span> o.customer_id = c.customer_id )
+                            <span class="orclkey"> AS  </span> order_count
+                    </ul>
+                    <span class="orclkey"> FROM  </span> customers c
+                      <b> ; </b>           
+                        </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Compare Employee Salary With CEO's Salary (Scalar in WHERE).
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> employee_id, name, salary <br>
+                      <span class="orclkey">FROM </span> employees <br>
+                      <span class="orclkey">WHERE </span> salary < (
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> salary <br>
+                            <span class="orclkey">FROM </span> employees <br>
+                            <span class="orclkey">WHERE </span> job_title =  <span class="orclg">'CEO' </span>
+                        </ul> ) 
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Order Products by Most Recent Order Date (Scalar in ORDER BY)s.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT  </span> p.product_id, p.product_name <br>
+                      <span class="orclkey">FROM </span> products p <br>
+                      <span class="orclkey"> ORDER BY   </span>    (       
+                        <ul>
+                            <span class="orclkey"> SELECT  </span> 
+                            <span class="orclfun">MAX </span> (order_date) <br>
+                            <span class="orclkey"> FROM  </span> orders o <br>
+                            <span class="orclkey"> WHERE  </span> o.product_id = p.product_id
+                                 )  <span class="orclkey"> DESC  </span>
+                      <b> ; </b>            
+                        </code>
+            </div><br>
+
+            <h2>Advantages & Disadvantages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Disadvantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Easy way to dynamically fetch data in non-join cases</td>
+                        <td>Can be slower than joins for large datasets</td>
+                    </tr>
+                    <tr>
+                        <td>Great for single value lookups</td>
+                        <td>If the subquery returns more than 1 row, it throws an error (ORA-01427)</td>
+                    </tr>
+                    <tr>
+                        <td>Works well for dynamic column values in SELECT</td>
+                        <td>Can cause performance bottlenecks if unindexed columns are used</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
+            <h2>Common Errors & Solutions </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01427</td>
+                        <td>Subquery returned more than 1 row</td>
+                        <td>Check logic, ensure proper filters for single row.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00904</td>
+                        <td>Column not found</td>
+                        <td>Double-check column names in subquery.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00933</td>
+                        <td>SQL command not properly ended</td>
+                        <td>Misplaced brackets or wrong nesting syntax</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts for Nested Subqueries</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use scalar subqueries for single value lookups</td>
+                        <td>Avoid for large datasets where JOINs are more efficient</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure subquery returns only 1 row</td>
+                        <td>Don’t use scalar subqueries if you need multiple rows</td>
+                    </tr>
+                    <tr>
+                        <td>Use indexes on columns in subquery filters</td>
+                        <td>Don’t use deeply nested scalar subqueries — it’s costly</td>
+                    </tr>
+                    <tr>
+                        <td> Check using EXPLAIN PLAN</td>
+                        <td>Don’t forget to handle cases where subquery returns NULL</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+
+
+
+
+
+
+
+
+
+            <br><br><br>
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUKDB/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

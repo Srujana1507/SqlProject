@@ -1,0 +1,97 @@
+Slider Code  below is for Style
+/* Banner Slider */
+.banner-slider { 
+    margin-top: 0px;
+    margin: 15px; 
+    position: relative; 
+    overflow: hidden;
+     /* position: relative; */
+     z-index: 1;
+    }
+    .swiper-slide { 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        overflow: hidden;
+        padding: 20px; 
+    } 
+    .swiper-slide img { 
+        width: 100%;
+        /* height: auto; */
+        max-width: 100%;
+        max-height: 500px;
+        object-fit: fill;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.5s ease;
+    }
+    /*Swiper Navigation Buttons */
+    .swiper-button-next, 
+    .swiper-button-prev { 
+        color: gold; 
+        background: white;
+        border-radius: 100%;
+        padding: 20px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        transition: transform 0.3s ease, background-color 0.3s ease; 
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover { 
+        background: gold; 
+        color: white;
+        transform: scale(1.1);
+    }
+    /* Pagination */
+    .swiper-pagination { 
+        bottom: 10px; /* Position pagination*/ 
+    } 
+    .swiper-pagination-bullet { 
+        background: #ffe75f; 
+        opacity: 0.7; 
+    }
+    .swiper-pagination-bullet-active { 
+        opacity: 1;
+    }
+	
+Body Code
+    <!-- Banner Slider Section --> 
+<div class="banner-slider swiper"> 
+    <div class="swiper-wrapper"> 
+        <div class="swiper-slide active">
+            <img src="https://img.freepik.com/free-vector/silhouette-excited-audience-colourful-music-notes-background_1048-14332.jpg?t=st=1730806033~exp=1730809633~hmac=ca646f3573d9a9dae864230b93e6a7ea98ab8758076f786d73f94c6ac9d57e80&w=740" alt="Banner 1">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://img.freepik.com/premium-photo/concept-music-festivals-radio-stations-music-lovers-live-with-music-music-heart-notes-song-melody-apps-websites-treble-clef-headphones-homestudio-audio-recording_771426-4072.jpg?ga=GA1.1.423700129.1721896331&semt=ais_hybrid" alt="Banner 2">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://img.freepik.com/premium-vector/concept-digital-online-music-different-internet-sites-modern-public-use-devices-design-flat-style-illustration_121223-879.jpg?w=740" alt="Banner 3">
+        </div>
+        <div class="swiper-slide">
+           <img src="https://img.freepik.com/free-photo/freedom-positivity-hipster-music-hipster_53876-21293.jpg?t=st=1730801446~exp=1730805046~hmac=8e941fe511649276776eb44f48d194d6413f042df90219afe5af27684b5b419f&w=740" alt="Banner 4">
+        </div>
+    </div>
+    <!-- Add Pagination --> 
+    <div class="swiper-pagination"></div> 
+    <!-- Add Navigation --> 
+    <div class="swiper-button-next"></div> 
+    <div class="swiper-button-prev"></div> 
+</div>
+Java script
+const swiper = new Swiper('.swiper', { 
+    direction: 'horizontal', 
+    loop: true, effect: 'fade', 
+fadeEffect: { 
+    crossFade: true
+}, 
+pagination: { 
+    el: '.swiper-pagination', 
+    clickable: true, 
+}, 
+navigation: { 
+    nextEl: '.swiper-button-next', 
+    prevEl: '.swiper-button-prev', 
+}, 
+autoplay: { 
+    delay: 5000,
+    disableOnInteraction: false, 
+    }, 
+}); 
