@@ -362,7 +362,7 @@
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name,location ) <br>
-                <span class="orclkey">VALUES </span> ( 101, 'Kumar', 'Kanaka', 'Finance', 'India' ) <br>
+                <span class="orclkey">VALUES </span> ( 101, 'Kumar', 'Kanaka', 'Finance', 'India' ) ,<br>
                         ( 102, 'Harsh', 'Thammi', 'Product', 'New York' ) ;
             </code>
             </div><br>
@@ -374,7 +374,7 @@
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name ) <br>
                 <span class="orclkey">VALUES </span> ( 104, 'John', 'Rises' ) ;
                 <ul>
-                    <li>In above example, columns department_name and location will be set to NULL or its default vlaue if defined.</li>
+                    <li>In above example, columns department_name and location will be set to NULL or its default value if defined.</li>
                 </ul>
                         
             </code>
@@ -386,8 +386,8 @@
             <div class="code-box">
                 <code>
             <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name, location ) <br>
-            <span class="orclkey">SELECT </span> employee_id, fname, lname, dept_name <br>
-            <span class="orclkey">FROM </span> archived_employees , <br>
+            <span class="orclkey">SELECT </span> employee_id, fname, lname, dept_name ,location<br>
+            <span class="orclkey">FROM </span> archived_employees  <br>
                 <span class="orclkey">WHERE </span> dept_name = ' Sales' ;
             </code>
             </div><br>
@@ -398,7 +398,7 @@
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name, location ) <br>
-                <span class="orclkey">VALUES </span> ( <span class="orclkey">DEFAULT </span>, 'Mark', ' Robort', 'HR', 'Germany' ) ;
+                <span class="orclkey">VALUES </span> ( <span class="orclkey">DEFAULT </span>, 'Mark', ' Robert', 'HR', 'Germany' ) ;
                 <br>
                 <ul>
                     <li>Here, the employee_id will be set to its default value (often an auto-incremented number) if it’s defined as such in the table schema.</li>

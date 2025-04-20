@@ -482,10 +482,10 @@
                 unique countries.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT DISTINCT</span> CustomerID<br>
+                        <span class="orclkey">SELECT </span> CustomerID<br>
                         <span class="orclkey">FROM </span> Orders <br>
                         <span class="orclkey">GROUP BY </span> CustomerID <br>
-                        <span class="orclkey">SELECT </span> COUNT( <span class="orclkey">DISTINCT  </span> Country ) >= 2 <b> ; </b>
+                        <span class="orclkey">HAVING </span> COUNT( <span class="orclkey">DISTINCT  </span> Country ) >= 2 <b> ; </b>
                     </code>
             </div>
             <br>
@@ -517,7 +517,7 @@
                 like UPPER() or LOWER() to normalize.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT DISTINCT</span> LOWER ( name ) <br>
+                        <span class="orclkey">SELECT DISTINCT</span> LOWER (name) <br>
                         <span class="orclkey">FROM </span> employees <b> ; </b>
                     </code>
             </div>

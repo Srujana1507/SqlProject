@@ -311,7 +311,7 @@
                 <a href="sql_trunk.html?topic=sqlTruncate" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>DELETE used to :</h1>
+            <h1>DELETE:</h1>
             <ul>
                 <li>The <b>DELETE </b>statement in SQL is used to remove one or more records (rows) from a table in
                     a database.</li>
@@ -320,9 +320,9 @@
             </ul>
 
             <ul>
-                <li><b>Key Points to Remember: </b></li>
+                 <h2> <li><b>Key Points to Remember: </b></li></h2>
                 <ul>
-                    <li>Using<b>DELETE</b> without a WHERE clause deletes all rows in the table but retains the
+                    <li>Using <b>DELETE</b> without a WHERE clause deletes all rows in the table but retains the
                         table structure..</li>
                     <li>Always include a <b>WHERE</b> clause unless the intention is to clear the table.</li>
                     <li><b>DELETE </b> removes rows but does not remove the table definition or schema.</li>
@@ -341,8 +341,8 @@
 
             <br>
 
-            <h2>Genarl Syntax</h2>
-            <h3>1.Delete all rows from table</h3>
+            <h2>General Syntax</h2>
+            <h3>1.Delete all rows from a table</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">DELETE FROM </span> emp ; 
@@ -359,15 +359,16 @@
             </div>
             <br>
             <h2>Advanced Usage Examples:</h2>
-            <h3>1. Delete Using a Subquery - Deletes rows in the employees table based on a condition derived from
-                another table. </h3>
+            <h3>1. Delete Using a Subquery </h3>
+              <h5>  Deletes rows in the employees table based on a condition derived from
+                another table. </h5>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">DELETE TABLE </span> emp
+                    <span class="orclkey">DELETE FROM </span> emp
                     <br>
                     <span class="orclkey">WHERE</span> dept_id  <span class="orclkey">IN</span> (<br>
-                    <span class="orclkey">SELECT</span> dept_id  <span class="orclkey">FROM </span> dept <br>
-                    <span class="orclkey">WHERE</span> location = 'New York' ;
+                    <span class="orclkey">SELECT</span> dept_id  <span class="orclkey"><br>FROM </span> dept <br>
+                    <span class="orclkey">WHERE</span> location = 'New York'
                     );
                 </code>
             </div>
@@ -406,7 +407,7 @@
                     <span class="orclkey"> DELETE FROM </span> Orders
                     <br>
                     <span class="orclkey">WHERE </span> status = 'Shipped'  
-                    RETURNING order_id, CustID ;            
+                   <br> RETURNING order_id, CustID ;            
                 </code>
             </div>
             <br>

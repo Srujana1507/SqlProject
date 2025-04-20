@@ -314,7 +314,7 @@
                 <a href="sql_delete.html?topic=sqlDelete" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>ALTER used to :</h1>
+            <h1>ALTER </h1>
             <p>The <b>ALTER </b>statement can be used to perform the following actions on various database
                 objects (e.g., table, Views, Schemas, Triggers, etc..)</p>
 
@@ -330,7 +330,7 @@
                     <li><b>Drop Constraints :</b> Remove existing constraints.</li>
                 </ul>
 
-                <li><b>Other ALTER actions on Objects: </b></li>
+                <li><b> ALTER actions on Objects: </b></li>
                 <ul>
                     <li><b>Alter Views :</b> Modify an existing view's definition or its schema.</li>
                     <li><b>Rename</b> an existing index and <b>Rebuild</b> a fragmented index to improve performance
@@ -352,7 +352,7 @@
                 maintenance and incremental changes in a database schema.</p>
             <br>
 
-            <h2>Genarl Syntax</h2>
+            <h2>General Syntax</h2>
             <p>The basic syntax of ALTER TABLE varies slightly by the specific action you wish to perform. below are
                 action's syntax and examples.</p>
             <div class="code-box">
@@ -408,7 +408,7 @@
                 </code>
             </div>
             <br><br>
-            <h3>3. Modifying an Existing Column (Modify Table - add hyper link here, crate a seperate topic) :</h3>
+            <h3>3. Modifying an Existing Column (Modify Table - add hyper link here, create a seperate topic) :</h3>
 
             <h5>Oracle</h5>
             <div class="code-box">
@@ -444,7 +444,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">ALTER COLUMN</span> salary  NUMBER( 10, 2 ) ; <br>
+                    <span class="orclkey">ALTER COLUMN</span> salary TYPE NUMERIC( 10, 2 ) ; <br>
                 </code>
             </div>
             <br><br>
@@ -508,6 +508,8 @@
             <h5>Oracle and MySQL </h5>
             <div class="code-box">
                 <code>
+                     <span class="orclkey">ALTER TABLE </span> employees</p>
+                      <span class="orclkey">RENAME </span>TO Staff  ;</p>
                     ALTER TABLE employees RENAME TO staff;
                 </code>
             </div>
@@ -553,14 +555,14 @@
                 <code>
                     <span class="orclkey">ALTER TABLE </span> orders<br>
                     <span class="orclkey">PARTITION BY RANGE </span>(order_date) (<br>
-                    <span class="orclkey">PARTITION  </span> p1  <span class="orclkey">VALUES  </span>LESS THAN ( '2023-01-01')<br>
+                    <span class="orclkey">PARTITION  </span> p1  <span class="orclkey">VALUES  </span>LESS THAN ( '2023-01-01'),<br>
                     <span class="orclkey">PARTITION  </span> p2  <span class="orclkey">VALUES  </span>LESS THAN ( '2024-01-01')<br>
                     ) ;
                 </code>
             </div>
             <br>
             <h2>Invalid Examples</h2>
-            <h3>1. Modify column Datatype from INT to BOOLEAN Multiple Columns</h3>
+            <h3>1. Modify column Datatype from INT to BOOLEAN on Multiple Columns</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees</p>

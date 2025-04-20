@@ -310,7 +310,7 @@
                 <a href="sql_trunk.html?topic=sqlTruncate" class="previou-button">&laquo; Previous</a>
                 <a href="sql_insert.html?topic=sqlInsert" class="next-button">Next &raquo;</a>
             </div>
-            <h1>DROP Command in SQL</h1>
+            <h1>DROP </h1>
             <ul>
                 <li>DROP command is a Data Definition Language (DDL) statement, used to permanently delete an entire
                     database object such as a table, database, view, index, or schema.</li>
@@ -368,8 +368,8 @@
                     <li>Deletes a view(employee_view) definition from the database.</li>
                     <li>The underlying tables remain intact.</li>
                 </ul>
-            </div>
-            <h3>3. Dropping a Index</h3><br>
+            </div><br>
+            <h3>3. Dropping an Index</h3><br>
             <ul>
                 <li>
                     <h5>Oracle</h5>
@@ -393,7 +393,7 @@
             <h3>4. Dropping a Database</h3>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">DROP DATABSE</span> sales_db ;
+                    <span class="orclkey">DROP DATABASE</span> sales_db ;
                     <br>
                     <ul>
                         <li>Removes an entire database(sales_db), including all its objects.</li>
@@ -513,11 +513,11 @@
             </ul>
             <h4><u>Don'ts</u> :-</h4>
             <ul>
-                <li><b>Don’t drop objects on impulse: </b> Double-check the need to remove the object, especially in
+                <li>Don’t DROP <b> objects on impulse: </b> Double-check the need to remove the object, especially in
                     production.</li>
-                <li><b>Don’t use DROP on high-level objects (like databases) </b> without proper authorization and
+                <li>Don’t use DROP <b>on high-level objects (like databases) </b> without proper authorization and
                     review.</li>
-                <li><b>Don’t rely on DROP for regular maintenance - </b> Instead, use more selective deletion
+                <li>Don’t rely on DROP <b> for regular maintenance - </b> Instead, use more selective deletion
                     strategies like DELETE or TRUNCATE.</li>
             </ul>
             <br>

@@ -312,7 +312,7 @@
                 <a href="sql_having.html?topic=sqlHaving" class="previou-button">&laquo; Previous</a>
                 <a href="sql_null.html?topic=sqlNull" class="next-button">Next &raquo;</a>
             </div>
-            <h1>ORDER BY Clause</h1>
+            <h1>ORDER BY </h1>
             <ul>
                 <li>The ORDER BY clause is used to sort the results of a query in ascending or descending order based on
                     one or more columns or expressions. </li>
@@ -346,8 +346,8 @@
                     <b> NOTE : -</b> Sorting by column index is not recommended due to readability and maintainability
                     issues.
                 </div>
-            </div>
-            <h2>Null Handling in ORDER BY Clause</h2>
+            </div><br>
+            <h2>3.Null Handling in ORDER BY Clause</h2>
             <ul>
                 <p>The placement of NULL values depends on the database.</p><br>
                 <li><b>Oracle :</b> By default, NULL values are placed last in ascending order and first in descending
@@ -362,7 +362,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id<b>,</b> name<b>,</b>salary <br>
                     <span class="orclkey">FROM   </span> employees <br> 
-                    <span class="orclkey">ORDER BY</span> salary<b> ;</b> <br><br>
+                    <span class="orclkey">ORDER BY</span> salary<b>;</b> <br><br>
                     - - By Default Ascending order.
                 </code>
             </div><br>
@@ -372,7 +372,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id<b>,</b> name<b>,</b>salary <br>
                     <span class="orclkey">FROM   </span> employees <br> 
-                    <span class="orclkey">ORDER BY</span> salary <span class="orclkey">DESC</span><b> ;</b> 
+                    <span class="orclkey">ORDER BY</span> salary <span class="orclkey">DESC</span><b>;</b> 
                 </code>
             </div><br>
             <h3>Example 3: Sorting by Multiple Columns</h3>
@@ -381,7 +381,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id<b>,</b> name<b>,</b>department_id<b>,</b>salary<br>
                     <span class="orclkey">FROM   </span> employees <br> 
-                    <span class="orclkey">ORDER BY</span> department_id  <span class="orclkey">ASC</span><b>,</b>salary<span class="orclkey">DESC</span><b> ;</b> 
+                    <span class="orclkey">ORDER BY</span> department_id  <span class="orclkey">ASC</span><b>,</b>salary <span class="orclkey"> DESC</span><b>;</b> 
                 </code>
             </div><br>
             <h3>Example 4: Sorting by Expressions</h3>
@@ -390,7 +390,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b>,</b> Price<b>,</b>Discount<b>,</b>(Discount / Price) * 100 <span class="orclkey">AS</span> DiscountPercentage <br>
                     <span class="orclkey">FROM   </span> Products <br> 
-                    <span class="orclkey">ORDER BY</span> DiscountPercentage   <span class="orclkey">DESC</span><b> ;</b> 
+                    <span class="orclkey">ORDER BY</span> DiscountPercentage   <span class="orclkey">DESC</span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -402,7 +402,7 @@
                     <span class="orclkey">SELECT   </span> department_name<b>,</b> SUM(Sales) <span class="orclkey">AS</span> TotalSales <br>
                     <span class="orclkey">FROM   </span> Employees <br> 
                     <span class="orclkey">GROUP BY   </span> department_name <br> 
-                    <span class="orclkey">ORDER BY</span> SUM(Sales)   <span class="orclkey">DESC</span><b> ;</b> 
+                    <span class="orclkey">ORDER BY</span> SUM(Sales)   <span class="orclkey">DESC</span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -412,7 +412,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> EmployeeID<b>,</b> Name<b>,</b>Salary<b>,</b>Salary * 0.1 <span class="orclkey">AS</span> Bonus <br>
                     <span class="orclkey">FROM   </span> Employees <br> 
-                    <span class="orclkey">ORDER BY</span> Bonus <span class="orclkey">DESC</span><b> ;</b> 
+                    <span class="orclkey">ORDER BY</span> Bonus <span class="orclkey">DESC</span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -430,7 +430,7 @@
                         </ul>
                     </ul>
                     <span class="orclkey">FROM   </span> Products <br> 
-                    <span class="orclkey">ORDER BY</span> TotalSales  <span class="orclkey">DESC</span><b> ;</b> 
+                    <span class="orclkey">ORDER BY</span> TotalSales  <span class="orclkey"> DESC</span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -446,7 +446,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> EmployeeID<b>,</b> Name<b>,</b>Salary <br>
                     <span class="orclkey">FROM   </span> Employees  <br> 
-                    <span class="orclkey"> ORDER BY </span>  salary <span class="orclkey"> ASC </span> NULLS <span class="orclkey"> LAST </span> <b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  salary <span class="orclkey"> ASC </span> NULLS <span class="orclkey"> LAST</span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -455,7 +455,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b>,</b> ProductName<b>,</b>AvailabilityDate <br>
                     <span class="orclkey">FROM   </span> Products  <br> 
-                    <span class="orclkey"> ORDER BY </span>  AvailabilityDate  <span class="orclkey"> DESC </span> NULLS <span class="orclkey"> FIRST </span> <b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  AvailabilityDate  <span class="orclkey"> DESC </span> NULLS <span class="orclkey"> FIRST</span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -477,7 +477,7 @@
                 <code>
                     <span class="orclkey">WITH </span> RankedSalaries  <span class="orclkey"> AS</span> (<br>
                     <ul>
-                        <span class="orclkey">SELECT </span> EmployeeID<b>, </b> Name <b>, </b> department_name<b>, </b>Salary<br> 
+                        <span class="orclkey">SELECT </span> EmployeeID<b>, </b> Name <b>, </b> department_name<b>, </b>Salary ,<br> 
                         <ul>
                             RANK() <span class="orclkey"> OVER (PARTITION BY </span> department_name <span class="orclkey"> ORDER BY </span> Salary <span class="orclkey"> DESC</span>) <span class="orclkey"> AS</span> Rank <br>
                         </ul>
@@ -487,17 +487,17 @@
                     <span class="orclkey">SELECT </span> EmployeeID<b>, </b> Name <b>, </b>department_name<b>, </b>Salary<br>
                     <span class="orclkey">FROM  </span> RankedSalaries <br>
                     <span class="orclkey"> WHERE </span> Rank <= 3 <br>
-                    <span class="orclkey"> ORDER BY </span> department_name <b>, </b> Rank <b> ;</b><br>
+                    <span class="orclkey"> ORDER BY </span> department_name <b>, </b> Rank <b>;</b><br>
                 </code>
             </div><br>
-            <h4>6. Using ORDER BY with LIMIT/OFFSET</h4>
+            <h3>6. Using ORDER BY with LIMIT/OFFSET</h3>
             <p>Retrieve the top 5 most expensive products.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b>, </b> ProductName<b>, </b>Price <br>
                     <span class="orclkey">FROM   </span> Products  <br> 
                     <span class="orclkey"> ORDER BY </span>  Price  <span class="orclkey"> DESC </span> <br>
-                    LIMIT 5 <b> ;</b> 
+                    LIMIT 5 <b>;</b> 
                 </code>
             </div>
             <br>
@@ -507,7 +507,7 @@
                     <span class="orclkey">SELECT   </span> ProductID<b>, </b> ProductName<b>, </b>Price <br>
                     <span class="orclkey">FROM   </span> Products  <br> 
                     <span class="orclkey"> ORDER BY </span>  Price  <span class="orclkey"> DESC </span> <br>
-                    LIMIT 5 <span class="orclkey"> OFFSET </span><b> ;</b> 
+                    LIMIT 5 <span class="orclkey"> OFFSET  10 </span><b>;</b> 
                 </code>
             </div>
             <br>
@@ -518,8 +518,8 @@
                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b>,</b> ProductName<b>,</b>Price<b>,</b>Rating <br>
                     <span class="orclkey">FROM   </span> Products  <br> 
-                    <span class="orclkey"> ORDER BY </span>  Price  <span class="orclkey"> ASC </span> Rating <span class="orclkey"> DESC </span><br>
-                    LIMIT 10 <b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  Price  <span class="orclkey"> ASC </span> , Rating <span class="orclkey"> DESC </span><br>
+                    LIMIT 10 <b>;</b> 
                 </code>
             </div><br>
             <h3>2. Employee Analysis: Salary Band Analysis</h3>
@@ -528,7 +528,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> EmployeeID<b>,</b> emp_name<b>,</b>SalaryGrade<b>,</b>Total_exp <br>
                     <span class="orclkey">FROM   </span> Employees  <br> 
-                    <span class="orclkey"> ORDER BY </span>  SalaryGrade<b>,</b>Total_exp  <span class="orclkey"> DESC </span> <b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  SalaryGrade<b>,</b>Total_exp  <span class="orclkey"> DESC </span> <b>;</b> 
                 </code>
             </div>
             <br>
@@ -540,7 +540,7 @@
                     <span class="orclkey">FROM   </span> Events  <br> 
                     <span class="orclkey">WHERE   </span>EventDate >= CURRENT_DATE
                     <span class="orclkey"> ORDER BY </span> EventDate <span class="orclkey"> ASC </span> 
-                    LIMIT 5<b> ;</b> 
+                    LIMIT 5<b>;</b> 
                 </code>
             </div>
             <br>
@@ -551,9 +551,9 @@
                 <li>Example: </li>
                 <div class="code-box">
                     <code>
-                        <span class="orclkey">SELECT   </span> Name<b>,</b> Salary * 0.1 <span class="orclkey"> AS </span><br>
+                        <span class="orclkey">SELECT   </span> Name<b>,</b> Salary * 0.1 <span class="orclkey"> AS </span> Bonus<br>
                         <span class="orclkey">FROM   </span> Employees  <br> 
-                        <span class="orclkey"> ORDER BY </span>  Bonus  <span class="orclkey"> DESC </span> <b> ;</b> 
+                        <span class="orclkey"> ORDER BY </span>  Bonus  <span class="orclkey"> DESC </span> <b>;</b> 
                     </code>
                 </div>
             </ul>

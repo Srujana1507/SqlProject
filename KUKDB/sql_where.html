@@ -312,10 +312,10 @@
             </div>
 
             <h1>WHERE</h1>
-            <br>
+            
             <p>WHERE clause in SQL is used to filter records based on specific conditions.</p><br>
             <h2> Basic Syntax</h2>
-            <br>
+            
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> column1<b>,</b> column2<b>,</b>. . .<span class="orclkey">FROM   </span> table_name <br> 
@@ -323,7 +323,7 @@
                     - - You can use specific columns are ( <b> * </b> ) - for all columns
                 </code>
             </div>
-            <br>
+          
             <div class="note-box">
                 <b> NOTE : -</b> You can use specific columns are ( <b> * </b> ) - for all columns. Always use
                 specific
@@ -347,7 +347,7 @@
             <ul>
                 <li><b>Scenario 1:-</b>Retrieve employees whose salary is greater than 50,000</li>
             </ul>
-            <br>
+           
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b> salary <br>
@@ -356,12 +356,12 @@
                 </code>
             </div>
             <br>
-            <h2> Examples of WHERE Clause</h2>
+            
             <ul>
                 <li><b>Scenario 2:- (Multiple Conditions with AND) </b>Find employees who work in department 101 and
                     have a salary greater than 70,000.</li>
             </ul>
-            <br>
+         
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b> dept_id<b>,</b>salary <br>
@@ -372,9 +372,9 @@
             <br>
             <ul>
                 <li><b>Scenario 3:- (Multiple Conditions with OR) </b>Retrieve employees working in department 10 or
-                    department 10.</li>
+                    department 20.</li>
             </ul>
-            <br>
+           
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b> dept_id<b>,</b>salary <br>
@@ -386,7 +386,7 @@
             <ul>
                 <li><b>Scenario 4:- ( Using NOT ) </b>Find employees who are not in department 10.</li>
             </ul>
-            <br>
+            
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b> dept_id <br>
@@ -400,7 +400,7 @@
                     105,
                     109, 120 or 133.</li>
             </ul>
-            <br>
+        
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> <b>*</b> <br>
@@ -420,7 +420,7 @@
                 <li><b>Scenario 6:- (Using BETWEEN) </b>Find employees with salaries between 50,000 and 100,000.
                 </li>
             </ul>
-            <br>
+          
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b> dept_id<b>,</b>salary <br>
@@ -435,22 +435,22 @@
                     "J".
                 </li>
             </ul>
-            <br>
+           
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b>  <br>
+                    <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b></b>  <br>
                     <span class="orclkey">FROM   </span> employees <br> 
-                    <span class="orclkey">WHERE  </span>name <span class="orclkey"> LIKE  </span> <b>'</b> J % <b>'</b><b> ;</b> 
+                    <span class="orclkey">WHERE  </span>name <span class="orclkey"> LIKE  </span> <b>'</b>J%<b>'</b><b> ;</b> 
                 </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 8:- ( Using Using IS NULL ) </b>Retrieve employees whose email is not provided.</li>
+                <li><b>Scenario 8:- ( Using IS NULL ) </b>Retrieve employees whose email is not provided.</li>
             </ul>
-            <br>
+           
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> employee_id <b>,</b> name<b>,</b>  <br>
+                    <span class="orclkey">SELECT   </span> employee_id <b>,</b> name  <br>
                     <span class="orclkey">FROM   </span> employees <br> 
                     <span class="orclkey">WHERE  </span> email <span class="orclkey"> IS NULL  </span> <b> ;</b> 
                 </code>

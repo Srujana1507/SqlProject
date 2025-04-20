@@ -384,8 +384,8 @@
             </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> 5 + <span class="orclkey"> NULL   </span> employee <br> 
-                    <span class="orclkey">as  </span> Result  =<span class="orclkey"> FROM </span>  DUAL<b> ;</b> <br>
+                    <span class="orclkey">SELECT   </span> 5 + <span class="orclkey"> NULL   </span> <br> 
+                    <span class="orclkey">as  </span> Result  <span class="orclkey"> FROM </span>  DUAL<b> ;</b> <br>
                     <p>-- Result is NULL</p>
                 </code>
             </div>
@@ -404,7 +404,7 @@
             <h2>Handling NULL with Functions</h2>
             <br>
             <ul>
-                <li><b>COALESCE : </b> Returns the first non-NULL value.</li>
+               <b> 1.COALESCE : </b> Returns the first non-NULL value.
             </ul>
             <div class="code-box">
                 <code>
@@ -414,7 +414,7 @@
             </div>
             <br>
             <ul>
-                <li><b>NVL (Oracle-specific): </b> Replaces NULL with a specified value.</li>
+                <b>2.NVL (Oracle-specific): </b> Replaces NULL with a specified value.</b>
             </ul>
             <div class="code-box">
                 <code>
@@ -424,7 +424,7 @@
             </div>
             <br>
             <ul>
-                <li><b>ISNULL (SQL Server-specific): </b> Similar to NVL.</li>
+                <b>3.ISNULL (SQL Server-specific):</b> Similar to NVL.</b>
             </ul>
             <div class="code-box">
                 <code>
@@ -434,7 +434,7 @@
             </div>
             <br>
             <ul>
-                <li><b>IFNULL (MySQL-specific): </b> Replaces NULL with a value.</li>
+                <b>4. IFNULL (MySQL-specific): </b> Replaces NULL with a value.</b>
             </ul>
             <div class="code-box">
                 <code>
@@ -452,7 +452,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> name <b>,</b>salary   <br> 
                     <span class="orclkey"> FROM </span>  employees <br> 
-                    <span class="orclkey"> ORDER BY </span>  salary <span class="orclkey"> ASC </span> <b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  salary <span class="orclkey"> ASC</span> <b>;</b> 
                 </code>
             </div>
             <br>
@@ -463,7 +463,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> *   
                     <span class="orclkey"> FROM </span>  employees <br> 
-                    <span class="orclkey"> ORDER BY </span>  salary <span class="orclkey"> ASC </span> NULLS <span class="orclkey"> LAST </span> <b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  salary <span class="orclkey"> ASC </span> NULLS <span class="orclkey"> LAST</span> <b>;</b> 
                 </code>
             </div>
             <br>
@@ -483,11 +483,12 @@
             <ul>
                 <li>Sort by Department (NULLs last) and then by Salary (ascending)</li>
             </ul>
+            <h4>PostgreSQL/Oracle</h4>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> *   
+                    <span class="orclkey">SELECT   </span> *   <br>
                     <span class="orclkey"> FROM </span>  employees <br> 
-                    <span class="orclkey"> ORDER BY </span>  Department   NULLS <span class="orclkey"> LAST </span><b> ,</b> Salary <span class="orclkey"> DESC </span><b> ;</b> 
+                    <span class="orclkey"> ORDER BY </span>  Department   NULLS <span class="orclkey"> LAST </span><b> ,</b> <br> Salary <span class="orclkey"> DESC </span><b> ;</b> 
                 </code>
             </div>
             <br>
@@ -503,9 +504,9 @@
                 </code>
             </div>
             <br>
-            <h4>MySQL</h4>
+           
             <ul>
-                <li>Does not support NULLS FIRST or NULLS LAST explicitly</li>
+                
                 <li>Use CASE statements to control NULL positioning</li>
             </ul>
             <div class="code-box">
@@ -548,7 +549,7 @@
 
             <h3>2. NULL in Conditional Statements ( CASE ) </h3>
             <ul>
-                <li> Dispaly as 'Not provided ' if employee don't have salary. Else display as Provided. </li>
+                <li> Display as 'Not provided ' if employee don't have salary. Else display as Provided. </li>
             </ul>
             <div class="code-box">
                 <code>

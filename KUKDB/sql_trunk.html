@@ -311,7 +311,7 @@
                 <a href="sql_drop.html?topic=sqlDrop" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>TRUNCATE Command in SQL</h1>
+            <h1>TRUNCATE</h1>
             <br>
             <ul>
                 <li>TRUNCATE command is a Data Definition Language (DDL) statement, used to remove all rows from
@@ -320,7 +320,7 @@
                     but keeps the table structure, columns, indexes, and constraints intact.</li>
                 <li>TRUNCATE is faster and more efficient for clearing a table compared to the DELETE
                     statement,which
-                    frees storage gradually..</li>
+                    frees storage gradually.</li>
                 <li>TRUNCATE applies to the entire table and does not allow conditions (e.g., WHERE clause).
                 </li>
             </ul>
@@ -370,11 +370,12 @@
             </ul>
             <div class="code-box">
                 <code>
+                    <span class="orclkey">SET  </span> FOREIGN_KEY_CHECKS = 0 ; <br>
                     <span class="orclkey">TRUNCATE TABLE </span> employees ;
                 </code>
-                <ul>Temporarily disable foreign key checks, truncate table, and re-enable</ul>
+                <ul>Temporarily disable foreign key checks, truncate table, and re-enable them</ul>
                 <code>
-                    <span class="orclkey">SET  </span> FOREIGN_KEY_CHECKS = 0 ; <br>
+                    
                     <span class="orclkey">TRUNCATE TABLE  </span> Orders ;<br>
                     <span class="orclkey">SET  </span>FOREIGN_KEY_CHECKS = 1 ;<br>
                 </code>
@@ -565,23 +566,23 @@
             <h2>Do’s and Don’ts When Using TRUNCATE </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
-                <li><b>Do use TRUNCATE for temporary or staging tables </b> to quickly reset them.</li>
-                <li><b>Do ensure foreign key dependencies are cleared </b> if truncating tables with
+                <li>Do use TRUNCATE for temporary or staging tables  to quickly reset them.</li>
+                <li>Do ensure foreign key dependencies are cleared if truncating tables with
                     dependencies.
                 </li>
-                <li><b>Do use TRUNCATE on archived tables </b> if the data is already backed up and the table is
+                <li>Do use TRUNCATE on archived tables if the data is already backed up and the table is
                     simply
                     being prepared for a new data load.</li>
             </ul>
             <h4><u>Don'ts</u> :-</h4>
             <ul>
-                <li><b>Don’t use TRUNCATE in transactional workflows </b> where you need a rollback.</li>
-                <li><b>Don’t rely on TRUNCATE for auditing - </b> If tracking deletions is needed, use DELETE
+                <li>Don’t use TRUNCATE in transactional workflows where you need a rollback.</li>
+                <li>Don’t rely on TRUNCATE for auditing - If tracking deletions is needed, use DELETE
                     with
                     logging instead.</li>
-                <li><b>Don’t use TRUNCATE casually in production </b> without confirming that data loss is
+                <li>Don’t use TRUNCATE casually in production without confirming that data loss is
                     acceptable,
-                    as it commits immediately in most systems.</li>
+                    as it is commited immediately in most systems.</li>
             </ul>
             <br>
             <table>

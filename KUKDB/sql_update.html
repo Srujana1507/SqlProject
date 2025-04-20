@@ -311,7 +311,7 @@
             </div>
 
             <h1>UPDATE</h1>
-            <p>The INSERT statement is Data Manipulation Language (DML) command, it is used to modify existing data
+            <p>The UPDATE statement is Data Manipulation Language (DML) command, it is used to modify existing data
                 in one or more rows within a table. </p><br>
             <P>UPDATE statement is used for</P><br>
             <ul>
@@ -370,7 +370,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">UPDATE  </span> employee <br> 
-                    <span class="orclkey">SET  </span> status = ' Active ' <b> ;</b>
+                    <span class="orclkey">SET  </span> status = ' Active' <b> ;</b>
                 </code>
             </div><br>
             <ul>
@@ -413,7 +413,7 @@
                 <li> In PostgreSQL and Oracle, the RETURNING clause allows you to capture the values that were
                     updated.</li>
                 <li> <b>Scenario :</b> Update all employees salary for the department HR, and return empID and
-                    new saraly for each row that was updated.</li>
+                    new salary for each row that was updated.</li>
             </ul>
             <div class="code-box">
                 <code>
@@ -443,9 +443,9 @@
                 <code>
                     <span class="orclkey">UPDATE  </span> Inventory i <br> 
                     
-                    <span class="orclkey">FROM  </span> Inventory i <br>
-                    <span class="orclkey">INNER JOIN  </span> Products p <br>
-                    <span class="orclkey">ON  </span> i.product_id = p.product_id 
+                    
+                    <span class="orclkey">INNER JOIN  </span> Products p 
+                    <span class="orclkey">ON  </span> i.product_id = p.product_id <br>
                     <span class="orclkey">SET  </span> i.price = p.price  <b> ;</b>
                 </code>
             </div><br>
@@ -462,27 +462,29 @@
                 </code>
             </div><br>
             <ul>
-                <li> <b>Scenario 2 :</b> Update depatment for the employee with employee_id 103 based on the
+                <li> <b>Scenario 2 :</b> Update department for the employee with employee_id 103 based on the
                     department value from the departments table.</li>
             </ul>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">UPDATE  </span> employees <br> 
-                        <span class="orclkey">SET  </span> department  = ( <br><span class="orclkey">SELECT  </span> department    
-                        <span class="orclkey"> FROM </span> departments   <br><span class="orclkey">WHERE </span> department_id = 3 ) 
-                        <span class="orclkey">WHERE </span> employee_id = 103<b> ;</b>
+                        <span class="orclkey">UPDATE  </span> employees e <br> 
+                        <span class="orclkey">JOIN </span>  department d 
+                        <span class="orclkey">ON </span> e.department_id=d.department_id <br>    
+                        <span class="orclkey"> SET</span> e.department_name=d.department_name <br>
+                        <span class="orclkey">WHERE </span> e.employee_id=103<span class="orclkey"> AND </span> department_id = 3 ; 
+                        
                     </code>
             </div><br>
 
             <h3>5. Bulk Updates Using Ranges</h3>
             <ul>
-                <li> <b>Scenario :</b> Increase the price by 5% for products priced between $50 and $100.</li>
+                <li> <b>Scenario :</b> Increase the price by 5% for products priced $50 and $100.</li>
             </ul>
             <div class="code-box">
                 <code>
                     <span class="orclkey">UPDATE  </span> Products <br> 
                     <span class="orclkey">SET  </span> Price = Price * 1.05  <br> 
-                    <span class="orclkey"> WHERE  </span> Price  <span class="orclkey">BETWEEN  </span> 50 <span class="orclkey">BETWEEN  </span> 100 <b> ;</b>
+                    <span class="orclkey"> WHERE  </span> Price  <span class="orclkey">BETWEEN  </span> 50 <span class="orclkey">AND  </span> 100 <b> ;</b>
                 </code>
             </div><br>
             <h3>6. Conditional Updates Based on Aggregate Functions</h3>
@@ -577,7 +579,7 @@
                     </ul>
                     <span class="orclkey"> END  </span><br>
                     <span class="orclkey">FROM  </span> employees e <br>
-                    <span class="orclkey">INNER JOIN  </span> performance p <br>
+                    <span class="orclkey">INNER JOIN  </span> performance p 
                     <span class="orclkey">ON  </span> e.employee_id = p.employee_id <b> ;</b>
                 </code>
             </div><br>
@@ -603,10 +605,12 @@
                 <code>
                         <span class="orclkey">UPDATE  </span> Customers <br> 
                         <span class="orclkey">SET  </span> Category  = ( <br>
-                        <ul><span class="orclkey">CASE  </span>   
+                        <ul><span class="orclkey">CASE  </span>   <br>
                         <ul><span class="orclkey"> WHEN </span>( <br>
-                            <span class="orclkey">SELECT </span> SUM (TotalAmount)  <span class="orclkey">FROM </span> Orders.CustomerID = Customers.CustomerID ) > 1000 <span class="orclkey">THEN </span>  'Gold'
-                        <br><span class="orclkey">ELSE </span> ' Silver ' </ul>
+                            <span class="orclkey">SELECT </span> SUM (TotalAmount)  <span class="orclkey"><br> FROM Orders
+                          <br> WHERE</span> Orders.CustomerID = Customers.CustomerID ) > 1000
+                           <span class="orclkey">THEN </span>  'Gold'
+                        <br><span class="orclkey">ELSE </span> 'Silver' </ul>
                         <span class="orclkey">END </span> <br></ul>
                         ) <b> ;</b>
                     </code>
@@ -645,12 +649,12 @@
             <ul>
                 <li><b>Do backup important tables </b> or test updates on a copy, especially if the update is
                     complex.</li>
-                <li><b>Do use the WHERE clause Carefully</b>Avoid updating all rows unintentionally by always
+                <li><b>Do use the WHERE clause Carefully</b> Avoid updating all rows unintentionally by always
                     specifying a WHERE clause unless you intend to update every row.</li>
                 <li><b>Do use transactions </b> For critical updates, especially ones affecting multiple rows,
                     wrap the UPDATE in a transaction. This allows you to rollback changes in case of an error.
                 </li>
-                <li><b>Do review withe SELECT first : - </b> Run a SELECT query with the same WHERE clause to
+                <li><b>Do review with SELECT first : - </b> Run a SELECT query with the same WHERE clause to
                     preview the rows that will be affected. This helps verify that only the intended rows are
                     updated.</li>
                 <li><b>Do Limit UPDATES in large tables : - </b> For large tables, consider updating in smaller
