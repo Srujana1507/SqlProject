@@ -370,7 +370,7 @@
                 <li><b>Scenario 1:- </b> Perform addition using the DUAL table</li>
             </ul>
             <div class="code-box">
-                <code>
+               
                     <code>
                         <span class="orclkey">SELECT  </span> 10 + 20  <span class="orclkey">AS  </span>  total <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
@@ -379,17 +379,17 @@
             <h3>SQL Server & MySQL</h3>
             <br>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> 10 + 20   <b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 2:- </b> Returning a Constant, e.g.. display Hello SQL</li>
+                <li><b>Scenario 2:- </b> Returning a Constant string, e.g. display Hello SQL</li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> 'Hello, SQL!'  <span class="orclkey">AS  </span>  Greeting  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
@@ -399,7 +399,7 @@
                 <li><b>Scenario 3:- </b> Using Date Functions</li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> SYSDATE  <span class="orclkey">AS  </span>  Current_date  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
@@ -407,9 +407,9 @@
             <br>
             <h3> In SQL Server</h3>
             <div class="code-box">
-                <code>
+                
                     <code>
-                        <span class="orclkey">SELECT  </span> GERDATE()  <b> ;</b>
+                        <span class="orclkey">SELECT  </span> GETDATE()  <b> ;</b>
                     </code>
             </div>
             <br>
@@ -417,88 +417,78 @@
                 <li><b>Scenario 4:- </b> Concatenating Strings </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> 'Hello, ' || 'World!'  <span class="orclkey">AS  </span>  Message  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 5:- </b> Concatenating Strings </li>
+                <li><b>Scenario 5:- </b> Generating Sequences numbers from 1 to 5. </li>
             </ul>
             <div class="code-box">
-                <code>
-                    <code>
-                        <span class="orclkey">SELECT  </span> 'Hello, ' || 'World!'  <span class="orclkey">AS  </span>  Message  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
-                    </code>
-            </div>
-            <br>
-            <ul>
-                <li><b>Scenario 6:- </b> Generating Sequences numbers from 1 to 5. </li>
-            </ul>
-            <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> ROWNUM  <span class="orclkey">AS  </span>  Seq_no  <span class="orclkey">FROM  </span> DUAL  <span class="orclkey"> CONNECT BY  </span> LEVEL <= 5<b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 7:- </b> Evaluating Complex Expressions </li>
+                <li><b>Scenario 6:- </b> Evaluating Complex Expressions </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> POWER( 2, 3 )   <span class="orclkey">AS  </span>  Exponent_Result   <span class="orclkey">FROM  </span> DUAL  <b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 8:- </b> Evaluate a conditional expression using CASE </li>
+                <li><b>Scenario 7:- </b> Evaluate a conditional expression using CASE </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
-                        <span class="orclkey">SELECT  CASE WHEN</span> 5 > 3   <span class="orclkey">THEN  </span>  ' True ''   <span class="orclkey">ELSE  </span> 
+                        <span class="orclkey">SELECT  CASE WHEN</span> 5 > 3   <span class="orclkey">THEN  </span>  ' True '   <span class="orclkey">ELSE  </span> 
                         ' False '  <span class="orclkey">END AS </span> result <span class="orclkey">FROM  </span> DUAL<b>  ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 9:- </b> Calculate System Metadata ( Retrieve the current user. ) </li>
+                <li><b>Scenario 8:- </b> Retrieve current user using Metadata functions. </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  USER  AS </span> Current_user  <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 10:- </b> Use Mathematical Functions. e.g Find the square root of a number. </li>
+                <li><b>Scenario 9:- </b> Use Mathematical Functions. e.g Find the square root of a number. </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> SQRT(16)  <span class="orclkey">AS  </span> square_root  <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 11:- </b> Test String Functions. e.g Convert a string to uppercase. </li>
+                <li><b>Scenario 10:- </b> Test String Functions. e.g Convert a string to uppercase. </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> UPPER ( 'hello')  <span class="orclkey">AS  </span> uppercase_string   <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
             <ul>
-                <li><b>Scenario 12:- </b> Create dummy rows for testing. </li>
+                <li><b>Scenario 11:- </b> Create dummy rows for testing. </li>
             </ul>
             <div class="code-box">
-                <code>
+                
                     <code>
                         <span class="orclkey">SELECT  </span> 'Test Data'  <span class="orclkey">AS  </span> dummy_column   <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
@@ -507,14 +497,14 @@
             <h2>Do’s and Don’ts </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
-                <li><b>Use DUAL for computations and function evaluations in Oracle.</li>
-                <li><b>Utilize it for generating rows in recursive queries (Oracle-specific).</li>
-                <li><b>Use DUAL when a table is not required but a syntactically valid SQL statement is needed.</li>
+                <li>Use DUAL for computations and function evaluations in Oracle.</li>
+                <li>Utilize it for generating rows in recursive queries (Oracle-specific).</li>
+                <li>Use DUAL when a table is not required but a syntactically valid SQL statement is needed.</li>
             </ul>
             <h4><u>Don'ts</u> :-</h4>
             <ul>
-                <li><b>Avoid overusing DUAL in complex queries where actual data is involved.</li>
-                <li><b>Do not assume DUAL is available in all databases; some systems like MySQL allow operations
+                <li>Avoid overusing DUAL in complex queries where actual data is involved.</li>
+                <li>Do not assume DUAL is available in all databases; some systems like MySQL allow operations
                         without a table reference.</li>
             </ul>
             <br>

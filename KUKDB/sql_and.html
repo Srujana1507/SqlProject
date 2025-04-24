@@ -349,7 +349,8 @@
                 <code>
                         <span class="orclkey">SELECT   </span> OrderID<b> , </b>CustomerID<b> , </b>OrderDate<b> , </b>Status<b></b>  <br>
                         <span class="orclkey">FROM </span> Orders <br>
-                        <span class="orclkey">WHERE </span> OrderDate  <b> > </b> <b> '</b>2023-01-01<b>' </b>  <span class="orclkey"> AND </span> Stock  <b> = </b> <b> '</b>Pending<b>' </b> <b> ; </b>
+                        <span class="orclkey">WHERE </span> OrderDate  <b> > </b> <b> '</b>2023-01-01<b>' </b> 
+                        <span class="orclkey"> AND </span> Status  <b> = </b> <b> '</b>Pending<b>' </b> <b> ; </b>
                     </code>
             </div><br>
             <p><b>Scenario 4 - ( Combining Numeric and String Conditions ):- </b>Get all students enrolled in the
@@ -361,8 +362,8 @@
                         <span class="orclkey">WHERE </span> Course  <b>=  '</b>Mathematics<b>' </b>  <span class="orclkey"> AND </span> Grade   <b> > </b> 80 <b> ; </b>
                     </code>
             </div><br>
-            <p><b>Scenario 5 - ( Filtering Products by Multiple Numeric Ranges ):- </b>Get all students enrolled in the
-                "Mathematics" course with grades above 80.</p>
+            <p><b>Scenario 5 - ( Filtering Products by Multiple Numeric Ranges ):- </b>Get all products priced between 50 and 500 
+            with a discount greater than 10%.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Price<b> , </b>Discount<b></b>  <br>
@@ -383,23 +384,21 @@
             <p>When multiple logical operators are used in a query, they are evaluated in the following order of
                 precedence:<b>NOT , AND , OR</b></p>
             <p>Use parentheses to override the default precedence and clarify intent.</p>
-            <h3>Example 1: </h3>
+            <br><h3>Example 1: </h3>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary  <br>
                         <span class="orclkey">FROM </span> employees <br>
-                        <span class="orclkey">WHERE </span> department_id<b> = ' </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  <span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
-                    </code>
-                - - 1. Evaluate NOT job_title = 'Manager'. <br>
-                - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
-                - - 3. Evaluate department_id = 10 OR result_of_AND. <br>
+                        <span class="orclkey">WHERE </span> department_id<b> =  </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  <span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
+                </code>
+                ---- give parenthesis for clarity. <br>
             </div><br>
             <h3>To change precedence:</h3>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary  <br>
                         <span class="orclkey">FROM </span> employees <br>
-                        <span class="orclkey">WHERE </span>( department_id<b> = ' </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  )<span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
+                        <span class="orclkey">WHERE </span>( department_id<b> = </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  )<span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
                     </code>
                 - - 1. Evaluate NOT job_title = 'Manager'. <br>
                 - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
@@ -412,7 +411,7 @@
                 <code>
                         <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary <b> , </b>job_title <br>
                         <span class="orclkey">FROM </span> employees <br>
-                        <span class="orclkey">WHERE </span> department_id<b> = ' </b>20 <span class="orclkey"> AND </span>( salary <b> > </b> 70000  <span class="orclkey"> OR NOT </span> job_title  <b> = </b> <b> '</b>Salesman<b>' )</b><b> ; </b>
+                        <span class="orclkey">WHERE </span> department_id<b> =  </b>20 <span class="orclkey"> AND </span>( salary <b> > </b> 60000  <span class="orclkey"> OR </span> job_title != <b> </b> <b> '</b>Salesman<b>' )</b><b> ; </b>
                     </code>
                 - - 1. Evaluate NOT job_title = 'Manager'. <br>
                 - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
@@ -425,7 +424,7 @@
                 <code>
                         <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name<b> , </b>Country<b> , </b>TotalSpending<b></b>  <br>
                         <span class="orclkey">FROM </span> Customers <br>
-                        <span class="orclkey">WHERE </span> ( Country  <b> = ' </b>USA <b>'</b> <span class="orclkey"> OR </span> Country   <b> = </b> <b> '</b>Canada<b>' </b> )<span class="orclkey"> AND </span>TotalSpending  <b>></b> 5000<b> ; </b>
+                        <span class="orclkey">WHERE </span> ( Country  <b> = '</b>USA<b>'</b> <span class="orclkey"> OR </span> Country   <b> = </b> <b> '</b>Canada<b>' </b> )<span class="orclkey"> AND </span>TotalSpending  <b>></b> 5000<b> ; </b>
                     </code>
             </div><br>
             <h3>2. Joining Tables with AND in Conditions</h3>
@@ -436,13 +435,13 @@
                         <span class="orclkey">SELECT   </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name<b> , </b>COUNT ( p.ProjectID ) <span class="orclkey">AS   </span> ProjectCount <br>
                         <span class="orclkey">FROM </span> Employees e <br>
                         <span class="orclkey">JOIN  </span> Projects p <span class="orclkey">ON  </span>e.EmployeeID = p.EmployeeID<br>
-                        <span class="orclkey">WHERE </span> ( e.DepartmentID  <b> = ' </b>Sales <b>'</b><span class="orclkey">OR  </span> e.department_name<b> = ' </b>Marketing <b>'</b> )<br>
+                        <span class="orclkey">WHERE </span> (e.department_name <b> = '</b>Sales<b>'</b><span class="orclkey">OR  </span>e.department_name<b> = '</b>Marketing<b>'</b> )<br>
                         <span class="orclkey">AND </span> p.Status <b> = ' </b>Completed <b>'</b> <br>
                         <span class="orclkey">GROUP BY </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name
-                        <span class="orclkey">HAVING </span> COUNT( p.ProjectID ) <b>>= </b>2 <b> ; </b>
+                        <span class="orclkey">HAVING </span> COUNT(p.ProjectID) <b>>= </b>2 <b> ; </b>
                     </code>
             </div><br>
-            <h3>2. Using Subqueries with AND</h3>
+            <h3>3. Using Subqueries with AND</h3>
             <p><b>Scenario :- </b> Retrieve orders placed by customers who live in "California" and have placed more
                 than three orders.</p>
             <div class="code-box">
@@ -455,11 +454,11 @@
                                 <span class="orclkey">SELECT   </span> CustomerID <br>
                                 <span class="orclkey">FROM </span> Orders <br>
                                 <span class="orclkey">WHERE </span> State <b> = ' </b>California <b>'</b> <br>
+                                <span class="orclkey">GROUP BY </span> CustomerID <br>
+                                <span class="orclkey">HAVING </span> COUNT(OrderCount)<b> > </b> 3 <b><br> ); </b>
                             </ul>
-                        </ul>
-                        ) <br>
-                        <span class="orclkey">AND </span> OrderCount  <b> > </b> 3 <b> ; </b>
-                    </code>
+                        </ul> 
+                </code>
             </div><br>
             <h2>Common Errors</h2>
             <h3>1. Misusing AND/OR</h3>

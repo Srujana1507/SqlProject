@@ -350,7 +350,7 @@
                 <code>
                         <span class="orclkey">SELECT   </span> customer_id<b> , </b>customer_name<b> , </b>City  <br>
                         <span class="orclkey">FROM </span> customers <br>
-                        <span class="orclkey">WHERE </span> city   = <b>'</b>Hyderabad <b>'</b> <span class="orclkey"> OR </span> city   = <b>'</b>Mumbai<b>'</b> <b> ; </b>
+                        <span class="orclkey">WHERE </span> city   = <b>'</b>Hyderabad<b>'</b> <span class="orclkey"> OR </span> city   = <b>'</b>Mumbai<b>'</b> <b>; </b>
                     </code>
             </div><br>
             <p><b>Scenario 3:- </b>Retrieve products in the "Electronics" or "Clothing" category.</p>
@@ -361,7 +361,7 @@
                         <span class="orclkey">WHERE </span> Category    = <b>'</b>Electronics<b>'</b> <span class="orclkey"> OR </span> Category    = <b>'</b>Clothing<b>'</b> <b> ; </b>
                     </code>
             </div><br>
-            <p><b>Scenario 4:- </b>Find orders placed in January 2023 or July 2023.</p>
+            <p><b>Scenario 4:- </b>Find orders placed in January 2024 or July 2024.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> OrderID<b> , </b>OrderDate<b> , </b>Amount  <br>
@@ -443,7 +443,7 @@
                         <span class="orclkey">FROM </span> orders o <br>
                         <span class="orclkey">JOIN  </span>  customers c <span class="orclkey"> ON </span> o.customer_id = c.customer_id <br>
                         <span class="orclkey">JOIN  </span>  shipping s <span class="orclkey"> ON </span> o.shipping_id = s.shipping_id <br>
-                         <span class="orclkey">WHERE  </span> c.city =  <b>'</b>New York<b>'</b><span class="orclkey"> OR </span>c.city =  <b>'</b>California<b>'</b> <b> ; </b>
+                         <span class="orclkey">WHERE  </span> c.city =  <b>'</b>New York<b>'</b><span class="orclkey"> OR </span>s.state =  <b>'</b>California<b>'</b> <b> ; </b>
                     </code>
             </div><br>
             <h3>3. Using OR with EXISTS</h3>
@@ -453,7 +453,7 @@
                 <code>
                         <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id <br>
                         <span class="orclkey">FROM </span> employees <br>
-                        <span class="orclkey">WHERE  </span>  department_id = ( <br>
+                        <span class="orclkey">WHERE  </span>  department_id IN ( <br>
                         <ul>
                         <span class="orclkey"> SELECT  </span> department_id <span class="orclkey">FROM </span> departments 
                         <span class="orclkey">WHERE  </span>  department_name  = <b>'</b>Sales<b>'</b> <br>

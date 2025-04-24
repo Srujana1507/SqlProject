@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -383,7 +383,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> <b> * </b> <br>
                     <span class="orclkey">FROM   </span> employees <br> 
-                    <span class="orclkey">WHERE  </span> Salary = 50000
+                    <span class="orclkey">WHERE  </span> department_id=10
                     <b> ;</b> 
                 </code>
             </div>
@@ -394,14 +394,14 @@
                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b> Category</b> <br>
                     <span class="orclkey">FROM   </span> Products <br> 
-                    <span class="orclkey">WHERE  </span> Category <> <b>'</b>Electronic<b>'</b>
+                    <span class="orclkey">WHERE  </span> Category <> <b>'</b>Electronics<b>'</b>
                     <b> ;</b> 
                 </code><br>
                 <ul> - - or </ul>
                 <code>
                     <span class="orclkey">SELECT   </span>  ProductID<b> , </b>Name<b> , </b> Category</b> <br>
                     <span class="orclkey">FROM   </span> Products <br> 
-                    <span class="orclkey">WHERE  </span> Category != <b>'</b>Electronic<b>'</b>
+                    <span class="orclkey">WHERE  </span> Category != <b>'</b>Electronics<b>'</b>
                     <b> ;</b> 
                 </code>
             </div>
@@ -507,7 +507,7 @@
                                 <code>
                     <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name <br>
                     <span class="orclkey">FROM   </span> Customers <br> 
-                    <span class="orclkey">WHERE  </span> Name  <span class="orclkey"> LIKE  </span> <b>' </b>A% <b> '</b>
+                    <span class="orclkey">WHERE  </span> Name  <span class="orclkey"> LIKE  </span> <b>'</b>A%<b>'</b>
                     <b> ;</b> <br><br>
                     <b> % </b> matches zero or more characters. <br>
                     <b> _ </b> matches exactly one character.
@@ -521,7 +521,7 @@
                                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Price <b> , </b>Category<br>
                     <span class="orclkey">FROM   </span> Products <br> 
-                    <span class="orclkey">WHERE  </span> Price > 100  <span class="orclkey"> AND  </span> Price < 500 <span class="orclkey"> AND  </span> Category = <b>' </b> Electronics <b> '</b>
+                    <span class="orclkey">WHERE  </span> Price > 100  <span class="orclkey"> AND  </span> Price < 500 <span class="orclkey"> AND  </span> Category = <b>'</b>Electronics<b>'</b>
                     <b> ;</b> 
                 </code>
                             </div>
@@ -545,7 +545,9 @@
                                 <code>
                     <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name<b> , </b>TotalSpent <br>
                     <span class="orclkey">FROM   </span> Customers <br> 
-                    <span class="orclkey">WHERE  </span> TotalSpent    <span class="orclkey"> BETWEEN  </span> 10000  <span class="orclkey"> AND  </span> 50000
+                    <span class="orclkey">WHERE  </span>    
+                    <span class="orclkey">   TotalSpent >  </span> 10000 AND
+                    <span class="orclkey"> TotalSpent <=  </span> 50000
                     <b> ;</b> 
                 </code>
                             </div>
@@ -580,7 +582,7 @@
                                 <code>
                     <span class="orclkey">SELECT   </span> CustomerID<b> , </b>Name <br>
                     <span class="orclkey">FROM   </span> Customers <br> 
-                    <span class="orclkey">WHERE  </span> Name  <span class="orclkey"> LIKE  </span> <b>' </b>%son <b> '</b>
+                    <span class="orclkey">WHERE  </span> Name  <span class="orclkey"> LIKE  </span> <b>'</b>%son<b>'</b>
                     <b> ;</b> 
                 </code>
                             </div>

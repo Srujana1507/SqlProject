@@ -313,7 +313,7 @@
             <h1>UPDATE</h1>
             <p>The UPDATE statement is Data Manipulation Language (DML) command, it is used to modify existing data
                 in one or more rows within a table. </p><br>
-            <P>UPDATE statement is used for</P><br>
+            <P>UPDATE statement is used to</P><br>
             <ul>
                 <li>Modifying values in specific columns.</li>
                 <li>Changing one or more rows based on conditions.</li>
@@ -343,13 +343,13 @@
 
             <h3>2. Updating Multiple Rows Based on a Condition :-</h3>
             <ul>
-                <li> Increases the salary by 10% for all employees in the IT department.</li>
+                <li> Increase the salary by 10% for all employees in the IT department.</li>
             </ul>
             <div class="code-box">
                 <code>
                     <span class="orclkey">UPDATE  </span> employee <br> 
                     <span class="orclkey">SET  </span> salary = salary  *  1.10   <br>
-                    <span class="orclkey">WHERE </span> department_name = ' IT ' <b> ;</b> <br>
+                    <span class="orclkey">WHERE </span> department_name = 'IT' <b>;</b> <br>
                 </code>
             </div><br>
             <h3>3. Updating Multiple Columns at Once :-</h3>
@@ -359,8 +359,8 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">UPDATE  </span> employee <br> 
-                    <span class="orclkey">SET  </span> last_name = ' Jack ' <b>,</b> department_name = ' IT '   <br>
-                    <span class="orclkey">WHERE </span> employee_id = 102 <b> ;</b> <br>
+                    <span class="orclkey">SET  </span> last_name = 'Jack' <b>,</b> department_name = 'IT'   <br>
+                    <span class="orclkey">WHERE </span> employee_id = 102 <b>;</b> <br>
                 </code>
             </div><br>
             <h3>4. Updating All Rows in a Table :-</h3>
@@ -370,7 +370,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">UPDATE  </span> employee <br> 
-                    <span class="orclkey">SET  </span> status = ' Active' <b> ;</b>
+                    <span class="orclkey">SET  </span> status = 'Active' <b> ;</b>
                 </code>
             </div><br>
             <ul>
@@ -419,7 +419,8 @@
                 <code>
                     <span class="orclkey">UPDATE  </span> employee <br> 
                     <span class="orclkey">SET  </span> salary = salary * 1.10 <br>
-                    <span class="orclkey">WHERE  </span> salary = salary * 1.10 <br>
+                    <span class="orclkey">WHERE  </span> 
+                    department_name=<span class="orclkey"> 'HR'</span>  <br>
                     RETURNING empID, salary <b> ;</b>
                 </code>
             </div><br>
@@ -456,9 +457,9 @@
             </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">UPDATE  </span> employees <br> 
-                    <span class="orclkey">SET  </span> salary = ( <br><span class="orclkey">SELECT  </span> AVG (Salary)   
-                    <span class="orclkey"> FROM </span> Employees  <br><span class="orclkey">WHERE </span> DepartmentID = Employees.DepartmentID ) <b> ;</b>
+                    <span class="orclkey">UPDATE  </span> employees e <br> 
+                    <span class="orclkey">SET  </span> salary = ( <br><span class="orclkey">SELECT  </span> AVG(e1.Salary)   <br>
+                    <span class="orclkey"> FROM </span> Employees e1 <br><span class="orclkey">WHERE </span> e1.DepartmentID = e.DepartmentID ) <b> ;</b>
                 </code>
             </div><br>
             <ul>
@@ -573,8 +574,8 @@
                     <span class="orclkey">UPDATE  </span> e <br> 
                     <span class="orclkey">SET  </span> e.salary =  <span class="orclkey">CASE  </span><br>
                     <ul>
-                        <span class="orclkey">WHEN  </span> p.rating = ' Excellent ' <span class="orclkey">THEN  </span> e.salary * 1.20 <br>
-                        <span class="orclkey">WHEN  </span> p.rating = ' Good ' <span class="orclkey">THEN  </span> e.salary * 1.10 <br>
+                        <span class="orclkey">WHEN  </span> p.rating = 'Excellent' <span class="orclkey">THEN  </span> e.salary * 1.20 <br>
+                        <span class="orclkey">WHEN  </span> p.rating = 'Good' <span class="orclkey">THEN  </span> e.salary * 1.10 <br>
                         <span class="orclkey">ELSE  </span>  e.salary 
                     </ul>
                     <span class="orclkey"> END  </span><br>
@@ -591,11 +592,11 @@
                     <span class="orclkey">ON  </span> e.employee_id = p.employee_id <br>
                     <span class="orclkey">SET  </span> e.salary =  <span class="orclkey">CASE  </span><br>
                     <ul>
-                        <span class="orclkey">WHEN  </span> p.rating = ' Excellent ' <span class="orclkey">THEN  </span> e.salary * 1.20 <br>
-                        <span class="orclkey">WHEN  </span> p.rating = ' Good ' <span class="orclkey">THEN  </span> e.salary * 1.10 <br>
+                        <span class="orclkey">WHEN  </span> p.rating = 'Excellent' <span class="orclkey">THEN  </span> e.salary * 1.20 <br>
+                        <span class="orclkey">WHEN  </span> p.rating = 'Good' <span class="orclkey">THEN  </span> e.salary * 1.10 <br>
                         <span class="orclkey">ELSE  </span>  e.salary 
                     </ul>
-                    <span class="orclkey"> END  </span> <b> ;</b>
+                    <span class="orclkey"> END </span> <b> ;</b>
                 </code>
             </div><br>
             <ul>
@@ -617,7 +618,7 @@
             </div><br>
 
             <ul>
-                <li> <b>Scenario 3 :</b> Update customer categories based on their total spending.</li>
+                <li> <b>Scenario 3 :</b> Update discount for products based on their stock and sales Rank.</li>
             </ul>
             <div class="code-box">
                 <code>

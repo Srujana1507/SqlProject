@@ -318,7 +318,7 @@
             <p> It simplifies queries by allowing you to specify multiple values in a WHERE or HAVING clause, rather
                 than using multiple OR conditions.</p><br>
             <p> <b>Execution:- </b>It picks one by one value from list of values.</p><br>
-            <p>We can use <b>IN</b> with <b>SELECT, Update, DELETE</b> statments.</p>
+            <p>We can use <b>IN</b> with <b>SELECT, UPDATE, DELETE</b> statements.</p>
             <h2>Key Features of the IN Operator</h2>
             <ul>
                 <li><b>Simplifies Queries:-</b> Replaces long OR conditions with a concise syntax.</li>
@@ -529,7 +529,7 @@
                         <span class="orclkey">INSERT INTO </span> orders_archive ( order_id, customer_id, order_date ) <br>
                         <span class="orclkey">SELECT   </span> order_id, customer_id, order_date <br>
                         <span class="orclkey">FROM </span> orders <br>
-                        <span class="orclkey">WHERE </span>  country  <span class="orclkey"> IN </span>( <b>'</b>UAS<b>' , '</b>INDIA<b>' , '</b>UK<b>'</b> )
+                        <span class="orclkey">WHERE </span>  country  <span class="orclkey"> IN </span>( <b>'</b>USA<b>' , '</b>INDIA<b>' , '</b>UK<b>'</b> )
                         <b> ; </b>
                     </code>
             </div><br>
@@ -558,7 +558,7 @@
                     <span class="orclkey">SELECT  </span> order_id, customer_id
                     <span class="orclkey">FROM </span> sales<br>
                     <span class="orclkey">GROUP BY </span> category_id <br>
-                    <span class="orclkey">HAVING YEAR </span>  ( order_date )   <span class="orclkey"> IN </span>( 2020, 2021  )
+                    <span class="orclkey">HAVING YEAR </span>(order_date)   <span class="orclkey"> IN </span>( 2020, 2021  )
                     <b> ; </b>
                     </code>
             </div><br>
