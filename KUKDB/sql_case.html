@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -304,7 +304,7 @@
         <main class="sidebar-content" data-topic="sqlCase">
 
             <div class="topic-buttons">
-                <a href="sql_some.html?topic=sqlSome" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_some.html?topic=sqlSome" class="previou-button">&laquo; Previous</a>
                 <a href="sql_subqueries.html?topic=sqlSubqueries" class="next-button">Next &raquo;</a>
             </div>
 
@@ -373,8 +373,10 @@
                     <ul>             
                     <span class="orclkey">CASE </span> JobTitle <br>
                             <ul>
-                            <span class="orclkey">WHEN </span> <b>'</b>Manager<b>'</b> <span class="orclkey">THEN </span> <b>'</b>Executive<b>'</b>  <br>
-                            <span class="orclkey">WHEN </span> <b>'</b>Developer<b>'</b> <span class="orclkey">THEN </span> <b>'</b>Technical Staff<b>'</b>  <br>
+                            <span class="orclkey">WHEN </span> <b>'</b>Manager<b>'</b> 
+                            <span class="orclkey">THEN </span> <b>'</b>Executive<b>'</b>  <br>
+                            <span class="orclkey">WHEN </span> <b>'</b>Developer<b>'</b>
+                            <span class="orclkey">THEN </span> <b>'</b>Technical Staff<b>'</b>  <br>
                             <span class="orclkey">ELSE </span> <b>'</b>Other<b>'</b> <br>
                         </ul>  
                             <span class="orclkey">END AS </span>  RoleCategory <br>
@@ -384,7 +386,7 @@
                 - - Default is 'Other'. <br>
             </div><br>
             <h3>2. Searched CASE</h3>
-            <p><b>Scenario :- </b> Evaluates salary ranges and assigns categories accordingly.</p>
+            <p><b>Scenario 1 :- </b> Evaluates salary ranges and assigns categories accordingly.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> EmployeeID, Name, <br>
@@ -392,17 +394,20 @@
                     <span class="orclkey">CASE </span>  <br>
                             <ul>
                             <span class="orclkey">WHEN </span> Salary > 50000 <span class="orclkey">THEN </span> <b>'</b>High<b>'</b>  <br>
-                            <span class="orclkey">WHEN </span> Salary  <span class="orclkey">BETWEEN </span> 30000 <span class="orclkey"> AND  </span> 50000 <span class="orclkey"> THEN  </span><b>'</b>Medium<b>'</b>  <br>
+                            <span class="orclkey">WHEN </span> Salary 
+                            <span class="orclkey">BETWEEN </span> 30000 
+                            <span class="orclkey"> AND  </span> 50000 
+                            <span class="orclkey"> THEN  </span><b>'</b>Medium<b>'</b>  <br>
                             <span class="orclkey">ELSE </span> <b>'</b>Low<b>'</b> <br>
                         </ul>  
                             <span class="orclkey">END AS </span>  SalaryCategory <br>
                         </ul>    <span class="orclkey"> FROM </span>  Employees   <b> ; </b>            
                         </code>
             </div><br>
-            <p><b>Scenario :- </b>Assign grades based on a score.</p>
+            <p><b>Scenario 2:- </b>Assign grades based on a score.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> student_name, Scroe, <br>
+                    <span class="orclkey">SELECT  </span> student_name, Score, <br>
                     <ul>             
                     <span class="orclkey">CASE </span>  <br>
                             <ul>
@@ -421,13 +426,17 @@
                 <code>
                     <span class="orclkey">SELECT  </span> employee_id, name, salary <br>
                     <span class="orclkey">FROM </span> employees <br>          
-                    <span class="orclkey">WHERE CASE </span>  <br>
+                    <span class="orclkey">WHERE </span>  <br>
                             <ul>
-                            <span class="orclkey">WHEN </span> department_name =  <b>'</b>HR<b>'</b><span class="orclkey">THEN </span> salary > 40000  <br>
-                            <span class="orclkey">WHEN </span> department_name =  <b>'</b>IT<b>'</b><span class="orclkey">THEN </span> salary > 60000  <br>
-                            <span class="orclkey">ELSE </span> salary > 30000 <br>
+                            <span class="orclkey"> </span> (department_name =  <b>'</b>HR<b>'</b>
+                            <span class="orclkey">AND </span> salary > 40000)  <br>
+                            <span class="orclkey">OR</span> (department_name =  <b>'</b>IT<b>'</b>
+                            <span class="orclkey">AND </span> salary > 60000 ) <br>
+                            <span class="orclkey">OR </span>(department_name NOT IN ('HR','IT') 
+                            <span class="orclkey">AND </span> salary 
+                            <span class="orclkey"> > </span> 30000);<br>
                         </ul>  
-                            <span class="orclkey">END </span>    <b> ; </b>           
+                            
                         </code>
             </div><br>
             <h3>4. Use in ORDER BY Clause</h3>
@@ -439,8 +448,10 @@
                     <span class="orclkey">ORDER BY </span><ul>
                     <span class="orclkey"> CASE </span>  <br>
                             <ul>
-                            <span class="orclkey">WHEN </span> category  =  <b>'</b>Electronics<b>' </b><span class="orclkey"> THEN </span> 1  <br>
-                            <span class="orclkey">WHEN </span> category  =  <b>'</b>Furniture<b>' </b><span class="orclkey"> THEN </span> 2  <br>
+                            <span class="orclkey">WHEN </span> category  =  <b>'</b>Electronics<b>' </b>
+                            <span class="orclkey"> THEN </span> 1  <br>
+                            <span class="orclkey">WHEN </span> category  =  <b>'</b>Furniture<b>' </b>
+                            <span class="orclkey"> THEN </span> 2  <br>
                             <span class="orclkey">ELSE </span> 3 <br>
                         </ul>  
                             <span class="orclkey">END </span>    <b> ; </b>
@@ -479,15 +490,19 @@
             <p><b>Scenario :- </b> Filter aggregated results based on conditions.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> department_id, AVG( salary ) <span class="orclkey"> AS  </span> avg_salary<br>
+                    <span class="orclkey">SELECT  </span> department_id, AVG(salary)
+                    <span class="orclkey"> AS  </span> avg_salary<br>
                     <span class="orclkey"> FROM  </span> employees <br>
                     <span class="orclkey"> GROUP BY  </span> department_id <br>
-                    <span class="orclkey"> HAVING CASE </span> <br>
+                    <span class="orclkey"> HAVING </span> <br>
                                 <ul>
-                                    <span class="orclkey">WHEN </span> department_id  = 1  <span class="orclkey">THEN </span> AVG( salary )  > 50000  <br>
-                                    <span class="orclkey">ELSE </span> AVG(salary) > 30000
+                                    (department_id  = 1 
+                                    <span class="orclkey">AND </span> AVG(salary) > 50000)  <br>
+                                    <span class="orclkey">OR </span>
+                                    (department_id<>1
+                                    <span class="orclkey">AND </span> AVG(salary) > 30000);
                                 </ul>
-                                <span class="orclkey">END </span><b> ; </b>
+                                
                         </code>
             </div><br>
             <h3>7. Use in UPDATE Statement</h3>
@@ -497,8 +512,11 @@
                     <span class="orclkey">UPDATE  </span> employees <br>
                     <span class="orclkey"> SET  </span> bonus = <span class="orclkey"> CASE  </span> <br>
                                 <ul><ul>
-                                    <span class="orclkey">WHEN </span> department_name  = <b>'</b>HR<b>'</b>  <span class="orclkey">THEN </span> salary * 0.1  <br>
-                                    <span class="orclkey">WHEN </span> department_name  = <b>'</b>IT<b>'</b>  <span class="orclkey">THEN </span> salary * 0.15  <br>
+
+                                    <span class="orclkey">WHEN </span> department_name  = <b>'</b>HR<b>'</b>  
+                                    <span class="orclkey"> THEN </span> salary * 0.1  <br>
+                                    <span class="orclkey">WHEN </span> department_name  = <b>'</b>IT<b>'</b>  
+                                    <span class="orclkey"> THEN </span> salary * 0.15  <br>
                                     <span class="orclkey">ELSE </span> salary * 0.05
                                 </ul><span class="orclkey">END </span><b> ; </b>
                             </ul>
@@ -510,14 +528,18 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">DELETE FROM  </span> employees <br>
-                    <span class="orclkey"> WHERE CASE  </span>  <br>
-                                <ul><ul>
-                                    <span class="orclkey">WHEN </span> department_name  = <b>'</b>Sales<b>'</b>  <span class="orclkey">THEN </span> salary < 40000  <br>
-                                    <span class="orclkey">WHEN </span> department_name  = <b>'</b>Marketing<b>'</b>  <span class="orclkey">THEN </span> salary < 30000  <br>
-                                    <span class="orclkey">ELSE </span> salary < 20000
+                    <span class="orclkey"> WHERE   </span>  
+                                <ul>
+                                    <span class="orclkey">( </span> department_name  = <b>'</b>Sales<b>'</b> 
+                                    <span class="orclkey">AND </span> salary < 40000) <br>
+                                    <span class="orclkey">OR( </span> department_name  = <b>'</b>Marketing<b>'</b> 
+                                    <span class="orclkey">AND </span> salary < 30000) <br>
+                                    <span class="orclkey">OR </span>
+                                    <span class="orclkey">( </span>department_name 
+                                    <span class="orclkey">NOT IN </span>('sales','Marketing')
+                                    <span class="orclkey">AND </span>salary < 20000);
                                 </ul>
-                                <span class="orclkey">END </span><b> ; </b>
-                            </ul>
+                                
                         </code>
             </div><br>
             <h2>Advanced Use Cases</h2>
@@ -527,14 +549,16 @@
                 <code>
                     <span class="orclkey">SELECT </span> a.order_id, b.customer_name <br>
                     <span class="orclkey">FROM  </span> orders a <br>
-                    <span class="orclkey">LEFT JOIN  </span> customers b <br><ul>
-                    <span class="orclkey">ON CASE  </span>
-                                <ul>
-                                    <span class="orclkey">WHEN </span> a.region  = <b>'</b>North<b>'</b>  <span class="orclkey">THEN </span> a.customer_id = b.customer_id  <br>
-                                    <span class="orclkey">ELSE </span> a.customer_id = b.backup_customer_id
-                                </ul>
-                                <span class="orclkey">END </span><b> ; </b>
-                            </ul>
+                    <span class="orclkey">LEFT JOIN  </span> customers b 
+                    <span class="orclkey">ON  </span>
+                              
+                                     (a.region  = <b>'</b>North<b>'</b> 
+                                    <span class="orclkey">AND </span> a.customer_id = b.customer_id)  <br>
+                                    <span class="orclkey">OR </span>
+                                    (a.region <>'North'
+                                    <span class="orclkey">AND </span>a.customer_id = b.backup_customer_id);
+                            
+                               
                         </code>
             </div><br>
             <h3>2. Pivoting Data</h3>
@@ -598,7 +622,7 @@
                 <li><b>Ignoring NULLs :-</b>If NULL is not explicitly handled, rows with NULL values will return NULL,
                     leading to unexpected results.</li>
             </ul><br>
-            <h2>Best Practices</h2>
+            <h2>Do's and Dont's</h2>
             <h4>Do's</h4>
             <ul>
                 <li>Use meaningful labels for CASE results to improve readability.</li>
@@ -623,7 +647,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_some.html?topic=sqlSome" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_some.html?topic=sqlSome" class="previou-button">&laquo; Previous</a>
                 <a href="sql_subqueries.html?topic=sqlSubqueries" class="next-button">Next &raquo;</a>
             </div>
 

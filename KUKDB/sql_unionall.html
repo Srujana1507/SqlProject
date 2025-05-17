@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlUnionall">
 
             <div class="topic-buttons">
-                <a href="sql_union.html?topic=sqlUnion" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_union.html?topic=sqlUnion" class="previou-button">&laquo; Previous</a>
                 <a href="sql_intersect.html?topic=sqlIntersect" class="next-button">Next &raquo;</a>
             </div>
 
@@ -371,12 +371,14 @@
                 rates, while including duplicates.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> ProductID, Price, Price * 0.9 <span class="orclkey"> AS </span> DiscountedPrice <br>
+                    <span class="orclkey">SELECT  </span> ProductID, Price, Price * 0.9 
+                    <span class="orclkey"> AS </span> DiscountedPrice <br>
                     <span class="orclkey">FROM </span> Products_UK  <br>
                     <span class="orclkey">UNION ALL</span>   <br>
-                    <span class="orclkey">SELECT  </span> ProductID, Price, Price * 0.85 <span class="orclkey"> AS </span> DiscountedPrice <br><br>
-                    <span class="orclkey">FROM </span> Products_UK 
-                    <b> ; </b><br><br>
+                    <span class="orclkey">SELECT  </span> ProductID, Price, Price * 0.85
+                    <span class="orclkey"> AS </span> DiscountedPrice <br>
+                    <span class="orclkey">FROM </span> Products_IN
+                    <b> ; </b>
                 </code>
             </div><br>
             <h3>4. Using UNION ALL with Literal Values</h3>
@@ -386,7 +388,7 @@
                     <span class="orclkey">SELECT  </span> 'Manual Entry' <span class="orclkey"> AS </span> Source, 'Product A'  <span class="orclkey"> AS </span> product<br>
                     <span class="orclkey">UNION ALL</span>   <br>
                     <span class="orclkey">SELECT  </span>'Database Entry', product_name <br>
-                    <span class="orclkey">FROM </span> products <br>
+                    <span class="orclkey">FROM </span> products
                     <b> ; </b><br><br>
                     - -  This query combines a manually defined row with data fetched from the database.
                 </code>
@@ -402,7 +404,7 @@
                     <span class="orclkey">SELECT  </span>CategoryID, CategoryName <br>
                     <span class="orclkey">FROM </span> Categories <br>
                     <span class="orclkey"> WHERE </span> CategoryID > 3
-                    <b> ; </b><br><br>
+                    <b> ; </b>
                 </code>
             </div><br>
             <h2>Advanced Use Cases</h2>
@@ -419,7 +421,7 @@
                             <span class="orclkey">UNION ALL</span>   <br>
                             <span class="orclkey">SELECT  </span> DepartmentID <span class="orclkey"> FROM </span> Employees_IN<br>
                         </ul>
-                    </ul>   )   Combined     <br>       
+                    </ul>   )   Combined           
                     <span class="orclkey">GROUP BY </span> DepartmentID  
                     <b> ; </b> 
                 </code>
@@ -450,21 +452,7 @@
                     - -  This query combines products in the two ranges, and if a product qualifies for both ranges, it will appear twice.
                 </code>
             </div><br>
-            <h3>4. Aggregate Data After UNION ALL</h3>
-            <p><b>Scenario :- </b> Combines rows from two employee tables, and then groups and counts employees by
-                department, including duplicates in the count.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SELECT  </span> DepartmentID, COUNT( * )  <span class="orclkey"> AS </span> TotalEmployees<br>
-                    <span class="orclkey">FROM </span> ( <br>
-                    <ul>
-                            <span class="orclkey">SELECT  </span> DepartmentID  <span class="orclkey">FROM </span> Employees_IN <br>
-                            <span class="orclkey">UNION ALL</span>   <br>
-                            <span class="orclkey">SELECT  </span> DepartmentID  <span class="orclkey">FROM </span> Employees_UK <br>
-                    </ul> ) Combined <br>
-                    <span class="orclkey">GROUP BY </span> DepartmentID <b> ; </b><br><br>
-                </code>
-            </div><br>
+          
             <h2>Performance Comparison: UNION vs UNION ALL</h2>
             <table>
                 <thead>
@@ -538,7 +526,7 @@
             </ul> <br><br>
 
             <div class="topic-buttons">
-                <a href="sql_union.html?topic=sqlUnion" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_union.html?topic=sqlUnion" class="previou-button">&laquo; Previous</a>
                 <a href="sql_intersect.html?topic=sqlIntersect" class="next-button">Next &raquo;</a>
             </div>
 

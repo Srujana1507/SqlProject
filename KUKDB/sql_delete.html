@@ -360,8 +360,8 @@
             <br>
             <h2>Advanced Usage Examples:</h2>
             <h3>1. Delete Using a Subquery </h3>
-              <h5>  Deletes rows in the employees table based on a condition derived from
-                another table. </h5>
+              <ul>  <li>Deletes rows in the employees table based on a condition derived from
+                another table. </li></ul> 
             <div class="code-box">
                 <code>
                     <span class="orclkey">DELETE FROM </span> emp
@@ -374,7 +374,7 @@
             </div>
             <br>
             <h3>2. Using JOIN in DELETE (MySQL, PostgreSQL, etc.):</h3>
-            <h5> Deletes employees who belong to the 'Finance' department.</h5>
+            <ul><li> Deletes employees who belong to the 'Finance' department.</li></ul>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> DELETE </span> e<br>
@@ -428,8 +428,8 @@
             </div>
             <br>
             <h2>Best Practices:</h2>
-            <h5>1. Always Use Transactions - Wrap DELETE statements in transactions to ensure you can rollback in
-                case of errors.</h5>
+            <h4>1. Always Use Transactions</h4> <br><ul>- Wrap DELETE statements in transactions to ensure you can rollback in
+                case of errors.</ul>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> BEGIN </span> TRANSACTION ;
@@ -442,7 +442,7 @@
                 </code>
             </div>
             <br>
-            <h5>2. Verify with SELECT Before DELETE </h5>
+            <h4>2. Verify with SELECT Before DELETE </h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> *  <span class="orclkey"> FROM </span> employees   <span class="orclkey">WHERE </span> dept_name = 'HR' ;

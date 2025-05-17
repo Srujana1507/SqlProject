@@ -567,9 +567,7 @@
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees</p>
                     <span class="orclkey">ALTER COLUMNS </span>salary TYPE BOOLEAN ;</p>
-                    <br>
-
-                    <p><b>Error :</b> DECIMAL values cannot be converted to BOOLEAN.</p>
+                   <br><b>Error :</b> DECIMAL values cannot be converted to BOOLEAN.
                 </code>
             </div>
             <br>
@@ -579,8 +577,7 @@
                     <span class="orclkey">ALTER TABLE </span> Orders</p>
                     <span class="orclkey">ALTER COLUMNS </span>order_id TYPE BIGINT ;</p>
                     <br>
-
-                    <p><b>Error :</b> order_id is referenced by another table and cannot be changed directly.</p>
+                    <b>Error :</b> order_id is referenced by another table and cannot be changed directly.
                 </code>
             </div>
             <br>
@@ -590,8 +587,7 @@
                     <span class="orclkey">ALTER TABLE </span> Products</p>
                     <span class="orclkey">ALTER COLUMNS </span>prod_name TYPE VARCHAR( 10 ) ;</p>
                     <br>
-
-                    <p><b>Risk :</b> Statement will execute without error , but existing values exceeding 10 characters will be truncated.</p>
+                    <b>Risk :</b> Statement will execute without error , but existing values exceeding 10 characters will be truncated.
                 </code>
             </div>
             <br>

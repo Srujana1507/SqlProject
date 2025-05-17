@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlWildcards">
 
             <div class="topic-buttons">
-                <a href="sql_exists.html?topic=sqlExists" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_exists.html?topic=sqlExists" class="previou-button">&laquo; Previous</a>
                 <a href="sql_some.html?topic=sqlSome" class="next-button">Next &raquo;</a>
             </div>
 
@@ -319,9 +319,9 @@
             </ul><br>
             <h2>Purpose of Wildcards</h2>
             <ul>
-                <p><b>1. Flexible Searching:- </b> Retrieve records based on partial matches or patterns.</p>
-                <p><b>2. Dynamic Queries:- </b> Support complex and dynamic search requirements.</p>
-                <p><b>3. Data Cleaning:- </b> Identify inconsistent data patterns for correction.</p>
+                <b>1. Flexible Searching:- </b> Retrieve records based on partial matches or patterns.<br>
+                <b>2. Dynamic Queries:- </b> Support complex and dynamic search requirements.<br>
+                <b>3. Data Cleaning:- </b> Identify inconsistent data patterns for correction.<br>
             </ul><br>
             <h2>Types of Wildcards in SQL</h2>
             <h3>1. % ( Percent Sign )</h3>
@@ -329,6 +329,7 @@
                 <li>Matches <b>zero, one, or more characters.</b></li>
                 <li>Used for broader searches, including substrings.</li>
             </ul>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -354,12 +355,14 @@
                         <td>George, Morgan</td>
                     </tr>
                 </tbody>
-            </table><br>
+            </table>
+            </ul><br>
             <h3>2. _ (Underscore)</h3>
             <ul>
                 <li>Matches exactly <b>one character</b>.</li>
                 <li>Useful for more precise searches.</li>
             </ul>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -371,21 +374,23 @@
                 <tbody>
                     <tr>
                         <td>'T_ _a' </td>
-                        <td>Starts with "Ha"</td>
+                        <td>Starts with "T" and ends with "a"</td>
                         <td>Tana, Tara, Teja, Tina</td>
                     </tr>
                     <tr>
                         <td>'_ _ _aya'</td>
-                        <td>Six-character string ending with "ana"</td>
+                        <td>Six-character string ending with "aya"</td>
                         <td>Samaya, Sanaya</td>
                     </tr>
                 </tbody>
-            </table><br>
+            </table>
+            </ul><br>
             <h3>3. [ ] (Square Brackets )</h3>
             <ul>
                 <li>Matches <b>any single character within the brackets</b> (SQL Server only).</li>
                 <li>Can define ranges (e.g., [A-Z]) or specific characters.</li>
             </ul>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -406,11 +411,13 @@
                         <td>Tom, Tim</td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h3>4. 4. [^ ] (Caret in Brackets)</h3>
+            </table>
+            </ul><br>
+            <h3>4. [^ ] (Caret in Brackets)</h3>
             <ul>
                 <li>Matches <b>any single character not within the brackets</b> (SQL Server only).</li>
             </ul>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -426,12 +433,14 @@
                         <td>Jan, Jun</td>
                     </tr>
                 </tbody>
-            </table><br>
+            </table>
+            </ul><br>
             <h3>5. ESCAPE Clause</h3>
             <ul>
                 <li>Used to treat % or _ as literal characters instead of wildcards.</li>
                 <li>Define an escape character to differentiate.</li>
             </ul><br>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -452,7 +461,8 @@
                         <td>a_b, 1_2</td>
                     </tr>
                 </tbody>
-            </table><br>
+            </table>
+            </ul><br>
             <h2>Syntax</h2>
             <h3>Basic Syntax:</h3>
             <div class="code-box">
@@ -495,7 +505,7 @@
                 <code>
                         <span class="orclkey">SELECT </span> employee_id, first_name <br>
                         <span class="orclkey">FROM  </span> employees <br>
-                        <span class="orclkey">WHERE </span>  first_name   <span class="orclkey"> LIKE </span> <b>'</b>[ JK ]%<b>'</b> <b> ; </b>
+                        <span class="orclkey">WHERE </span>  first_name   <span class="orclkey"> LIKE </span> <b>'</b>[JK]%<b>'</b> <b> ; </b>
                     </code>
             </div><br>
             <h3>3. Excluding Characters</h3>
@@ -504,7 +514,8 @@
                 <code>
                         <span class="orclkey">SELECT </span> employee_id, first_name <br>
                         <span class="orclkey">FROM  </span> employees <br>
-                        <span class="orclkey">WHERE </span>  first_name   <span class="orclkey"> LIKE </span> <b>'</b>J [^o ]%<b>'</b> <b> ; </b>
+                        <span class="orclkey">WHERE </span>  first_name  
+                        <span class="orclkey"> LIKE </span> <b>'</b>J[^o]%<b>'</b> <b> ; </b>
                     </code>
             </div><br>
             <h3>4. Escape Special Characters</h3>
@@ -513,7 +524,9 @@
                 <code>
                         <span class="orclkey">SELECT </span> file_name <br>
                         <span class="orclkey">FROM  </span> files <br>
-                        <span class="orclkey">WHERE </span>  file_name <span class="orclkey"> LIKE </span> <b>'</b>%\%%<b>'</b><span class="orclkey">ESCAPE </span> <b>'</b>\<b>'</b> <b> ; </b>
+                        <span class="orclkey">WHERE </span>  file_name 
+                        <span class="orclkey"> LIKE </span> <b>'</b>%\%%<b>'</b>
+                        <span class="orclkey">ESCAPE </span> <b>'</b>\<b>'</b> <b> ; </b>
                     </code>
             </div><br>
             <h3>5. Escape Character for Literal % or _</h3>
@@ -522,7 +535,9 @@
                 <code>
                         <span class="orclkey">SELECT </span> file_name <br>
                         <span class="orclkey">FROM  </span> files <br>
-                        <span class="orclkey">WHERE </span>  file_name <span class="orclkey"> LIKE </span> <b>'</b>% \ _%<b>'</b><span class="orclkey">ESCAPE </span> <b>'</b>\<b>'</b> <b> ; </b>
+                        <span class="orclkey">WHERE </span>  file_name
+                        <span class="orclkey"> LIKE </span> <b>'</b>%\_%<b>'</b>
+                        <span class="orclkey">ESCAPE </span> <b>'\'</b>;
                     </code>
             </div><br>
             <h3>6. Pattern Matching in Numbers (Converted to Strings)</h3>
@@ -531,7 +546,9 @@
                 <code>
                         <span class="orclkey">SELECT </span> order_id <br>
                         <span class="orclkey">FROM  </span> orders <br>
-                        <span class="orclkey">WHERE </span>  CAST(order_id <span class="orclkey"> AS </span> CHAR) <span class="orclkey"> LIKE </span> <b>'</b>2024%<b>'</b> <b> ; </b>
+                        <span class="orclkey">WHERE </span>  CAST(order_id 
+                        <span class="orclkey"> AS </span> CHAR)
+                        <span class="orclkey"> LIKE </span> <b>'</b>2023%<b>'</b> <b> ; </b>
                     </code>
             </div><br>
             <h2>Performance Considerations</h2>
@@ -555,6 +572,7 @@
                 Avoid LIKE for large-scale searches on massive datasets; consider full-text indexing.
             </ul><br>
             <h2>Comparison of Wildcards Across Databases</h2>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -602,8 +620,9 @@
                         <td>Supported</td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h2>Best Practices</h2><br>
+            </table>
+            </ul><br>
+            <h2>Best Practices</h2>
             <p><b>1. Avoid Leading % :</b></p>
             <ul>
                 <ul>
@@ -613,7 +632,8 @@
             <p><b>2. Use ESCAPE for Literal Matching :</b></p>
             <ul>
                 <ul>
-                    <li>Use specific prefixes where possible to optimize performance.</li>
+                    <li>When your data includes wildcard characters like % or _ as part of actual values,
+                    <br>use the ESCAPE clause to treat them literally.</li>
                 </ul>
             </ul>
             <p><b>3. Combine with Other Filters :</b></p>
@@ -633,7 +653,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_exists.html?topic=sqlExists" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_exists.html?topic=sqlExists" class="previou-button">&laquo; Previous</a>
                 <a href="sql_some.html?topic=sqlSome" class="next-button">Next &raquo;</a>
             </div>
 

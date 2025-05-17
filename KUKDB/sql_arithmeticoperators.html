@@ -475,7 +475,7 @@
                         <b> ;</b> 
                     </code>
             </div>
-            <br>
+            
             <h3>Output:</h3>
             <table>
                 <thead>
@@ -758,22 +758,24 @@
             <br>
             <h2>Advanced Examples</h2>
             <h3>Example 1: Arithmetic in WHERE Clause</h3>
-            <p>Find employees with a yearly salary (calculated as monthly_salary * 12) greater than 500,000.</p><br>
+            <p>Find employees with a yearly salary (calculated as monthly_salary * 12) greater than 500,000.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT   </span> * <span class="orclkey"> FROM   </span> EMPLOYEE <span class="orclkey"> WHERE </span> SALARY *12 > 500000
-                        <b> ;</b> <br><br>
+                        <span class="orclkey">SELECT   </span> * 
+                        <span class="orclkey"> FROM   </span> EMPLOYEE 
+                        <span class="orclkey"> WHERE </span> SALARY *12 > 500000
+                        <b> ;</b> 
                     </code>
             </div>
             <br>
             <h3>Example 2: Combining Multiple Operators</h3>
-            <p>Calculate total profit percentage</p><br>
+            <p>Calculate total profit percentage</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> Product_id<b>, </b><br>
                         (revenue - cost) / revenue * 100 <span class="orclkey">AS   </span> profit_percentage <br>
                         <span class="orclkey"> FROM   </span> sales  
-                        <b> ;</b> <br><br>
+                        <b> ;</b> 
                     </code>
             </div>
             <br>
@@ -810,7 +812,7 @@
                 <li>When operators have the same precedence, evaluation proceeds from left to right.</li>
                 <li>Parentheses () can override the default precedence and force specific order of execution.</li>
             </ul>
-            <br>
+           
             <h4>Sample Example</h4>
             <div class="code-box">
                 <code>
@@ -826,7 +828,7 @@
                 <li><b>Evaluate Addition (+) :</b> 10 + 40 = 50</li>
                 <li><b>Evaluate Subtraction (-) :</b> 50 - 1 = 49</li>
             </ul>
-            <br>
+            
             <h4>Sample Example</h4>
             <div class="code-box">
                 <code>
@@ -834,8 +836,8 @@
                             <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br> 
                             - - result = 49
                         </code>
-            </div><br>
-            <h4>Using Parentheses for Explicit Precedence</h4>
+            </div>
+            <h4>Using Parentheses for Explicit Precedence</h4><br>
             <p>To change the order of execution, use parentheses. Operations inside parentheses are always evaluated
                 first.</p>
             <h4>Example with Parentheses</h4>
@@ -845,7 +847,7 @@
                             <span class="orclkey">SELECT   </span> ( 10 + 20 ) <b> * </b>( 2 - 5 / 5 ) <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br> 
                             - - result = 30
                         </code>
-            </div><br>
+            </div>
             <h4>Step-by-Step Execution of above exampls</h4>
             <ul>
                 <li><b>Evaluate Division (/) in Parentheses: </b> 5 / 5 = 1.</li>
@@ -891,7 +893,7 @@
                         <b> ;</b> <br><br>
                     </code>
             </div>
-            <br>
+            
             <h4> Output</h4>
             <table>
                 <thead>
@@ -917,7 +919,7 @@
                     </tr>
                 </tbody>
             </table>
-            <br>
+            
             <h4> Solution:</h4>
             <div class="code-box">
                 <code>
@@ -930,7 +932,7 @@
                             <b> ;</b> <br><br>
                         </code>
             </div>
-            <br>
+            
             <h4> Output</h4>
             <table>
                 <thead>
@@ -1061,7 +1063,7 @@
                                     <span class="orclkey">SELECT   </span> order_id<b>,</b><br>
                                     IF( quantity = 0<b>,</b> <span class="orclkey"> NULL </span> <b> , </b> total_price / quantity )<span class="orclkey"> AS </span> unit_price <br>
                                     <span class="orclkey"> FROM  </span> orders 
-                                    <b> ;</b> <br><br>
+                                    <b> ;</b> 
                                 </code>
                 </div>
             </ul>

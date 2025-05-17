@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -304,7 +304,7 @@
         <main class="sidebar-content" data-topic="sqlIntersect">
 
             <div class="topic-buttons">
-                <a href="sql_unionall.html?topic=sqlUnionall" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_unionall.html?topic=sqlUnionall" class="previou-button">&laquo; Previous</a>
                 <a href="sql_minus.html?topic=sqlMinus" class="next-button">Next &raquo;</a>
             </div>
 
@@ -317,9 +317,9 @@
                 <li><b>Duplicate Elimination:-</b> Like UNION, the INTERSECT operator removes duplicate rows in the
                     result set.</li>
                 <li><b>Set Logic:-</b> It returns only rows that exist in <b>both queries</b>.</li>
-                <li><b>Performance:-</b> The Processing large datasets with INTERSECT can be computationally
+                <li><b>Performance:-</b> Processing large datasets with INTERSECT can be computationally
                     expensive, as it involves comparing rows from both result sets.</li>
-                </li>
+                </li></li>
             </ul>
             <h2>Syntax</h2>
             <div class="code-box">
@@ -343,7 +343,7 @@
             <h3>1. Basic Usage of INTERSECT</h3>
             <p><b>Scenario :- </b> Find employees working in both department_A and department_B.</p>
             <div class="code-box">
-                <code> - - SQL Server, Oracle <br>
+                <code> -- SQL Server, Oracle <br>
                     <span class="orclkey">SELECT  </span>employee_id, name <br>
                     <span class="orclkey">FROM </span> department_A  <br>
                     <span class="orclkey">INTERSECT </span>   <br>
@@ -356,7 +356,7 @@
             <h3>2. INTERSECT with Additional Conditions</h3>
             <p><b>Scenario :- </b> Identify customers who made purchases in 2023 and 2024.</p>
             <div class="code-box">
-                <code> - - SQL Server, Oracle <br>
+                <code> -- SQL Server, Oracle <br>
                     <span class="orclkey">SELECT  </span> customer_id <br>
                     <span class="orclkey">FROM </span> sales_2023  <br>
                     <span class="orclkey">INTERSECT </span>   <br>
@@ -369,14 +369,14 @@
             <h3>3. Using INTERSECT with Filtering</h3>
             <p><b>Scenario :- </b> Retrieves customers who placed orders in both 2023 and 2024.</p>
             <div class="code-box">
-                <code> - - SQL Server, Oracle <br>
+                <code> -- SQL Server, Oracle <br>
                     <span class="orclkey">SELECT  </span> CustomerID, OrderDate <br>
                     <span class="orclkey">FROM </span> Orders_2023  <br>
-                    <span class="orclkey">WHERE </span> OrderDate >= <b>'</b>01-01-2023<b>'</b>
+                    <span class="orclkey">WHERE </span> OrderDate >= <b>'</b>2023-01-01<b>'</b> <br>
                     <span class="orclkey">INTERSECT </span>   <br>
                     <span class="orclkey">SELECT  </span> CustomerID, OrderDate <br>
                     <span class="orclkey">FROM </span> Orders_2024
-                    <span class="orclkey">WHERE </span> OrderDate < <b>'</b>01-01-2024<b>'</b>
+                    <span class="orclkey">WHERE </span> OrderDate < <b>'</b>2024-01-01<b>'</b> 
                     <b> ; </b><br>
                 </code>
             </div><br>
@@ -386,7 +386,7 @@
                 <code> - - SQL Server, Oracle <br>
                     <span class="orclkey">SELECT  </span> ProductID, Category <br>
                     <span class="orclkey">FROM </span> Products_IN  <br>
-                    <span class="orclkey">WHERE </span> Category  = <b>'</b>Electronics<b>'</b>
+                    <span class="orclkey">WHERE </span> Category  = <b>'</b>Electronics<b>'</b> <br>
                     <span class="orclkey">INTERSECT </span>   <br>
                     <span class="orclkey">SELECT  </span> ProductID, Category <br>
                     <span class="orclkey">FROM </span> Products_UK
@@ -400,10 +400,12 @@
                 Aliases are used for clarity.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> ProductID, Price <span class="orclkey"> AS </span>IN_Price <br>
+                    <span class="orclkey">SELECT  </span> ProductID, Price 
+                
                     <span class="orclkey">FROM </span> Products_IN  <br>
                     <span class="orclkey">INTERSECT </span>   <br>
-                    <span class="orclkey">SELECT  </span> ProductID, Price <span class="orclkey"> AS </span>US_Price <br>
+                    <span class="orclkey">SELECT  </span> ProductID, Price
+                   
                     <span class="orclkey">FROM </span> Products_US
                     <b> ; </b><br>
                 </code>
@@ -470,9 +472,9 @@
                     <span class="orclkey">FROM </span> table_A <br>
                     <span class="orclkey">INTERSECT  </span>  <br>
                     <span class="orclkey">SELECT </span> product_id
-                    <span class="orclkey"> FROM </span> table_B
+                    <span class="orclkey"> FROM </span> table_B )<b> ; </b>
                 </ul>
-                    )<b> ; </b><br>
+                   
                 </code>
             </div><br>
             <h3>5. INTERSECT in DELETE</h3>
@@ -486,9 +488,9 @@
                     <span class="orclkey">FROM </span> old_orders <br>
                     <span class="orclkey">INTERSECT  </span>   <br>
                     <span class="orclkey">SELECT </span> order_id
-                    <span class="orclkey"> FROM </span> new_orders
+                    <span class="orclkey"> FROM </span> new_orders)<b> ; </b>
                 </ul>
-                    )<b> ; </b><br>
+                    
                 </code>
             </div><br>
             <h3>6. INTERSECT in INSERT</h3>
@@ -519,9 +521,9 @@
                     <span class="orclkey">INTERSECT  </span>   <br>
                     <span class="orclkey"> SELECT </span> SUM( sales )
                     <span class="orclkey">FROM </span> sales_data3 <br>
-                    <span class="orclkey"> GROUP BY </span> region <br> 
+                    <span class="orclkey"> GROUP BY </span> region  )<b> ; </b> 
                 </ul>
-                    )<b> ; </b><br>
+                   
                 </code>
             </div><br>
             <h3>8. INTERSECT in Views</h3>
@@ -603,7 +605,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_unionall.html?topic=sqlUnionall" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_unionall.html?topic=sqlUnionall" class="previou-button">&laquo; Previous</a>
                 <a href="sql_minus.html?topic=sqlMinus" class="next-button">Next &raquo;</a>
             </div>
 

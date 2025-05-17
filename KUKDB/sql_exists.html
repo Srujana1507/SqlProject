@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -303,7 +303,7 @@
         <main class="sidebar-content" data-topic="sqlExists">
 
             <div class="topic-buttons">
-                <a href="sql_any.html?topic=sqlAny" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_any.html?topic=sqlAny" class="previou-button">&laquo; Previous</a>
                 <a href="sql_wildcards.html?topic=sqlWildcards" class="next-button">Next &raquo;</a>
             </div>
 
@@ -336,8 +336,8 @@
                             <ul>
                                 <span class="orclkey">SELECT </span> 1 <br>
                                 <span class="orclkey">FROM </span> related_table
-                                <span class="orclkey">WHERE condition </span> 
-                            </ul> ) <b> ; </b>
+                                <span class="orclkey">WHERE condition) <b> ; </b> </span> 
+                            </ul> 
                         </code>
                 - - SELECT 1: A commonly used placeholder in EXISTS subqueries; it simply checks the existence of rows,
                 not their values.
@@ -364,14 +364,14 @@
                 <code>
                             <span class="orclkey">SELECT </span> CustomerID, CustomerName  <br>
                             <span class="orclkey">FROM  </span> Customers <br>
-                            <span class="orclkey">WHERE EXISTS </span>  (<br>
+                            <span class="orclkey">WHERE EXISTS </span> (<br>
                             <ul>
-                                <ul>
+                             
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Orders <br>
-                            <span class="orclkey">WHERE </span> Orders.CustomerID = Customers.CustomerID  <br>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> Orders.CustomerID = Customers.CustomerID)  <b> ; </b>  <br>
+                        </ul>
+                            
                             <br>
                             - - The <b>subquery </b>checks if there is at least one row in the Orders table for each CustomerID. <br>
                             - - The SELECT 1 is a placeholder, as EXISTS only checks for the existence of rows, not their values.<br>
@@ -383,13 +383,12 @@
                 <code>
                             <span class="orclkey">SELECT </span> CustomerID, CustomerName  <br>
                             <span class="orclkey">FROM  </span> Customers <br>
-                            <span class="orclkey">WHERE NOT EXISTS </span>  (<br>
+                            <span class="orclkey">WHERE NOT EXISTS </span> (<br>
                             <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> 1 <br>
+                                                           <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Orders <br>
-                            <span class="orclkey">WHERE </span> Orders.CustomerID = Customers.CustomerID  <br>
-                        </ul>)  <b> ; </b>
+                            <span class="orclkey">WHERE </span> Orders.CustomerID = Customers.CustomerID)  <b> ; </b> <br>
+                       
                             </ul>
                             <br>
                             - - The NOT EXISTS operator inverts the logic, returning customers without matching orders. <br>
@@ -403,15 +402,13 @@
                             <span class="orclkey">FROM  </span> departments <br>
                             <span class="orclkey">WHERE EXISTS </span>  (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> employees <br>
-                            <span class="orclkey">WHERE </span> employees.department_id = departments.department_id  <br>
-                            <ul>
-                                <span class="orclkey">AND  </span> employees.salary > 50000
-                            </ul>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> employees.department_id = departments.department_id  
+                            <span class="orclkey">AND  </span> employees.salary > 50000)  <b> ; </b>
+                           
+                           </ul>
                 </code>
             </div><br>
             <p><b>Scenario 2:- </b> Retrieve employees who have completed at least one project.</p>
@@ -421,12 +418,12 @@
                             <span class="orclkey">FROM  </span> Employees E <br>
                             <span class="orclkey">WHERE EXISTS </span>  (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Projects P <br>
                             <span class="orclkey">WHERE </span> P.Status =<b>'</b>Active<b>'</b> <br>
-                        </ul>)  <b> ; </b>
-                            </ul><br>
+                             <span class="orclkey">AND  </span> P.EmployeeID=E.EmployeeID <b> ); </b> <br>
+                        </ul>
+                            <br>
                             - - The subquery is correlated, meaning it depends on the outer query (E.EmployeeID is referenced inside the subquery). <br>
                             - - The query returns employees associated with at least one completed project. <br>
                 </code>
@@ -439,45 +436,26 @@
                             <span class="orclkey">SET  </span> status  = <b>'</b>Active<b>'</b> <br>
                             <span class="orclkey">WHERE EXISTS </span>  (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> orders <br>
-                            <span class="orclkey">WHERE </span> orders.customer_id = customers.customer_id  <br>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> orders.customer_id = customers.customer_id>)  <b> ; </b>  <br>
+                        </ul
+                            
                 </code>
             </div><br>
             <h3>5. EXISTS in DELETE</h3>
-            <p><b>Scenario :- </b> Update the status of customers who have placed at least one order.</p>
+            <p><b>Scenario :- </b> Delete employees not associated with any department.</p>
             <div class="code-box">
                 <code>
                             <span class="orclkey">DELETE FROM </span> employees  <br>
                             <span class="orclkey">WHERE NOT EXISTS </span>  (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> departments <br>
-                            <span class="orclkey">WHERE </span> employees.department_id = departments.department_id  <br>
-                        </ul>)  <b> ; </b>                        
-                            </ul>
-                </code>
-            </div><br>
-            <h3>6. EXISTS with Aggregate Functions</h3>
-            <p><b>Scenario :- </b> Find products belonging to categories with more than 5 products.</p>
-            <div class="code-box">
-                <code>
-                            <span class="orclkey">SELECT </span> product_id, product_name  <br>
-                            <span class="orclkey">FROM </span> products <br>
-                            <span class="orclkey">WHERE EXISTS </span>  (<br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> 1 <br>
-                            <span class="orclkey">FROM  </span> products p2 <br>
-                            <span class="orclkey">WHERE </span> p2.category_id = products.category_id  <br>
-                            <span class="orclkey">GROUP BY </span> p2.category_id  <br>
-                            <span class="orclkey">HAVING </span> COUNT( * ) > 5  <br>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> employees.department_id = departments.department_id)  <b> ; </b>     <br>
+                        </ul>      
                 </code>
             </div><br>
             <h2>Advanced Use Cases</h2>
@@ -490,28 +468,27 @@
                             <span class="orclkey">FROM </span> employees e <br>
                             <span class="orclkey">WHERE NOT EXISTS </span>  (<br>
                             <ul>
-                                <ul>
+                                
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> archive_employees ae <br>
-                            <span class="orclkey">WHERE </span> ae.employee_id = e.employee_id  <br>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> ae.employee_id = e.employee_id)  <b> ; </b>  <br>
+                        </ul>
+                            
                         </code>
             </div><br>
             <h3>2. Ensure data consistency by validating that dependent records exist. </h3>
-            <p><b>Scenario :- </b> Identify records in one table that do not exist in another and insert them.</p>
+            <p><b>Scenario :- </b> Identify customers orders that do not have a common customer.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> order_id <br>
                             <span class="orclkey">FROM </span> orders <br>
                             <span class="orclkey">WHERE NOT EXISTS </span>  (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> customers <br>
-                            <span class="orclkey">WHERE </span> customers.customer_id = orders.customer_id  <br>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> customers.customer_id = orders.customer_id)  <b> ; </b>  <br>
+                        </ul>
+                           
                 </code>
             </div><br>
             <h3>3. Filtering with NOT EXISTS </h3>
@@ -522,17 +499,14 @@
                             <span class="orclkey">FROM </span> Customers C <br>
                             <span class="orclkey">WHERE NOT EXISTS </span>  (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Orders O <br>
                             <span class="orclkey">JOIN  </span> OrderDetails OD <br><span class="orclkey"> ON  </span> O.OrderID = OD.OrderID <br>
                             <span class="orclkey">JOIN  </span> Products P <br><span class="orclkey"> ON  </span> OD.ProductID = P.ProductID <br>
-                            <span class="orclkey">WHERE </span> O.CustomerID = C.CustomerID  <br>
-                            <ul>
-                                <span class="orclkey">AND </span> P.Category  = <b>'</b>Electronics<b>'</b> <br>
-                            </ul>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> O.CustomerID = C.CustomerID 
+                            <span class="orclkey">AND </span> P.Category  = <b>'</b>Electronics<b>'</b>)  <b> ; </b> <br>
+                        </ul>
                 </code>
                 - - Combines multiple tables in the subquery to identify customers without any orders containing
                 "Electronics" products.
@@ -545,36 +519,18 @@
                             <span class="orclkey">FROM </span> Products P<br>
                             <span class="orclkey">WHERE EXISTS </span>  (<br>
                             <ul>
-                                <ul>
+                                
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Promotions PR <br>
                             <span class="orclkey">WHERE  </span> PR.ProductID = P.ProductID <br>
                             <span class="orclkey"> AND  </span> PR.StartDate <= GETDATE() <br>
-                            <span class="orclkey"> AND </span> PR.EndDate >= GETDATE()  <br>
-                        </ul>)  <b> ; </b>
-                            </ul>
+                            <span class="orclkey"> AND </span> PR.EndDate >= GETDATE()  )  <b> ; </b>  <br>
+                        </ul>
+                           
                 </code>
             </div><br>
-            <h3>5. Active Promotions with DATE function </h3>
-            <p><b>Scenario :- </b> Retrieve products with active promotions.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SELECT </span> ProductID, ProductName <br>
-                            <span class="orclkey">FROM </span> Products P<br>
-                            <span class="orclkey">WHERE EXISTS </span>  (<br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> 1 <br>
-                            <span class="orclkey">FROM  </span> Promotions PR <br>
-                            <span class="orclkey">WHERE  </span> PR.ProductID = P.ProductID <br>
-                            <span class="orclkey"> AND  </span> PR.StartDate <= GETDATE() <br>
-                            <span class="orclkey"> AND </span> PR.EndDate >= GETDATE()  <br>
-                        </ul>)  <b> ; </b>
-                        
-                            </ul>
-                </code>
-            </div><br>
-            <h3>6. Orders Without Payments </h3>
+           
+            <h3>5. Orders Without Payments </h3>
             <p><b>Scenario :- </b> Identify orders without any recorded payments.</p>
             <div class="code-box">
                 <code>
@@ -582,32 +538,29 @@
                             <span class="orclkey">FROM </span> Orders O<br>
                             <span class="orclkey">WHERE NOT EXISTS </span>  (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Payments P <br>
-                            <span class="orclkey">WHERE  </span> P.OrderID = O.OrderID <br>
-                        </ul>)  <b> ; </b>
+                            <span class="orclkey">WHERE  </span> P.OrderID = O.OrderID )  <b> ; </b> <br>
+                        </ul>
                         
-                            </ul>
                 </code>
             </div><br>
-            <h3>7. EXISTS with Aggregate Functions </h3>
+            <h3>6. EXISTS with Aggregate Functions </h3>
             <p><b>Scenario :- </b> Find products belonging to categories with more than 5 products.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> product_id, product_name <br>
                             <span class="orclkey">FROM </span> products <br>
-                            <span class="orclkey">WHERE EXISTS </span>  (<br>
+                            <span class="orclkey">WHERE EXISTS </span>  (
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> products p2 <br>
                             <span class="orclkey">WHERE  </span> p2.category_id = products.category_id <br>
                             <span class="orclkey">GROUP BY </span> p2.category_id <br>
-                            <span class="orclkey">HAVING </span> COUNT( * ) > 5 <br>
-                        </ul>)  <b> ; </b>
+                            <span class="orclkey">HAVING </span> COUNT(*) > 5 )  <b> ; </b><br>
+                        </ul>
                         
-                            </ul>
                 </code>
             </div><br>
             <h2>Common Errors</h2>
@@ -621,13 +574,11 @@
                             <span class="orclkey">FROM </span> Customers C<br>
                             <span class="orclkey">WHERE EXISTS </span>  (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> 1 <br>
                             <span class="orclkey">FROM  </span> Orders <br>
-                            <span class="orclkey">WHERE  </span> CustomerID = C.CustomerID  - - Correct correlation<br>
-                        </ul>)  <b> ; </b>
+                            <span class="orclkey">WHERE  </span> CustomerID = C.CustomerID )  <b> ; </b> <br>- - Correct correlation<br>
+                        </ul>
                         
-                            </ul>
                 </code>
             </div>
             <h4>2. Overusing EXISTS:</h4>
@@ -685,7 +636,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_any.html?topic=sqlAny" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_any.html?topic=sqlAny" class="previou-button">&laquo; Previous</a>
                 <a href="sql_wildcards.html?topic=sqlWildcards" class="next-button">Next &raquo;</a>
             </div>
 

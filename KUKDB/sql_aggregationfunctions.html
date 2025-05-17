@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlGroupFunctions">
 
             <div class="topic-buttons">
-                <a href="sql_datefunctions.html?topic=sqlDateFunctions" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_datefunctions.html?topic=sqlDateFunctions" class="previou-button">&laquo; Previous</a>
                 <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="next-button">Next &raquo;</a>
             </div>
 
@@ -416,7 +416,7 @@
             <p><b>5. Simplify Queries:- </b> Eliminate the need for additional calculations in application logic by
                 summarizing data directly in SQL.</p>
             <br>
-            <h2 id="count">COUNT()</h2>
+            <h2 id="count">1.COUNT()</h2>
             <p>Counts rows or specific non-NULL column values.</p><br>
             <h4>Syntax</h4>
             <div class="code-box">
@@ -470,20 +470,21 @@
                      <b> ;</b> 
                 </code>
             </div><br>
-            <p><b>Scenario 6:-</b> Count the total number of orders placed by each custome.</p>
+            <p><b>Scenario 6:-</b> Count the total number of orders placed by each customer.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> c.customer_id, COUNT(o.order_id) <span class="orclkey"> AS </span> total_orders <br>
                     <span class="orclkey"> FROM </span> customers c <br>
                     <span class="orclkey"> LEFT JOIN </span>  orders o  <span class="orclkey"> ON </span>c.customer_id = o.customer_id <br>
                     <span class="orclkey"> GROUP BY </span> department_id
-                     <b> ;</b> 
-                </code>
-            </div>
-            <ul>
+                     <b> ;</b> <br>
+                    <br>  <ul>
                 <li>A LEFT JOIN ensures all customers are included, even if they haven't placed any orders.</li>
                 <li>Groups by customer_id to count the number of orders for each customer.</li>
-            </ul><br>
+            </ul>
+                </code>
+            </div>
+           <br>
             <p><b>Scenario 7:-</b> Find departments with more than 10 employees.</p>
             <div class="code-box">
                 <code>
@@ -513,12 +514,12 @@
                      <b> ;</b> 
                 </code>
             </div><br>
-            <p><b>Scenario 10:-</b> Rank employees based on the number of projects they are part of.</p>
+            <p><b>Scenario 10:-</b> Count the number of active and inactive employees in the organization.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> <br>
                     COUNT(  <span class="orclkey"> CASE WHEN  </span> status = 'Active' <span class="orclkey"> THEN   </span> 1
-                    <span class="orclkey"> END  </span> ) <span class="orclkey"> AS </span> active_employees<br>
+                    <span class="orclkey"> END  </span> ) <span class="orclkey"> AS </span> active_employees,<br>
                     COUNT(  <span class="orclkey"> CASE WHEN  </span> status = 'Inactive' <span class="orclkey"> THEN   </span> 1
                     <span class="orclkey"> END  </span> ) <span class="orclkey"> AS </span> inactive_employees <br>
                     <span class="orclkey"> FROM </span> employees
@@ -538,7 +539,7 @@
                      <b> ;</b> 
                 </code>
             </div><br>
-            <h3 id="sum">SUM()</h3>
+            <h3 id="sum">2.SUM()</h3>
             <p>The SUM() function is used to calculate the total sum of numeric values in a specified column.</p><br>
             <h4>Syntax</h4>
             <div class="code-box">
@@ -553,6 +554,7 @@
                 <li>Ignores NULL values automatically.</li>
                 <li>Commonly used with GROUP BY, HAVING, and WHERE clauses.</li>
             </ul><br>
+
             <h3>Examples</h3>
             <p><b>Scenario 1:-</b> Calculate the total sales.</p>
             <div class="code-box">
@@ -620,8 +622,10 @@
                 <code>
                     <span class="orclkey">SELECT </span><br>
                         SUM ( <span class="orclkey"> CASE WHEN </span> price >= 50 
-                        <span class="orclkey"> THEN </span> sales_amount <span class="orclkey"> ELSE </span> 0
-                        <span class="orclkey"> END </span> ) <span class="orclkey"> AS </span> High_Sales <br>
+                        <span class="orclkey"> THEN </span> sales_amount
+                        <span class="orclkey"> ELSE </span> 0
+                        <span class="orclkey"> END </span> ) 
+                        <span class="orclkey"> AS </span> High_Sales, <br>
                         SUM ( <span class="orclkey"> CASE WHEN </span> price <  50 
                         <span class="orclkey"> THEN </span> sales_amount <span class="orclkey"> ELSE </span> 0
                         <span class="orclkey"> END </span> ) <span class="orclkey"> AS </span> Low_Sales <br>
@@ -699,7 +703,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with SUM() </h2>
             <table>
                 <thead>
                     <tr>
@@ -730,7 +734,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="avg">AVG()</h2>
+            <h2 id="avg">3.AVG()</h2>
             <p>The AVG() function returns the arithmetic mean of a column's values, ignoring NULL values.</p><br>
             <h3>Syntax</h3>
             <div class="code-box">
@@ -743,11 +747,12 @@
                 </li>
             </ul><br>
             <h3>Key Features</h3>
-            <ul>
+           
                 <p>1. Works only with numeric data types (e.g., integers, floats).</p>
                 <p>2. Automatically ignores NULL values.</p>
                 <p>3. Can be used with clauses like GROUP BY, HAVING, and WHERE.</p>
-            </ul><br>
+            <br>
+             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Find the average salary of all employees.</p>
             <div class="code-box">
                 <code>
@@ -878,7 +883,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with AVG() </h2>
             <table>
                 <thead>
                     <tr>
@@ -910,6 +915,7 @@
                     </tr>
                 </tbody>
             </table><br>
+             <h2>Do's and Don'ts for AVG()</h2>
             <table>
                 <thead>
                     <tr>
@@ -941,7 +947,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="max">MAX()</h2>
+            <h2 id="max">4.MAX()</h2>
             <p>The MAX() function returns the largest value from a specified column. It works on both numeric and date
                 types and ignores NULL values.</p><br>
             <div class="code-box">
@@ -951,12 +957,12 @@
             </code>
             </div><br>
             <h3>Key Features</h3>
-            <ul>
+            
                 <p>1. Finds the maximum value in a column.</p>
                 <p>2. Works on numeric, date, and string data types.</p>
                 <p>3. Ignores NULL values by default.</p>
                 <p>4. Can be combined with GROUP BY, HAVING, and other SQL clauses.</p>
-            </ul><br>
+            <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Find the highest salary in the employees table. </p>
             <div class="code-box">
@@ -974,7 +980,8 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <p><b>Scenario 3:-</b> Find the most recent hire date. </p>
+            <p><b>Scenario 3:-</b> Find the last name that comes last in alphabetical order.
+. </p>
             <div class="code-box">
                 <code>
             <span class="orclkey"> SELECT </span> MAX( Last_name )   <span class="orclkey"> AS </span> Last_name  <br>
@@ -1031,7 +1038,7 @@
             <ul>
                 MAX( Salary ) <span class="orclkey"> OVER </span> (  <span class="orclkey"> PARTITION BY </span> Dept_Name )  <span class="orclkey"> AS </span> Max_Dept_Sal <br>
             </ul>
-                <span class="orclkey"> FROM </span> employees <br>
+                <span class="orclkey"> FROM </span> employees 
                 <b> ;</b>      
         </code>
             </div><br>
@@ -1059,7 +1066,7 @@
                      <b> ;</b> 
                 </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with MAX() </h2>
             <table>
                 <thead>
                     <tr>
@@ -1086,6 +1093,7 @@
                     </tr>
                 </tbody>
             </table><br>
+             <h2>Do's and Don'ts for MAX()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1117,7 +1125,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="min">MIN()</h2>
+            <h2 id="min">5.MIN()</h2>
             <p>The MIN() function returns the smallest value from a specified column or expression.</p>
             <ul>
                 <li>It works for numeric, date, and string data types and ignores NULL values by default.</li>
@@ -1131,12 +1139,12 @@
                 </code>
             </div><br>
             <h3>Key Features</h3>
-            <ul>
+           
                 <p>1. Works with numeric, date, and string data types.</p>
                 <p>2. Automatically ignores NULL values.</p>
                 <p>3. Can be combined with SQL clauses like GROUP BY, HAVING, and WHERE.</p>
                 <p>4. Efficiently finds the smallest value in both simple and complex scenarios.</p>
-            </ul><br>
+            <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Find the lowest salary in the employees' table. </p>
             <div class="code-box">
@@ -1198,7 +1206,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with MIN()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1225,6 +1233,7 @@
                     </tr>
                 </tbody>
             </table><br>
+             <h2>Do's and Don'ts for MIN()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1256,7 +1265,7 @@
                 </tbody>
             </table><br>
 
-            <h2 id="groupconcat">GROUP_CONCAT()</h2>
+            <h2 id="groupconcat">6.GROUP_CONCAT()</h2>
             <p>The GROUP_CONCAT() function concatenates values from a specified column or expression for rows grouped by
                 GROUP BY.</p><br>
             <ul>
@@ -1277,12 +1286,12 @@
                 </li>
             </ul><br>
             <h3>Key Features</h3>
-            <ul>
+         
                 <p>1. Concatenates values from multiple rows into a single string.</p>
                 <p>2. Supports custom ordering of concatenated values.</p>
                 <p>3. Allows custom separators for concatenated values.</p>
                 <p>4. Works only with MySQL and MariaDB (not standard in other SQL dialects).</p>
-            </ul><br>
+            <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Create a comma-separated list of employee names. </p>
             <div class="code-box">
@@ -1293,6 +1302,7 @@
              - - Output: A single string of all employee names separated by commas.
         </code>
             </div><br>
+
             <p><b>Scenario 2:-</b> List employee names separated by a semicolon (;). </p>
             <div class="code-box">
                 <code>
@@ -1315,7 +1325,9 @@
                 <code>
             <span class="orclkey"> SELECT </span> department_id, 
             <ul> 
-                GROUP_CONCAT( name <span class="orclkey"> ORDER BY </span> name  <span class="orclkey"> ASC </span> ) <span class="orclkey"> AS </span> employee_names <br>
+                GROUP_CONCAT( name <span class="orclkey"> ORDER BY </span> name 
+                <span class="orclkey"> ASC </span> ) 
+                <span class="orclkey"> AS </span> employee_names <br>
             </ul>
             <span class="orclkey"> FROM </span> employees  <br>
             <span class="orclkey"> GROUP BY </span> department_id
@@ -1365,7 +1377,7 @@
             </ul>
             <span class="orclkey"> FROM </span> employees e   <br>
             <span class="orclkey"> WHERE </span> salary = ( 
-                <span class="orclkey"> SELECT </span>  MAX( salary )  <span class="orclkey"> FROM </span> employees  <span class="orclkey"> WHERE </span> department_id = e.department_id )<br>
+                <span class="orclkey"> SELECT </span>  MAX( salary )  <span class="orclkey"> FROM </span> employees  <span class="orclkey"> WHERE </span> department_id = e.department_id )
                 <b> ;</b>      
         </code>
             </div><br>
@@ -1398,7 +1410,7 @@
                      <b> ;</b> 
                 </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with GROUP_CONCAT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1430,6 +1442,7 @@
                     </tr>
                 </tbody>
             </table><br>
+           <h2>Do's and Don'ts for GROUP_CONCAT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1457,7 +1470,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="stringagg">STRING_AGG()</h2>
+            <h2 id="stringagg">7.STRING_AGG()</h2>
             <p>The STRING_AGG() function is a powerful aggregate function, it is used to concatenate values from
                 multiple rows into a single string.</p><br>
             <ul>
@@ -1474,14 +1487,14 @@
                 <li>WITHIN GROUP (ORDER BY expression): Optional. Specifies the order of concatenated values.</li>
             </ul><br>
             <h3>Key Features</h3>
-            <ul>
+         
                 <p>1. Concatenates values from multiple rows into a single string.</p>
                 <p>2. Supports ordering of concatenated results with the WITHIN GROUP clause.</p>
                 <p>3. Allows flexible separators, making it useful for custom-delimited outputs like CSV or
                     pipe-separated data.</p>
                 <p>4. Automatically excludes NULL values.</p>
                 <p>5. Supported in SQL Server (2017 and later) and PostgreSQL (9.0 and later).</p>
-            </ul><br>
+           <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Create a comma-separated list of employee names. </p>
             <div class="code-box">
@@ -1516,7 +1529,7 @@
             <span class="orclkey"> SELECT </span> Dept_Name, 
             <ul> 
                 STRING_AGG(name, ', ' ) <span class="orclkey"> WITHIN GROUP  </span> (  <span class="orclkey"> ORDER BY </span> name  <span class="orclkey"> ASC </span> )
-                <span class="orclkey"> AS </span> Emp_Names_Sort 
+                <span class="orclkey"> AS </span> Emp_Names_Sort, 
             </ul>
             <span class="orclkey"> FROM </span> employees  <br>
             <span class="orclkey"> GROUP BY </span> Dept_Name
@@ -1592,7 +1605,7 @@
                      <b> ;</b> 
                 </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with STRING_AGG()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1624,6 +1637,7 @@
                     </tr>
                 </tbody>
             </table><br>
+            <h2>Do's and Don'ts for STRING_AGG()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1682,7 +1696,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2 id="variance">VARIANCE(expression)</h2>
+            <h2 id="variance">8.VARIANCE(expression)</h2>
             <p>The VARIANCE() function in SQL calculates the statistical variance of a numeric column or expression.</p>
             <ul>
                 <li> Variance is a measure of the dispersion of a set of values, showing how far individual numbers in a
@@ -1791,20 +1805,8 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <p><b>Scenario 9:-</b> Calculate variance of test scores with a weightage factor. </p>
-            <div class="code-box">
-                <code>
-            <span class="orclkey"> SELECT </span> student_id,  <br>
-            <ul>
-                VARIANCE( score * weight ) <span class="orclkey"> AS </span> weighted_variance <br>
-            </ul>
-            <span class="orclkey"> FROM </span>  test_scores <br>
-            <span class="orclkey"> WHERE </span> sales > 10000 <br>
-            <span class="orclkey"> GROUP BY </span> student_id
-             <b> ;</b> 
-        </code>
-            </div><br>
-            <p><b>Scenario 10:-</b> Find variance in sales relative to a moving average. </p>
+           
+            <p><b>Scenario 9:-</b> Find variance in sales relative to a moving average. </p>
             <div class="code-box">
                 <code>
             <span class="orclkey"> WITH </span> moving_avg  <span class="orclkey"> AS </span> ( <br>
@@ -1825,7 +1827,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <p><b>Scenario 11:-</b> Find variance of product prices for the highest-selling categories. </p>
+            <p><b>Scenario 10:-</b> Find variance of product prices for the highest-selling categories. </p>
             <div class="code-box">
                 <code>
             <span class="orclkey"> SELECT </span> category_id,   <br>
@@ -1845,7 +1847,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with VARIANCE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1872,6 +1874,7 @@
                     </tr>
                 </tbody>
             </table><br>
+            <h2>Do's and Don'ts for VARIANCE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1894,39 +1897,8 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="stringagg">STRING_AGG() vs GROUP_CONCAT()</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>STRING_AGG()</th>
-                        <th>GROUP_CONCAT()</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Supported Databases</td>
-                        <td>SQL Server, PostgreSQL</td>
-                        <td>MySQL, MariaDB</td>
-                    </tr>
-                    <tr>
-                        <td>Ordering Support</td>
-                        <td>Yes (WITHIN GROUP)</td>
-                        <td>Yes (ORDER BY)</td>
-                    </tr>
-                    <tr>
-                        <td>Custom Separator</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Handling Large Outputs</td>
-                        <td>Flexible with array functions</td>
-                        <td>Requires increasing group_concat_max_len.</td>
-                    </tr>
-                </tbody>
-            </table> <br>
-            <h2 id="stddev">STDDEV(expression)</h2>
+           
+            <h2 id="stddev">9.STDDEV(expression)</h2>
             <p>The STDDEV() function calculates the standard deviation of a set of numeric values.</p>
             <ul>
                 <li> Standard deviation is a measure of how spread out the numbers in a dataset are around their mean.
@@ -1947,6 +1919,7 @@
                 <li>ALL: Optional (default). Includes all values.</li>
             </ul><br>
             <table>
+            <h2>Standard Deviation Functions</h2>
                 <thead>
                     <tr>
                         <th>Database</th>
@@ -1990,7 +1963,8 @@
             <p><b>Scenario 1:-</b> Calculate the standard deviation of all employee salaries. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STDDEV(salary)   <span class="orclkey"> AS </span> Stddev_Sal  <br>
+            <span class="orclkey"> SELECT </span> STDDEV(salary) 
+            <span class="orclkey"> AS </span> Stddev_Sal  <br>
             <span class="orclkey"> FROM </span> employees 
              <b> ;</b> 
         </code>
@@ -1998,9 +1972,10 @@
             <p><b>Scenario 2:-</b> Compute standard deviation of salaries for employees in a specific department. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STDDEV( salary )  <span class="orclkey"> AS </span> Dept_Stddev_Salary  <br>
+            <span class="orclkey"> SELECT </span> STDDEV( salary ) 
+            <span class="orclkey"> AS </span> Dept_Stddev_Salary  <br>
             <span class="orclkey"> FROM </span> employees <br>
-            <span class="orclkey"> GROUP BY </span> department_id = 101
+            <span class="orclkey"> WHERE </span> department_id = 101
              <b> ;</b> 
         </code>
             </div><br>
@@ -2031,7 +2006,7 @@
                 <code>
             <span class="orclkey"> SELECT </span> product_id, <br>
             <ul>
-                AVG( sales ) <span class="orclkey"> AS </span> average_sales <br>
+                AVG( sales ) <span class="orclkey"> AS </span> average_sales ,<br>
                 STDDEV( sales ) <span class="orclkey"> AS </span> sales_stddev 
             </ul> 
             <span class="orclkey"> FROM </span> Sales 
@@ -2047,7 +2022,8 @@
                 STDDEV( price )  <span class="orclkey"> AS </span> price_stddev <br>
             </ul>
             <span class="orclkey"> FROM </span>  products<br>
-            <span class="orclkey"> WHERE </span> category_id  d  <span class="orclkey"> IN </span> ( 
+            <span class="orclkey"> WHERE </span> category_id  
+            <span class="orclkey"> IN </span> ( 
                 <ul>
                     <span class="orclkey"> SELECT </span> category_id <br>
                     <span class="orclkey"> FROM </span>  Sales<br>
@@ -2086,7 +2062,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with STDDEV()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2113,6 +2089,7 @@
                     </tr>
                 </tbody>
             </table><br>
+            <h2>Do's and Don'ts for STDDEV()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2139,7 +2116,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="least">LEAST()</h2>
+            <h2 id="least">10.LEAST()</h2>
             <p>The LEAST() function returns the smallest value from a list of provided arguments, which can include
                 columns, literals, or expressions.</p>
             <ul>
@@ -2237,7 +2214,7 @@
              
         </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with LEAST()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2269,7 +2246,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts </h2>
+          <h2>Do's and Don'ts for LEAST()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2294,7 +2271,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2 id="greatest">GREATEST()</h2>
+            <h2 id="greatest">11.GREATEST()</h2>
             <p>The GREATEST() function returns the largest value from a list of provided values. </p>
             <ul>
                 <li>It can compare different data types (numbers, strings, dates) if the database supports implicit type
@@ -2388,7 +2365,7 @@
              
         </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with GREATEST()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2415,12 +2392,12 @@
                     </tr>
                     <tr>
                         <td>Unsupported in SQL Server</td>
-                        <td>SQL Server doesn’t support LEAST().</td>
+                        <td>SQL Server doesn’t support GREATEST().</td>
                         <td>Use MAX() with VALUES or CASE as a workaround.</td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts </h2>
+            <h2>Do's and Don'ts for GREATEST()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2448,7 +2425,7 @@
             </table><br>
 
             <div class="topic-buttons">
-                <a href="sql_datefunctions.html?topic=sqlDateFunctions" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_datefunctions.html?topic=sqlDateFunctions" class="previou-button">&laquo; Previous</a>
                 <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="next-button">Next &raquo;</a>
             </div>
 

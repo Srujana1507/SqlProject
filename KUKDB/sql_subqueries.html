@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqldatefunctions">
 
             <div class="topic-buttons">
-                <a href="sql_case.html?topic=sqlCase" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_case.html?topic=sqlCase" class="previou-button">&laquo; Previous</a>
                 <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="next-button">Next &raquo;</a>
             </div>
 
@@ -353,11 +353,11 @@
                     <code>
                                 <span class="orclkey">SELECT </span> employee_id, Name, Salary <br>
                                 <span class="orclkey">FROM </span> Employees <br>
-                                <span class="orclkey">WHERE </span> Salary >  <br>
-                                <ul>
-                                ( <span class="orclkey"> SELECT </span> AVG(Salary)  <br>
+                                <span class="orclkey">WHERE </span> Salary > 
+                                
+                                ( <span class="orclkey"> SELECT </span> AVG(Salary) 
                                 <span class="orclkey">FROM  </span> Employees  )<b> ; </b>
-                        </ul>
+                        
                             </code>
                 </div><br>
             </ul><br>
@@ -370,13 +370,14 @@
                     <code>
                                 <span class="orclkey">SELECT </span> Name <br>
                                 <span class="orclkey">FROM </span> Employees <br>
-                                <span class="orclkey">WHERE </span> DepartmentID <span class="orclkey"> IN </span><br>
-                                <ul>
-                                ( <span class="orclkey"> SELECT </span> DepartmentID   <br>
+                                <span class="orclkey">WHERE </span> DepartmentID 
+                                <span class="orclkey"> IN </span>
+                                
+                                ( <span class="orclkey"> SELECT </span> DepartmentID   
                                 <span class="orclkey">FROM  </span> Departments <br>
                                 <span class="orclkey">WHERE </span>  Location = <b>'</b>India<b>'</b>
                                   )<b> ; </b>
-                        </ul>
+                        
                             </code>
                 </div><br>
             </ul><br>
@@ -390,13 +391,12 @@
                     <code>
                                 <span class="orclkey">SELECT </span> Name <br>
                                 <span class="orclkey">FROM </span> Employees <br>
-                                <span class="orclkey">WHERE </span> ( DepartmentID, JobTitle ) <span class="orclkey"> IN </span><br>
-                                <ul>
-                                ( <span class="orclkey"> SELECT </span> DepartmentID, JobTitle   <br>
-                                <span class="orclkey">FROM  </span> OpenPositions <br>
+                                <span class="orclkey">WHERE </span> (DepartmentID, JobTitle)
+                                <span class="orclkey"> IN </span>
+                                ( <span class="orclkey"> SELECT </span> DepartmentID, JobTitle   
+                                <span class="orclkey">FROM  </span> OpenPositions 
                                   )<b> ; </b>
-                        </ul>
-                            </code>
+              </code>
                 </div><br>
             </ul><br>
             <h3>4. Correlated Subquery</h3>
@@ -410,14 +410,12 @@
                     <code>
                                 <span class="orclkey">SELECT </span> employee_id, Name, Salary, JobTitle <br>
                                 <span class="orclkey">FROM </span> Employees E <br>
-                                <span class="orclkey">WHERE </span> Salary > <br>
-                                <ul>
-                                ( <span class="orclkey"> SELECT </span> AVG( Salary )   <br>
-                                <span class="orclkey">FROM  </span>Employees  <br>
+                                <span class="orclkey">WHERE </span> Salary > 
+                                ( <span class="orclkey"> SELECT </span> AVG( Salary )  
+                                <span class="orclkey">FROM  </span>Employees 
                                 <span class="orclkey">WHERE </span>  DepartmentID = E.DepartmentID 
                                   )<b> ; </b>
-                        </ul>
-                            </code>
+                                                   </code>
                 </div><br>
             </ul><br>
             <h3>5. Nested Subquery</h3>
@@ -431,20 +429,16 @@
                                 <span class="orclkey">SELECT </span> employee_id, Name, JobTitle <br>
                                 <span class="orclkey">FROM </span> Employees E <br>
                                 <span class="orclkey">WHERE </span> Salary = <br>
-                                <ul><ul>
-                                ( <span class="orclkey"> SELECT </span> MAX( Salary )    <br>
-                                <span class="orclkey">FROM  </span>Employees  <br>
-                                <span class="orclkey">WHERE </span>  DepartmentID =  ( <span class="orclkey"> SELECT </span>DepartmentID     <br>
                                 <ul>
-                                    <ul><ul><ul>
-                                        <span class="orclkey">FROM  </span> Departments <br>
-                                        <span class="orclkey">WHERE </span>  Location = <b>'</b>Hyderabad<b>'</b>
-                                          ) 
-                                    </ul>
-                                </ul></ul></ul>
-                                )<b> ; </b>
-                        </ul></ul>
-                            </code>
+                                (
+                                <span class="orclkey"> SELECT </span> MAX(Salary)   
+                                <span class="orclkey">FROM  </span>Employees  
+                                <span class="orclkey">WHERE </span>  DepartmentID =  <br>(
+                                <span class="orclkey"> SELECT </span>DepartmentID    
+                                <span class="orclkey">FROM  </span> Departments 
+                                <span class="orclkey">WHERE </span>  Location = <b>'</b>Hyderabad<b>'</b>  ))<b> ; </b>
+                                </ul>
+                     </code>
                 </div><br>
             </ul><br>
             <h2>Using Subqueries in SQL Statements</h2>
@@ -455,12 +449,11 @@
                 <code>
                                 <span class="orclkey">SELECT </span> employee_id, name, salary <br>
                                 <span class="orclkey">FROM </span> Employees <br>
-                                <span class="orclkey">WHERE </span> Salary = <br>
-                                <ul><ul>
-                                ( <span class="orclkey"> SELECT </span> AVG( salary )    <br>
-                                <span class="orclkey">FROM  </span>Employees  <br>
-                                 )<b> ; </b>
-                        </ul></ul>
+                                <span class="orclkey">WHERE </span> Salary > 
+                               
+                                ( <span class="orclkey"> SELECT </span> AVG( salary )    
+                                <span class="orclkey">FROM  </span>Employees);  <br>
+                           
                             </code>
             </div><br>
             <h3>2. Subquery in SELECT Clause</h3>
@@ -468,26 +461,23 @@
             <div class="code-box">
                 <code>
                                 <span class="orclkey">SELECT </span> employee_id, name, salary, <br>
-                                <ul><ul>
-                                ( <span class="orclkey"> SELECT </span> AVG( salary )    <br>
-                                <span class="orclkey">FROM  </span>Employees  )<br>
+                                ( <span class="orclkey"> SELECT </span> AVG(salary)    
+                                <span class="orclkey">FROM  </span>Employees  )
                                 <span class="orclkey"> AS </span> avg_salary
-                        </ul></ul>
-                        <span class="orclkey">FROM  </span>Employees <b> ; </b>
+                                <span class="orclkey">FROM  </span>Employees <b> ; </b>
                             </code>
             </div><br>
             <h3>3. Subquery in FROM Clause (Inline View)</h3>
             <p><b>Scenario :- </b> Find the highest salary in each department. </p>
             <div class="code-box">
                 <code>
-                                <span class="orclkey">SELECT </span> department_id, MAX( salary )   <span class="orclkey"> AS </span> max_salary <br>
+                                <span class="orclkey">SELECT </span> department_id, MAX(salary)  
+                                <span class="orclkey"> AS </span> max_salary <br>
                                 <span class="orclkey">FROM  </span>
-                                <ul><ul>
-                                ( <span class="orclkey"> SELECT </span> department_id, salary    <br>
-                                <span class="orclkey">FROM  </span>Employees  )
+                                ( <span class="orclkey"> SELECT </span> department_id, salary    
+                                <span class="orclkey">FROM  </span>Employees  )<br>
                                 <span class="orclkey"> AS </span> temp_table
-                        </ul></ul>
-                        <span class="orclkey">GROUP BY  </span>department_id <b> ; </b>
+                                <span class="orclkey">GROUP BY  </span>department_id <b> ; </b>
                             </code>
             </div><br>
             <h3>4. Subquery with EXISTS</h3>
@@ -495,34 +485,31 @@
             <div class="code-box">
                 <code>
                                 <span class="orclkey">SELECT </span> department_id, department_name   <br>
-                                <span class="orclkey">FROM  </span> departments d <br>
-                                <span class="orclkey">WHERE EXISTS  </span> WHERE EXISTS 
-                                ( <span class="orclkey"> SELECT </span> 1    <br>
-                                <ul><ul></ul>
-                                <span class="orclkey">FROM  </span>employees e  <br>
-                                <span class="orclkey"> WHERE </span> e.department_id = d.department_id <span class="orclkey"> AND  </span> AND e.salary > 50000
-                                ) <b> ; </b>
-                        </ul> 
-                    </ul>
+                                <span class="orclkey">FROM  </span> departments d 
+                                <span class="orclkey">WHERE EXISTS  </span><br>
+                                ( <span class="orclkey"> SELECT </span> 1    
+                             
+                                <span class="orclkey">FROM  </span>employees e  
+                                <span class="orclkey"> WHERE </span> e.department_id = d.department_id
+                                <span class="orclkey"> AND  </span>  e.salary > 50000) <b> ; </b>
+                             
                         
                             </code>
             </div><br>
             <h3>5. Subquery in UPDATE</h3>
-            <p><b>Scenario :- </b> Check if a department has employees with a salary above $50,000. </p>
+            <p><b>Scenario :- </b> Update salaries of employees by 10% in departments with fewer than 5 employees. </p>
             <div class="code-box">
                 <code>
                                 <span class="orclkey">UPDATE </span> employees  <br>
                                 <span class="orclkey">SET  </span> salary = salary * 1.10 <br>
-                                <span class="orclkey">WHERE  </span> department_id <span class="orclkey">IN  </span>
-                                ( <span class="orclkey"> SELECT </span> department_id   <br>
-                                <ul><ul></ul>
-                                <span class="orclkey">FROM  </span>employees  <br>
-                                <span class="orclkey"> GROUP BY </span> department_id  <br>
+                                <span class="orclkey">WHERE  </span> department_id 
+                                <span class="orclkey">IN  </span><br>
+                                ( <span class="orclkey"> SELECT </span> department_id   
+                                <span class="orclkey">FROM  </span>employees  
+                                <span class="orclkey"> GROUP BY </span> department_id  
                                 <span class="orclkey"> HAVING  </span> COUNT(*) < 5
                                 ) <b> ; </b>
-                        </ul> 
-                    </ul>
-                        
+                    
                             </code>
             </div><br>
             <h3>6. Subquery in DELETE</h3>
@@ -542,11 +529,10 @@
             <div class="code-box">
                 <code>
                                 <span class="orclkey">SELECT </span> employee_id, name, salary,  <br>
-                                <ul><ul>
-                                ( <span class="orclkey"> SELECT </span> COUNT(*)  <span class="orclkey"> FROM </span> employees )
+                                ( <span class="orclkey"> SELECT </span> COUNT(*) 
+                                <span class="orclkey"> FROM </span> employees )
                                 <span class="orclkey">AS  </span>total_employees  
-                            </ul></ul>
-                            <span class="orclkey">FROM  </span> employees
+                                <span class="orclkey">FROM  </span> employees
                             <b> ; </b>
                         
                             </code>
@@ -573,15 +559,16 @@
             <div class="code-box">
                 <code>
                                 <span class="orclkey">SELECT </span> Name, DepartmentID, Salary,  <br>
-                                <ul><ul>
-                                ( <span class="orclkey"> SELECT </span> COUNT( * ) <br>
-                                <span class="orclkey">FROM </span> Employees E2 <br>
-                                <span class="orclkey"> WHERE </span>E2.DepartmentID = E1.DepartmentID <br>
-                                <span class="orclkey"> AND  </span> E2.Salary > E1.Salary ) + 1 <span class="orclkey"> AS  </span> Rank <br>
-                            </ul></ul>
+                               
+                                ( <span class="orclkey"> SELECT </span> COUNT(*) <br>
+                                <span class="orclkey">FROM </span> Employees E2 
+                                <span class="orclkey"> WHERE </span>E2.DepartmentID = E1.DepartmentID 
+                                <span class="orclkey"> AND  </span> E2.Salary > E1.Salary ) + 1
+                                <span class="orclkey"> AS  </span> Rank <br>
+                    
                             <span class="orclkey"> FROM </span>  Employees E1 
-                            <span class="orclkey"> ORDER BY </span><b> ; </b> <br>
-                        - - The subquery counts the number of employees in the same department with a higher salary. <br>
+                            <span class="orclkey"> ORDER BY </span> DepartmentID,Rank ;  <br>
+                       <br> - - The subquery counts the number of employees in the same department with a higher salary. <br>
                         - - The rank is calculated as the count + 1.
                             </code>
             </div><br>
@@ -591,11 +578,12 @@
                 <code>
                                 <span class="orclkey">SELECT </span> Name, DepartmentID, Salary  <br>
                                 <span class="orclkey">FROM </span> Employees E1 <br>
-                                <span class="orclkey"> WHERE </span> Salary = ( <span class="orclkey"> SELECT </span> MAX(Salary)<br>
-                                <ul><ul>
+                                <span class="orclkey"> WHERE </span> Salary = 
+                                ( <span class="orclkey"> SELECT </span> MAX(Salary)<br>
+                            
                                 <span class="orclkey">FROM </span> Employees E2 <br>
-                                <span class="orclkey"> AND  </span> E1.DepartmentID = E2.DepartmentID <br>
-                            </ul></ul>
+                                <span class="orclkey"> AND  </span> E1.DepartmentID = E2.DepartmentID); <br>
+       
                             </code>
             </div><br>
             <h3>3. Use in Complex Filtering</h3>
@@ -605,13 +593,13 @@
                 <code>
                                 <span class="orclkey">SELECT </span> Name, Salary  <br>
                                 <span class="orclkey">FROM </span> Employees <br>
-                                <span class="orclkey"> WHERE </span> DepartmentID  <span class="orclkey"> IN </span> ( <br>
-                                <ul><ul>
-                                    <span class="orclkey">SELECT </span> DepartmentID <br>
-                                <span class="orclkey">FROM </span> Departments <br>
-                                <span class="orclkey"> WHERE  </span> Location  = <b>'</b>UK<b>'</b> <br>
-                            </ul></ul>
-                            <span class="orclkey"> AND  </span> Salary > ( <span class="orclkey"> SELECT  </span> AVG( Salary )
+                                <span class="orclkey"> WHERE </span> DepartmentID 
+                                <span class="orclkey"> IN </span> <br>( 
+                                <span class="orclkey">SELECT </span> DepartmentID 
+                                <span class="orclkey">FROM </span> Departments 
+                                <span class="orclkey"> WHERE  </span> Location  = <b>'</b>UK<b>'</b>) <br>
+                                <span class="orclkey"> AND  </span> Salary > ( 
+                                <span class="orclkey"> SELECT  </span> AVG( Salary )
                             <span class="orclkey"> FROM </span> Employees ) <b> ; </b>
                             </code>
             </div><br>
@@ -620,22 +608,19 @@
             <p><b>Scenario :- </b> Find all employees under a specific manager. </p>
             <div class="code-box">
                 <code>
-                                <span class="orclkey">WITH RECURSIVE </span> subordinates <span class="orclkey">AS </span> ( <br>
-                                <ul><ul>
-                                    <span class="orclkey">SELECT </span> employee_id, manager_id <br>
-                                    <span class="orclkey">FROM </span> employees <br>
-                                    <span class="orclkey"> WHERE </span> manager_id = 101       -  -  Root manager <br>
-                                <br>
-                                <span class="orclkey"> UNION ALL </span> <br><br>
+                                <span class="orclkey">WITH RECURSIVE </span> subordinates
+                                <span class="orclkey">AS </span> ( <br>
+                                <span class="orclkey">SELECT </span> employee_id, manager_id 
+                                <span class="orclkey">FROM </span> employees 
+                                <span class="orclkey"> WHERE </span> manager_id = 101   
+                                <span class="orclkey"> UNION ALL </span><br>
                                 
-                                <span class="orclkey">SELECT </span> e.employee_id, e.manager_id <br>
-                                <span class="orclkey">FROM </span> employees e<br>
-                                <span class="orclkey">JOIN </span> subordinates s <br>
-                                <span class="orclkey">ON </span> e.manager_id = s.employee_id <br>
-                                 </ul>)
-                                </ul>
-                               <span class="orclkey"> SELECT  </span> * 
-                            <span class="orclkey"> FROM </span> subordinates <b> ; </b>
+                                <span class="orclkey">SELECT </span> e.employee_id, e.manager_id 
+                                <span class="orclkey">FROM </span> employees e <br>
+                                <span class="orclkey">JOIN </span> subordinates s 
+                                <span class="orclkey">ON </span> e.manager_id = s.employee_id) <br>
+                                <span class="orclkey"> SELECT  </span> * 
+                                 <span class="orclkey"> FROM </span> subordinates <b> ; </b>
                             </code>
             </div><br>
             <h2>Do's and Don'ts</h2>
@@ -736,7 +721,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_case.html?topic=sqlCase" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_case.html?topic=sqlCase" class="previou-button">&laquo; Previous</a>
                 <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="next-button">Next &raquo;</a>
             </div>
 

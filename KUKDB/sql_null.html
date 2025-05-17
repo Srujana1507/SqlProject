@@ -375,7 +375,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> * <span class="orclkey">FROM   </span> employee <br> 
                     <span class="orclkey">WHERE </span> salary  =<span class="orclkey"> NULL </span><b> ;</b> <br>
-                    <p>-- Always returns no rows</p>
+                    <br>-- Always returns no rows
                 </code>
             </div>
             <br>
@@ -386,7 +386,7 @@
                 <code>
                     <span class="orclkey">SELECT   </span> 5 + <span class="orclkey"> NULL   </span> <br> 
                     <span class="orclkey">as  </span> Result  <span class="orclkey"> FROM </span>  DUAL<b> ;</b> <br>
-                    <p>-- Result is NULL</p>
+                   <br>-- Result is NULL
                 </code>
             </div>
             <br>
@@ -397,7 +397,7 @@
                 <code>
                     <span class="orclkey">INSERT INTO   </span> employees ( employee_id<b> ,</b> name, salary ) <br> 
                     <span class="orclkey">VALUES   </span> ( 101<b>,</b> <b>'</b>John Doe<b>'</b> <b> ,</b><span class="orclkey"> NULL </span> )<b> ;</b> <br>
-                    <p>-- Result is NULL</p>
+                    <br>-- Result is NULL
                 </code>
             </div>
             <br>
@@ -531,13 +531,13 @@
                         <b>Note :</b> If some Salary values are NULL, they are excluded from the average calculation.
                     </div>
                 </code>
-                <br>
+                
                 -- Count ignores NULLs<br>
                 <code>
                     <span class="orclkey">SELECT   </span> COUNT(salary)  <span class="orclkey"> AS </span>  total_salaries   
                     <span class="orclkey"> FROM </span>  employees <b> ;</b>
                 </code>
-                <br>
+              
                 -- COUNT<b>( * ) </b>includes NULLs<br>
                 <code>
                     <span class="orclkey">SELECT   </span> COUNT(<b>*</b>)  <span class="orclkey"> AS </span>  total_rows   

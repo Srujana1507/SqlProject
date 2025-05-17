@@ -453,12 +453,15 @@
                 <code>
                         <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id <br>
                         <span class="orclkey">FROM </span> employees <br>
-                        <span class="orclkey">WHERE  </span>  department_id IN ( <br>
+                        <span class="orclkey">WHERE  </span>  department_id IN 
+                        <br> ( <br>
                         <ul>
                         <span class="orclkey"> SELECT  </span> department_id <span class="orclkey">FROM </span> departments 
                         <span class="orclkey">WHERE  </span>  department_name  = <b>'</b>Sales<b>'</b> <br>
-                    ) </ul>
-                        <span class="orclkey">OR EXISTS  </span>  ( <span class="orclkey"> SELECT  </span> 1 <span class="orclkey"> FROM </span> orders  
+                       
+                        </ul>
+                        )
+                        <br><span class="orclkey">OR EXISTS  </span>  ( <span class="orclkey"> SELECT  </span> 1 <span class="orclkey"> FROM </span> orders  
                         <span class="orclkey">WHERE  </span>  orders.employee_id  = employees.employee_id )  <b> ; </b>
                     </code>
             </div><br>
@@ -481,11 +484,11 @@
                 <code>
                         <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Category<b> , </b>Price<b> , </b>Stock <br>
                         <span class="orclkey">FROM </span> Products <br>
-                        <span class="orclkey">WHERE  </span>  Price < 50 <br>
-                        <ul>
+                        <span class="orclkey">WHERE  </span>  Price < 50 
+                        
                         <span class="orclkey"> OR  </span>( Category = <b>'</b>Electronics<b>'</b>
                         <span class="orclkey"> AND   </span>Stock = 0 ) <b> ; </b>
-                    </ul>
+                    
                     </code>
             </div><br>
             <h2>Common Errors with OR</h2>

@@ -321,7 +321,7 @@
                     GROUP BY clause.</li>
                 <li>It is typically used in combination with the GROUP BY clause.</li>
                 <li>The HAVING clause applies conditions to aggregated data.</li>
-            </ul><br>
+            </ul>
             <h2>Syntax:</h2>
             <div class="code-box">
                 <code>
@@ -350,11 +350,12 @@
             <p>Retrieve departments with total sales greater than $10,000</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> department_name <b>,</b>SUM(Sales) <span class="orclkey"> AS</span> TotalSales<br>
+                    <span class="orclkey">SELECT   </span> department_name <b>,</b>SUM(Sales) 
+                    <span class="orclkey"> AS</span> TotalSales<br>
                     <span class="orclkey">FROM   </span> Employees <br> 
                     <span class="orclkey">GROUP BY  </span>department_name <br>
                     <span class="orclkey">HAVING  </span> SUM(Sales) > 10000<b> ;</b> <br>
-                    - - Groups employees by department_name. <br>
+                    <br>- - Groups employees by department_name. <br>
                     - - Filters out groups where the total salary exceeds 10000. <br>
                 </code>
             </div>
@@ -367,7 +368,7 @@
                     <span class="orclkey">SELECT   </span> SUM(order_amount) <span class="orclkey"> AS</span> total_sales<br>
                     <span class="orclkey">FROM   </span> orders <br> 
                     <span class="orclkey">HAVING  </span> SUM(order_amount) > 500000<b> ;</b> <br>
-                    - - Aggregates the entire table into one result (SUM(order_amount)). <br>
+                    <br>- - Aggregates the entire table into one result (SUM(order_amount)). <br>
                     - - Filters the result using HAVING. <br>
                 </code>
             </div>
@@ -382,7 +383,7 @@
                     <span class="orclkey">FROM   </span> employees <br> 
                     <span class="orclkey">GROUP BY   </span> department_id <br> 
                     <span class="orclkey">HAVING  </span> SUM(salary) > 100000 <span class="orclkey"> AND </span> COUNT( <b>*</b> ) > 10 <b> ;</b> <br>
-                    - - Groups employees by department_id. <br>
+                    <br> - Groups employees by department_id. <br>
                     - - Filters out groups that do not meet both conditions. <br>
                 </code>
             </div>
@@ -397,7 +398,7 @@
                     <span class="orclkey">WHERE </span> Salary > 5000 <br> 
                     <span class="orclkey">GROUP BY   </span> department_id <br> 
                     <span class="orclkey">HAVING  </span> SUM( Sales ) > 15000 <b> ;</b> <br>
-                    - - WHERE filters individual rows before grouping. <br>
+                    <br>- - WHERE filters individual rows before grouping. <br>
                     - - HAVING filters the grouped results. <br>
                 </code>
             </div>
@@ -410,7 +411,7 @@
                     <span class="orclkey">FROM </span> orders <br> 
                     <span class="orclkey">GROUP BY   </span> customer_id <br> 
                     <span class="orclkey">HAVING  </span>SUM(order_amount) > 1000 <b> ;</b> <br>
-                    - - Uses the alias total_spent in the HAVING clause for clarity. <br>
+                   <br> - - Uses the alias total_spent in the HAVING clause for clarity. <br>
                 </code>
             </div>
             <br>
@@ -422,7 +423,7 @@
                     <span class="orclkey">FROM </span> employees <br> 
                     <span class="orclkey">GROUP BY   </span> department_id <br> 
                     <span class="orclkey">HAVING  </span> SUM(salary) > 100000 <span class="orclkey"> OR </span> SUM(salary) <span class="orclkey"> IS NULL </span><b> ;</b> <br>
-                    - - Includes groups where the sum of salaries is NULL. <br>
+                    <br>- - Includes groups where the sum of salaries is NULL. <br>
                 </code>
             </div>
             <br>
@@ -434,16 +435,18 @@
                     <span class="orclkey">SELECT   </span> department_name<b> ,</b> SUM(Sales) <span class="orclkey"> AS</span> TotalSales<br>
                     <span class="orclkey">FROM </span> Employees <br> 
                     <span class="orclkey">GROUP BY   </span> department_name <br> 
-                    <span class="orclkey">HAVING  </span> SUM(Sales) > ( <br>
-                    <ul>
-                    <span class="orclkey"> SELECT </span> AVG(dept_total) <br>
-                     <span class="orclkey">FROM </span> (  <br> 
-                      <span class="orclkey" >SELECT </span> SUM(sales) as dept_total  <br>
-                    <span class="orclkey">FROM </span> Employees <br>
-                    <span class="orclkey">GROUP BY   </span> department_name <br> 
-                    ) AS dept_avgs)<b> ;</b> <br>
+                    <span class="orclkey">HAVING  </span> SUM(Sales) ><br>
+                    ( <br>
+                     <ul>
+                       <span class="orclkey"> SELECT </span> AVG(dept_total) <br>
+                       <span class="orclkey">FROM </span> (   
+                       <span class="orclkey" >SELECT </span> SUM(sales) AS dept_total  <br>
+                       <span class="orclkey">FROM </span> Employees <br>
+                       <span class="orclkey">GROUP BY   </span> department_name <br>
+                     </ul> 
+                    ) <span class="orclkey">AS </span>dept_avgs)<b> ;</b> <br>
                     </ul>
-                    - - The subquery calculates the average department sales. <br>
+                    <br>- - The subquery calculates the average department sales. <br>
                     - - The HAVING clause filters groups based on this calculated value. <br>
                 </code>
             </div>
@@ -465,12 +468,13 @@
             <p>Retrieve departments where the total sales are in the top 50% of all departments.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">WITH </span> DepartmentSales <span class="orclkey"> AS</span> (<br>
+                    <span class="orclkey">WITH </span> DepartmentSales <span class="orclkey"> AS
+                    </span> <br> (<br>
                     <ul>
                         <span class="orclkey">SELECT </span> department_name<b> ,</b> SUM( Quantity ) <span class="orclkey"> AS</span> TotalSales ,<br> 
-                        <ul>
-                            PERCENT_RANK() <span class="orclkey"> OVER (ORDER BY </span> SUM(Sales) <span class="orclkey"> DESC</span>) <span class="orclkey"> AS Rank</span> <br>
-                        </ul>
+                        
+                          PERCENT_RANK() <span class="orclkey"> OVER (ORDER BY </span> SUM(Sales) <span class="orclkey"> DESC</span>) <span class="orclkey"> AS Rank</span> <br>
+                        
                         <span class="orclkey">FROM </span> Employees <br>
                         <span class="orclkey">GROUP BY </span> department_name <br>
                     </ul>
@@ -500,21 +504,19 @@
                 the average revenue of all products.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> ProductID<b> ,</b> <br>
-                    <span class="orclkey">   </span> SUM(Revenue)<b> </b>
-                    <span class="orclkey"> AS</span> TotalRevenue <b> ,</b> <br>
-                    COUNT(<span class="orclkey"> DISTINCT </span> Region ) <span class="orclkey"> AS</span> RegionCount<br>
+                    <span class="orclkey">SELECT   </span> ProductID<b>,</b> 
+                    SUM(Revenue)<span class="orclkey"> AS</span> TotalRevenue <b> ,</b> <br>
+                    <span class="orclkey">COUNT   </span>
+                    (<span class="orclkey"> DISTINCT </span> Region ) <span class="orclkey"> AS</span> RegionCount<br>
                     <span class="orclkey">FROM </span> Sales <br> 
                     <span class="orclkey">GROUP BY  </span> ProductID <br>
-                    <span class="orclkey"> HAVING </span> COUNT(<span class="orclkey"> DISTINCT </span> Region) >= 3 <br>
-                    <ul>
-                        <span class="orclkey"> AND </span> SUM(Revenue) > ( <br>
-                        <span class="orclkey"> SELECT  </span> AVG(Revenue) <br> 
-                         
-                         FROM  Sales </span>  <br> );
-                        
-                     </ul> <br>
-                    - - COUNT(DISTINCT Region) >= 3 ensures products were sold in at least three regions. <br>
+                    <span class="orclkey"> HAVING </span><br> COUNT(<span class="orclkey"> DISTINCT </span> Region) >= 3 
+                    <span class="orclkey"> AND </span> SUM(Revenue) > ( 
+                    <span class="orclkey"> SELECT  </span> AVG(Revenue) <br> 
+                    <span class="orclkey">  FROM  Sales  </span> 
+                    );
+                  <br>
+                   <br> - - COUNT(DISTINCT Region) >= 3 ensures products were sold in at least three regions. <br>
                     - - The subquery calculates the average revenue across all products, and the HAVING clause compares each product’s revenue against this value. <br>
                 </code>
             </div>
@@ -524,16 +526,20 @@
                 employees earning less than $50,000 is fewer than 5.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> department_name<b>,</b> AVG( Salary ) <span class="orclkey"> AS</span> AvgSalary,<b> </b>
-                    <ul>
-                    COUNT(<b>*</b> ) <span class="orclkey"> AS</span> TotalEmployees <b> </b><br>
-                    </ul>
-                    <span class="orclkey">FROM </span> Employees <br> 
-                    <span class="orclkey">GROUP BY  </span> department_name <br>
-                    <span class="orclkey"> HAVING </span> AVG(Salary) > 70000 <span class="orclkey"> AND </span> SUM( <span class="orclkey"> CASE WHEN </span>
-                    Salary < 50000  <span class="orclkey"> THEN  </span> 1 <span class="orclkey"> ELSE </span> 0 <span class="orclkey"> END ) </span> < 5
-                     <b> ;</b> <br><br>
-                    - - AVG(Salary) > 70000 filters departments with high average salaries. <br>
+                    <span class="orclkey">SELECT </span> department_name<b>,</b> AVG( Salary )
+                    <span class="orclkey"> AS</span> AvgSalary<b>, </b>COUNT(<b>*</b> )
+                        <span class="orclkey"> AS</span> TotalEmployees <b> </b><br>
+                    
+                        <span class="orclkey">FROM </span> Employees <br> 
+                        <span class="orclkey">GROUP BY  </span> department_name <br>
+                        <span class="orclkey"> HAVING </span> AVG(Salary) > 70000 
+                        <span class="orclkey"> AND </span> SUM( 
+                        <span class="orclkey"> CASE WHEN </span> Salary < 50000 
+                        <span class="orclkey"> THEN  </span> 1
+                        <span class="orclkey"> ELSE </span> 0
+                        <span class="orclkey"> END ) </span> < 5
+                     <b> ;</b> <br>
+                    <br>- - AVG(Salary) > 70000 filters departments with high average salaries. <br>
                     - - The SUM(CASE WHEN ...) counts employees earning less than $50,000, ensuring the count is under 5. <br>
                 </code>
             </div>
@@ -544,19 +550,19 @@
                 least 5 different months.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> CustomerID<b> ,</b>  <br>
-                    <ul>
+                       <span class="orclkey">SELECT </span> CustomerID<b> ,</b>  
                        <span class="orclkey">  SUM </span> (OrderAmount) 
-                       <span class="orclkey">  AS </span>  TotalSpent <b> ,</b><br>
-                       <span class="orclkey"> COUNT(DISTINCT  MONTH</span>(OrderDate))<span class="orclkey"> AS </span> ActiveMonths<b> </b><br>
-                    </ul>
-                        <span class="orclkey">FROM </span> Orders <br> 
-                    <span class="orclkey">GROUP BY  </span> CustomerID <br>
-                    <span class="orclkey"> HAVING </span> SUM(OrderAmount) > 5000 <br>
-                    <span class="orclkey"> AND COUNT( </span>   <span class="orclkey"> DISTINCT MONTH</span> (OrderDate) ) >= 5
+                       <span class="orclkey">  AS </span>  TotalSpent <b> ,</b>
+                       <span class="orclkey"> COUNT(DISTINCT  MONTH</span>(OrderDate))
+                       <span class="orclkey"> AS </span> ActiveMonths<b> </b><br>
+                       <span class="orclkey">FROM </span> Orders <br> 
+                       <span class="orclkey">GROUP BY  </span> CustomerID <br>
+                       <span class="orclkey"> HAVING </span> SUM(OrderAmount) > 5000 <br>
+                       <span class="orclkey"> AND COUNT( </span>   
+                       <span class="orclkey"> DISTINCT MONTH</span> (OrderDate) ) >= 5
             
-                     <b> ;</b> <br><br>
-                    - - SUM(OrderAmount) > 5000 ensures high spenders are identified. <br>
+                     <b> ;</b> <br>
+                    <br>- - SUM(OrderAmount) > 5000 ensures high spenders are identified. <br>
                     - - COUNT(DISTINCT MONTH(OrderDate)) >= 5 ensures the customer was active in at least 5 months. <br>
                 </code>
             </div>
@@ -579,8 +585,8 @@
                     <span class="orclkey"> HAVING </span> SUM( LoanAmount ) > 1000000  <span class="orclkey"> AND </span> <br>
                     (SUM( <span class="orclkey"> CASE WHEN </span> Status = <b>'</b>Overdue<b>'</b>  <span class="orclkey"> THEN </span> LoanAmount 
                         <span class="orclkey"> ELSE </span> 0 <span class="orclkey"> END </span> )  * 100.0 / SUM(LoanAmount))> 20
-                     <b> ;</b> <br><br>
-                    - - Calculates the total overdue loans and their percentage. <br>
+                     <b> ;</b> <br>
+                    <br>- - Calculates the total overdue loans and their percentage. <br>
                     - - Filters branches based on the total loan amount and overdue percentage. <br>
                 </code>
             </div>
@@ -591,21 +597,23 @@
                 past year.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> ProductID<b> ,</b>  SUM(Inventory) <span class="orclkey"> AS</span> TotalInventory <b> ,</b> <br>
-                    <ul>AVG( SalesPerMonth ) <span class="orclkey"> AS </span> AvgMonthlySales <br> </ul>
-                    <span class="orclkey">FROM </span> ( <br>
-                    <ul>
+                    <span class="orclkey">SELECT </span> ProductID<b> ,</b><br>SUM(Inventory)
+                    <span class="orclkey"> AS</span> TotalInventory <b> ,</b><br> AVG( SalesPerMonth ) 
+                    <span class="orclkey"> AS </span> AvgMonthlySales <br> </ul>
+                    <span class="orclkey">FROM </span><br> ( <br>
+                 <ul>
                       <span class="orclkey"> SELECT </span> ProductID<b> ,</b> Inventory<b> ,</b>
-                      <ul>
+                     
                         SUM(Sales) <span class="orclkey"> OVER (PARTITION BY </span> ProductID) / 12 <span class="orclkey"> AS </span> SalesPerMonth <br>
-                      </ul>
-                      <span class="orclkey">FROM </span> InventoryData <br>
-                      </ul>
+                        <span class="orclkey">FROM </span> InventoryData <br>
+                 </ul>   
+                      
+                     
                     ) <span class="orclkey"> AS </span> MonthlyData <br>
                     <span class="orclkey">GROUP BY  </span> ProductID <br>
                     <span class="orclkey">HAVING </span> SUM( Inventory ) > 1.5 * AVG( SalesPerMonth )                       
                      <b> ;</b> <br><br>
-                    - - AVG(SalesPerMonth) calculates the average monthly sales for each product. <br>
+                    <br>- - AVG(SalesPerMonth) calculates the average monthly sales for each product. <br>
                     - - SUM(Inventory) > 1.5 * AVG(SalesPerMonth) ensures only overstocked products are included. <br>
                 </code>
             </div>

@@ -319,7 +319,7 @@
                 <li>By default, the sorting is in ascending order, but you can explicitly specify descending order if
                     needed.</li>
             </ul>
-            <br>
+            
             <h2>1. Basic Syntax</h2>
             <div class="code-box">
                 <code>
@@ -421,14 +421,10 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> ProductID<b>,</b> Name<b>,</b>(<span class="orclkey">SELECT</span> SUM(Quantity) <br>
-                    <ul>
-                        <ul>
-                            <ul>
+                    
                                 <span class="orclkey">FROM   </span> Sales  <br> 
                                 <span class="orclkey">WHERE </span> Sales.ProductID = Products.ProductID) <span class="orclkey">AS</span> TotalSales
-                            </ul>
-                        </ul>
-                    </ul>
+                   
                     <span class="orclkey">FROM   </span> Products <br> 
                     <span class="orclkey">ORDER BY</span> TotalSales  <span class="orclkey"> DESC</span><b>;</b> 
                 </code>
@@ -475,12 +471,12 @@
             <p>Retrieve the top 3 highest-paid employees in each department.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">WITH </span> RankedSalaries  <span class="orclkey"> AS</span> (<br>
+                    <span class="orclkey">WITH </span> RankedSalaries  <span class="orclkey"> AS</span> <br>(<br>
                     <ul>
                         <span class="orclkey">SELECT </span> EmployeeID<b>, </b> Name <b>, </b> department_name<b>, </b>Salary ,<br> 
-                        <ul>
+                        
                             RANK() <span class="orclkey"> OVER (PARTITION BY </span> department_name <span class="orclkey"> ORDER BY </span> Salary <span class="orclkey"> DESC</span>) <span class="orclkey"> AS</span> Rank <br>
-                        </ul>
+                       
                         <span class="orclkey">FROM </span> Employees <br>
                     </ul>
                     ) <br>

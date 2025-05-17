@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlSome">
 
             <div class="topic-buttons">
-                <a href="sql_wildcards.html?topic=sqlWildcards" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_wildcards.html?topic=sqlWildcards" class="previou-button">&laquo; Previous</a>
                 <a href="sql_case.html?topic=sqlCase" class="next-button">Next &raquo;</a>
             </div>
 
@@ -339,7 +339,7 @@
             <p><b>1. Alias for ANY :</b></p>
             <ul>
                 <li>SOME is functionally equivalent to the ANY operator. Both mean "at least one value matches."</li>
-            </ul><br>
+            </ul>
             <p><b>2. Comparison with Subquery Results :</b></p>
             <ul>
                 <li>Evaluates each value in the subquery result set against the condition.</li>
@@ -357,16 +357,16 @@
                 <code>
                             <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
                             <span class="orclkey">FROM </span>Products <br>
-                            <span class="orclkey">WHERE </span> Price > <span class="orclkey"> SOME </span> (<br>
+                            <span class="orclkey">WHERE </span> Price > 
+                            <span class="orclkey"> SOME </span> (
                             <ul>
-                                <ul>
+                                
                             <span class="orclkey">SELECT </span> Price <br>
                             <span class="orclkey">FROM  </span> Products <br>
-                            <span class="orclkey">WHERE </span> Category =  <b>'</b>Electronics<b>'</b> <br>
+                            <span class="orclkey">WHERE </span> Category =  <b>'</b>Electronics<b>'</b>  )<b> ; </b> <br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
+                      
+                                     </code>
                 - - The subquery retrieves prices of all products in the Electronics category. <br>
                 - - The SOME operator checks if the price of a product is greater than at least one price in the
                 subquery.
@@ -379,15 +379,15 @@
                         <code>
                             <span class="orclkey">SELECT </span> EmployeeID, EmployeeName, Salary <br>
                             <span class="orclkey">FROM </span>Employees <br>
-                            <span class="orclkey">WHERE </span> Salary < <span class="orclkey"> SOME </span> (<br>
+                            <span class="orclkey">WHERE </span> Salary < 
+                            <span class="orclkey"> SOME </span> (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> Salary <br>
                             <span class="orclkey">FROM  </span> Employees <br>
-                            <span class="orclkey">WHERE </span> JobTitle  =  <b>'</b>Manager<b>'</b> <br>
+                            <span class="orclkey">WHERE </span> JobTitle  =  <b>'</b>Manager<b>'</b>  )<b> ; </b><br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
+                       
                         </code>
                         - - The subquery fetches salaries of all employees with the title 'Manager'. <br>
                         - - The SOME operator evaluates if an employee's salary is less than any of these.
@@ -400,16 +400,14 @@
                         <code>
                             <span class="orclkey">SELECT </span> OrderID, Amount <br>
                             <span class="orclkey">FROM </span>Orders <br>
-                            <span class="orclkey">WHERE </span> Amount <> <span class="orclkey"> SOME </span> (<br>
+                            <span class="orclkey">WHERE </span> Amount <>
+                            <span class="orclkey"> SOME </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> Amount <br>
-                            <span class="orclkey">FROM  </span> Payments <br>
+                            <span class="orclkey">FROM  </span> Payments)<b> ; </b> 
                             <br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
+                     </code>
                         - - The subquery fetches all payment amounts. <br>
                         - - The SOME operator checks if the order amount is different from <b>at least one</b> of the
                         payment amounts.
@@ -422,16 +420,14 @@
                         <code>
                             <span class="orclkey">SELECT </span> CustomerID, CustomerName, City <br>
                             <span class="orclkey">FROM </span>Customers <br>
-                            <span class="orclkey">WHERE </span> City = <span class="orclkey"> SOME </span> (<br>
+                            <span class="orclkey">WHERE </span> City =
+                            <span class="orclkey"> SOME </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> City <br>
-                            <span class="orclkey">FROM  </span> Suppliers <br>
+                            <span class="orclkey">FROM  </span> Suppliers  )<b> ; </b> 
                             <br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
+              </code>
                         - - The subquery returns a list of cities where suppliers are located. <br>
                         - - The SOME operator ensures that the customer's city matches <b>at least one</b> city in the
                         subquery.
@@ -446,18 +442,16 @@
                             <span class="orclkey">FROM </span> orders <br>
                             <span class="orclkey">WHERE </span> total_amount != <span class="orclkey"> SOME </span> (<br>
                             <ul>
-                                <ul>
+                                
                             <span class="orclkey">SELECT </span> total_amount <br>
                             <span class="orclkey">FROM  </span> orders <br>
-                            <span class="orclkey">WHERE </span> region = <b>'</b>Nort<b>'</b> <br>
+                            <span class="orclkey">WHERE </span> region = <b>'</b>North<b>'</b> )<b> ; </b>
                             <br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
+                      
                         </code>
-                        - - The subquery returns a list of cities where suppliers are located. <br>
-                        - - The SOME operator ensures that the customer's city matches <b>at least one</b> city in the
-                        subquery.
+                        - - The subquery returns total amounts of orders in north region. <br>
+                        
                     </div><br>
                     <h3>6. Inserting Data </h3>
                     <p><b>Scenario :- </b> Insert customers who belong to some regions listed in another table.
@@ -467,18 +461,103 @@
                             <span class="orclkey">INSERT INTO </span> vip_customers ( customer_id, name, region ) <br>
                             <span class="orclkey">SELECT </span> customer_id, name, region <br>
                             <span class="orclkey">FROM </span> customers <br>
-                            <span class="orclkey">WHERE </span> region = <span class="orclkey"> SOME </span> (<br>
+                            <span class="orclkey">WHERE </span> region =
+                            <span class="orclkey"> SOME </span> (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> region <br>
-                            <span class="orclkey">FROM  </span> preferred_regions <br>
+                            <span class="orclkey">FROM  </span> preferred_regions)<b> ; </b>
                         </ul>
-                        )<b> ; </b>
+                        
                     </ul>
                         </code>
                     </div><br>
 
-                    <h2>SOME vs ANY</h2>
+                    <h2> Complex Scenarios </h2>
+                    <h3>1. SOME With Aggregate Functions and HAVING </h3>
+                    <p><b>Scenario :- </b> Find departments where the average salary is higher than the salary of some
+                        employees in the "Marketing" team.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> department_id, AVG( salary ) <span class="orclkey"> AS </span>avg_salary <br>
+                            <span class="orclkey">FROM </span> employees <br>
+                            <span class="orclkey">GROUP BY </span> department_id <br>
+                            <span class="orclkey"> HAVING </span> AVG(salary) > 
+                            <span class="orclkey"> SOME </span>( <br>
+                            <ul>
+                               
+                            <span class="orclkey">SELECT </span> salary <br>
+                            <span class="orclkey">FROM  </span> employees <br>
+                            <span class="orclkey">WHERE </span> department = <b>'</b>Marketing<b>'</b> )<b> ; </b> <br>
+                           </ul>
+                        </code>
+                    </div><br>
+                    <h3>2. Data Validation </h3>
+                    <p><b>Scenario :- </b> Check if any invoices have a total greater than the total of some other
+                        invoices in the same month.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> i1.invoice_id, i1.total <br>
+                            <span class="orclkey">FROM </span> invoices i1 <br>
+                            <span class="orclkey"> WHERE </span> i1.total >
+                            <span class="orclkey"> SOME </span>( <br>
+                            <ul>
+                               
+                            <span class="orclkey">SELECT </span> i2.total <br>
+                            <span class="orclkey">FROM  </span> invoices i2 <br>
+                            <span class="orclkey">WHERE </span> i1.month = i2.month <br>
+                            <span class="orclkey">AND </span> i1.invoice_id != i2.invoice_id)<b> ; </b> <br>
+                        
+                        
+                    </ul>
+                        </code>
+                    </div><br>
+                    <h3>3. Using SOME with Multiple Conditions </h3>
+                    <p><b>Scenario :- </b> Retrieve products with prices greater than <b>some</b> and less than
+                        <b>some</b> values in a specific category.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                            <span class="orclkey">FROM </span> Products <br>
+                            <span class="orclkey"> WHERE </span> Price >
+                            
+                            <ul>
+                            <span class="orclkey"> SOME </span>( 
+                            <span class="orclkey">SELECT </span> Price
+                            <span class="orclkey">FROM  </span> Products 
+                            <span class="orclkey">WHERE </span> Category  = <b>'</b>Electronics') <br>
+                            <span class="orclkey"> AND </span> Price <
+                            <span class="orclkey"> SOME </span>(
+                            <span class="orclkey"> SELECT  </span> Price
+                            <span class="orclkey"> FROM  </span> Products 
+                            <span class="orclkey"> WHERE  </span> Category  = <b>'</b>Furniture<b>'</b> ) <b> ;</b> <br>
+                        </ul>                 
+                        </code>
+                        - - The query compares product prices to values from two different subqueries. <br>
+                        - - It ensures that a product's price is greater than <b>some</b> prices in the 'Electronics'
+                        category and less than <b>some</b> prices in the 'Furniture' category.
+                    </div><br>
+                    <h3>4. Combining SOME with NOT </h3>
+                    <p><b>Scenario :- </b> Retrieve orders where the amount is <b>not greater</b> <b>than some</b>
+                        payment amounts.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> OrderID, Amount <br>
+                            <span class="orclkey">FROM </span> Orders <br>
+                            <span class="orclkey"> WHERE NOT </span> ( Amount > <span class="orclkey"> SOME </span>( <br>
+                            <ul>
+                            <span class="orclkey">SELECT </span> Amount <br>
+                            <span class="orclkey">FROM  </span> Payments ) )<b> ; </b> <br>
+                        </ul>
+                 
+                        </code>
+                        - - This checks that the order amount is <b>not greater</b> than any of the payment amounts.
+                    </div><br>
+                     <h2>SOME vs ANY</h2>
                     <table>
                         <thead>
                             <tr>
@@ -541,92 +620,7 @@
                             </tr>
                         </tbody>
                     </table><br>
-                    <h3>1. SOME With Aggregate Functions and HAVING </h3>
-                    <p><b>Scenario :- </b> Find departments where the average salary is higher than the salary of some
-                        employees in the "Marketing" team.
-                    </p>
-                    <div class="code-box">
-                        <code>
-                            <span class="orclkey">SELECT </span> department_id, AVG( salary ) <span class="orclkey"> AS </span> <br>
-                            <span class="orclkey">FROM </span> employees <br>
-                            <span class="orclkey">GROUP BY </span> department_id <br>
-                            <span class="orclkey"> HAVING </span> AVG(salary) > <span class="orclkey"> SOME </span>( <br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> salary <br>
-                            <span class="orclkey">FROM  </span> employees <br>
-                            <span class="orclkey">WHERE </span> department = <b>'</b>Marketing<b>'</b> <br>
-                        </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
-                    </div><br>
-                    <h3>2. Data Validation </h3>
-                    <p><b>Scenario :- </b> Check if any invoices have a total greater than the total of some other
-                        invoices in the same month.
-                    </p>
-                    <div class="code-box">
-                        <code>
-                            <span class="orclkey">SELECT </span> invoice_id, total <br>
-                            <span class="orclkey">FROM </span> invoices <br>
-                            <span class="orclkey"> WHERE </span> total > <span class="orclkey"> SOME </span>( <br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> total <br>
-                            <span class="orclkey">FROM  </span> invoices i2 <br>
-                            <span class="orclkey">WHERE </span> invoices.month = i2.month <br>
-                            <span class="orclkey">AND </span> invoices.invoice_id != i2.invoice_id <br>
-                        </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
-                    </div><br>
-                    <h3>3. Using SOME with Multiple Conditions </h3>
-                    <p><b>Scenario :- </b> Retrieve products with prices greater than <b>some</b> and less than
-                        <b>some</b> values in a specific category.
-                    </p>
-                    <div class="code-box">
-                        <code>
-                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
-                            <span class="orclkey">FROM </span> Products <br>
-                            <span class="orclkey"> WHERE </span> Price > <span class="orclkey"> SOME </span>( <br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> Price <br>
-                            <span class="orclkey">FROM  </span> Products <br>
-                            <span class="orclkey">WHERE </span> Category  = <b>'</b>Electronics<b>'</b> <br>
-                        </ul>
-                        )
-                    </ul>
-                    <span class="orclkey"> AND </span> price < <span class="orclkey"> SOME </span>( <br>
-                    <span class="orclkey"> SELECT  </span> Price<br>
-                    <span class="orclkey"> FROM  </span> <br>
-                    <span class="orclkey"> WHERE  </span> Category  = <b>'</b>Furniture<b>'</b> <br>
-                                        ) <b> : </b>
-                        </code>
-                        - - The query compares product prices to values from two different subqueries. <br>
-                        - - It ensures that a product's price is greater than <b>some</b> prices in the 'Electronics'
-                        category and less than <b>some</b> prices in the 'Furniture' category.
-                    </div><br>
-                    <h3>4. Combining SOME with NOT </h3>
-                    <p><b>Scenario :- </b> Retrieve orders where the amount is <b>not greater</b> <b>than some</b>
-                        payment amounts.
-                    </p>
-                    <div class="code-box">
-                        <code>
-                            <span class="orclkey">SELECT </span> OrderID, Amount <br>
-                            <span class="orclkey">FROM </span> Orders <br>
-                            <span class="orclkey"> WHERE NOT </span> ( Amount > <span class="orclkey"> SOME </span>( <br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> Amount <br>
-                            <span class="orclkey">FROM  </span> Payments <br>
-                        </ul>
-                        ) )<b> ; </b>
-                    </ul>
-                        </code>
-                        - - This checks that the order amount is <b>not greater</b> than any of the payment amounts.
-                    </div><br>
+                   
                     <h2>Common Errors</h2>
                     <p><b>1. Empty Subquery Result:- </b> If the subquery returns no rows, the SOME condition evaluates
                         to FALSE.</p> <br>
@@ -643,11 +637,11 @@
 
                         <code>  - - <b>More efficient with IN</b> <br>
                                 <span class="orclkey">SELECT </span> * 
-                                <span class="orclkey">FROM Table WHERE Column </span> = 
+                                <span class="orclkey">FROM Table WHERE Column </span> 
                                 <span class="orclkey"> IN </span> ( subquery )<b> ; </b>
                             </code>
                     </div><br>
-                    <h2>Best Practices</h2>
+                    <h2>Do's and Dont's</h2>
                     <h4>Do's</h4>
                     <ul>
                         <li>Use SOME or ANY interchangeably for clarity, based on team standards.</li>
@@ -669,7 +663,7 @@
 
 
                     <div class="topic-buttons">
-                        <a href="sql_wildcards.html?topic=sqlWildcards" class="previou-button">&laquo; Pevious</a>
+                        <a href="sql_wildcards.html?topic=sqlWildcards" class="previou-button">&laquo; Previous</a>
                         <a href="sql_case.html?topic=sqlCase" class="next-button">Next &raquo;</a>
                     </div>
 

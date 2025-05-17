@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlMinus">
 
             <div class="topic-buttons">
-                <a href="sql_intersect.html?topic=sqlIntersect" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_intersect.html?topic=sqlIntersect" class="previou-button">&laquo; Previous</a>
                 <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="next-button">Next &raquo;</a>
             </div>
 
@@ -335,8 +335,8 @@
                 <code>
                     <span class="orclkey">SELECT  </span> column1, column2, . . .<br>
                     <span class="orclkey">FROM </span> table1  <br>
-                    <span class="orclkey">WHERE </span> condition1  <br><br>
-                    <span class="orclkey">MINUS </span>   <br><br>
+                    <span class="orclkey">WHERE </span> condition1 <br>
+                    <span class="orclkey">MINUS </span>   <br>
                     <span class="orclkey">SELECT  </span> column1, column2, . . .<br>
                     <span class="orclkey">FROM </span> table2  <br>
                     <span class="orclkey">WHERE </span> condition2 <b> ; </b>
@@ -353,8 +353,9 @@
             <h2>Examples</h2>
             <h3>1. Basic Usage</h3>
             <p><b>Scenario 1:- </b> Find employees who are in department_A but not in department_B.</p>
-            <div class="code-box">
-                <code> - - Oracle <br>
+              <h4> Oracle:</h4>
+              <div class="code-box">
+               
                     <span class="orclkey">SELECT  </span> employee_id, name<br>
                     <span class="orclkey">FROM </span> department_A  <br>
                     <span class="orclkey">MINUS </span>   <br>
@@ -362,10 +363,11 @@
                     <span class="orclkey">FROM </span> department_B
                     <b> ; </b>
                 </code>
-            </div><br>
-            <h4>Equivalent in SQL Server:</h4>
+            </div>
+            <h4>SQL Server:</h4>
             <div class="code-box">
-                <code> - - SQL Server (using EXCEPT) <br>
+                <code> -- SQL Server (using EXCEPT) <br>
+                    <br>
                     <span class="orclkey">SELECT  </span> employee_id, name<br>
                     <span class="orclkey">FROM </span> department_A  <br>
                     <span class="orclkey">EXCEPT </span>   <br>
@@ -373,25 +375,29 @@
                     <span class="orclkey">FROM </span> department_B
                     <b> ; </b>
                 </code>
-            </div><br>
-            <h4>Equivalent in MySQL:</h4>
+            </div>
+         
             <div class="code-box">
-                <code> - - SQL Server (using EXCEPT) <br>
+                <code> -- SQL Server (using NOT IN) <br>
+                <br>
                     <span class="orclkey">SELECT  </span> employee_id, name<br>
                     <span class="orclkey">FROM </span> department_A  <br>
-                    <span class="orclkey">WHERE </span> ( employee_id, name ) <span class="orclkey">NOT IN </span>(  <br>
+                    <span class="orclkey">WHERE </span> ( employee_id, name ) 
+                    <span class="orclkey">NOT IN </span> <br>(
                     <span class="orclkey">SELECT  </span> employee_id, name <br>
-                    <span class="orclkey">FROM </span> department_B <br>
-                    )<b> ; </b>
+                    <span class="orclkey">FROM </span> department_B)<b> ; </b> <br>
+                    
                 </code>
             </div><br>
             <p><b>Scenario 2:- </b> Retrieves employees present in the US table but not in the IN table.</p>
             <div class="code-box">
                 <code> - - Oracle <br>
+                 - - SQL Server (replace MINUS with EXCEPT )<br><br>
+ 
                     <span class="orclkey">SELECT  </span> EmployeeID, Name <br>
                     <span class="orclkey">FROM </span> Employees_US  <br>
                     <span class="orclkey">WHERE </span> total_purchase_amount  > 500  <br>
-                    <span class="orclkey">MINUS </span>   <br>  - - SQL Server (using EXCEPT)
+                    <span class="orclkey">MINUS </span>   <br>                 
                     <span class="orclkey">SELECT  </span> EmployeeID, Name <br>
                     <span class="orclkey">FROM </span> Employees_IN
                     <b> ; </b>
@@ -401,11 +407,13 @@
             <p><b>Scenario :- </b> Find customers who purchased in 2023 but not in 2024 and whose total purchase amount
                 in 2023 exceeded $500.</p>
             <div class="code-box">
-                <code> - - Oracle <br>
+                <code> - - Oracle 
+                <br>   - - SQL Server (replace MINUS with EXCEPT)<br><br>
                     <span class="orclkey">SELECT  </span> customer_id, name, city<br>
                     <span class="orclkey">FROM </span> sales_2023  <br>
                     <span class="orclkey">WHERE </span> total_purchase_amount  > 500  <br>
-                    <span class="orclkey">MINUS </span>   <br>   - - SQL Server (using EXCEPT)
+                    <span class="orclkey">MINUS </span>   
+                    <br>
                     <span class="orclkey">SELECT  </span> customer_id, name, city <br>
                     <span class="orclkey">FROM </span> sales_2024
                     <b> ; </b>
@@ -413,8 +421,9 @@
             </div><br>
             <h3>3. MINUS with Filtering</h3>
             <p><b>Scenario :- </b> Lists electronic products available in 2023 but not in 2024.</p>
+          
             <div class="code-box">
-                <code> - - Oracle <br>
+                <code> 
                     <span class="orclkey">SELECT  </span> ProductID, Category <br>
                     <span class="orclkey">FROM </span> Products_2023  <br>
                     <span class="orclkey">WHERE </span> Category = <b>'</b>Electronics<b>'</b>  <br>
@@ -429,7 +438,7 @@
             <h3>1. Using MINUS to Find Missing Data</h3>
             <p><b>Scenario :- </b> Identifies students enrolled in courses they have not yet completed.</p>
             <div class="code-box">
-                <code> - - Oracle <br>
+                <code> 
                     <span class="orclkey">SELECT  </span> StudentID, CourseID <br>
                     <span class="orclkey">FROM </span> CurrentEnrollments  <br>
                     <span class="orclkey">MINUS </span>   <br>
@@ -440,30 +449,37 @@
             </div><br>
             <h3>2. MINUS with Aliased Columns</h3>
             <p><b>Scenario :- </b> Compares product prices in 2023 and 2024, identifying products with prices only in
-                2023.</p>
+                2023 but not in 2024.</p>
             <div class="code-box">
-                <code> - - Oracle <br>
-                    <span class="orclkey">SELECT  </span> ProductID, Price  <span class="orclkey"> AS  </span>Price_2023 <br>
-                    <span class="orclkey">FROM </span> Products_2023  <br>
+                <code> 
+                    <span class="orclkey">SELECT  </span> ProductID, Price  
+                    <span class="orclkey"> AS  </span>Price_2023 <br>
+                    <span class="orclkey">FROM </span> (<br>
+                    <span class="orclkey">SELECT  </span> ProductID, Price <br>
+                    <span class="orclkey">FROM </span> Products_2023 <br>
+                    
                     <span class="orclkey">MINUS </span>   <br>
-                    <span class="orclkey">SELECT  </span> ProductID, Price  <span class="orclkey"> AS  </span>Price_2024  <br>
-                    <span class="orclkey">FROM </span> Products_2024 
+                    <span class="orclkey">SELECT  </span> ProductID, Price <br>
+                    
+                    <span class="orclkey">FROM </span> Products_2024 )
                     <b> ; </b>
                 </code>
             </div><br>
             <h3>3. Combining MINUS with Subqueries</h3>
             <p><b>Scenario :- </b> Finds employees in New York whose salaries are not greater than $100,000.</p>
             <div class="code-box">
-                <code> - - Oracle <br>
-                    <span class="orclkey">SELECT  </span> EmployeeID, Name, Job, City  <span class="orclkey"> AS  </span>Price_2023 <br>
-                    <span class="orclkey">FROM </span> Employees  <br>
-                    <span class="orclkey">WHERE </span> DepartmentID <span class="orclkey">IN </span> ( <br>
-                    <ul>
-                        <span class="orclkey">SELECT </span> DepartmentID <br> 
-                        <span class="orclkey">FROM </span> Departments <br>
-                        <span class="orclkey">WHERE </span> Location = 'NY' )
-                    </ul>
+                <code> 
+                    <span class="orclkey">SELECT  </span> EmployeeID, Name, Job, City  
                     
+                    <span class="orclkey">FROM </span> Employees  <br>
+                    <span class="orclkey">WHERE </span> DepartmentID 
+                    <span class="orclkey">IN </span> <br>(
+                    
+                        <span class="orclkey">SELECT </span> DepartmentID 
+                        <span class="orclkey">FROM </span> Departments 
+                        <span class="orclkey">WHERE </span> Location = 'NY' )<br>
+                    
+                    <span class="orclkey">MINUS </span>   <br>
                     <span class="orclkey">SELECT  </span> EmployeeID, Name, Job,City    <br>
                     <span class="orclkey">FROM </span> Employees <br>
                     <span class="orclkey">WHERE </span> Salary > 100000  
@@ -474,7 +490,7 @@
             <p><b>Scenario :- </b> Insert products that exist in products_table_2021 but not in products_table_2022 into
                 a new table.</p>
             <div class="code-box">
-                <code> - - Oracle <br>
+                <code>
                     <span class="orclkey">INSERT INTO  </span> missing_products ( product_id, name ) <br>
                     <span class="orclkey"> SELECT  </span>product_id, name <br>
                     <span class="orclkey">FROM </span> products_table_2021  <br>
@@ -487,18 +503,19 @@
             <h3>5. Using MINUS in DELETE</h3>
             <p><b>Scenario :- </b> Remove rows from a table where records exist in another.</p>
             <div class="code-box">
-                <code> - - Oracle <br>
+                <code> 
                     <span class="orclkey">DELETE FROM  </span> orders <br>
-                    <span class="orclkey"> WHERE  </span>( order_id, product_id ) <span class="orclkey"> IN </span><br>
+                    <span class="orclkey"> WHERE  </span>( order_id, product_id ) 
+                    <span class="orclkey"> IN </span><br>
                     <ul>
-                    <span class="orclkey">SELECT </span> order_id, product_id  <br>
-                    <span class="orclkey">FROM </span> orders_2021  <br>
+                    (<span class="orclkey">SELECT </span> order_id, product_id  <br>
+                    <span class="orclkey">FROM </span> orders  <br>
                     <span class="orclkey">MINUS </span>   <br>
                     <span class="orclkey">SELECT </span> order_id, product_id  <br>
-                    <span class="orclkey">FROM </span> orders_2021  <br>
+                    <span class="orclkey">FROM </span> orders_2021 )  <b> ; </b><br>
                     </ul>
-                    <b> ; </b>
-                </code>
+                   
+                </code>   
             </div><br>
             <h3>6. MINUS with UPDATE</h3>
             <p><b>Scenario :- </b> Update the status of orders in orders_2023 that are not present in orders_2024. </p>
@@ -506,15 +523,14 @@
                 <code>
                     <span class="orclkey"> UPDATE </span> orders_2023  <br>
                     <span class="orclkey"> SET </span> status =  <b>'</b>Inactive<b>'</b> <br>
-                    <span class="orclkey"> WHERE </span> (order_id, product_id)  <span class="orclkey"> IN  </span> ( <br>
-                    <ul>
-                    <span class="orclkey"> SELECT  </span>order_id, product_id <br> 
+                    <span class="orclkey"> WHERE </span> (order_id, product_id)  
+                    <span class="orclkey"> IN  </span>  <br>
+                    
+                    (<span class="orclkey"> SELECT  </span>order_id, product_id <br> 
                     <span class="orclkey">FROM </span> orders_2023 <br>
                     <span class="orclkey">MINUS  </span>  <br>
-                    <span class="orclkey">SELECT </span> order_id, product_id
-                    <span class="orclkey"> FROM </span> orders_2024
-                </ul>
-                    )<b> ; </b><br>
+                    <span class="orclkey">SELECT </span> order_id, product_id <br>
+                    <span class="orclkey"> FROM </span> orders_2024)<b> ; </b>
                 </code>
             </div><br>
             <h3>7. MINUS with Aggregated Dataand GROUP BY </h3>
@@ -525,10 +541,11 @@
                     <span class="orclkey"> FROM  </span> expenses_2023 <br>
                     <span class="orclkey"> GROUP BY </span> department_id <br> 
                     <span class="orclkey"> MINUS </span>   <br>
-                    <span class="orclkey"> SELECT </span> department_id, SUM( expenses ) <span class="orclkey"> AS  </span> total_expenses<br><br> 
+                    <span class="orclkey"> SELECT </span> department_id, SUM( expenses ) 
+                    <span class="orclkey"> AS  </span> total_expenses<br>
                     <span class="orclkey">FROM </span> expenses_2024 <br>
-                    <span class="orclkey"> GROUP BY </span> department_id <br> 
-                   <b> ; </b><br>
+                    <span class="orclkey"> GROUP BY </span> department_id        <b> ; </b> <br> 
+          
                 </code>
             </div><br>
             <h2>Performance Considerations</h2>
@@ -595,7 +612,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_intersect.html?topic=sqlIntersect" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_intersect.html?topic=sqlIntersect" class="previou-button">&laquo; Previous</a>
                 <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="next-button">Next &raquo;</a>
             </div>
 

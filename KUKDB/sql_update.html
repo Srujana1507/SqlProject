@@ -319,7 +319,7 @@
                 <li>Changing one or more rows based on conditions.</li>
                 <li>Updating data across multiple columns in a single command.</li>
             </ul>
-            <br>
+            
             <h2>Basic Syntax</h2>
             <div class="code-box">
                 <code>
@@ -438,7 +438,7 @@
                     <span class="orclkey">INNER JOIN  </span> Products p <br>
                     <span class="orclkey">ON  </span> i.product_id = p.product_id<b> ;</b>
                 </code>
-            </div><br>
+            </div>
             <h4>Query in MySQL</h4>
             <div class="code-box">
                 <code>
@@ -500,8 +500,7 @@
                     <span class="orclkey"> WHERE  </span> dept_id  <span class="orclkey">IN  </span> (  <br>
                         <span class="orclkey">SELECT  </span> dept_id  <span class="orclkey">FROM  </span>  Sales <br>
                      <span class="orclkey">GROUP BY  </span> dept_id <br>
-                     <span class="orclkey">HAVING   </span>  SUM(SalesAmount) > 1000000 <br>
-                    ) <b> ; </b>                    
+                     <span class="orclkey">HAVING   </span>  SUM(SalesAmount) > 1000000) <b> ; </b>                    
                 </code>
             </div><br>
             <h3>7. Updating Data with NULL Handling</h3>
@@ -607,9 +606,10 @@
                         <span class="orclkey">UPDATE  </span> Customers <br> 
                         <span class="orclkey">SET  </span> Category  = ( <br>
                         <ul><span class="orclkey">CASE  </span>   <br>
-                        <ul><span class="orclkey"> WHEN </span>( <br>
+                        <ul><span class="orclkey"> WHEN </span><br>( <br>
                             <span class="orclkey">SELECT </span> SUM (TotalAmount)  <span class="orclkey"><br> FROM Orders
-                          <br> WHERE</span> Orders.CustomerID = Customers.CustomerID ) > 1000
+                          <br> WHERE</span> 
+                          Orders.CustomerID = Customers.CustomerID <br>) > 1000 <br>
                            <span class="orclkey">THEN </span>  'Gold'
                         <br><span class="orclkey">ELSE </span> 'Silver' </ul>
                         <span class="orclkey">END </span> <br></ul>

@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlCorelatedsubqueries">
 
             <div class="topic-buttons">
-                <a href="sql_subqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_subqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo; Previous</a>
                 <a href="sql_union.html?topic=sqlUnion" class="next-button">Next &raquo;</a>
             </div>
 
@@ -356,15 +356,12 @@
                 <code>
                                 <span class="orclkey">SELECT  </span> Name, DepartmentID, Salary<br>
                                     <span class="orclkey">FROM </span> Employees E <br>
-                                    <span class="orclkey"> WHERE </span> Salary >  (  <span class="orclkey">SELECT  </span> AVG( Salary ) <br>
-                                    <ul>
-                                        <ul><ul>
-                                            <span class="orclkey">FROM </span> Employees E2 <br>
-                                            <span class="orclkey"> WHERE </span> E2.DepartmentID = E.DepartmentID )  <b> ; </b>
-                                        </ul>
-                                    </ul>
-                                    </ul><br>
-                                - - For each row in the Employees table (outer query), the subquery calculates the average salary for that employee's department. <br>
+                                    <span class="orclkey"> WHERE </span> Salary >  ( 
+                                    <span class="orclkey">SELECT  </span> AVG(Salary) <br>
+                                    <span class="orclkey">FROM </span> Employees E2 
+                                   <span class="orclkey"> WHERE </span> E2.DepartmentID = E.DepartmentID )  <b> ; </b>
+                                    
+                               <br><br> - - For each row in the Employees table (outer query), the subquery calculates the average salary for that employee's department. <br>
                                 - - The main query then compares the employee's salary to their department's average.
                             </code>
             </div><br>
@@ -374,51 +371,40 @@
                                 <span class="
                                 orclkey">SELECT  </span> CustomerID, Name<br>
                                     <span class="orclkey">FROM </span> Customers C <br>
-                                    <span class="orclkey"> WHERE </span> (  <span class="orclkey">SELECT  </span>COUNT( * ) <br>
-                                    <ul>
-                                        <ul><ul>
-                                            <span class="orclkey">FROM </span> Orders O <br>
-                                            <span class="orclkey"> WHERE </span> O.CustomerID = C.CustomerID ) > 3  <b> ; </b>
-                                        </ul>
-                                    </ul>
-                                    </ul><br>
-                                - - For each customer in the Customers table (outer query), the subquery counts the number of orders they have placed in the Orders table. <br>
+                                    <span class="orclkey"> WHERE </span> (  
+                                    <span class="orclkey">SELECT  </span>COUNT(*) 
+                                    <span class="orclkey">FROM </span> Orders O 
+                                    <span class="orclkey"> WHERE </span> O.CustomerID = C.CustomerID ) > 3  <b> ; </b>
+                                       
+                               <br><br> - - For each customer in the Customers table (outer query), the subquery counts the number of orders they have placed in the Orders table. <br>
                                 - - The main query filters customers with more than three orders.
                             </code>
             </div><br>
             <h3>2. Correlated Subquery in SELECT Clause</h3>
-            <p><b>Scenario 2:- </b> Find Customers Who Placed More Than 3 Orders</p>
+            <p><b>Scenario:- </b> Retrieve each employee details along with total salary of their department</p>
             <div class="code-box">
                 <code>
-                                <span class="orclkey">SELECT  </span> e1.employee_id, e1.name, e1.salary,<br>
-                                <ul><ul>
-                                   ( <span class="orclkey">SELECT  </span> SUM( e2.salary ) <br>
-                                     <span class="orclkey">FROM </span> Orders O <br>
-                                     <span class="orclkey"> WHERE </span> e1.department_id = e2.department_id ) <span class="orclkey"> AS </span> department_total_salary <br>
-                                    </ul>
-                                    </ul>
-                                    <span class="orclkey">FROM </span> employees e1 <b> ; </b>
-                                    <br>
-                                
-                                - - For each employee (e1), the subquery calculates the total salary for the employee's department (e1.department_id). <br>
+                        <span class="orclkey">SELECT  </span> e1.employee_id, e1.name, e1.salary,<br>
+                        ( <span class="orclkey">SELECT  </span> SUM( e2.salary ) 
+                        <span class="orclkey">FROM </span> employees e2 <br>
+                        <span class="orclkey"> WHERE </span> e1.department_id = e2.department_id ) <span class="orclkey"> AS </span> department_total_salary <br>
+                        <span class="orclkey">FROM </span> employees e1 <b> ; </b>
+                        <br><br> - - For each employee (e1), the subquery calculates the total salary for the employee's department (e1.department_id). <br>
                             </code>
             </div><br>
             <h3>3. Identify Products with Above-Average Sales</h3>
+            <p> <b>Scenario:</b> Identify products with above average price within their category</p>
             <div class="code-box">
                 <code>
-                                <span class="orclkey">SELECT  </span> ProductID, ProductName<br>
-                                
-                                    <span class="orclkey">SELECT  </span> SUM( e2.salary ) <br>
-                                     <span class="orclkey">FROM </span> Products P <br>
-                                     <span class="orclkey"> WHERE </span> Price > ( <span class="orclkey"> SELECT </span> AVG( Price ) <br>
-                                     <ul><ul>
-                                        <span class="orclkey">FROM </span> Products P2
-                                        <span class="orclkey">WHERE </span> P2.CategoryID = P.CategoryID ) <b> ; </b>
-                                    </ul>
-                                    </ul>
+                                <span class="orclkey">SELECT  </span> ProductID, ProductName<br>                                  
+                                <span class="orclkey">FROM </span> Products P <br>
+                                 
+                                <span class="orclkey"> WHERE </span> Price > ( 
+                                    <span class="orclkey"> SELECT </span> AVG(Price) 
+                                <span class="orclkey">FROM </span> Products P2
+                                <span class="orclkey">WHERE </span> P2.CategoryID = P.CategoryID) <b> ; </b>
                                     
-                                <br>
-                                - - The subquery calculates the average price for products in the same category. <br>
+                                <br><br> - - The subquery calculates the average price for products in the same category. <br>
                                 - - The main query filters products priced above their category average. <br>
                             </code>
             </div><br>
@@ -429,14 +415,12 @@
                 <code>
                                 <span class="orclkey">UPDATE </span> employees e1 <br>
                                 <span class="orclkey">SET </span> salary = salary * 1.10 <br>
-                                <span class="orclkey"> WHERE </span> salary <  ( <span class="orclkey"> SELECT </span> AVG( e2.salary ) <br>
-                                <ul><ul>
-                                     <span class="orclkey">FROM </span> employees e2 <br>
+                                <span class="orclkey"> WHERE </span> salary <  (
+                                    <span class="orclkey"> SELECT </span> AVG( e2.salary ) 
+                                <span class="orclkey">FROM </span> employees e2
                                      <span class="orclkey"> WHERE </span> e1.department_id = e2.department_id )  <b> ; </b>
-                                    </ul>
-                                    </ul>
-                                <br>
-                                - - The subquery calculates the average salary for the department of each employee. <br>
+                                    
+                                <br><br> - - The subquery calculates the average salary for the department of each employee. <br>
                                 - - If the employee’s salary is below the average, it is increased by 10%.
                             </code>
             </div><br>
@@ -446,14 +430,13 @@
             <div class="code-box">
                 <code>
                                 <span class="orclkey">DELETE FROM </span> products p1 <br>
-                                <span class="orclkey"> WHERE NOT EXISTS </span>  ( <span class="orclkey"> SELECT </span> 1 <br>
-                                <ul><ul>
-                                     <span class="orclkey">FROM </span> orders o <br>
+                                <span class="orclkey"> WHERE NOT EXISTS </span> <br> (
+                                <span class="orclkey"> SELECT </span> 1 
+                               
+                                     <span class="orclkey">FROM </span> orders o 
                                      <span class="orclkey"> WHERE </span> o.product_id = p1.product_id )  <b> ; </b>
-                                    </ul>
-                                    </ul>
-                                <br>
-                                - - The subquery checks if a product (p1.product_id) exists in the orders table. <br>
+                               
+                                <br><br>- - The subquery checks if a product (p1.product_id) exists in the orders table. <br>
                                 - - If no matching order exists, the product is deleted.
                             </code>
             </div><br>
@@ -464,14 +447,15 @@
                 <code>
                                 <span class="orclkey">SELECT </span> employee_id, name <br>
                                 <span class="orclkey">FROM </span> employees e1
-                                <span class="orclkey"> WHERE </span> e1.employee_id <span class="orclkey"> NOT IN </span> ( <span class="orclkey"> SELECT DISTINCT </span>manager_id <br>
-                                <ul><ul>
-                                     <span class="orclkey">FROM </span> employees e2 <br>
-                                     <span class="orclkey"> WHERE </span> e2.manager_id <span class="orclkey"> IS NOT NULL </span> )  <b> ; </b>
-                                    </ul>
-                                    </ul>
-                                <br>
-                                - - The subquery retrieves all manager IDs. <br>
+                                <span class="orclkey"> WHERE </span> e1.employee_id
+                                <span class="orclkey"> NOT IN </span><br>
+                                ( <span class="orclkey"> SELECT DISTINCT </span>manager_id 
+                              
+                                     <span class="orclkey">FROM </span> employees e2 
+                                     <span class="orclkey"> WHERE </span> e2.manager_id 
+                                     <span class="orclkey"> IS NOT NULL </span> )  <b> ; </b>
+                                   
+                                <br><br> - - The subquery retrieves all manager IDs. <br>
                                 - - The outer query excludes employees whose IDs appear in the manager list.
                             </code>
             </div><br>
@@ -483,15 +467,14 @@
                 <code>
                                 <span class="orclkey">SELECT </span> department_id <br>
                                 <span class="orclkey">FROM </span> departments d
-                                <span class="orclkey"> WHERE NOT EXISTS </span>  ( <span class="orclkey"> SELECT </span> 1 <br>
-                                <ul><ul>
-                                     <span class="orclkey">FROM </span> employees e <br>
-                                     <span class="orclkey"> WHERE </span> e.department_id = d.department_id <br>
+                                <span class="orclkey"> WHERE NOT EXISTS </span> <br> (
+                                    <span class="orclkey"> SELECT </span> 1 
+                              
+                                     <span class="orclkey">FROM </span> employees e 
+                                     <span class="orclkey"> WHERE </span> e.department_id = d.department_id 
                                      <span class="orclkey"> AND </span> e.salary < 50000 )  <b> ; </b>
-                                    </ul>
-                                    </ul>
-                                <br>
-                                - - The subquery ensures no employee in a department earns less than $50,000. <br>
+                                    
+                                <br><br> - - The subquery ensures no employee in a department earns less than $50,000. <br>
                                 - - The outer query retrieves the department IDs.
                             </code>
             </div><br>
@@ -502,19 +485,17 @@
                 <code>
                                 <span class="orclkey">SELECT </span> c.customer_id, c.name <br>
                                 <span class="orclkey">FROM </span> customers c
-                                <span class="orclkey"> WHERE EXISTS </span>  ( <span class="orclkey"> SELECT </span> 1 <br>
-                                <ul><ul>
-                                     <span class="orclkey">FROM </span> orders o <br>
+                                <span class="orclkey"> WHERE EXISTS </span>  <br>(
+                                 <span class="orclkey"> SELECT </span> 1 
+                              
+                                     <span class="orclkey">FROM </span> orders o
                                      <span class="orclkey"> WHERE </span> o.customer_id = c.customer_id <br>
-                                     <span class="orclkey"> AND </span> o.quantity >  ( <span class="orclkey"> SELECT </span> AVG( o2.quantity ) <br>
-                                     <ul>
-                                        <ul>
-                                            <span class="orclkey">FROM </span> orders o2 <br>
+                                     <span class="orclkey"> AND </span> o.quantity >  ( 
+                                         <span class="orclkey"> SELECT </span> AVG( o2.quantity ) <br>
+                                    
+                                            <span class="orclkey">FROM </span> orders o2 
                                             <span class="orclkey"> WHERE </span> o2.region_id = o.region_id ) )<b> ; </b>
-                                        </ul>
-                                     </ul>
-                                    </ul>
-                                    </ul>
+                                        
                             </code>
             </div><br>
 
@@ -580,8 +561,8 @@
                 <li>Replace IN with EXISTS when checking for existence.</li>
             </ul>
             <div class="code-box">
-                <code>- - Using EXIST <br>
-                        <span class="orclkey">SELECT </span> Name <br>
+                <code>- - Using EXISTS <br>
+                        <span class="orclscekey">SELECT </span> Name <br>
                         <span class="orclkey">FROM </span> employees E <br>
                         <span class="orclkey"> WHERE EXISTS </span>( <span class="orclkey">SELECT </span> 1 <br>
                                 <ul>
@@ -602,7 +583,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_subqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_subqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo; Previous</a>
                 <a href="sql_union.html?topic=sqlUnion" class="next-button">Next &raquo;</a>
             </div>
 

@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -304,18 +304,17 @@
         <main class="sidebar-content" data-topic="sqlLike">
 
             <div class="topic-buttons">
-                <a href="sql_between.html?topic=sqlBetween" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_between.html?topic=sqlBetween" class="previou-button">&laquo; Previous</a>
                 <a href="sql_not.html?topic=sqlNot" class="next-button">Next &raquo;</a>
             </div>
 
             <h1>Like Operator</h1>
             <ul>
-                <p>1. The LIKE operator is used to search for a specified pattern within a column.</p><br>
-                <p>2. It is typically used with <b>SELECT, UPDATE, or DELETE</b> statements to perform partial matches
-                    in
-                    <b>text-based</b> data.
-                </p><br>
-                <p>3. The LIKE operator allows for flexible pattern matching using wildcards.</p>
+                <li>1. The LIKE operator is used to search for a specified pattern within a column.</li>
+                <li>2. It is typically used with <b>SELECT, UPDATE, or DELETE</b> statements to perform partial matches
+                    in <b>text-based</b> data.
+                </li>
+                <li>3. The LIKE operator allows for flexible pattern matching using wildcards.</li>
             </ul>
             <br>
             <h2>Why Use the LIKE Operator?</h2>
@@ -407,12 +406,12 @@
             <p><b>Scenario 2:- </b>Retrieve customers names whose name starts and end with "A" .</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> customer_id, email <br>
+                        <span class="orclkey">SELECT </span> customer_id, name <br>
                         <span class="orclkey">FROM  </span> customers <br>
-                        <span class="orclkey">WHERE </span>  name     <span class="orclkey"> LIKE </span><b>'</b>%A%<b>'</b>  <b> ; </b>
+                        <span class="orclkey">WHERE </span>  name     <span class="orclkey"> LIKE </span><b>'</b>A%A<b>'</b>  <b> ; </b>
                     </code>
             </div><br>
-            <p><b>Scenario 3:- </b>Find all IP addresses starting with "192.168". .</p>
+            <p><b>Scenario 3:- </b>Find all IP addresses starting with "192.168" . .</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT </span> user_id, ip_address <br>
@@ -427,7 +426,9 @@
                 <code>
                         <span class="orclkey">SELECT </span> employee_id, first_name <br>
                         <span class="orclkey">FROM  </span> employees <br>
-                        <span class="orclkey">WHERE </span>  first_name <span class="orclkey"> LIKE </span><b>'</b>A _ _ _ _<b>'</b>  <b> ; </b> - - Output: Anand<br><br>
+                        <span class="orclkey">WHERE </span>  first_name
+                        <span class="orclkey"> LIKE </span><b>'</b>A____<b>'</b>  <b> ; </b>
+                        <br>- - Output: Anand<br><br>
                         - - Each "_ " is a single character in LIKE operator.
                     </code>
             </div><br>
@@ -446,7 +447,8 @@
                 <code>
                         <span class="orclkey">SELECT </span> employee_id, first_name <br>
                         <span class="orclkey">FROM  </span> employees <br>
-                        <span class="orclkey">WHERE </span>  employee_id  <span class="orclkey"> LIKE </span><b>'</b>E _ _ _<b>'</b>  <b> ; </b> 
+                        <span class="orclkey">WHERE </span>  employee_id 
+                        <span class="orclkey"> LIKE </span><b>'</b>E___<b>'</b>  <b> ; </b> 
                     </code>
             </div><br>
             <h3>6. Finding Numeric Patterns in Strings</h3>
@@ -455,28 +457,23 @@
                 <code>
                         <span class="orclkey">SELECT </span> employee_id, first_name <br>
                         <span class="orclkey">FROM  </span> employees <br>
-                        <span class="orclkey">WHERE </span>  first_name  <span class="orclkey"> LIKE </span><b>'</b>_ _ _ _ _<b>'</b>  <b> ; </b> 
+                        <span class="orclkey">WHERE </span>  first_name  
+                        <span class="orclkey"> LIKE </span><b>'</b>_____<b>'</b>  <b> ; </b> 
                     </code>
             </div><br>
-            <h3>7. Searching for File Extensions</h3>
-            <p><b>Scenario :- </b>Retrieve all employee names with exactly 5 characters.</p>
-            <div class="code-box">
-                <code>
-                        <span class="orclkey">SELECT </span> *  <br>
-                        <span class="orclkey">FROM  </span> files <br>
-                        <span class="orclkey">WHERE </span>  file_name   <span class="orclkey"> LIKE </span><b>'</b>%.pdf<b>'</b>  <b> ; </b> 
-                    </code>
-            </div><br>
-            <h3>8. Partial Matching for Web URLs</h3>
+           
+            <h3>7. Partial Matching for Web URLs</h3>
             <p><b>Scenario :- </b>Find all users visiting URLs from a specific domain.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT </span> *  <br>
                         <span class="orclkey">FROM  </span> web_logs <br>
-                        <span class="orclkey">WHERE </span>  visit_url <span class="orclkey"> LIKE </span><b>'</b>https://www.example.com%<b>'</b>  <b> ; </b> 
+                        <span class="orclkey">WHERE </span>  visit_url 
+                        <span class="orclkey"> LIKE </span>
+                        <b>'</b>https://www.example.com%<b>'</b>  <b> ; </b> 
                     </code>
             </div><br>
-            <h3>9. LIKE in DELETE</h3>
+            <h3>8. LIKE in DELETE</h3>
             <p><b>Scenario :- </b>Delete products whose names include "Demo".</p>
             <div class="code-box">
                 <code>
@@ -484,13 +481,16 @@
                         <span class="orclkey">WHERE </span>  product_name  <span class="orclkey"> LIKE </span><b>'</b>%Demo%<b>'</b>  <b> ; </b> 
                     </code>
             </div><br>
-            <h3>10. LIKE in UPDATE</h3>
+            <h3>9. LIKE in UPDATE</h3>
             <p><b>Scenario :- </b>Update the status of inactive customers whose names start with "Test".</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">UPDATE </span> customers  <br>
                         <span class="orclkey">SET </span> status = <b>'</b>Inactive<b>'</b>  <br>
-                        <span class="orclkey">WHERE </span>  product_name  <span class="orclkey"> LIKE </span><b>'</b>%Demo%<b>'</b>  <b> ; </b> 
+                        <span class="orclkey">WHERE </span>  name
+                        <span class="orclkey"> LIKE </span><b>'</b>Test%<b>' </b>
+                        <span class="orclkey"> AND </span>status!=
+                        <span class="orclkey"> 'Inactive' </span><b> ; </b> 
                     </code>
             </div><br>
             <h2>Advanced Examples</h2>
@@ -501,9 +501,9 @@
                 <code>
                         <span class="orclkey">SELECT </span> *  <br>
                         <span class="orclkey">FROM  </span> data_table <br>
-                        <span class="orclkey">WHERE </span>  column_name  <span class="orclkey"> LIKE </span><b>'</b>N/A<b>'</b> <span class="orclkey"> OR  </span>
-                        column_name <span class="orclkey"> LIKE </span><b>'</b>UNKNOWN<b>'</b>
-                         <b> ; </b> 
+                        <span class="orclkey">WHERE </span>  column_name
+                        <span class="orclkey"> IN </span> (
+                        'N/A','UNKNOWN'<b> );</b>
                     </code>
             </div><br>
             <h3>2. Combine LIKE with AND/OR</h3>
@@ -525,7 +525,8 @@
                 <code>
                     <span class="orclkey">SELECT </span> employee_id, first_name <br>
                     <span class="orclkey">FROM  </span> employees <br>
-                    <span class="orclkey">WHERE </span>  LOWER(first_name)  <span class="orclkey"> LIKE </span><b>'</b>harsha<b>'</b>  <b> ; </b> 
+                    <span class="orclkey">WHERE </span>  LOWER(first_name)  
+                    <span class="orclkey"> LIKE </span><b>'</b>%harsha%<b>'</b>  <b> ; </b> 
                     </code>
                 - - Use LOWER() or UPPER() for case-insensitive matching since LIKE may be case-sensitive depending on
                 the database.
@@ -578,12 +579,12 @@
                 <b> ; </b>
                 </code>
                 - -This is equivalent to <b>=</b>. Use wildcards for partial matches.
-            </div><br>
+            </div>
             <h4>2. Case Sensitivity Confusion:</h4>
             <ul>Ensure you know if your database treats LIKE as case-sensitive. Use UPPER() or LOWER() for consistency.
-            </ul><br>
+            </ul>
             <h4>3. Neglecting Escaping:</h4>
-            <ul>Forgetting to escape % or _ can lead to incorrect results.</ul><br>
+            <ul>Forgetting to escape % or _ can lead to incorrect results.</ul>
             <h4>4. Inefficient Queries:</h4>
             <ul>Using %term% in large datasets can degrade performance due to full table scans.</ul><br>
             <h2>Best Practices</h2>
@@ -593,32 +594,32 @@
                     <li>Use % only where necessary. For example, prefer LIKE 'term%' over LIKE '%term%' to allow index
                         usage.</li>
                 </ul>
-            </ul><br>
+            </ul>
             <p><b>2. Combine with Other Filters:- </b></p>
             <ul>
                 <ul>
                     <li>Narrow down the dataset using other filters (WHERE, JOIN) before applying LIKE.</li>
                 </ul>
-            </ul><br>
+            </ul>
             <p><b>3. Full-Text Search for Complex Queries:- </b></p>
             <ul>
                 <ul>
                     <li>Use LIKE for simple pattern matching, but migrate to full-text search for extensive queries.
                     </li>
                 </ul>
-            </ul><br>
+            </ul>
             <p><b>4. Escape User Input:- </b></p>
             <ul>
                 <ul>
                     <li>Sanitize input patterns to prevent SQL injection.</li>
                 </ul>
-            </ul><br>
+            </ul>
             <p><b>5. Escape Special Characters:- </b></p>
             <ul>
                 <ul>
                     <li>Use the ESCAPE clause when searching for % or _.</li>
                 </ul>
-            </ul><br>
+            </ul>
             <h2>Comparison of LIKE Across Databases</h2>
             <table>
                 <thead>
@@ -652,7 +653,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_between.html?topic=sqlBetween" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_between.html?topic=sqlBetween" class="previou-button">&laquo; Previous</a>
                 <a href="sql_not.html?topic=sqlNot" class="next-button">Next &raquo;</a>
             </div>
 

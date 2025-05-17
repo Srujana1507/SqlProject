@@ -346,7 +346,7 @@
             </ul><br>
             <h2>Examples of GROUP BY</h2>
             <h3>1. Basic Grouping</h3>
-            <p><b>Scenario 1: </b>Retrieve the total sales for each department.</p><br>
+            <p><b>Scenario 1: </b>Retrieve the total sales for each department.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> Department <b>,</b>SUM(Sales)  <span class="orclkey">AS</span> TotalSales<br>
@@ -355,30 +355,32 @@
                 </code>
             </div>
             <br>
-            <p><b>Scenario 2: </b>Count the number of employees in each department.</p><br>
+            <p><b>Scenario 2: </b>Count the number of employees in each department.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> Department <b>,</b>COUNT(*)   <span class="orclkey">AS</span> EmployeeCount<br>
+                    <span class="orclkey">SELECT   </span> Department <b>,</b>COUNT(*) 
+                    <span class="orclkey">AS</span> EmployeeCount<br>
                     <span class="orclkey">FROM   </span> Employees <br> 
                     <span class="orclkey">GROUP BY  </span>Department  <b>;</b> 
                 </code>
             </div> 
             <br>
             <h3>2. Using GROUP BY Without Aggregate Functions</h3>
-            <br>
-            <p><b>Scenario: </b>List unique department IDs in the employees table.</p><br>
+            
+            <p><b>Scenario: </b>List unique department IDs in the employees table.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> department_id <br>
                     <span class="orclkey">FROM   </span> Employees <br> 
-                    <span class="orclkey">GROUP BY  </span>department_id  <b> ;</b> <br>
-                    - - Returns one row for each unique department_id
+                    <span class="orclkey">GROUP BY  </span>department_id  <b> ;</b> 
+                    <br>- - Returns one row for each unique department_id
                 </code>
             </div>
             <br>
             <h3>3. Grouping with NULL Values</h3>
             <p><b>Scenario : </b>When a column has NULL values, they form their own group</p><br>
             <h3>Example Data:</h3>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -404,16 +406,17 @@
                         <td>HR</td>
                     </tr>
                 </tbody>
-            </table>
+            </table></ul>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> department_name <b>,</b>COUNT(*)   <span class="orclkey">AS</span> EmployeeCount<br>
                     <span class="orclkey">FROM   </span> Employees <br> 
-                    <span class="orclkey">GROUP BY  </span>department_name  <b> ;</b> <br>
-                    - - NULL values are treated as a separate group.
+                    <span class="orclkey">GROUP BY  </span>department_name  <b> ;</b> 
+                    <br>- - NULL values are treated as a separate group.
                 </code>
             </div><br>
             <h3>Output Data:</h3>
+            <ul>
             <table>
                 <thead>
                     <tr>
@@ -435,49 +438,50 @@
                         <td>1</td>
                     </tr>
                 </tbody>
-            </table>
+            </table></ul>
             <br>
             <h3>4. Using Aggregate Functions with multiple columns</h3>
-            <p><b>Scenario : </b>Count the number of employees in each department</p><br>
+            <p><b>Scenario : </b>Count the number of employees in each department</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> department_name <b>,</b>JobTitle<b>,</b>SUM(Sales)   <span class="orclkey">AS</span> TotalSales<br>
                     <span class="orclkey">FROM   </span> Employees <br> 
                     <span class="orclkey">GROUP BY  </span>department_name<b>,</b> JobTitle <b> ;</b> <br>
-                    - - Groups employees by department_id and job_title. <br>
+                   <br> - - Groups employees by department_id and job_title. <br>
                     - - Calculates the sum of salaries for each combination of department and job role.
                 </code>
             </div><br>
-            <h2>Advanced Examples</h2><br>
+            <h2>Advanced Examples</h2>
             <h3>1. GROUP BY with HAVING Clause</h3>
-            <p><b>Scenario : </b>Find departments where the total salary exceeds 200,000.</p><br>
+            <p><b>Scenario : </b>Find departments where the total salary exceeds 200,000.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> department_id <b>,</b>SUM(salary)<span class="orclkey"> AS </span> total_salary<br>
                     <span class="orclkey">FROM   </span> employees <br> 
                     <span class="orclkey">GROUP BY  </span> department_id <br>
                     <span class="orclkey">HAVING   </span> SUM(salary) > 200000
-                    <b> ;</b>  <br>
-                    - - Groups employees by department_id. <br>
+                    <b> ;</b> 
+                    <br>
+                    <br>- - Groups employees by department_id. <br>
                     - - Filters groups based on the SUM(salary) using the HAVING clause.<br>
                 </code>
             </div>
             <br>
             <h3>2. GROUP BY with Window Functions</h3>
             <p><b>Scenario : </b>Retrieve each department's total sales alongside each employee's contribution
-                percentage.</p><br>
+                percentage.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> Department <b>,</b>EmployeeID <b>,</b> Sales,<br>
                     (Sales * 1.0 / SUM(Sales) <span class="orclkey"> OVER (PARTITION BY </span>Department ) ) <b>*</b> 100 <span class="orclkey"> AS </span> ContributionPercentage <br>
                     <span class="orclkey"> FROM   </span> Employees <b> ;</b>  <br>
-                    - - The SUM() window function calculates the total sales for each department without collapsing rows. <br>
+                   <br> - - The SUM() window function calculates the total sales for each department without collapsing rows. <br>
                 </code>
             </div>
             <br>
             <h3>3. GROUP BY with ORDER BY</h3>
             <p><b>Scenario : </b>Retrieve Groups employees by department_id and display by total_salary in descending
-                order.</p><br>
+                order.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> department_id <b>,</b> SUM(salary)  <span class="orclkey"> AS </span> total_salary <br>
@@ -485,35 +489,35 @@
                     <span class="orclkey">GROUP BY  </span> department_id <br>
                     <span class="orclkey">ORDER BY   </span> total_salary
                     <b> ;</b>  <br>
-                    - - The SUM() window function calculates the total sales for each department without collapsing rows. <br>
+                    <br>- - The SUM() window function calculates the total sales for each department without collapsing rows. <br>
                 </code>
             </div>
             <br>
             <h3>4. Nested Grouping</h3>
             <p><b>Scenario : </b>Find the maximum sales within each department, and then filter for departments where
-                the maximum exceeds $5,000.</p><br>
+                the maximum exceeds $5,000.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">WITH   </span> MaxSalesPerDept    <span class="orclkey"> AS </span> ( <br>
                     <ul>
                         <span class="orclkey">SELECT   </span> department_id <b>,</b> MAX(Sales)  <span class="orclkey"> AS </span> MaxSales <br>
                         <span class="orclkey">FROM   </span> employees <br> 
-                    <span class="orclkey">GROUP BY  </span> department_id <br>
-                    )
+                    <span class="orclkey">GROUP BY  </span> department_id)
+                    
                     </ul>
-                    <span class="orclkey">SELECT  </span> * <br>
-                    <span class="orclkey">FROM   </span> MaxSalesPerDept <br>
+                    <span class="orclkey">SELECT  </span> *
+                    <span class="orclkey">FROM   </span> MaxSalesPerDept 
                     <span class="orclkey">WHERE   </span> MaxSales  > 5000
                     <b> ;</b>  <br>
-                    - - The SUM() window function calculates the total sales for each department without collapsing rows. <br>
+                   <br> - - The SUM() window function calculates the total sales for each department without collapsing rows. <br>
                 </code>
             </div>
             <br>
             <h3>5. Handling Complex Expressions in Grouping</h3>
-            <p><b>Scenario : </b>Group by a calculated field (e.g., age group).</p><br>
+            <p><b>Scenario : </b>Group by a calculated field (e.g., age group).</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   </span> <br>
+                    <span class="orclkey">SELECT   </span>
                     <ul>
                         <span class="orclkey"> CASE   </span> <br>
                         <ul>
@@ -538,9 +542,9 @@
                     </code>
             </div>
             <br>
-            <h2>Database-Specific Notes</h2><br>
-            <h3>1. Oracle</h3><br>
-            <p>Oracle allows grouping by functions or expressions.</p><br>
+            <h2>Database-Specific Notes</h2>
+            <h3>1. Oracle</h3>
+            <p>Oracle allows grouping by functions or expressions.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> TRUNC(hire_date, 'YYYY')  <span class="orclkey"> AS</span> Year<b>,</b>
@@ -549,18 +553,20 @@
                     <span class="orclkey">GROUP BY  </span> TRUNC(hire_date, 'YYYY')<b> ;</b> 
                 </code>
             </div><br>
-            <h3>2. SQL Server</h3> <br>
-            <p>SQL Server supports grouping by computed columns or expressions.</p><br>
+            <h3>2. SQL Server</h3>
+            <p>SQL Server supports grouping by computed columns or expressions.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT   YEAR</span> (order_date) <span class="orclkey"> AS</span> order_year<b>,</b>
-                    COUNT( <b>*</b> )  <span class="orclkey"> AS</span> order_count<br>
+                    <span class="orclkey">SELECT   YEAR</span> (order_date)
+                    <span class="orclkey"> AS</span> order_year<b>,</b>
+                    COUNT( <b>*</b> ) 
+                    <span class="orclkey"> AS</span> order_count<br>
                     <span class="orclkey">FROM   </span> orders <br> 
                     <span class="orclkey">GROUP BY  YEAR</span> (order_date)<b> ;</b> 
                 </code>
             </div><br>
-            <h3>3. MySQL</h3> <br>
-            <p>MySQL allows aliases in the GROUP BY clause starting from version 8.0.</p><br>
+            <h3>3. MySQL</h3>
+            <p>MySQL allows aliases in the GROUP BY clause starting from version 8.0.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> customer_id <b>,</b>
@@ -592,7 +598,7 @@
             <h4>1. Always Include Non-Aggregated Columns in GROUP BY</h4>
             <ul>
                 <li>Ensure all non-aggregated columns in the SELECT clause appear in the GROUP BY clause.</li>
-                <li>Example</li><br>
+                <li>Example</li>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">SELECT   </span> department_name <b>,</b>SUM(Sales)    
@@ -604,7 +610,7 @@
             <h4>2. Use HAVING for Filtering Groups</h4>
             <ul>
                 <li>Use HAVING to filter aggregated results.</li>
-                <li>Example</li><br>
+                <li>Example</li>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">SELECT   </span> department_name <b>,</b>SUM(Sales)    
@@ -616,7 +622,7 @@
             </ul>
             <br>
             <h4><u>Don'ts</u> :-</h4>
-            <br>
+           
             <h4>1.Avoid Mixing Aggregated and Non-Aggregated Columns Without Grouping:</h4>
             <ul>
                 <div class="code-box">

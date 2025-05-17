@@ -305,10 +305,10 @@
 
 
 
-        <main class="sidebar-content" data-topic="sqlNot">
+        <main class="sidebar-content" data-topic="sqdepartmentlNot">
 
             <div class="topic-buttons">
-                <a href="sql_like.html?topic=sqlLike" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_like.html?topic=sqlLike" class="previou-button">&laquo; Previous</a>
                 <a href="sql_all.html?topic=sqlAll" class="next-button">Next &raquo;</a>
             </div>
 
@@ -344,16 +344,18 @@
                 <code>
                             <span class="orclkey">SELECT </span> EmployeeID, Name <br>
                             <span class="orclkey">FROM  </span> Employees <br>
-                            <span class="orclkey">WHERE NOT </span> Department =  <b>'</b>Sales<b>'</b><b> ; </b>
+                            <span class="orclkey">WHERE  </span> Department !=  <b>'</b>Sales<b>'</b><b> ; </b>
                         </code>
             </div><br>
             <h3>2. NOT with BETWEEN</h3>
             <p><b>Scenario:- </b> Retrieves all products whose prices are not between $100 and $200.</p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> EmployeeID, Name,  Price<br>
+                            <span class="orclkey">SELECT </span> ProductID, ProductName,  Price<br>
                             <span class="orclkey">FROM  </span> Products <br>
-                            <span class="orclkey">WHERE NOT </span> Price  = <span class="orclkey">BETWEEN </span> 100<span class="orclkey"> AND </span> 200<b> ; </b>
+                            <span class="orclkey">WHERE  </span> Price   
+                            <span class="orclkey">NOT BETWEEN </span> 100
+                            <span class="orclkey"> AND </span> 200<b> ; </b>
                         </code>
             </div><br>
             <h3>3. NOT with LIKE</h3>
@@ -389,10 +391,11 @@
                 <code>
                             <span class="orclkey">SELECT </span> employee_id, name, role <br>
                             <span class="orclkey">FROM  </span> employees <br>
-                            <span class="orclkey">WHERE </span> role <span class="orclkey"> NOT IN </span>  ( <b>'</b>Manager<b>' , '</b>Clerk <b>'</b> )<b> ; </b>
+                            <span class="orclkey">WHERE </span> role 
+                            <span class="orclkey"> NOT IN </span>  ( <b>'</b>Manager<b>','</b>Clerk<b>'</b>)<b> ; </b>
                         </code>
             </div><br>
-            <h3>6. NOT with IS NULL</h3>
+            <h3>7. NOT with IS NULL</h3>
             <p><b>Scenario:- </b> Retrieve records where the email column is not null.</p>
             <div class="code-box">
                 <code>
@@ -421,9 +424,9 @@
                             <ul>
                                 <ul>
                                     <span class="orclkey">SELECT </span> manager_id <br>
-                                    <span class="orclkey">FROM  </span> managers <br>
+                                    <span class="orclkey">FROM  </span> managers );
                                 </ul>
-                            </ul>  )<b> ; </b>
+                            </ul> 
                         </code>
             </div><br>
             <h3>3. Negating Nested Conditions</h3>
@@ -434,9 +437,11 @@
                 <code>
                             <span class="orclkey">SELECT </span> OrderID, OrderDate, Category <br>
                             <span class="orclkey">FROM  </span> Orders <br>
-                            <span class="orclkey">WHERE NOT </span> ( OrderDate  <span class="orclkey"> BETWEEN  </span> <b>'</b>01-01-2024<b>'</b>
-                            <span class="orclkey"> AND </span> <b>'</b>30-07-2024<b>'</b>
-                            Category = <b>'</b> Electronics<b>'</b> )<b> ; </b>
+                            <span class="orclkey">WHERE NOT </span> ( OrderDate  
+                            <span class="orclkey"> BETWEEN  </span> <b>'</b>2024-01-01<b>'</b>
+                            <span class="orclkey"> AND </span> <b>'</b>2024-07-30<b>'</b>
+                            <span class="orclkey"> AND </span>
+                            Category = <b>'</b>Electronics<b>'</b>)<b>;</b>
                         </code>
             </div><br>
             <h3>4. Using NOT with EXISTS</h3>
@@ -450,8 +455,8 @@
                             <ul>
                                     <span class="orclkey"> SELECT   </span> 1 <br>
                             <span class="orclkey"> FROM </span> Orders o <br>
-                            <span class="orclkey"> WHERE </span>  o.CustomerID = c.CustomerID <br>
-                            </ul> )<b> ; </b>
+                            <span class="orclkey"> WHERE </span>  o.CustomerID = c.CustomerID)<b>; </b> <br>
+                            </ul> 
                         </code>
             </div><br>
             <h3>5. Using NOT with Subqueries</h3>
@@ -461,12 +466,13 @@
                 <code>
                             <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
                             <span class="orclkey">FROM  </span> Employees <br>
-                            <span class="orclkey">WHERE NOT </span>Salary  <span class="orclkey"> IN  </span>( <br>
+                            <span class="orclkey">WHERE </span>Salary  <span class="orclkey"> NOT IN  </span>( <br>
                             <ul>
-                                    <span class="orclkey"> SELECT DISTINCT  </span> TOP 10 Salary <br>
+                            <span class="orclkey"> SELECT DISTINCT  </span> TOP 10 Salary <br>
                             <span class="orclkey"> FROM </span> Employees <br>
-                            <span class="orclkey">  ORDER BY  </span> Salary <span class="orclkey"> DESC  </span> <br>
-                            </ul> )<b> ; </b>
+                            <span class="orclkey">  ORDER BY  </span> Salary
+                            <span class="orclkey"> DESC )<b>; </b></span> <br>
+                            </ul> 
                         </code>
             </div><br>
             <h3>6. Excluding Patterns in Text Data</h3>
@@ -488,8 +494,10 @@
                             <ul>                                
                                 <ul><span class="orclkey">CASE </span>
                                     <ul>
-                                        <span class="orclkey">WHERE </span> Score <span class="orclkey"> BETWEEN  </span> 50 
-                            <span class="orclkey"> AND </span> 100 <span class="orclkey"> THEN </span> <b>'</b>Pass<b>'</b> <br>
+                                        <span class="orclkey">WHEN </span> Score 
+                                        <span class="orclkey"> BETWEEN  </span> 50 
+                                        <span class="orclkey"> AND </span> 100
+                                        <span class="orclkey"> THEN </span> <b>'</b>Pass<b>'</b> <br>
                             <span class="orclkey">ELSE </span> <b>'</b>Fail<b>'</b> <br>
                                     </ul>
                                     <span class="orclkey">END AS Result  </span>
@@ -499,7 +507,7 @@
                             <span class="orclkey">WHERE NOT </span> ( Score <span class="orclkey"> BETWEEN  </span> 50 <span class="orclkey"> AND </span> 100 )<b> ; </b>
                         </code>
             </div><br>
-            <h3>7. UPDATE with NOT and Complex Conditions</h3>
+            <h3>8. UPDATE with NOT and Complex Conditions</h3>
             <p><b>Scenario 1:- </b> Update salaries to include a bonus for employees not in the 'Sales' department and
                 who
                 have been with the company for more than 5 years.
@@ -508,7 +516,8 @@
                 <code>
                             <span class="orclkey">UPDATE </span> Employees <br>
                             <span class="orclkey">SET  </span> Salary = Salary + 5000 <br>
-                            <span class="orclkey">WHERE NOT </span>Department =   <b>'</b>Sales<b>'</b> <span class="orclkey"> AND  </span> YearsWithCompany > 5 <b> ; </b>
+                            <span class="orclkey">WHERE NOT </span>(Department =<b>'</b>Sales<b>'</b>) 
+                            <span class="orclkey"> AND  </span> YearsWithCompany > 5 <b> ; </b>
                         </code>
                 - - Employees in the 'Sales' department or those with 5 years or less are excluded.
             </div><br>
@@ -518,7 +527,7 @@
                 <code>
                             <span class="orclkey">UPDATE </span> Employees <br>
                             <span class="orclkey">SET  </span> Status = <b>'</b>Active<b>'</b> <br>
-                            <span class="orclkey">WHERE NOT </span>Department =   <b>'</b>HR<b>'</b>  <b> ; </b>
+                            <span class="orclkey">WHERE NOT </span>(Department =<b>'</b>HR<b>'</b>)  <b> ; </b>
                         </code>
                 - - This query sets the Status column to 'Active' for all employees except those in the 'HR' department.
                 <br>
@@ -530,7 +539,8 @@
             <div class="code-box">
                 <code>
                             <span class="orclkey">DELETE FROM </span> Products <br>
-                            <span class="orclkey">WHERE NOT </span>ProductName  <span class="orclkey"> LIKE  </span><b>'</b>Sales<b>'</b> <b> ; </b>
+                            <span class="orclkey">WHERE NOT </span>ProductName 
+                            <span class="orclkey"> LIKE  </span><b>'</b>Eco%<b>'</b> <b> ; </b>
                         </code>
                 - - This query deletes all products whose names do not start with 'Eco'. <br>
                 - - Products starting with 'Eco' remain in the table.
@@ -539,8 +549,8 @@
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">DELETE FROM </span> * <br>
-                            <span class="orclkey">WHERE NOT </span>Country  =  <b>'</b>USA<b>'</b> <b> ; </b>
+                            <span class="orclkey">DELETE FROM </span> Customers <br>
+                            <span class="orclkey">WHERE  </span>Country  !=  <b>'</b>USA<b>'</b> <b> ; </b>
                         </code>
                 - - This query deletes all rows where the Country is not 'USA'. <br>
                 - - Rows with Country = 'USA' remain unaffected.
@@ -582,7 +592,7 @@
                         </code>
                 - - This excludes only employees in Sales with salaries above 50,000 but includes others outside Sales
                 without considering salary. Always group conditions appropriately.
-            </div><br>
+            </div>
             <h4>Correct</h4>
             <div class="code-box">
                 <code>
@@ -601,11 +611,12 @@
                 NULL.
             </div><br>
             <h2>Key Points to Remember</h2>
-            <p><b>1. Ensure Correct Filtering:-</b> Double-check your NOT conditions to avoid unintended updates or
+            <p><b>1. Ensure Correct Filtering:-</b><br>
+            Double-check your NOT conditions to avoid unintended updates or
                 deletions.</p> <br>
-            <p><b>2. Backup Critical Data:-</b> Always back up the table before running UPDATE or DELETE statements,
+            <p><b>2. Backup Critical Data:-</b> <br>Always back up the table before running UPDATE or DELETE statements,
                 especially when using exclusion logic.</p> <br>
-            <p><b>3. Test with SELECT First:-</b> Run a SELECT statement with the same WHERE clause to confirm the
+            <p><b>3. Test with SELECT First:-</b> <br>Run a SELECT statement with the same WHERE clause to confirm the
                 affected rows before executing UPDATE or DELETE.</p> <br>
             <div class="code-box">
                 <code>
@@ -613,12 +624,12 @@
                     <span class="orclkey">WHERE NOT </span>Department   =  <b>'</b>HR<b>'</b> <b> ; </b>
                 </code>
             </div><br>
-            <p><b>4. Performance:-</b> Complex NOT conditions can slow down queries, especially on large datasets.
+            <p><b>4. Performance:-</b> <br>Complex NOT conditions can slow down queries, especially on large datasets.
                 Ensure indexes are in place where applicable.</p> <br><br>
 
 
             <div class="topic-buttons">
-                <a href="sql_like.html?topic=sqlLike" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_like.html?topic=sqlLike" class="previou-button">&laquo; Previous</a>
                 <a href="sql_all.html?topic=sqlAll" class="next-button">Next &raquo;</a>
             </div>
 

@@ -329,7 +329,7 @@
                 <li><b>Case-Sensitive in Some Databases:-</b> The behavior of IN can vary depending on the database
                     collation.</li>
             </ul>
-            <br>
+            
             <h2>Syntax</h2>
             <h3>1. Basic IN Syntax</h3>
             <div class="code-box">
@@ -383,10 +383,10 @@
                             <ul>
                                 <span class="orclkey">SELECT   </span> CustomerID <br>
                                 <span class="orclkey">FROM </span> customers <br>
-                                <span class="orclkey">WHERE </span> State <b>= '</b>Hyderabad<b>' </b><br>
+                                <span class="orclkey">WHERE </span> State <b>= '</b>Hyderabad<b>' </b> ) ; 
                             </ul>
                         </ul>
-                        <b>) ; </b>
+                       
                     </code>
             </div><br>
             <p><b>Scenario 2:- </b> Retrieve products belonging to categories available in the categories table.</p>
@@ -399,10 +399,10 @@
                             
                                 <span class="orclkey">SELECT   </span> category_id  <br>
                                 <span class="orclkey">FROM </span> categories  <br>
-                                <span class="orclkey">WHERE </span> status  <b>= '</b>Active<b>'</b> <br>
+                                <span class="orclkey">WHERE </span> status  <b>= '</b>Active<b>'</b>) ; <br>
                             </ul>
                         </ul>
-                        <b>) ; </b>
+                        <b> </b>
                     </code>
             </div><br>
             <h3> IN with Date Values</h3>
@@ -446,8 +446,8 @@
                         <ul>
                             <ul>
                                 <span class="orclkey">SELECT   </span> CustomerID<b> , </b> ProductID<br>
-                                <span class="orclkey">FROM    </span> FavoriteProducts <br>
-                            </ul>) <b> ; </b>
+                                <span class="orclkey">FROM    </span> FavoriteProducts) <b> ; </b> <br>
+                            </ul>
                         </ul> 
                     </code>
             </div><br>
@@ -590,7 +590,7 @@
                 <code>
                     <span class="orclkey">WHERE  </span> DepartmentID <span class="orclkey"> IN </span>( 10, 20, 30) ; </b>
                     </code>
-            </div><br>
+            </div>
             <h4>Why prefer IN?</h4>
             <ul>
                 <li><b>Readability :- </b>Easier to write and understand.</li>

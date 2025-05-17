@@ -450,13 +450,13 @@
                         <span class="orclkey">FROM </span> Orders <br>
                         <span class="orclkey">WHERE  </span> CustomerID  <span class="orclkey">IN  </span> ( <br>
                         <ul>
-                            <ul>
+                            
                                 <span class="orclkey">SELECT   </span> CustomerID <br>
                                 <span class="orclkey">FROM </span> Orders <br>
                                 <span class="orclkey">WHERE </span> State <b> = ' </b>California <b>'</b> <br>
                                 <span class="orclkey">GROUP BY </span> CustomerID <br>
-                                <span class="orclkey">HAVING </span> COUNT(OrderCount)<b> > </b> 3 <b><br> ); </b>
-                            </ul>
+                                <span class="orclkey">HAVING </span> COUNT(OrderCount)<b> > </b> 3 <b> ); </b>
+                           
                         </ul> 
                 </code>
             </div><br>

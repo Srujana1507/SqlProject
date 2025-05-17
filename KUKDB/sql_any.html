@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlAny">
 
             <div class="topic-buttons">
-                <a href="sql_all.html?topic=sqlAll" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_all.html?topic=sqlAll" class="previou-button">&laquo; Previous</a>
                 <a href="sql_exists.html?topic=sqlExists" class="next-button">Next &raquo;</a>
             </div>
 
@@ -346,12 +346,12 @@
             </div><br>
             <h2>How ANY Works</h2>
             <p>The ANY operator evaluates to:</p><br>
-            <ul>
+         
                 <ul>
                     <li><b>TRUE: </b>If the comparison is true for at least one value returned by the subquery.</li>
                     <li><b>FALSE: </b> If the subquery returns no matching value or all comparisons fail.</li>
                     <li><b>NULL: </b> If the subquery contains NULL and no condition matches.</li>
-                </ul>
+                
             </ul><br>
             <h2>Basic Examples</h2>
             <h3>1. ANY with Greater Than ( > )</h3>
@@ -363,15 +363,14 @@
                             <span class="orclkey">FROM </span>employees <br>
                             <span class="orclkey">WHERE </span> salary > <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> salary <br>
                             <span class="orclkey">FROM  </span> employees <br>
-                            <span class="orclkey">WHERE </span> department_name  =  <b>'</b>Finance<b>'</b> <br>
+                            <span class="orclkey">WHERE </span> department_name  =  <b>'</b>Finance<b>'</b>)<b> ; </b> <br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
+                   
                         </code>
-                - - This query selects employees with a salary higher than <b>at least one </b>salary in the HR
+                - - This query selects employees with a salary higher than <b>at least one </b>salary in the Finance
                 department.
                 <br>
             </div><br>
@@ -384,16 +383,12 @@
                             <span class="orclkey">FROM </span>products <br>
                             <span class="orclkey">WHERE </span> price = <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> price <br>
                             <span class="orclkey">FROM  </span> products <br>
-                            <span class="orclkey">WHERE </span> category   =  <b>'</b>Electronics<b>'</b> <br>
-                        </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
-                <br>
-            </div><br>
+                            <span class="orclkey">WHERE </span> category   =  <b>'</b>Electronics<b>'</b>  )<b> ; </b><br>
+                            </ul>
+                </code>   
+             </div><br>
             <h3>3. ANY with NOT</h3>
             <p><b>Scenario 1:- </b>Find orders where the total amount is <b>not greater than any</b> amount in "Pending"
                 orders.</p>
@@ -401,17 +396,16 @@
                 <code>
                             <span class="orclkey">SELECT </span> order_id, total_amount <br>
                             <span class="orclkey">FROM </span>orders <br>
-                            <span class="orclkey">WHERE NOT</span> total_amount > <span class="orclkey"> ANY </span> (<br>
+                            <span class="orclkey">WHERE NOT</span> total_amount > 
+                            <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> total_amount <br>
-                            <span class="orclkey">FROM  </span> orders <br>
-                            <span class="orclkey">WHERE </span> status    =  <b>'</b>Pending<b>'</b> <br>
-                        </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
-                <br>
+                             
+                                <span class="orclkey">SELECT </span> total_amount <br>
+                                <span class="orclkey">FROM  </span> orders <br>
+                                 <span class="orclkey">WHERE </span> status    =  <b>'</b>Pending<b>'</b>  )<b> ; </b><br>
+                            </ul>
+                                               </code>
+               
             </div><br>
             <p><b>Scenario 2:- </b> Retrieve employees who are not earning less than any of the salaries in the Sales
                 department.</p>
@@ -419,17 +413,15 @@
                 <code>
                             <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
                             <span class="orclkey">FROM </span>Employees <br>
-                            <span class="orclkey">WHERE NOT</span> Salary < <span class="orclkey"> ANY </span> (<br>
+                            <span class="orclkey">WHERE NOT</span> Salary < <span class="orclkey"> ANY </span> (
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> Salary <br>
                             <span class="orclkey">FROM  </span> Employees <br>
-                            <span class="orclkey">WHERE </span> department_name    =  <b>'</b>Sales<b>'</b> <br>
+                            <span class="orclkey">WHERE </span> department_name    =  <b>'</b>Sales<b>'</b>  )<b> ; </b><br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
-                - - This ensures that an employee's salary is <b>not less than any </b>salary in the Sales department,
+              </code>
+                <br>- - This ensures that an employee's salary is <b>not less than any </b>salary in the Sales department,
                 meaning it is<b> greater than or equal to the highest</b>.
             </div><br>
             <h3>4. Equal to Any Value</h3>
@@ -438,9 +430,17 @@
                 <code>
                             <span class="orclkey">SELECT </span> CustomerID, Name, Region <br>
                             <span class="orclkey">FROM </span>Customers <br>
-                            <span class="orclkey">WHERE </span> Region =  <span class="orclkey"> ANY </span> (<b>'</b>North<b>' , '</b>South<b>' , '</b>East<b>'</b>
-                        )<b> ; </b>
-                        </code>
+                            <span class="orclkey">WHERE </span> Region = 
+                            <span class="orclkey"> ANY </span> 
+                           
+                            ( <ul>
+                                <span class="orclkey"> SELECT </span> region_name
+                                 <span class="orclkey"> FROM </span>
+                                <span class="orclkey"> (VALUES </span> 
+                                ('North'), ('South'), ('East')  )
+                                <span class="orclkey"> AS </span> region_list(region_name) );
+                              </ul>
+                 </code>
                 - - This query returns customers whose Region matches <b>any of the values</b> in the list.
             </div><br>
             <h3>5. Less Than or Equal to Any Value</h3>
@@ -452,13 +452,11 @@
                             <span class="orclkey">FROM </span>Products <br>
                             <span class="orclkey">WHERE </span> Price <=  <span class="orclkey"> ANY </span> ( <br>
                             <ul>
-                                <ul>
+                               
                             <span class="orclkey">SELECT </span> Price <br>
                             <span class="orclkey">FROM  </span> Products <br>
-                            <span class="orclkey">WHERE </span> Category     =  <b>'</b>Books<b>'</b> <br>
-                        </ul>
-                        )<b> ; </b>
-                    </ul>
+                            <span class="orclkey">WHERE </span> Category     =  <b>'</b>Books<b>'</b> )<b> ; </b><br>
+                             </ul>
                         </code>
                 - - This fetches products priced less than or equal to <b>at least one</b> product in the "Books"
                 category.
@@ -505,13 +503,13 @@
                             <span class="orclkey">FROM </span>Employees <br>
                             <span class="orclkey">WHERE </span> Salary < <span class="orclkey"> ANY </span> ( <br>
                             <ul>
-                                <ul>
+                                
                             <span class="orclkey">SELECT </span> MAX( Salary ) <br>
                             <span class="orclkey">FROM  </span> Employees <br>
                             <span class="orclkey">WHERE </span> department_name      =  <b>'</b>IT<b>'</b> <br>
-                            <span class="orclkey">GROUP BY </span> department_name
-                        </ul></ul>
-                        )<b> ; </b>
+                            <span class="orclkey">GROUP BY </span> department_name)<b> ; </b>
+                        </ul>
+                        
                         </code>
                 - - Compares each employee's salary with the maximum salary in the IT department.
             </div><br>
@@ -521,13 +519,17 @@
                 <code>
                             <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
                             <span class="orclkey">FROM </span>Products <br>
-                            <span class="orclkey">WHERE </span> Price = <span class="orclkey"> ANY </span> ( 10, 20, 30
-                        )<b> ; </b>
+                            <span class="orclkey">WHERE </span> Price =
+                            <span class="orclkey"> ANY </span><br>(<br>
+                            <span class="orclkey">SELECT </span> Price_value <br>
+                            <span class="orclkey">FROM </span>(
+                            <span class="orclkey">VALUES </span>  (10), (20),(30)
+                           ) <span class="orclkey">AS </span> Price_list(Price_value)<b> ); </b>
                         </code>
                 - - This query selects products priced at 10, 20, or 30.
             </div><br>
             <h3>3. Advanced Filtering with Correlated Subqueries</h3>
-            <p><b>Scenario :- </b>Find employees whose salaries are greater than any employee in the same department but
+            <p><b>Scenario 1 :- </b>Find employees whose salaries are greater than any employee in the same department but
                 with less experience.</p>
             <div class="code-box">
                 <code>
@@ -535,42 +537,38 @@
                             <span class="orclkey">FROM </span>employees e1 <br>
                             <span class="orclkey">WHERE </span> e1.salary >  <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> e2.salary <br>
                             <span class="orclkey">FROM  </span> employees e2 <br>
                             <span class="orclkey">WHERE </span> e1.department_id = e2.department_id <br>
-                            <span class="orclkey">AND </span>e1.years_experience > e2.years_experience
+                            <span class="orclkey">AND </span>e1.years_experience > e2.years_experience )<b> ; </b>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
+                 
+                </code>
             </div><br>
-            <h3>4. Advanced Filtering with Correlated Subqueries</h3>
-            <p><b>Scenario :- </b>Find students whose grades are higher than the maximum grade in any class they are not
+            
+            <p><b>Scenario 2:- </b>Find students whose grades are higher than the maximum grade in any class they are not
                 enrolled in.</p>
             <div class="code-box">
                 <code>
                             <span class="orclkey">SELECT </span> student_id, name, grade <br>
-                            <span class="orclkey">FROM </span>students <br>
-                            <span class="orclkey">WHERE </span> grade > <span class="orclkey"> ANY </span> (<br>
+                            <span class="orclkey">FROM </span>students s <br>
+                            <span class="orclkey">WHERE </span> grade >
+                            <span class="orclkey"> ANY </span> <br>(
                             <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> MAX( grade ) <br>
-                            <span class="orclkey">FROM  </span> classes <br>
-                            <span class="orclkey">WHERE </span> class_id  <span class="orclkey"> NOT IN </span> (<br>
+                            <span class="orclkey">SELECT </span> MAX(c.grade) <br>
+                            <span class="orclkey">FROM  </span> classes c
+                            <span class="orclkey">WHERE </span> c.class_id  
+                            <span class="orclkey"> NOT IN </span> <br>(
                             <ul>
-                                <ul>
-                                    <span class="orclkey">SELECT </span> class_id <br>
-                                    <span class="orclkey">FROM  </span> enrollments <br>
-                                    <span class="orclkey">WHERE </span> enrollments.student_id = students.student_id <br>
-                                    )
-                                </ul>
-                            
+                                 <span class="orclkey">SELECT </span> e.class_id <br>
+                                 <span class="orclkey">FROM  </span> enrollments e <br>
+                                 <span class="orclkey">WHERE </span> e.student_id = s.student_id
+                            </ul>)
+                                 <span class="orclkey">GROUP BY </span>c.class_id<b>  ); </b><br> 
+                                                                         
                             </ul>
-                            )<b> ; </b>
-                            </ul>
+                
                         
-                    </ul>
                         </code>
             </div><br>
             <h3>4. Using ANY in HAVING Clause</h3>
@@ -583,73 +581,66 @@
                             <span class="orclkey">GROUP BY </span> department_id <br>
                             <span class="orclkey">HAVING </span> SUM( salary )  >  <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> salary <br>
                             <span class="orclkey">FROM  </span> employees <br>
-                            <span class="orclkey">WHERE </span> department_name      =  <b>'</b>Sales<b>'</b>  <br>
+                            <span class="orclkey">WHERE </span> department_name      =  <b>'</b>Sales<b>'</b>       )<b> ; </b>  <br>
                         </ul>
-                        )<b> ; </b>
-                    </ul>
-                        </code>
+                </code>
             </div><br>
-            <h3>6. Using ANY in UPDATE Statement</h3>
+            <h3>5. Using ANY in UPDATE Statement</h3>
             <p><b>Scenario :- </b>Update prices for products that are cheaper than <b>any</b> product in the
                 "Electronics" category.</p>
             <div class="code-box">
                 <code>
                             <span class="orclkey">UPDATE </span> products <br>
                             <span class="orclkey">SET </span> price = price + 10 <br>
-                            <span class="orclkey">GROUP BY </span> department_id <br>
-                            <span class="orclkey">WHERE </span> price  < <span class="orclkey"> ANY </span> (<br>
+                            <span class="orclkey">WHERE </span> price  < 
+                            <span class="orclkey"> ANY </span> <br>(<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> price <br>
                             <span class="orclkey">FROM  </span> products <br>
-                            <span class="orclkey">WHERE </span> category    =  <b>'</b>Electronics<b>'</b>  <br>
-                        </ul>
-                        )<b> ; </b>
-                            </ul>
+                            <span class="orclkey">WHERE </span> category    =  <b>'</b>Electronics<b>'
+                          
+                        </ul></b> )<b> ; </b> <br>
                 </code>
             </div><br>
             <h3>6. Using ANY in DELETE Statement</h3>
-            <p><b>Scenario :- </b>Update prices for products that are cheaper than <b>any</b> product in the
-                "Electronics" category.</p>
+            <p><b>Scenario :- </b>Delete orders below any pending amount .</p>
             <div class="code-box">
                 <code>
                             <span class="orclkey">DELETE FROM </span> orders <br>
                             <span class="orclkey">WHERE </span> total_amount < <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> total_amount <br>
                             <span class="orclkey">FROM  </span> orders <br>
-                            <span class="orclkey">WHERE </span> status  =  <b>'</b>Pending<b>'</b>  <br>
+                            <span class="orclkey">WHERE </span> status  =  <b>'</b>Pending<b>'</b>   )<b> ; </b> <br>
                         </ul>
-                        )<b> ; </b>
-                            </ul>
-                </code>
+                  </code>
             </div><br>
-            <h3>6. Using ANY in GROUP BY Clause</h3>
+            <h3>7. Using ANY in GROUP BY Clause</h3>
             <p>The ANY operator is not directly usable in the GROUP BY clause itself but can influence the groups by
-                being part of a condition in the WHERE or HAVING clauses.</p><br><br>
+                being part of a condition in the WHERE or HAVING clauses.</p><br>
             <p><b>Scenario :- </b>Find departments where the total sales amount is greater than the sales amount of any
                 sales representative in the "East" region.</p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> department_id, SUM(sales_amount) <span class="orclkey"> AS </span> total_sales <br>
+                            <span class="orclkey">SELECT </span> department_id, SUM(sales_amount) 
+                            <span class="orclkey"> AS </span> total_sales <br>
                             <span class="orclkey">FROM  </span> Sales <br>
-                            <span class="orclkey">WHERE </span> sales_amount  > <span class="orclkey"> ANY </span> (<br>
+                             <span class="orclkey">GROUP BY  </span> department_id <br>
+                            <span class="orclkey">HAVING </span>
+                            <span class="orclkey">SUM </span> (sales_amount) > 
+                            <span class="orclkey"> ANY </span> (<br>
                             <ul>
-                                <ul>
                             <span class="orclkey">SELECT </span> sales_amount <br>
                             <span class="orclkey">FROM  </span> Sales <br>
-                            <span class="orclkey">WHERE </span> region   =  <b>'</b>East<b>'</b>  <br>
-                        </ul>)
+                            <span class="orclkey">WHERE </span> region   =  <b>'</b>East<b>'</b>);  <br>
+                        </ul>
                         
-                            </ul>
-                            <span class="orclkey">GROUP BY  </span><b> ; </b> <br><br>
-                            - - The <b>subquery </b>retrieves the sales_amount of all sales representatives in the "East" region. <br><br>
-                            - - The <b>WHERE </b>clause filters the rows in the sales table to include only those where the sales_amount is greater than <b>any of the values</b> in the subquery (e.g., > 5000, > 7500, or > 10000). <br><br>
-                            - - After filtering rows based on the <b>ANY </b>condition, the remaining rows are grouped by department_id. <br><br>
+                            <br>  
+                            - - The <b>subquery </b>retrieves the sales_amount of all sales representatives in the "East" region. <br>
+                            - - The <b>WHERE </b>clause filters the rows in the sales table to include only those where the sales_amount is greater than <b>any of the values</b> in the subquery (e.g., > 5000, > 7500, or > 10000). <br>
+                            - - After filtering rows based on the <b>ANY </b>condition, the remaining rows are grouped by department_id. <br>
                             - - The <b>SUM(sales_amount) </b>function calculates the total sales for each department.
                 </code>
             </div><br>
@@ -665,7 +656,7 @@
                                 <span class="orclkey">WHERE </span> 1 = 0 )<b> ;</b>
                           </code>
                 </div><br>
-            </ul><br>
+            </ul>
             <h4>2. Mismatched Data Types:</h4>
             <ul>
                 <li>The column and the values in the subquery or list must be of comparable data types. For instance.
@@ -681,14 +672,13 @@
             <h4>3. Ambiguous Logic with NOT:</h4>
             <ul>
                 <li>Combining NOT with ANY can be confusing. Ensure you understand its meaning:
-                    <Ul>
-                        <li>
-                            NOT Salary < ANY (...) → Means salary is <b>greater than or equal to the maximum.</b>
+                   
+                            NOT Salary < ANY (...) → Means salary is greater than or equal to the maximum.
                         </li>
                     </Ul>
                 </li>
             </ul><br>
-            <h2>Best Practices</h2>
+            <h2>Do's and Don'ts with ANY Operator</h2>
             <h4>Do's</h4><br>
             <ul>
                 <b>1. Use with Appropriate Operators :</b><br>
@@ -713,9 +703,10 @@
                     <ul>
                         <span class="orclkey">SELECT </span> column <br>
                         <span class="orclkey">FROM </span> table <br>
-                        <span class="orclkey">WHERE </span> column <span class="orclkey"> IS NOT NULL </span><br>
+                        <span class="orclkey">WHERE </span> column 
+                        <span class="orclkey"> IS NOT NULL </span> )<b> ;</b><br>
                     </ul>
-                    )<b> ;</b>
+                   
                         </code>
                 </ul>
             </ul><br>
@@ -757,7 +748,7 @@
                     <li>ANY checks for partial matches, whereas ALL checks for universal matches. Misuse can lead to
                         incorrect results.</li>
                 </ul>
-            </ul><br><br>
+            </ul><br>
 
             <h2>Alternatives to ANY</h2>
             <h3>1. EXISTS</h3>
@@ -768,15 +759,15 @@
                 <code>
                             <span class="orclkey">SELECT </span> * <br>
                             <span class="orclkey">FROM  </span> products <br>
-                            <span class="orclkey">WHERE EXISTS </span>  (<br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> 1 <br>
+                            <span class="orclkey">WHERE EXISTS </span> 
+                            (
+                               
+                            <span class="orclkey">SELECT </span> 1 
                             <span class="orclkey">FROM  </span> categories <br>
-                            <span class="orclkey">WHERE </span> categories.category_id = products.category_id  <br>
-                        </ul>)<b> ; </b>
-                            </ul>
-                             <br><br>
+                            <span class="orclkey">WHERE </span> categories.category_id = products.category_id)<b> ; </b>  <br>
+                    
+                        
+                           
                 </code>
             </div><br>
             <h3>2. IN</h3>

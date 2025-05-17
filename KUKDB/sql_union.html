@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -309,7 +309,7 @@
 
             <div class="topic-buttons">
                 <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo;
-                    Pevious</a>
+                    Previous</a>
                 <a href="sql_unionall.html?topic=sqlUnionall" class="next-button">Next &raquo;</a>
             </div>
 
@@ -385,7 +385,7 @@
                 </code>
             </div><br>
             <h3>3. UNION with Expressions</h3>
-            <p><b>Scenario :- </b> Combine sales data with calculated fields.</p>
+            <p><b>Scenario :- </b> Combine sales data from multiple years with calculated fields using UNION.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> product_id, sales  <span class="orclkey"> AS  </span> total_sales, '2023' <span class="orclkey"> AS </span>year<br>
@@ -397,14 +397,14 @@
                 </code>
             </div><br>
             <h3>4. Using UNION with ORDER BY</h3>
-            <p><b>Scenario 1:- </b> Combine sales data with calculated fields.</p>
+            <p><b>Scenario 1:- </b> Combine employee data and sort final result by name.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> employee_id, name  <br>
+                    (<span class="orclkey">SELECT  </span> employee_id, name  <br>
                     <span class="orclkey">FROM </span> employees_2023  <br>                   
                     <span class="orclkey">UNION </span>   <br>
                     <span class="orclkey">SELECT  </span> employee_id, name <br>
-                    <span class="orclkey">FROM </span> employees_2024
+                    <span class="orclkey">FROM </span> employees_2024)
                     <span class="orclkey">ORDER BY </span> name
                     <b> ; </b> <br><br>
                     - - ORDER BY applies to the entire result set, not individual queries.
@@ -414,11 +414,11 @@
                 order.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> FirstName, LastName <br>
+                    (<span class="orclkey">SELECT  </span> FirstName, LastName <br>
                     <span class="orclkey">FROM </span> Employees_US  <br>                   
                     <span class="orclkey">UNION </span>   <br>
                     <span class="orclkey">SELECT  </span> FirstName, LastName <br>
-                    <span class="orclkey">FROM </span> Employees_UK
+                    <span class="orclkey">FROM </span> Employees_UK )
                     <span class="orclkey">ORDER BY </span> LastName <span class="orclkey"> ASC </span>
                     <b> ; </b> <br><br>
                     - - ORDER BY applies to the entire result set, not individual queries.
@@ -445,7 +445,7 @@
                 </code>
             </div><br>
             <h3>2. Creating a Unified View</h3>
-            <p><b>Scenario :-</b> Create a view combining employee data from multiple years.</p>
+            <p><b>Scenario :-</b> Create a view that combines employee data from multiple years.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">CREATE VIEW  </span> all_employees  <span class="orclkey">AS  </span> <br>
@@ -463,7 +463,7 @@
                 <code>
                     <span class="orclkey">SELECT  </span> region, SUM( sales ) <span class="orclkey"> AS </span>total_sales <br>
                     <span class="orclkey">FROM </span> sales_north  <br>   
-                    <span class="orclkey">GROUP BY </span> region              
+                    <span class="orclkey">GROUP BY </span> region     <br>          
                     <span class="orclkey">UNION </span>   <br>
                     <span class="orclkey">SELECT  </span> region, SUM( sales ) <span class="orclkey"> AS </span>total_sales <br>
                     <span class="orclkey">FROM </span> sales_south <br>
@@ -478,7 +478,7 @@
                 <code>
                     <span class="orclkey">SELECT  </span> OrderID, CustomerID <br>
                     <span class="orclkey">FROM </span> Orders  <br>   
-                    <span class="orclkey">WHERE  </span> OrderDate >= '01-01-2023'         
+                    <span class="orclkey">WHERE  </span> OrderDate >= '01-01-2023'   <br>      
                     <span class="orclkey">UNION </span>   <br>
                     <span class="orclkey">SELECT  </span> OrderID, CustomerID <br>
                     <span class="orclkey">FROM </span> HistoricalOrders <br>
@@ -600,7 +600,7 @@
 
             <div class="topic-buttons">
                 <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="previou-button">&laquo;
-                    Pevious</a>
+                    Previous</a>
                 <a href="sql_unionall.html?topic=sqlUnionall" class="next-button">Next &raquo;</a>
             </div>
 
