@@ -521,321 +521,262 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>RETURNING Clause in Oracle SQL</h1>
+            <p>The RETURNING clause in Oracle SQL is used in DML statements (INSERT, UPDATE, DELETE) to return values
+                from the affected rows without requiring a separate SELECT statement.
             </p><br>
-            <p>It allows you to:
-            </p>
-            <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+            <p>It improves performance by avoiding additional queries.</p><br>
 
-            <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <h2>Syntax of RETURNING Clause</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">DELETE </span> | <span class="orclkey">INSERT </span> | <span class="orclkey">UPDATE </span> <br>
+                    <span class="orclkey">FROM </span> table_name  <br>
+                    <span class="orclkey">WHERE </span> condition <br>
+                    <span class="orclkey">RETURNING </span> column_name [, column_name]
+                    <span class="orclkey">INTO </span> variable_name [, variable_name]
                        <b> ; </b> 
                         </code>
+                <ul>
+                    <li>table_name → The table being modified.</li>
+                    <li>RETURNING column_name → Specifies the columns whose values should be returned.</li>
+                    <li>INTO variable_name → Stores the returned values into declared PL/SQL variables.</li>
+                </ul>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
-            </div><br>
-
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Common Errors and Solutions</h2>
+            <h2>Key Features of RETURNING Clause</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Optimized for Performance</b></td>
+                        <td>Avoids extra SELECT statements after DML.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Works with INSERT, UPDATE, DELETE</b></td>
+                        <td>Can return values from modified rows.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports Multiple Columns</b></td>
+                        <td>Can return multiple values at once.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Returns Values from the Affected Rows</b></td>
+                        <td>Useful for logging, auditing, or debugging.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Works in PL/SQL Blocks</b></td>
+                        <td>Cannot be used directly in a standalone SQL query.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>Advantages of RETURNING Clause</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Reduces Database Calls</b></td>
+                        <td>No need for separate SELECT statements after DML operations.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Improvement</b></td>
+                        <td>Fetching data immediately avoids extra queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Works with Multiple Rows </b></td>
+                        <td>Supports single-row and bulk operations with RETURNING BULK COLLECT INTO.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Retrieves Auto-Generated Values</b></td>
+                        <td>Useful for getting SEQUENCE values after an INSERT.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+            <h2>Examples of Using RETURNING Clause</h2>
+            <p><b>Using RETURNING with DELETE:- </b> Deletes employee with employee_id = 101 and returns their name and
+                salary.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DECLARE </span> 
+                    <ul>
+                        v_emp_name employees.last_name%TYPE;  <br>
+                        v_salary employees.salary%TYPE;  
+                    </ul>
+                    <span class="orclkey">BEGIN </span>
+                    <ul>
+                        <span class="orclkey">DELETE FROM </span> employees  <br>
+                        <span class="orclkey">WHERE </span> employee_id = 101 <br>
+                        <span class="orclkey">RETURNING </span> last_name, salary 
+                    <span class="orclkey">INTO </span> v_emp_name, v_salary <b> ;</b> <br>
+                    DBMS_OUTPUT.PUT_LINE( <span class="orclg">'Deleted Employee: '  </span> ||  v_emp_name ||
+                    <span class="orclg"> ', Salary: '  </span> || v_salary) <b> ; </b>
+                    </ul>
+                    <span class="orclkey"> END </span>                      
+                       <b> ; </b> <br>
+                       /
+                        </code>
+            </div><br>
+
+            <p><b>Using RETURNING with UPDATE:- </b> Updates an employee’s salary and returns the old salary before the
+                update.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DECLARE </span> 
+                    <ul>
+                        v_old_salary employees.salary%TYPE;  <br> 
+                        v_new_salary employees.salary%TYPE := 6000; 
+                    </ul>
+                    <span class="orclkey">BEGIN </span>
+                    <ul>
+                        <span class="orclkey">UPDATE     </span> employees  <br>
+                        <span class="orclkey">SET </span> salary = v_new_salary  <br>
+                        <span class="orclkey">WHERE </span> employee_id = 102 <br>
+                        <span class="orclkey">RETURNING </span> salary
+                    <span class="orclkey">INTO </span> v_old_salary <b> ;</b> <br>
+                    DBMS_OUTPUT.PUT_LINE( <span class="orclg">'Updated Employee 102 Salary from '  </span> || v_old_salary ||
+                    <span class="orclg"> ' to '  </span> || || v_new_salary ) <b> ; </b>
+                    </ul>
+                    <span class="orclkey"> END </span>                      
+                       <b> ; </b> <br>
+                       /
+                        </code>
+            </div><br>
+
+            <p><b>Using RETURNING with INSERT:- </b> Inserts a new employee and retrieves the generated employee_id.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DECLARE </span> 
+                    <ul>
+                        v_new_id employees.employee_id%TYPE;  <br>
+                        v_new_name employees.last_name%TYPE := <span class="orclg"> 'Brown'     </span>; 
+                    </ul>
+                    <span class="orclkey">BEGIN </span>
+                    <ul>
+                        <span class="orclkey">INSERT INTO</span> employees (employee_id, last_name, salary, department_id)  <br>
+                        <span class="orclkey">VALUES     </span> (205, v_new_name, 5000, 10)  <br>
+                        <span class="orclkey">RETURNING </span> employee_id 
+                    <span class="orclkey">INTO </span> v_new_id <b> ;</b> <br>
+                    DBMS_OUTPUT.PUT_LINE( <span class="orclg">'Inserted Employee ID: '  </span> || v_new_id  ) <b> ; </b>
+                    </ul>
+                    <span class="orclkey"> END </span>                      
+                       <b> ; </b> <br>
+                       /
+                        </code>
+            </div><br>
+
+            <p><b>Using RETURNING with BULK DELETE (Multiple Rows):- </b> Deletes multiple employees from department 20
+                and returns their names using BULK COLLECT.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">DECLARE </span> 
+                        <ul>
+                            TYPE emp_table <span class="orclkey">IS TABLE OF </span> employees.last_name%TYPE;  <br>
+                            v_emp_names emp_table; 
+                        </ul>
+                        <span class="orclkey">BEGIN </span>
+                        <ul>
+                            <span class="orclkey">DELETE FROM </span> employees  <br>
+                            <span class="orclkey">WHERE </span> department_id = 20  <br>
+                            <span class="orclkey">RETURNING </span> last_name  
+                        <span class="orclkey">BULK COLLECT INTO </span> v_emp_names <b> ;</b>
+                    </ul>
+                    <br> <br>
+                        
+                        <span class="orclkey">FOR </span> i <span class="orclkey">IN </span>
+                        1..v_emp_names.COUNT <span class="orclkey">LOOP </span>
+                        <ul>
+                        DBMS_OUTPUT.PUT_LINE( <span class="orclg">'Deleted Employee: '  </span> || || v_emp_names(i)  ) <b> ; </b>
+                        </ul>
+                        <span class="orclkey"> END LOOP</span>     <br>
+                        <span class="orclkey"> END </span>                 
+                           <b> ; </b> <br>
+                           /
+                            </code>
+            </div><br>
+
+            <h2>Common Errors with RETURNING Clause</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Error Code </th>
                         <th>Cause</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>ORA-00933:SQL command not properly ended.</td>
+                        <td>Using RETURNING in a standalone SQL statement</td>
+                        <td>Use it only inside PL/SQL blocks</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-00947:Not enough values</td>
+                        <td>Mismatch between columns in RETURNING and variables in INTO</td>
+                        <td>Ensure equal number of columns and variables</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
+                        <td>
+                            ORA-06550: PL/SQL: ORA-00932: inconsistent datatypes
+                        </td>
+                        <td>
+                            Incompatible variable types
+                        </td>
+                        <td>
+                            Use %TYPE for variable declaration
+                        </td>
                     </tr>
                     <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-01403: No data found</td>
+                        <td>The WHERE condition did not match any row</td>
+                        <td>Ensure the row exists before executing the statement.</td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
+            </table> <br>
+
+            <h2>Limitations of RETURNING Clause</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
+                        <th>Limitation</th>
+                        <th>Description </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
+                        <td>Only Works with DML Statements</td>
+                        <td>Cannot be used in a SELECT statement.</td>
                     </tr>
                     <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
+                        <td>Only Works in PL/SQL</td>
+                        <td>Cannot be executed in plain SQL without BEGIN...END.</td>
                     </tr>
                     <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
+                        <td>Does Not Work with Joins</td>
+                        <td>Cannot return data from multiple tables in one query.</td>
                     </tr>
                     <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
+                        <td>Only Returns Affected Rows</td>
+                        <td>If no row is modified, no data is returned.</td>
                     </tr>
                     <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>Does Not Work with Remote Databases</td>
+                        <td>Cannot be used in INSERT/UPDATE/DELETE on remote tables via database links.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            </table><br>
+            <h2>Do's and Don'ts of RETURNING </h2>
             <table>
                 <thead>
                     <tr>
@@ -845,39 +786,28 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Use RETURNING to optimize performance instead of separate SELECT queries.</td>
+                        <td>Do not use RETURNING in a plain SQL statement—it must be inside PL/SQL.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Use BULK COLLECT for returning multiple rows efficiently.</td>
+                        <td>Do not mismatch columns and variables in RETURNING INTO.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Use %TYPE for variables to match column data types.</td>
+                        <td>Avoid using RETURNING if the statement might not affect any rows (handle exceptions
+                            properly).</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Use it for logging and debugging purposes.</td>
+                        <td>Do not use RETURNING for complex multi-table updates—it does not support joins.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Best Practices</h2>
-            <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
-
+            </table><br>
 
             <br><br><br>
+
+
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL - KUK Solutions</title>
-    <link rel="stylesheet" href="/KUKDB/KUKstyles.css">
+    <link rel="stylesheet" href="../KUKstyles.css">
 
 </head>
 
@@ -521,321 +521,243 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>UNION Set Operator in Oracle SQL</h1>
+            <p>The UNION set operator in Oracle SQL is used to combine the result sets of two or more SELECT queries
+                while eliminating duplicate rows.
             </p><br>
-            <p>It allows you to:
-            </p>
+            <p>It merges the outputs into a single result set and performs an implicit DISTINCT operation.</p><br>
+
+            <h2>Key Features of UNION</h2>
             <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+                <li>Combines result sets from multiple SELECT queries.</li>
+                <li>Removes duplicate rows by default.</li>
+                <li>Ensures all SELECT statements within the UNION have the same number of columns.</li>
+                <li>The columns must have compatible data types.</li>
+            </ul><br>
+            <h2>Syntax of UNION</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> column1, column2, ...  
+                    <span class="orclkey">FROM </span> table1 <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> column1, column2, ...  
+                    <span class="orclkey">FROM </span> table2
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+            <h2>Examples of UNION Statement</h2>
+            <p><b>1. Using ORDER BY with UNION:- </b> </p>
+            <ul>
+                <li>The HR department wants to list employees who:</li>
+                <ul>
+                    <li>Earn a salary greater than 5000</li>
+                    <li>Belong to department 10</li>
+                </ul>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> emp_name, emp_salary
+                    <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> cust_name, cust_income  
+                    <span class="orclkey">FROM </span> customers <br>
+                    <span class="orclkey">ORDER BY </span>emp_name
+                       <b> ; </b> 
+                        </code>
+                <ul>
+                    <li>
+                        The ORDER BY clause is applied only at the end of the last SELECT statement.
+                    </li>
+                    <li>It sorts the final result set.</li>
+                </ul>
+            </div><br>
+            <p><b>2. Using UNION with WHERE Clause:- </b> Filters data from both queries before combining.</p>
+            <ul>
+                <li>A company wants to identify and analyze high-earning individuals, including:</li>
+                <ul>
+                    <li>Employees with a salary greater than ₹50,000</li>
+                    <li>Customers with an income greater than ₹50,000</li>
+                </ul>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> emp_id, emp_name
+                    <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">WHERE </span> emp_salary > 50000 <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> cust_id, cust_name  
+                    <span class="orclkey">FROM </span> customers <br>
+                    <span class="orclkey">WHERE </span>cust_income > 50000
+                       <b> ; </b> 
+                        </code>
+            </div><br>
 
-            <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <p><b>3. Using UNION with GROUP BY:- </b> Groups data before applying the UNION.</p>
+            <ul>
+                <li>To analyze the distribution of Employees across different departments, Customers across different
+                    regions.</li>
+            </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">SELECT </span> department, <span class="orclfun">COUNT </span>(*)
+                    <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">GROUP BY </span> department <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> region,   <span class="orclfun">COUNT </span>(*)
+                    <span class="orclkey">FROM </span> customers <br>
+                    <span class="orclkey">GROUP BY </span> region
                        <b> ; </b> 
                         </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
             </div><br>
 
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
+            <p><b>4. Using UNION with Aggregate Functions:- </b> Allows aggregation before merging result sets.</p>
+            <ul>
+                <li>The company wants to compare the average earnings of</li>
+                <ul>
+                    <li>Employees' salaries across different departments.</li>
+                    <li>Customers' incomes across different regions.</li>
+                </ul>
+            </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
+                    <span class="orclkey">SELECT </span> department, <span class="orclfun">AVG </span>(emp_salary) <span class="orclkey">AS </span> avg_salary 
+                    <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">GROUP BY </span> department <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> region,   <span class="orclfun">AVG </span>(cust_income) <span class="orclkey">AS </span> avg_income 
+                    <span class="orclkey">FROM </span> customers <br>
+                    <span class="orclkey">GROUP BY </span> region
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
+
+            <p><b>5. Using UNION with Joins:- </b> Can combine results from queries with different joins.</p>
+            <ul>
+                <li>The company wants to link employees with their departments and customers with their regions in a
+                    single report to:</li>
+                <ul>
+                    <li>Understand how employees are distributed across departments.</li>
+                    <li>Identify where customers are located based on regions.</li>
+                    <li>Generate a unified report for business analysis and decision-making.</li>
+                </ul>
+            </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
+                    <span class="orclkey">SELECT </span> e.emp_id, e.emp_name, d.dept_name  
+                    <span class="orclkey">FROM </span> employees e
+                    <span class="orclkey"> JOIN </span> departments d <span class="orclkey"> ON </span> e.dept_id = d.dept_id <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> c.cust_id, c.cust_name, r.region_name   
+                    <span class="orclkey">FROM </span> customers c <br>
+                    <span class="orclkey"> JOIN </span> regions r
+                    <span class="orclkey"> ON </span> c.region_id = r.region_id
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
+            <p>6. A company maintains separate records for employees and contractors. The HR team wants a complete
+                list of all personnel, including duplicate names.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
+                    <span class="orclkey">SELECT </span> emp_id, emp_name, <span class="orclg">'Employee' </span><span class="orclkey"> AS </span>
+                    type  <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">UNION </span>
+                    <span class="orclkey">SELECT </span> contractor_id, contractor_name, <span class="orclg">'Employee' </span><span class="orclkey"> AS </span>
+                    type  <span class="orclkey">FROM </span> contractors
                        <b> ; </b> 
-                        </ul>
-                    
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
+            <p>7. A retailer stores product information in separate warehouse tables. To generate a complete product
+                catalog.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
-                        </code>
+                <span class="orclkey">SELECT </span> product_id, product_name, <span class="orclg">'Warehouse A'</span><span class="orclkey"> AS </span>
+                source   <span class="orclkey">FROM </span> warehouse_a <br>
+                <span class="orclkey">UNION </span>
+                <span class="orclkey">SELECT </span> product_id, product_name, <span class="orclg">'Warehouse B'</span><span class="orclkey"> AS </span>
+                source   <span class="orclkey">FROM </span> warehouse_b
+                   <b> ; </b> 
+                    </code>
             </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
+            <p>8. A bank wants a list of all customers, categorizing them as active or inactive.
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
+            <span class="orclkey">SELECT </span> cust_id, cust_name, <span class="orclg">'Active'</span><span class="orclkey"> AS </span>
+            status    <span class="orclkey">FROM </span> active_customers <br>
+            <span class="orclkey">UNION </span>
+            <span class="orclkey">SELECT </span> cust_id, cust_name, <span class="orclg">'Inactive'</span><span class="orclkey"> AS </span>
+            status    <span class="orclkey">FROM </span> inactive_customers
+               <b> ; </b> 
+                </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
+            <p>9. A retail company wants to merge sales and return data for reporting.
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
+            <span class="orclkey">SELECT </span> order_id, product_id, quantity, <span class="orclg">'Sale'</span><span class="orclkey"> AS </span>
+            transaction_type     <span class="orclkey">FROM </span> sales <br>
+            <span class="orclkey">UNION </span>
+            <span class="orclkey">SELECT </span> return_id, product_id, quantity, <span class="orclg">'Return'</span><span class="orclkey"> AS </span>
+            transaction_type    <span class="orclkey">FROM </span> returns
+               <b> ; </b> 
+                </code>
             </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Common Errors and Solutions</h2>
+            <h2>Limitations of UNION</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Performance Overhead</b></td>
+                        <td>Since UNION removes duplicates (DISTINCT operation), it can be slower than UNION ALL. </td>
+                    </tr>
+                    <tr>
+                        <td><b>Column Data Type Compatibility</b></td>
+                        <td>All SELECT statements must have the same number of columns and compatible data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORDER BY Restriction</b></td>
+                        <td>The ORDER BY clause applies only to the final result set.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cannot Use in INSERT INTO</b></td>
+                        <td>UNION cannot be directly used in INSERT INTO unless wrapped in a subquery.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
+            <h2>Common Errors in UNION (with Error Codes)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
                         <th>Cause</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>ORA-01790: Expression must have same datatype</td>
+                        <td>Mismatched column data types between queries</td>
+                        <td>Ensure all SELECT statements return columns with the same data type</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-00904: Invalid identifier</td>
+                        <td>Using incorrect column names in ORDER BY</td>
+                        <td>Use column aliases if needed</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-00933: SQL command not properly ended</td>
+                        <td>Incorrect syntax in UNION query</td>
+                        <td>Ensure ORDER BY is only at the last SELECT</td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
-                    </tr>
-                    <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
-                    </tr>
-                    <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
-                    </tr>
-                    <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
-                    </tr>
-                </tbody>
-            </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            <h2>Do's and Don'ts of UNION in Oracle SQL</h2>
             <table>
                 <thead>
                     <tr>
@@ -845,39 +767,48 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Use UNION when you need to remove duplicate rows across the combined datasets</td>
+                        <td>Don’t use UNION if duplicates are acceptable — it will add overhead unnecessarily</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Make sure each SELECT query has the same number of columns</td>
+                        <td>Don’t mismatch column count — leads to ORA-01789: query block has incorrect number of result
+                            columns</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Ensure compatible data types in corresponding columns across queries</td>
+                        <td>Don’t try to union columns with incompatible data types (e.g., VARCHAR with DATE)</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
+                        <td>Use UNION when working with normalized reporting or consolidated outputs</td>
+                        <td>Don’t assume UNION will preserve all rows — duplicates will be removed</td>
                     </tr>
                     <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Use ORDER BY only after the final SELECT</td>
+                        <td>Don’t place ORDER BY inside individual SELECTs — it will throw an ORA-00933 error</td>
+                    </tr>
+                    <tr>
+                        <td>Use UNION for final outputs where deduplication matters, like dashboards or reports</td>
+                        <td>Don’t use UNION blindly in large datasets — performance can degrade due to sorting</td>
+                    </tr>
+                    <tr>
+                        <td>Apply WHERE clause individually in each SELECT to optimize performance</td>
+                        <td>Don’t rely on WHERE clause after UNION to filter individual parts</td>
+                    </tr>
+                    <tr>
+                        <td>Use column aliases in the final SELECT to control output column names</td>
+                        <td>Don’t assume aliases from the first SELECT will carry through automatically</td>
+                    </tr>
+                    <tr>
+                        <td>Use UNION when accuracy > performance</td>
+                        <td>Don’t use UNION if your data is already unique — prefer UNION ALL for better speed</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Best Practices</h2>
-            <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
-
+            </table>
 
             <br><br><br>
+
+
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

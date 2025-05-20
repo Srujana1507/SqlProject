@@ -521,321 +521,239 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>MERGE Statement in Oracle SQL (UPSERT Operation)</h1>
+            <p>The MERGE statement in Oracle SQL is used for UPSERT (Update or Insert) operations.
             </p><br>
-            <p>It allows you to:
-            </p>
-            <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+            <p>It allows you to conditionally update existing records or insert new records based on a matching
+                condition, eliminating the need for separate INSERT and UPDATE statements.</p><br>
 
-            <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <h2>Syntax of MERGE Statement</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
-                       <b> ; </b> 
+                    <span class="orclkey">MERGE INTO </span> target_table 
+                     <span class="orclkey">USING </span> source_table <br>
+                      <span class="orclkey">ON </span> (condition)<br>
+                    <span class="orclkey">WHEN </span> MATCHED <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">UPDATE SET </span> column1 = value1, column2 = value2
+                    </ul>
+                    <span class="orclkey">WHEN NOT</span> MATCHED <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">INSERT </span> (column1, column2)
+                        <span class="orclkey">VALUES </span> (value1, value2) <b> ; </b> 
+                    </ul>
                         </code>
+                <ul>
+                    <li>MATCHED condition: Updates existing rows in the target table.</li>
+                    <li>NOT MATCHED condition: Inserts new rows if no match is found.</li>
+                    <li>DELETE clause (optional): Can delete rows when certain conditions are met.</li>
+                </ul>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
-            </div><br>
-
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Common Errors and Solutions</h2>
+            <h2>Key Features of MERGE</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Single Statement for UPSERT</b></td>
+                        <td>Eliminates the need for separate INSERT and UPDATE statements.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Improves Performance</b></td>
+                        <td>Reduces the number of database operations.</td>
+                    </tr>
+                    <tr>
+
+                        <td><b>Can Use Joins and Subqueries</b></td>
+                        <td>Allows dynamic data merging.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports DELETE Option</b></td>
+                        <td>Can remove records when matched.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Maintains Atomicity</b></td>
+                        <td>Ensures all updates/inserts are processed as a single transaction.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+
+            <h2>Examples of MERGE Statement</h2>
+            <p><b>Simple MERGE Example (Basic UPSERT):- </b> Updates employee 101 if they exist, otherwise inserts a new
+                record.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">MERGE INTO </span> employees e  <br>
+                     <span class="orclkey">USING </span> (<span class="orclkey">SELECT </span> 101 
+                     <span class="orclkey">AS </span> employee_id,
+                     <span class="orclg">'John Doe'</span> <span class="orclkey">AS </span> name, 7000
+                     <span class="orclkey">AS </span> salary  <br>
+                     <span class="orclkey">FROM </span>  dual) s <br>
+                                
+                      <span class="orclkey">ON </span> ( e.employee_id = s.employee_id ) <br>
+                    <span class="orclkey">WHEN </span> MATCHED <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">UPDATE SET </span> e.salary = s.salary    
+                    </ul>
+                    <span class="orclkey">WHEN NOT</span> MATCHED <span class="orclkey">THEN </span>  
+                           <ul>
+                        <span class="orclkey">INSERT </span> ( employee_id, name, salary )
+                        <span class="orclkey">VALUES </span> ( s.employee_id, s.name, s.salary ) <b> ; </b> 
+                    </ul>
+                        </code>
+            </div><br>
+
+            <p><b>MERGE Using Another Table as Source:- </b> Updates salaries for matching employees; inserts new
+                employees if not found.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">MERGE INTO </span> employees e <br>
+                     <span class="orclkey">USING </span> salary_updates s <br>
+                      <span class="orclkey">ON </span> ( e.employee_id = s.employee_id ) <br>
+                    <span class="orclkey">WHEN </span> MATCHED <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">UPDATE SET </span> e.salary = s.new_salary    
+                    </ul>
+                    <span class="orclkey">WHEN NOT</span> MATCHED <span class="orclkey">THEN </span>  
+                           <ul>
+                        <span class="orclkey">INSERT </span> ( employee_id, name, salary )
+                        <span class="orclkey">VALUES </span> ( s.employee_id, s.name, s.new_salary ) <b> ; </b> 
+                    </ul>
+                        </code>
+            </div><br>
+
+            <p><b>MERGE with DELETE Clause:- </b> Deletes employees listed in the terminated_employees table.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">MERGE INTO </span> employees e <br>
+                     <span class="orclkey">USING </span> 
+                     (<span class="orclkey">SELECT </span> employee_id 
+                     <span class="orclkey">FROM </span>  terminated_employees ) t <br>
+                      <span class="orclkey">ON </span> ( e.employee_id = t.employee_id ) <br>
+                    <span class="orclkey">WHEN </span> MATCHED <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">DELETE </span> <b> ;</b>
+                    </ul>
+                        </code>
+            </div><br>
+
+            <p><b>MERGE with Additional Conditions:- </b> Only updates employees whose salary is lower than the new
+                salary.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">MERGE INTO </span> employees e <br>
+                     <span class="orclkey">USING </span> 
+                     (<span class="orclkey">SELECT </span> employee_id, new_salary
+                     <span class="orclkey">FROM </span>  salary_increments ) s <br>
+                      <span class="orclkey">ON </span> ( e.employee_id = s.employee_id ) <br>
+                    <span class="orclkey">WHEN </span> MATCHED <span class="orclkey">AND </span>
+                    e.salary < s.new_salary <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">UPDATE SET </span> e.salary = s.new_salary 
+                    </ul>
+                    <span class="orclkey">WHEN NOT</span> MATCHED <span class="orclkey">THEN </span>  
+                           <ul>
+                        <span class="orclkey">INSERT </span> ( employee_id, name, salary )
+                        <span class="orclkey">VALUES </span> ( s.employee_id, 
+                        <span class="orclg">'New Employee' </span> , s.new_salary ) <b> ; </b> 
+                    </ul>
+                        </code>
+            </div><br>
+
+            <p><b>MERGE with BULK Data from Another Table:- </b> Updates existing inventory with new stock; inserts new
+                products if not found.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">MERGE INTO </span> inventory i <br>
+                     <span class="orclkey">USING </span> incoming_shipments s <br>
+                      <span class="orclkey">ON </span> ( i.product_id = s.product_id ) <br>
+                    <span class="orclkey">WHEN </span> MATCHED <span class="orclkey">THEN </span>  
+                    <ul>
+                        <span class="orclkey">UPDATE SET </span> i.stock = i.stock + s.quantity
+                    </ul>
+                    <span class="orclkey">WHEN NOT</span> MATCHED <span class="orclkey">THEN </span>  
+                           <ul>
+                        <span class="orclkey">INSERT </span> ( product_id, stock )
+                        <span class="orclkey">VALUES </span> ( s.product_id, s.quantity ) <b> ; </b> 
+                    </ul>
+                        </code>
+            </div><br>
+
+            <h2>Common Errors with MERGE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Error Code </th>
                         <th>Cause</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>ORA-30926:Unable to get a stable set of rows in the source tables</td>
+                        <td>Duplicate rows in the source table</td>
+                        <td>Use DISTINCT or ensure primary keys are unique</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-00001:Unique constraint violated</td>
+                        <td>Inserting duplicate values in a unique column</td>
+                        <td>Ensure INSERT values do not violate constraints</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
+                        <td>
+                            ORA-06550: PL/SQL: ORA-00933: SQL command not properly ended
+                        </td>
+                        <td>
+                            Incorrect syntax
+                        </td>
+                        <td>
+                            Verify MERGE statement structure
+                        </td>
                     </tr>
                     <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-02292: Child record found (foreign key violation)</td>
+                        <td>Attempting to delete a parent record with child records</td>
+                        <td>Ensure related child records are removed first</td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
+            </table> <br>
+
+            <h2>Limitations of MERGE</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
+                        <th>Limitation</th>
+                        <th>Description </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
+                        <td>Cannot Merge on Remote Tables</td>
+                        <td>MERGE does not work with database links (DBLINK).</td>
                     </tr>
                     <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
+                        <td>Cannot Use in Triggers</td>
+                        <td>MERGE cannot be used inside triggers.</td>
                     </tr>
                     <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
+                        <td>Does Not Support Complex Joins</td>
+                        <td>Can only merge between two tables, not multiple joins.</td>
                     </tr>
                     <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
+                        <td>Primary Key Must Be Unique</td>
+                        <td>If duplicates exist, MERGE may throw errors.</td>
                     </tr>
                     <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>Cannot Use RETURNING Clause</td>
+                        <td>Unlike INSERT, UPDATE, DELETE, MERGE does not support RETURNING.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            </table><br>
+            <h2>Do's and Don'ts of MERGE </h2>
             <table>
                 <thead>
                     <tr>
@@ -845,39 +763,67 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Ensure the source and target tables have unique primary keys.</td>
+                        <td>Do not use MERGE if the source table has duplicate values for the matching key.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Use additional conditions in WHEN MATCHED to prevent unnecessary updates.</td>
+                        <td>Do not include UPDATE logic that modifies a column with the same existing value (redundant
+                            update).</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Use DELETE carefully to remove unnecessary records.</td>
+                        <td>Avoid MERGE if your dataset is highly volatile (frequent changes may cause conflicts).</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Test with a smaller dataset before applying MERGE on large tables.</td>
+                        <td>Do not rely on MERGE for complex join conditions. Use INSERT + UPDATE instead.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Best Practices</h2>
-            <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
-
+            </table><br>
+            <h2>Performance Comparison: MERGE vs. INSERT+UPDATE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th> MERGE</th>
+                        <th>INSERT + UPDATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Performance</b></td>
+                        <td>Faster</td>
+                        <td>Slower (requires two operations)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Readability</b>
+                        </td>
+                        <td>More concise</td>
+                        <td>More code</td>
+                    </tr>
+                    <tr>
+                        <td><b>Atomicity</b></td>
+                        <td>Single transaction</td>
+                        <td> Two separate transactions</td>
+                    </tr>
+                    <tr>
+                        <td><b>Error Handling</b></td>
+                        <td>Harder to debug</td>
+                        <td>Easier to debug separately</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Case</b></td>
+                        <td>Best for bulk updates/inserts</td>
+                        <td>Best for smaller datasets</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <br><br><br>
+
+
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

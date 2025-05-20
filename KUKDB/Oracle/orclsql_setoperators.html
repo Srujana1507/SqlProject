@@ -521,321 +521,242 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>Set Operators in Oracle SQL</h1>
+            <p>In Oracle SQL, SET operators are used to combine results from two or more SELECT statements into a single
+                result set.
             </p><br>
-            <p>It allows you to:
-            </p>
+            <p>SET operators in Oracle SQL are essential when we need to combine results from multiple queries while
+                maintaining logical relationships between datasets.</p><br>
+            <p>Instead of writing complex JOIN or EXISTS queries, SET operators provide a clear and efficient way to
+                merge, filter, and compare data.</p><br>
+            <p>These operators allow you to merge, intersect, or subtract rows from different queries while maintaining
+                distinct or duplicate values.</p><br>
+            <h2>List of Set Operators in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>UNION</b></td>
+                        <td>Combines results from multiple queries, removing duplicates.</td>
+                    </tr>
+                    <tr>
+                        <td><b>UNION ALL</b></td>
+                        <td>Combines results from multiple queries, including duplicates.</td>
+                    </tr>
+                    <tr>
+                        <td><b>INTERSECT</b></td>
+                        <td>Returns only the common rows between queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>MINUS</b></td>
+                        <td>Returns rows from the first query that are not in the second query.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Rules for Using Set Operators</h2>
             <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+                <li><b>Same Number of Columns → </b> All SELECT statements must return the same number of columns.</li>
+                <li><b>Same Data Types → </b>Corresponding columns in each SELECT must have compatible data types.</li>
+                <li><b>Column Names Taken from First Query →</b> The result set will use the column names from the first
+                    SELECT statement.</li>
+                <li><b>ORDER BY Only at the End →</b> You can only use ORDER BY once, at the end of the entire query.
+                </li>
+            </ul><br>
+            <h2>Reasons for Using SET Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reasons</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Combining Multiple Queries</b></td>
+                        <td>Easily merge results from different tables or queries into a single dataset.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Removing Duplicates (UNION)</b></td>
+                        <td>Automatically ensures unique records without requiring DISTINCT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Keeping All Rows (UNION ALL)</b></td>
+                        <td>Preserves all rows including duplicates for performance and analysis.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Finding Common Data (INTERSECT)</b></td>
+                        <td>Identifies records that exist in both datasets.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Finding Differences (MINUS)</b></td>
+                        <td>Extracts records from one dataset that do not exist in another.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Improved Readability</b></td>
+                        <td>Queries using SET operators are easier to understand than complex JOIN queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Better Performance in Some Cases</b></td>
+                        <td>UNION ALL can be faster than using OR conditions in WHERE clauses.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Importance of SET Operators in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Importance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b> Simplifies Complex Queries</b></td>
+                        <td>Instead of using nested subqueries or JOINs, SET operators provide a direct way to compare
+                            and merge results.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ensures Data Integrity</b></td>
+                        <td>Operators like INTERSECT ensure that only common records are processed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Enhances Query Performance</b></td>
+                        <td>UNION ALL avoids sorting overhead, making it faster than UNION.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Essential for Data Migration</b></td>
+                        <td>Used in ETL (Extract, Transform, Load) processes to merge data from different sources.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Flexible Data Analysis</b></td>
+                        <td>Helps in reporting and analytics by efficiently merging multiple datasets.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Comparison of SET Operators</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>UNION</th>
+                        <th>UNION ALL</th>
+                        <th>INTERSECT</th>
+                        <th>MINUS</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
-            </div><br>
-
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
+                    <tr>
+                        <td><b>Combines Results?</b></td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td> No (only common rows)</td>
+                        <td> No (only unique rows)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Removes Duplicates?</b></td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><b>Returns Common Rows?</b></td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><b>Returns Unique Rows from First Query?</b></td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance</b></td>
+                        <td>Slower (sorts results)</td>
+                        <td>Fastest</td>
+                        <td>Slower</td>
+                        <td>Slower</td>
+                    </tr>
+                    <tr>
+                        <td><b>Memory Usage</b></td>
+                        <td>High (due to sorting)</td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Usage</b></td>
+                        <td>May not use indexes efficiently</td>
+                        <td>Uses indexes better</td>
+                        <td>May not use indexes efficiently</td>
+                        <td>May not use indexes efficiently</td>
+                    </tr>
+                </tbody>
+            </table><br>
             <h2>Common Errors and Solutions</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
+                        <th>Error</th>
                         <th>Cause</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>ORA-01789: query block has incorrect number of result columns</td>
+                        <td>Mismatched columns in SELECT queries</td>
+                        <td>Ensure both queries return the same number of columns</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-01790: expression must have same datatype as corresponding expression</td>
+                        <td>Data type mismatch</td>
+                        <td>Use CAST() or TO_CHAR() to convert data types</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-00933: SQL command not properly ended</td>
+                        <td>Using ORDER BY incorrectly</td>
+                        <td>Ensure ORDER BY is placed only at the end of the final query</td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
+            <h2>Limitations of Set Operators</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
+                        <th>Limitation</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
+                        <td>Column Order Must Match</td>
+                        <td>Columns in all queries must appear in the same order.</td>
                     </tr>
                     <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
+                        <td>Cannot Use ORDER BY in Individual Queries</td>
+                        <td>ORDER BY can only be used once at the end of the full query.</td>
                     </tr>
                     <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
+                        <td>Cannot Perform Complex Expressions in Set Operations</td>
+                        <td>Some expressions (like LOB data types) may not work with set operators.</td>
                     </tr>
                     <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>Data Type Mismatch Errors</td>
+                        <td>All columns in the queries must have compatible data types.</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            <h2>Do's and Don'ts of Set Operators</h2>
             <table>
                 <thead>
                     <tr>
@@ -845,39 +766,24 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Ensure same number of columns in all queries.</td>
+                        <td>Do not assume UNION is faster than UNION ALL. Removing duplicates slows performance.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Use UNION ALL for better performance if duplicates don’t matter.</td>
+                        <td>Avoid using MINUS on large datasets without indexing.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
-                    </tr>
-                    <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Optimize queries using indexes to speed up comparisons.</td>
+                        <td>Do not use INTERSECT on large tables without filtering data first.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Best Practices</h2>
-            <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
+            </table><br>
 
 
             <br><br><br>
+
+
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

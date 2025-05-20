@@ -521,245 +521,287 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>TRUNCATE TABLE Statement in Oracle SQL </h1>
+            <p>The TRUNCATE TABLE statement in Oracle SQL is used to quickly remove all rows from a table without
+                logging individual row deletions in the undo tablespace.
             </p><br>
-            <p>It allows you to:
-            </p>
+            <p>Unlike DELETE, TRUNCATE is a DDL (Data Definition Language) operation, not a DML operation, which means
+                it cannot be rolled back and releases storage space back to the tablespace immediately.</p><br>
+            <h2>How TRUNCATE Works</h2>
             <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
+                <li>Removes all rows from a table instantly.</li>
+                <li>Resets the High Water Mark (HWM) — which defines the boundary between used and unused space.</li>
+                <li>Auto-commits the transaction after execution.</li>
+                <li>Resets the identity column sequence to the starting value (if specified).</li>
+                <li>TRUNCATE does NOT remove table structure or dependent objects like indexes, constraints, and grants.
+                </li>
+                <li>Does not fire triggers because it does not generate individual row deletes.</li>
+                <li>No undo or redo is generated for individual rows, which makes it faster than DELETE.</li>
             </ul> <br>
 
             <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <h2>Basic Syntax</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">TRUNCATE TABLE  </span> table_name 
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
+            <h2>Truncate Table with DROP STORAGE</h2>
             <div class="code-box">
                 <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
+                    <span class="orclkey">TRUNCATE TABLE  </span> table_name  <span class="orclkey">DROP</span> STORAGE
+                       <b> ; </b> 
+                      <ul>
+                        <li>DROP STORAGE – Releases storage back to the tablespace.</li>
+                        <li>REUSE STORAGE – Retains storage for future use (default behavior).</li>
+                      </ul>
+                        </code>
             </div><br>
 
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
             <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
+            <p><b>1. Truncate a Table:- </b> This will remove all rows from the table:</p>
             <div class="code-box">
                 <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
+                    <span class="orclkey">TRUNCATE TABLE  </span> employees 
                        <b> ; </b> 
+                       <ul>
+                        <li>All rows in the employees table are deleted.</li>
+                        <li>No undo or redo entries are logged.</li>
+                        <li>High Water Mark is reset.</li>
+                       </ul>
                         </code>
             </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
+
+            <p><b>2. Truncate and Release Storage:-</b> This will free the storage space back to the tablespace.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
+                    <span class="orclkey">TRUNCATE TABLE  </span> employees  <span class="orclkey">DROP</span> STORAGE
+                       <b> ; </b> <br>
+                      <ul>
+                        <li>Frees up allocated storage.</li>
+                        <li>Helps reclaim unused space in large tables.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
+
+            <p><b>3. Truncate and Retain Storage:-</b> This will delete data but retain the allocated storage.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
-                       <b> ; </b> 
+                    <span class="orclkey">TRUNCATE TABLE  </span> employees  <span class="orclkey">REUSE</span> STORAGE
+                       <b> ; </b> <br>
+                      <ul>
+                        <li>Retains storage for future inserts.</li>
+                        <li>Improves performance when the table is expected to be populated again.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
+            <p><b>4. Truncate a Partitioned Table:-</b> You can truncate specific partitions in a table.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
+                    <span class="orclkey">ALTER TABLE  </span> sales_data   <span class="orclkey">TRUNCATE PARTITION </span> jan_sales
+                       <b> ; </b> <br>
+                      <ul>
+                        <li>Only the jan_sales partition is truncated.</li>
+                        <li>Other partitions remain intact.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
+            <p><b>5. Truncate with Foreign Key References:-</b> If a table has foreign key references, you cannot
+                truncate it unless the referencing table is dropped or the foreign key is disabled.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
+                    <span class="orclkey">ALTER TABLE  </span> orders <span class="orclkey">DISABLE CONSTRAINT </span> fk_orders_customers
+                       <b> ; </b> <br>
+                       <span class="orclkey">TRUNCATE TABLE  </span> customers <b> ; </b> <br>
+                       <span class="orclkey">ALTER TABLE  </span> orders <span class="orclkey">ENABLE CONSTRAINT </span> fk_orders_customers
+                       <b> ; </b> <br>
+                      <ul>
+                        <li>Disables the foreign key.</li>
+                        <li>Truncates the customers table.</li>
+                        <li>Enables the foreign key again.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
+            <h2>Differences Between DELETE and TRUNCATE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>TRUNCATE</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Operation Type</b></td>
+                        <td>DDL (Data Definition Language)</td>
+                        <td>DML (Data Manipulation Language)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Rollback Possible</b></td>
+                        <td>No (Auto-commits)</td>
+                        <td>Yes (Can be rolled back)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Speed</b></td>
+                        <td>Fast (Does not generate undo/redo)</td>
+                        <td>Slower (Generates undo/redo)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Triggers</b></td>
+                        <td>Not fired</td>
+                        <td>Fired</td>
+                    </tr>
+                    <tr>
+                        <td><b>WHERE Clause</b></td>
+                        <td>Not allowed</td>
+                        <td>Allowed</td>
+                    </tr>
+                    <tr>
+                        <td><b>High Water Mark Reset</b></td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><b>Identity Reset</b></td>
+                        <td>Yes (Resets to starting value)</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><b>Foreign Key References</b></td>
+                        <td>Cannot truncate with active FK</td>
+                        <td>Can delete even with FK</td>
+                    </tr>
+                    <tr>
+                        <td><b>Space Reuse</b></td>
+                        <td>Frees up space with DROP STORAGE</td>
+                        <td>Space is not reclaimed immediately</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>When to Use TRUNCATE vs DELETE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>When to use TRUNCATE</th>
+                        <th>When to use DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>You want to quickly delete all rows in a table.</td>
+                        <td>You want to delete specific rows based on a condition.</td>
+                    </tr>
+                    <tr>
+                        <td>You don’t need to retain rollback information.</td>
+                        <td>You need the ability to roll back the operation.</td>
+                    </tr>
+                    <tr>
+                        <td>The table is large, and performance is critical.</td>
+                        <td>You need to fire row-level triggers.</td>
+                    </tr>
+                    <tr>
+                        <td>You need to free up storage space.</td>
+                        <td>You need to retain the table's current storage allocation.</td>
+                    </tr>
+                    <tr>
+                        <td>The table is not referenced by other tables through foreign keys.</td>
+                        <td>The table is referenced by other tables through foreign keys.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Advantages of TRUNCATE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Fast Performance</b></td>
+                        <td>Much faster than DELETE because it does not generate undo or redo logs for individual rows.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Resets High Water Mark</b></td>
+                        <td>Improves performance for future inserts by resetting the high water mark.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Locking Issues</b></td>
+                        <td>Does not generate row-level locks, reducing contention.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Space Reuse</b></td>
+                        <td>Frees up storage space when using DROP STORAGE.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Identity Column Reset</b></td>
+                        <td>Resets sequence-based identity columns to starting value.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Disadvantages of TRUNCATE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disadvantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot be Rolled Back</b></td>
+                        <td>TRUNCATE is a DDL operation and commits immediately.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No WHERE Clause</b></td>
+                        <td>Cannot use a WHERE clause to selectively truncate rows.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Foreign Key Constraint Issue</b></td>
+                        <td>Cannot truncate a table with active foreign key references.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cannot Be Used on Indexed Views</b></td>
+                        <td>Indexed views and materialized views cannot be truncated directly.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Limitations of TRUNCATE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Truncate Synonyms</b></td>
+                        <td>You cannot truncate a synonym directly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Partitioned Tables</b></td>
+                        <td>TRUNCATE can be used only on individual partitions, not on the whole table unless explicitly
+                            allowed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Foreign Key Dependencies</b></td>
+                        <td>Tables with active foreign key constraints cannot be truncated.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Transaction Handling </b></td>
+                        <td>TRUNCATE cannot be rolled back after execution.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Materialized Views</b></td>
+                        <td>Cannot truncate a table if it’s part of a materialized view.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
             <h2>Common Errors and Solutions</h2>
             <table>
                 <thead>
@@ -771,71 +813,33 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>ORA-02266: unique/primary keys in table referenced by foreign keys</td>
+                        <td>Table is referenced by a foreign key.</td>
+                        <td>Disable the foreign key or drop the referencing table.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01466: unable to read data – table definition has changed</td>
+                        <td>Attempt to flashback a truncated table.</td>
+                        <td>TRUNCATE cannot be reversed using flashback.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-03291: invalid truncate option - missing storage clause</td>
+                        <td>Invalid use of DROP STORAGE or REUSE STORAGE.</td>
+                        <td>Use correct syntax.</td>
+                    </tr>
+                    <tr>
                         <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>Table does not exist.</td>
+                        <td>Verify table name.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
-                    </tr>
-                </tbody>
-            </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
-                    </tr>
-                    <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
-                    </tr>
-                    <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
-                    </tr>
-                    <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>ORA-01722: invalid number</td>
+                        <td>Attempt to truncate a table with invalid column data.</td>
+                        <td>Ensure valid column data.</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            <h2>Do’s and Don’ts of TRUNCATE TABLE</h2>
             <table>
                 <thead>
                     <tr>
@@ -845,36 +849,32 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Use TRUNCATE for performance when removing large data sets.</td>
+                        <td>Don’t truncate tables with active foreign key references.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Use DROP STORAGE to reclaim space when needed.</td>
+                        <td>Don’t truncate tables with audit requirements.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Use REUSE STORAGE to retain existing table storage.</td>
+                        <td>Don’t expect rollback — TRUNCATE cannot be undone.</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Use for partitioned tables when allowed.</td>
+                        <td>Don’t use TRUNCATE if triggers are required to fire.</td>
                     </tr>
                 </tbody>
-            </table> <br>
+            </table><br>
             <h2>Best Practices</h2>
             <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
+                <li>Use TRUNCATE for large tables to improve performance.</li>
+                <li> If you need to rollback, use DELETE instead of TRUNCATE.</li>
+                <li>Avoid TRUNCATE when foreign keys are involved.</li>
+                <li>Use DROP STORAGE only when storage reclamation is necessary.</li>
+            </ul> <br><br><br>
+
+
 
 
             <br><br><br>

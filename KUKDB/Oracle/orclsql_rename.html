@@ -521,243 +521,415 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>RENAME TABLE Statement in Oracle SQL</h1>
+            <p>In Oracle SQL, the RENAME statement is used to change the name of an existing table, view, sequence,
+                synonym, or other schema objects.
             </p><br>
-            <p>It allows you to:
-            </p>
-            <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+            <p>Unlike other RDBMSs like MySQL, Oracle does not support renaming multiple tables or renaming tables
+                across different schemas.</p><br>
+            <p>The RENAME statement is a DDL (Data Definition Language) operation, which means it is automatically
+                committed once executed and cannot be rolled back.</p><br>
 
             <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <h2>Basic Syntax</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">RENAME </span> old_table_name  <span class="orclkey">TO </span> new_table_name
                        <b> ; </b> 
                         </code>
+                <ul>
+                    <li>old_table_name – The current name of the table.</li>
+                    <li>new_table_name – The new name for the table.</li>
+                </ul>
             </div><br>
+            <h2>Key Points</h2>
+            <ul>
+                <li>The RENAME statement commits automatically — it cannot be rolled back.</li>
+                <li>After renaming, any existing indexes, constraints, and triggers remain associated with the renamed
+                    table.</li>
+                <li>The RENAME statement cannot be used on:</li>
+                <ul>
+                    <li>Tables in a different schema.</li>
+                    <li>Materialized views, partitions, or cluster tables.</li>
+                    <ul>
+                        <li>If there are dependent objects (like views, procedures, or synonyms), renaming the table
+                            will cause them to become invalid.</li>
+                        <li>All permissions (grants) on the table remain after renaming.</li>
+                    </ul>
+                </ul>
+            </ul><br>
+            <h2>Restrictions on RENAME </h2>
+            <ul>
+                <li>You cannot rename:</li>
+                <ul>
+                    <li>A table that is part of a cluster.</li>
+                    <li>A table owned by another user.</li>
+                    <li>A table referenced by a foreign key constraint from another table.</li>
+                </ul>
+                <li>You cannot rename:</li>
+                <ul>
+                    <li>Synonyms for tables.</li>
+                    <li>Materialized views.</li>
+                </ul>
+            </ul><br>
+
+
             <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
+            <p><b>1. Rename a Table:- </b> Renaming the employees table to staff</p>
             <div class="code-box">
                 <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
+                    <span class="orclkey">RENAME </span> employees <span class="orclkey">TO </span> staff
+                       <b> ; </b> <br>
+                       <ul>
+                        <li>Table employees is now referred to as staff.</li>
+                        <li>All data, indexes, and triggers remain intact.</li>
+                       </ul>
+                        </code>
             </div><br>
 
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
+            <p><b>2. Rename a Sequence:-</b> Renaming a sequence emp_seq to staff_seq.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
+                    <span class="orclkey">RENAME  </span> emp_seq   <span class="orclkey">TO </span>staff_seq
+                       <b> ; </b> <br>
+                       <ul>
+                        <li>The sequence will retain its properties (like increment values).
+                        </li>
+                       </ul>
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
+
+            <p><b>3. Rename a Synonym:-</b> Renaming a synonym emp_view to staff_view.</p> <br>
+
             <div class="code-box">
                 <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
+                    <span class="orclkey">RENAME  </span> emp_view   <span class="orclkey">TO </span>staff_view
+                    <b> ; </b> <br>
+                     <ul>
+                        <li>The synonym will point to the same object under the new name.</li>
+                       </ul>
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
+
+            <p><b>4. Rename a View:-</b> Renaming a view v_employee to v_staff
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
-                       <b> ; </b> 
+                    <span class="orclkey">RENAME  </span> v_employee   <span class="orclkey">TO </span>v_staff
+                    <b> ; </b> <br>
+                   <ul>
+                    <li>The underlying query of the view remains unchanged.</li>
+                    <li>If any objects depend on the view, they may become invalid.</li>
+                   </ul>
                         </code>
             </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
+
+            <p><b>5. Rename a Table with Constraints:-</b> If the employees table has a primary key, foreign key, or
+                other constraints, renaming will keep them intact.
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
+                    <span class="orclkey">RENAME  </span> employees    <span class="orclkey">TO </span> staff
+                       <b> ; </b> <br>
+                   <ul>
+                    <li>All constraints will be preserved.</li>
+                    <li>If other tables reference employees with a foreign key, those references will break unless updated manually.</li>
+                   </ul>
                         </code>
             </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
+
+            <h2>Difference Between RENAME and ALTER TABLE RENAME</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>RENAME</th>
+                        <th>ALTER TABLE RENAME</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Scope</b></td>
+                        <td>Renames table, sequence, synonym, or view</td>
+                        <td>Only renames a table or column</td>
+                    </tr>
+                    <tr>
+                        <td><b>Syntax Complexity</b></td>
+                        <td>Simple syntax</td>
+                        <td>More complex</td>
+                    </tr>
+                    <tr>
+                        <td><b>Rollback</b></td>
+                        <td>No rollback</td>
+                        <td>No rollback</td>
+                    </tr>
+                    <tr>
+                        <td><b>Effect on Indexes/Triggers</b></td>
+                        <td>Retained</td>
+                        <td>Retained</td>
+                    </tr>
+                    <tr>
+                        <td><b>Effect on Dependencies</b></td>
+                        <td>Dependencies may become invalid</td>
+                        <td>Dependencies may become invalid</td>
+                    </tr>
+                    <tr>
+                        <td><b>Permissions</b></td>
+                        <td>Remains unchanged</td>
+                        <td>Remains unchanged</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supported Objects</b></td>
+                        <td>Tables, sequences, views, synonyms</td>
+                        <td>Tables, columns</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Advantages of RENAME</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Simple to Use</b></td>
+                        <td>The RENAME statement is easy to write and execute.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Retains Indexes and Triggers</b></td>
+                        <td>Indexes and triggers remain valid after renaming.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Fast Operation</b></td>
+                        <td>Renaming is a metadata change and is executed quickly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Works on Multiple Object Types</b></td>
+                        <td>Can be used on tables, sequences, synonyms, and views.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Data Loss</b></td>
+                        <td>Data remains intact after renaming.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Disadvantages of RENAME</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disadvantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Rename Across Schemas</b></td>
+                        <td>You cannot rename a table across different schemas.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Rollback</b></td>
+                        <td>Since it’s a DDL operation, it auto-commits and cannot be rolled back.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Breaks Object Dependencies</b></td>
+                        <td>Objects (like views, procedures, or triggers) depending on the renamed table become invalid.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>No Clustered Table Support</b></td>
+                        <td>Cannot rename a table that is part of a cluster.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Partitioned Table Support</b></td>
+                        <td>Cannot rename partitions or subpartitions directly.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Limitations of RENAME</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Rename Columns</b></td>
+                        <td>Use ALTER TABLE to rename columns instead.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Foreign Key Reference Issue</b></td>
+                        <td>If a table is referenced by a foreign key, renaming will cause the reference to break.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Partitioned Tables</b></td>
+                        <td>Cannot rename partitioned tables or partitions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Schema Limitation</b></td>
+                        <td>Cannot rename tables across different schemas.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Materialized Views</b></td>
+                        <td>Cannot rename materialized views directly.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Common Errors and Solutions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Error Code
+                        </th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01765: specifying table name does not exist</td>
+                        <td>Table does not exist.</td>
+                        <td>Ensure the table name is correct.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-04043: object does not exist</td>
+                        <td>Attempt to rename an object that does not exist.</td>
+                        <td>Verify the object name.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ORA-02266: unique/primary keys referenced by foreign keys
+                        </td>
+                        <td>
+                            Table is referenced by a foreign key.
+                        </td>
+                        <td>
+                            Drop or disable the foreign key constraint.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ORA-00942: table or view does not exist</td>
+                        <td>Table is in a different schema.</td>
+                        <td>Rename tables only in the same schema.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01502: index or partition of such name exists</td>
+                        <td>Trying to rename an index or partition directly.</td>
+                        <td>Indexes and partitions cannot be renamed directly.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do's and Don'ts of RENAME TABLE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ensure that no critical objects depend on the table before renaming.</td>
+                        <td> Don’t rename a table that is referenced by foreign keys without updating dependencies.</td>
+                    </tr>
+                    <tr>
+                        <td>Use RENAME when you need to change the logical meaning of the table name.</td>
+                        <td>Don’t rename a table when it’s part of a materialized view or cluster.</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure that renaming does not impact application code or stored procedures.</td>
+                        <td>Don’t rename tables frequently in production environments without testing.</td>
+                    </tr>
+                    <tr>
+                        <td>Use RENAME instead of ALTER TABLE when renaming views or sequences.</td>
+                        <td>Don’t rename a table involved in active transactions.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use RENAME only when absolutely necessary — especially in production environments.</li>
+                <li>Always check for dependent objects (like views, triggers, and constraints) before renaming.</li>
+                <li>Rename tables in a development environment first to avoid breaking production dependencies.</li>
+                <li>Use ALTER TABLE if you need to rename a column instead of renaming the whole table.</li>
+            </ul>
+
+
+
+
+
+
+
+
+
+
+            <p><b>6. Drop a Global Temporary Table:-</b> You can drop a global temporary table like any other table.
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
-                       <b> ; </b> 
+                    <span class="orclkey">DROP TABLE  </span> temp_sales
+                       <b> ; </b> <br>
+                   <ul>
+                    <li>Drops the definition of the global temporary table.</li>
+                    <li>Session-specific data is automatically deleted.</li>
+                   </ul>
                         </code>
             </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
+
+            <h2>FLASHBACK AFTER DROP</h2>
+            <p>If a table is dropped without the PURGE option, you can restore it using the FLASHBACK command</p><br>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
+                    <span class="orclkey">FLASHBACK TABLE  </span> employees <span class="orclkey">TO  </span>BEFORE<span class="orclkey">DROP </span>
+                       <b> ; </b> <br>
+                   <ul>
+                    <li>Recovers the table from the RECYCLEBIN.</li>
+                   </ul>
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
+            <h2>List Tables in the Recycle Bin</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
+                    <span class="orclkey">SHOW </span> RECYCLEBIN
+                       <b> ; </b> <br>
+                   <ul>
+                    <li>Lists all objects in the recycle bin.</li>
+                   </ul>
                         </code>
             </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
+            <h2>Data Dictionary View for Dropped Tables</h2>
+            <p>You can check the list of dropped tables in the RECYCLEBIN using</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
+                    <span class="orclkey">SELECT </span> object_name, original_name, type, droptime <br>
+                    <span class="orclkey">FROM </span> recyclebin
+                       <b> ; </b> <br>
+                   <ul>
+                    <li>Lists all objects in the recycle bin.</li>
+                   </ul>
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
+            <h2>How to Empty the Recycle Bin</h2>
+            <p>You can remove all objects from the recycle bin using</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
+                    <span class="orclkey">PURGE RECYCLEBIN </span> 
+                       <b> ; </b> <br>
                         </code>
             </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
+            <h2>How to Purge a Specific Table from the Recycle Bin</h2>
+            <p>You can purge a specific table from the recycle bin using</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
+                    <span class="orclkey">PURGE TABL </span> "BIN$xy+Vdd4BgW7gRAADGG3Lxg==$0"
+                       <b> ; </b> <br>
+                       - - Use the object name from the recyclebin.
                         </code>
             </div><br>
             <h2>Common Errors and Solutions</h2>
@@ -772,37 +944,38 @@
                 <tbody>
                     <tr>
                         <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>The table does not exist.</td>
+                        <td>Ensure the table name is correct.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-02449: unique/primary keys in table referenced by foreign keys</td>
+                        <td>A foreign key exists on the table being dropped.</td>
+                        <td>Use CASCADE CONSTRAINTS to drop dependent constraints.</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
+                        <td>ORA-08186: invalid timestamp specified</td>
+                        <td>Issue with flashback recovery.</td>
+                        <td>Ensure the table is in the RECYCLEBIN and flashback is supported.</td>
                     </tr>
                     <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
+                        <td>ORA-38301: not a valid object in the recycle bin</td>
+                        <td>Attempt to purge a non-existent table from the recycle bin.</td>
+                        <td>Verify the table name using SHOW RECYCLEBIN.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
+                        <td>ORA-00903: invalid table name</td>
+                        <td>Invalid table name specified.</td>
+                        <td>Use correct table name format.</td>
                     </tr>
                     <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-00933: SQL command not properly ended</td>
+                        <td>Incorrect syntax.</td>
+                        <td>Fix the syntax.</td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
+
+            <h2>Advantages and Disadvantages of DROP TABLE</h2>
             <table>
                 <thead>
                     <tr>
@@ -812,72 +985,97 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
+                        <td>Frees up storage space immediately.</td>
+                        <td>Data is lost permanently if PURGE is used.</td>
                     </tr>
                     <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
+                        <td>Helps in database cleanup by removing unused tables.</td>
+                        <td>If dropped without PURGE, recovery might lead to corruption if data is modified.</td>
                     </tr>
                     <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
+                        <td>Ensures clean removal of dependent objects when CASCADE CONSTRAINTS is used.</td>
+                        <td>May cause invalidation of dependent objects (views, triggers).</td>
                     </tr>
                     <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
+                        <td>FLASHBACK allows recovery if PURGE is not used.</td>
+                        <td>Performance issues if many objects are dropped simultaneously.</td>
                     </tr>
                     <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>Helps in schema redesign by removing obsolete tables.</td>
+                        <td>Large tables with many indexes may take time to drop.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            </table><br>
+            <h2>Limitations of DROP TABLE</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Do's</th>
-                        <th>Don'ts</th>
+                        <th>Limitation</th>
+                        <th>Details</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Recycle Bin Dependency</td>
+                        <td>FLASHBACK is not possible if the recycle bin is disabled or PURGE is used.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Foreign Key Constraints</td>
+                        <td>Requires CASCADE CONSTRAINTS if there are foreign key references.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Partitioned Tables</td>
+                        <td>Dropping a partitioned table drops all partitions and their data.</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
+                        <td>Materialized Views</td>
+                        <td>Dropping a table used in a materialized view causes the view to become invalid.</td>
                     </tr>
                     <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Rollback Not Supported</td>
+                        <td>A DROP TABLE operation cannot be rolled back using ROLLBACK.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts of DROP TABLE</h2>
+            <table>
+                <tr>
+                    <th>Do's</th>
+                    <th>Don'ts</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>Use DROP TABLE with PURGE only when permanent removal is intended.</td>
+                        <td>Don’t use DROP TABLE on active tables during business hours.</td>
+                    </tr>
+                    <tr>
+                        <td>Use CASCADE CONSTRAINTS when dropping tables with foreign keys.</td>
+                        <td> Don’t drop system tables or Oracle-maintained objects.</td>
+                    </tr>
+                    <tr>
+                        <td>Verify if the table is still required before dropping.</td>
+                        <td>Don’t drop a table referenced by other objects without reviewing dependencies.</td>
+                    </tr>
+                    <tr>
+                        <td>Use FLASHBACK to recover tables when PURGE is not used.</td>
+                        <td>Don’t rely on FLASHBACK if the recycle bin is disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>Use DROP carefully in production environments.</td>
+                        <td>Don’t drop large tables without estimating the impact on performance.</td>
                     </tr>
                 </tbody>
             </table> <br>
             <h2>Best Practices</h2>
             <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
+                <li>Always back up data before dropping tables.</li>
+                <li>Use FLASHBACK to recover dropped tables if the recycle bin is enabled.</li>
+                <li>Use CASCADE CONSTRAINTS cautiously to avoid accidental removal of dependent objects.</li>
+                <li>Avoid dropping large tables during peak hours — it can cause locking and performance issues.</li>
+                <li>Always test in a development environment before executing in production.</li>
+            </ul> <br><br><br>
 
 
-            <br><br><br>
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

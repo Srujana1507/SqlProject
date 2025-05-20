@@ -1,0 +1,3415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUKDB/KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="/KUKDB/Oracle/orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql.html?topic=sqlSelectTable" id="sqlSelectTable">Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectdistinct.html" id="sqlSelectDistinct">Select Distinct</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_logicaloperators.html" id="sqlLogicalOperators">Logical
+                            Operators</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_between.html" id="sqlBetween">Between</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="/KUKDB/Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="/KUKDB/Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html" id="sqlCompOperators">Comparison
+                            Operators</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual" id="sqlEqual">Equal =
+                        </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual" id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_leftouterjoin.html" id="sqlLeftJoin">Left
+                            Outer Join</a>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_fullouterjoin.html" id="sqlFullOuterJoin">Full Outer Join</a>
+                    </li>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_crossjoin.html" id="sqlCrossJoin">Cross
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selfjoin.html" id="sqlSelfJoin">Self
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_naturaljoin.html" id="sqlNaturalJoin">Natural Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_equijoin.html" id="sqlEquiJoin">Equi
+                            Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_nonequijoin.html" id="sqlNonEquiJoin">Non-Equi Join</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html" id="sqlNumaricFunctions">Numeric
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign" id="sqlAbsSign">Abs(x),
+                            Sign</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlBitand"
+                            id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlCeil" id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlExp" id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound"
+                            id="sqlFloorRound">Floor, Round</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlMod" id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSqrt" id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlTrunc" id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan"
+                            id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=sqlAsin" id="sqlAsinAcos">ASIN(n),
+                            ACOS(n) </a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">SINH(n), COSH(n),
+                            TANH(n)</a> </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">ATAN(n),
+                            ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="/KUKDB/Oracle/orclsql_arithmeticoperators.html"
+                                id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                        <li><a href="/KUKDB/Oracle/orclsql_relationaloperators.html"
+                                id="sqlRelationalOperators">Relational Operators</a></li>
+
+                    </ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html"
+                            id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg" id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlCount"
+                            id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMax" id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMin" id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian"
+                            id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev"
+                            id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlSum" id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html" id="sqlstringfunctions">String
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlAscii" id="sqlAscii">ASCII</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlChar" id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlconcat" id="sqlconcat">CONCAT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlInitcap"
+                            id="sqlInitcap">INITCAP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlInstr" id="sqlInstr">INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLength" id="sqlLength">Length</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLowerUpper"
+                            id="sqlLowerUpper">Lower, Upper</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlLpadRpad" id="sqlLpadRpad">Lpad,
+                            Rpad</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlTrim" id="sqlTrim">Trim, RTrim,
+                            LTrim</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlReplace"
+                            id="sqlReplace">REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlSubstr" id="sqlSubstr">SUBSTR</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlSOUNDEX"
+                            id="sqlSOUNDEX">SOUNDEX</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_stringfunctions.html?topic=sqlVSIZE" id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="/KUKDB/Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated
+                            Sub Queries</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timestampfunctions.html" id="sqlTimestampFunctions">Timestamp
+                            Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timeintervalfunctions.html" id="sqlTimeIntervalFunctions">Time
+                            Interval Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_timezonefunctions.html" id="sqlTimeZoneFunctions">Time Zone
+                            Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_alter.html" id="sqlinsert">ALTER</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_truncate.html" id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_returning.html" id="sqlreturning">RETURNING</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_primarykey.html" id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_foreginkey.html" id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_default.html" id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a>
+                    </li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html" id="sqlRankingFunctions">Ranking Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownum" id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlRank" id="sqlRank">RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlCumeDist"
+                            id="sqlCumeDist">CUME_DIST</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlNtile" id="sqlNtile">NTILE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclRankingfunctions.html?topic=sqlHypothetical"
+                            id="sqlHypothetical">HYPOTHETICAL</a></li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html" id="sqlGroupFunctions">Group By Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlPartitionby"
+                            id="sqlPartitionby">PARTITION BY</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlCube" id="sqlCube">CUBE</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlRollup" id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGrouping" id="sqlGrouping">GROUPING</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="/KUKDB/Oracle/orclGroupfunctions.html?topic=sqlGroupId" id="sqlGroupId">GROUP_ID</a>
+                    </li>
+
+                    <li><a href="/KUKDB/Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+                    <li><a href="/KUKDB/Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+
+
+                    <li><a href="/KUKDB/Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_insertinto_select.html" id="sqlInsertintoselect">Insert into
+                            Select</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="/KUKDB/Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+        <main class="sidebar-content" data-topic="sqlCase">
+
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+            <br>
+
+            <h1>What are Constraints in Oracle SQL</h1>
+            <p>A constraint is a rule enforced on data in a table to ensure the validity, integrity, and consistency of
+                the data. Oracle applies constraints either at the column level or table level.
+            </p><br>
+            <p>Constraints are enforced automatically by Oracle and help prevent invalid data entry, such as duplicate
+                values in a unique column, null values in required fields, or invalid references between tables.</p><br>
+
+            <p>It ensures data accuracy, integrity, and reliability in a database.</p><br>
+            <h2>Why Constraints are Important</h2>
+            <ul>
+                <li>Maintain data integrity (accuracy and reliability).</li>
+                <li>Prevent invalid data entry.</li>
+                <li>Enforce relationships between tables (e.g., foreign key).</li>
+                <li>Enhance query performance through indexing (e.g., primary key).</li>
+                <li>Provide business rule enforcement at the database level.</li>
+            </ul><br>
+            <h2>Benefits of Using Constraints</h2>
+            <ul>
+                <li>Prevents invalid data entry</li>
+                <li>Enforces business rules</li>
+                <li>Improves data quality</li>
+                <li>Reduces the need for complex data validation logic in applications</li>
+            </ul><br>
+            <h2>Categories of Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constraint Type</th>
+                        <th>Keyword</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>PRIMARY KEY</b></td>
+                        <td>PRIMARY KEY</td>
+                        <td>Combines NOT NULL and UNIQUE — ensures each row is uniquely identifiable</td>
+                    </tr>
+                    <tr>
+                        <td><b>FOREIGN KEY</b></td>
+                        <td>FOREIGN KEY</td>
+                        <td>Ensures the value in a column matches a value in another table</td>
+                    </tr>
+                    <tr>
+                        <td><b>NOT NULL</b></td>
+                        <td>NOT NULL</td>
+                        <td>Column must have a value (cannot be NULL)</td>
+                    </tr>
+                    <tr>
+                        <td><b>UNIQUE</b></td>
+                        <td>UNIQUE</td>
+                        <td>No two rows can have the same value in this column</td>
+                    </tr>
+                    <tr>
+                        <td><b>CHECK</b></td>
+                        <td>CHECK</td>
+                        <td>Ensures that the values meet a specific condition</td>
+                    </tr>
+                    <tr>
+                        <td><b>DEFAULT</b></td>
+                        <td>DEFAULT</td>
+                        <td>Automatically inserts a default value if no value is provided</td>
+                    </tr>
+                    <tr>
+                        <td><b>DEFERRABLE </b></td>
+                        <td>DEFERRABLE </td>
+                        <td>This is useful in complex transactional logic.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Constraints can be defined in two ways</h2>
+            <p><b>1. Inline (Column Level) Constraints : </b></p>
+            <ul>
+                <li>An inline constraint is written directly along with the
+                    column definition when creating or altering a table.</li>
+                <li>It applies to that specific column only.</li>
+                <li>Defined directly after the column definition</li>
+            </ul> <br>
+
+            <h2>Syntax Example </h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER <span class="orclkey">PRIMARY KEY </span>, <br>
+                            emp_name   VARCHAR2(100) <span class="orclkey">NOT NULL</span>, <br>
+                            salary     NUMBER <span class="orclkey">CHECK</span>(salary > 0) 
+                        </ul>
+                    )
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+            <ul>
+                <li>PRIMARY KEY is defined inline on emp_id</li>
+                <li>NOT NULL is inline on emp_name</li>
+                <li>CHECK (salary > 0) is inline on salary</li>
+            </ul><br>
+            <h2>Key Points</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Applies to</td>
+                        <td>One column only</td>
+                    </tr>
+                    <tr>
+                        <td>Used with</td>
+                        <td>NOT NULL, UNIQUE, PRIMARY KEY, CHECK, DEFAULT</td>
+                    </tr>
+                    <tr>
+                        <td>Easier for</td>
+                        <td>Simple constraints related to a single column</td>
+                    </tr>
+                    <tr>
+                        <td>Cannot be used for</td>
+                        <td>Multi-column constraints (e.g., composite primary keys)</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <p><b>2. Out-of-line (Table Level) Constraints</b></p>
+            <ul>
+                <li>An out-of-line constraint is written separately after all columns are defined, usually at the end of
+                    the table definition.</li>
+                <li>Defined at the end of the column definitions in a CREATE TABLE or ALTER TABLE statement.</li>
+                <li>This method is used for: </li>
+                <ul>
+                    <li>Naming constraints</li>
+                    <li>Applying constraints to multiple columns (like composite keys)</li>
+                    <li>Better readability for complex rules</li>
+                </ul>
+            </ul><br>
+            <h2>Syntax Example </h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER , <br>
+                            emp_name   VARCHAR2(100) , <br>
+                            salary     NUMBER , <br>
+                            <span class="orclkey">CONSTRAINT </span> pk_emp_id <span class="orclkey"> PRIMARY KEY </span> (emp_id),  <br>
+                            <span class="orclkey">CONSTRAINT </span> chk_salary  <span class="orclkey"> CHECK  </span> (salary > 0)  <br>
+                        </ul>
+                    )
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+            <ul>
+                <li>pk_emp_id is the name given to the primary key constraint.</li>
+                <li>chk_salary is the name given to the check constraint.</li>
+            </ul><br>
+            <h2>Key Points</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Can apply to</td>
+                        <td>Single or multiple columns</td>
+                    </tr>
+                    <tr>
+                        <td>Used with</td>
+                        <td>All types of constraints</td>
+                    </tr>
+                    <tr>
+                        <td>Allows naming</td>
+                        <td>You can explicitly name the constraint</td>
+                    </tr>
+                    <tr>
+                        <td>Required for</td>
+                        <td>Composite constraints (e.g., PRIMARY KEY(emp_id, dept_id))</td>
+                    </tr>
+                    <tr>
+                        <td>Improves readability</td>
+                        <td>Keeps column definitions clean</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Summary Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Inline (Column Level)</th>
+                        <th>Out-of-line (Table Level)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Placement</td>
+                        <td>Directly on column</td>
+                        <td>After all column definitions</td>
+                    </tr>
+                    <tr>
+                        <td>Best for</td>
+                        <td>Single-column constraints</td>
+                        <td>Multi-column or named constraints</td>
+                    </tr>
+                    <tr>
+                        <td>Allows constraint names</td>
+                        <td>Optional (rarely used)</td>
+                        <td>Common and recommended</td>
+                    </tr>
+                    <tr>
+                        <td>Types supported</td>
+                        <td>All (except multi-column)</td>
+                        <td>All</td>
+                    </tr>
+                    <tr>
+                        <td>Readability for complex logic</td>
+                        <td>Low</td>
+                        <td>High</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Important Points to Remember !!</h2>
+            <ul>
+                <li>A table can have only one PRIMARY KEY.</li>
+                <li>A table can have multiple UNIQUE constraints.</li>
+                <li>A FOREIGN KEY must match the primary or unique key of another table.</li>
+                <li>NOT NULL is the only constraint that must be defined at the column level.</li>
+                <li>Constraints can be named for easy reference or Oracle will give them a system-generated name.</li>
+            </ul> <br>
+            <h2>Benefits of Constraints in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Benefit</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ensures Data Integrity</td>
+                        <td>Prevents invalid or inconsistent data from being entered.</td>
+                    </tr>
+                    <tr>
+                        <td>Enforces Business Rules</td>
+                        <td>Makes sure the data follows specific rules (e.g., age must be > 18).</td>
+                    </tr>
+                    <tr>
+                        <td>Reduces Application Errors</td>
+                        <td>Less need to validate data in application code.</td>
+                    </tr>
+                    <tr>
+                        <td>Improves Data Consistency</td>
+                        <td>All rows follow the same structure and rules.</td>
+                    </tr>
+                    <tr>
+                        <td>Prevents Duplicate or Missing Data</td>
+                        <td>With PRIMARY KEY, UNIQUE, and NOT NULL, ensures required and unique data.</td>
+                    </tr>
+                    <tr>
+                        <td>Supports Relationships Between Tables</td>
+                        <td>FOREIGN KEY maintains links between parent and child tables.</td>
+                    </tr>
+                    <tr>
+                        <td>Makes Debugging Easier</td>
+                        <td>Clearly see what rule was violated when data errors occur.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>How to View Constraints in Oracle</h2>
+            <p>You can view constraints using these data dictionary views:</p>
+            <ul>
+                <li>USER_CONSTRAINTS - shows all constraints owned by the current user</li>
+                <li>ALL_CONSTRAINTS - shows constraints accessible to the user</li>
+                <li>DBA_CONSTRAINTS - shows all constraints in the database (requires DBA access)</li>
+            </ul><br>
+            <h2>Constraint Names</h2>
+            <ul>
+                <li>If you don't specify a name, Oracle generates a system name like SYS_C005401.</li>
+                <li>Best practice: Always name your constraints for better readability and management.</li>
+            </ul><br>
+            <h2>Managing Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Enable Constraint</b></td>
+                        <td>ALTER TABLE table_name ENABLE CONSTRAINT constraint_name;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Disable Constraint</b></td>
+                        <td>ALTER TABLE table_name DISABLE CONSTRAINT constraint_name;</td>
+                    </tr>
+                    <tr>
+                        <td><b>Drop Constraint</b></td>
+                        <td>ALTER TABLE table_name DROP CONSTRAINT constraint_name;</td>
+                    </tr>
+                    <tr>
+                        <td><b>View Constraints</b></td>
+                        <td>SELECT * FROM user_constraints WHERE table_name = 'YOUR_TABLE';</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Behavior Notes</h2>
+            <ul>
+                <li>Constraints are checked on DML (INSERT, UPDATE) and sometimes on DDL (ALTER).</li>
+                <li>If a constraint is violated, Oracle throws an ORA error (e.g., ORA-00001, ORA-02291).</li>
+                <li>You can defer constraint checking using DEFERRABLE INITIALLY DEFERRED (for foreign keys or check
+                    constraints).</li>
+            </ul> <br>
+            <h2>System Views for Constraints</h2>
+            <ul>
+                <li>USER_CONSTRAINTS - Constraints on user's own tables.</li>
+                <li>ALL_CONSTRAINTS - Constraints accessible to the user.</li>
+                <li>DBA_CONSTRAINTS - All constraints in the database (requires DBA access).</li>
+            </ul> <br>
+            <h2>Summary Table of Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constraint</th>
+                        <th>Null Allowed</th>
+                        <th>Duplicate Allowed</th>
+                        <th>Multiple per Table?</th>
+                        <th>Enforces Relation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>PRIMARY KEY</b></td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td><b>FOREIGN KEY</b></td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+
+                        <td><b>UNIQUE</b></td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td><b>NOT NULL</b></td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td><b>CHECK</b></td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>NA</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's of Using Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Why</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use meaningful constraint names</td>
+                        <td>Easier to understand and manage (e.g., CHK_EMP_AGE instead of SYS_C001234).</td>
+                    </tr>
+                    <tr>
+                        <td>Apply NOT NULL to mandatory columns</td>
+                        <td>To make sure required data is always entered.</td>
+                    </tr>
+                    <tr>
+                        <td>Use PRIMARY KEY to identify each row</td>
+                        <td>Ensures uniqueness and prevents nulls.</td>
+                    </tr>
+                    <tr>
+                        <td>Use FOREIGN KEY to link related tables</td>
+                        <td>Maintains referential integrity.</td>
+                    </tr>
+                    <tr>
+                        <td>Use CHECK for business validations</td>
+                        <td>Like ensuring age > 18, or salary > 0.</td>
+                    </tr>
+                    <tr>
+                        <td>Document constraint rules in your design</td>
+                        <td>Helps developers understand the data rules.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Don'ts of Using Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Don'ts</th>
+                        <th>Why</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Don’t use system-generated constraint names</td>
+                        <td>They're hard to understand and maintain.</td>
+                    </tr>
+                    <tr>
+                        <td>Don’t overuse CHECK constraints for complex logic</td>
+                        <td>Use them only for simple conditions, not for business workflows.</td>
+                    </tr>
+                    <tr>
+                        <td>Don’t apply FOREIGN KEYs without proper indexing</td>
+                        <td>May lead to poor performance during joins or deletes.</td>
+                    </tr>
+                    <tr>
+                        <td>Don’t forget to add NOT NULL for important columns</td>
+                        <td>Data might be saved without key information.</td>
+                    </tr>
+                    <tr>
+                        <td>Don’t disable constraints in production without reason</td>
+                        <td>It risks data corruption or inconsistency.</td>
+                    </tr>
+                    <tr>
+                        <td>Don’t assume constraints will improve performance</td>
+                        <td>Constraints are for validation, not optimization</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Summary Table of Oracle SQL Constraints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constraint</th>
+                        <th>Description</th>
+                        <th>Allows NULL?</th>
+                        <th>Allows Duplicates?</th>
+                        <th>Auto Index?</th>
+                        <th>Composite Allowed?</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>PRIMARY KEY</b></td>
+                        <td>Uniquely identifies each row in a table</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Only one per table. Combines NOT NULL + UNIQUE</td>
+                    </tr>
+                    <tr>
+                        <td><b>UNIQUE</b></td>
+                        <td>Ensures all values in the column(s) are different</td>
+                        <td>Yes</td>
+                        <td>No (except NULLs)</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Allows multiple NULLs; can define multiple UNIQUEs per table</td>
+                    </tr>
+                    <tr>
+                        <td><b>NOT NULL</b></td>
+                        <td>Ensures the column cannot store NULL values</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Automatically applied to PRIMARY KEY columns</td>
+                    </tr>
+                    <tr>
+                        <td><b>CHECK</b></td>
+                        <td>Validates values based on a logical expression or condition</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Does not support subqueries or functions like SYSDATE inside checks</td>
+                    </tr>
+                    <tr>
+                        <td><b>DEFAULT</b></td>
+                        <td>Automatically assigns a value if none is provided in an INSERT</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Not applied if NULL is inserted explicitly</td>
+                    </tr>
+                    <tr>
+                        <td><b>FOREIGN KEY</b></td>
+                        <td>Creates a relationship between two tables (parent-child relationship)</td>
+                        <td>Yes</td>
+                        <td>Yes (based on ref)</td>
+                        <td>Yes (optional)</td>
+                        <td>Yes</td>
+                        <td>Values must exist in parent table (REFERENCES)</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>When to Use Which Constraint</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Recommended Constraint(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Identify each row uniquely</td>
+                        <td>PRIMARY KEY</td>
+                    </tr>
+                    <tr>
+                        <td>Prevent duplicate entries in a column</td>
+                        <td>UNIQUE</td>
+                    </tr>
+                    <tr>
+                        <td>Ensure a column always has a value</td>
+                        <td>NOT NULL</td>
+                    </tr>
+                    <tr>
+                        <td>Validate data range or values</td>
+                        <td>CHECK</td>
+                    </tr>
+                    <tr>
+                        <td>Provide default values automatically</td>
+                        <td>DEFAULT</td>
+                    </tr>
+                    <tr>
+                        <td>Link tables and maintain referential integrity</td>
+                        <td>FOREIGN KEY</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Constraint Combinations (Examples)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Example Requirement</th>
+                        <th>Constraint Combination</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Employee ID must be unique and mandatory</td>
+                        <td>PRIMARY KEY (auto applies NOT NULL + UNIQUE)</td>
+                    </tr>
+                    <tr>
+                        <td>Email should be unique but not mandatory</td>
+                        <td>UNIQUE</td>
+                    </tr>
+                    <tr>
+                        <td>Age must be 18 or older</td>
+                        <td>CHECK (age >= 18)</td>
+                    </tr>
+                    <tr>
+                        <td>Order date should default to today’s date</td>
+                        <td>DEFAULT SYSDATE</td>
+                    </tr>
+                    <tr>
+                        <td>Each product order must refer to a valid product</td>
+                        <td>FOREIGN KEY (product_id) REFERENCES products(id)</td>
+                    </tr>
+                </tbody>
+            </table><br>
+
+
+            <br><br>
+
+
+            <h1>PRIMARY KEY in Oracle SQL</h1>
+            <p>A <b>PRIMARY KEY</b> is a constraint that uniquely identifies each record in a table. It ensures two
+                things:</p>
+            <ul>
+                <li><b>Cannot have duplicate values:-</b> No two rows can have the same value(s) in the primary key
+                    column(s).</li>
+                <li><b>Cannot have NULL values:-</b> A primary key column cannot have NULL values.</li>
+                <li>Is used to enforce uniqueness and not-null condition in a table.</li>
+            </ul><br>
+            <h2>Key Rules of PRIMARY KEY</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rule</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Only one PRIMARY KEY per table</b></td>
+                        <td>But it can consist of one or more columns</td>
+                    </tr>
+                    <tr>
+                        <td><b>Automatically NOT NULL</b></td>
+                        <td>You don’t need to define NOT NULL separately</td>
+                    </tr>
+                    <tr>
+                        <td><b>Automatically creates an index</b></td>
+                        <td>Helps improve performance in searches/joins</td>
+                    </tr>
+                    <tr>
+                        <td><b>Must be unique across the table</b></td>
+                        <td>Duplicate values are not allowed</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Properties of PRIMARY KEY</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Uniqueness</b></td>
+                        <td>No duplicates allowed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NOT NULL</b></td>
+                        <td>Cannot contain NULL values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>One per table</b></td>
+                        <td>A table can have only one primary key.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Single or Composite</b></td>
+                        <td>Can consist of one or more columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Creation</b></td>
+                        <td>Automatically creates a unique index.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax of PRIMARY KEY</h2>
+            <p><b>1. Inline (Column Level)</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER <span class="orclkey"> PRIMARY KEY  </span> , <br>
+                            emp_name   VARCHAR2(100) <br>
+                            )
+                       <b> ; </b>
+                        </ul>
+                     
+                        </code>
+            </div><br>
+            <p><b>2. Out-of-line (Table Level) with Name</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER , <br>
+                            emp_name   VARCHAR2(100) , <br>
+                            <span class="orclkey">CONSTRAINT  </span> pk_emp 
+                            <span class="orclkey"> PRIMARY KEY  </span> 
+                            (emp_id) <br>
+                            )
+                       <b> ; </b> 
+                        </ul>
+                    
+                        </code>
+            </div><br>
+            <h2>Examples:</h2>
+            <p><b>Scenario 1: Single Column PRIMARY KEY:- </b> ( Creating a new table (customers) with a column
+                (customer_id) defined as the primary key to enforce uniqueness and not-null constraints automatically. )
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> customers  ( 
+                        <ul>
+                            customer_id NUMBER  <span class="orclkey"> PRIMARY KEY  </span> , <br>
+                            name VARCHAR2(50)
+                             <br>
+                            )
+                       <b> ; </b> 
+                        </ul>    <br>
+                        <ul>
+                <li>customer_id uniquely identifies each customer.</li>
+                <li>No duplicate customer_id allowed.</li>
+                <li>No NULLs allowed.</li>
+            </ul>                
+                        </code>
+            </div><br>
+
+            <p><b>Scenario 2: Composite PRIMARY KEY (Multiple Columns):- </b> a composite (or compound) primary key is
+                created using two columns (student_id and course_id) together to ensure the uniqueness of each
+                enrollment record.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> enrollments   ( 
+                        <ul>
+                            student_id NUMBER , <br>
+                            course_id NUMBER,<br>
+                            <span class="orclkey">CONSTRAINT  </span> pk_enrollment 
+                            <span class="orclkey">PRIMARY KEY </span> (student_id, course_id) <br>
+                            )
+                       <b> ; </b> 
+                        </ul> <br>
+                        <ul>
+                <li>A combination of student_id and course_id is unique.</li>
+                <li>Same student can enroll in different courses.</li>
+                <li>Same course can be taken by different students.</li>
+                <li>But the same student cannot enroll in the same course twice.</li>
+            </ul>                   
+                        </code>
+            </div><br><br>
+
+            <p><b>Scenario 3: Define Primary Key After Table Creation</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ALTER TABLE  </span> employees <b>;</b><br><br>
+                        
+                            <span class="orclkey">ADD CONSTRAINT </span> pk_emp 
+                            <span class="orclkey">PRIMARY KEY </span> (emp_id) 
+                       <b> ; </b>  <br> <br>
+                        <ul>
+                            <li>Used when the table already exists.</li>
+                            <li>You can also drop and re-add if needed.</li>
+                        </ul>
+                        </code>
+            </div><br><br>
+            <p><b>Scenario 4: Trying to Insert Duplicate or NULL - Error</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO  </span> customers (customer_id, name)
+                    <span class="orclkey">VALUES  </span> (1,  <span class="orclg">'Uday'</span>)
+                     <b>;</b><br>
+                     <span class="orclkey">INSERT INTO  </span> customers (customer_id, name)
+                    <span class="orclkey">VALUES  </span> (1,  <span class="orclg">'Kankati'</span>)
+                     <b>;</b><br>
+                     - - Error: Duplicate <br>
+                     <span class="orclkey">INSERT INTO  </span> customers (customer_id, name)
+                    <span class="orclkey">VALUES  </span> (,  <span class="orclg">'Harsha'</span>)
+                     <b>;</b><br>
+                     - - Error: NULL not allowed <br>
+                        </code>
+            </div><br><br>
+            <p><b>Scenario 5: Dropping a PRIMARY KEY</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ALTER TABLE  </span> employees <b>;</b><br><br>
+                        
+                            <span class="orclkey">DROP CONSTRAINT </span> pk_emp <b> ; </b> <br>
+                        <ul>
+                            <li>Removes the primary key.</li>
+                            <li>Also drops the associated index.</li>
+                        </ul>
+                        </code>
+            </div><br><br>
+            <p><b>Scenario 6: Using PRIMARY KEY with FOREIGN KEY (Parent Table)</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> departments (
+                        <ul>
+                            dept_id NUMBER <span class="orclkey">PRIMARY KEY</span>,<br>
+                            dept_name VARCHAR2(50) <br>
+                     ) <b>;</b>
+                        </ul>
+                        </code>
+            </div><br><br>
+            <ul>Then used in another table:</ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees  (
+                        <ul>
+                            emp_id NUMBER  <span class="orclkey">PRIMARY KEY</span>,<br>
+                            emp_name VARCHAR2(100), <br>
+                            dept_id NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT </span> fk_dept 
+                            <span class="orclkey">FOREIGN KEY </span> (dept_id) <br>
+                            <span class="orclkey">REFERENCES </span> departments(dept_id)
+                     ) <b>;</b> 
+                        </ul> <br>
+                        <ul>-- Here, emp_id is the primary key in employees, and dept_id is a foreign key referencing departments.</ul>
+                        </code>
+            </div><br><br>
+
+            <p><b>Scenario 7: Primary Key + Unique Together</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> users   (
+                        <ul>
+                            user_id NUMBER  <span class="orclkey">PRIMARY KEY</span>,<br>
+                            email VARCHAR2(100)
+                            <span class="orclkey"> UNIQUE </span> <br>
+                     ) <b>;</b> 
+                        </ul> <br>
+                        <ul>
+                            <li>user_id is the primary key.</li>
+                            <li>email must be unique but can be NULL.</li>
+                        </ul>
+                        </code>
+            </div><br><br>
+            <p><b>Scenario 8: Check Existing Constraints</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> constraint_name, constraint_type, table_name <br>
+                        <ul>
+                           <span class="orclkey">FROM </span> user_constraints <br>
+                           <span class="orclkey">WHERE </span> table_name = <span class="orclg">'EMPLOYEES' </span>
+                        </ul> <br>
+                        <ul>
+                            <li>CONSTRAINT_TYPE = 'P' indicates a Primary Key.</li>
+                        </ul>
+                        </code>
+            </div><br><br>
+            <h2>Common Errors with PRIMARY KEY</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Message</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ORA-00001:</b> unique constraint violated</td>
+                        <td>Inserting duplicate primary key value</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-01400:</b> cannot insert NULL</td>
+                        <td>Trying to insert NULL in primary key</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORA-02260:</b> table can have only one primary key</td>
+                        <td>You tried to create more than one PK</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Best Practices for PRIMARY KEY !!</h2>
+            <ul>
+                <li>Always name your constraint (CONSTRAINT pk_table_name).</li>
+                <li>Use a meaningful, immutable column (like emp_id, invoice_no) as PK.</li>
+                <li>Avoid using large VARCHARs as PKs (prefer NUMBER or smaller types).</li>
+                <li>Don’t use frequently updated columns as primary keys.</li>
+                <li>Avoid NULLable columns – not allowed in PK.</li>
+                <li>Prefer single-column PKs unless business rules demand a composite.</li>
+            </ul><br>
+            <h2>Do's and Don'ts for PRIMARY KEY</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name your primary key constraints clearly </td>
+                        <td>Don’t use system-generated names like SYS_C00123</td>
+                    </tr>
+                    <tr>
+                        <td>Use single column PK if possible</td>
+                        <td>Don’t overcomplicate with multi-column PKs unless required.</td>
+                    </tr>
+                    <tr>
+                        <td>Index foreign key columns that reference PK</td>
+                        <td>Don’t drop primary key in production without full check</td>
+                    </tr>
+                    <tr>
+                        <td>Use composite PK only when natural key exists</td>
+                        <td>Don’t use meaningless combinations unless needed</td>
+                    </tr>
+                </tbody>
+            </table> <br><br><br>
+
+            <h1>FOREIGN KEY in Oracle SQL</h1>
+            <ul>
+                <li>A FOREIGN KEY is a constraint used to link two tables.</li>
+                <li>It ensures that the value in one column (or columns) matches a value in another table’s PRIMARY KEY
+                    or
+                    UNIQUE column.</li>
+                <li>It makes sure that a record in one table must be related to a record in another table.</li>
+            </ul>
+            <br>
+            <h2>Purpose of FOREIGN KEY</h2>
+            <ul>
+                <li>Maintains referential integrity between tables.</li>
+                <li>Prevents inserting invalid values into the child table.</li>
+                <li>Prevents deleting rows from the parent table if they are being referenced in the child table (unless
+                    cascading is used).</li>
+            </ul> <br>
+            <h2>Basic Terminology</h2>
+            <ul>
+                <li><b>Parent Table:- </b> The table that has the primary or unique key (e.g., departments).</li>
+                <li><b>Child Table:- </b> The table that refers to the parent using a foreign key (e.g., employees).
+                </li>
+                <li><b>Referential Integrity:- </b> Ensures that references between tables remain valid.</li>
+            </ul> <br>
+            <h2>Syntax of FOREIGN KEY</h2>
+            <p><b>1. Inline (Column Level)</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER <span class="orclkey"> PRIMARY KEY  </span> , <br>
+                            emp_name   VARCHAR2(100), <br>
+                            dept_id    NUMBER <span class="orclkey"> REFERENCES  </span>
+                            departments(dept_id) <br>
+                            )
+                       <b> ; </b>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>2. Out-of-line (Table Level with Constraint Name) </b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER <span class="orclkey"> PRIMARY KEY  </span> , <br>
+                            emp_name   VARCHAR2(100), <br>
+                            dept_id    NUMBER, <br>
+                           <span class="orclkey"> CONSTRAINT  </span> fk_dept  
+                           <span class="orclkey"> FOREIGN KEY  </span>
+                            (dept_id) <span class="orclkey"> REFERENCES  </span>
+                            departments(dept_id) <br>
+                            )
+                       <b> ; </b>
+                        </ul>
+                    </code>
+            </div><br>
+            <h2>Properties of FOREIGN KEY</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Can allow NULLs</b></td>
+                        <td>Yes (unless NOT NULL is also applied)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Can be composite</b></td>
+                        <td>Yes, referencing multiple columns</td>
+                    </tr>
+                    <tr>
+                        <td><b>Can reference PRIMARY or UNIQUE keys</b></td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cascade options</b></td>
+                        <td>ON DELETE CASCADE, ON DELETE SET NULL</td>
+                    </tr>
+                    <tr>
+                        <td><b>Deferred constraints</b></td>
+                        <td>Optional: DEFERRABLE INITIALLY DEFERRED</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>How It Works</h2>
+            <ul>
+                <li>When inserting or updating in the child table, the referenced value must exist in the parent table.
+                </li>
+                <li>Deleting from the parent table is restricted unless handled with ON DELETE rules or the value is not
+                    referenced.</li>
+            </ul> <br>
+            <h2>Scenario of FOREIGN KEY in Oracle SQL</h2>
+            <p><b>Scenario 1:- </b> Basic Foreign Key Relationship.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> departments ( 
+                        <ul>
+                            dept_id NUMBER <span class="orclkey"> PRIMARY KEY  </span> , <br>
+                            emp_name   VARCHAR2(100) <br>
+                        
+                            )
+                       <b> ; </b> </ul><br><br>
+
+
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id     NUMBER <span class="orclkey"> PRIMARY KEY  </span> , <br>
+                            emp_name   VARCHAR2(100), <br>
+                            dept_id    NUMBER, <br>
+                           <span class="orclkey"> CONSTRAINT  </span> fk_emp_dept  
+                           <span class="orclkey"> FOREIGN KEY  </span>
+                            (dept_id) <span class="orclkey"> REFERENCES  </span>
+                            departments(dept_id) <br>
+                            )
+                       <b> ; </b>
+                        </ul><br>
+                        <ul>
+                            <li>employees.dept_id must match a dept_id from departments</li>
+                            <li>You cannot insert an employee with a dept_id that does not exist.</li>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Attempt to Insert Orphan Record.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> employees (emp_id, emp_name, dept_id)
+                        <ul>
+                            <span class="orclkey"> VALUES </span> (101, <span class="orclg">'Uday'</span>, 999)
+                       <b> ; </b> <br>
+                       -- ORA-02291: integrity constraint (SCHEMA.FK_EMP_DEPT) violated - parent key not found <br>
+                        </ul>
+                       <ul>
+                        <li>dept_id 999 does not exist in the parent table.</li>
+                       </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 3:- </b> Insert with Matching Parent.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> departments  
+                        <ul>
+                            <span class="orclkey"> VALUES </span> (10, <span class="orclg">'HR'</span>)
+                       <b> ; </b> </ul><br>
+                       <span class="orclkey">INSERT INTO </span> employees  
+                        <ul>
+                            <span class="orclkey"> VALUES </span> (101, <span class="orclg">'Uday'</span>, 10)
+                       <b> ; </b></ul> <br>
+                       <ul>
+                        <li>Works fine - dept_id exists in both tables.</li>
+                       </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 4:- </b> Deleting Parent Row (Default Behavior)</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> departments  
+                        dept_id = 10 <b>;</b> <br>
+                        --ORA-02292: integrity constraint (SCHEMA.FK_EMP_DEPT) violated - child record found
+                       <ul>
+                        <li>By default, Oracle prevents deletion if the child row exists.</li>
+                       </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 5:- </b> Deleting Parent with CASCADE (Optional)</p>
+            <ul>
+                <li>To allow automatic delete of child rows when a parent is deleted, use ON DELETE CASCADE.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees ( 
+                        <ul>
+                            emp_id    NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            emp_name  VARCHAR2(100), <br>
+                            dept_id   NUMBER, <br>
+                            <span class="orclkey"> CONSTRAINT </span> fk_dept 
+                            <span class="orclkey"> FOREIGN KEY </span> (dept_id)
+                            <span class="orclkey"> REFERENCES </span> departments(dept_id)
+                            <span class="orclkey"> ON DELETE CASCADE </span>
+                        </ul>
+                        ) <b>;</b> <br>
+                       <ul>
+                        <li>Now if you delete a department, all its employees will be deleted automatically.</li>
+                       </ul>
+                    </code>
+            </div><br>
+
+            <p><b>Scenario 6:- </b> Composite FOREIGN KEY</p>
+            <ul>
+                <li>If parent table has a composite primary key, then foreign key must reference both columns.</li>
+            </ul>
+            <p><b>Parent:</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> orders (
+                        <ul>
+                            emp_id    NUMBER , <br>
+                            order_id NUMBER, <br>
+                            product_id NUMBER, <br>
+                            <span class="orclkey"> PRIMARY KEY</span> (order_id, product_id)
+                        </ul>
+                        ) <b>;</b> <br>
+                       <ul>
+                        <li>Now if you delete a department, all its employees will be deleted automatically.</li>
+                       </ul>
+                    </code>
+            </div><br>
+            <p><b>Child:</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> order_items (
+                        <ul>
+                            order_id NUMBER, <br>
+                            product_id NUMBER, <br>
+                            quantity NUMBER, <br>
+                            <span class="orclkey"> CONSTRAINT </span> fk_order 
+                            <span class="orclkey"> FOREIGN KEY </span> (order_id, product_id)
+                            <span class="orclkey"> REFERENCES </span> orders(order_id, product_id) 
+                        </ul>
+                        ) <b>;</b> <br>
+                    </code>
+            </div><br>
+            <p><b>Scenario 7:- </b> ON DELETE SET NULL</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id NUMBER  <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            emp_name VARCHAR2(100), <br>
+                            dept_id NUMBER, <br>
+                             <span class="orclkey"> CONSTRAINT </span> fk_emp_dept 
+                            <span class="orclkey"> FOREIGN KEY </span> (dept_id) <br>
+                            <span class="orclkey"> REFERENCES </span> departments(dept_id) 
+                            <span class="orclkey"> ON DELETE SET NULL </span>
+                        </ul>
+                        ) <b>;</b> <br>
+                       <ul>
+                        <li>When a department is deleted, the dept_id of all associated employees is set to NULL.</li>
+                       </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 8:- </b> Foreign Key to a UNIQUE Column</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id NUMBER  <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            email  VARCHAR2(100) <span class="orclkey"> UNIQUE </span> <br>
+                        </ul> ) <b>;</b>
+                        <br>
+                        <span class="orclkey">CREATE TABLE </span> user_profiles (
+                            <ul>
+                                profile_id NUMBER  <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            email  VARCHAR2(100) , <br>
+                             <span class="orclkey"> CONSTRAINT </span> fk_profile_email 
+                            <span class="orclkey"> FOREIGN KEY </span> (email) <br>
+                            <span class="orclkey"> REFERENCES </span> users(email)
+                        </ul> 
+                        ) <b>;</b> <br>
+                    </code>
+            </div><br>
+            <p><b>Scenario 9:- </b> Deferrable Foreign Keys</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id  NUMBER  <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            manager_id NUMBER, <br>
+                             <span class="orclkey"> CONSTRAINT </span> fk_mgr 
+                            <span class="orclkey"> FOREIGN KEY </span> (manager_id) <br>
+                            <span class="orclkey"> REFERENCES </span> employees(emp_id) <br>
+                            DEFERRABLE INITIALLY DEFERRED
+                        </ul> 
+                        ) <b>;</b> <br>
+                        <ul>
+                            <li>Useful for self-referencing tables (like manager → employee).</li>
+                            <li>You can delay constraint checking until commit.</li>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 10:- </b> View Foreign Keys</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> constraint_name, table_name, r_constraint_name <br>
+                        <span class="orclkey">FROM </span> user_constraints <br>
+                        <span class="orclkey">WHERE </span> constraint_type =
+                        <span class="orclg"> 'R' </span>
+                        <b> ; </b> <br>
+                        <ul>
+                            <li>constraint_type = 'R' → Referential (foreign key).</li>
+                        </ul>
+                    </code>
+            </div><br>
+
+            <h2>Common Errors with FOREIGN KEY</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Message</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-02291: integrity constraint violated</td>
+                        <td>Inserting a value in child table that doesn't exist in parent</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-02298: parent key not found</td>
+                        <td>Inserting or updating a child row with no matching parent key</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-02266: unique/primary keys in table referenced by foreign keys</td>
+                        <td>Trying to drop a parent table or column that is referenced elsewhere</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do's and Don'ts of Foreign Key</h2>
+            <table>
+                <thead>
+                    <th>Do's</th>
+                    <th>Don'ts</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Always index the foreign key column</td>
+                        <td>Don’t leave foreign keys without indexing (causes performance issues)</td>
+                    </tr>
+                    <tr>
+                        <td>Use meaningful constraint names (e.g., fk_dept)</td>
+                        <td>Don’t use system-generated names (e.g., SYS_C00012)</td>
+                    </tr>
+                    <tr>
+                        <td>Use ON DELETE CASCADE carefully</td>
+                        <td>Don’t use it unless you're sure you want child rows deleted</td>
+                    </tr>
+                    <tr>
+                        <td>Use foreign keys to model real-world relationships</td>
+                        <td>Don’t create artificial or unnecessary relationships</td>
+                    </tr>
+                </tbody>
+            </table> <br><br><br>
+
+            <h1>UNIQUE Constraint in Oracle SQL</h1>
+            <ul>
+                <li>A UNIQUE constraint ensures that all values in a column or a set of columns are different across all
+                    rows in the table.</li>
+                <li>It allows NULLs, but does not allow duplicate non-null values.</li>
+            </ul><br>
+            <h2>Purpose</h2>
+            <ul>
+                <li>Prevents duplication of data in a column or group of columns.</li>
+                <li>Enforces data integrity for alternate identifiers (e.g., email, username, national_id).</li>
+            </ul><br>
+            <h2>Key Characteristics of UNIQUE Constraint</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ensures uniqueness</td>
+                        <td>All non-null values must be unique in the column(s)</td>
+                    </tr>
+                    <tr>
+                        <td>NULLs allowed</td>
+                        <td>Yes — multiple NULL values are allowed</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple UNIQUE constraints</td>
+                        <td>You can have more than one UNIQUE constraint per table</td>
+                    </tr>
+                    <tr>
+                        <td>Index creation</td>
+                        <td>Oracle automatically creates a unique index on the column(s)</td>
+                    </tr>
+                    <tr>
+                        <td>Can be composite</td>
+                        <td>You can apply it to one or more columns together</td>
+                    </tr>
+                    <tr>
+                        <td>Primary key vs. unique</td>
+                        <td>Only one PRIMARY KEY, but multiple UNIQUE constraints allowed</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Difference Between PRIMARY KEY and UNIQUE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>PRIMARY KEY</th>
+                        <th>UNIQUE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Allows NULLs</td>
+                        <td>Not allowed</td>
+                        <td>Allowed (only once)</td>
+                    </tr>
+                    <tr>
+                        <td>Max per table</td>
+                        <td>1 per table</td>
+                        <td>Multiple allowed</td>
+                    </tr>
+                    <tr>
+                        <td>Index</td>
+                        <td>Unique B-tree index</td>
+                        <td>Unique B-tree index</td>
+                    </tr>
+                    <tr>
+                        <td>Reference target</td>
+                        <td>Yes (via FK(Foreign key))</td>
+                        <td>Yes (via FK(Foreign key))</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax of UNIQUE Constraint</h2>
+            <p><b>1. Inline (Column Level):- </b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id   NUMBER <span class="orclkey">PRIMARY KEY</span>, <br>
+                            email     VARCHAR2(100) <span class="orclkey">UNIQUE</span>
+                    ) <b>;</b>
+                        </ul>
+                        
+                    </code>
+            </div><br>
+            <p><b>2. Out-of-line (Table Level with Name):- </b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id   NUMBER , <br>
+                            email     VARCHAR2(100), <br>
+                            <span class="orclkey">CONSTRAINT</span> uq_email 
+                            <span class="orclkey"> UNIQUE </span> (email)
+                    ) <b>;</b>
+                        </ul>
+                    </code>
+            </div><br>
+            <h2>Examples of UNIQUE Constraint</h2>
+            <p><b>Scenario 1: </b> Email Address Must Be Unique</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> customers (
+                        <ul>
+                            customer_id NUMBER <span class="orclkey">PRIMARY KEY</span> , <br>
+                            email     VARCHAR2(100) <span class="orclkey"> UNIQUE </span>
+                    ) <b>;</b>
+                        </ul>
+                        <ul>
+                            <li>Prevents two customers from using the same email.</li>
+                            <li>Allows NULL if a customer doesn't provide an email.</li>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 2: </b> Mobile Number Should Be Unique, But Not Mandatory</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id   NUMBER <span class="orclkey">PRIMARY KEY</span> , <br>
+                            phone_no  VARCHAR2(15) <span class="orclkey"> UNIQUE </span> <br>
+                    ) <b>;</b>
+                        </ul><br>
+                        <ul>
+                            <li>Same phone number cannot be registered by two users.</li>
+                            <li>Multiple users can have NULL in phone_no.</li>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 3: </b> Composite UNIQUE Constraint.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> orders  (
+                        <ul>
+                            order_id NUMBER, <br>
+                            product_id NUMBER, <br>
+                            quantity NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT</span> uq_order_product
+                            <span class="orclkey"> UNIQUE </span> (order_id, product_id) <br>
+                    ) <b>;</b>
+                        </ul><br>
+                        <ul>
+                            <li>The combination of order_id and product_id must be unique.</li>
+                            <li>Same order_id or product_id can repeat alone.</li>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 4: </b> Add UNIQUE Constraint After Table Creation.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ALTER TABLE </span> employees <br>
+                            <span class="orclkey">ADD CONSTRAINT</span> uq_email 
+                            <span class="orclkey"> UNIQUE </span> (email)
+                     <b>;</b><br>
+                     <ul>
+                        <li>Applies to existing data.</li>
+                        <li>Fails if duplicates exist.</li>
+                     </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 5: </b> Named UNIQUE Constraint.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> customers (
+                        <ul>
+                            cust_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            phone_number VARCHAR2(15), <br>
+                            <span class="orclkey">CONSTRAINT </span> uq_phone 
+                            <span class="orclkey">UNIQUE </span> (phone_number) <br>
+                    ) <b>;</b>
+                        </ul>
+                        <br>
+                        <ul>
+                            <li>The constraint is named uq_phone, useful for debugging and dropping later.</li>
+                        </ul>
+                    </code>
+            </div><br>
+            <p><b>Scenario 6: </b> Insert Duplicate Value.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> customers (cust_id, phone_number)
+                    <span class="orclkey"> VALUES</span>(101, <span class="orclg">'1234567890'</span>);
+                        <b>;</b><br>
+                        <span class="orclkey">INSERT INTO </span> customers (cust_id, phone_number)
+                    <span class="orclkey"> VALUES</span>(102, <span class="orclg">'1234567890'</span>);
+                        <b>;</b><br>
+                        <br>
+                        -- ORA-00001: unique constraint (SCHEMA.UQ_PHONE) violated.
+                    </code>
+            </div><br>
+            <p><b>Scenario 7: </b> Insert NULLs in UNIQUE Column.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> customers (cust_id, phone_number)
+                    <span class="orclkey"> VALUES</span>(103, <span class="orclkey">NULL</span>);
+                        <b>;</b><br>
+                        <span class="orclkey">INSERT INTO </span> customers (cust_id, phone_number)
+                    <span class="orclkey"> VALUES</span>(104, <span class="orclkey">NULL</span>);
+                        <b>;</b><br>
+                        <br>
+                        -- Allowed -  Oracle treats NULLs as unique values in the context of UNIQUE constraints.
+                    </code>
+            </div><br>
+            <p><b>Scenario 8: </b> Drop UNIQUE Constraint.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ALTER TABLE </span> customers <br>
+                            <span class="orclkey">DROP CONSTRAINT</span> uq_phone
+                     <b>;</b><br>
+                    </code>
+            </div><br>
+            <p><b>Scenario 9: </b> Using UNIQUE Constraint with Foreign Key.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            national_id VARCHAR2(20) <span class="orclkey"> UNIQUE</span> <br>
+                    ) <b>;</b>
+                        </ul>
+                           <br>
+                           <span class="orclkey">CREATE TABLE </span> payroll  (
+                            <ul>
+                                payroll_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                                national_id VARCHAR2(20), <br>
+                                <span class="orclkey">CONSTRAINT</span> fk_nid 
+                                <span class="orclkey">FOREIGN KEY </span>(national_id)
+                                <span class="orclkey">REFERENCES </span>employees(national_id) <br>
+                           ) <b>;</b>
+                            </ul><br><br>
+                            -- A foreign key can reference a UNIQUE key, not just a PRIMARY KEY.
+                    </code>
+            </div><br>
+            <p><b>Scenario 10: </b> Check Existing UNIQUE Constraints.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> constraint_name, table_name, constraint_type <br>
+                            <span class="orclkey">FROM</span> user_constraints <br>
+                            <span class="orclkey">WHERE </span>constraint_type = <span class="orclg">'U'</span>
+                     <b>;</b><br> <br>
+                     -- constraint_type = 'U' means UNIQUE constraint.
+                    </code>
+            </div><br>
+            <p><b>Scenario 11: </b> Index Created by UNIQUE Constraint.</p><br>
+            <p>When you create a UNIQUE constraint, Oracle automatically creates a unique index.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> index_name, uniqueness <br>
+                            <span class="orclkey">FROM</span> user_indexes <br>
+                            <span class="orclkey">WHERE </span>table_name  = <span class="orclg">'USERS'</span>
+                     <b>;</b>
+                    </code>
+            </div><br>
+            <h2>Common Errors with UNIQUE Constraint</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Message</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-00001: unique constraint violated</td>
+                        <td>Trying to insert a duplicate unique value</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01452: cannot CREATE UNIQUE index</td>
+                        <td>Duplicate values already exist when adding constraint</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-02261: such unique or primary key exists</td>
+                        <td>You tried to create a duplicate index/constraint name</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do's and Don'ts of UNIQUE Constraint</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use UNIQUE when values must be different</td>
+                        <td>Don’t confuse UNIQUE with PRIMARY KEY</td>
+                    </tr>
+                    <tr>
+                        <td>Name your constraints clearly (uq_email)</td>
+                        <td>Don’t rely on system-generated names (SYS_C00992)</td>
+                    </tr>
+                    <tr>
+                        <td>Index the column if it’s often used in searches</td>
+                        <td>Don’t leave unique constraints on rarely-used columns</td>
+                    </tr>
+                    <tr>
+                        <td>Combine multiple columns only if necessary</td>
+                        <td>Don’t create unnecessary composite UNIQUE constraints</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Always name your UNIQUE constraint.</li>
+                <li>Use UNIQUE for columns like:</li>
+                <ul>
+                    <li>Emails</li>
+                    <li>Username</li>
+                    <li>National IDs</li>
+                    <li>Document Numbers</li>
+                </ul>
+                <li>Do not confuse UNIQUE with NOT NULL - they serve different purposes.</li>
+                <li>Combine UNIQUE + NOT NULL if you want both uniqueness and required values.</li>
+            </ul>
+
+            <br><br><br>
+
+            <h1>CHECK Constraint in Oracle SQL</h1>
+            <ul>
+                <li>A CHECK constraint in Oracle SQL is used to enforce a condition or rule on a column's values.</li>
+                <li>It ensures that only values satisfying a specific logical condition can be inserted or updated.</li>
+                <li><b>In simple terms: </b>It makes sure that the value stored in a column meets a certain condition.
+                </li>
+            </ul>
+            <<br>
+                <h2>Purpose of CHECK Constraint</h2>
+                <ul>
+                    <li>To limit the range, type, or format of data values.</li>
+                    <li>To enforce business rules directly at the database level.</li>
+                    <li>Acts as a data validation mechanism inside the table structure.</li>
+                </ul> <br>
+                <h2>Key Points</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Applied to</td>
+                            <td>One or more columns</td>
+                        </tr>
+                        <tr>
+                            <td>Logical expressions</td>
+                            <td>Must evaluate to TRUE or UNKNOWN</td>
+                        </tr>
+                        <tr>
+                            <td>Fails when</td>
+                            <td>Condition evaluates to FALSE</td>
+                        </tr>
+                        <tr>
+                            <td>Supports functions</td>
+                            <td>Yes (deterministic ones)</td>
+                        </tr>
+                        <tr>
+                            <td>NULL behavior</td>
+                            <td>NULL values are allowed unless restricted separately</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Syntax of CHECK Constraint</h2>
+                <p><b>1. Inline (Column Level):- </b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id    NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            age       NUMBER <span class="orclkey"> CHECK</span> (age >= 18) <br>
+                    ) <b> ;</b>
+                        </ul>                            
+                    </code>
+                </div><br>
+                <p><b>2. Out-of-line (Table Level with Constraint Name):- </b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id    NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            age       NUMBER , <br>
+                            salary    NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT </span>
+                            chk_salary <span class="orclkey"> CHECK</span> (salary >= 10000)
+                    ) <b> ;</b>
+                        </ul>                            
+                    </code>
+                </div><br>
+                <h2>Examples of CHECK Constraint</h2>
+                <p><b>Scenario 1: Age Should Be 18 or Above. </b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            age     NUMBER 
+                            <span class="orclkey"> CHECK</span> (age >= 18)
+                    ) <b> ;</b>
+                        </ul>   <br>
+                        -- Prevents inserting users younger than 18.                         
+                    </code>
+                </div><br>
+                <p><b>Scenario 2: Salary Must Be Within a Range.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            salary  NUMBER 
+                            <span class="orclkey"> CHECK</span> 
+                            (salary <span class="orclkey">BETWEEN</span> 10000 <span class="orclkey">AND</span>
+                            200000)
+                    ) <b> ;</b>
+                        </ul>   <br>
+                        -- Makes sure salary is within valid company limits.                         
+                    </code>
+                </div><br>
+                <p><b>Scenario 3: Gender Must Be M or F.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> persons (
+                        <ul>
+                            person_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            gender    CHAR(1) 
+                            <span class="orclkey"> CHECK</span> 
+                            ( gender <span class="orclkey">IN </span> ( <span class="orclg">'M'</span>,
+                            <span class="orclg">'F'</span>
+                            ) ) <br>
+                    ) <b> ;</b>
+                        </ul>   <br>
+                        -- Prevents inserting invalid gender values.                         
+                    </code>
+                </div><br>
+                <p><b>Scenario 5: CHECK on Multiple Columns.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> products (
+                        <ul>
+                            product_id  NUMBER <span class="orclkey"> PRIMARY KEY </span>, <br>
+                            price       NUMBER, <br>
+                            discount    NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT </span> chk_price_discount
+                            <span class="orclkey"> CHECK </span> 
+                            ( price >= discount ) 
+                     <b> ;</b>
+                        </ul>   <br>
+                        -- Ensures discount is not greater than price.                         
+                    </code>
+                </div><br>
+                <p><b>Scenario 6: Multiple CHECK Constraints on the Same Column.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> products (
+                        <ul>
+                            product_id  NUMBER <span class="orclkey"> PRIMARY KEY </span>, <br>
+                            price       NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT </span> chk_price_min
+                            <span class="orclkey"> CHECK </span> 
+                            ( price >=  0 ) <br>
+                            <span class="orclkey">CONSTRAINT </span> chk_price_max
+                            <span class="orclkey"> CHECK </span> 
+                            ( price <= 10000 )  <br>
+                    )
+                     <b> ;</b>
+                        </ul>   <br>
+                        -- price must be > 0 and ≤ 10000.                         
+                    </code>
+                </div><br>
+                <p><b>Scenario 7: CHECK on Multiple Columns (Table-level).</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> orders (
+                        <ul>
+                            order_id NUMBER <span class="orclkey"> PRIMARY KEY </span>, <br>
+                            quantity NUMBER, <br>
+                            unit_price NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT </span> chk_total_value
+                            <span class="orclkey"> CHECK </span> 
+                            (quantity * unit_price <= 100000) <br>
+                    )<b> ;</b>
+                        </ul>   <br>
+                        -- Ensures that the total order value doesn’t exceed ₹100,000.                         
+                    </code>
+                </div><br>
+                <p><b>Scenario 8: Add CHECK Constraint After Table Creation.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees <br>
+                            <span class="orclkey">ADD CONSTRAINT </span> chk_comm
+                            <span class="orclkey"> CHECK </span>  (commission_pct 
+                            <span class="orclkey"> BETWEEN </span> 0 
+                            <span class="orclkey"> AND </span> 0.5 
+                    )<b> ;</b>
+                        </ul>                          
+                    </code>
+                </div><br>
+                <p><b>Scenario 9: Drop CHECK Constraint.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees <br>
+                            <span class="orclkey">DROP CONSTRAINT </span> chk_comm
+                            <b> ;</b>
+                        </ul>                          
+                    </code>
+                </div><br>
+                <p><b>Scenario 10: View Existing CHECK Constraints.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">SELECT </span> constraint_name, search_condition, table_name <br>
+                            <span class="orclkey">FROM </span> user_constraints <br>
+                            <span class="orclkey">WHERE </span> constraint_type =
+                            <span class="orclkey">'C'</span>
+                            <b> ;</b> <br>
+                            <br>
+                            -- constraint_type = 'C' → Check constraints.
+                    </code>
+                </div><br>
+                <h2>Common Errors of CHECK Constraint</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error Message </th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORA-02290: check constraint violated</td>
+                            <td>You inserted a value that violates the rule</td>
+                        </tr>
+                        <tr>
+                            <td>ORA-02438: column check constraint</td>
+                            <td>You tried to define an invalid condition</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Do's and Don'ts </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Do's
+                            </th>
+                            <th>Don'ts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Use for business rules (e.g., age, range)</td>
+                            <td>Don’t use for complex logic (use triggers instead)</td>
+                        </tr>
+                        <tr>
+                            <td>Name constraints clearly (e.g., chk_age)</td>
+                            <td>Don’t use system-generated names (SYS_C0001234)</td>
+                        </tr>
+                        <tr>
+                            <td>Use simple expressions (e.g., age >= 18)</td>
+                            <td>Don’t use functions or subqueries inside CHECK</td>
+                        </tr>
+                        <tr>
+                            <td>Validate existing data before adding new CHECKs</td>
+                            <td>Don’t add a constraint if data already violates the rule</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li>Name your constraints explicitly.</li>
+                    <li>Use table-level syntax if referencing multiple columns.</li>
+                    <li>Combine with NOT NULL if needed.</li>
+                    <li>Avoid complex or non-deterministic functions in CHECK constraints.</li>
+                    <li>Use CHECK constraints for data logic, not business workflows.</li>
+                </ul> <br><br><br>
+
+                <h1>NOT NULL Constraint in Oracle SQL</h1>
+                <ul>
+                    <li>The NOT NULL constraint ensures that a column cannot contain NULL values.</li>
+                    <li>In other words, every row must have a non-null value for that column.</li>
+                </ul><br>
+                <h2>Purpose of NOT NULL Constraint</h2>
+                <ul>
+                    <li>Enforces that critical columns always have a value.</li>
+                    <li>Prevents incomplete or missing data.</li>
+                    <li>Commonly used for columns like username, password, order date, etc.</li>
+                </ul> <br>
+                <h2>Key Points About NOT NULL</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Applied to</td>
+                            <td>Only single columns (not multiple)</td>
+                        </tr>
+                        <tr>
+                            <td>Allows NULL?</td>
+                            <td>No — value must be provided</td>
+                        </tr>
+                        <tr>
+                            <td>Default value?</td>
+                            <td>No — value must be explicitly provided, unless default is specified</td>
+                        </tr>
+                        <tr>
+                            <td>Constraint type</td>
+                            <td>Not enforced via user_constraints, but as a column attribute</td>
+                        </tr>
+                        <tr>
+                            <td>Unique?</td>
+                            <td>No — does not enforce uniqueness, only non-null</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Syntax of NOT NULL Constraint</h2>
+                <p><b>During Table Creation (Column-level Only)</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                    <ul>
+                        user_id   NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                        username  VARCHAR2(50) <span class="orclkey">NOT NULL </span>
+                    </ul>
+                    ) <b>;</b>
+                    </code>
+                </div><br>
+                <p>During Modifying Table</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> users (
+                    <ul>
+                        <span class="orclkey"> MODIFY </span> username VARCHAR2(50) <span class="orclkey"> NOT NULL </span>
+                    </ul>
+                    ) <b>;</b>
+                    </code>
+                </div><br>
+                <h2>Behavior</h2>
+                <p>If you try to insert or update a row with a NULL value in a NOT NULL column, Oracle will throw an
+                    error:</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">INSERT INTO </span> users (user_id, username) <br>
+                        <span class="orclkey"> VALUES  </span> (1, NULL)
+                     <b>;</b> <br> <br>
+                     -- ORA-01400: cannot insert NULL into ("USERS"."USERNAME")
+
+                    </code>
+                </div><br>
+                <h2>Examples of NOT NULL Constraint</h2>
+                <p><b>Scenario 1: Username Should Never Be Empty.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                    <ul>
+                        user_id   NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                        username  VARCHAR2(50) <span class="orclkey">NOT NULL </span>
+                    </ul>
+                    ) <b>;</b> <br><br>
+                    <ul>
+                        <li>Every user must have a username.</li>
+                        <li>Cannot be left blank or NULL.</li>
+                    </ul>
+                    </code>
+                </div><br>
+                <p><b>Scenario 2: Order Date is Mandatory in Sales System</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> orders (
+                    <ul>
+                        order_id    NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                        customer_id  NUMBER, <br>
+                        order_date DATE  <span class="orclkey">NOT NULL </span>
+                    </ul>
+                    ) <b>;</b> <br><br>
+                    <ul>
+                        <li>You must provide the order date during insert.</li>
+                        <li>Useful for tracking and billing.</li>
+                    </ul>
+                    </code>
+                </div><br>
+                <p><b>Scenario 3: Applying NOT NULL to Existing Table</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees <br>
+                        <span class="orclkey"> MODIFY </span> hire_date DATE <span class="orclkey"> NOT NULL </span>
+                   <b>;</b><br><br>
+                   -- Oracle will allow this only if all existing rows have a non-null value in hire_date.
+                    </code>
+                </div><br>
+                <p><b>Scenario 4: Remove NOT NULL Constraint.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees <br>
+                        <span class="orclkey"> MODIFY </span> emp_name VARCHAR2(50)
+                         <span class="orclkey">  NULL </span>
+                   <b>;</b><br><br>
+                   -- This allows emp_name to accept NULL values.
+                    </code>
+                </div><br>
+                <p><b>Scenario 5: Check Which Columns Are NOT NULL.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">SELECT </span> column_name, nullable <br>
+                        <span class="orclkey"> FROM </span> user_tab_columns <br>
+                         <span class="orclkey">  WHERE </span> table_name =
+                         <span class="orclg">  'EMPLOYEES' </span>
+                   <b>;</b><br><br>
+                   -- nullable = 'N' → means column has NOT NULL constraint.
+                    </code>
+                </div><br>
+                <p><b>Scenario 6: Using DEFAULT with NOT NULL.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> customers (
+                        <ul>
+                            cust_id NUMBER <span class="orclkey"> PRIMARY KEY </span>, <br>
+                            country VARCHAR2(30) <span class="orclkey"> DEFAULT </span>
+                            <span class="orclg">'India'</span>
+                            <span class="orclkey"> NOT NULL </span>
+                        </ul>
+                        )
+                   <b>;</b><br><br>
+                   <ul>
+                    <li>If country is omitted in INSERT, it gets 'India'.</li>
+                    <li>If explicitly set to NULL, it still fails due to NOT NULL.</li>
+                   </ul>
+                    </code>
+                </div><br>
+                <p><b>Scenario 7: NOT NULL vs CHECK (col IS NOT NULL).</b></p>
+                <p>Both enforce non-nullability, but</p>
+                <div class="code-box">
+                    <code>
+                        -- Not recommended <br><br>
+                    <span class="orclkey">CONSTRAINT </span> chk_col_not_null 
+                       <span class="orclkey"> CHECK </span>
+                       (col <span class="orclkey">IS NOT NULL </span>
+                        )
+                   <b>;</b><br><br>
+                   <p>Works, but NOT NULL is:</p>
+                   <ul>
+                    <li>More efficient.</li>
+                    <li>Recognized directly by Oracle's internal structures.</li>
+                   </ul>
+                    </code>
+                </div><br>
+                <p><b>Scenario 8: Combining with UNIQUE.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id NUMBER <span class="orclkey"> PRIMARY KEY </span>, <br>
+                            email VARCHAR2(100) <span class="orclkey"> UNIQUE NOT NULL</span>
+                        </ul> 
+                        )
+                   <b>;</b><br><br>
+                   <ul>
+                    <li>email must be unique AND non-null.</li>
+                   </ul>
+                    </code>
+                </div><br>
+                <p><b>Scenario 9: With Foreign Key</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> departments (
+                        <ul>
+                            dept_id NUMBER <span class="orclkey"> PRIMARY KEY </span>                            
+                        </ul> 
+                        )
+                   <b>;</b><br><br>
+                   <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id NUMBER <span class="orclkey"> PRIMARY KEY </span>,
+                            dept_id NUMBER   <span class="orclkey"> NOT NULL </span>  ,
+                            <span class="orclkey"> CONSTRAINT </span> fk_dept
+                            <span class="orclkey"> FOREIGN KEY </span> (dept_id)
+                            <span class="orclkey"> REFERENCES </span> departments(dept_id)
+                        </ul> 
+                        )
+                   <b>;</b>
+                   <ul>
+                    <li>dept_id must be provided for every employee — ensures referential integrity.</li>
+                   </ul>
+                    </code>
+                </div><br>
+                <h2>Key Differences from Other Constraints</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Constraint</th>
+                            <th>Allows NULL?</th>
+                            <th>Enforces Uniqueness</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NOT NULL</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>Just prevents NULLs</td>
+                        </tr>
+                        <tr>
+                            <td>PRIMARY KEY</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                            <td>Prevents NULLs + Duplicates</td>
+                        </tr>
+                        <tr>
+                            <td>UNIQUE</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Prevents Duplicates but allows NULLs</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <h2>Common Mistakes & Errors</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error Code</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORA-01400</td>
+                            <td>Trying to insert NULL into NOT NULL column</td>
+                        </tr>
+                        <tr>
+                            <td>ORA-01735</td>
+                            <td>Attempting to define NOT NULL as table-level</td>
+                        </tr>
+                        <tr>
+                            <td>ORA-01442</td>
+                            <td>Column to be modified to NOT NULL contains NULL values</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Do's and Don'ts</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Do's</td>
+                            <td>Don'ts</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Use for mandatory fields</td>
+                            <td>Don’t use if column can logically be NULL</td>
+                        </tr>
+                        <tr>
+                            <td>Apply only after verifying existing data</td>
+                            <td>Don’t blindly apply on large tables (may cause failure)</td>
+                        </tr>
+                        <tr>
+                            <td>Combine with UNIQUE or CHECK if needed</td>
+                            <td>Don’t confuse NOT NULL with data type defaults</td>
+                        </tr>
+                        <tr>
+                            <td>Name the column meaningfully (e.g., email)</td>
+                            <td>Don’t leave critical columns without NOT NULL</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li>Use NOT NULL on primary business-required fields (e.g., names, dates, codes).</li>
+                    <li>Add it during table creation, not after — avoids data cleanup.</li>
+                    <li>Combine with DEFAULT when appropriate.</li>
+                    <li>Avoid using CHECK (col IS NOT NULL) instead of NOT NULL.</li>
+                </ul> <br><br><br>
+
+                <h1>DEFAULT Constraint in Oracle SQL</h1>
+                <p>The DEFAULT constraint is used to assign a predefined value to a column when no value is explicitly
+                    specified during an INSERT operation.</p><br>
+                <p><b>In simple words:</b> If you don't give a value for the column, Oracle will automatically fill it
+                    with the default
+                    value.</p><br>
+                <h2>Purpose of DEFAULT</h2>
+                <ul>
+                    <li>Ensures non-null default behavior without forcing NOT NULL.</li>
+                    <li>Reduces the need for application logic to supply default values.</li>
+                    <li>Reduces the need to specify every column in INSERT statements.</li>
+                    <li>Enhances data consistency and minimizes NULLs.</li>
+                    <li>Ensures that some value is always present (not necessarily NOT NULL).</li>
+                </ul><br>
+                <h2>Key Features</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Applies to</td>
+                            <td>Column-level only</td>
+                        </tr>
+                        <tr>
+                            <td>Automatically inserts value</td>
+                            <td>Yes, when omitted from INSERT</td>
+                        </tr>
+                        <tr>
+                            <td>Can be used with NOT NULL</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Can be any expression</td>
+                            <td>Constants, SYSDATE, sequences (via trigger)</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Syntax of DEFAULT Constraint</h2>
+                <p><b>1. While Creating a Table.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                        <ul>
+                            emp_id     NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            status     VARCHAR2(10) <span class="orclkey"> DEFAULT</span> 
+                            <span class="orclg"> 'ACTIVE'</span> <br>
+                        </ul>
+                        )
+                   <b>;</b>
+                    </code>
+                </div><br>
+                <p><b>2. While Altering a Table.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees
+                            <span class="orclkey"> MODIFY </span> status <span class="orclkey"> DEFAULT</span> 
+                            <span class="orclg"> 'ACTIVE'</span> 
+                   <b>;</b>
+                    </code>
+                </div><br>
+                <h2>Exampl of DEFAULT Constraint</h2>
+                <p><b>Scenario 1: Default Status as 'ACTIVE'</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> users (
+                        <ul>
+                            user_id   NUMBER <span class="orclkey">PRIMARY KEY</span> , <br>
+                            username  VARCHAR2(50), <br>
+                            status    VARCHAR2(10) <span class="orclkey"> DEFAULT</span> 
+                            <span class="orclg"> 'ACTIVE'</span> <br>
+                        </ul>
+                    )
+                   <b>;</b> <br><br>
+                   -- -- Insert without providing 'status' <br>
+                   <span class="orclkey"> INSERT INTO </span> users (user_id, username)
+                   <span class="orclkey"> VALUES</span> (1, 
+                   <span class="orclg"> 'Uday'</span> ) <b>;</b> <br>
+                   -- -- status will automatically be 'ACTIVE'
+                    </code>
+                </div><br>
+                <p><b>Scenario 2: Default Join Date as Current Date.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> staff (
+                        <ul>
+                                staff_id   NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                                name       VARCHAR2(50), <br>
+                                join_date  DATE <span class="orclkey">DEFAULT SYSDATE </span> <br>
+
+                        </ul>
+                    )
+                            <b> ;</b> <br>
+                            <br>
+                            -- Oracle will insert the current system date if not provided.
+                    </code>
+                </div><br>
+                <p><b>Scenario 3: Default Quantity to 1 in Orders.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> orders (
+                        <ul>
+                                order_id  NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                                product   VARCHAR2(50), <br>
+                                quantity  NUMBER <span class="orclkey">DEFAULT  </span> 1<br>
+
+                        </ul>
+                    )
+                            <b> ;</b> <br>
+                            <br>
+                            -- If customer forgets to mention quantity, system will assume 1.
+                    </code>
+                </div><br>
+                <p><b>Scenario 4: Adding DEFAULT to Existing Column.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> orders 
+                         <span class="orclkey"> MODIFY </span>
+                                quantity
+                                <span class="orclkey">DEFAULT  </span> 1 <b> ;</b>
+                    </code>
+                </div><br>
+                <p><b>Scenario 5: Insert NULL Still Overrides DEFAULT.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">INSERT INTO </span> orders (order_id, product, quantity) <br>
+                         (101, 
+                         <span class="orclg">'Mouse'</span>, 
+                         <span class="orclkey"> NULL </span> )
+                                 <b> ;</b> <br><br>
+                                 -- DEFAULT won't apply here; NULL will be stored.
+                    </code>
+                </div><br>
+                <p><b>Important Note:- </b> DEFAULT works only when the column is not mentioned in the insert, not when
+                    it is explicitly given as NULL.</p> <br>
+                <p><b>Scenario 6: Remove DEFAULT Constraint.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees <br>
+                         <span class="orclkey">MODIFY</span>
+                    status 
+                         <span class="orclkey"> DEFAULT NULL </span> )
+                                 <b> ;</b> <br><br>
+                                 -- Removes default — NULL is used if column is omitted.
+                    </code>
+                </div><br>
+                <p><b>Scenario 7: DEFAULT with NOT NULL.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> accounts (
+                        <ul>
+                            acc_id NUMBER <span class="orclkey">PRIMARY KEY </span> , <br>
+                            acc_status VARCHAR2(20) <span class="orclkey">DEFAULT</span>
+                            <span class="orclg">'Open'</span> 
+                            <span class="orclkey">NOT NULL</span> <br>
+                    ) <b>;</b>
+                        </ul>
+                         <br>
+                         -- Ensures every record has a non-null status — either by default or explicitly.
+
+                    </code>
+                </div><br>
+                <p><b>Scenario 9: DEFAULT Not Used When NULL Given.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">INSERT INTO </span> accounts (acc_id, acc_status)
+                       <span class="orclkey">VALUES </span>
+                       (201, <span class="orclkey"> NULL</span>)<b>;</b>
+                         <br>
+                         <ul>
+                            <li>Inserts NULL explicitly — default is not used.</li>
+                            <li>Use NOT NULL if NULLs should never be accepted.</li>
+                         </ul>
+
+                    </code>
+                </div><br>
+                <p><b>Scenario 10: View Column Defaults.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">SELECT </span> column_name, data_default <br>
+                       <span class="orclkey">FROM </span> user_tab_columns <br>
+                      <span class="orclkey"> WHERE </span> table_name = 
+                      <span class="orclkey"> 'EMPLOYEES' </span>
+                      <b>;</b>
+                         <br>
+                        </code>
+                </div><br>
+                <h2>Common Mistakes of DEFAULT Constraint</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mistakes</th>
+                            <th>Why It's Wrong</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Assuming DEFAULT replaces NULL</td>
+                            <td>If you insert NULL, it stays NULL — default won't be used</td>
+                        </tr>
+                        <tr>
+                            <td>Using invalid data types</td>
+                            <td>Default value must match column data type</td>
+                        </tr>
+                        <tr>
+                            <td>Forgetting quotes around strings</td>
+                            <td>Use 'value', not value for string columns</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Important Notes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Case</th>
+                            <th>Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Column omitted in INSERT</td>
+                            <td>DEFAULT applies</td>
+                        </tr>
+                        <tr>
+                            <td>Column explicitly set to NULL</td>
+                            <td>DEFAULT is ignored</td>
+                        </tr>
+                        <tr>
+                            <td>DEFAULT expression</td>
+                            <td>Can be a constant, SYSDATE, or simple function</td>
+                        </tr>
+                        <tr>
+                            <td>Sequences in DEFAULT?</td>
+                            <td>Not supported directly — use triggers instead</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li>Use DEFAULTs to ensure application-independent behavior.</li>
+                    <li>Combine with NOT NULL to make sure defaults are always used.</li>
+                    <li>Do not rely on DEFAULT for complex logic — use triggers instead.</li>
+                    <li>Always verify default values for DATE, BOOLEAN-like flags, and numeric codes.</li>
+                </ul> <br>
+                <h2>Do's and Don'ts</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Do's</th>
+                            <th>Don'ts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Use for frequently repeated values (e.g., 'ACTIVE')</td>
+                            <td>Don’t rely on DEFAULT for required fields (use NOT NULL)</td>
+                        </tr>
+                        <tr>
+                            <td>Use SYSDATE, constants, or literals as default values</td>
+                            <td>Don’t use subqueries or functions like SELECT</td>
+                        </tr>
+                        <tr>
+                            <td>Document default values for clarity</td>
+                            <td>Don’t assume it overrides explicitly inserted NULLs</td>
+                        </tr>
+                        <tr>
+                            <td>Set defaults on config-driven or status fields</td>
+                            <td>Don’t add defaults without confirming with business team</td>
+                        </tr>
+                    </tbody>
+                </table> <br><br><br>
+                <h1>READ-ONLY Constraint in Oracle SQL</h1>
+                <p>Oracle does not have a traditional "read-only constraint" as a named constraint type like PRIMARY
+                    KEY, CHECK, or FOREIGN KEY.</p><br>
+                <ul>
+                    <li>A READ-ONLY constraint is a restriction applied to a table or a column that makes it
+                        non-updatable.</li>
+                    <li>You cannot INSERT, UPDATE, or DELETE data in that table or column when it is set to READ ONLY.
+                    </li>
+                </ul><br>
+                <p>Instead, Oracle allows making a table (or view) or specific columns read-only using other mechanisms,
+                    such as:</p>
+                <ul>
+                    <li>Making a table read-only.</li>
+                    <li>Creating read-only views.</li>
+                    <li>Using Virtual Private Database (VPD) policies.</li>
+                    <li>Marking a pluggable database as read-only.</li>
+                    <li>Using INVISIBLE columns to hide from DML</li>
+                </ul> <br>
+                <h2>Use Cases</h2>
+                <ul>
+                    <li>Prevent accidental updates in critical reporting tables.</li>
+                    <li>Protect data in archive or audit tables.</li>
+                    <li>Enforce security or business rules without changing privileges.</li>
+                </ul><br>
+                <h2>Syntax:-</h2>
+                <p><b>1. Making a Table Read-Only:- </b></p>
+                <ul>
+                    <li>You can prevent DML operations (INSERT, UPDATE, DELETE) on a table using:</li>
+                </ul>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> table_name  
+                       <span class="orclkey">READ ONLY </span> 
+                      <b>;</b>
+                         <br>
+                        </code>
+                </div><br>
+                <h2>Example:</h2>
+                <p><b>1. Make Entire Table Read-Only. </b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees  
+                       <span class="orclkey">READ ONLY </span> 
+                      <b>;</b>
+                         <br>
+                        </code>
+                </div><br>
+                <ul>
+                    <li>SELECT * FROM employees; → Works</li>
+                    <li>INSERT INTO employees ... → Error</li>
+                    <li>UPDATE employees ... → Error</li>
+                    <li>DELETE FROM employees ... → Error</li>
+                </ul> <br>
+                <p><b>Make Table Writable Again</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees  
+                       <span class="orclkey">READ WRITE </span> 
+                      <b>;</b>
+                         <br>
+                        </code>
+                </div><br>
+                <p><b>Column-Level Read-Only (Virtual Columns only).</b></p>
+                <p>You cannot make regular columns read-only directly,
+                    but you can create a virtual column which is automatically read-only:</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> sales (
+                        <ul>
+                            product_id    NUMBER, <br>
+                            price         NUMBER, <br>
+                            tax           NUMBER, <br>
+                            total_amount  <span class="orclkey"> AS </span> (price + tax) -- This is a virtual column (read-only by default) <br>
+                        ) <b>;</b>
+                        </ul>
+                    -- You cannot insert or update the total_amount column directly.
+                        </code>
+                </div><br>
+
+                <p><b>Creating a Read-Only View.</b></p>
+                <p>Views can be made read-only by simply not including WITH CHECK OPTION, or by marking them explicitly:
+                </p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE VIEW </span> emp_view   <span class="orclkey">AS</span> <br>
+                       <span class="orclkey">SELECT </span> emp_id, emp_name <span class="orclkey"> FROM </span> employees <br>
+                       <span class="orclkey"> WITH READ ONLY </span>
+                      <b>;</b> <br>
+                      <br>
+                      -- This prevents INSERT/UPDATE/DELETE on the view.
+                         <br>
+                        </code>
+                </div><br>
+                <p><b>Marking Pluggable Database as READ ONLY.</b></p>
+                <ul>
+                    <li>For Oracle Multitenant environments (CDB/PDB):</li>
+                </ul>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER </span> PLUGGABLE DATABASE pdb_name
+                       <span class="orclkey">CLOSE IMMEDIATE</span> <b>;</b><br>
+                       <span class="orclkey">ALTER </span> PLUGGABLE DATABASE pdb_name
+                       <span class="orclkey">OPEN READ ONLY</span> <b>;</b> <br><br>
+                       -- All objects in that pluggable DB are now read-only.
+                        </code>
+                </div><br>
+                <p><b>Using INVISIBLE Columns (Limited Protection).</b></p><br>
+                <p>Marking columns as INVISIBLE doesn’t make them read-only but hides them from:</p>
+                <ul>
+                    <li>SELECT *</li>
+                    <li>Tools</li>
+                    <li>INSERT (unless explicitly listed)</li>
+                </ul><br>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">ALTER TABLE </span> employees
+                       <span class="orclkey">MODIFY</span> emp_salary
+                       <span class="orclkey"> INVISIBLE</span> <b>;</b><br>
+                        </code>
+                </div><br>
+                <h2>
+                    Key Notes
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Behavior</th>
+                            <th>Oracle Support</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Column-level read-only</td>
+                            <td>Not natively (simulate with triggers)</td>
+                        </tr>
+                        <tr>
+                            <td>Table-level read-only</td>
+                            <td>Yes (ALTER TABLE)</td>
+                        </tr>
+                        <tr>
+                            <td>View-level read-only</td>
+                            <td> Yes (WITH READ ONLY)</td>
+                        </tr>
+                        <tr>
+                            <td>Conditional read-only</td>
+                            <td>VPD / triggers</td>
+                        </tr>
+                        <tr>
+                            <td>Schema/database read-only</td>
+                            <td>Via PDBs or roles</td>
+                        </tr>
+                        <tr>
+                            <td>Scope</td>
+                            <td>Table-level only (not individual columns)</td>
+                        </tr>
+                        <tr>
+                            <td>Data Modification</td>
+                            <td>INSERT, UPDATE, DELETE are blocked</td>
+                        </tr>
+                        <tr>
+                            <td>DDL (like ADD column)</td>
+                            <td>Still allowed</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <h2>Summary: "Read-Only" Mechanisms in Oracle</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Entire table read-only</td>
+                            <td>ALTER TABLE ... READ ONLY</td>
+                        </tr>
+                        <tr>
+                            <td>View read-only</td>
+                            <td>WITH READ ONLY clause</td>
+                        </tr>
+                        <tr>
+                            <td>Column read-only</td>
+                            <td>Simulate with BEFORE UPDATE triggers</td>
+                        </tr>
+                        <tr>
+                            <td>Schema/PDB read-only</td>
+                            <td>ALTER PLUGGABLE DATABASE</td>
+                        </tr>
+                        <tr>
+                            <td>Condition-based security</td>
+                            <td>VPD / Fine-Grained Access Control</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <h2>Do's and Don'ts of Read-Only constraint</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Do's</th>
+                            <th>Don'ts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Use READ ONLY for archived, historical, or static data.</td>
+                            <td>Don’t apply to transactional tables unless necessary.</td>
+                        </tr>
+                        <tr>
+                            <td>Document purpose in data dictionary or team notes.</td>
+                            <td>Don’t confuse with SELECT-only privileges (different)</td>
+                        </tr>
+                        <tr>
+                            <td>Remove read-only flag before planned updates.</td>
+                            <td>Don’t forget to switch back to READ WRITE if needed.</td>
+                        </tr>
+                        <tr>
+                            <td>Use in dev/stage environments to prevent test damage.</td>
+                            <td>Don’t use as a replacement for proper user permissions.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+
+
+
+
+                <br><br><br>
+                <h1>DEFERRABLE Constraints in Oracle SQL</h1>
+                <p>A DEFERRABLE constraint is a constraint (typically FOREIGN KEY, UNIQUE, or CHECK) that can be
+                    deferred until the end of the transaction rather than being enforced immediately at each SQL
+                    statement.</p><br>
+                <p>This is useful in complex transactional logic, such as:</p>
+                <ul>
+                    <li>Mutually dependent rows</li>
+                    <li>Cross-inserts or updates</li>
+                    <li>Temporary violations that will be fixed before commit</li>
+                </ul><br>
+                <h2>Key Concepts</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tearm</th>
+                            <th>Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DEFERRABLE</td>
+                            <td>Constraint can be deferred</td>
+                        </tr>
+                        <tr>
+                            <td>NOT DEFERRABLE</td>
+                            <td>Constraint is always enforced immediately (default)</td>
+                        </tr>
+                        <tr>
+                            <td>INITIALLY IMMEDIATE</td>
+                            <td>Constraint is checked immediately by default</td>
+                        </tr>
+                        <tr>
+                            <td>INITIALLY DEFERRED</td>
+                            <td>Constraint is checked at the end of the transaction by default</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <h2>Syntax for Creating DEFERRABLE Constraints</h2>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> orders (
+                        <ul>
+                            order_id NUMBER <span class="orclkey"> PRIMARY KEY</span>, <br>
+                            cust_id NUMBER, <br>
+                            <span class="orclkey">CONSTRAINT </span> fk_customer
+                            <ul>
+                                <span class="orclkey">FOREIGN KEY </span> (cust_id) <br>
+                                <span class="orclkey">REFERENCES </span> customers(cust_id) <br>
+                                <span class="orclkey">DEFERRABLE INITIALLY IMMEDIATE </span> <br>
+                            </ul>
+                        </ul><br>
+                       )
+                      <b>;</b>
+                         <br>
+                        </code>
+                </div><br>
+                <h2>Changing Deferral Mode in a Transaction</h2>
+                <p>If a constraint is defined as DEFERRABLE, you can switch its behavior at runtime using:</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">SET CONSTRAINT </span> fk_customer DEFERRED <b>;</b><br><br>
+                    -- or <br><br>
+                    <span class="orclkey">SET CONSTRAINT </span> fk_customer IMMEDIATE <b>;</b>
+                        </code>
+                </div><br>
+                <p>All deferrable constraints can also be switched at once:</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">SET CONSTRAINTS ALL DEFERRED</span>  <b>;</b>
+                        </code>
+                </div><br>
+                <h2>Example Scenario</h2>
+                <p><b>Scenario: Circular Foreign Keys.</b></p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">CREATE TABLE </span> employees (
+                    <ul>
+                        emp_id NUMBER <span class="orclkey">PRIMARY KEY</span>, <br>
+                        mgr_id NUMBER, <br>
+                        <span class="orclkey">CONSTRAINT</span> fk_mgr
+                        <ul>
+                                <span class="orclkey">FOREIGN KEY </span> (mgr_id) <br>
+                                <span class="orclkey">REFERENCES </span> employees(emp_id)br
+                                <span class="orclkey">DEFERRABLE INITIALLY IMMEDIATE </span><br>
+                            </ul>
+                    </ul>   <br>
+                    ) <b>;</b> 
+                        </code>
+                </div><br>
+                <p>Now, in a transaction, you can:</p>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">BEGIN </span> <b>;</b><br>
+                    <br>
+                    -- Insert two mutually dependent rows <br>
+                    
+                        <span class="orclkey">INSERT INTO</span>employees (emp_id, mgr_id)
+                        <span class="orclkey">VALUES</span> (1, 2) <b>;</b> <br>
+                        <br>
+                        <span class="orclkey">INSERT INTO</span>employees (emp_id, mgr_id)
+                        <span class="orclkey">VALUES</span> (2, 1) <b>;</b> <br><br>
+                                <span class="orclkey">COMMIT</span> <b>;</b>
+                        </code>
+                </div><br>
+                <ul>
+                    <li>If fk_mgr were not deferrable, this would fail.</li>
+                </ul><br>
+                <h2>Important Rules and Limitations</h2>
+                <ul>
+                    <li>Only FOREIGN KEY, UNIQUE, and CHECK can be DEFERRABLE.</li>
+                    <li>NOT NULL cannot be deferrable</li>
+                    <li>Must be defined at creation — you can’t later alter a NOT DEFERRABLE constraint to DEFERRABLE
+                    </li>
+                    <li>Useful only in multi-step transactions</li>
+                    <li>Slight overhead — use only when needed</li>
+                </ul><br>
+                <h2>How to Check if a Constraint is DEFERRABLE</h2>
+                <div class="code-box">
+                    <code>
+                    <span class="orclkey">SELECT </span> constraint_name, deferrable, deferred <br>
+                        <span class="orclkey">FROM</span>user_constraints <br>
+                        <span class="orclkey">WHERE</span> table_name = 
+                        <span class="orclg">'EMPLOYEES'</span> <b>;</b>
+                        </code>
+                </div><br>
+                <h2>Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Supported</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Useful for cross-row validation</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Applies to PK/FK/Check/Unique</td>
+                            <td>Partially</td>
+                        </tr>
+                        <tr>
+                            <td>ALTERABLE after creation</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Helps avoid temporary violations</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Default state</td>
+                            <td>NOT DEFERRABLE INITIALLY IMMEDIATE</td>
+                        </tr>
+                    </tbody>
+                </table><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="topic-buttons">
+                    <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                        Pevious</a>
+                    <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                        &raquo;</a>
+                </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUKDB/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

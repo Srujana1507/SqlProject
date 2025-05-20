@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -57,7 +57,7 @@
             <a href="#">BootStrap</a>
             <a href="#">Salesforce</a>
             <a href="#">SQL Server</a>
-            <a href="/KUKDB/Oracle/orclsql.html">Oracle SQL</a>
+            <a href="/Oracle/orclsql.html">Oracle SQL</a>
             <a href="#"></a>
             <a href="#"></a>
             <a href="#"></a>
@@ -521,321 +521,200 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>MINUS Operator in Oracle SQL</h1>
+            <p>The MINUS operator is used to return the rows from the first query that do not exist in the second query.
             </p><br>
-            <p>It allows you to:
-            </p>
+            <p>It's a set difference operator and automatically removes duplicates from the result.</p>
+            <br>
+            <h2>Key Features of UNION ALL</h2>
             <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+                <li>Retrieves only rows that exist in both result sets (intersection).</li>
+                <li>Automatically removes duplicate rows from the final output.</li>
+                <li>Both SELECT statements must have equal number of columns.</li>
+                <li>Corresponding columns in both queries must have compatible data types.</li>
+                <li>Output column names are taken from the first SELECT query.</li>
+                <li>Like other set operators, INTERSECT is used for querying only, not modifying data.</li>
+                <li>The output is not ordered unless an explicit ORDER BY clause is used at the end.</li>
+                <li>Useful when comparing and filtering data between two different sources/tables.</li>
+                <li>You can use standard clauses within each SELECT before applying INTERSECT.</li>
+                <li>Supported in Oracle, but not universally supported or behaves differently in some RDBMS like MySQL
+                    (without workarounds).</li>
+            </ul><br>
+            <h2>Syntax of UNION ALL</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> column1, column2, ...  
+                    <span class="orclkey">FROM </span> table1 <br>
+                    <span class="orclkey">INTERSECT</span>
+                    <span class="orclkey">SELECT </span> column1, column2, ...  
+                    <span class="orclkey">FROM </span> table2
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+            <h2>Examples of INTERSECT Statement</h2>
+            <p><b>1. Identify Customers Who Bought Both Online and In-Store.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> customer_id, customer_name 
+                    <span class="orclkey">FROM </span> online_orders <br>
+                    <span class="orclkey">INTERSECT</span>
+                    <span class="orclkey">SELECT </span> customer_id, customer_name 
+                    <span class="orclkey">FROM </span> store_orders <br>
+                    <span class="orclkey">ORDER BY </span> customer_id
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+            <p><b>2. Using WHERE with INTERSECT:- </b> Filters data before merging the results.</p>
+            <ul>
+                <li>Retrieve IDs and names of employees who work in both HR and Finance departments.</li>
+            </ul>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> emp_id, emp_name
+                    <span class="orclkey">FROM </span> hr_employees <br>
+                    <span class="orclkey">WHERE </span> job_role = <span class="orclg"> 'Analyst' </span> <br>
+                    <span class="orclkey">INTERSECT</span>
+                    <span class="orclkey">SELECT </span> emp_id, emp_name  
+                    <span class="orclkey">FROM </span> finance_employees <br>
+                    <span class="orclkey">WHERE </span> job_role = <span class="orclg"> 'Analyst' </span>
+                       <b> ; </b> 
+                        </code>
+            </div><br>
 
-            <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <p>3. HR wants to find applicants who applied for both Developer and Tester roles.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">SELECT </span> candidate_id, email
+                    <span class="orclkey">FROM </span> job_applications <br>
+                    <span class="orclkey">WHERE </span> position_applied = <span class="orclg"> 'Developer' </span>
+                    <span class="orclkey">INTERSECT</span>
+                    <span class="orclkey">SELECT </span> candidate_id, email
+                    <span class="orclkey">FROM </span> job_applications <br>
+                    <span class="orclkey">WHERE </span> position_applied = <span class="orclg"> 'Tester' </span>
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
+            <p><b>4. Using GROUP BY with INTERSECT:- </b> Identify Customers with High Purchases in Both Online and
+                In-Store Channels</p>
+            <ul>
+                <li>The Marketing and Sales teams want to identify customers who have spent more than $5000 in both the
+                    online store and the physical store. This helps them create a premium loyalty program targeting
+                    consistent high spenders across both channels.</li>
+
+            </ul>
             <div class="code-box">
                 <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
+                    <span class="orclkey">SELECT </span> customer_id <br>
+                    <span class="orclkey">FROM </span> online_orders <br>
+                    <span class="orclkey">GROUP BY </span> customer_id <br>
+                    <span class="orclkey">HAVING </span> 
+                     <span class="orclfun">SUM </span>(order_amount) > 5000 <br> 
+                    <span class="orclkey">INTERSECT</span>
+                    <span class="orclkey">SELECT </span> customer_id <br>
+                    <span class="orclkey">FROM </span> store_orders <br>
+                    <span class="orclkey">GROUP BY </span> customer_id <br>
+                    <span class="orclkey">HAVING </span> 
+                     <span class="orclfun">SUM </span>(order_amount) > 5000 
+                       <b> ; </b> 
+                        </code>
             </div><br>
 
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
+            <p><b>5. Using INTERSECT with Aggregate Functions:- </b> Identify Vendors with High Total Sales and
+                Shipments.</p>
+            <p><b>Business Case:</b> The Sales & Finance departments want to identify customers who:</p>
+            <ul>
+                <li>The Procurement Team wants to find vendors who have: On average, purchase high-value orders (avg
+                    order > $5,000), and On average, make high-value payments (avg payment > $5,000).</li>
+            </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
+                    <span class="orclkey">SELECT </span> customer_id <br>
+                    <span class="orclkey">FROM </span> orders <br>
+                    <span class="orclkey">GROUP BY </span> customer_id <br>
+                    <span class="orclkey">HAVING </span> 
+                     <span class="orclfun">AVG </span>(order_total) > 5000 <br> 
+                    <span class="orclkey">INTERSECT</span>
+                    <span class="orclkey">SELECT </span> customer_id <br>
+                    <span class="orclkey">FROM </span> payments <br>
+                    <span class="orclkey">GROUP BY </span> customer_id <br>
+                    <span class="orclkey">HAVING </span> 
+                     <span class="orclfun">AVG </span>(payment_amount) > 5000 
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
+
+            <p><b>5. Using INTERSECT with Joins:- </b> Retrieve employee and customer names who belong to the same
+                region as their respective departments or stores</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
+                    <span class="orclkey">SELECT </span> e.emp_name, d.region <br>  
+                    <span class="orclkey">FROM </span> employees e <br>
+                    <span class="orclkey"> JOIN </span> departments d <span class="orclkey"> ON </span> e.dept_id = d.dept_id <br>
+                    <span class="orclkey">UNION ALL</span>
+                    <span class="orclkey">SELECT </span> c.cust_name, s.region <br> 
+                    <span class="orclkey">FROM </span> customers c <br>
+                    <span class="orclkey"> JOIN </span> stores s <br>
+                    <span class="orclkey"> ON </span> c.store_id = s.store_id
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Common Errors and Solutions</h2>
+
+            <h2>Limitations of UNION ALL</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
+                        <th>Limitation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Column Compatibility</b></td>
+                        <td>All queries must have the same number of columns with compatible data types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ORDER BY Restriction</b></td>
+                        <td>The ORDER BY clause can only be applied at the end of the last SELECT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Duplication</b></td>
+                        <td>Since duplicates are not removed, it can lead to redundancy in reports.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Larger Result Sets</b></td>
+                        <td>If source tables contain many duplicates, result sets can be significantly larger.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
+            <h2>Common Errors in INTERSECT </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
                         <th>Cause</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>ORA-01790: Expression must have same datatype</td>
+                        <td>Column types in SELECTs don't match</td>
+                        <td>Use type conversion (e.g., TO_CHAR, CAST)</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-00933: SQL command not properly ended</td>
+                        <td>Misuse of ORDER BY inside subqueries</td>
+                        <td>Place ORDER BY only at the end</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-00904: Invalid identifier</td>
+                        <td>Column name mismatch</td>
+                        <td>Ensure all columns are correctly named and aliased</td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
-                    </tr>
-                    <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
-                    </tr>
-                    <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
-                    </tr>
-                    <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
-                    </tr>
-                </tbody>
-            </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            <h2>Do’s and Don’ts of INTERSECT in Oracle SQL</h2>
             <table>
                 <thead>
                     <tr>
@@ -845,39 +724,39 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Use INTERSECT when you need to find common rows between two datasets.</td>
+                        <td>Don’t use INTERSECT if the two queries return different numbers of columns.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Ensure both SELECT statements have the same number of columns.</td>
+                        <td>Don’t mix incompatible data types across the SELECT columns.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Confirm corresponding columns are of compatible data types.</td>
+                        <td>Don’t use ORDER BY inside individual SELECT queries—only apply at the end.</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
+                        <td>Use INTERSECT for data comparison across systems or data sync checks.</td>
+                        <td>Don’t assume results will be sorted—sorting must be done explicitly.</td>
                     </tr>
                     <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Aliases in first SELECT will be used in final output—name them clearly.</td>
+                        <td>Don’t rely on INTERSECT if duplicates matter—distinct rows only are returned.</td>
+                    </tr>
+                    <tr>
+                        <td>Apply filters (WHERE, JOIN, GROUP BY) within each SELECT as needed.</td>
+                        <td>Don’t apply WHERE after INTERSECT—use it inside each SELECT.</td>
+                    </tr>
+                    <tr>
+                        <td>Use in reporting to cross-check integrity between systems or logs.</td>
+                        <td>Don’t expect INTERSECT to perform well on very large data sets without indexing.</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Best Practices</h2>
-            <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
-
 
             <br><br><br>
+
+
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

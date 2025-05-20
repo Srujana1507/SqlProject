@@ -521,321 +521,209 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>DELETE Statement in Oracle SQL</h1>
+            <p>The DELETE statement in Oracle SQL is used to remove one or more rows from a table based on a specified
+                condition.
             </p><br>
-            <p>It allows you to:
-            </p>
-            <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+            <p>Unlike DROP (which removes the entire table) or TRUNCATE (which removes all rows without logging
+                individual deletions), DELETE allows you to selectively remove data.</p><br>
 
-            <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <h2>Syntax of DELETE Statement</h2>
+            <h2>Basic Syntax (Inserting into All Columns)</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">DELETE FROM </span> table_name 
+                    <span class="orclkey">WHERE </span> condition
                        <b> ; </b> 
                         </code>
+                <ul>
+                    <li>table_name → The table from which records will be deleted.</li>
+                    <li>WHERE condition → Specifies which rows to delete.</li>
+                    <li>Without WHERE, all records in the table will be deleted!</li>
+                    <li>Use COMMIT to finalize changes or ROLLBACK to undo them.</li>
+                </ul>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
-            </div><br>
-
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
-                       <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
-                       <b> ; </b> 
-                        </ul>
-                    
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Common Errors and Solutions</h2>
+            <h2>Key Features of DELETE Statement</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Conditional Deletion</b></td>
+                        <td>Deletes specific rows based on the WHERE clause.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports Transactions</b></td>
+                        <td>Can be rolled back using ROLLBACK.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Triggers Can Be Fired</b></td>
+                        <td>If a DELETE trigger exists on the table, it gets executed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Foreign Key Restrictions Apply</b></td>
+                        <td>If a row is referenced in another table, deletion may fail.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Can Use Subqueries</b></td>
+                        <td>Rows can be deleted based on values from other tables.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+
+            <h2>Examples of DELETE Statement</h2>
+            <p><b>1. Deleting Specific / Multiple Rows:- </b> Deletes all employees belonging to department ID 10.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> employees   <br>
+                    <span class="orclkey"> WHERE </span> department_id = 10
+                    
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+
+            <p><b>2. Deleting All Rows (but very Risky):- </b> Deletes all records in the employees table.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> employees  
+                       <b> ; </b> <br>
+                       <ul>
+                        <li>Data can be recovered using ROLLBACK if a transaction is active.</li>
+                       </ul>
+                        </code>
+            </div><br>
+
+            <p><b>3. Delete with Subquery:-</b> </p> Deletes employees from departments located in New York.<br>
+
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> employees <br>
+                    <span class="orclkey"> WHERE </span> department_id 
+                    <span class="orclkey"> IN </span>(
+                        <span class="orclkey"> SELECT </span> dept_id 
+                        <span class="orclkey"> FROM </span> departments
+                        <span class="orclkey"> WHERE </span> location = 
+                        <span class="orclg"> 'New York' </span>
+
+                    )
+                       <b> ; </b>
+                        </code>
+            </div><br>
+
+            <p><b>4. Delete with EXISTS:-</b> Deletes employees if they exist in the terminated_employees table.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> employees e<br>
+                    <span class="orclkey">WHERE EXISTS </span> (         
+                    <span class="orclkey">SELECT  </span> 1 <span class="orclkey">FROM</span> terminated_employees t
+                    <span class="orclkey">WHERE</span> e.emp_id = t.emp_id )  <br>  
+                    <b> ; </b> 
+                        </code>
+            </div><br>
+
+            <p><b>5. Delete Using JOIN (Using USING Clause):-</b> Oracle SQL does not support DELETE ... JOIN like
+                MySQL, but you can use a subquery.</p>
+            <p>Deletes employees who are also in the terminated_employees table.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DELETE FROM </span> employees    
+                    <span class="orclkey">WHERE </span>  emp_id <span class="orclkey">IN </span> (
+                        <span class="orclkey">SELECT </span> e.emp_id 
+                        <span class="orclkey">FROM </span>
+                        employees e
+                        <span class="orclkey">JOIN </span>
+                        terminated_employees t
+                        <span class="orclkey">ON </span>
+                        e.emp_id = t.emp_id
+                    )
+                         <b> ; </b> <br>
+                        </code>
+            </div><br>
+
+            <h2>Common Errors in DELETE Statement</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Error Code
+                        </th>
                         <th>Cause</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>ORA-02292:Integrity constraint violated - child record found</td>
+                        <td>Row has references in another table (Foreign Key Constraint)</td>
+                        <td>Use CASCADE delete or delete child records first.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-00942:Table or view does not exist</td>
+                        <td>Table name is incorrect or lacks privileges</td>
+                        <td>Check table name and DELETE privileges</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
+                        <td>
+                            ORA-01752:Cannot delete using CONNECT BY
+                        </td>
+                        <td>
+                            Attempting to delete hierarchical data incorrectly
+                        </td>
+                        <td>
+                            Use DELETE with START WITH and CONNECT BY carefully
+                        </td>
                     </tr>
                     <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
+                        <td>ORA-01407: Cannot delete column with NOT NULL constraint</td>
+                        <td>Deleting a row that is referenced elsewhere</td>
+                        <td>Ensure dependencies are handled first.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
+                        <td>ORA-00054: Resource busy and acquire with NOWAIT specified</td>
+                        <td>Another session is using the row.</td>
+                        <td>Use COMMIT or ROLLBACK before retrying.</td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
+            </table> <br>
+
+            <h2>Limitations of DELETE Statement</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
+                        <th>Limitation</th>
+                        <th>Description </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
+                        <td>Slower for Large Data Deletion</td>
+                        <td>DELETE processes each row individually, which is slower than TRUNCATE.</td>
                     </tr>
                     <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
+                        <td>Cannot Bypass Triggers</td>
+                        <td>Unlike TRUNCATE, DELETE fires triggers, which may impact performance.</td>
                     </tr>
                     <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
+                        <td>Foreign Key Restrictions Apply</td>
+                        <td>If a table has foreign key constraints, deletion may be blocked.</td>
                     </tr>
                     <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
+                        <td>High Redo & Undo Generation</td>
+                        <td>Since DELETE is logged, it generates more redo and undo data.</td>
                     </tr>
                     <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>Cannot Be Used on Views Without INSTEAD OF Triggers </td>
+                        <td>Deleting from a complex view without an INSTEAD OF trigger is not allowed.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            </table><br>
+            <h2>Do's and Don'ts of DELETE</h2>
             <table>
                 <thead>
                     <tr>
@@ -845,39 +733,70 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Always use a WHERE clause to delete specific rows.</td>
+                        <td>Never run DELETE FROM table_name; without WHERE unless intentional.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Use EXISTS or IN for efficient row selection.</td>
+                        <td>Avoid deleting large datasets in one go; consider batching.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Use indexing to improve deletion performance.</td>
+                        <td> Do not ignore foreign key constraints—they may cause errors.</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Use transactions (COMMIT / ROLLBACK) for data integrity.</td>
+                        <td>Avoid deleting records from large tables frequently—it affects performance.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Best Practices</h2>
-            <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
-
+            </table><br>
+            <h2>Difference Between DELETE, TRUNCATE, and DROP</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>DELETE</th>
+                        <th>TRUNCATE</th>
+                        <th>DROP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Removes Specific Rows?</b></td>
+                        <td>Yes (with WHERE)</td>
+                        <td>No (removes all)</td>
+                        <td>No (removes structure + data)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Can Be Rolled Back?</b></td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><b>Fires Triggers?</b></td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><b>Affects Structure?</b></td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes (removes table)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Impact?</b></td>
+                        <td>Slow (row-by-row deletion)</td>
+                        <td>Fast (removes all without logging)</td>
+                        <td>Fast (removes entire table)</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <br><br><br>
+
+
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
                     Pevious</a>

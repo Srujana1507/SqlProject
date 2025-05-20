@@ -521,245 +521,215 @@
             </div>
             <br>
 
-            <h1>ALTER TABLE Statement in Oracle SQL </h1>
-            <p>The ALTER TABLE statement in Oracle SQL is used to modify the structure of an existing table.
+            <h1>DROP VIEW in Oracle SQL</h1>
+            <p>In Oracle SQL, the DROP VIEW statement is used to remove a view from the database. A view is a virtual
+                table based on the result of a SQL query.
             </p><br>
-            <p>It allows you to:
-            </p>
-            <ul>
-                <li>Add, modify, or drop columns.</li>
-                <li>Rename a table or column.</li>
-                <li>Add or remove constraints.</li>
-                <li>Enable or disable constraints.</li>
-                <li>Add or drop indexes.</li>
-                <li>Modify storage properties and tablespace.</li>
-            </ul> <br>
+            <p>When you drop a view, Oracle removes the definition of the view from the data dictionary, but the
+                underlying base tables remain unaffected.</p><br>
+
 
             <h2>Syntax</h2>
-            <h2>Adding a New Column</h2>
+            <h2>Basic Syntax</h2>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            [<span class="orclkey">CONSTRAINT </span> constraint_name ]
-                        </ul>
-                    )
+                    <span class="orclkey">DROP VIEW  </span> view_name 
                        <b> ; </b> 
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Adds a new column email to the employees table.</p>
+            <h2>Key Points</h2>
+            <ul>
+                <li>The DROP VIEW statement removes only the view definition; it does not delete the underlying data or
+                    tables.</li>
+                <li>If the view has dependent objects (like other views or synonyms), Oracle will prevent you from
+                    dropping the view unless you use the CASCADE CONSTRAINTS option.</li>
+                <li>Dropping a view automatically commits the transaction — it cannot be rolled back.</li>
+                <li>A dropped view cannot be recovered unless you have a backup.</li>
+                <li>Permissions (grants) associated with the view are automatically removed when the view is dropped.
+                </li>
+            </ul><br>
+            <h2>CASCADE CONSTRAINTS</h2>
+            <ul>
+                <li>If the view is referenced by constraints in other objects (like other views or tables), adding
+                    CASCADE CONSTRAINTS will drop the dependent constraints as well.</li>
+            </ul>
+            <h2>Truncate Table with DROP STORAGE</h2>
             <div class="code-box">
                 <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">ADD </span>(email VARCHAR2(100))
-           <b> ; </b> 
-            </code>
+                    <span class="orclkey">DROP VIEW  </span> view_name <span class="orclkey">CASCADE CONSTRAINTS </span>
+                       <b> ; </b> 
+                        </code>
+            </div><br>
+            <h2>Restrictions on DROP VIEW</h2>
+            <ul>
+                <li>You cannot drop a view</li>
+                <ul>
+                    <li>That is part of a materialized view.</li>
+                    <li>That is referenced by a foreign key constraint without CASCADE CONSTRAINTS.</li>
+                    <li>Created in another schema (unless you have DROP ANY VIEW privilege).</li>
+                </ul>
+                <li>You cannot roll back a DROP VIEW operation since it's a DDL statement.</li>
+            </ul> <br>
+
+            <h2>Example</h2>
+            <p><b>1. Drop a Simple View:- </b> Drop a view named employee_view.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">DROP VIEW  </span> employee_view 
+                       <b> ; </b> 
+                       <ul>
+                        <li>The view employee_view will be removed from the schema.</li>
+                        <li>Underlying table data will remain intact.</li>
+                       </ul>
+                        </code>
             </div><br>
 
-            <h2>Modifying an Existing Column</h2>
-            <p>You can change the datatype, size, or default value of a column using the MODIFY clause.</p>
+            <p><b>2. Drop a View Referenced by Other Views:-</b> If the view department_view is referenced by other
+                views or constraints.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">MODIFY </span>(
-                        <ul>
-                            column_name  datatype   [<span class="orclkey">DEFAULT value </span>] <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Increases the size of the email column from 100 to 150 characters.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(email VARCHAR2(150))
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <p><b>Changing the Default Value - </b>Sets the default value of department_id to 1.</p>
-            <div class="code-box">
-                <code>
-        <span class="orclkey">ALTER TABLE  </span> employees <br>
-        <span class="orclkey">MODIFY </span>(department_id <span class="orclkey">DEFAULT </span> 1)
-           <b> ; </b> 
-            </code>
-            </div><br>
-            <h2>Dropping a Column</h2>
-            <p>You can remove an existing column using the DROP COLUMN clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP </span>(
-                        <ul>
-                            column_name  <br>
-                            ) <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Deletes the email column from the employees table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP COLUMN</span> email
+                    <span class="orclkey">DROP VIEW  </span> department_view  <span class="orclkey">CASCADE CONSTRAINTS </span>
                        <b> ; </b> 
+                      <ul>
+                        <li>The view department_view and all dependent constraints or references will be removed.</li>
+                        <li>If dependent views or objects exist, they will become invalid unless CASCADE CONSTRAINTS is used.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Renaming a Table</h2>
-            <p>You can rename an existing table using the RENAME clause.</p>
+
+            <p><b>3. Drop a View Created by Another User (With Permissions):-</b> If a view sales_view was created by
+                another user and you have the DROP ANY VIEW privilege.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME TO </span>(
-                        <ul>
-                            new_table_name  <br>
-                            ) <b> ; </b>
-                        </ul>
-                        </code>
-            </div><br>
-            <h3>Example</h3>
-            <p>Renames the employees table to staff.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME TO </span> staff
+                    <span class="orclkey">DROP VIEW  </span> sales_view  
                        <b> ; </b> 
+                      <ul>
+                        <li>The view will be dropped, but the base tables will remain intact.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Renaming a Column</h2>
-            <p>You can rename an existing column using the RENAME COLUMN clause.</p>
+            <p><b>4. Drop a View with Grants:-</b> If employee_view has been granted to other users.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            Old_Column_Name   <span class="orclkey"> TO </span> New_Column_Name 
-                           
+                    <span class="orclkey">DROP VIEW  </span> employee_view
                        <b> ; </b> 
-                        </ul>
-                    
+                      <ul>
+                        <li>The view will be dropped.</li>
+                        <li>All associated privileges granted to other users will be revoked automatically.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Example</h2>
-            <p>Renames the hire_date column to joining_date.</p>
+            <p><b>5. Drop a View with JOINs:-</b> If the view emp_dept_view is created with a JOIN.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">RENAME COLUMN </span>
-                        <ul>
-                            hire_date <span class="orclkey"> TO </span> joining_date 
+                    <span class="orclkey">DROP VIEW  </span> emp_dept_view
                        <b> ; </b> 
-                        </ul>
+                      <ul>
+                        <li>The view will be dropped without affecting the base tables used in the join.</li>
+                      </ul>
                         </code>
             </div><br>
-            <h2>Adding a Constraint</h2>
-            <p>You can add a primary key, unique key, check, or foreign key constraint to a table using the ADD
-                CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">ADD CONSTRAINT </span>(
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> Column_Name <br>
-                            )
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Adds a unique constraint on the email column.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD CONSTRAINT </span> emp_email_uk
-                            <span class="orclkey">UNIQUE </span> Column_Name (email)
-                       <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Dropping a Constraint</h2>
-            <p>You can remove a constraint using the DROP CONSTRAINT clause.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> table_name <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                        <ul>
-                            constraint_name   <span class="orclkey">CONSTRAINT </span> (Column_Name) <br>
-                           <b> ; </b> 
-                        </ul>
-                        </code>
-            </div><br>
-            <h2>Example</h2>
-            <p>Removes the emp_email_uk constraint.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DROP CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Enabling a Constraint</h2>
-            <p>You can enable a disabled constraint using the ENABLE clause.</p> <br>
-            <p>Enables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ENABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Disabling a Constraint</h2>
-            <p>You can disable a constraint using the DISABLE clause.</p> <br>
-            <p>Example:- Disables the unique constraint on email.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">DISABLE CONSTRAINT </span>
-                    emp_email_uk
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Changing Table Storage</h2>
-            <p>You can modify the storage properties or move the table to a different tablespace using MOVE.</p> <br>
-            <p>Example:- Moves the employees table to a new tablespace.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">MOVE TABLESPACE </span>
-                    new_tablespace
-                           <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Adding a Virtual Column</h2>
-            <p>You can create a virtual column based on an expression using ADD.</p> <br>
-            <p>Example:- Adds a virtual column full_name that concatenates first_name and last_name.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> employees <br>
-                    <span class="orclkey">ADD </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        (first_name || <span class="orclg"> ' ' </span> || last_name))
-                    <b> ; </b> 
-                        </code>
-            </div><br>
-            <h2>Dropping a Partition</h2>
-            <p>You can drop a partition from a partitioned table.</p> <br>
-            <p>Example:- Removes the partition sales_q1 from the sales table.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">ALTER TABLE  </span> sales <br>
-                    <span class="orclkey">DROP PARTITION </span>(
-                        full_name <span class="orclkey"> AS </span> 
-                        sales_q1
-                           <b> ; </b> 
-                        </code>
-            </div><br>
+            <h2>Differences Between DELETE and TRUNCATE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>DROP VIEW</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Purpose</b></td>
+                        <td>Removes the view definition</td>
+                        <td>Removes data from the table</td>
+                    </tr>
+                    <tr>
+                        <td><b>Impact on Base Table</b></td>
+                        <td>No effect on the underlying table</td>
+                        <td>Affects the underlying table data</td>
+                    </tr>
+                    <tr>
+                        <td><b>Rollback</b></td>
+                        <td>Cannot be rolled back</td>
+                        <td>Can be rolled back</td>
+                    </tr>
+                    <tr>
+                        <td><b>Scope</b></td>
+                        <td>Only the view is dropped</td>
+                        <td>Rows in the table are deleted</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cascade Option</b></td>
+                        <td>Supported</td>
+                        <td>Not supported</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Advantages of DROP VIEW</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frees Up Space</td>
+                        <td>Dropping unused views frees up database space and resources.</td>
+                    </tr>
+                    <tr>
+                        <td>Simplifies Schema</td>
+                        <td>Removing unnecessary views makes the schema easier to manage.</td>
+                    </tr>
+                    <tr>
+                        <td>Improved Performance</td>
+                        <td>Reduces parsing time and improves query performance by removing unused views.</td>
+                    </tr>
+                    <tr>
+                        <td>Immediate Effect</td>
+                        <td>View is dropped immediately — no need to wait for completion.</td>
+                    </tr>
+                    <tr>
+                        <td>No Data Loss</td>
+                        <td>Data in the base table remains intact after dropping a view.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Disadvantages of DROP VIEW</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disadvantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Cannot Roll Back</b></td>
+                        <td>Once dropped, the view cannot be recovered unless restored from backup.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Dependent Objects Issue</b></td>
+                        <td>Dependent objects like other views, procedures, or triggers will become invalid.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Loss of Permissions</b></td>
+                        <td>Any granted privileges on the view will be lost when dropped.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Schema Dependency</b></td>
+                        <td>If the view is part of a larger schema, dropping it may cause cascading failures.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Auto-Commit</b></td>
+                        <td>The DROP VIEW statement commits automatically.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
             <h2>Common Errors and Solutions</h2>
             <table>
                 <thead>
@@ -772,70 +742,32 @@
                 <tbody>
                     <tr>
                         <td>ORA-00942: table or view does not exist</td>
-                        <td>Table doesn't exist or you lack privileges.</td>
-                        <td>Ensure the table exists and you have the necessary privileges.</td>
+                        <td>Trying to drop a non-existent view.</td>
+                        <td>Check the view name and schema.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01430: column being added already exists</td>
-                        <td>Trying to add a column with an existing name.</td>
-                        <td>Use a unique column name.</td>
+                        <td>ORA-01732: data manipulation operation not legal on this view</td>
+                        <td>Attempting to drop a view with insufficient permissions.</td>
+                        <td>Grant DROP privileges or use a privileged user.</td>
                     </tr>
                     <tr>
-                        <td>ORA-02275: such a referential constraint already exists</td>
-                        <td>Attempt to add an existing constraint.</td>
-                        <td>Ensure that the constraint doesn't already exist.</td>
+                        <td>ORA-02266: unique/primary keys referenced by foreign keys</td>
+                        <td>Attempting to drop a view with dependent constraints.</td>
+                        <td>Use CASCADE CONSTRAINTS.</td>
                     </tr>
                     <tr>
-                        <td>ORA-02298: cannot validate constraint - parent keys not found</td>
-                        <td>Foreign key violation.</td>
-                        <td>Ensure referenced data exists before adding a foreign key.</td>
+                        <td>ORA-04043: object does not exist</td>
+                        <td>View not found in the schema.</td>
+                        <td>Verify the view name and schema.</td>
                     </tr>
                     <tr>
-                        <td>ORA-01735: invalid ALTER TABLE option</td>
-                        <td>Wrong syntax or unsupported option.</td>
-                        <td>Review the syntax and options used.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-02443: Cannot drop constraint - nonexistent constraint</td>
-                        <td>Attempt to drop a non-existing constraint.</td>
-                        <td>Verify the constraint name.</td>
-                    </tr>
-                </tbody>
-            </table><br>
-            <h2>Advantages and Disadvantages of ALTER TABLE</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Allows dynamic modification of table structure without data loss.</td>
-                        <td>Dropping a column or constraint may lead to data loss.</td>
-                    </tr>
-                    <tr>
-                        <td>Allows adding new business logic through constraints and triggers.</td>
-                        <td>Modifying data types of existing columns may cause data corruption.</td>
-                    </tr>
-                    <tr>
-                        <td>Can improve performance by adding indexes.</td>
-                        <td>Frequent alterations can fragment tables and degrade performance.</td>
-                    </tr>
-                    <tr>
-                        <td>Useful for adding partitioning or moving tablespaces for better storage management.</td>
-                        <td>Changing primary keys and constraints on large tables may cause table locking and downtime.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allows table structure to adapt to business changes.</td>
-                        <td>Complex alterations may require significant rework of dependent objects like views,
-                            triggers, and procedures.</td>
+                        <td>ORA-00911: invalid character</td>
+                        <td>Syntax error in the statement.</td>
+                        <td>Remove unnecessary characters.</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts of ALTER TABLE</h2>
+            <h2>Do's and Don'ts of DROP VIEW</h2>
             <table>
                 <thead>
                     <tr>
@@ -845,36 +777,37 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Use ADD to create new columns or constraints carefully.</td>
-                        <td>Don’t drop columns containing important historical data without backup.</td>
+                        <td>Ensure no critical object depends on the view before dropping it.</td>
+                        <td>Don’t drop a view without checking dependent objects.</td>
                     </tr>
                     <tr>
-                        <td>Test changes in a development environment first.</td>
-                        <td>Don’t modify primary keys or constraints directly on large production tables during business
-                            hours.</td>
+                        <td>Use CASCADE CONSTRAINTS if the view is referenced by other objects.</td>
+                        <td>Don’t drop a view unless you're sure it's no longer needed.</td>
                     </tr>
                     <tr>
-                        <td>Use MODIFY to increase column size, but verify existing data first.</td>
-                        <td>Don’t shrink column size if data already exceeds the new size.</td>
+                        <td>Check for permissions before dropping a view created by another user.</td>
+                        <td>Don’t drop a view directly in a production environment without testing.</td>
                     </tr>
                     <tr>
-                        <td>Use ENABLE and DISABLE for maintaining constraints without dropping them.</td>
-                        <td>Don’t disable essential constraints unless necessary — it may lead to data integrity issues.
-                        </td>
+                        <td>Always take a backup before dropping important views.</td>
+                        <td>Don’t drop a view used by active sessions or reports.</td>
                     </tr>
                     <tr>
-                        <td>Rename columns and tables carefully to avoid breaking dependent objects.</td>
-                        <td>Don’t change storage properties frequently — it can degrade performance.</td>
+                        <td>Verify object dependencies using DBA_DEPENDENCIES before dropping.</td>
+                        <td>Don’t drop a system-generated or critical view unless necessary.</td>
                     </tr>
                 </tbody>
-            </table> <br>
+            </table><br>
             <h2>Best Practices</h2>
             <ul>
-                <li>Always back up your table before making structural changes.</li>
-                <li>Test your ALTER TABLE statements in a test environment first.</li>
-                <li>Ensure that no active sessions are using the table before performing complex changes.</li>
-                <li>Avoid modifying or dropping primary keys unless absolutely necessary.</li>
-            </ul><br><br><br>
+                <li>Always check for dependent objects using the DBA_DEPENDENCIES view before dropping a view.</li>
+                <li> Avoid dropping views directly in a production environment without testing in development.</li>
+                <li> If the view is complex or critical, consider renaming it before dropping.</li>
+                <li>Use CASCADE CONSTRAINTS only when you are sure that the dependent objects are no longer needed.</li>
+                <li>Document the change when dropping important views to maintain version control and transparency.</li>
+            </ul> <br><br><br>
+
+
 
 
             <br><br><br>
