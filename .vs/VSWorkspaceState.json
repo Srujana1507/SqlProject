@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\KUKDB"
+    "\\KUKDB",
+    "\\KUKDB\\Oracle"
   ],
+  "SelectedNode": "\\KUKDB\\Oracle\\orclsql_all.html",
   "PreviewInSolutionExplorer": false
 }
