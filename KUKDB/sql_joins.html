@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,11 +308,11 @@
         <main class="sidebar-content" data-topic="sqlJoins">
 
             <div class="topic-buttons">
-                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
                 <a href="#" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>JOINs in SQL</h1>
+            <h1> JOINS </h1>
             <p>Joins in SQL are used to combine rows from two or more tables based on a related column between them.</p>
             <br>
             <ul>
@@ -322,18 +322,18 @@
                     defined relationship, often through a common key (like a foreign key referencing a primary key in
                     another table).</li>
             </ul><br>
-            <h2>Why Do We Need JOINs in SQL?</h2>
+            <h2>Why use Joins in SQL?</h2>
             <ul>
                 <li><b>Data Distribution Across Tables:- </b> Relational databases are designed to normalize data,
                     meaning related data is often stored in separate tables to reduce redundancy.</li>
-                <li><b>Consolidated Results:- </b> JOINs help query data from multiple tables in a cohesive and
+                <li><b>Consolidated Results:- </b> Joins help in querying data from multiple tables in a cohesive and
                     structured format.</li>
                 <li><b>Complex Queries:- </b> They allow the retrieval of complex relationships between datasets in a
                     single query.</li>
                 <li><b>Data Integrity:- </b> By enforcing relationships using JOINs, we maintain data consistency and
                     avoid duplication.</li>
             </ul><br>
-            <h2>Use of JOINs </h2>
+            <h2>Common uses of Joins </h2>
             <ul>
                 <li><b>Data Analysis:- </b> To combine data from multiple sources and perform analytics.</li>
                 <li><b>Reporting:- </b> To fetch related data for creating detailed reports.</li>
@@ -341,31 +341,31 @@
                 <li><b>Application Functionality:- </b> To support business logic requiring data from different parts of
                     the database.</li>
             </ul><br>
-            <h2>Advantages of JOINs</h2>
+            <h2>Advantages of Joins</h2>
             <ul>
-                <li><b>Efficient Data Retrieval:- </b> JOINs allow fetching related data from multiple tables in a
+                <li><b>Efficient Data Retrieval:- </b> Joins allow fetching related data from multiple tables in a
                     single query.</li>
                 <li><b>Data Normalization Support:- </b> They work seamlessly with normalized databases.</li>
-                <li><b>Improved Performance:- </b> Properly indexed tables with JOINs can outperform alternatives like
+                <li><b>Improved Performance:- </b> Properly indexed tables with Joins can outperform alternatives like
                     subqueries in terms of speed.</li>
                 <li><b>Flexibility:- </b> They provide options to combine data in various ways (inner, outer, cross,
                     etc.).</li>
-                <li><b>Scalability:- </b> JOINs can be scaled to work with complex database schemas.</li>
+                <li><b>Scalability:- </b> Joins can be scaled to work with complex database schemas.</li>
             </ul><br>
-            <h2>Disadvantages of JOINs</h2>
+            <h2>Disadvantages of Joins</h2>
             <ul>
-                <li><b>Complexity:- </b> As the number of tables and relationships increase, JOINs can become harder to
+                <li><b>Complexity:- </b> As the number of tables and relationships increase, Joins can become harder to
                     write and debug.</li>
                 <li><b>Performance Bottlenecks:- </b> Large datasets with poorly optimized queries or missing indexes
                     can lead to slow JOIN operations.</li>
-                <li><b>Learning Curve:- </b> Understanding and writing advanced JOINs can be challenging for beginners.
+                <li><b>Learning Curve:- </b> Understanding and writing advanced Joins can be challenging for beginners.
                 </li>
-                <li><b>Overhead:- </b> Complex JOINs can cause memory and CPU usage to spike, impacting database
+                <li><b>Overhead:- </b> Complex Joins can cause memory and CPU usage to spike, impacting database
                     performance.</li>
-                <li><b>Readability:- </b> JOIN queries with multiple conditions and large tables can be difficult to
+                <li><b>Readability:- </b> JOIN involving multiple conditions or large tables can be hard to
                     read and maintain.</li>
             </ul><br>
-            <h2>Types of JOINs in SQL</h2>
+            <h2>Types of Joins in SQL</h2>
             <table>
                 <thead>
                     <tr>
@@ -460,7 +460,7 @@
                         <td>Query relationships based on ranges or non-equal conditions.</td>
                         <td>Matches rows based on the specified condition (e.g., range).
                         </td>
-                        <td>Not as commonly supported in SQL syntax for complex joins as EQUI JOIN.</td>
+                        <td>Not as commonly supported in SQL syntax for complex Joins as EQUI JOIN.</td>
                         <td>Common in queries with ranges like date intervals or thresholds.</td>
                     </tr>
                 </tbody>
@@ -468,12 +468,12 @@
             <h2>Key Points</h2>
             <p><b>1. Performance Considerations:</b></p><br>
             <ul>
-                <li>Avoid unnecessary joins in queries as they can lead to performance degradation.</li>
+                <li>Avoid unnecessary Joins in queries as they can lead to performance degradation.</li>
                 <li>Use indexes on columns involved in the join condition to speed up execution.</li>
             </ul><br>
             <p><b>2. Handling NULL Values:</b></p><br>
             <ul>
-                <li>Outer joins often introduce NULL values for unmatched rows. Plan for handling these in your
+                <li>Outer Joins often introduce NULL values for unmatched rows. Plan for handling these in your
                     application logic.</li>
             </ul><br>
             <p><b>3. Choice of JOIN</b></p><br>
@@ -485,24 +485,23 @@
             </ul><br>
             <p><b>4. Database-Specific Behavior:</b></p><br>
             <ul>
-                <li>Some databases (e.g., SQL Server) may not support certain joins (e.g., NATURAL JOIN) natively.</li>
-            </ul>
+                <li>Some databases (e.g., SQL Server) may not support certain Joins (e.g., NATURAL JOIN) natively.</li>
+            </ul><br>
             <p><b>5. Join Order:</b></p><br>
             <ul>
-                <li>For complex queries, the order of joins can impact performance. Query optimizers often decide the
+                <li>For complex queries, the order of Joins can impact performance. Query optimizers often decide the
                     execution order.</li>
-            </ul>
-            <p><b>6. Use of Aliases</b></p><br>
+            </ul><br>
+            <p><b>6. Use of Aliases :</b></p><br>
             <ul>
                 <li>Use table aliases (AS) in queries to improve readability, especially in queries with multiple joins.
                 </li>
-            </ul>
-            <br>
+            </ul><br>
 
 
 
             <div class="topic-buttons">
-                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
                 <a href="#" class="next-button">Next &raquo;</a>
             </div>
 
