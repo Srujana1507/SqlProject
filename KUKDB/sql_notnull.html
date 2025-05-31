@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,11 +308,11 @@
         <main class="sidebar-content" data-topic="sqlNotnull">
 
             <div class="topic-buttons">
-                <a href="sql_constraints.html?topic=sqlConstraints" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_constraints.html?topic=sqlConstraints" class="previou-button">&laquo; Previous</a>
                 <a href="sql_unique.html?topic=sqlUnique" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>NOT NULL Constraint</h1>
+            <h1>NOT NULL </h1>
             <p>The NOT NULL constraint ensures that a column cannot have NULL values. </p><br>
             <p>It is a rule applied to a column that makes it mandatory to have a value when a new row is inserted or an
                 existing row is updated.</p><br>
@@ -355,10 +355,10 @@
                 <span class="orclkey"> CREATE TABLE </span>  table_name ( <br>
                 <ul>
                     column_name data_type <span class="orclkey"> NOT NULL </span> , <br>
-                    other_column data_type
+                    other_column data_type )<b> ;</b>
                 </ul>
-                )
-                 <b> ;</b> 
+                
+            
             </code>
             </div><br>
             <h3>Adding NOT NULL to an Existing Table</h3>
@@ -376,15 +376,16 @@
                 </ul>
             </code>
             </div><br>
-            <p><b>Scenario 1:- </b> Enforcing Mandatory Employee Names.</p>
+             <h2>Examples</h2>
+            <p><b>Scenario 1:- </b> Enforcing Mandatory Employee Names(NOT NULL on regular field).</p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> CREATE TABLE </span>  employees ( 
                     <ul>
                         employee_id INT <span class="orclkey"> PRIMARY KEY </span>,
                         employee_name VARCHAR(50) <span class="orclkey"> NOT NULL </span>,
-                        department_id INT
-                    </ul> ) <b> ;</b>
+                        department_id INT ) <b> ;</b>
+                    </ul>
                  </code>
             </div><br>
             <p><b>Scenario 2:- </b> Ensures that the order_date column cannot have NULL values.</p>
@@ -396,7 +397,7 @@
                     </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 3:- </b> Ensures price cannot be NULL, and assigns a default value if not provided.</p>
+            <p><b>Scenario 3:- </b> Ensures that  the price cannot be NULL, and assigns a default value, if no value is provided.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> CREATE TABLE </span>  products ( 
@@ -404,7 +405,7 @@
                             product_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                             product_name VARCHAR(100) <span class="orclkey"> NOT NULL </span>,<br>
                             price DECIMAL(10, 2) <span class="orclkey"> NOT NULL DEFAULT </span> 0.00
-                        </ul> ) <b> ;</b>
+                        ) <b> ;</b></ul> 
                  </code>
             </div><br>
             <p><b>Scenario 4:- </b> Ensures that an order must always reference a valid customer.</p>
@@ -415,13 +416,13 @@
                             order_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                             customer_id INT <span class="orclkey"> NOT NULL </span>,<br>
                             <span class="orclkey"> FOREIGN KEY </span> (customer_id) <span class="orclkey"> REFERENCES  </span> customers(customer_id)
-                        </ul> ) <b> ;</b>
+                         ) <b> ;</b></ul>
                  </code>
             </div><br>
             <p><b>Scenario 5:- </b> Removing NULL Values Before Adding Constraint</p>
             <div class="code-box">
                 <code>
-                    -- Update NULL values
+                    -- Update NULL values<br>
                     <span class="orclkey"> UPDATE </span>  employees
                         <ul>
                             <span class="orclkey"> SET </span> employee_name = 'Unknown' <br>
@@ -430,9 +431,10 @@
                         </ul> 
                         <br>
                         -- Add NOT NULL constraint <br>
-                        <span class="orclkey"> ALTER TABLE </span>  orders
+                        <span class="orclkey"> ALTER TABLE </span>  employees
                     <ul>
-                        <span class="orclkey"> MODIFY </span> employee_name VARCHAR(50) <span class="orclkey">  NOT NULL </span>  <b> ;</b>
+                        <span class="orclkey"> MODIFY </span> employee_name VARCHAR(50) 
+                        <span class="orclkey">  NOT NULL </span>  <b> ;</b>
                     </ul> 
                        </code>
             </div><br>
@@ -446,19 +448,19 @@
                             product_id INT <span class="orclkey"> NOT NULL </span>, <br>
                             sales_amount DECIMAL(10, 2), <br>
                             <span class="orclkey"> PRIMARY KEY </span> ( region_id, product_id ) 
-                        </ul> ) <b> ;</b>
+                        ) <b> ;</b></ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 7:- </b> Enforcing Non-Null Value on an Auto-Increment Column ( A ProductID column, which is
-                auto-incremented, must always have a value.)</p>
+            <p><b>Scenario 7:- </b> Enforcing Not-Null on an Auto-Increment primary key 
+            (defines  A ProductID column, as an auto-incremented primary key which cannot be NULL.)</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> CREATE TABLE </span>  Products (
                         <ul>
                             ProductID INT AUTO_INCREMENT <span class="orclkey"> NOT NULL PRIMARY KEY</span>, <br>
                             ProductName VARCHAR(100) <span class="orclkey"> NOT NULL </span>,<br>
-                            Price DECIMAL(10, 2)
-                        </ul> ) <b> ;</b>
+                            Price DECIMAL(10, 2)) <b> ;</b>
+                        </ul> 
                  </code>
             </div><br>
             <h2>Common Errors and Solutions</h2>
@@ -488,7 +490,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Hints to use Not Null</h2>
+            <h2>Performance Hints For NOT NULL</h2>
             <table>
                 <thead>
                     <tr>
@@ -521,7 +523,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with NOT NULL </h2>
             <table>
                 <thead>
                     <tr>
@@ -556,7 +558,7 @@
             <br>
 
             <div class="topic-buttons">
-                <a href="sql_constraints.html?topic=sqlConstraints" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_constraints.html?topic=sqlConstraints" class="previou-button">&laquo; Previous</a>
                 <a href="sql_unique.html?topic=sqlUnique" class="next-button">Next &raquo;</a>
             </div>
 

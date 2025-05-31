@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,11 +308,11 @@
         <main class="sidebar-content" data-topic="sqlForeignkey">
 
             <div class="topic-buttons">
-                <a href="sql_primarykey.html?topic=sqlPrimarykey" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_primarykey.html?topic=sqlPrimarykey" class="previou-button">&laquo; Previous</a>
                 <a href="sql_check.html?topic=sqlCheck" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Foreign Key Constraint</h1>
+            <h1>Foreign Key </h1>
             <p>A Foreign Key is a column or a set of columns in a table that establishes a link between the data in two
                 tables.</p> <br>
             <p>It references the Primary Key or a Unique Key in another table, enforcing referential integrity by
@@ -377,12 +377,12 @@
                     Column2 DataType, <br>
                     <span class="orclkey"> CONSTRAINT </span> fk_name <span class="orclkey"> FOREIGN KEY  </span> (child_column) <br>
                     <span class="orclkey"> REFERENCES </span> parent_table (parent_column)
-                </ul>
                 )
-                 <b> ;</b> 
-            </code>
+                 <b> ;</b> </ul>
+                      </code>
+      
             </div><br>
-            <h3>2. Defining a Foreign Key During Table Creation.</h3>
+            <h3>2. Defining a Foreign Key on DELETE and UPDATE</h3>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> CREATE TABLE </span>  table_name ( <br>
@@ -391,10 +391,10 @@
                     Column2 DataType, <br>
                     <span class="orclkey"> FOREIGN KEY </span> (Column1) <span class="orclkey"> REFERENCES  </span> ParentTable(ParentColumn)<br>
                     <span class="orclkey"> ON DELETE </span> CASCADE <br>
-                    <span class="orclkey"> ON UPDATE </span> CASCADE <br>
-                </ul>
-                )
-                 <b> ;</b> 
+                    <span class="orclkey"> ON UPDATE </span> CASCADE 
+                 )
+                 <b> ;</b>  </ul>
+               
             </code>
             </div><br>
             <h3>3. Adding a Foreign Key to an Existing Table.</h3>
@@ -526,8 +526,8 @@
                 <span class="orclkey"> CREATE TABLE </span>  Departments   ( 
                     <ul>
                         DepartmentID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        DepartmentName VARCHAR(100)
-                    </ul> ) <b> ;</b> <br><br> 
+                        DepartmentName VARCHAR(100)) <b> ;</b>
+                    </ul>  <br><br> 
 
                     <span class="orclkey"> CREATE TABLE </span>  Employees ( 
                     <ul>
@@ -535,9 +535,10 @@
                         EmployeeName VARCHAR(100), <br>
                         DepartmentID INT, <br>
                         <span class="orclkey"> FOREIGN KEY </span> (DepartmentID) <span class="orclkey"> REFERENCES </span> Departments(DepartmentID)
-                    </ul> ) <b> ;</b>
+                    ) <b> ;</b></ul> 
                  </code>
             </div><br>
+
             <p><b>Scenario 2:- (Cascade Deletion )</b> If a department is deleted, all employees in that department
                 should also be removed.</p>
             <div class="code-box">
@@ -545,8 +546,8 @@
                 <span class="orclkey"> CREATE TABLE </span>  Departments   ( 
                     <ul>
                         DepartmentID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        DepartmentName VARCHAR(100)
-                    </ul> ) <b> ;</b> <br><br>
+                        DepartmentName VARCHAR(100)) <b> ;</b>
+                    </ul> <br><br>
 
                     <span class="orclkey"> CREATE TABLE </span>  Employees ( 
                     <ul>
@@ -555,9 +556,11 @@
                         DepartmentID INT, <br>
                         <span class="orclkey"> FOREIGN KEY </span> (DepartmentID) <span class="orclkey"> REFERENCES </span> Departments(DepartmentID)
                         <span class="orclkey"> ON DELETE </span> CASCADE
-                    </ul> ) <b> ;</b>
+                    ) <b> ;</b> 
+                    </ul> 
                  </code>
             </div><br>
+
             <p><b>Scenario 3:- (Prevent Deletion of Parent Records )</b> Do not allow deletion of a department if it has
                 employees associated with it.</p>
             <div class="code-box">
@@ -565,8 +568,8 @@
                 <span class="orclkey"> CREATE TABLE </span>  Departments   ( 
                     <ul>
                         DepartmentID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        DepartmentName VARCHAR(100)
-                    </ul> ) <b> ;</b> <br><br>
+                        DepartmentName VARCHAR(100)) <b> ;</b> 
+                    </ul> <br><br>
 
                     <span class="orclkey"> CREATE TABLE </span>  Employees ( 
                     <ul>
@@ -575,9 +578,9 @@
                         DepartmentID INT, <br>
                         <span class="orclkey"> FOREIGN KEY </span> (DepartmentID) <span class="orclkey"> REFERENCES </span> Departments(DepartmentID)
                         <span class="orclkey"> ON DELETE </span> RESTRICT
-                    </ul> ) <b> ;</b>
+                    ) <b> ;</b></ul> 
                  </code>
-            </div><br>
+           </div><br><br>
             <p><b>Scenario 4:- ( Using Composite Foreign Keys )</b> Ensure that each order detail corresponds to a valid
                 order and product combination.</p>
             <div class="code-box">
@@ -587,7 +590,8 @@
                         OrderID INT, <br>
                         ProductID INT, <br>
                         <span class="orclkey"> PRIMARY KEY </span>(OrderID, ProductID)
-                    </ul> ) <b> ;</b> <br><br>
+                          ) <b> ;</b> 
+                        </ul> <br>
 
                     <span class="orclkey"> CREATE TABLE </span>  OrderDetails ( 
                     <ul>
@@ -596,7 +600,8 @@
                         ProductID INT, <br>
                         Quantity INT, <br>
                         <span class="orclkey"> FOREIGN KEY </span> ( OrderID, ProductID ) <span class="orclkey"> REFERENCES </span> Orders( OrderID, ProductID )
-                    </ul> ) <b> ;</b>
+                    ) <b> ;</b>
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 5:- ( Foreign Key with SET NULL )</b> If a department is deleted, set the DepartmentID of
@@ -607,7 +612,8 @@
                     <ul>
                         DepartmentID INT <span class="orclkey"> PRIMARY KEY </span> , <br>
                         DepartmentName VARCHAR(100)
-                    </ul> ) <b> ;</b> <br><br>
+                    ) <b> ;</b>
+                    </ul>  <br><br>
 
                     <span class="orclkey"> CREATE TABLE </span>  Employees ( 
                     <ul>
@@ -616,7 +622,8 @@
                         DepartmentID INT, <br>
                         <span class="orclkey"> FOREIGN KEY </span> (DepartmentID) <span class="orclkey"> REFERENCES </span> Departments(DepartmentID)
                         <span class="orclkey"> ON DELETE SET NULL </span>
-                    </ul> ) <b> ;</b>
+                    ) <b> ;</b>
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 6:- </b> Adding a Foreign Key to an Existing Table.</p>
@@ -632,6 +639,7 @@
             <p><b>Scenario 7:- </b> Dropping a Foreign Key.</p>
             <div class="code-box">
                 <code>
+                ---SQL Server and PostgreSQL<br><br>
                     <span class="orclkey"> ALTER TABLE </span>  Employees
                     <ul>
                         <span class="orclkey"> DROP CONSTRAINT </span> fk_department  <b> ;</b>
@@ -645,14 +653,14 @@
                 <span class="orclkey"> CREATE TABLE </span>  Students ( 
                     <ul>
                         StudentID INT <span class="orclkey"> PRIMARY KEY </span> , <br>
-                        StudentName VARCHAR(100)
-                    </ul> ) <b> ;</b> <br><br>
+                        StudentName VARCHAR(100)) <b> ;</b>
+                    </ul>  <br><br>
 
                     <span class="orclkey"> CREATE TABLE </span>  Courses ( 
                     <ul>
                         CourseID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        CourseName VARCHAR(100)
-                    </ul> ) <b> ;</b>
+                        CourseName VARCHAR(100)) <b> ;</b>
+                    </ul> 
                     <br><br>
                     <span class="orclkey"> CREATE TABLE </span>  Enrollments ( 
                     <ul>
@@ -662,13 +670,14 @@
                         <span class="orclkey"> PRIMARY KEY </span>(StudentID, CourseID), <br>
                         <span class="orclkey"> FOREIGN KEY </span>(StudentID) <span class="orclkey"> REFERENCES </span> Students(StudentID), <br>
                         <span class="orclkey"> FOREIGN KEY </span> (CourseID) <span class="orclkey"> REFERENCES </span> Courses(CourseID)
-                    </ul> ) <b> ;</b>
+                        ) <b> ;</b>
+                        </ul> 
                  </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with FOREIGN KEY</h2>
             <table>
                 <thead>
-                    <tr>
+                    <tr> 
                         <th>Error</th>
                         <th>Explanation</th>
                         <th>Solution</th>
@@ -702,7 +711,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Hints to Use Foreign Keys</h2>
+            <h2>Performance Hints for Foreign Keys</h2>
             <table>
                 <thead>
                     <tr>
@@ -734,7 +743,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with FOREIGN KEY</h2>
             <table>
                 <thead>
                     <tr>
@@ -765,7 +774,7 @@
             </table> <br><br>
 
             <div class="topic-buttons">
-                <a href="sql_primarykey.html?topic=sqlPrimarykey" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_primarykey.html?topic=sqlPrimarykey" class="previou-button">&laquo; Previous</a>
                 <a href="sql_check.html?topic=sqlCheck" class="next-button">Next &raquo;</a>
             </div>
 

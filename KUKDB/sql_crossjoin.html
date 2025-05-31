@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlCrossjoin">
 
             <div class="topic-buttons">
-                <a href="sql_selfjoin.html?topic=sqlSelfjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_selfjoin.html?topic=sqlSelfjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_fullouterjoin.html?topic=sqlFullouterjoin" class="next-button">Next &raquo;</a>
             </div>
 
@@ -318,7 +318,7 @@
             <br>
             <p>It does not require a condition for joining and is generally used when you need all combinations of rows
                 from the participating tables.</p><br>
-            <br>
+            
             <h2>Syntax</h2>
             <div class="code-box">
                 <code>
@@ -437,7 +437,7 @@
                 <code>
                 <span class="orclkey"> SELECT </span> 
                 <ul>
-                    o.order_id  <br>
+                    o.order_id,  <br>
                     d.discount_code 
                 </ul> 
                 <span class="orclkey"> FROM </span> orders o <br>
@@ -452,28 +452,18 @@
                 <span class="orclkey"> FROM </span> Employees e <br>
                 <span class="orclkey"> CROSS JOIN </span> ( 
                 <ul>
-                    <span class="orclkey"> SELECT </span> CAST ('2024-01-01' <span class="orclkey"> SELECT </span> DATE) + n <span class="orclkey"> SELECT </span> CalendarDate <br>
-                    <span class="orclkey"> FROM </span> generate_series( 0, 30 ) <span class="orclkey"> AS </span> n  - - PostgreSQL example<br>
+                    <span class="orclkey"> SELECT </span> CAST ('2024-01-01' 
+                    <span class="orclkey"> AS </span> DATE) + n 
+                    <span class="orclkey"> AS </span> CalendarDate <br>
+                    <span class="orclkey"> FROM </span> generate_series( 0, 30 ) 
+                    <span class="orclkey"> AS </span> n  <br>
                 </ul> 
                 ) d
-                 <b> ;</b> 
+                 <b> ;</b> - - PostgreSQL example
             </code>
             </div><br>
-            <p><b>Scenario 7:- </b> Generate a full grid of dates and employee names for a schedule.</p>
-            <div class="code-box">
-                <code>
-                <span class="orclkey"> SELECT </span>  e.EmployeeName, d.CalendarDate <br>
-                <span class="orclkey"> FROM </span> Employees e <br>
-                <span class="orclkey"> CROSS JOIN </span> ( 
-                <ul>
-                    <span class="orclkey"> SELECT </span> CAST ('2024-01-01' <span class="orclkey"> SELECT </span> DATE) + n <span class="orclkey"> SELECT </span> CalendarDate <br>
-                    <span class="orclkey"> FROM </span> generate_series( 0, 30 ) <span class="orclkey"> AS </span> n  - - PostgreSQL example<br>
-                </ul> 
-                ) d
-                 <b> ;</b> 
-            </code>
-            </div><br>
-            <p><b>Scenario 8:- </b> Pair every trainer with every training session for scheduling.</p>
+            
+            <p><b>Scenario 7:- </b> Pair every trainer with every training session for scheduling.</p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT </span>  t.TrainerName, s.SessionName <br>
@@ -482,7 +472,7 @@
                  <b> ;</b> 
             </code>
             </div><br>
-            <p><b>Scenario 9:- </b> Combine different base products with add-ons for pricing.</p>
+            <p><b>Scenario 8:- </b> Combine different base products with add-ons for pricing.</p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT </span>  b.BaseProduct, a.AddOn, b.BasePrice + a.AddOnPrice <span class="orclkey"> AS </span> TotalPrice <br>
@@ -491,7 +481,7 @@
                  <b> ;</b> 
             </code>
             </div><br>
-            <p><b>Scenario 10:- </b> Simulate the outcomes of rolling two six-sided dice.</p>
+            <p><b>Scenario 9:- </b> Simulate the outcomes of rolling two six-sided dice.</p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT </span> <br>
@@ -525,7 +515,7 @@
                   
             </code>
             </div><br>
-            <h2>Hints to write/ optimize CROSS JOIN</h2>
+            <h2> Performance Hints for CROSS JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -557,8 +547,9 @@
                         </td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h2>Common Errors</h2>
+            </table>
+            <br>
+            <h2>Common Errors with CROSS JOIN </h2>
             <table>
                 <thead>
                     <tr>
@@ -595,7 +586,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with CROSS JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -630,7 +621,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_selfjoin.html?topic=sqlSelfjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_selfjoin.html?topic=sqlSelfjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_fullouterjoin.html?topic=sqlFullouterjoin" class="next-button">Next &raquo;</a>
             </div>
 
