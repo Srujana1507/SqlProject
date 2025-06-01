@@ -330,8 +330,7 @@
                 <h1>Transaction Control Language (TCL)</h1>
                 <h2>What is a Transaction?</h2>
                 <ul>
-                    <li>A transaction in SQL is a sequence of one or more SQL statements that are executed as a single
-                        logical unit of work. </li>
+                    <li>A transaction in SQL is a group of one or more operations that are executed as a single logical unit of work. </li>
                     <li>A transaction ensures that either all the operations are successfully completed, or none of them
                         are applied, maintaining data consistency and integrity.</li>
                 </ul> <br>
@@ -346,12 +345,12 @@
                     <tbody>
                         <tr>
                             <td><b>Atomicity</b></td>
-                            <td>Ensures that all operations within a transaction are completed; otherwise, none of them
-                                are applied.</td>
+                            <td>Guarantees that either all operations succeed or none are applied.
+                               </td>
                         </tr>
                         <tr>
                             <td><b>Consistency</b></td>
-                            <td>Guarantees that a transaction brings the database from one valid state to another.</td>
+                            <td>Ensures the database remains valid before and after the transaction.</td>
                         </tr>
                         <tr>
                             <td><b>Isolation</b></td>
@@ -359,10 +358,9 @@
                         </tr>
                         <tr>
                             <td><b>Durability</b></td>
-                            <td>Ensures that once a transaction is committed, its changes are permanent, even in case of
-                                system failure.</td>
+                            <td>Makes committed changes permanent, even after system failures.</td>
                         </tr>
-                    </tbody>
+                            </tbody>
                 </table> <br>
                 <h2>Transaction Control Language (TCL)</h2>
                 <ul>
@@ -373,11 +371,10 @@
                 </ul> <br>
                 <h2>Why We Need TCL</h2>
                 <ul>
-                    <li><b>Data Integrity:- </b> Ensures consistent data updates during multi-step processes.</li>
-                    <li><b>Error Handling:- </b> Provides mechanisms to undo or confirm changes.</li>
-                    <li><b>Concurrency Control:- </b> Helps manage simultaneous access in multi-user environments.</li>
-                    <li><b>Critical Operations:- </b> Ideal for handling banking transactions, order processing, and
-                        inventory updates.</li>
+                    <li><b>Data Integrity: </b> Maintains consistency during complex updates.</li>
+                    <li><b>Error Handling:</b>Allows reversing or confirming operations based on success.</li>
+                    <li><b>Concurrency: </b> Manages multi-user access safely and efficiently.</li>
+                    <li><b>Critical Use cases: </b> Essential for banking, inventory, and transactional workflows.</li>
                 </ul><br>
                 <h2>TCL Commands</h2>
                 <table>
@@ -390,17 +387,15 @@
                     <tbody>
                         <tr>
                             <td><a href="#commit"><b>COMMIT</b></a></td>
-                            <td>Permanently saves all changes made during the transaction.</td>
+                            <td>Saves all changes in a transaction permanently.</td>
                         </tr>
                         <tr>
                             <td><a href="#rollback"><b>ROLLBACK</b></a></td>
-                            <td>Reverses changes made during the transaction to the last COMMIT or SAVEPOINT.</td>
+                            <td>Reverts changes since last COMMIT or SAVEPOINT.</td>
                         </tr>
                         <tr>
                             <td><a href="#savepoint"><b>SAVEPOINT</b></a></td>
-                            <td>Creates a temporary point in the transaction to which you can rollback partially if
-                                needed.</td>
-                        </tr>
+                            <td>Marks a point to which you can ROLLBACK if needed.</td>
                     </tbody>
                 </table><br>
                 <h2>Advantages of Using TCL</h2>
@@ -414,15 +409,15 @@
                     <tbody>
                         <tr>
                             <td><b>Ensures Data Integrity</b></td>
-                            <td>Prevents partial updates in case of errors.</td>
+                            <td>Prevents partial updates on failure.</td>
                         </tr>
                         <tr>
                             <td><b>Provides Flexibility</b></td>
-                            <td>Savepoints allow partial rollbacks for better control.</td>
+                            <td>allows partial rollbacks using SAVEPOINT.</td>
                         </tr>
                         <tr>
                             <td><b>Supports Concurrent Transactions</b></td>
-                            <td>Proper isolation levels enable simultaneous transactions without conflicts.</td>
+                            <td> Enables multiple safe transactions.</td>
                         </tr>
                         <tr>
                             <td><b>Improves Error Handling</b></td>
@@ -430,7 +425,7 @@
                         </tr>
                         <tr>
                             <td><b>Facilitates Complex Operations</b></td>
-                            <td>Simplifies management of multi-step database operations.</td>
+                            <td>Ideal for multi-step processes.</td>
                         </tr>
                     </tbody>
                 </table><br>
@@ -553,7 +548,7 @@
                 <h3>Key Points</h3>
                 <ul>
                     <li>Automatically ends the transaction.</li>
-                    <li>Implicitly executed for DDL commands like CREATE, ALTER, and DROP.</li>
+                    <li>Implicit COMMIT is triggered automatically after DDL commands like CREATE, ALTER, or DROP in most RDBMS systems.</li>
                 </ul> <br>
                 <h2>Advantages</h2>
                 <ul>
@@ -588,10 +583,13 @@
                 <div class="code-box">
                     <code>
                     <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> UPDATE   </span>Accounts <span class="orclkey"> SET  </span> 
-                    Balance = Balance - 1000 <span class="orclkey"> WHERE  </span> AccountID = 101 <b> ;</b><br>
-                    <span class="orclkey"> UPDATE   </span>Accounts <span class="orclkey"> SET  </span> 
-                    Balance = Balance - 1000 <span class="orclkey"> WHERE  </span> AccountID = 102 <b> ;</b><br>
+                    <span class="orclkey"> UPDATE   </span>Accounts 
+                    <span class="orclkey"> SET  </span> 
+                    Balance = Balance - 1000 
+                    <span class="orclkey"> WHERE  </span> AccountID = 101 <b> ;</b><br>
+                    <span class="orclkey"> UPDATE   </span>Accounts 
+                    <span class="orclkey"> SET  </span> 
+                    Balance = Balance + 1000 <span class="orclkey"> WHERE  </span> AccountID = 102 <b> ;</b><br>
                     <br>
                     <span class="orclkey"> COMMIT  </span> <b> ;</b> <br>
                  </code>

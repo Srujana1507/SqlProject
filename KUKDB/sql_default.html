@@ -465,6 +465,7 @@
                 for the status column in the employees table.</p>
             <div class="code-box">
                 <code>
+                ---SQL <br>
                     <span class="orclkey"> ALTER TABLE </span>  employees <br>
                     <ul>
                         <span class="orclkey"> ADD CONSTRAINT </span> df_status 
@@ -475,6 +476,7 @@
             <p><b>Scenario 7:- </b> Remove the default value for the status column.</p>
             <div class="code-box">
                 <code>
+                ---SQL <br>
                     <span class="orclkey"> ALTER TABLE </span>  employees <br>
                     <ul>
                         <span class="orclkey"> ALTER COLUMN  </span> status  
@@ -486,68 +488,38 @@
                 example, assigning a future delivery date for orders.</p>
             <div class="code-box">
                 <code>
+                    ---SQL <br>
                     <span class="orclkey"> CREATE TABLE </span>  delivery_schedule ( <br>
                     <ul>
                         delivery_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         order_id INT, <br>
                         delivery_date DATE
-                    <span class="orclkey">  DEFAULT </span> DATEADD(
-                        <span class="orclkey"> DAY </span>, 7, GETDATE() )  )<b> ;</b>
-                   
-                    </ul> 
+                    <span class="orclkey">  DEFAULT </span> (
+                    <span class="orclkey"> DATEADD(</span> 
+                     <span class="orclkey"> DAY, 7 ,</span> GETDATE() ) ) <b> );</b>
+                   </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 9:- ( Dynamic Default Value Based on Another Column ) </b> </p>
-            <p>In a Products table, the Discount column should have a default value that depends on the Category.</p>
             
-            <div class="code-box">
-                <code>
-              
-                    <li>If the Category is "Electronics," the default discount is 10%</li>
-                    <li>If the Category is "Clothing," the default discount is 20%.</li>
-                    <li>For other categories, the default discount is 5%</li>
-               
-            <br>
-                    <span class="orclkey"> CREATE TABLE </span>  Products ( <br>
-                    <ul>
-                        ProductID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        ProductName VARCHAR(100), <br>
-                        Category VARCHAR(50), <br>
-                        Price DECIMAL(10, 2), <br>
-                        Discount DECIMAL(5, 2) <span class="orclkey">  DEFAULT </span> 
-                        <ul>
-                            <span class="orclkey">  CASE </span>
-                            <ul>
-                                <span class="orclkey">  WHEN </span> Category = 'Electronics' <span class="orclkey">  THEN </span> 10 <br>
-                                <span class="orclkey">  WHEN </span> Category = 'Clothing' <span class="orclkey">  THEN </span> 20 <br>
-                                <span class="orclkey">  ELSE </span> 5
-                            </ul>
-                            <span class="orclkey">  END </span>
-                        </ul>
-                    )<b> ;</b>
-                    </ul> 
-                 </code>
-            </div><br>
-            <p><b>Scenario 10:- ( Default Value for Timestamps in Audit Tables ) </b> In an AuditLogs table,
-                automatically populate</p>
-            <ul>
-                <ul>
+            <p><b>Scenario 9:- ( Default Value for Timestamps in Audit Tables ) </b> </p><br> 
+            <p>In an AuditLogs table, automatically populate</p>
+                 <ul>
                     <li>Created At with the current timestamp when a new record is inserted.</li>
                     <li>Updated At with the same value as CreatedAt initially but updated whenever the record is
                         modified.</li>
-                </ul>
-            </ul>
+                 </ul>
             <div class="code-box">
                 <code>
+                ---SQL <br>
                     <span class="orclkey"> CREATE TABLE </span>  AuditLogs ( <br>
                     <ul>
                         LogID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         Action VARCHAR(100), <br>
                         CreatedAt DATETIME<span class="orclkey"> DEFAULT  </span>GETDATE() , <br>
-                        UpdatedAt DATETIME<span class="orclkey">  DEFAULT </span> GETDATE() 
+                        UpdatedAt DATETIME<span class="orclkey">  DEFAULT </span> GETDATE()  )<b> ;</b>  
                        
                         </ul>
-                    )<b> ;</b> 
+                   
                  </code>
             </div><br>
             <h2>Common Errors with DEFAULT </h2>
