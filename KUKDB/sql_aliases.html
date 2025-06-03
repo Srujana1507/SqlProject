@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlAliases">
 
             <div class="topic-buttons">
-                <a href="sql_mview.html?topic=sqlMaterializedviews" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_mview.html?topic=sqlMaterializedviews" class="previou-button">&laquo; Previous</a>
                 <a href="sql_selectinto.html?topic=sqlSelectinto" class="next-button">Next &raquo;</a>
             </div>
 
@@ -356,9 +356,9 @@
             <div class="code-box">
                 <code>
                   <span class="orclkey"> SELECT  </span> column_name <span class="orclkey"> AS  </span> alias_name <br>
-                      <span class="orclkey"> FROM  </span> table_name  <b> ;</b> <br>
+                      <span class="orclkey"> FROM  </span> table_name  <b>;</b> <br>
                       <br>
-                      - - The keyword AS is optional in most databases.
+                      -- The keyword AS is optional in most databases.
                   </ul>
                </code>
             </div><br><br>
@@ -369,7 +369,7 @@
                   <span class="orclkey"> SELECT  </span> t.column_name <br>
                       <span class="orclkey"> FROM  </span> table_name <span class="orclkey"> AS  </span> t <b> ;</b> <br>
                       <br>
-                      - - The keyword AS is optional in most databases.
+                      -- The keyword AS is optional in most databases.
                   </ul>
                </code>
             </div><br><br>
@@ -377,7 +377,7 @@
             <ul>
                 <li>Column aliases appear in the result set but are not usable in WHERE, GROUP BY, or ORDER BY clauses
                     directly (use the column’s actual name or expressions instead).</li>
-                <li>able aliases can be used throughout the query after they are declared.</li>
+                <li>Table aliases can be used throughout the query after they are declared.</li>
             </ul><br><br>
             <h2>Column Alias Examples</h2>
             <p><b>Scenario 1:- </b> Simple Renaming
@@ -387,7 +387,7 @@
                 <span class="orclkey"> SELECT  </span> employee_id   <span class="orclkey"> AS  </span> ID,
                 employee_name  <span class="orclkey"> AS  </span> Name
                 <br>
-                    <span class="orclkey"> FROM  </span> Employees  <b> ;</b>
+                    <span class="orclkey"> FROM  </span> Employees  <b>;</b>
              </code>
             </div><br><br>
             <p><b>Scenario 2:- </b> Alias Without AS
@@ -396,7 +396,7 @@
                 <code>
                 <span class="orclkey"> SELECT  </span>employee_id ID, employee_name Name
                 <br>
-                    <span class="orclkey"> FROM  </span> Employees  <b> ;</b>
+                    <span class="orclkey"> FROM  </span> Employees  <b>;</b>
              </code>
             </div><br><br>
             <p><b>Scenario 3:- </b> Change the output column name for user-friendly display.
@@ -415,7 +415,7 @@
                 <code>
                 <span class="orclkey"> SELECT  </span>  product_id, price * quantity <span class="orclkey"> AS  </span> "Total Cost"
                 <br>
-                    <span class="orclkey"> FROM  </span> order_details  <b> ;</b>
+                    <span class="orclkey"> FROM  </span> order_details  <b>;</b>
              </code>
             </div><br><br>
             <p><b>Scenario 5:- </b> Alias the same table for self-referencing.
@@ -438,7 +438,7 @@
                 <span class="orclkey"> SELECT  </span>  product_price * 0.90 <span class="orclkey"> AS  </span> Discounted_Price
                 <br>
                     <span class="orclkey"> FROM  </span> Products 
-                     <b> ;</b>
+                     <b>;</b>
              </code>
             </div><br><br>
             <p><b>Scenario 7:- </b> Renaming Aggregate Results
@@ -448,7 +448,7 @@
                 <span class="orclkey"> SELECT  </span>  AVG(salary) <span class="orclkey"> AS  </span> Average_Salary
                 <br>
                     <span class="orclkey"> FROM  </span> Employees 
-                     <b> ;</b>
+                     <b>;</b>
              </code>
             </div><br><br>
             <h2>Advantages of Aliases</h2>
@@ -495,7 +495,7 @@
                     <tr>
                         <td><b>Misuse of Reserved Words</b></td>
                         <td>Using SQL reserved keywords as aliases without proper escaping.</td>
-                        <td>Use double quotes or square brackets to escape reserved words (e.g., "count").</td>
+                        <td>Use double quotes (standard SQL) or square brackets (SQL Server specific) to escape reserved words (e.g., "count").</td>
                     </tr>
                     <tr>
                         <td><b>Ambiguous Column Reference</b></td>
@@ -547,7 +547,7 @@
                     </tbody>
                 </tr>
             </table><br><br>
-            <h2>Do's and Don'ts for Aliases</h2>
+            <h2>Do's and Don'ts with Aliases</h2>
             <table>
                 <thead>
                     <tr>
@@ -570,7 +570,7 @@
                     </tr>
                     <tr>
                         <td>Use meaningful alias names that clarify the purpose of the column or table.</td>
-                        <td>Avoid using cryptic alias names like a, b, x unless absolutely necessary.</td>
+                        <td>Avoid using cryptic alias names like a, b, x in production queries unless absolutely necessary.</td>
                     </tr>
                 </tbody>
             </table> <br><br>
