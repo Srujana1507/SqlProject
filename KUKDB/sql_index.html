@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlIndex">
 
             <div class="topic-buttons">
-                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
                 <a href="#" class="next-button">Next &raquo;</a>
             </div>
 
@@ -321,7 +321,7 @@
                 <li> Indexes are created on columns of a table or a view and can be applied to one or multiple columns.
                 </li>
             </ul> <br>
-            <h2>Why Do We Need Indexes in a Database</h2>
+            <h2>Why are Indexes important in a Database</h2>
             <table>
                 <thead>
                     <tr>
@@ -362,7 +362,7 @@
                     </tr>
                 </tbody>
             </table> <br><br>
-            <h2>Syntax for Creating Indexes</h2>
+            <h2>SQL Syntax for Creating Indexes</h2>
             <h3>1. Create a Simple Index</h3>
             <div class="code-box">
                 <code>
@@ -401,7 +401,8 @@
             <div class="code-box">
                 <code>
                     - - For most of the Databases <br>
-                <span class="orclkey"> SHOW </span> INDEXES  <span class="orclkey"> FROM </span> table_name <b> ;</b><br><br>
+                <span class="orclkey"> SHOW </span> INDEXES 
+                <span class="orclkey"> FROM </span> table_name <b> ;</b><br><br>
                 
                 -- For SQL Server <br>
                 <span class="orclkey"> SELECT   </span> * 
@@ -434,8 +435,8 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>
-            <h2>Key Features</h2>
+            </table><br>
+            <h2>Key Features of INDEXES</h2>
             <table>
                 <thead>
                     <tr>
@@ -456,10 +457,7 @@
                         <td><b>Trade-off</b></td>
                         <td>Indexes consume storage and can slow down write operations (INSERT, UPDATE, DELETE).</td>
                     </tr>
-                    <tr>
-                        <td><b>Composite Index Order</b></td>
-                        <td>Order matters. Place columns with higher selectivity (more unique values) first.</td>
-                    </tr>
+                   
                     <tr>
                         <td><b>Storage</b></td>
                         <td>Indexes require additional storage and can increase the size of the database.</td>
@@ -484,7 +482,7 @@
             <p><b>Scenario 2:- </b> Optimize queries filtering orders by date.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> CREATE  </span> INDEX idx_customer_id   <br>
+                <span class="orclkey"> CREATE  </span> INDEX idx_order_date   <br>
                      <ul> <span class="orclkey"> ON   </span> 
                         orders (order_date)  <b> ;</b>
                         <br><br>
@@ -506,7 +504,7 @@
                       
                         <span class="orclkey"> SELECT  </span> o.order_id, c.name <br>
                         <span class="orclkey"> FROM  </span> Orders o <br>
-                        <span class="orclkey"> JOIN  </span> <br>
+                        <span class="orclkey"> JOIN  </span> customers c <br>
                         <span class="orclkey"> ON  </span> o.customer_id = c.customer_id <b> ;</b>
                 </ul>
              </code>
@@ -514,7 +512,7 @@
             <p><b>Scenario 4:- </b> Retrieve employees with no manager assigned (manager_id is NULL).</p>
             <div class="code-box">
                 <code>
-                    - - Create an index on the manager_id column <br>
+                    -- Create an index on the manager_id column <br>
                 <span class="orclkey"> CREATE  </span> INDEX idx_manager_id   <br>
                      <ul> <span class="orclkey"> ON   </span> 
                         Employees (manager_id)  <b> ;</b>
@@ -544,14 +542,14 @@
                 </ul>
              </code>
             </div><br><br>
-            <p><b>Scenario 7:- (Covering Index) </b> Retrieve product details without accessing the base table.
+            <p><b>Scenario 6:- (Covering Index) </b> Retrieve product details without accessing the base table.
             </p>
             <div class="code-box">
                 <code>
                     - - Create a covering index for the query <br>
                 <span class="orclkey"> CREATE  </span> INDEX idx_covering_product   <br>
                      <ul> <span class="orclkey"> ON   </span> 
-                        Products ( product_name, price, category )  <b> ;</b>
+                        Products (product_name, price, category)  <b> ;</b>
                         <br><br>
                       - - Query using the indexed columns <br>
                         <span class="orclkey"> SELECT  </span> product_name, price, category <br>
@@ -569,7 +567,7 @@
                 <span class="orclkey"> CREATE  </span> INDEX idx_filtered_status   <br>
                      <ul> <span class="orclkey"> ON   </span> 
                         Employees (status)  <br>
-                        <span class="orclkey"> WHERE   </span> Status<span class="orclkey"> IS NOT NULL   </span>
+                        <span class="orclkey"> WHERE   </span> status<span class="orclkey"> IS NOT NULL   </span>
                         <b> ;</b>
                         <br><br>
                       - - Query using the indexed column <br>
@@ -609,7 +607,8 @@
 
                         <span class="orclkey"> CREATE PARTITION  </span> SCHEME ps_sales_year    <br>
                      <ul> <span class="orclkey"> AS PARTITION </span> 
-                        pf_sales_year  <span class="orclkey"> ALL TO </span>([<span class="orclkey">PRIMARY</span> ] )  <b> ;</b>
+                        pf_sales_year  <span class="orclkey"> ALL TO </span>([
+                            <span class="orclkey">PRIMARY</span>])  <b> ;</b>
                         <br><br>
                         <span class="orclkey"> CREATE   </span> INDEX idx_sales_year    <br>
                      <ul> <span class="orclkey"> ON </span> Sales (sales_year) <br>
@@ -724,7 +723,7 @@
                     </tr>
                 </tbody>
             </table> <br><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with INDEX</h2>
             <table>
                 <thead>
                     <tr>
@@ -761,7 +760,7 @@
                     </tr>
                 </tbody>
             </table> <br><br>
-            <h2>Hints for Indexing</h2>
+            <h2>Performance Hints for Indexing</h2>
             <table>
                 <thead>
                     <tr>
@@ -833,7 +832,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
                 <a href="#" class="next-button">Next &raquo;</a>
             </div>
 

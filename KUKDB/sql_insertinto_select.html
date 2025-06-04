@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlInsertintoselect">
 
             <div class="topic-buttons">
-                <a href="sql_selectinto.html?topic=sqlSelectinto" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_selectinto.html?topic=sqlSelectinto" class="previou-button">&laquo; Previous</a>
                 <a href="sql_index.html?topic=sqlIndex" class="next-button">Next &raquo;</a>
             </div>
 
@@ -319,12 +319,13 @@
                 <li>SELECT INTO, it does not create a new table; it inserts data into an existing table.</li>
                 <li>This is particularly useful for copying data between tables or performing data transformations
                     during insertion.</li>
-            </ul><br>
+            </ul> 
+            <br>
             <h2>Definition and Purpose</h2>
             <p><b>Definition</b></p>
             <ul>
                 <li>The INSERT INTO SELECT statement inserts the results of a SELECT query into an existing table.</li>
-            </ul><br>
+            </ul>
             <p><b>Purpose</b></p>
             <ul>
                 <li>To copy data from one table to another.</li>
@@ -340,7 +341,7 @@
                     <span class="orclkey"> FROM  </span> source_table  <b> ;</b>
                 </ul>
              </code>
-            </div><br><br>
+            </div><br>
             <h3>2. With Specific Columns</h3>
             <div class="code-box">
                 <code>
@@ -350,7 +351,7 @@
                     <span class="orclkey"> WHERE condition </span><b> ;</b>
                 </ul>
              </code>
-            </div><br><br>
+            </div><br>
             <h2>Key Points</h2>
             <table>
                 <thead>
@@ -408,7 +409,7 @@
                 </ul>
              </code>
             </div><br><br>
-            <p><b>Scenario 3:- ( Insert with Transformation )</b> Copy product data with a 10% price increase into the
+            <p><b>Scenario 3:- (Insert with Transformation )</b> Copy product data with a 10% price increase into the
                 DiscountedProducts table.
             </p>
             <div class="code-box">
@@ -523,6 +524,7 @@
             </p>
             <div class="code-box">
                 <code>
+                --SQL server <br>
                 <span class="orclkey"> INSERT INTO </span> unified_sales (sale_id, sale_date, sale_amount, source)   <br>
             
                 <span class="orclkey"> SELECT  </span> sale_id, <br> 
@@ -543,7 +545,7 @@
                      <b> ;</b>
                     </ul>
              </code>
-            </div><br><br>
+            </div><br>
             <h2>Common Errors</h2>
             <table>
                 <thead>
@@ -586,7 +588,7 @@
                     </tr>
                 </tbody>
             </table><br><br>
-            <h2>Hints to Write or Improve Performance</h2>
+            <h2>Performance Hints for INSERT INTO SELECT</h2>
             <table>
                 <thead>
                     <tr>
@@ -596,12 +598,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th><b>Use Indexing</b></th>
-                        <th>Ensure indexes exist on the columns involved in SELECT and target table.</th>
+                        <td><b>Use Indexing</b></td>
+                        <td>Ensure indexes exist on the columns involved in SELECT and target table.</td>
                     </tr>
                     <tr>
-                        <th><b>Limit Data Scope</b></th>
-                        <th>Use WHERE clauses to filter data, reducing the size of data being processed.</th>
+                        <td><b>Limit Data Scope</b></td>
+                        <td>Use WHERE clauses to filter data, reducing the size of data being processed.</td>
                     </tr>
                     <tr>
                         <td><b>Optimize Joins</b></td>
@@ -659,12 +661,12 @@
                         <td>Don’t overlook NULL handling for non-nullable columns.</td>
                     </tr>
                 </tbody>
-            </table> <br><br><br>
+            </table> <br>
 
 
 
             <div class="topic-buttons">
-                <a href="sql_selectinto.html?topic=sqlSelectinto" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_selectinto.html?topic=sqlSelectinto" class="previou-button">&laquo; Previous</a>
                 <a href="sql_index.html?topic=sqlIndex" class="next-button">Next &raquo;</a>
             </div>
 

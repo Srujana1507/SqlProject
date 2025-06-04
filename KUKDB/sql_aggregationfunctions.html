@@ -1028,7 +1028,8 @@
             <p><b>Scenario 4:-</b> Find the highest salary for each department (Group By). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> department_id, MAX( Salary )   <span class="orclkey"> AS </span> max_sal  <br>
+            <span class="orclkey"> SELECT </span> department_id, MAX( Salary )  
+            <span class="orclkey"> AS </span> max_sal  <br>
             <span class="orclkey"> FROM </span> employees  <br>
             <span class="orclkey"> GROUP BY </span> department_id
              <b> ;</b> 
@@ -1214,10 +1215,10 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <p><b>Scenario 4:-</b> Find the highest salary for each department (Group By). </p>
+            <p><b>Scenario 4:-</b> Find the lowest salary for each department (Group By). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> department_id, MAX(Salary)  
+            <span class="orclkey"> SELECT </span> department_id, MIN(Salary)  
             <span class="orclkey"> AS </span> Min_Sal  <br>
             <span class="orclkey"> FROM </span> employees  <br>
             <span class="orclkey"> GROUP BY </span> department_id
