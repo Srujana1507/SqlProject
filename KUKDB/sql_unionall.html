@@ -312,7 +312,7 @@
                 <a href="sql_intersect.html?topic=sqlIntersect" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>UNION ALL Operator </h1>
+            <h1>UNION ALL  </h1>
             <p>The UNION ALL operator is used to combine the results of two or more SELECT queries into a single result
                 set <b>including duplicates.</b></p><br>
             <p>Unlike the UNION operator, UNION ALL does not filter out duplicate rows, making it more efficient because
@@ -407,7 +407,7 @@
                     <b> ; </b>
                 </code>
             </div><br>
-            <h2>Advanced Use Cases</h2>
+            <h2>Advanced Scenarios</h2>
             <h3>1. Aggregate Data After UNION ALL</h3>
             <p><b>Scenario :-</b> Combines rows from two employee tables, and then groups and counts employees by
                 department, including duplicates in the count.</p>
@@ -501,7 +501,7 @@
                     <span class="orclkey">FROM </span> table2 <b> ; </b> <br>  - - Error: Different number of columns
                 </code>
             </div><br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with UNION ALL</h2>
             <h3>Do's</h3>
             <ul>
                 <li><b>Use UNION ALL for Performance:- </b> When duplicates are not an issue, prefer UNION ALL to avoid

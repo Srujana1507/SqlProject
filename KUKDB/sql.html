@@ -1144,15 +1144,20 @@
                     tailored for both beginners and expert-level users. </p>
                 <br>
                 <h2>1. Data Query Language (DQL):</h2>
-                <p>DQL statements can range from simple queries to complex multiple-clause commands. Here are the
-                    components</p>
+                <p>DQL statements can range from simple queries to complex multiple-clause commands.
+                     components
+                </p><br>
+                <h3>Purpose :</h3>
                 <ul>
-                    <li><b>Basic Purpose :</b> Used to fetch and query data from the database.</li>
-                    <li>Key Command: <b><a href="sql.html?topic=sqlSelectTable">SELECT</a></b></li>
-                </ul>
+               <li>DQL focuses only on querying and reading the data stored in tables.</li>
+               <li>It primarily uses the SELECT statement to fetch specific data based on certain conditions.</li>
+               <li>Unlike DML, which modifies data, DQL is read-only and does not change the database contents.</li>
+               </ul>
+               <li>Key Command: <b><a href="sql.html?topic=sqlSelectTable">SELECT</a></b></li>
+                
 
                 <table>
-                    <caption>Advanced Use:</caption>
+                    <caption> Components:</caption>
                     <thead>
                         <tr>
                             <th>Components</th>
@@ -1336,14 +1341,7 @@
                         <b>contents </b>within those structures.
                     </li>
                 </ul>
-                <h3>Importance of DML in SQL? </h3>
-                <ul>
-                    <li>DML bridges the gap between <b>data storage </b>and <b>real-world application
-                            requirements.</b></li>
-                    <li>It allows for the dynamic and interactive management of data, which is crucial for businesses,
-                        applications, and decision-making processes.</li>
-                </ul>
-                <br>
+                
                 <h3>Key Commands :</h3>
                 <ul>
                     <li><b>INSERT :</b> Adds new rows of data to a table.</li>
@@ -1376,8 +1374,8 @@
                     </code>
                 </ul>
                 <br>
-
-                <h3>Best Practices to Write DML Statements:</h3>
+    
+                <h3>Best Practices for DML Statements:</h3>
                 <ul>
                     <li><b>Break Down Complex Queries - </b> Analyze and test components of complex queries
                         step by step.</li>
@@ -1405,11 +1403,26 @@
                 </ul>
                 <br>
                 <h2>4. Data Control Language (DCL)</h2>
-                <pData Control Language (DCL) is a subset of SQL that focuses on managing and securing access to the
-                    database and ensuring that database operations occur reliably. DCL commands are used to control
-                    permissions, manage transactions, and safeguard data integrity.</p>
-                    <br>
-                    <table>
+                 <p>Data Control Language (DCL) is a subset of SQL that focuses on managing and securing access to the
+                    database.</p> <br>
+                    <h3>Purpose </h3>
+                <ul>
+                 <li>It focuses on controlling user permissions and safeguarding data integrity.</li>
+                 <li>It is primarily used to grant or revoke access rights to users over database objects.</li>
+                   Unlike DML, which manipulates data, DCL ensures only authorized users can perform specific operations.</p> <br>
+                </ul>
+                
+                <h3>Importance of DCL:</h3>
+               
+                <ul>
+                  <li>
+                  DCL helps enforce data security policies within a database system.</li>
+                 <li>It is essential for multi-user environments, preventing unauthorized access and ensuring that sensitive data is protected.</li>
+                  </li>  DCL also contributes to compliance and auditability by defining clear access controls.</li>
+                 </ul> 
+
+                  <br>
+                   <table>
                         <caption>DCL Commands:</caption>
                         <thead>
                             <tr>
@@ -1969,7 +1982,7 @@
                     <li>It allows users to specify the data they want, how to format it, and even apply complex filters,
                         transformations, and aggregations.</li>
                 </ul>
-                <h2>Complete SELECT Syntax:</h2>
+                <h2>Syntax:</h2>
                 <div class="code-box">
                     <code>
                     <span class="orclkey">SELECT</span> column1, column2, column3, ...<br>
@@ -2028,7 +2041,7 @@
                     </tr>
                 </table>
                 <br>
-                <h2>Basic SELECT syntax:</h2>
+                <h2> Syntax:</h2>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">SELECT</span> column1, column2, column3, ..<br> 
@@ -2039,7 +2052,7 @@
                     </div>
                 </div>
                 <br>
-                <h3>Examples:</h3>
+                <h3>Scenarios </h3>
                 <h4>1. Retrieve specific columns from a table</h4>
                 <div class="code-box">
                     <code>
@@ -2119,7 +2132,7 @@
                     <a href="sql_nvl.html?topic=sqlNvl" class="previou-button">&laquo; Previous</a>
                     <a href="sql_alter.html?topic=sqlAlter" class="next-button">Next &raquo;</a>
                 </div>
-                <h1>CREATE Table</h1>
+                <h1>CREATE </h1>
                 <ul>
                     <li>The<b> CREATE TABLE </b>statement in SQL is used to define a new table within a
                         database. </li>
@@ -2143,13 +2156,13 @@
                         column1 Datatype constraint,<br>
                         column2 Datatype constraint,<br>
                         column3 Datatype ,<br>
-                        column4 datatype ,<br>
+                        column4 datatype ,
                         ...........
                         ) ;
                     </code>
                 </div>
                 <br>
-                <h3>Examples of CREATE TABLE </h3>
+                <h3>Examples</h3>
                 <h4>1. Creating a Simple Table Without Constraints</h4>
                 <div class="code-box">
                     <code>
@@ -2162,8 +2175,11 @@
                     </code>
                 </div>
                 <h4>2. Creating a Table with Constraints and Default Values</h4>
+                
+                <br>
                 <h5>Oracle:</h5>
                 <div class="code-box">
+                        
                     <code>
                         <span class="orclkey">CREATE TABLE</span> employee (<br>
                         emp_id NUMBER(5) <span class="orclkey">PRIMARY KEY</span> ,<br>
@@ -2200,9 +2216,9 @@
                         ) ;
                     </code>
                 </div>
-                <br>
+                
                 <h4>3. Creating a Table with Foreign Key Constraints</h4>
-                <h5>Oracle:</h5>
+                <br> <h5>Oracle:</h5>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">CREATE TABLE</span> department (<br>
@@ -2247,9 +2263,11 @@
 
                 <br>
                 <h2> Advanced Features</h2>
-                <h4>Temporary Tables</h4>
-                <p>Temporary tables are used to store intermediate results. They exist only for the duration of the
-                    database session.</p>
+                <h4>1.Temporary Tables</h4>
+                <ul>
+                <li>Temporary tables are used to store intermediate results. They exist only for the duration of the
+                    database session.</li>
+                    </ul>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">CREATE</span> TEMPORARY <span class="orclkey">TABLE</span> Tempsales (<br>
@@ -2259,8 +2277,10 @@
                         ) ;
                     </code>
                 </div>
-                <h4>Partitioned Tables (MySQL Example)</h4>
-                <p>Partitioning divides a table into smaller parts for performance and manageability.</p>
+                <h4>2.Partitioned Tables (MySQL Example)</h4>
+                <ul>
+                <li>Partitioning divides a table into smaller parts for performance and manageability.</li>
+                </ul>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">CREATE TABLE</span> Sales (<br>
@@ -2275,7 +2295,7 @@
                         );<br>
                     </code>
                 </div>
-                <h4>Tables with Auto-Increment (MySQL Example)</h4>
+                <h4>3.Tables with Auto-Increment (MySQL Example)</h4>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">CREATE TABLE</span> Customer (<br>
@@ -2337,7 +2357,7 @@
                     </code>
                 </div>
                 <br>
-                <h2> Common Errors and Tips </h2>
+                <h2> Common Errors with CREATE</h2>
                 <h4> Table Already Exists</h4>
                 <ul>Use IF NOT EXISTS to prevent errors:</ul>
                 <div class="code-box">
@@ -2351,7 +2371,7 @@
                     </code>
                 </div>
                 <br>
-                <h2> Best Practices for Using CREATE TABLE</h2>
+                <h2> Best Practices for CREATE</h2>
                 <h4>1. Define Primary and Foreign Keys</h4>
                 <ul>
                     <li>Always define PRIMARY KEY constraints on tables for unique row identification, and use FOREIGN
@@ -2386,7 +2406,7 @@
                         just id).</li>
                 </ul>
                 <br>
-                <h2> Do’s and Don’ts When Using CREATE TABLE</h2>
+                <h2> Do’s and Don’ts with CREATE </h2>
                 <h4><u>Do's</u> :-</h4>
                 <ul>
                     <li><b>Do document your schema :</b> Add comments on tables and columns for clarity (some

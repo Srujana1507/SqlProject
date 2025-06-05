@@ -312,7 +312,7 @@
             </div>
 
             <h1>TRUNCATE</h1>
-            <br>
+            
             <ul>
                 <li>TRUNCATE command is a Data Definition Language (DDL) statement, used to remove all rows from
                     a
@@ -332,7 +332,7 @@
                 </code>
             </div>
             <br>
-            <h2>Scenarios of TRUNCATE</h2>
+            <h2>Scenarios </h2>
             <h3>1. Remove all rows from the employees (Oracle, SQLite, SQL Server, PostgreSQL, MySQL)</h3>
             <div class="code-box">
                 <code>
@@ -361,7 +361,7 @@
             </div>
             <br> -->
             <h2>Truncate tables with Foreign Key</h2>
-            <br>
+            
             <h5>MySQL:</h5>
             <ul>
                 <li>In MySQL, TRUNCATE TABLE cannot truncate tables with foreign key constraints unless the
@@ -545,7 +545,7 @@
                 </tbody>
             </table>
             <br><br>
-            <h2>Best Practices</h2>
+            <h2>Best Practices for TRUNCATE</h2>
             <ul>
                 <li><b>Use TRUNCATE for High-Performance Table Resets - </b> Because it bypasses row-by-row
                     deletions,
@@ -563,7 +563,7 @@
                     especially in production environments.</li>
             </ul>
             <br>
-            <h2>Do’s and Don’ts When Using TRUNCATE </h2>
+            <h2>Do’s and Don’ts With TRUNCATE </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
                 <li>Do use TRUNCATE for temporary or staging tables to quickly reset them.</li>
@@ -586,7 +586,9 @@
             </ul>
             <br>
             <table>
+            
                 <caption>Difference Between TRUNCATE and DELETE</caption>
+              
                 <thead>
                     <tr>
                         <th>Feature</th>
@@ -626,6 +628,7 @@
                         <td>Requires DELETE privilege.</td>
                     </tr>
                 </tbody>
+               
             </table>
 
 

@@ -308,7 +308,7 @@
                 <a href="sql_not.html?topic=sqlNot" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Like Operator</h1>
+            <h1>LIKE </h1>
             <ul>
                 <li>1. The LIKE operator is used to search for a specified pattern within a column.</li>
                 <li>2. It is typically used with <b>SELECT, UPDATE, or DELETE</b> statements to perform partial matches
@@ -316,7 +316,7 @@
                 </li>
                 <li>3. The LIKE operator allows for flexible pattern matching using wildcards.</li>
             </ul>
-            <br>
+            
             <h2>Why Use the LIKE Operator?</h2>
             <ul>
                 <li>To filter records based on partial text matches.</li>
@@ -493,7 +493,7 @@
                         <span class="orclkey"> 'Inactive' </span><b> ; </b> 
                     </code>
             </div><br>
-            <h2>Advanced Examples</h2>
+            <h2>Advanced Scenarios </h2>
             <h3>1. Locating Null-like Entries</h3>
             <p><b>Scenario :- </b>Identify rows with placeholder text (e.g., "N/A" or "UNKNOWN") instead of actual data.
             </p>
@@ -571,7 +571,7 @@
                 CustomerName <span class="orclkey"> LIKE </span><b>'</b>Dr.%<b>'</b> <b> ; </b>
                 </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with LIKE</h2>
             <h4>1. Using LIKE Without Wildcards:</h4>
             <div class="code-box">
                 - - Incorrect
@@ -587,7 +587,8 @@
             <ul>Forgetting to escape % or _ can lead to incorrect results.</ul>
             <h4>4. Inefficient Queries:</h4>
             <ul>Using %term% in large datasets can degrade performance due to full table scans.</ul><br>
-            <h2>Best Practices</h2>
+           
+            <h2>Best Practices for LIKE</h2>
             <p><b>1. Optimize Patterns:- </b></p>
             <ul>
                 <ul>

@@ -312,12 +312,12 @@
                 <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>MINUS Operator</h1>
+            <h1>MINUS </h1>
             <p>The MINUS operator is used to return the rows from the first SELECT query that are not present in the
                 second SELECT query.</p><br>
             <p>It essentially subtracts one result set from another, eliminating duplicates in the process, similar to
                 the concept of subtraction in mathematics. </p><br>
-            <h2>Key Characteristics of MINUS</h2>
+            <h2>Key Characteristics </h2>
             <ul>
                 <li><b>Set Operation:-</b> MINUS is a set operator that works on two result sets.</li>
                 <li><b>Excludes Matching Rows:- </b> Returns rows from the first query that are not found in the second
@@ -329,7 +329,7 @@
                     <li>The same or compatible data types.</li>
                     <li>In the same order in both queries.</li>
                 </ul>
-            </ul><br>
+            </ul>
             <h2>Syntax</h2>
             <div class="code-box">
                 <code>
@@ -434,7 +434,7 @@
                     <b> ; </b>
                 </code>
             </div><br>
-            <h2>Advanced Examples</h2>
+            <h2>Advanced Scenarios </h2>
             <h3>1. Using MINUS to Find Missing Data</h3>
             <p><b>Scenario :- </b> Identifies students enrolled in courses they have not yet completed.</p>
             <div class="code-box">
@@ -561,7 +561,7 @@
                 <li><b>Avoid Unnecessary Calculations::-</b> Simplify queries to reduce computational overhead.
                 </li>
             </ul><br>
-            <h2>Performance Comparison: UNION vs UNION ALL</h2>
+            <h2> MINUS vs  INTERSECT</h2>
             <table>
                 <thead>
                     <tr>
@@ -594,7 +594,7 @@
                 </tbody>
             </table><br>
 
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with MINUS </h2>
             <h3>Do's</h3>
             <ul>
                 <li>Ensure that columns in both queries are compatible in terms of data type, order, and count. </li>
@@ -606,7 +606,7 @@
                 <li>Avoid using MINUS for unrelated datasets. </li>
                 <li>Do not use MINUS if duplicates need to be preserved; use a LEFT JOIN instead. </li>
                 <li>Don't forget that MINUS is case-sensitive for text columns (depending on database settings). </li>
-            </ul> <br><br>
+            </ul>
 
 
 

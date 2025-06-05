@@ -315,10 +315,14 @@
             </div>
 
             <h1>ALTER </h1>
-            <p>The <b>ALTER </b>statement can be used to perform the following actions on various database
-                objects (e.g., table, Views, Schemas, Triggers, etc..)</p>
-
-            <ul>
+            <p><li>The ALTER TABLE statement in SQL is used to modify the structure of an existing table without
+                needing to recreate it.</li></p>
+            <p><li>The ALTER statement can be used to perform the following actions on various database
+                objects (e.g., table, Views, Schemas, Triggers, etc..)</li></p>
+             <p><li>It allows changes like adding, modifying, or deleting columns, as well as applying constraints. ALTER
+                TABLE is a crucial tool for database maintenance and incremental changes in a database schema.</li></p>
+       
+         
                 <li><b>Operations on Tables: </b></li>
                 <ul>
                     <li><b>Add Columns :</b> Add new columns to an existing table.</li>
@@ -342,17 +346,12 @@
                     <li><b>Modify Triggers (in some DBMS)</b> - Temporarily disable or re-enable triggers.</li>
                     <li>Restart or Set Sequence Values - in <b>PostgreSQL</b></li>
                 </ul>
-            </ul>
+            
             <br>
-            <h2>ALTER TABLE in SQL</h2>
-            <p>The <b>ALTER TABLE</b> statement in SQL is used to modify the structure of an existing table without
-                needing to recreate it.</p>
-            <p>It allows changes like adding, modifying, or deleting columns, as well as applying constraints. ALTER
-                TABLE is a crucial tool for database
-                maintenance and incremental changes in a database schema.</p>
-            <br>
-
-            <h2>General Syntax</h2>
+           
+           
+            <h2> Syntax</h2>
+            <h3> Basic syntax</h3>
             <p>The basic syntax of ALTER TABLE varies slightly by the specific action you wish to perform. below are
                 action's syntax and examples.</p>
             <div class="code-box">
@@ -361,7 +360,7 @@
                         <span class="orclkey">[ ADD</span> | <span class="orclkey">DROP</span> | <span class="orclkey">MODIFY</span> | <span class="orclkey">RENAME</span> | <span class="orclkey">ALTER COLUMN ]</span> ;
                     </code>
             </div>
-            <br><br>
+            <br>
             <h3>1. Add a new column to existing Table:</h3>
             <div class="code-box">
                 <code>
@@ -377,7 +376,7 @@
                     <span class="orclkey">ADD</span> Mobile VARCHAR( 10 ) ;                
                 </code>
             </div>
-            <br><br>
+            <br>
             <h3>2. Add a constraint to existing Table:</h3>
             <div class="code-box">
                 <code>
@@ -407,7 +406,7 @@
                     <span class="orclkey">FOREIGN KEY</span> (dept_id)  <span class="orclkey">REFERENCES </span> departments(dept_id) ;
                 </code>
             </div>
-            <br><br>
+            <br>
             <h3>3. Modifying an Existing Column (Modify Table - add hyper link here, create a seperate topic) :</h3>
 
             <h5>Oracle</h5>
@@ -447,7 +446,7 @@
                     <span class="orclkey">ALTER COLUMN</span> salary TYPE NUMERIC( 10, 2 ) ; <br>
                 </code>
             </div>
-            <br><br>
+            <br>
             <h3>4. Drop a column :</h3>
             <div class="code-box">
                 <code>
@@ -463,7 +462,7 @@
                     <span class="orclkey">DROP COLUMN</span> phone_number  ;<br>
                 </code>
             </div>
-            <br><br>
+            <br>
             <h3>5. Dropping Constraints :</h3>
             <div class="code-box">
                 <code>
@@ -487,7 +486,7 @@
                     <span class="orclkey">DROP PRIMARY KEY</span>   ;
                 </code>
             </div>
-            <br><br>
+            <br>
             <h3>6. Renaming Columns</h3>
             <p>Renaming a Column (Only supported in some databases directly in ALTER TABLE).</p>
             <h5>SQL Server</h5>
@@ -556,7 +555,8 @@
                     <span class="orclkey">ALTER TABLE </span> orders<br>
                     <span class="orclkey">PARTITION BY RANGE </span>(order_date) (<br>
                     <span class="orclkey">PARTITION  </span> p1  <span class="orclkey">VALUES  </span>LESS THAN ( '2023-01-01'),<br>
-                    <span class="orclkey">PARTITION  </span> p2  <span class="orclkey">VALUES  </span>LESS THAN ( '2024-01-01')<br>
+                    <span class="orclkey">PARTITION  </span> p2 
+                    <span class="orclkey">VALUES  </span>LESS THAN ( '2024-01-01')
                     ) ;
                 </code>
             </div>
@@ -601,7 +601,7 @@
                 <li><b> Minimize Downtime :</b> Schedule the change during maintenance windows for large tables.</li>
             </ul>
             <br>
-            <h2>Do’s and Don’ts When Using ALTER TABLE</h2>
+            <h2>Do’s and Don’ts with ALTER </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
                 <li><b>Do validate changes with a SELECT query</b> after making modifications, especially when

@@ -308,7 +308,7 @@
                 <a href="sql_minus.html?topic=sqlMinus" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>INTERSECT Operator</h1>
+            <h1>INTERSECT </h1>
             <p>The INTERSECT operator is used to return the common rows between two SELECT statements.</p><br>
             <p>It works by finding the intersection of the result sets, ensuring that only rows present in <b>both
                     queries</b> are included in the final output.</p><br>
@@ -395,7 +395,7 @@
                     <b> ; </b><br>
                 </code>
             </div><br>
-            <h2>Advanced Examples</h2>
+            <h2>Advanced Scenarios </h2>
             <h3>1. INTERSECT with Aliased Columns</h3>
             <p><b>Scenario :- </b> Retrieves common ProductID and Price values between the US and IN products tables.
                 Aliases are used for clarity.</p>
@@ -552,7 +552,7 @@
                 <li><b>Alternative:- </b> For databases that do not support INTERSECT (e.g., MySQL), use JOIN or
                     subqueries.</li>
             </ul><br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with INTERSECT</h2>
             <h3>Do's</h3>
             <ul>
                 <li>Use INTERSECT for queries where you need exact matches between datasets.
@@ -572,6 +572,7 @@
                     Don't use it where INNER JOIN or EXISTS provides a better or faster solution.
                 </li>
             </ul> <br>
+            <h2> INTERSECT VS UNION </h3>
             <table>
                 <thead>
                     <tr>

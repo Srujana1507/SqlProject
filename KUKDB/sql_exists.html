@@ -307,7 +307,8 @@
                 <a href="sql_wildcards.html?topic=sqlWildcards" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>EXISTS Operator</h1>
+            <h1>EXISTS </h1>
+            <p>The EXISTS operator in SQL is a logical operator used to check whether a subquery returns any rows.</p>
             <p>The EXISTS operator in SQL is a logical operator used to check whether a subquery returns any rows.</p>
             <br>
             <p>If the subquery produces one or more rows, the EXISTS condition evaluates to <b>TRUE</b>. Otherwise, it
@@ -422,7 +423,7 @@
                             <span class="orclkey">FROM  </span> Projects P <br>
                             <span class="orclkey">WHERE </span> P.Status =<b>'</b>Active<b>'</b> <br>
                              <span class="orclkey">AND  </span> P.EmployeeID=E.EmployeeID <b> ); </b> <br>
-                        </ul>
+                            </ul>
                             <br>
                             - - The subquery is correlated, meaning it depends on the outer query (E.EmployeeID is referenced inside the subquery). <br>
                             - - The query returns employees associated with at least one completed project. <br>
@@ -443,8 +444,10 @@
                         </ul
                             
                 </code>
-            </div><br>
-            <h3>5. EXISTS in DELETE</h3>
+            </div>
+            <br>
+
+              <h3>5. EXISTS in DELETE</h3>
             <p><b>Scenario :- </b> Delete employees not associated with any department.</p>
             <div class="code-box">
                 <code>
@@ -457,7 +460,10 @@
                             <span class="orclkey">WHERE </span> employees.department_id = departments.department_id)  <b> ; </b>     <br>
                         </ul>      
                 </code>
-            </div><br>
+            </div>
+            <br>
+          
+
             <h2>Advanced Use Cases</h2>
             <h3>1. Data Synchronization with INSERT INTO</h3>
             <p><b>Scenario :- </b> Identify records in one table that do not exist in another and insert them.</p>
@@ -474,8 +480,9 @@
                             <span class="orclkey">WHERE </span> ae.employee_id = e.employee_id)  <b> ; </b>  <br>
                         </ul>
                             
-                        </code>
+                 </code>
             </div><br>
+
             <h3>2. Ensure data consistency by validating that dependent records exist. </h3>
             <p><b>Scenario :- </b> Identify customers orders that do not have a common customer.</p>
             <div class="code-box">
@@ -563,7 +570,7 @@
                         
                 </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with EXISTS</h2>
             <h4>1. Ambiguity in Correlated Subqueries:</h4>
             <ul>
                 <li>Ensure the subquery properly references the outer query columns.</li>
@@ -589,7 +596,7 @@
             <ul>
                 <li>Use filters in the subquery to return only relevant rows.</li>
             </ul>
-            <h2>Best Practices</h2>
+            <h2>Best Practices for EXISTS</h2>
             <h4>1. Use EXISTS for Existence Checks:</h4>
             <ul>
                 <li>Ideal for verifying whether rows exist in a related table.</li>
@@ -609,7 +616,7 @@
                 <li>Debugging correlated queries is easier when testing with small, sample datasets.</li>
             </ul>
 
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with EXISTS</h2>
             <h4>Do's</h4>
             <ul>
                 <li>Use EXISTS when checking for the presence of data.</li>

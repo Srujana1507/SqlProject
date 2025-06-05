@@ -397,7 +397,7 @@
                 </code>
             </div>
             <br>
-            <h2>Advanced Example</h2>
+            <h2>Advanced Scenarios</h2>
             <h3>1. Dropping a Schema with CASCADE</h3>
             <div class="code-box">
                 <code>
@@ -474,7 +474,7 @@
                 </code>
             </div>
             <br>
-            <h3>Common Errors</h3>
+            <h2>Common Errors with DROP</h2>
             <h4>1. Error: Cannot drop object because it is referenced by a foreign key constraint.</h4>
             <ul>
                 <li>Solution: Drop or update the foreign key first or use CASCADE.</li>
@@ -488,7 +488,7 @@
                 <li>Solution: Close all active connections (e.g., in MySQL use FLUSH TABLES or terminate sessions in
                     PostgreSQL).</li>
             </ul>
-            <h2>Best Practices</h2>
+            <h2>Best Practices for DROP</h2>
             <ul>
                 <li>Always take a backup before using the DROP command.</li>
                 <li>Use IF EXISTS to prevent errors when unsure if the object exists.</li>
@@ -496,7 +496,7 @@
                 <li>Test on a development or staging environment before executing on production.</li>
             </ul>
             <br>
-            <h2>Do’s and Don’ts When Using DROP </h2>
+            <h2>Do’s and Don’ts with DROP </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
                 <li><b>Do use</b> IF EXISTS if supported, to avoid errors when the object doesn’t exist.</li>

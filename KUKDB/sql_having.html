@@ -345,7 +345,7 @@
                 <li><b>Order of Execution :- </b> FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY </li>
             </ul>
             <br>
-            <h2>Examples of HAVING Clause</h2>
+            <h2> Scenarios</h2>
             <h3>1. Basic Example</h3>
             <p>Retrieve departments with total sales greater than $10,000</p>
             <div class="code-box">
@@ -428,7 +428,7 @@
                 </code>
             </div>
             <br>
-            <h2>Advanced Scenarios</h2><br>
+            <h2>Advanced Scenarios</h2>
             <h3>1. Using Subqueries in HAVING</h3>
             <p>Retrieve departments with total sales greater than the average department sales.</p>
             <div class="code-box">
@@ -670,7 +670,7 @@
                 </code>
             </div>
             <br>
-            <h3>Common Errors</h3>
+            <h2>Common Errors with HAVING</h2>
             <h4>1. Error: "Invalid use of aggregate function in WHERE clause"</h4>
             <ul>
                 <li><b>Cause: </b>Using an aggregate function in the WHERE clause.</li>
@@ -698,7 +698,7 @@
                 <li><b>Fix :</b> Add the column to GROUP BY or use an aggregate function.</li>
             </ul>
             <br>
-            <h2>Best Practices</h2>
+            <h2>Best Practices for HAVING</h2>
             <h4>1. Optimize Filtering with WHERE and HAVING</h4>
             <ul>
                 <li>Use WHERE to filter rows early and reduce the number of rows processed by the query.</li>
