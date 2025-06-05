@@ -514,7 +514,7 @@
             <p>Returns a String to a date in a specified format like MM/DD/YYYY.</p><br>
             <h3>Syntax:</h3>
 
-            <p><b>Scenario 1:-</b> Basic Conversion  </p>
+            <p><b>Scenario 1:-</b> Basic Conversion </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> TO_DATE( '2024-12-17', 'YYYY-MM-DD' )  
@@ -669,8 +669,8 @@
                     <span class="orclkey"> WHERE  </span> transaction_date < SYSDATETIME()
                     <b> ;</b>
                 </code>
-            </div><br> 
-            <p><b>Scenario 5:-</b>  Calculate the processing time of a task.</p>
+            </div><br>
+            <p><b>Scenario 5:-</b> Calculate the processing time of a task.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> DECLARE </span> @start_time DATETIME2 = SYSDATETIME(); <br> <br>
@@ -704,7 +704,7 @@
                     <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 8:-</b>  Create a high-precision timestamp for analytics calculations.</p>
+            <p><b>Scenario 8:-</b> Create a high-precision timestamp for analytics calculations.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> SYSDATETIME()  <span class="orclkey"> AS </span> precise_timestamp,<br> FORMAT(SYSDATETIME(), 'yyyy-MM-dd HH:mm:ss.fff') 
@@ -1606,7 +1606,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h3>Do's and Don'ts  for Using DATEDIFF() </h3>
+            <h3>Do's and Don'ts for Using DATEDIFF() </h3>
             <table>
                 <thead>
                     <tr>
@@ -2360,60 +2360,60 @@
             </ul><br>
             <h2>Supported Precisions</h2>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Precision</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>millennium</td>
-                        <td>Truncate to the start of the millennium</td>
-                    </tr>
-                    <tr>
-                        <td>century</td>
-                        <td>Truncate to the start of the century</td>
-                    </tr>
-                    <tr>
-                        <td>decade</td>
-                        <td>Truncate to the start of the decade</td>
-                    </tr>
-                    <tr>
-                        <td>year</td>
-                        <td>Truncate to the start of the year</td>
-                    </tr>
-                    <tr>
-                        <td>quarter</td>
-                        <td>Truncate to the start of the quarter</td>
-                    </tr>
-                    <tr>
-                        <td>month</td>
-                        <td>Truncate to the start of the month</td>
-                    </tr>
-                    <tr>
-                        <td>week</td>
-                        <td>Truncate to the start of the ISO week</td>
-                    </tr>
-                    <tr>
-                        <td>day</td>
-                        <td>Truncate to the start of the day</td>
-                    </tr>
-                    <tr>
-                        <td>hour</td>
-                        <td>Truncate to the start of the hour</td>
-                    </tr>
-                    <tr>
-                        <td>minute</td>
-                        <td>Truncate to the start of the minute</td>
-                    </tr>
-                    <tr>
-                        <td>second</td>
-                        <td>Truncate to the start of the second</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Precision</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>millennium</td>
+                            <td>Truncate to the start of the millennium</td>
+                        </tr>
+                        <tr>
+                            <td>century</td>
+                            <td>Truncate to the start of the century</td>
+                        </tr>
+                        <tr>
+                            <td>decade</td>
+                            <td>Truncate to the start of the decade</td>
+                        </tr>
+                        <tr>
+                            <td>year</td>
+                            <td>Truncate to the start of the year</td>
+                        </tr>
+                        <tr>
+                            <td>quarter</td>
+                            <td>Truncate to the start of the quarter</td>
+                        </tr>
+                        <tr>
+                            <td>month</td>
+                            <td>Truncate to the start of the month</td>
+                        </tr>
+                        <tr>
+                            <td>week</td>
+                            <td>Truncate to the start of the ISO week</td>
+                        </tr>
+                        <tr>
+                            <td>day</td>
+                            <td>Truncate to the start of the day</td>
+                        </tr>
+                        <tr>
+                            <td>hour</td>
+                            <td>Truncate to the start of the hour</td>
+                        </tr>
+                        <tr>
+                            <td>minute</td>
+                            <td>Truncate to the start of the minute</td>
+                        </tr>
+                        <tr>
+                            <td>second</td>
+                            <td>Truncate to the start of the second</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul> <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:- </b> Group Sales by Month.</p>
@@ -2656,7 +2656,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            
+
             <h2>Common Errors with SYSDATE()</h2>
             <table>
                 <thead>
@@ -2949,84 +2949,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

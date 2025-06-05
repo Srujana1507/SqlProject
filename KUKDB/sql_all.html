@@ -338,7 +338,7 @@
                         </code>
                 <ul>
                     <li><b>expression:- </b>The column or value being compared.</li>
-                    <li><b>operator:- </b>A comparison operator (=, <, >, <= ,>= , !=, etc.).</li>
+                    <li><b>operator:- </b>A comparison operator (=, <,>, <= ,>= , !=, etc.).</li>
                     <li><b>subquery:- </b>A query that returns a result set to compare against.</li>
                 </ul>
             </div><br>
@@ -430,7 +430,8 @@
                        
                     
                         </code>
-                - - This fetches products with prices equal to or greater than the highest price in the discounted products.
+                - - This fetches products with prices equal to or greater than the highest price in the discounted
+                products.
                 <br>
             </div><br>
             <h2>Advanced Examples</h2>
@@ -451,7 +452,7 @@
                        
                         </code>
                 - - NOT Price < ALL ensures that the Price is <b>not less than all </b>
-                      prices in the "Books" category.
+                    prices in the "Books" category.
                     In other words, it is greater than or equal to at least one of them.
                     <br>
             </div><br>
@@ -609,10 +610,11 @@
             <h2>Do's and Don'ts with the ALL Operator</h2>
             <h4>Do's</h4><br>
             <p><b>1. Use in Comparisons Where Universal Truth is Needed:- </b>
-           <ul>
-           <br> Apply ALL only when you need a condition
+            <ul>
+                <br> Apply ALL only when you need a condition
                 to hold true for <b>all values</b> in the subquery.
-                </ul></p><br>
+            </ul>
+            </p><br>
             <div class="code-box">
                 - - Example<br>
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>( Subquery )
@@ -621,31 +623,37 @@
             </div><br>
             <p><b>2. Test Subqueries for NULLs:- </b>
             <ul>
-            <br>Ensure that subqueries used with ALL do not return NULL values
-                unless explicitly handled, as NULL can make the condition evaluate to FALSE.</ul></p><br>
+                <br>Ensure that subqueries used with ALL do not return NULL values
+                unless explicitly handled, as NULL can make the condition evaluate to FALSE.
+            </ul>
+            </p><br>
             <div class="code-box">
                 - - Example<br>
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span><br>
                 <ul>
                     <span class="orclkey">SELECT </span> salary
                     <span class="orclkey">FROM </span> employees <br>
-                    <span class="orclkey">WHERE </span> salary <span class="orclkey">IS NOT NULL</span><b> ; </b> 
+                    <span class="orclkey">WHERE </span> salary <span class="orclkey">IS NOT NULL</span><b> ; </b>
                 </ul>
-                
+
                 </code>
             </div><br>
             <p><b>3. Optimize Subqueries:- </b>
             <ul> <br>Use indexes and simplified logic in subqueries to improve query
-                performance when using ALL.</ul></p><br>
+                performance when using ALL.</ul>
+            </p><br>
             <p><b>4. Combine with Parentheses:- </b>
             <ul>
-            <br>Use parentheses to group logical expressions for clarity and avoid
-                precedence issues.</ul></p><br>
-            
-                <h4>Don'ts</h4><br>
+                <br>Use parentheses to group logical expressions for clarity and avoid
+                precedence issues.
+            </ul>
+            </p><br>
+
+            <h4>Don'ts</h4><br>
             <p><b>1. Avoid Using ALL with a Large Subquery:- </b>
             <ul><br>When the subquery returns a large dataset, ALL can
-                lead to performance degradation. In such cases, consider alternatives like joins.</ul></p><br>
+                lead to performance degradation. In such cases, consider alternatives like joins.</ul>
+            </p><br>
             <div class="code-box">
                 - - Inefficient
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>(
@@ -654,87 +662,90 @@
             </div><br>
             <p><b>2. Do Not Assume Universal Applicability:- </b>
             <ul><br>ALL may not always be the best choice. For partial
-                comparisons, use ANY or joins.</ul></p><br>
+                comparisons, use ANY or joins.</ul>
+            </p><br>
             <p><b>3. Avoid Mixing with Non-Comparable Types:- </b>
             <ul><br>Ensure that the subquery's data type matches the
-                column you're comparing.</ul></p><br>
+                column you're comparing.</ul>
+            </p><br>
             <p><b>4. Don't Use Without Understanding Subquery Behavior:- </b>
             <ul> <br>If the subquery returns no rows, the ALL
-                operator evaluates to TRUE by default. Handle such cases carefully.</ul></p><br>
+                operator evaluates to TRUE by default. Handle such cases carefully.</ul>
+            </p><br>
 
             <h2>Points to Add</h2>
-            
-                <p><b>Advantages of ALL</b></p>
-                <ul>
-                    <li>Enables <b>dynamic and universal comparisons,</b> making it powerful for data validation and
-                        aggregation.</li>
-                    <li>Provides flexibility when used with other clauses like HAVING and subqueries.</li>
-                </ul>
-            <br>
-           
-                <p><b>Challenges with ALL</b></p>
-                <ul>
-                    <li><b>Performance Issues:</b> When the subquery returns a large dataset, queries with ALL can slow
-                        down significantly.</li>
-                    <li><b>Complex Logic: </b>In certain cases, using ALL may result in overly complicated queries,
-                        reducing readability.</li>
 
-                </ul>
+            <p><b>Advantages of ALL</b></p>
+            <ul>
+                <li>Enables <b>dynamic and universal comparisons,</b> making it powerful for data validation and
+                    aggregation.</li>
+                <li>Provides flexibility when used with other clauses like HAVING and subqueries.</li>
+            </ul>
             <br>
-          
-                <p><b>Best Practice for Performance</b></p>
-                <ul>
-                    <li>For large datasets, consider using joins with GROUP BY or alternative logic to achieve similar
-                        results.</li>
-                </ul>
+
+            <p><b>Challenges with ALL</b></p>
+            <ul>
+                <li><b>Performance Issues:</b> When the subquery returns a large dataset, queries with ALL can slow
+                    down significantly.</li>
+                <li><b>Complex Logic: </b>In certain cases, using ALL may result in overly complicated queries,
+                    reducing readability.</li>
+
+            </ul>
+            <br>
+
+            <p><b>Best Practice for Performance</b></p>
+            <ul>
+                <li>For large datasets, consider using joins with GROUP BY or alternative logic to achieve similar
+                    results.</li>
+            </ul>
             </ul><br>
-          
-                <p><b>Alternatives to ALL</b></p>
-                <ul>
-                    <li>Use EXISTS, ANY, or NOT EXISTS when the condition does not require checking all values in a
-                        subquery.</li>
-                </ul>
+
+            <p><b>Alternatives to ALL</b></p>
+            <ul>
+                <li>Use EXISTS, ANY, or NOT EXISTS when the condition does not require checking all values in a
+                    subquery.</li>
+            </ul>
             <br>
             <h2>Common Errors</h2>
             <p><b>1. Empty Subquery Result :</b></p>
             <ul>
-               
-                    <li>
-                        If the subquery returns no rows, the condition evaluates to TRUE.</li>
-                    <div class="code-box">
-                        <span class="orclkey">WHERE </span> Price > <span class="orclkey"> ALL </span>(
-                        <span class="orclkey"> SELECT </span> Price <span class="orclkey"> FROM </span> Products
-                        <span class="orclkey"> WHERE </span> 1 = 0 ) <b> ; </b><br>
-                        - -If the subquery returns no rows, ALL evaluates the condition as TRUE by default.
-                        </code>
-                    </div>
-              
+
+                <li>
+                    If the subquery returns no rows, the condition evaluates to TRUE.</li>
+                <div class="code-box">
+                    <span class="orclkey">WHERE </span> Price > <span class="orclkey"> ALL </span>(
+                    <span class="orclkey"> SELECT </span> Price <span class="orclkey"> FROM </span> Products
+                    <span class="orclkey"> WHERE </span> 1 = 0 ) <b> ; </b><br>
+                    - -If the subquery returns no rows, ALL evaluates the condition as TRUE by default.
+                    </code>
+                </div>
+
             </ul><br>
             <p><b>2. Mismatched Data Types :</b></p>
             <ul>
-               
-                    <li>
-                        Ensure the column in the main query and the subquery have comparable data types. For instance:
-                    </li>
-                    <div class="code-box">
-                        <span class="orclkey">WHERE </span> Age > <span class="orclkey"> ALL </span>(
-                        <span class="orclkey"> SELECT </span> Name <span class="orclkey"> FROM </span> Students
-                        ) <b> ; </b><br>
-                        - - This will throw an error because Age and Name have incompatible types.
-                        </code>
-                    </div>
-             
+
+                <li>
+                    Ensure the column in the main query and the subquery have comparable data types. For instance:
+                </li>
+                <div class="code-box">
+                    <span class="orclkey">WHERE </span> Age > <span class="orclkey"> ALL </span>(
+                    <span class="orclkey"> SELECT </span> Name <span class="orclkey"> FROM </span> Students
+                    ) <b> ; </b><br>
+                    - - This will throw an error because Age and Name have incompatible types.
+                    </code>
+                </div>
+
             </ul><br>
             <p><b>3. Incorrect Use with NULLs :</b></p>
             <ul>
-             
-                    <li>
-                        If the subquery contains NULL values, they are ignored, but it's good practice to explicitly
-                        handle them.
-                    </li>
-                
+
+                <li>
+                    If the subquery contains NULL values, they are ignored, but it's good practice to explicitly
+                    handle them.
+                </li>
+
             </ul><br>
-         
+
 
             <div class="topic-buttons">
                 <a href="sql_not.html?topic=sqlNot" class="previou-button">&laquo; Previous</a>
@@ -750,84 +761,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

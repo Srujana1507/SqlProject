@@ -353,15 +353,15 @@
             <h2>Examples</h2>
             <h3>1. Basic Usage</h3>
             <p><b>Scenario 1:- </b> Find employees who are in department_A but not in department_B.</p>
-              <h4> Oracle:</h4>
-              <div class="code-box">
-               
-                    <span class="orclkey">SELECT  </span> employee_id, name<br>
-                    <span class="orclkey">FROM </span> department_A  <br>
-                    <span class="orclkey">MINUS </span>   <br>
-                    <span class="orclkey">SELECT  </span> employee_id, name <br>
-                    <span class="orclkey">FROM </span> department_B
-                    <b> ; </b>
+            <h4> Oracle:</h4>
+            <div class="code-box">
+
+                <span class="orclkey">SELECT </span> employee_id, name<br>
+                <span class="orclkey">FROM </span> department_A <br>
+                <span class="orclkey">MINUS </span> <br>
+                <span class="orclkey">SELECT </span> employee_id, name <br>
+                <span class="orclkey">FROM </span> department_B
+                <b> ; </b>
                 </code>
             </div>
             <h4>SQL Server:</h4>
@@ -376,7 +376,7 @@
                     <b> ; </b>
                 </code>
             </div>
-         
+
             <div class="code-box">
                 <code> -- SQL Server (using NOT IN) <br>
                 <br>
@@ -421,9 +421,9 @@
             </div><br>
             <h3>3. MINUS with Filtering</h3>
             <p><b>Scenario :- </b> Lists electronic products available in 2023 but not in 2024.</p>
-          
+
             <div class="code-box">
-                <code> 
+                <code>
                     <span class="orclkey">SELECT  </span> ProductID, Category <br>
                     <span class="orclkey">FROM </span> Products_2023  <br>
                     <span class="orclkey">WHERE </span> Category = <b>'</b>Electronics<b>'</b>  <br>
@@ -438,7 +438,7 @@
             <h3>1. Using MINUS to Find Missing Data</h3>
             <p><b>Scenario :- </b> Identifies students enrolled in courses they have not yet completed.</p>
             <div class="code-box">
-                <code> 
+                <code>
                     <span class="orclkey">SELECT  </span> StudentID, CourseID <br>
                     <span class="orclkey">FROM </span> CurrentEnrollments  <br>
                     <span class="orclkey">MINUS </span>   <br>
@@ -451,7 +451,7 @@
             <p><b>Scenario :- </b> Compares product prices in 2023 and 2024, identifying products with prices only in
                 2023 but not in 2024.</p>
             <div class="code-box">
-                <code> 
+                <code>
                     <span class="orclkey">SELECT  </span> ProductID, Price  
                     <span class="orclkey"> AS  </span>Price_2023 <br>
                     <span class="orclkey">FROM </span> (<br>
@@ -468,7 +468,7 @@
             <h3>3. Combining MINUS with Subqueries</h3>
             <p><b>Scenario :- </b> Finds employees in New York whose salaries are not greater than $100,000.</p>
             <div class="code-box">
-                <code> 
+                <code>
                     <span class="orclkey">SELECT  </span> EmployeeID, Name, Job, City  
                     
                     <span class="orclkey">FROM </span> Employees  <br>
@@ -503,7 +503,7 @@
             <h3>5. Using MINUS in DELETE</h3>
             <p><b>Scenario :- </b> Remove rows from a table where records exist in another.</p>
             <div class="code-box">
-                <code> 
+                <code>
                     <span class="orclkey">DELETE FROM  </span> orders <br>
                     <span class="orclkey"> WHERE  </span>( order_id, product_id ) 
                     <span class="orclkey"> IN </span><br>
@@ -515,7 +515,7 @@
                     <span class="orclkey">FROM </span> orders_2021 )  <b> ; </b><br>
                     </ul>
                    
-                </code>   
+                </code>
             </div><br>
             <h3>6. MINUS with UPDATE</h3>
             <p><b>Scenario :- </b> Update the status of orders in orders_2023 that are not present in orders_2024. </p>
@@ -625,84 +625,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

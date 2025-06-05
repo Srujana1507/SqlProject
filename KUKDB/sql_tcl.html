@@ -330,7 +330,8 @@
                 <h1>Transaction Control Language (TCL)</h1>
                 <h2>What is a Transaction?</h2>
                 <ul>
-                    <li>A transaction in SQL is a group of one or more operations that are executed as a single logical unit of work. </li>
+                    <li>A transaction in SQL is a group of one or more operations that are executed as a single logical
+                        unit of work. </li>
                     <li>A transaction ensures that either all the operations are successfully completed, or none of them
                         are applied, maintaining data consistency and integrity.</li>
                 </ul> <br>
@@ -346,7 +347,7 @@
                         <tr>
                             <td><b>Atomicity</b></td>
                             <td>Guarantees that either all operations succeed or none are applied.
-                               </td>
+                            </td>
                         </tr>
                         <tr>
                             <td><b>Consistency</b></td>
@@ -360,7 +361,7 @@
                             <td><b>Durability</b></td>
                             <td>Makes committed changes permanent, even after system failures.</td>
                         </tr>
-                            </tbody>
+                    </tbody>
                 </table> <br>
                 <h2>Transaction Control Language (TCL)</h2>
                 <ul>
@@ -372,9 +373,12 @@
                 <h2>Why We Need TCL</h2>
                 <ul>
                     <li><b>Data Integrity: </b> Ensures consistent data updates, even during complex transactions.</li>
-                    <li><b>Error Handling:</b>Allows reversing or confirming operations based on success or failure or failure.</li>
-                    <li><b>Concurrency control: </b> Safely manages transactions when multiple users access the database simultaneously.</li>
-                    <li><b>Critical use cases: </b> Vital for domains like banking, e-commerce, inventory management, and booking systems where transactional reliability is key.</li>
+                    <li><b>Error Handling:</b>Allows reversing or confirming operations based on success or failure or
+                        failure.</li>
+                    <li><b>Concurrency control: </b> Safely manages transactions when multiple users access the database
+                        simultaneously.</li>
+                    <li><b>Critical use cases: </b> Vital for domains like banking, e-commerce, inventory management,
+                        and booking systems where transactional reliability is key.</li>
                 </ul><br>
                 <h2>TCL Commands</h2>
                 <table>
@@ -548,7 +552,8 @@
                 <h3>Key Points</h3>
                 <ul>
                     <li>Automatically ends the transaction.</li>
-                    <li>Implicit COMMIT is triggered automatically after DDL commands like CREATE, ALTER, or DROP in most RDBMS systems.</li>
+                    <li>Implicit COMMIT is triggered automatically after DDL commands like CREATE, ALTER, or DROP in
+                        most RDBMS systems.</li>
                 </ul> <br>
                 <h2>Advantages</h2>
                 <ul>
@@ -701,7 +706,8 @@
                 <br>
                 <h1 id="rollback">ROLLBACK</h1>
                 <ul>
-                    <li>Undoes changes made in the current transaction since the last COMMIT or to a specified SAVEPOINT.</li>
+                    <li>Undoes changes made in the current transaction since the last COMMIT or to a specified
+                        SAVEPOINT.</li>
                 </ul>
                 <br>
                 <h2>Syntax</h2>
@@ -1079,84 +1085,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

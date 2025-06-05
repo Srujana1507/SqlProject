@@ -346,12 +346,12 @@
             </div><br>
             <h2>How ANY Works</h2>
             <p>The ANY operator evaluates to:</p><br>
-         
-                <ul>
-                    <li><b>TRUE: </b>If the comparison is true for at least one value returned by the subquery.</li>
-                    <li><b>FALSE: </b> If the subquery returns no matching value or all comparisons fail.</li>
-                    <li><b>NULL: </b> If the subquery contains NULL and no condition matches.</li>
-                
+
+            <ul>
+                <li><b>TRUE: </b>If the comparison is true for at least one value returned by the subquery.</li>
+                <li><b>FALSE: </b> If the subquery returns no matching value or all comparisons fail.</li>
+                <li><b>NULL: </b> If the subquery contains NULL and no condition matches.</li>
+
             </ul><br>
             <h2>Basic Examples</h2>
             <h3>1. ANY with Greater Than ( > )</h3>
@@ -387,8 +387,8 @@
                             <span class="orclkey">FROM  </span> products <br>
                             <span class="orclkey">WHERE </span> category   =  <b>'</b>Electronics<b>'</b>  )<b> ; </b><br>
                             </ul>
-                </code>   
-             </div><br>
+                </code>
+            </div><br>
             <h3>3. ANY with NOT</h3>
             <p><b>Scenario 1:- </b>Find orders where the total amount is <b>not greater than any</b> amount in "Pending"
                 orders.</p>
@@ -405,7 +405,7 @@
                                  <span class="orclkey">WHERE </span> status    =  <b>'</b>Pending<b>'</b>  )<b> ; </b><br>
                             </ul>
                                                </code>
-               
+
             </div><br>
             <p><b>Scenario 2:- </b> Retrieve employees who are not earning less than any of the salaries in the Sales
                 department.</p>
@@ -421,7 +421,8 @@
                             <span class="orclkey">WHERE </span> department_name    =  <b>'</b>Sales<b>'</b>  )<b> ; </b><br>
                         </ul>
               </code>
-                <br>- - This ensures that an employee's salary is <b>not less than any </b>salary in the Sales department,
+                <br>- - This ensures that an employee's salary is <b>not less than any </b>salary in the Sales
+                department,
                 meaning it is<b> greater than or equal to the highest</b>.
             </div><br>
             <h3>4. Equal to Any Value</h3>
@@ -529,7 +530,8 @@
                 - - This query selects products priced at 10, 20, or 30.
             </div><br>
             <h3>3. Advanced Filtering with Correlated Subqueries</h3>
-            <p><b>Scenario 1 :- </b>Find employees whose salaries are greater than any employee in the same department but
+            <p><b>Scenario 1 :- </b>Find employees whose salaries are greater than any employee in the same department
+                but
                 with less experience.</p>
             <div class="code-box">
                 <code>
@@ -545,8 +547,9 @@
                  
                 </code>
             </div><br>
-            
-            <p><b>Scenario 2:- </b>Find students whose grades are higher than the maximum grade in any class they are not
+
+            <p><b>Scenario 2:- </b>Find students whose grades are higher than the maximum grade in any class they are
+                not
                 enrolled in.</p>
             <div class="code-box">
                 <code>
@@ -672,11 +675,10 @@
             <h4>3. Ambiguous Logic with NOT:</h4>
             <ul>
                 <li>Combining NOT with ANY can be confusing. Ensure you understand its meaning:
-                   
-                            NOT Salary < ANY (...) → Means salary is greater than or equal to the maximum.
-                        </li>
-                    </Ul>
-                </li>
+
+                    NOT Salary < ANY (...) → Means salary is greater than or equal to the maximum. </li>
+            </Ul>
+            </li>
             </ul><br>
             <h2>Do's and Don'ts with ANY Operator</h2>
             <h4>Do's</h4><br>
@@ -801,84 +803,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

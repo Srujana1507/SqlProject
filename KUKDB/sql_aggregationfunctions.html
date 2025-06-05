@@ -485,7 +485,7 @@
             </ul>
                 </code>
             </div>
-           <br>
+            <br>
             <p><b>Scenario 7:-</b> Find departments with more than 10 employees.</p>
             <div class="code-box">
                 <code>
@@ -681,77 +681,77 @@
             </div><br>
             <h2>Using SUM() with All SQL Clauses</h2>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Clause </th>
-                        <th>Usage with SUM()</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>WHERE</b></td>
-                        <td>Apply conditions to filter rows before summing.</td>
-                    </tr>
-                    <tr>
-                        <td><b>GROUP BY</b></td>
-                        <td>Summarize data for each group (e.g., region or department).</td>
-                    </tr>
-                    <tr>
-                        <td><b>HAVING</b></td>
-                        <td>Filter groups based on the aggregated sum.</td>
-                    </tr>
-                    <tr>
-                        <td><b>JOIN</b></td>
-                        <td>Combine data from multiple tables and sum values.</td>
-                    </tr>
-                    <tr>
-                        <td><b>CASE</b></td>
-                        <td>Sum data conditionally (e.g., high-price vs low-price products).</td>
-                    </tr>
-                    <tr>
-                        <td><b>WINDOW FUNCTION</b></td>
-                        <td>Calculate cumulative sums or partitions without collapsing rows.</td>
-                    </tr>
-                    <tr>
-                        <td><b>UNION</b></td>
-                        <td>Combine results from multiple queries and sum across all rows.</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Clause </th>
+                            <th>Usage with SUM()</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>WHERE</b></td>
+                            <td>Apply conditions to filter rows before summing.</td>
+                        </tr>
+                        <tr>
+                            <td><b>GROUP BY</b></td>
+                            <td>Summarize data for each group (e.g., region or department).</td>
+                        </tr>
+                        <tr>
+                            <td><b>HAVING</b></td>
+                            <td>Filter groups based on the aggregated sum.</td>
+                        </tr>
+                        <tr>
+                            <td><b>JOIN</b></td>
+                            <td>Combine data from multiple tables and sum values.</td>
+                        </tr>
+                        <tr>
+                            <td><b>CASE</b></td>
+                            <td>Sum data conditionally (e.g., high-price vs low-price products).</td>
+                        </tr>
+                        <tr>
+                            <td><b>WINDOW FUNCTION</b></td>
+                            <td>Calculate cumulative sums or partitions without collapsing rows.</td>
+                        </tr>
+                        <tr>
+                            <td><b>UNION</b></td>
+                            <td>Combine results from multiple queries and sum across all rows.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h2>Common Errors with SUM() </h2>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Characteristic</th>
-                        <th>Common Errors</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Data Type</b></td>
-                        <td>Attempting to sum non-numeric columns, e.g., <b>SUM(name) </b>results in an error.</td>
-                    </tr>
-                    <tr>
-                        <td><b>NULL Handling</b></td>
-                        <td>Ignoring NULL values can lead to missing parts of the sum.</td>
-                    </tr>
-                    <tr>
-                        <td><b>GROUP BY Usage</b></td>
-                        <td>Forgetting GROUP BY when selecting non-aggregated columns causes errors.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Multiple Aggregates</b></td>
-                        <td>Misplacing or combining SUM() with other aggregation functions incorrectly.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Performance</b></td>
-                        <td>Using SUM() on large datasets without indexes leads to slow performance.</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Characteristic</th>
+                            <th>Common Errors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Data Type</b></td>
+                            <td>Attempting to sum non-numeric columns, e.g., <b>SUM(name) </b>results in an error.</td>
+                        </tr>
+                        <tr>
+                            <td><b>NULL Handling</b></td>
+                            <td>Ignoring NULL values can lead to missing parts of the sum.</td>
+                        </tr>
+                        <tr>
+                            <td><b>GROUP BY Usage</b></td>
+                            <td>Forgetting GROUP BY when selecting non-aggregated columns causes errors.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Multiple Aggregates</b></td>
+                            <td>Misplacing or combining SUM() with other aggregation functions incorrectly.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Performance</b></td>
+                            <td>Using SUM() on large datasets without indexes leads to slow performance.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h2 id="avg">3.AVG()</h2>
             <p>The AVG() function returns the arithmetic mean of a column's values, ignoring NULL values.</p><br>
@@ -766,12 +766,12 @@
                 </li>
             </ul><br>
             <h3>Key Features</h3>
-           
-                <p>1. Works only with numeric data types (e.g., integers, floats).</p>
-                <p>2. Automatically ignores NULL values.</p>
-                <p>3. Can be used with clauses like GROUP BY, HAVING, and WHERE.</p>
+
+            <p>1. Works only with numeric data types (e.g., integers, floats).</p>
+            <p>2. Automatically ignores NULL values.</p>
+            <p>3. Can be used with clauses like GROUP BY, HAVING, and WHERE.</p>
             <br>
-             <h2>Examples</h2>
+            <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Find the average salary of all employees.</p>
             <div class="code-box">
                 <code>
@@ -878,7 +878,7 @@
             </div><br>
             <p><b>Scenario 10:-</b> Calculate the average of unique salaries. </p>
             <div class="code-box">
-              <code>
+                <code>
                <span class="orclkey"> SELECT </span> 
                <span class="orclkey">AVG(salary)  </span> 
                <span class="orclkey"> AS </span> Distinct_Avg_Salary <br> 
@@ -951,7 +951,7 @@
                     </tr>
                 </tbody>
             </table><br>
-             <h2>Do's and Don'ts for AVG()</h2>
+            <h2>Do's and Don'ts for AVG()</h2>
             <table>
                 <thead>
                     <tr>
@@ -993,11 +993,11 @@
             </code>
             </div><br>
             <h3>Key Features</h3>
-            
-                <p>1. Finds the maximum value in a column.</p>
-                <p>2. Works on numeric, date, and string data types.</p>
-                <p>3. Ignores NULL values by default.</p>
-                <p>4. Can be combined with GROUP BY, HAVING, and other SQL clauses.</p>
+
+            <p>1. Finds the maximum value in a column.</p>
+            <p>2. Works on numeric, date, and string data types.</p>
+            <p>3. Ignores NULL values by default.</p>
+            <p>4. Can be combined with GROUP BY, HAVING, and other SQL clauses.</p>
             <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Find the highest salary in the employees table. </p>
@@ -1017,7 +1017,7 @@
         </code>
             </div><br>
             <p><b>Scenario 3:-</b> Find the last name that comes last in alphabetical order.
-. </p>
+                . </p>
             <div class="code-box">
                 <code>
             <span class="orclkey"> SELECT </span> MAX( Last_name )   <span class="orclkey"> AS </span> Last_name  <br>
@@ -1103,7 +1103,7 @@
             <p><b>Scenario 10:-</b> Find the longest tenure of an employee (difference between hire date and current
                 date).</p>
             <div class="code-box">
-            ---postgreSQL
+                ---postgreSQL
                 <code>
                     <span class="orclkey">SELECT </span> <br>
                     MAX(CURRENT_DATE - hire_date) <span class="orclkey"> AS </span> Long_Service_Emp
@@ -1138,7 +1138,7 @@
                     </tr>
                 </tbody>
             </table><br>
-             <h2>Do's and Don'ts for MAX()</h2>
+            <h2>Do's and Don'ts for MAX()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1184,11 +1184,11 @@
                 </code>
             </div><br>
             <h3>Key Features</h3>
-           
-                <p>1. Works with numeric, date, and string data types.</p>
-                <p>2. Automatically ignores NULL values.</p>
-                <p>3. Can be combined with SQL clauses like GROUP BY, HAVING, and WHERE.</p>
-                <p>4. Efficiently finds the smallest value in both simple and complex scenarios.</p>
+
+            <p>1. Works with numeric, date, and string data types.</p>
+            <p>2. Automatically ignores NULL values.</p>
+            <p>3. Can be combined with SQL clauses like GROUP BY, HAVING, and WHERE.</p>
+            <p>4. Efficiently finds the smallest value in both simple and complex scenarios.</p>
             <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Find the lowest salary in the employees' table. </p>
@@ -1279,7 +1279,7 @@
                     </tr>
                 </tbody>
             </table><br>
-             <h2>Do's and Don'ts for MIN()</h2>
+            <h2>Do's and Don'ts for MIN()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1332,11 +1332,11 @@
                 </li>
             </ul><br>
             <h3>Key Features</h3>
-         
-                <p>1. Concatenates values from multiple rows into a single string.</p>
-                <p>2. Supports custom ordering of concatenated values.</p>
-                <p>3. Allows custom separators for concatenated values.</p>
-                <p>4. Works only with MySQL and MariaDB (not standard in other SQL dialects).</p>
+
+            <p>1. Concatenates values from multiple rows into a single string.</p>
+            <p>2. Supports custom ordering of concatenated values.</p>
+            <p>3. Allows custom separators for concatenated values.</p>
+            <p>4. Works only with MySQL and MariaDB (not standard in other SQL dialects).</p>
             <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Create a comma-separated list of employee names. </p>
@@ -1390,7 +1390,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <p><b>Scenario 6:-</b> Concatenate names  of employee with lowest salary. </p>
+            <p><b>Scenario 6:-</b> Concatenate names of employee with lowest salary. </p>
             <div class="code-box">
                 <code>
             <span class="orclkey"> SELECT GROUP_CONCAT(name ORDER BY name) AS </span> lowest_paid_employees<br> 
@@ -1500,7 +1500,7 @@
                     </tr>
                 </tbody>
             </table><br>
-           <h2>Do's and Don'ts for GROUP_CONCAT()</h2>
+            <h2>Do's and Don'ts for GROUP_CONCAT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1545,14 +1545,14 @@
                 <li>WITHIN GROUP (ORDER BY expression): Optional. Specifies the order of concatenated values.</li>
             </ul><br>
             <h3>Key Features</h3>
-         
-                <p>1. Concatenates values from multiple rows into a single string.</p>
-                <p>2. Supports ordering of concatenated results with the WITHIN GROUP clause.</p>
-                <p>3. Allows flexible separators, making it useful for custom-delimited outputs like CSV or
-                    pipe-separated data.</p>
-                <p>4. Automatically excludes NULL values.</p>
-                <p>5. Supported in SQL Server (2017 and later) and PostgreSQL (9.0 and later).</p>
-           <br>
+
+            <p>1. Concatenates values from multiple rows into a single string.</p>
+            <p>2. Supports ordering of concatenated results with the WITHIN GROUP clause.</p>
+            <p>3. Allows flexible separators, making it useful for custom-delimited outputs like CSV or
+                pipe-separated data.</p>
+            <p>4. Automatically excludes NULL values.</p>
+            <p>5. Supported in SQL Server (2017 and later) and PostgreSQL (9.0 and later).</p>
+            <br>
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Create a comma-separated list of employee names. </p>
             <div class="code-box">
@@ -1868,7 +1868,7 @@
              <b> ;</b> 
         </code>
             </div><br>
-           
+
             <p><b>Scenario 9:-</b> Find variance in sales relative to a moving average. </p>
             <div class="code-box">
                 <code>
@@ -1966,7 +1966,7 @@
                     </tr>
                 </tbody>
             </table><br>
-           
+
             <h2 id="stddev">9.STDDEV(expression)</h2>
             <p>The STDDEV() function calculates the standard deviation of a set of numeric values.</p>
             <ul>
@@ -1988,7 +1988,7 @@
                 <li>ALL: Optional (default). Includes all values.</li>
             </ul><br>
             <table>
-            <h2>Standard Deviation Functions</h2>
+                <h2>Standard Deviation Functions</h2>
                 <thead>
                     <tr>
                         <th>Database</th>
@@ -2327,7 +2327,7 @@
                     </tr>
                 </tbody>
             </table><br>
-          <h2>Do's and Don'ts for LEAST()</h2>
+            <h2>Do's and Don'ts for LEAST()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2527,84 +2527,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

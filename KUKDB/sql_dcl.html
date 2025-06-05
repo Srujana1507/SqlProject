@@ -376,9 +376,11 @@
                 </table> <br><br>
                 <h1>GRANT </h1>
                 <ul>
-                    <li>The GRANT command allows administrators to define who can perform operations such as SELECT, INSERT, UPDATE,
+                    <li>The GRANT command allows administrators to define who can perform operations such as SELECT,
+                        INSERT, UPDATE,
                         DELETE, and execute stored procedures or other database actions.</li>
-                    <li>The GRANT statement assigns specific permissions to users or roles on database objects such as tables, views, sequences, and procedures.</li>
+                    <li>The GRANT statement assigns specific permissions to users or roles on database objects such as
+                        tables, views, sequences, and procedures.</li>
                 </ul>
                 <h2>Syntax</h2>
                 <div class="code-box">
@@ -414,8 +416,8 @@
                 <span class="orclkey"> TO  </span> manager<b>;</b>  
                  </code>
                 </div><br>
-                <p><b>Scenario 3:- (Grant SELECT Privilege on a View ) </b> 
-                Grant SELECT access on the department_view to the reporting_team role..</p>
+                <p><b>Scenario 3:- (Grant SELECT Privilege on a View ) </b>
+                    Grant SELECT access on the department_view to the reporting_team role..</p>
                 <div class="code-box">
                     <code>
                 <span class="orclkey"> GRANT SELECT ON </span>  department_view <span class="orclkey"> TO  </span> reporting_team <b> ;</b>  
@@ -428,8 +430,9 @@
                 <span class="orclkey"> GRANT EXECUTE ON PROCEDURE </span>  generate_report <span class="orclkey"> TO  </span> developer <b> ;</b>  
                  </code>
                 </div><br>
-                <p><b>Scenario 5:- (Grant UPDATE Privileges with Grant Option ) </b> 
-                    Allow the user analyst_user to update the employee_details table and grant the same privilege to others.</p>
+                <p><b>Scenario 5:- (Grant UPDATE Privileges with Grant Option ) </b>
+                    Allow the user analyst_user to update the employee_details table and grant the same privilege to
+                    others.</p>
                 <div class="code-box">
                     <code>
                 <span class="orclkey">GRANT UPDATE ON </span>  employee_details
@@ -438,8 +441,8 @@
                  
                  </code>
                 </div><br>
-                <p><b>Scenario 6:- (Granting Privileges to a Role ) </b> 
-                Grant INSERT and UPDATE permissions to a role
+                <p><b>Scenario 6:- (Granting Privileges to a Role ) </b>
+                    Grant INSERT and UPDATE permissions to a role
                     HRTeam for the Payroll table.</p>
                 <div class="code-box">
                     <code>
@@ -449,7 +452,7 @@
                  </code>
                 </div><br>
                 <p><b>Scenario 7:- (GRANT DELETE Privilege with Grant Option)</b>
-                Allow user team_lead to delete from the project_tasks table and grant that privilege to others.</p>
+                    Allow user team_lead to delete from the project_tasks table and grant that privilege to others.</p>
                 <div class="code-box">
                     <code>
                 <span class="orclkey">GRANT DELETE ON </span>  project_tasks 
@@ -646,7 +649,8 @@
                         <b> ;</b>
                      </code>
                 </div><br>
-                <p><b>Scenario 4:- ( Revoke EXECUTE Privilege ) </b> Revoke EXECUTE permission on the generate_report stored procedure from the user developer.</p>
+                <p><b>Scenario 4:- ( Revoke EXECUTE Privilege ) </b> Revoke EXECUTE permission on the generate_report
+                    stored procedure from the user developer.</p>
                 <div class="code-box">
                     <code>
                         <span class="orclkey"> REVOKE EXECUTE ON PROCEDURE  </span>  generate_report  
@@ -676,7 +680,7 @@
                      </code>
                 </div><br>
                 <p><b>Scenario 7:- (Revoke Column-Level Permissions)</b>
-                Remove the SELECT privilege on the salary column from the user auditor.</p>
+                    Remove the SELECT privilege on the salary column from the user auditor.</p>
                 <div class="code-box">
                     <code>
                     <span class="orclkey"> REVOKE SELECT  </span>  (salary)  
@@ -831,84 +835,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>
