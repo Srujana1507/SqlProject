@@ -1097,7 +1097,8 @@ footer {
   background-color: #111;
   color: #fff;
   padding: 20px;
-  width: 100%;
+  width: auto;
+  z-index: -1;
 }
 
 .footer {
@@ -1108,14 +1109,15 @@ footer {
   position: relative;
   margin-left: 200px;
   /* Left space for second footer */
-  width: 84%;
+  /* height: 50%; */
+  width: auto;
   /* Ensures it doesn’t overflow */
-  max-width: 1200px;
+  /* max-width: 1200px; */
   /* Restricts maximum width */
 }
 
 .footer-container {
-  width: 50%;
+  width: auto;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1190,6 +1192,7 @@ footer {
   gap: 10px;
   justify-content: space-between;
   margin-top: 10px;
+  width: auto;
 }
 
 .link-column {
