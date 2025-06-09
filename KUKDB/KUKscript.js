@@ -460,6 +460,54 @@ function closeModal() {
 
 
 
-// slider code starts here
+// home page code starts here
+document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#project-carousel', {
+        type: 'slide',
+        perPage: 3,
+        perMove: 1,
+        gap: '1rem',
+        breakpoints: {
+            768: { perPage: 1 },
+            1024: { perPage: 2 },
+        }
+    }).mount();
 
-// slider code end here
+    // Get the button:
+    const goToTopBtn = document.getElementById("goToTopBtn");
+
+    // When the user scrolls down 100px from the top of the document, show the button
+    window.onscroll = function () {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            goToTopBtn.classList.add("show");
+        } else {
+            goToTopBtn.classList.remove("show");
+        }
+    };
+
+
+    // When the user clicks on the button, scroll to the top of the document
+    goToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+
+
+
+    // signup button
+    // Close modals when clicking outside of modal content
+    window.onclick = function (event) {
+        const signUpModal = document.getElementById('signUpForm');
+        const logInModal = document.getElementById('logInForm');
+
+        if (event.target === signUpModal) {
+            signUpModal.style.display = "none";
+        }
+        if (event.target === logInModal) {
+            logInModal.style.display = "none";
+        }
+    };
+
+});
+
+// home page code end here

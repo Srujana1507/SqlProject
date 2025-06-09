@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    </head>
 
 <body>
     <header>
@@ -186,95 +189,183 @@
     <!-- Code is there at D:\KUK_Site_porject\Slider_Code -->
     <!-- Slider code END here -->
 
-    <section class="about">
-        <h1>About Us </h1>
-        <div class="about-sections">
-            <img src="Site_Images/Placeholder_welcoming scene.webp" alt="Our Vision and Mission" class="about-images">
-            <div class="about-texts">
-                <h3>Our Vision and Mission</h3>
-                <p>At <strong>KUK Solutions</strong>, our mission is to make technology learning accessible and
-                    comprehensive for everyone—from freshers to experienced professionals. We aim to bridge the skills
-                    gap in the tech industry by offering detailed, hands-on learning experiences that equip learners
-                    with
-                    the knowledge they need to succeed in real-world applications.</p>
-            </div>
-        </div>
-        <div class="about-sections">
-            <img src="Site_Images/WhyChooseKUK.JPG" alt="Why Choose KUK Solutions" class="about-images">
-            <div class="about-texts">
-                <h3>Why Choose KUK Solutions?</h3>
-                <ul>
-                    <li><strong>Comprehensive Learning Pathways</strong>: Our courses cover everything from the basics
-                        to
-                        advanced levels.</li>
-                    <li><strong>In-Depth Coverage of Concepts</strong>: Detailed explanations for each topic, covering
-                        theoretical and practical aspects.</li>
-                    <li><strong>Real-World Relevance</strong>: Reflecting current trends and best practices in the
-                        industry.
+    <!-- Hero Section -->
+    <div class="home-sidebar">
+        <a href="#">Welcome</a>
+        <a href="#">Our Mission</a>
+        <a href="#">Our Vision</a>
+        <a href="#">What We Do</a>
+        <a href="#">Testimonials</a>
+        <a href="#">Our Services</a>
+    </div>
+    
+    <section class="hero">
+        <p class="hero-badge">🚀 Welcome To</p>
+        <h1 class="hero-title">KUK DB</h1>
+        <p class="hero-desc">
+            A platform to build high quality project challenges with beautiful & modular designs, guided by ex-FAANG
+            senior engineers and an active community
+        </p>
+        <button class="hero-btn">Explore projects →</button>
+        <p class="hero-note">90% of projects are free to do</p>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div id="project-carousel" class="splide" aria-label="Project Carousel">
+            <div class="splide__track">
+                <ul class="splide__list">
+    
+                    <!-- Project Card 1 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://t4.ftcdn.net/jpg/04/90/33/39/360_F_490333979_EQdf0tNa0W7MdstKjrGwnjQjoxfYP2zO.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+650 rep 🟢 Starter</p>
+                                <h3 class="project-title">Newsletter section</h3>
+                                <p class="project-desc">Build a responsive newsletter subscription section...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
                     </li>
+    
+                    <!-- Project Card 2 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://t4.ftcdn.net/jpg/04/90/33/57/360_F_490335761_sWcJ0HYQqWxhpHA00XM5bxxrmOwZae5v.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+700 rep 🟢 Starter</p>
+                                <h3 class="project-title">Contact Section</h3>
+                                <p class="project-desc">Build a contact section with form validation...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <!-- Project Card 3 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://t4.ftcdn.net/jpg/08/46/59/71/360_F_846597187_mYylQv1Tc65Zsq607bgmzekUVPWJM17v.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+500 rep 🟢 Starter</p>
+                                <h3 class="project-title">Hero Section (Feature bullets)</h3>
+                                <p class="project-desc">Minimal hero with image and feature bullets...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <!-- Project Card 4 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://img.freepik.com/premium-vector/male-programmer-writing-code-laptop_36244-4226.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+500 rep 🟢 Starter</p>
+                                <h3 class="project-title">Pricing Section (Tiered)</h3>
+                                <p class="project-desc">Responsive pricing table for monthly/yearly plans...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <!-- Project Card 5 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://img.freepik.com/free-vector/business-people-working-laptop-development_1262-18907.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+500 rep 🟢 Starter</p>
+                                <h3 class="project-title">Hero Section (Alt)</h3>
+                                <p class="project-desc">Alternate layout with premium abstract image...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <!-- Project Card 6 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://img.freepik.com/premium-vector/web-developer-is-analyzing-programming-language_18660-442.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+500 rep 🟢 Starter</p>
+                                <h3 class="project-title">Hero Section (Alt)</h3>
+                                <p class="project-desc">Alternate layout with premium abstract image...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <!-- Project Card 7 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://img.freepik.com/free-vector/desktop-smartphone-app-development_23-2148683810.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+500 rep 🟢 Starter</p>
+                                <h3 class="project-title">Project Card Alt</h3>
+                                <p class="project-desc">Another project card layout...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <!-- Project Card 8 -->
+                    <li class="splide__slide">
+                        <div class="project-card">
+                            <img src="https://img.freepik.com/free-vector/new-app-development-desktop_23-2148684987.jpg"
+                                alt="Project" />
+                            <div class="project-card-inner">
+                                <p class="project-tag">+500 rep 🟢 Starter</p>
+                                <h3 class="project-title">Project Card Alt</h3>
+                                <p class="project-desc">Another project card layout...</p>
+                                <div class="project-tags">
+                                    <span class="tech-html">HTML</span>
+                                    <span class="tech-css">CSS</span>
+                                </div>
+                                <button class="project-btn">Go to project →</button>
+                            </div>
+                        </div>
+                    </li>
+    
                 </ul>
             </div>
         </div>
-        <div class="about-sections">
-            <img src="Site_Images/PrepareForInterview.JPG" alt="Interview Preparation" class="about-images">
-            <div class="about-texts">
-                <h3>Interview Preparation Resources</h3>
-                <p>Each course includes interview questions, tips, and mock interview sessions with our mentors to
-                    simulate
-                    the interview experience.</p>
-            </div>
-        </div>
-
     </section>
-
-
-
-
-    <section id="projects" class="sections">
-        <h1>Projects</h1>
-        <p>Get hands-on experience with project ideas and templates for different skill levels.</p>
-
-        <div class="projects">
-            <div class="project-lists">
-                <img src="https://img.freepik.com/free-photo/programming-background-collage_23-2149901770.jpg?t=st=1732083051~exp=1732086651~hmac=3527e335078963088a100faf5d3b6f76dfa7b584f7eb5a8c0f6da90c3f3d5158&w=826"
-                    alt="img">
-                <h3><a href="">Project 1</a></h3>
-                <p>nkfhikfhigkjwrei jfrhwirekgnlgkmio fnskjgk.</p>
-            </div>
-            <div class="project-lists">
-                <img src="https://img.freepik.com/free-vector/gradient-sql-illustration_23-2149247491.jpg?t=st=1732083336~exp=1732086936~hmac=54a156739622a48eddb912f37476f3fb060c88ab164e5c1004c83a74c5ac3920&w=1060"
-                    alt="img">
-                <h3><a href="">Project 2</a></h3>
-                <p>nkfhikfhigkjwrei jfrhwirekgnlgkmio fnskjgk.</p>
-            </div>
-            <div class="project-lists">
-                <img src="https://img.freepik.com/free-vector/abstract-technology-sql-illustration_23-2149237139.jpg?t=st=1732083375~exp=1732086975~hmac=8419c6f73d021d40b9cd44773aa9ce7fd515261c111b98b2d4ab0f57f418a45f&w=740"
-                    alt="img">
-                <h3><a href="">Project 3</a></h3>
-                <p>nkfhikfhigkjwrei jfrhwirekgnlgkmio fnskjgk.</p>
-            </div>
-            <div class="project-lists">
-                <img src="https://img.freepik.com/premium-vector/software-programmer-cartoon_24640-21615.jpg?ga=GA1.1.495969862.1691157894&semt=ais_hybrid"
-                    alt="img">
-                <h3><a href="">Project 4</a></h3>
-                <p>nkfhikfhigkjwrei jfrhwirekgnlgkmio fnskjgk.</p>
-            </div>
-            <div class="project-lists">
-                <img src="https://img.freepik.com/premium-vector/software-programmer-cartoon_24640-21615.jpg?ga=GA1.1.495969862.1691157894&semt=ais_hybrid"
-                    alt="img">
-                <h3><a href="">Project 5</a></h3>
-                <p>nkfhikfhigkjwrei jfrhwirekgnlgkmio fnskjgk.</p>
-            </div>
-            <div class="project-lists">
-                <img src="https://img.freepik.com/premium-vector/software-programmer-cartoon_24640-21615.jpg?ga=GA1.1.495969862.1691157894&semt=ais_hybrid"
-                    alt="img">
-                <h3><a href="">Project 6</a></h3>
-                <p>nkfhikfhigkjwrei jfrhwirekgnlgkmio fnskjgk.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="Our services" class="sections">
+    
+    <section id="Our services" class="services">
         <h1>Our Services</h1>
         <ul class="services-lists">
             <li><strong>Website Design & Development</strong> - Crafting responsive, user-centric websites using HTML,
@@ -307,8 +398,8 @@
                 databases.</li>
         </ul>
     </section>
-
-    <section id="contact" class="sections">
+    
+    <section id="contact" class="contact">
         <div class="contact-div">
             <div class="contactus">
                 <h1>Contact Us</h1>
@@ -321,7 +412,7 @@
                         <i class="fa fa-envelope icon"></i>
                         <input class="input-field" type="email" placeholder="Enter Your Email" name="email" required>
                     </div>
-
+    
                     <div class="input-container">
                         <i class="fa-solid fa-message icon"></i>
                         <textarea id="message" class="input-field" placeholder="Enter Your Message...." name="message"
@@ -338,6 +429,8 @@
             </div>
         </div>
     </section>
+    
+    <button id="goToTopBtn" title="Go to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <!-- Footer Section -->
     <footer>
@@ -422,12 +515,9 @@
         </div>
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="KUKscript.js">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
 
-        // Slider code START here
-        // Code is there at D:\KUK_Site_porject\Slider_Code
-        // Slider code END here
-    </script>
+    <script src="KUKscript.js"></script>
 </body>
 
 </html>
