@@ -731,11 +731,6 @@ hr {
   background-color: #4ade80;
 }
 
-.hero .hero-note {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  color: #9ca3af;
-}
 /* Hero Section  start Here*/
 
 /* Home sidebar start Here */
@@ -797,18 +792,14 @@ hr {
 
 .project-card img {
   height: 200px;
-  width: auto;
+  width: 100%;
+  display: block;
 }
 
 @media (min-width: 768px) {
   .project-card {
     min-width: 22%;
   }
-}
-
-.project-card img {
-  width: 100%;
-  display: block;
 }
 
 .project-card-inner {
@@ -965,14 +956,14 @@ hr {
 #goToTopBtn {
   display: none;
   position: fixed;
-  bottom: 50px;
-  right: 50px;
-  background-color: #686969;
+  bottom: 20px;
+  right: 20px;
+  background-color: #01ffff;
   color: white;
   padding: 10px;
   border-radius: 100%;
   font-size: 24px;
-  z-index: 1000;
+  z-index: 99;
   cursor: pointer;
   /* transition: background-color 0.3s; */
 }
