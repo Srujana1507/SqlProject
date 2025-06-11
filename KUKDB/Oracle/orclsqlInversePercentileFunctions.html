@@ -1064,6 +1064,62 @@
                         -- Shows the median salary for each department. The result is shown row by row, but the median stays the same within a department.
                 </code>
             </div><br>
+            <p><b>Scenario 3: (Top 25% Performer in Each Department):- Find the salary of the top 25% performer (75th
+                    percentile) in each department.</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                     <ul>
+                        department_id, <br>
+                        <span class="orclfun">PERCENTILE_DISC</span> (0.75)
+                        <ul>
+                            <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER </span> (
+                            <span class="orclkey">PARTITION BY  </span> department_id ) 
+                            <span class="orclkey"> AS </span> top_25_salary
+                        </ul>
+                     </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Note: Ordering by DESC gives you the top performers.
+                </code>
+            </div><br>
+            <h2>Common Mistakes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mistake</th>
+                        <th>Why it happens</th>
+                        <th>Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Missing WITHIN GROUP</td>
+                        <td>It's mandatory for this function</td>
+                        <td>Always use WITHIN GROUP (ORDER BY col)</td>
+                    </tr>
+                    <tr>
+                        <td>Percentile > 1 or < 0</td>
+                        <td>Invalid range</td>
+                        <td>Use value between 0 and 1</td>
+                    </tr>
+                    <tr>
+                        <td>No ORDER BY inside WITHIN GROUP</td>
+                        <td>Invalid syntax</td>
+                        <td>Always include ORDER BY</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use DISC when working with categories, IDs, real values (like price tiers, batch numbers).</li>
+                <li>Use CONT for scientific/statistical analysis.</li>
+                <li>Combine with analytic OVER() clause for advanced row-wise logic.</li>
+            </ul> <br><br><br><br>
 
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
