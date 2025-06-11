@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,11 +308,11 @@
         <main class="sidebar-content" data-topic="sqlViews">
 
             <div class="topic-buttons">
-                <a href="sql_tcl.html?topic=sqlSavepoint" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_tcl.html?topic=sqlSavepoint" class="previou-button">&laquo; Previous</a>
                 <a href="sql_mview.html?topic=sqlMaterializedviews" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>View in SQL</h1>
+            <h1>VIEWS</h1>
             <p>A View is a virtual table in SQL that is based on the result set of a SQL query.</p><br>
             <ul>
                 <li>It does not store the data itself but displays data dynamically retrieved from the underlying base
@@ -320,7 +320,7 @@
                 <li>Views act as a layer of abstraction, providing a simplified, customized, or secured representation
                     of the data.</li>
             </ul><br>
-            <h2>Key Features of Views</h2>
+            <h2>Key Features</h2>
             <table>
                 <thead>
                     <tr>
@@ -386,7 +386,7 @@
                     </tr>
                 </tbody>
             </table> <br><br>
-            <h2>Syntax of View </h2>
+            <h2>Syntax</h2>
             <h3>1. Basic Syntax for Creating a View</h3>
             <div class="code-box">
                 <code>
@@ -436,7 +436,7 @@
                         <th>Behavior</th>
                     </tr>
                 </thead>
-                <thead>
+                <tbody>
                     <tr>
                         <td><b>Definition</b></td>
                         <td>A view is a virtual table representing the result of a SQL query. It does not store data
@@ -487,9 +487,38 @@
                         <td>Views cannot include certain SQL clauses (e.g., ORDER BY without TOP in SQL Server). Nested
                             or overly complex views can be hard to manage and maintain.</td>
                     </tr>
-                </thead>
+                </tbody>
             </table> <br><br>
-            <h2>Simple Examples</h2>
+            <h2>Types of Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Simple View</b></td>
+                        <td>Based on a single table without complex logic.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Complex View</b></td>
+                        <td>Involves multiple tables, joins, or aggregation functions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Inline View</b></td>
+                        <td>A subquery in the FROM clause treated as a temporary view for the query's scope.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Materialized View</b></td>
+                        <td>Physically stores data for faster access (supported by Oracle, PostgreSQL, etc.).</td>
+                    </tr>
+                </tbody>
+
+            </table><br><br>
+
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Create a view that shows customer names and their contact details (phone and email).
             </p>
             <div class="code-box">
@@ -553,35 +582,8 @@
                 </ul>
              </code>
             </div><br><br>
-            <h2>Types of Views</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Simple View</b></td>
-                        <td>Based on a single table without complex logic.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Complex View</b></td>
-                        <td>Involves multiple tables, joins, or aggregation functions.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Inline View</b></td>
-                        <td>A subquery in the FROM clause treated as a temporary view for the query's scope.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Materialized View</b></td>
-                        <td>Physically stores data for faster access (supported by Oracle, PostgreSQL, etc.).</td>
-                    </tr>
-                </tbody>
 
-            </table><br><br>
-            <h2>Comprehensive Scenarios</h2>
+            <h2>Complex Scenarios</h2>
             <p><b>Scenario 1:- (Employee Performance Analysis)</b> Create a view that displays employee details along
                 with their total sales for the month. Only include employees with sales greater than $10,000 and group
                 the data by department.
@@ -621,10 +623,10 @@
                     </ul>
                     <span class="orclkey"> ORDER BY  </span> 
                     <ul>
-                        d.DepartmentName, TotalSales <span class="orclkey"> DESC  </span> 
+                        d.DepartmentName, TotalSales <span class="orclkey"> DESC  <b> ;</b> </span> 
                     </ul>
                     
-                    <b> ;</b>
+                   
                 </ul>
              </code>
             </div><br><br>
@@ -634,7 +636,8 @@
             </p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> CREATE VIEW  </span> ProductReview_vw    <span class="orclkey"> AS  </span> <br>
+                <span class="orclkey"> CREATE VIEW  </span> ProductReview_vw  
+                <span class="orclkey"> AS  </span> <br>
             <ul><span class="orclkey"> SELECT  </span> 
                 <ul>p.ProductID, 
                     p.ProductName, 
@@ -668,10 +671,10 @@
                     </ul>
                     <span class="orclkey"> ORDER BY  </span> 
                     <ul>
-                        TotalStock <span class="orclkey"> DESC  </span> 
+                        TotalStock <span class="orclkey"> DESC <b> ;</b> </span> 
                     </ul>
                     
-                    <b> ;</b>
+                    
                 </ul>
              </code>
             </div><br><br>
@@ -680,30 +683,21 @@
             </p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> CREATE VIEW  </span> HighProfileCustomers_vw    <span class="orclkey"> AS  </span> <br>
-            <ul><span class="orclkey"> SELECT  </span> 
-                <ul>c.customer_id, c.name,  (<br>
-                   <ul>
-                    <span class="orclkey"> SELECT   </span> SUM(order_amount) <br>
-                    <span class="orclkey"> FROM  </span>  Orders o <br>
-                    <ul>
-                        <span class="orclkey"> WHERE  </span>  o.customer_id = c.customer_id <br>
-                    </ul>
-                   </ul>) <span class="orclkey"> AS  </span> TotalSpent <br>
-            <span class="orclkey"> FROM  </span> Customers c
-            <ul>
-                <span class="orclkey"> WHERE  </span> ( <br>
+                <span class="orclkey"> CREATE VIEW  </span> HighProfileCustomers_vw  
+                <span class="orclkey"> AS  </span> <br>
                 <ul>
-                    <span class="orclkey"> SELECT   </span> COUNT ( order_id ) <br>
-                    <span class="orclkey"> FROM  </span>  Orders o <br>
-                    <ul>
-                        <span class="orclkey"> WHERE  </span>  o.customer_id = c.customer_id <br>
+                <span class="orclkey"> SELECT  </span> 
+                   <ul>
+                     c.customer_id, c.name,SUM(o.order_amount)   
+                     <span class="orclkey"> AS  </span> TotalSpent <br>
+                     <span class="orclkey"> FROM  </span>  Customers c <br>
                     </ul>
-                    ) > 10
-                </ul>  
-                    
-                    <b> ;</b>
-                </ul>
+                    <span class="orclkey"> JOIN  </span>
+                    <span class="orclkey"> Orders o ON  </span> c.customer_id = o.customer_id <br>
+                    <span class="orclkey"> GROUP BY  </span>c.customer_id,c.name <br>
+                    <span class="orclkey"> HAVING  </span> <br>
+                    <span class="orclkey"> COUNT  </span> (o.order_id)
+                     <span class="orclkey"> >  </span> 10;
              </code>
             </div><br><br>
             <p><b>Scenario 4:- (With UNION )</b> Display the hierarchical structure of departments by recursively
@@ -722,7 +716,7 @@
             <ul>
                 <span class="orclkey"> WHERE  </span> parent_department_id  <span class="orclkey"> IS NULL  </span>
             </ul>
-            <span class="orclkey"> UNION ALL  </span> Departments <br>
+            <span class="orclkey"> UNION ALL  </span> <br>
             <ul>
                 <span class="orclkey"> SELECT  </span> 
                 <ul>
@@ -741,46 +735,43 @@
                     <b> ;</b>
              </code>
             </div><br><br>
-            <p><b>Scenario 5:- (Active Subscriptions Viewd)</b> Create a view to list active subscriptions along with
+            <p><b>Scenario 5:- (Active Subscriptions View)</b> Create a view to list active subscriptions along with
                 customer details and their subscription status.
             </p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> CREATE VIEW  </span> ActiveSubscriptions_vw     <span class="orclkey"> AS  </span> <br>
-            <ul><span class="orclkey"> SELECT  </span> 
+                <span class="orclkey"> CREATE VIEW  </span> ActiveSubscriptions_vw    
+                <span class="orclkey"> AS  </span> <br>
+                <span class="orclkey"> SELECT  </span> 
                 <ul>s.SubscriptionID, 
                     c.CustomerName, 
                     s.StartDate, 
                     s.EndDate,
             
-            <span class="orclkey"> CASE  </span>
-            <ul>
-                <span class="orclkey"> WHEN  </span> s.EndDate >= CURRENT_DATE <span class="orclkey"> THEN  </span> 'Active' <br>
-                <span class="orclkey"> ELSE  </span> 'Expired'
-            </ul>
-                    <span class="orclkey"> END AS  </span>  SubscriptionStatus
-                </ul>
+                   <span class="orclkey"> CASE  </span>
+                  <ul>
+                   <span class="orclkey"> WHEN  </span> s.EndDate >= CURRENT_DATE 
+                   <span class="orclkey"> THEN  </span> 'Active' <br>
+                   <span class="orclkey"> ELSE  </span> 'Expired'
+                  </ul>
+                  <span class="orclkey"> END AS  </span>  SubscriptionStatus
+               </ul>
                 <span class="orclkey"> FROM  </span> 
                     <ul>
                         Subscriptions s
                     </ul>
-                    <span class="orclkey"> JOIN  </span> 
+                    <span class="orclkey"> JOIN  </span>  Customers c 
+                   
+                    <span class="orclkey"> ON  </span> s.CustomerID = c.CustomerID <br>
+                   
+                    <span class="orclkey"> WHERE  </span> <br>
                     <ul>
-                        Customers c <span class="orclkey"> ON  </span> s.CustomerID = c.CustomerID
+                        s.StartDate <= CURRENT_DATE;
                     </ul>
-                    <span class="orclkey"> WHERE  </span> 
-                    <ul>
-                        s.StartDate <= CURRENT_DATE
-                    </ul>
-                    <span class="orclkey"> ORDER BY  </span> 
-                    <ul>
-                        SubscriptionStatus <span class="orclkey"> ASC  </span> , s.EndDate <span class="orclkey"> ASC  </span> 
-                    </ul>                    
-                    <b> ;</b>
-                </ul>
+                    
              </code>
-            </div><br><br>
-            <h2>Common Errors</h2>
+            </div><br>
+            <h2>Common Errors with VIEWS </h2>
             <table>
                 <thead>
                     <tr>
@@ -816,8 +807,8 @@
                         <td>Drop the view or use CREATE OR REPLACE.</td>
                     </tr>
                 </tbody>
-            </table><br><br>
-            <h2>Hints to Write a View</h2>
+            </table><br>
+            <h2>Performance Hints for writing a View</h2>
             <table>
                 <thead>
                     <tr>
@@ -858,8 +849,8 @@
                             performance.</td>
                     </tr>
                 </tbody>
-            </table> <br><br>
-            <h2>Do’s and Don’ts</h2>
+            </table> <br>
+            <h2>Do’s and Don’ts with VIEWS</h2>
             <table>
                 <thead>
                     <tr>
@@ -901,7 +892,7 @@
             </table> <br><br>
 
             <div class="topic-buttons">
-                <a href="sql_tcl.html?topic=sqlSavepoint" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_tcl.html?topic=sqlSavepoint" class="previou-button">&laquo; Previous</a>
                 <a href="sql_mview.html?topic=sqlMaterializedviews" class="next-button">Next &raquo;</a>
             </div>
 
@@ -914,84 +905,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

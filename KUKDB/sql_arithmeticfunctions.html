@@ -10,8 +10,8 @@
 </head>
 
 <body>
- 
- 
+
+
 
 
     <header>
@@ -38,7 +38,7 @@
             <a href="#Our services">Our Services</a>
             <a href="#contactus">Contact Us</a>
             <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
-            
+
         </nav>
 
     </header>
@@ -318,20 +318,20 @@
             <h1>Arithmetic Functions</h1>
             <p>Arithmetic functions are built-in functions that perform mathematical calculations on numeric data types.
             </p><br>
-           <ul>
-                    <li>These functions enable operations like rounding, generating absolute values, calculating power,
-                        and
-                        more.
-                    </li>
-                    <li>They are essential for data analysis, financial calculations, and transforming numeric data.
-                    </li>
+            <ul>
+                <li>These functions enable operations like rounding, generating absolute values, calculating power,
+                    and
+                    more.
+                </li>
+                <li>They are essential for data analysis, financial calculations, and transforming numeric data.
+                </li>
 
-                    <li>They simplify complex arithmetic operations and are used in SELECT statements, WHERE clauses, or
-                        as
-                        part
-                        of other SQL operations.</li>
+                <li>They simplify complex arithmetic operations and are used in SELECT statements, WHERE clauses, or
+                    as
+                    part
+                    of other SQL operations.</li>
                 <br>
-                </ul>
+            </ul>
             <h2>Key Arithmetic Functions</h2>
             <table>
                 <thead>
@@ -506,7 +506,7 @@
                     CEIL( quantity / carton_size )<span class="orclkey"> AS </span> cartons_needed <br>
                     <span class="orclkey"> FROM  </span> inventory <b> ;</b>
                 </code>
-                 --MySql
+                --MySql
             </div><br>
             <h3>3. FLOOR( )</h3>
             <p>Rounds a number down to the nearest integer.</p>
@@ -516,16 +516,16 @@
                     <span class="orclkey">FLOOR</span> ( number ) <br>
                 </code>
             </div><br>
-             <p><b>Scenarios</b></p>
+            <p><b>Scenarios</b></p>
             <ul>
-             <li><b>Logistics:- </b> Calculate full truckloads required for shipping. </li>
+                <li><b>Logistics:- </b> Calculate full truckloads required for shipping. </li>
                 <li><b>Budgeting:- </b> Allocate full dollar amounts while ignoring cents.</li>
             </ul>
-                <p><b>Scenario 1:-</b> Basic example</p>
-                <div class="code-box">
+            <p><b>Scenario 1:-</b> Basic example</p>
+            <div class="code-box">
                 <code>
-                    
-                
+
+
             </ul>
             --- MySQL/SQL server <br>
                     <span class="orclkey">SELECT  </span> FLOOR(12.34) 
@@ -538,7 +538,7 @@
                     - - Output : 12
                 </code>
             </div><br>
-            
+
             <p><b>Scenario 2:-</b> Calculate the number of full containers required for shipments.</p>
             <div class="code-box">
                 <code>
@@ -930,7 +930,7 @@
                     <li>Use seeds (RAND(seed) in MySQL or SETSEED in Oracle) for reproducible results if required.</li>
                 </ul>
             </ul><br>
-            <h2>Advanced Examples</h2>
+            <h2>Advanced Scenarios </h2>
             <h3>1. Using Arithmetic Functions in WHERE Clause</h3>
             <p><b>Scenario :-</b> Retrieves orders where the absolute value of the discount exceeds 10. </p>
             <div class="code-box">
@@ -979,16 +979,16 @@
             <h2>Common Errors and Fixes</h2>
             <h3>1. Null Values</h3>
             <ul>
-                
-                    <li>Any arithmetic function with NULL input returns NULL.</li>
-                    <li><b>Fix :</b> Use COALESCE() to replace NULL values.</li>
-                    <div class="code-box">
-                        <code>
+
+                <li>Any arithmetic function with NULL input returns NULL.</li>
+                <li><b>Fix :</b> Use COALESCE() to replace NULL values.</li>
+                <div class="code-box">
+                    <code>
                             <span class="orclkey">SELECT  </span> ABS( COALESCE( value, 0 ) ) 
                             <span class="orclkey"> FROM </span> Customers <b> ;</b> <br>                
                         </code>
-                    </div>
-               
+                </div>
+
             </ul> <br>
             <h3>2. Division by Zero</h3>
             <ul>
@@ -1011,10 +1011,10 @@
                     </code>
                 </div>
             </ul>
-   
-      <br><br>
-    
-            
+
+            <br><br>
+
+
 
             <div class="topic-buttons">
                 <a href="sql_minus.html?topic=sqlMinus" class="previou-button">&laquo; Previous</a>
@@ -1031,84 +1031,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

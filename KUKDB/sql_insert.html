@@ -314,8 +314,8 @@
             <ul>
                 <li>The INSERT statement is Data Manipulation Language (DML) command, it is used to add new rows of
                     data to a table. </li>
-            </ul><br>
-            <h2>INSERT statement is used to:</h2>
+            </ul>
+            <h2>INSERT is used to:</h2>
             <ul>
                 <li>Insert single rows or multiple rows into a table.</li>
                 <li>Add values to either all columns in a row or only specified columns.</li>
@@ -347,18 +347,18 @@
             </code>
             </div><br>
             <h2>Examples</h2>
-            <ul>
-                <li>Add/Insert a single row to the employees table</li>
-            </ul>
+            
+              <p> <b> 1.Add/Insert a single row to the employees table.</b></p>
+            
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name,location ) <br>
                 <span class="orclkey">VALUES </span> ( 101, 'Kumar', 'Kanaka', 'Finance', 'India') ;
             </code>
             </div><br>
-            <ul>
-                <li>Insert Multiple rows to the employees table</li>
-            </ul>
+            
+             <p><b>2.Insert Multiple rows to the employees table</b></p>
+            
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name,location ) <br>
@@ -366,9 +366,9 @@
                         ( 102, 'Harsh', 'Thammi', 'Product', 'New York' ) ;
             </code>
             </div><br>
-            <ul>
-                <li>Inserting Only Specific Columns</li>
-            </ul>
+            
+                <p><b>3.Inserting Only Specific Columns</b></p>
+            
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name ) <br>
@@ -379,10 +379,10 @@
                         
             </code>
             </div><br>
-            <ul>
-                <li>Inserting Data from Another Table: - Copy data from the archived_employees table to the
-                    employees table.</li>
-            </ul>
+           
+                <p><b>4.Inserting Data from Another Table:</b> Copy data from the archived_employees table to the
+                    employees table.</p>
+            
             <div class="code-box">
                 <code>
             <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name, location ) <br>
@@ -391,10 +391,9 @@
                 <span class="orclkey">WHERE </span> dept_name = ' Sales' ;
             </code>
             </div><br>
-            <ul>
-                <li>Inserting Data Using Default Values: - Some databases allow inserting rows and using DEFAULT
-                    values where available</li>
-            </ul>
+            <p><b>5.Inserting Data Using Default Values: </b> Some databases allow inserting rows and using DEFAULT
+                    values where available</p>
+            
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name, location ) <br>
@@ -405,8 +404,8 @@
                 </ul>
                 </code>
             </div><br>
-            <h2>Advanced Use Cases for INSERT</h2><br>
-            <h3>1. Using INSERT IGNORE or ON DUPLICATE KEY UPDATE (MySQL)</h3><br>
+            <h2>Advanced Scenarios</h2>
+            <h3>1. Using INSERT IGNORE or ON DUPLICATE KEY UPDATE (MySQL)</h3>
             <p>In MySQL, use INSERT IGNORE to skip inserting rows with duplicate keys instead of throwing an error.
             </p>
             <div class="code-box">
@@ -425,7 +424,7 @@
                 <span class="orclkey">ON </span> DUPLICATE KEY <span class="orclkey">UPDATE  </span>( 105, 'sham', ' Green', 'Sales', 'Hong Kong' ) ; 
                 </code>
             </div><br>
-            <h3>2. Using RETURNING (PostgreSQL and Oracle)</h3> <br>
+            <h3>2. Using RETURNING (PostgreSQL and Oracle)</h3> 
             <p>In PostgreSQL and Oracle, use the RETURNING clause to capture values (like auto-generated IDs) from
                 newly inserted rows.</p>
 
@@ -436,7 +435,7 @@
                 RETURNING EmpID ;
                 </code>
             </div><br>
-            <h3>3. Using OUTPUT (SQL Server )</h3><br>
+            <h3>3. Using OUTPUT (SQL Server )</h3>
             <p>SQL Server also supports the INSERT statement and allows OUTPUT to capture the inserted rows.</p>
             <div class="code-box">
                 <code>
@@ -452,7 +451,7 @@
                 <span class="orclkey">VALUES </span> ( emp_seq.NEXTVAL, 'Tom', ' Hasin', 10000 ) ;                
                 </code>
             </div><br>
-            <h2>Common Errors in INSERT Statements</h2><br>
+            <h2>Common Errors with INSERT </h2>
             <ul>
                 <li><b>NOT NULL Constraint Violation :</b> Occurs when you skip a NOT NULL column and don't provide a
                     default value</li>
@@ -485,7 +484,7 @@
                     them will prevent inserts.</li>
             </ul>
             <br>
-            <h2>Do’s and Don’ts When Using INSERT</h2>
+            <h2>Do’s and Don’ts with INSERT</h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
                 <li><b>Do use prepared statements for dynamic inserts </b> in application code to prevent SQL
@@ -519,84 +518,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlRightjoin">
 
             <div class="topic-buttons">
-                <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_fulljoin.html?topic=sqlFulljoin" class="next-button">Next &raquo;</a>
             </div>
 
@@ -360,9 +360,9 @@
                 <code>
                 <span class="orclkey"> SELECT </span>  o.OrderID, o.Amount, c.CustomerName <br>
                 <span class="orclkey"> FROM </span> Customers c <br>
-                        <span class="orclkey"> RIGHT JOIN </span> Orders o  <br>
-                    <ul><span class="orclkey"> ON </span> c.CustomerID = o.CustomerID
-                 <b> ;</b> </ul>
+                <span class="orclkey"> RIGHT JOIN </span> Orders o  <br>
+                <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID
+                <b> ;</b> </ul>
             </code>
             </div><br>
             <p><b>Scenario 2:- </b> List all departments, including those without assigned employees.</p>
@@ -371,37 +371,33 @@
                 <span class="orclkey"> SELECT </span>  d.DepartmentName, e.EmployeeID, e.Name <br>
                 <span class="orclkey"> FROM </span> Employees e <br>
                         <span class="orclkey"> RIGHT JOIN </span> Departments d  <br>
-                    <ul><span class="orclkey"> ON </span> e.DepartmentID = d.DepartmentID
-                 <b> ;</b> </ul>
+                    <span class="orclkey"> ON </span> e.DepartmentID = d.DepartmentID
+                 <b> ;</b> 
             </code>
             </div><br>
-            <p><b>Scenario 3:- </b> Get all orders, including their customer and shipping details, even if no shipping
-                data exists.</p>
+            <p><b>Scenario 3:- </b> Retrieve orders with customer and shipping info — only if shipping exists.</p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT </span> o.OrderID, o.Amount, c.CustomerName, s.ShippingDate <br>
                 <span class="orclkey"> FROM </span> Customers c <br>
-                        <span class="orclkey"> RIGHT JOIN </span> Orders o  <br>
-                    <ul><span class="orclkey"> ON </span> c.CustomerID = o.CustomerID
-                   </ul>
-                   <span class="orclkey"> RIGHT JOIN </span> Shipping s  <br>
-                    <ul><span class="orclkey"> ON </span>  o.OrderID = s.OrderID <b> ;</b>
-                   </ul>
+                <span class="orclkey"> RIGHT JOIN </span> Orders o  <br>
+                <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID <br>
+                <span class="orclkey"> RIGHT JOIN </span> Shipping s                     
+                <span class="orclkey"> ON </span> o.OrderID = s.OrderID <b> ;</b>
+                   
             </code>
             </div><br>
-            <p><b>Scenario 4:- </b> Get all orders, including their customer and shipping details, even if no shipping
-                data exists.</p>
+            <p><b>Scenario 4:- </b> Calculate total revenue per supplier for all sold products.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> s.SupplierName, SUM( p.Price * od.Quantity ) <span class="orclkey"> AS </span> TotalRevenue<br>
+                <span class="orclkey"> SELECT </span> s.SupplierName, SUM( p.Price * od.Quantity )
+                <span class="orclkey"> AS </span> TotalRevenue<br>
                 <span class="orclkey"> FROM </span> Suppliers s <br>
-                        <span class="orclkey"> RIGHT JOIN </span> Products p  <br>
-                    <ul><span class="orclkey"> ON </span> s.SupplierID = p.SupplierID
-                   </ul>
-                   <span class="orclkey"> RIGHT JOIN </span> OrderDetails od  <br>
-                    <ul><span class="orclkey"> ON </span>  p.ProductID = od.ProductID
-                   </ul>
-                   <span class="orclkey"> GROUP BY </span> s.SupplierName <b> ;</b>
+                <span class="orclkey"> RIGHT JOIN </span> Products p  <br>
+                <span class="orclkey"> ON </span> s.SupplierID = p.SupplierID
+                <span class="orclkey"> RIGHT JOIN </span> OrderDetails od  <br>
+                <span class="orclkey"> ON </span>  p.ProductID = od.ProductID
+                <span class="orclkey"> GROUP BY </span> s.SupplierName <b> ;</b>
             </code>
             </div><br>
             <p><b>Scenario 5:- </b> Retrieve orders that do not have any associated customers.</p>
@@ -409,25 +405,26 @@
                 <code>
                 <span class="orclkey"> SELECT </span> o.OrderID, o.Amount <br>
                 <span class="orclkey"> FROM </span> Customers c <br>
-                        <span class="orclkey"> RIGHT JOIN </span> Orders o <br>
-                    <ul><span class="orclkey"> ON </span> c.CustomerID = o.CustomerID
-                   </ul>
-                   <span class="orclkey"> WHERE </span> c.CustomerID 
-                    <span class="orclkey"> IS NULL </span> <b> ;</b>
+                <span class="orclkey"> RIGHT JOIN </span> Orders o <br>
+                <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID <br>
+                <span class="orclkey"> WHERE </span> c.CustomerID 
+                <span class="orclkey"> IS NULL </span> <b> ;</b>
             </code>
             </div><br>
             <p><b>Scenario 6:- </b> List all orders and the most recent shipping date for each, even if shipping has not
                 occurred.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> o.OrderID, o.Amount, latest_shipping.ShippingDate <br>
-                <span class="orclkey"> FROM </span> Orders o <br>
-                <span class="orclkey"> RIGHT JOIN </span>( 
-                        <span class="orclkey"> SELECT </span> OrderID, MAX( ShippingDate ) <span class="orclkey"> AS </span> ShippingDate <br>
-                    <ul><span class="orclkey"> FROM </span> Shipping <br>
-                        <span class="orclkey"> GROUP BY </span> OrderID
-                   </ul> ) latest_shipping <br>
-                   <span class="orclkey"> ON </span> o.OrderID = latest_shipping.OrderID
+                <span class="orclkey"> SELECT </span> o.OrderID, o.Amount, s.ShippingDate <br>
+                <span class="orclkey"> FROM </span> <br>
+                <ul>(
+                <span class="orclkey"> SELECT </span> OrderID, MAX(ShippingDate)
+                <span class="orclkey"> AS </span> ShippingDate <br>
+                <span class="orclkey"> FROM </span> Shipping <br>
+                <span class="orclkey"> GROUP BY </span> OrderID
+                ) s <br>
+                </ul>
+                <span class="orclkey"> RIGHT JOIN Orders o ON </span> s.OrderID =o.OrderID
                     <b> ;</b>
             </code>
             </div><br>
@@ -440,96 +437,91 @@
                 <span class="orclkey"> AS </span>TotalSpent  
                         <span class="orclkey"> FROM </span> Customers c <br>
                         <span class="orclkey"> RIGHT JOIN </span> Orders o <br>
-                    <ul><span class="orclkey"> ON </span> c.CustomerID = o.CustomerID  <b> ;</b>
-                   </ul>
+                    <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID  <b> ;</b>
+                   
             </code>
             </div><br>
             <p><b>Scenario 8:- </b> Retrieve all deliveries and their associated suppliers, including deliveries missing
                 supplier details or with inactive suppliers.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> <ul> d.delivery_id, <br>
-                d.delivery_date,  <br>
-                s.supplier_id,  <br>
-                s.supplier_name, <br>
-                s.supplier_status
-                </ul>
+                <span class="orclkey"> SELECT </span> d.delivery_id, d.delivery_date, s.supplier_id,  s.supplier_name, s.supplier_status
+                <br>
                 <span class="orclkey"> FROM  </span> suppliers s <br>
                 <span class="orclkey"> RIGHT JOIN  </span> deliveries d <br>
-                <ul><span class="orclkey"> ON </span> s.supplier_id = d.supplier_id </ul>
-                <span class="orclkey"> WHERE </span> s.supplier_id  <br>
-                        <span class="orclkey"> IS NULL OR </span> s.supplier_status = 'Inactive'  <b> ;</b>
+                <span class="orclkey"> ON </span> s.supplier_id = d.supplier_id </ul>
+                <br>
+                <span class="orclkey"> WHERE </span> s.supplier_id  
+                <span class="orclkey"> IS NULL OR </span> s.supplier_status = 'Inactive'  <b> ;</b>
             </code>
             </div><br>
             <p><b>Scenario 9:- </b> Identify products that were not sold during a specific time period by comparing the
                 inventory with sales data.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> <ul> i.product_id,  <br>
-                    i.product_name, <br>
-                    s.sale_id, <br>
-                    s.sale_date
-                </ul>
+                <span class="orclkey"> SELECT </span> i.product_id, i.product_name    <br>
                 <span class="orclkey"> FROM  </span> sales s <br>
                 <span class="orclkey"> RIGHT JOIN  </span> inventory i <br>
-                <ul><span class="orclkey"> ON </span> s.product_id = i.product_id </ul>
-                <span class="orclkey"> WHERE </span> s.sale_date  
-                        <span class="orclkey"> IS NULL </span> <br>
-                        <ul><span class="orclkey"> OR </span> s.sale_date  
-                        <span class="orclkey"> NOT BETWEEN </span> '2024-01-01' <span class="orclkey"> AND </span> '2024-12-31'
-                        <b> ;</b> </ul>
+                <span class="orclkey"> ON </span> s.product_id = i.product_id <br>
+                <span class="orclkey"> GROUP BY </span> i.product_id,i.product_name <br>
+                <span class="orclkey"> HAVING SUM </span>
+                ( <ul>
+                <span class="orclkey"> CASE </span> 
+                <span class="orclkey"> WHEN </span> s.sale_date  
+                <span class="orclkey"> BETWEEN</span> '2024-01-01'  
+                <span class="orclkey"> AND </span> '2024-12-31'
+                <span class="orclkey"> THEN </span> 1
+                <span class="orclkey"> ELSE </span> 0
+                <span class="orclkey"> END </span>
+                 ) = 0 <b> ;</b> </ul>
             </code>
             </div><br>
-            <p><b>Scenario 10:- </b> Identify products that were not sold during a specific time period by comparing the
-                inventory with sales data.</p>
+            <p><b>Scenario 10:- </b> Compare department average salary with company-wide average salary.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> WITH </span> CompanyAverage <span class="orclkey"> AS </span> ( <br>
-                    <ul>
-                <span class="orclkey"> SELECT </span> <ul> AVG( salary ) <span class="orclkey"> AS </span> overall_avg_salary <br>
-                    <span class="orclkey"> FROM </span> employees
-                </ul>) <br>
-                <span class="orclkey"> SELECT </span> <br>
-                <ul>
-                    d.department_id, <br>
-                    d.department_name,  <br>
-                    AVG( e.salary ) <span class="orclkey"> AS </span> Dept_Avg_Salary
-                </ul>
-                <span class="orclkey"> FROM  </span> employees e <br>
-                <span class="orclkey"> RIGHT JOIN  </span> departments d <br>
-                <ul><span class="orclkey"> ON </span> e.department_id = d.department_id </ul>
-                <span class="orclkey"> GROUP BY </span> d.department_id, d.department_name  <br>
-                        <span class="orclkey"> HAVING </span>AVG( e.salary ) < ( <span class="orclkey"> SELECT </span> overall_avg_salary
-                        <span class="orclkey"> FROM </span> CompanyAverage )
+            <span class="orclkey"> WITH </span> CompanyAverage
+            <span class="orclkey"> AS </span> <br>(
+            <span class="orclkey"> SELECT </span> AVG(salary) 
+            <span class="orclkey"> AS </span> overall_avg_salary 
+            <span class="orclkey"> FROM </span> employees)
+            <br>
+            <span class="orclkey"> SELECT </span>  d.department_id, d.department_name, AVG( e.salary ) 
+            <span class="orclkey"> AS </span> Dept_Avg_Salary <br>
+            <span class="orclkey"> FROM  </span> employees e <br>
+            <span class="orclkey"> RIGHT JOIN  </span> departments d <br>
+            <span class="orclkey"> ON </span> e.department_id = d.department_id  <br>
+            <span class="orclkey"> GROUP BY </span> d.department_id, d.department_name  <br>
+            <span class="orclkey"> HAVING </span>AVG( e.salary ) <  <br>(
+                <span class="orclkey"> SELECT </span> overall_avg_salary
+            <span class="orclkey"> FROM </span> CompanyAverage )
                         <b> ;</b> 
             </code>
             </div><br>
-            <p><b>Scenario 11:- </b> Identify all offices and the benefits provided to employees, including offices with
-                no employees.</p>
+            <p><b>Scenario 11:- </b> Retrieve all offices and the benefits provided, including offices with no
+                employees.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> <br>
-                <ul>
-                    o.office_id, <br>
-                    o.office_name, <br>
-                    b.benefit_id, <br>
-                    b.benefit_name, <br>
-                    COALESCE( e.employee_count, 0 ) <span class="orclkey"> AS </span> employee_count
-                </ul>
+                <span class="orclkey"> SELECT </span>
+                
+                    o.office_id, 
+                    o.office_name,
+                    b.benefit_id, 
+                    b.benefit_name,<br>
+                    COALESCE( e.employee_count, 0 ) 
+                <span class="orclkey"> AS </span> employee_count <br>
+                
                 <span class="orclkey"> FROM  </span> benefits b <br>
                 <span class="orclkey"> RIGHT JOIN  </span> offices o <br>
-                <ul><span class="orclkey"> ON </span> b.office_id = o.office_id </ul>
-                <span class="orclkey"> LEFT JOIN </span>( <br>
-                <ul>
-                    <span class="orclkey"> SELECT </span> office_id, COUNT( * ) <span class="orclkey"> AS </span> employee_count <br>
-                    <span class="orclkey"> FROM </span> employees <br>
-                    <span class="orclkey"> GROUP BY </span> office_id
-                </ul> ) e <br>
+                <span class="orclkey"> ON </span> b.office_id = o.office_id </ul>
+                <span class="orclkey"> LEFT JOIN </span>( <br>                    <span class="orclkey"> SELECT </span> office_id, COUNT( * ) <span class="orclkey"> AS </span> employee_count <br>
+                <span class="orclkey"> FROM </span> employees <br>
+                <span class="orclkey"> GROUP BY </span> office_id
+                ) e <br>
                <span class="orclkey"> ON </span> o.office_id = e.office_id
                         <b> ;</b> 
             </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with RIGHT JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -574,7 +566,7 @@
                     </tr>
                 </tbody>
             </table><br><br>
-            <h2>Performance Hints</h2>
+            <h2>Performance Hints for RIGHT JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -584,29 +576,29 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b>Index Join Columns</b></td>
+                        <td>Index Join Columns</td>
                         <td>Ensure the columns in the ON clause are indexed to improve join performance.</td>
                     </tr>
                     <tr>
-                        <td><b>Filter Data Before the Join</b></td>
+                        <td>Filter Data Before the Join</td>
                         <td>Use subqueries or Common Table Expressions (CTEs) to filter data before performing the RIGHT
                             JOIN.</td>
                     </tr>
                     <tr>
-                        <td><b>Avoid Joining Large Tables Unnecessarily</b></td>
+                        <td>Avoid Joining Large Tables Unnecessarily</td>
                         <td>Limit the number of rows in both tables by filtering or using pre-aggregated data.</td>
                     </tr>
                     <tr>
-                        <td><b>Use Execution Plans</b></td>
+                        <td>Use Execution Plans</td>
                         <td>Analyze the query's execution plan to identify and resolve bottlenecks in the join.</td>
                     </tr>
                     <tr>
-                        <td><b>Select Only Needed Columns</b></td>
+                        <td>Select Only Needed Columns</td>
                         <td>Avoid using SELECT * to reduce the data size being processed and transferred.</td>
                     </tr>
                 </tbody>
             </table><br><br>
-            <h2>Do's and Don'ts </h2>
+            <h2>Do's and Don'ts for RIGHT JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -643,7 +635,7 @@
             </table><br><br>
 
             <div class="topic-buttons">
-                <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_fulljoin.html?topic=sqlFulljoin" class="next-button">Next &raquo;</a>
             </div>
 
@@ -656,84 +648,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

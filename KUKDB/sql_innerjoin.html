@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,13 +308,14 @@
         <main class="sidebar-content" data-topic="sqlInnerjoin">
 
             <div class="topic-buttons">
-                <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="previou-button">&laquo;
+                    Previous</a>
                 <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="next-button">Next &raquo;</a>
             </div>
 
             <h1>INNER JOIN </h1>
-            <p>The INNER JOIN combines rows from two or more tables based on a matching condition.</p><br>
-            <p>Only rows with matching values in the joined columns are included in the result set.</p><br>
+            <p>The INNER JOIN combines rows from two or more tables based on a matching condition,
+                Only rows with matching values in the joined columns are included in the result set.</p><br>
             <h2>Syntax</h2>
             <div class="code-box">
                 <code>
@@ -325,7 +326,7 @@
                          <b> ;</b>
                 </code>
             </div><br>
-            <h2>Examples or Use cases</h2>
+            <h2>Examples </h2>
             <p><b>Scenario 1:-</b> Retrieve a list of customers and their orders from a database with Customers and
                 Orders tables.</p>
             <div class="code-box">
@@ -361,15 +362,14 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <p><b>Scenario 4:-</b> Find all customers who placed orders, including their city, order ID, and order
-                amounts, but also include the shipping details.</p>
+            <p><b>Scenario 4:-</b> Retrieve students and the courses they enrolled in.</p>
             <div class="code-box">
                 <code>
             <span class="orclkey"> SELECT </span>  s.student_id, s.name AS student_name, c.course_name <br>
-            <span class="orclkey"> FROM </span> students s <br>
-                    <span class="orclkey"> INNER JOIN </span> enrollments e <br>
+            <span class="orclkey"> FROM </span> Students s <br>
+                    <span class="orclkey"> INNER JOIN </span> Enrollments e <br>
                     <span class="orclkey"> ON </span> s.student_id = e.student_id <br>
-                    <span class="orclkey"> INNER JOIN </span> courses c  <br>
+                    <span class="orclkey"> INNER JOIN </span> Courses c  <br>
                     <span class="orclkey"> ON </span> e.course_id = c.course_id
              <b> ;</b> 
         </code>
@@ -377,11 +377,11 @@
             <p><b>Scenario 5:-</b> Find the name of each customer and the total number of orders they have placed.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>  c.customer_name, COUNT( o.order_id ) <span class="orclkey"> AS </span> total_orders<br>
+            <span class="orclkey"> SELECT </span>  c.customer_id,c.customer_name, COUNT( o.order_id ) <span class="orclkey"> AS </span> total_orders<br>
             <span class="orclkey"> FROM </span> customers c <br>
                     <span class="orclkey"> INNER JOIN </span> orders o <br>
                     <span class="orclkey"> ON </span> c.customer_id = o.customer_id <br>
-                    <span class="orclkey"> GROUP BY </span> c.customer_name  
+                    <span class="orclkey"> GROUP BY </span> c.customer_id,c.customer_name  
              <b> ;</b> 
         </code>
             </div><br>
@@ -389,12 +389,13 @@
                 students enrolled in more than one course.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>  s.name <span class="orclkey"> AS </span> Student_Name ,
+            <span class="orclkey"> SELECT </span> s.student_id, s.name 
+            <span class="orclkey"> AS </span> Student_Name ,
              COUNT( e.course_id ) <span class="orclkey"> AS </span> enrolled_courses<br>
             <span class="orclkey"> FROM </span> students s <br>
                     <span class="orclkey"> INNER JOIN </span> enrollments e <br>
                     <span class="orclkey"> ON </span> s.student_id = e.student_id <br>
-                    <span class="orclkey"> GROUP BY </span> s.name <br>
+                    <span class="orclkey"> GROUP BY </span> s.student_id,s.name <br>
                     <span class="orclkey"> HAVING </span> COUNT(e.course_id) > 1
              <b> ;</b> 
         </code>
@@ -425,7 +426,7 @@
                            <span class="orclkey"> ON </span> e.employee_id = pa.employee_id <br>
                            <span class="orclkey"> INNER JOIN </span> projects p <br>
                            <span class="orclkey"> ON </span> pa.project_id = p.project_id <br>
-                           <span class="orclkey"> GROUP BY </span> e.name, p.project_name
+                           <span class="orclkey"> GROUP BY </span> e.employee_id, e.name, p.project_name
                     <b> ;</b> 
         </code>
             </div><br>
@@ -475,18 +476,18 @@
              <b> ;</b> 
         </code>
             </div><br>
-            <h2>Common Erros when using INNER JOIN</h2>
+            <h2>Common Errors with INNER JOIN</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Error</th>
-                        <th>explanation</th>
+                        <th>Explanation</th>
                         <th>Solution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b>Missing ON Clause</b></td>
+                        <td><b>Missing ON Clause </b></td>
                         <td>Failing to specify the ON condition leads to a syntax error.</td>
                         <td>Always include a proper ON condition for the INNER JOIN, e.g., ON table1.column =
                             table2.column.</td>
@@ -582,7 +583,7 @@
             <br>
             <p><b>4. Avoid Functions:- </b> Avoid using functions in join conditions as they can prevent index
                 utilization.</p><br><br>
-            <h2>Do's and Don'ts </h2>
+            <h2>Do's and Don'ts for Inner Join </h2>
             <table>
                 <thead>
                     <tr>
@@ -650,7 +651,8 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="previou-button">&laquo;
+                    Previous</a>
                 <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="next-button">Next &raquo;</a>
             </div>
 
@@ -663,84 +665,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,15 +308,15 @@
         <main class="sidebar-content" data-topic="sqlCheck">
 
             <div class="topic-buttons">
-                <a href="sql_foreginkey.html?topic=sqlForeignkey" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_foreginkey.html?topic=sqlForeignkey" class="previou-button">&laquo; Previous</a>
                 <a href="sql_default.html?topic=sqlDefault" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Check Constraint</h1>
+            <h1>Check </h1>
             <p>A Check Constraint in SQL is used to specify a condition that must be met for the data to be inserted or
                 updated in a table. </p><br>
             <p>It enforces domain integrity by restricting the types of data that can be stored in a column.</p><br>
-            <h2>Key Points About CHECK Constraint</h2>
+            <h2>Key Points  </h2>
             <table>
                 <thead>
                     <tr>
@@ -362,7 +362,8 @@
                     <span class="orclkey"> CREATE TABLE </span>  table_name (
                     <ul>
                         column_name data_type <span class="orclkey"> CHECK </span> ( <span class="orclkey"> condition </span>  )
-                    </ul>  )  <b> ;</b>
+                     )  <b> ;</b>
+                     </ul> 
                  </code>
             </div><br>
             <h3>2. Adding a CHECK Constraint to an Existing Table </h3>
@@ -377,6 +378,7 @@
             <h3>3. Dropping a CHECK Constraint </h3>
             <div class="code-box">
                 <code>
+                ---SQL and Oracle<br>
                     <span class="orclkey"> ALTER TABLE </span>  table_name 
                     <ul>
                     <span class="orclkey"> DROP CONSTRAINT </span> constraint_name  <b> ;</b>
@@ -419,7 +421,8 @@
                         employee_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         name VARCHAR(100), <br>
                         age INT <span class="orclkey"> CHECK </span> ( age >= 18 <span class="orclkey"> AND </span> age <= 65)
-                    </ul> ) <b> ;</b>  
+                    ) <b> ;</b> 
+                    </ul>  
                  </code>
             </div><br>
             <p><b>Scenario 2:- </b> Restricting Positive Values for Salary.</p>
@@ -430,7 +433,8 @@
                         job_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         job_title VARCHAR(100), <br>
                         salary DECIMAL(10, 2) <span class="orclkey"> CHECK </span> (salary > 0)
-                    </ul> ) <b> ;</b>  
+                        ) <b> ;</b> 
+                        </ul>  
                  </code>
             </div><br>
             <p><b>Scenario 3:- </b> Allowing Only Specific Values for Gender. (Ensure that the Gender column only
@@ -442,17 +446,21 @@
                         student_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         name VARCHAR(100), <br>
                         gender CHAR(1) <span class="orclkey"> CHECK </span> ( gender IN ('M', 'F', 'O'))
-                    </ul> ) <b> ;</b>  
+                        ) <b> ;</b>  
+                        </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 4:- </b> Enforcing Valid Email Format.</p>
             <div class="code-box">
                 <code>
+                ---SQL <br>
                 <span class="orclkey"> CREATE TABLE </span>  users ( 
                     <ul>
                         user_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        email VARCHAR(255) <span class="orclkey"> CHECK </span> (email  <span class="orclkey"> LIKE </span> '%@%.%')
-                    </ul> ) <b> ;</b>  
+                        email VARCHAR(255) <span class="orclkey"> CHECK </span> (POSITION ('@'
+                        <span class="orclkey"> IN </span> email)>1)
+                     ) <b> ;</b>  
+                     </ul>
                  </code>
             </div><br>
             <p><b>Scenario 5:- </b> Ensuring Date Consistency.</p>
@@ -465,7 +473,8 @@
                         start_date DATE, <br>
                         end_date DATE, <br>
                         <span class="orclkey"> CHECK </span> (end_date > start_date)
-                    </ul> ) <b> ;</b>  
+                    ) <b> ;</b> 
+                    </ul>  
                  </code>
             </div><br>
             <p><b>Scenario 6:- </b> Adding a CHECK Constraint to Existing Table.</p>
@@ -488,7 +497,8 @@
                         Age INT, <br>
                         <span class="orclkey"> CONSTRAINT </span> CHK_Age <span class="orclkey"> CHECK </span> 
                         (Age <span class="orclkey"> BETWEEN </span> 18 <span class="orclkey"> AND </span> 60)
-                    </ul> ) <b> ;</b>  
+                    ) <b> ;</b>  
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 8:- (Limiting Character Length) </b> Ensure that ProductCode in the Products table does not
@@ -499,9 +509,11 @@
                     <ul>
                         ProductID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         ProductCode VARCHAR(20), <br>
-                        <span class="orclkey"> CONSTRAINT </span> CHK_ProductCode  <span class="orclkey"> CHECK </span> 
-                        ( LEN(ProductCode) <= 10 )
-                    </ul> ) <b> ;</b>  
+                        <span class="orclkey"> CONSTRAINT </span> CHK_ProductCode  
+                        <span class="orclkey"> CHECK (CHAR_LENGTH</span>
+                        (ProductCode) <= 10 )
+                    ) <b> ;</b>  
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 9:- </b> Ensure that the JoiningDate column does not contain future dates.</p>
@@ -513,8 +525,9 @@
                         EmployeeName VARCHAR(100), <br>
                         JoiningDate DATE, <br>
                         <span class="orclkey"> CONSTRAINT </span> CHK_JoiningDate   <span class="orclkey"> CHECK </span> 
-                        ( JoiningDate <= GETDATE() )
-                    </ul> ) <b> ;</b>  
+                        ( JoiningDate <= CURRENT_DATE)
+                     ) <b> ;</b>  
+                     </ul>
                  </code>
             </div><br>
 
@@ -527,44 +540,52 @@
                         Price DECIMAL(10, 2), <br>
                         Discount DECIMAL(10, 2), <br>                        
                         <span class="orclkey"> CONSTRAINT </span> CHK_Discount <span class="orclkey"> CHECK </span> (Discount <= Price)
-                    </ul> ) <b> ;</b>  
+                    ) <b> ;</b>  
+                    </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 12:- Using IN </b> Allowing Only Specific Categories.</p>
+            <p><b>Scenario 11:- Using IN </b> Allowing Only Specific Categories.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> CREATE TABLE </span>  products ( 
+                <span class="orclkey"> CREATE TABLE </span>  product_categories ( 
                     <ul>
                         product_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         category VARCHAR(50)                        
-                        <span class="orclkey"> CHECK  </span> (category  <span class="orclkey"> IN </span> ('Electronics', 'Furniture', 'Clothing'))
-                    </ul> ) <b> ;</b>  
+                        <span class="orclkey"> CHECK  </span> (category  
+                        <span class="orclkey"> IN </span> ('Electronics', 'Furniture', 'Clothing'))
+                    ) <b> ;</b> 
+                    </ul>  
                  </code>
             </div><br>
             <h2>Cascading Scenarios with CHECK Constraints</h2>
             <p>Although CHECK constraints don't inherently support cascading actions (like cascading updates or deletes
                 associated with foreign keys), cascading logic can be enforced indirectly through triggers or procedural
                 logic. </p> <br>
-            <p><b>Scenario 1:- ( Cascading Validation Between Two Columns ) </b> Ensure that if an employee's job type
-                is "Permanent," their work hours cannot exceed 40 hours per week, but if the job type is "Contract,"
-                work hours can go up to 60 hours per week.</p>
+            <p><b>Scenario 1:- ( Cascading Validation Between Two Columns ) </b> </p>
+
             <div class="code-box">
                 <code>
+
                 <span class="orclkey"> CREATE TABLE </span>  employees ( 
                     <ul>
                         employee_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         job_type VARCHAR(20)                       
-                        <span class="orclkey"> CHECK  </span> ( job_type  <span class="orclkey"> IN </span> ('Permanent', 'Contract')), <br>
+                        <span class="orclkey"> CHECK  </span> ( job_type 
+                        <span class="orclkey"> IN </span> ('Permanent', 'Contract')), <br>
                         work_hours INT,
                         <ul>
                             <span class="orclkey"> CHECK  </span> ( 
                                 <ul>
-                                    (job_type = 'Permanent' <span class="orclkey"> AND  </span> work_hours <= 40) <span class="orclkey"> OR </span> <br>
-                                    (job_type = 'Contract' <span class="orclkey"> AND  </span> work_hours <= 60)
-                                </ul>
-                            )
+                                    (job_type = 'Permanent' <span class="orclkey"> AND  </span> work_hours <= 40)
+                                    <span class="orclkey"> OR </span> <br>
+                                    (job_type = 'Contract' <span class="orclkey"> AND  </span> work_hours <= 60) )) <b> ;</b> 
+                              </ul>
+                           <br>
                         </ul>
-                    </ul> ) <b> ;</b>  
+                    </ul> 
+                    <br> <p>---Ensure that if an employee's job type
+                is "Permanent," their work hours cannot exceed 40 hours per week, but if the job type is "Contract,"
+                work hours can go up to 60 hours per week.</p>
                  </code>
             </div><br>
             <p><b>Scenario 2:- </b> Ensure that Salary is greater than 5000 for managers and 3000 for staff.</p>
@@ -578,27 +599,30 @@
                         Salary DECIMAL(10, 2), <br>
                         <span class="orclkey"> CONSTRAINT </span> CHK_SalaryDesignation    <span class="orclkey"> CHECK </span>  ( <br>
                         <ul>
-                        (Designation = 'Manager' <span class="orclkey"> AND </span>  Salary >= 5000)  <span class="orclkey"> OR </span> <br>
-                        (Designation = 'Salesman' <span class="orclkey"> AND </span>  Salary >= 3000)  
-                    </ul>)
-                    </ul> ) <b> ;</b>  
+                        (Designation = 'Manager' <span class="orclkey"> AND </span>  Salary >= 5000) 
+                        <span class="orclkey"> OR </span> <br>
+                        (Designation = 'Salesman' <span class="orclkey"> AND </span>  Salary >= 3000)   ) ) <b> ;</b>  
+                    </ul> 
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 3:- </b> Ensure that for a project table, the completion_date must not be later than 30 days
                 after the due_date to prevent excessive delays.</p>
             <div class="code-box">
                 <code>
+                ---postgreSQL and MYSQL <br>
+                <br>
                 <span class="orclkey"> CREATE TABLE </span>  Projects ( 
                     <ul>
                         project_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         project_name VARCHAR(100), <br>
                         due_date DATE, <br>
                         completion_date DATE, <br>
-                        <span class="orclkey"> CHECK </span> (completion_date <= due_date + INTERVAL '30 DAY')
-                    </ul> ) <b> ;</b>  
+                        <span class="orclkey"> CHECK </span> (completion_date <= due_date + INTERVAL '30 DAY')   ) <b> ;</b>   
+                    </ul>
                  </code>
             </div><br>
-            <h2>Common Erros</h2>
+            <h2>Common Erros with CHECK</h2>
             <table>
                 <thead>
                     <tr>
@@ -630,7 +654,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Hints to Use CHECK Constraint</h2>
+            <h2>Performance Hints for CHECK</h2>
             <table>
                 <thead>
                     <tr>
@@ -662,7 +686,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with CHECK</h2>
             <table>
                 <thead>
                     <tr>
@@ -689,11 +713,11 @@
                     </tr>
                 </tbody>
             </table>
-
+            <br>
 
 
             <div class="topic-buttons">
-                <a href="sql_foreginkey.html?topic=sqlForeignkey" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_foreginkey.html?topic=sqlForeignkey" class="previou-button">&laquo; Previous</a>
                 <a href="sql_default.html?topic=sqlDefault" class="next-button">Next &raquo;</a>
             </div>
 
@@ -706,84 +730,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

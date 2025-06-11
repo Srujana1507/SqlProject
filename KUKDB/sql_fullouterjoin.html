@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlFullouterjoin">
 
             <div class="topic-buttons">
-                <a href="sql_crossjoin.html?topic=sqlCrossjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_crossjoin.html?topic=sqlCrossjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_constraints.html?topic=sqlConstraints" class="next-button">Next &raquo;</a>
             </div>
 
@@ -318,7 +318,7 @@
                 <li>It retrieves all rows from both tables, matching rows where possible, and places NULL for columns
                     that don’t have a match in the other table.</li>
                 <li>It ensures no data is excluded from either table, even if there is no match.</li>
-            </ul><br>
+            </ul>
             <h2>Syntax</h2>
             <div class="code-box">
                 <code>
@@ -403,10 +403,6 @@
             </code>
             </div><br>
             <p><b>Scenario 2:- </b> A company wants to review all employees and projects, ensuring it identifies:</p>
-            <br>
-            <ul>1. Employees not assigned to any project. <br><br>
-                2. Projects with no employees assigned.
-            </ul>
 
             <div class="code-box">
                 <code>
@@ -419,7 +415,11 @@
                     <ul><span class="orclkey"> ON </span> e.EmployeeID = p.EmployeeID
                  <b> ;</b> </ul>
             </code>
-            </div><br>
+                --- Employees not assigned to any project. <br>
+                --- Projects with no employees assigned.
+
+            </div>
+            <br>
             <p><b>Scenario 3:- </b> Identify mismatches between supplier-provided product lists and inventory records.
             </p>
             <div class="code-box">
@@ -446,11 +446,12 @@
                 <code>
                 <span class="orclkey"> SELECT </span> <br>
                 <ul>
-                    COALESCE( t1.transaction_id, t2.transaction_id ) <span class="orclkey"> AS </span> transaction_id, <br>
+                    COALESCE( t1.transaction_id, t2.transaction_id ) 
+                    <span class="orclkey"> AS </span> transaction_id, <br>
                     t1.transaction_date  <span class="orclkey"> AS </span> system1_date, <br>
                     t2.transaction_date  <span class="orclkey"> AS </span> system2_date, <br>
                     t1.amount  <span class="orclkey"> AS </span> system1_amount, <br>
-                    t1.amount  <span class="orclkey"> AS </span> system2_amount 
+                    t2.amount  <span class="orclkey"> AS </span> system2_amount 
                 </ul>
                 <span class="orclkey"> FROM </span> transactions_system1 t1 <br>
                         <span class="orclkey"> FULL OUTER JOIN </span> transactions_system2 t2  <br>
@@ -489,7 +490,7 @@
                 <ul>
                     COALESCE( s.region_id, c.region_id )  <span class="orclkey"> AS </span> region_id, <br>
                     s.sales_total, <br>
-                    c.campaign_budge
+                    c.campaign_budget
                 </ul>
                 <span class="orclkey"> FROM </span> regional_sales s <br>
                         <span class="orclkey"> FULL OUTER JOIN </span> marketing_campaigns c  <br>
@@ -499,8 +500,9 @@
                     <ul><span class="orclkey"> OR </span>  c.region_id <span class="orclkey"> IS NULL </span> <b> ;</b>
                    </ul>
             </code>
-            </div><br>
-            <h2>Hints to Write or Improve Performance</h2>
+            </div>
+            <br><br>
+            <h2> Performance Hints for FULL OUTER JOIN </h2>
             <table>
                 <thead>
                     <tr>
@@ -536,8 +538,9 @@
                             alternatives.</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Common Errors </h2>
+            </table>
+            <br><br>
+            <h2>Common Errors with FULL OUTER JOIN </h2>
             <table>
                 <thead>
                     <tr>
@@ -574,8 +577,9 @@
                         <td>Ensure join columns are indexed and filter rows before the join.</td>
                     </tr>
                 </tbody>
-            </table><br>
-            <h2>Do's and Don'ts </h2>
+            </table>
+            <br><br>
+            <h2>Do's and Don'ts with FULL OUTER JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -615,9 +619,9 @@
                     </tr>
                 </tbody>
             </table>
-
+            <br>
             <div class="topic-buttons">
-                <a href="sql_crossjoin.html?topic=sqlCrossjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_crossjoin.html?topic=sqlCrossjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_constraints.html?topic=sqlConstraints" class="next-button">Next &raquo;</a>
             </div>
 
@@ -630,84 +634,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

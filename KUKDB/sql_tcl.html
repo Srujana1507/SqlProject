@@ -330,8 +330,8 @@
                 <h1>Transaction Control Language (TCL)</h1>
                 <h2>What is a Transaction?</h2>
                 <ul>
-                    <li>A transaction in SQL is a sequence of one or more SQL statements that are executed as a single
-                        logical unit of work. </li>
+                    <li>A transaction in SQL is a group of one or more operations that are executed as a single logical
+                        unit of work. </li>
                     <li>A transaction ensures that either all the operations are successfully completed, or none of them
                         are applied, maintaining data consistency and integrity.</li>
                 </ul> <br>
@@ -346,12 +346,12 @@
                     <tbody>
                         <tr>
                             <td><b>Atomicity</b></td>
-                            <td>Ensures that all operations within a transaction are completed; otherwise, none of them
-                                are applied.</td>
+                            <td>Guarantees that either all operations succeed or none are applied.
+                            </td>
                         </tr>
                         <tr>
                             <td><b>Consistency</b></td>
-                            <td>Guarantees that a transaction brings the database from one valid state to another.</td>
+                            <td>Ensures the database remains valid before and after the transaction.</td>
                         </tr>
                         <tr>
                             <td><b>Isolation</b></td>
@@ -359,8 +359,7 @@
                         </tr>
                         <tr>
                             <td><b>Durability</b></td>
-                            <td>Ensures that once a transaction is committed, its changes are permanent, even in case of
-                                system failure.</td>
+                            <td>Makes committed changes permanent, even after system failures.</td>
                         </tr>
                     </tbody>
                 </table> <br>
@@ -373,11 +372,13 @@
                 </ul> <br>
                 <h2>Why We Need TCL</h2>
                 <ul>
-                    <li><b>Data Integrity:- </b> Ensures consistent data updates during multi-step processes.</li>
-                    <li><b>Error Handling:- </b> Provides mechanisms to undo or confirm changes.</li>
-                    <li><b>Concurrency Control:- </b> Helps manage simultaneous access in multi-user environments.</li>
-                    <li><b>Critical Operations:- </b> Ideal for handling banking transactions, order processing, and
-                        inventory updates.</li>
+                    <li><b>Data Integrity: </b> Ensures consistent data updates, even during complex transactions.</li>
+                    <li><b>Error Handling:</b>Allows reversing or confirming operations based on success or failure or
+                        failure.</li>
+                    <li><b>Concurrency control: </b> Safely manages transactions when multiple users access the database
+                        simultaneously.</li>
+                    <li><b>Critical use cases: </b> Vital for domains like banking, e-commerce, inventory management,
+                        and booking systems where transactional reliability is key.</li>
                 </ul><br>
                 <h2>TCL Commands</h2>
                 <table>
@@ -390,17 +391,15 @@
                     <tbody>
                         <tr>
                             <td><a href="#commit"><b>COMMIT</b></a></td>
-                            <td>Permanently saves all changes made during the transaction.</td>
+                            <td>Saves all changes in a transaction permanently.</td>
                         </tr>
                         <tr>
                             <td><a href="#rollback"><b>ROLLBACK</b></a></td>
-                            <td>Reverses changes made during the transaction to the last COMMIT or SAVEPOINT.</td>
+                            <td>Reverts changes since last COMMIT or SAVEPOINT.</td>
                         </tr>
                         <tr>
                             <td><a href="#savepoint"><b>SAVEPOINT</b></a></td>
-                            <td>Creates a temporary point in the transaction to which you can rollback partially if
-                                needed.</td>
-                        </tr>
+                            <td>Marks a point to which you can ROLLBACK if needed.</td>
                     </tbody>
                 </table><br>
                 <h2>Advantages of Using TCL</h2>
@@ -414,15 +413,15 @@
                     <tbody>
                         <tr>
                             <td><b>Ensures Data Integrity</b></td>
-                            <td>Prevents partial updates in case of errors.</td>
+                            <td>Prevents partial updates on failure.</td>
                         </tr>
                         <tr>
                             <td><b>Provides Flexibility</b></td>
-                            <td>Savepoints allow partial rollbacks for better control.</td>
+                            <td>Allows partial rollbacks using SAVEPOINT.</td>
                         </tr>
                         <tr>
                             <td><b>Supports Concurrent Transactions</b></td>
-                            <td>Proper isolation levels enable simultaneous transactions without conflicts.</td>
+                            <td> Enables multiple safe transactions.</td>
                         </tr>
                         <tr>
                             <td><b>Improves Error Handling</b></td>
@@ -430,11 +429,11 @@
                         </tr>
                         <tr>
                             <td><b>Facilitates Complex Operations</b></td>
-                            <td>Simplifies management of multi-step database operations.</td>
+                            <td>Ideal for multi-step processes.</td>
                         </tr>
                     </tbody>
                 </table><br>
-                <h2>Hints to Improve Transaction Performance</h2>
+                <h2>Performance Hints to Improve Transactions </h2>
                 <table>
                     <thead>
                         <tr>
@@ -466,7 +465,7 @@
                         </tr>
                     </tbody>
                 </table> <br>
-                <h2>Common Errors</h2>
+                <h2>Common Errors with Transactions</h2>
                 <table>
                     <thead>
                         <tr>
@@ -507,7 +506,7 @@
                         </tr>
                     </tbody>
                 </table><br>
-                <h2>Do’s and Don’ts of TCL</h2>
+                <h2>Do’s and Don’ts with TCL</h2>
                 <table>
                     <thead>
                         <tr>
@@ -553,7 +552,8 @@
                 <h3>Key Points</h3>
                 <ul>
                     <li>Automatically ends the transaction.</li>
-                    <li>Implicitly executed for DDL commands like CREATE, ALTER, and DROP.</li>
+                    <li>Implicit COMMIT is triggered automatically after DDL commands like CREATE, ALTER, or DROP in
+                        most RDBMS systems.</li>
                 </ul> <br>
                 <h2>Advantages</h2>
                 <ul>
@@ -563,37 +563,42 @@
                     <li>Helps in maintaining a clear boundary between operations in transactional workflows.</li>
                     <li>Enables sharing committed changes with other users and processes.</li>
                 </ul> <br>
-                <h2>Scenarios for COMMIT</h2>
+                <h2>Examples</h2>
                 <p><b>Scenario 1:- </b> Ensures the new order is saved permanently.</p>
                 <div class="code-box">
                     <code>
                     <span class="orclkey"> INSERT INTO  </span> orders ( order_id, customer_id, amount ) <br>
                     <span class="orclkey"> VALUES  </span> ( 101, 1, 500.00 ) <b> ;</b> <br>
-                    <span class="orclkey"> COMMIT  </span> <b> ;</b> <br>
+                    <span class="orclkey"> COMMIT  </span> <b> ;</b> 
                  </code>
-                </div><br>
+                </div> <br>
                 <p><b>Scenario 2:- ( Batch Insert with Error Handling ) </b> Inserts multiple records in one
                     transaction.</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> INSERT INTO  </span> employees ( id, name ) <span class="orclkey"> VALUES  </span> (1, 'Harsha') <b> ;</b><br>
-                    <span class="orclkey"> INSERT INTO  </span> employees ( id, name ) <span class="orclkey"> VALUES  </span> (2, 'Uday') <b> ;</b><br>
-                   <br>
-                    <span class="orclkey"> COMMIT  </span> <b> ;</b> <br>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
+                    <span class="orclkey"> INSERT INTO </span> employees (id, name) 
+                    <span class="orclkey"> VALUES  </span> (1, 'Harsha') <b>;</b><br>
+                    <span class="orclkey"> INSERT INTO  </span> employees (id, name) 
+                    <span class="orclkey"> VALUES  </span> (2, 'Uday') <b>;</b><br>
+                   
+                    <span class="orclkey"> COMMIT  </span> <b> ;</b>
                  </code>
                 </div><br>
                 <p><b>Scenario 3:- ( Completing a Payment ) </b> Ensure changes made during a transaction (e.g.,
                     deducting an amount from one account and adding it to another) are permanently saved.</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> UPDATE   </span>Accounts <span class="orclkey"> SET  </span> 
-                    Balance = Balance - 1000 <span class="orclkey"> WHERE  </span> AccountID = 101 <b> ;</b><br>
-                    <span class="orclkey"> UPDATE   </span>Accounts <span class="orclkey"> SET  </span> 
-                    Balance = Balance - 1000 <span class="orclkey"> WHERE  </span> AccountID = 102 <b> ;</b><br>
-                    <br>
-                    <span class="orclkey"> COMMIT  </span> <b> ;</b> <br>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
+                    <span class="orclkey"> UPDATE   </span>Accounts 
+                    <span class="orclkey"> SET  </span> 
+                    Balance = Balance - 1000 
+                    <span class="orclkey"> WHERE  </span> AccountID = 101 <b>;</b><br>
+                    <span class="orclkey"> UPDATE   </span>Accounts 
+                    <span class="orclkey"> SET  </span> 
+                    Balance = Balance + 1000 <span class="orclkey"> WHERE  </span> AccountID = 102 <b>;</b><br>
+                    
+                    <span class="orclkey"> COMMIT  </span> <b> ;</b> 
                  </code>
                 </div><br>
                 <p><b>Scenario 4:- (Automatic Commit after DDL Command ) </b> The CREATE command automatically commits
@@ -610,6 +615,7 @@
                     commits only if rows were affected.</p>
                 <div class="code-box">
                     <code>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
                     <span class="orclkey"> DELETE FROM  </span> orders <span class="orclkey"> WHERE  </span> amount < 50 <b> ;</b> <br>
                     IF @@ROWCOUNT > 0  <br>
                     <span class="orclkey"> BEGIN  </span>  <br>
@@ -623,7 +629,8 @@
                 </p>
                 <div class="code-box">
                     <code>
-                        <span class="orclkey"> DECLARE </span> @counter INT = 1 <b> ;</b>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
+                    <span class="orclkey"> DECLARE </span> @counter INT = 1 <b> ;</b> <br>
                     <span class="orclkey"> WHILE  </span> @counter <= 10 <br>
                     <span class="orclkey"> BEGIN  </span>
                     <ul>
@@ -631,13 +638,13 @@
                          ('Log ' + CAST(@counter <span class="orclkey"> AS  </span> VARCHAR)) <b> ;</b> <br>
                           <span class="orclkey"> SET </span> @counter = @counter + 1 <b> ;</b> <br>
                     </ul>
-                    <br>
+                    
                     <span class="orclkey"> END </span> <b> ;</b> <br>
                         <span class="orclkey"> COMMIT  </span> <b> ;</b>
                  </code>
-                </div><br><br>
+                </div>
                 <br>
-                <h2>Common Errors</h2>
+                <h2>Common Errors with COMMIT</h2>
                 <table>
                     <thead>
                         <tr>
@@ -663,8 +670,8 @@
                             <td>Verify isolation level and ensure proper usage.</td>
                         </tr>
                     </tbody>
-                </table> <br><br>
-                <h2>Do's and Don'ts for COMMIT</h2>
+                </table> <br>
+                <h2>Do's and Don'ts with COMMIT</h2>
                 <table>
                     <thead>
                         <tr>
@@ -675,11 +682,11 @@
                     <tbody>
                         <tr>
                             <td>Always COMMIT after successful transactions.</td>
-                            <td>Avoid implicit commits when explicit needed.</td>
+                            <td>Avoid implicit commits when explicit ones are needed.</td>
                         </tr>
                         <tr>
                             <td>Confirm all changes before issuing COMMIT.</td>
-                            <td>Don’t commit until data integrity is ensured.</td>
+                            <td>Don’t commit unless data integrity is confirmed.</td>
                         </tr>
                     </tbody>
                 </table> <br><br>
@@ -699,7 +706,8 @@
                 <br>
                 <h1 id="rollback">ROLLBACK</h1>
                 <ul>
-                    <li>Undoes changes made in the current transaction to a previous COMMIT or SAVEPOINT.</li>
+                    <li>Undoes changes made in the current transaction since the last COMMIT or to a specified
+                        SAVEPOINT.</li>
                 </ul>
                 <br>
                 <h2>Syntax</h2>
@@ -711,7 +719,7 @@
                 <h2>Key Points</h2>
                 <ul>
                     <li>Reverts the database to its last consistent state.</li>
-                    <li>Changes made after the last COMMIT are not saved.</li>
+                    <li>Changes made after the last COMMIT are discarded and not saved to the database.</li>
                 </ul><br>
                 <h2>Advantages</h2>
                 <ul>
@@ -721,6 +729,7 @@
                     <li>Helps maintain compliance with business rules and constraints.</li>
                     <li>Avoids potential cascading failures in dependent transactions.</li>
                 </ul>
+                <h2>Examples</h2>
                 <p><b>Scenario 1:- </b> Reverses a deletion if executed incorrectly.</p>
                 <div class="code-box">
                     <code>
@@ -733,22 +742,26 @@
                 </p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> UPDATE  </span> products  <span class="orclkey"> SET </span> price = price * 0.9 
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
+                    <span class="orclkey"> UPDATE  </span> products  
+                    <span class="orclkey"> SET </span> price = price * 0.9 
                     <span class="orclkey"> WHERE  </span> category = 'electronics'
                     <b> ;</b><br>
                     <span class="orclkey"> IF  </span> @@ERROR > 0 <br>
-                    <span class="orclkey"> BEGIN  </span>  <br>
+                   
                     <ul>
                     <span class="orclkey"> ROLLBACK  </span> <b> ;</b> <br>
                     </ul>
-                    <span class="orclkey"> END  </span>  <b> ;</b>
-                 </code>
+                    <span class="orclkey"> ELSE  </span>  <br>
+                    <ul>
+                    <span class="orclkey"> COMMIT  </span>  <b>;</b>
+                    </ul>
+                    </code>
                 </div><br>
                 <p><b>Scenario 3:- ( Rollback After Multiple Changes ) </b> Undoes both the insert and update. </p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b> <br>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
                     <ul>
                     <span class="orclkey"> INSERT INTO  </span> employees ( id, name ) <span class="orclkey"> VALUES  </span> (3, 'Harsha') <b> ;</b><br>
                     <span class="orclkey"> UPDATE  </span> employees <span class="orclkey"> SET  </span> name = 'Harsha'
@@ -761,28 +774,35 @@
                 </p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
                     <span class="orclkey"> DELETE FROM  </span> orders  <span class="orclkey"> WHERE </span> customer_id = 1 <b> ;</b> 
                     <span class="orclkey"> IF NOT EXISTS </span> ( <span class="orclkey"> SELECT  </span> * 
-                    <span class="orclkey"> FROM  </span> orders <span class="orclkey"> WHERE </span> customer_id = 1 ) <b> ;</b>
-                    <span class="orclkey"> BEGIN  </span>  <br>
+                    <span class="orclkey"> FROM  </span> orders <span class="orclkey"> WHERE </span> customer_id = 1 ) <br>
+                    
                     <ul>
                     <span class="orclkey"> ROLLBACK  </span> <b> ;</b> <br>
                     </ul>
-                    <span class="orclkey"> END  </span>  <b> ;</b>
+                    <span class="orclkey"> ELSE  </span>
+                    <ul>
+                    <span class="orclkey"> COMMIT </span>  <b> ;</b>
+                    </ul>
                  </code>
                 </div><br>
                 <p><b>Scenario 5:- (Rollback After Exception Handling) </b> Reverts changes if any statement fails. </p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> BEGIN  </span> TRY  <br>
+                     <span class="orclkey"> BEGIN  </span> TRY  <br>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b>
+                   
                     <ul>
-                    <span class="orclkey"> INSERT INTO  </span> accounts ( id, balance )  <span class="orclkey"> VALUES  </span> (1, 1000) <b> ;</b><br>
-                    <span class="orclkey"> UPDATE  </span> accounts <span class="orclkey"> SET  </span> balance = balance - 500 
+                    <span class="orclkey"> INSERT INTO  </span> accounts ( id, balance )  
+                    <span class="orclkey"> VALUES  </span> (1, 1000) <b> ;</b><br>
+                    <span class="orclkey"> UPDATE  </span> accounts 
+                    <span class="orclkey"> SET  </span> balance = balance - 500 
                     <span class="orclkey"> WHERE  </span> id = 1 <b> ;</b>
                     </ul>
-                    <span class="orclkey"> END  </span> TRY <br>
+                    <span class="orclkey"> COMMIT  </span><b>;</b> <br>
+                    <span class="orclkey"> END  </span> TRY  <br>
                     <span class="orclkey"> BEGIN  </span> CATCH <br>
                     <ul>
                     <span class="orclkey"> ROLLBACK  </span> <b> ;</b> <br>
@@ -793,19 +813,23 @@
                 <p><b>Scenario 6:- (Rollback After Exception Handling) </b> Reverts changes if any statement fails. </p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <ul>
-                    <span class="orclkey"> UPDATE  </span> Inventory  <span class="orclkey"> SET  </span> Stock = Stock - 5
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
+                    <span class="orclkey"> UPDATE  </span> Inventory 
+                    <span class="orclkey"> SET  </span> Stock = Stock - 5
                     <span class="orclkey"> WHERE  </span> ProductID = 2001 <b> ;</b> <br>
-                    <br>
-                    <span class="orclkey"> IF  </span>( <ul>
-                    <span class="orclkey"> SELECT  </span> Stock  <span class="orclkey"> FROM  </span> Inventory 
-                    <span class="orclkey"> WHERE  </span> ProductID = 2001 <br>
-                    ) < 0 <span class="orclkey"> THEN  </span>
+                   
+                    <span class="orclkey"> IF  </span>(
+                  
+                    <span class="orclkey"> SELECT  </span> Stock 
+                    <span class="orclkey"> FROM  </span> Inventory 
+                    <span class="orclkey"> WHERE  </span> ProductID = 2001 
+                    ) < 0 <br>
+                    <span class="orclkey"> THEN  </span>
+                     <ul>
+                    <span class="orclkey"> ROLLBACK  </span> <b> ;</b>
                     </ul>
-                    <ul><span class="orclkey"> ROLLBACK  </span> <b> ;</b></ul>
                     
-                    </ul>
+                   
                     <span class="orclkey"> ELSE  </span> 
                     <ul>
                         <span class="orclkey"> COMMIT  </span> <b> ;</b>
@@ -814,7 +838,7 @@
                     
                  </code>
                 </div><br><br>
-                <h2>Common Errors for ROLLBACK</h2>
+                <h2>Common Errors with ROLLBACK</h2>
                 <table>
                     <thead>
                         <tr>
@@ -841,7 +865,7 @@
                         </tr>
                     </tbody>
                 </table> <br><br>
-                <h2>Do's and Don'ts</h2>
+                <h2>Do's and Don'ts with ROLLBACK</h2>
                 <table>
                     <thead>
                         <tr>
@@ -895,16 +919,20 @@
                     <li>Makes debugging and fixing issues in multi-step processes easier.</li>
                     <li>Allows reusing transactional logic in modular or iterative workflows.</li>
                 </ul> <br>
+                <h2> Examples </h2><br>
                 <p><b>Scenario 1:- (Basic Savepoint Usage) </b> Rolling Back Low-Value Order Adjustments.</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b>
                     <span class="orclkey"> DELETE FROM   </span> orders  <span class="orclkey"> WHERE  </span> amount < 50 <b> ;</b> <br>
                     
                     <span class="orclkey"> SAVEPOINT  </span> sp_low_amounts <b> ;</b><br>
-                    <span class="orclkey"> UPDATE  </span> orders <span class="orclkey"> SET  </span> amount = amount * 1.1  
+                    <span class="orclkey"> UPDATE  </span> orders 
+                    <span class="orclkey"> SET  </span> amount = amount * 1.1  
                     <span class="orclkey"> WHERE  </span> amount
-                    <span class="orclkey"> BETWEEN  </span> 50 <span class="orclkey"> WHERE  </span> 100
+
+                    <span class="orclkey"> BETWEEN  </span> 50 
+                    <span class="orclkey"> AND  </span> 100
                     <b> ;</b> <br>
                     
                     <span class="orclkey"> ROLLBACK TO  </span> sp_low_amounts  <b> ;</b>
@@ -913,10 +941,11 @@
                 <p><b>Scenario 2:- (Partial Rollback) </b> Undoing Partial Customer Data Changes.</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> INSERT INTO   </span> customers ( id, name )  <span class="orclkey"> VALUES  </span> 
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
+                    <span class="orclkey"> INSERT INTO  </span> customers ( id, name ) 
+                    <span class="orclkey"> VALUES  </span> 
                     (1, 'Uday') <b> ;</b> <br>
-                    <br>
+                    
                     <span class="orclkey"> SAVEPOINT  </span> sp_insert <b> ;</b><br>
                     <span class="orclkey"> DELETE FROM  </span> orders <span class="orclkey"> WHERE  </span> customer_id = 1 <b> ;</b>  <br>
                     <span class="orclkey"> ROLLBACK TO  </span> sp_insert <b> ;</b>
@@ -925,62 +954,77 @@
                 <p><b>Scenario 3:- (Savepoint for Error Recovery) </b> Error Recovery in Account Transactions.</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b> <br>
                     <span class="orclkey"> INSERT INTO   </span> accounts ( id, balance )  <span class="orclkey"> VALUES  </span> 
                     (1, 500) <b> ;</b> <br>
-                    <span class="orclkey"> SAVEPOINT  </span> sp_insert <b> ;</b><br>
-                    <br>
+                    <span class="orclkey"> SAVE TRANSACTION  </span> sp_insert <b> ;</b><br>
+                    
                     <span class="orclkey"> BEGIN  </span> TRY <br>
                     <ul>
-                        <span class="orclkey"> UPDATE  </span> accounts <span class="orclkey"> SET  </span> balance = balance - 1000
-                        <span class="orclkey"> WHERE  </span> id = 1<b> ;</b> 
+                        <span class="orclkey"> UPDATE  </span> accounts 
+                        <span class="orclkey"> SET  </span> balance = balance - 1000
+                        <span class="orclkey"> WHERE  </span> id = 1<b> ;</b> <br>
+                        <span class="orclkey"> COMMIT  </span> <b> ;</b>
                     </ul>
                     <span class="orclkey"> END   </span> TRY <br>
                     <span class="orclkey"> BEGIN  </span> CATCH <br>
                     <ul>
-                        <span class="orclkey"> ROLLBACK TO  </span> sp_insert <b> ;</b>
+                        <span class="orclkey"> ROLLBACK TRANSACTION </span> sp_insert <b> ;</b>
                     </ul> 
                     <span class="orclkey"> END  </span> CATCH <b> ;</b> <br>
                     <br>
-                    <span class="orclkey"> COMMIT  </span> <b> ;</b>
+                   
                  </code>
                 </div><br>
                 <p><b>Scenario 4:- (Savepoint in Iterative ) </b> Iterative Processing with Partial Rollbacks.</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b>
-                    <span class="orclkey"> FOR  </span> i <span class="orclkey"> IN  </span> 1 . . 10 <span class="orclkey"> LOOP  </span> <br>
+                    <span class="orclkey"> DO  </span> $$ <br>
+                    <span class="orclkey"> DECLARE  </span><br>
+                    <span class="orclkey"> i </span>INT; <br>
+                    <span class="orclkey"> BEGIN  </span> <br>
                     <ul>
-                    <span class="orclkey"> INSERT INTO   </span> logs (log_message)  <span class="orclkey"> VALUES  </span> 
-                    ( 'Log ' || i ) <b> ;</b> <br>
-                    <span class="orclkey"> SAVEPOINT  </span> sp_log_insert <b> ;</b>
+                    
+                    <span class="orclkey"> FOR  </span> i 
+                    <span class="orclkey"> IN  </span> 1 . . 10 
+                    <span class="orclkey"> LOOP  </span> <br>
+                    
+                    <ul>
+                      <span class="orclkey"> INSERT INTO </span> logs (log_message) 
+                      <span class="orclkey"> VALUES  </span> 
+                      ( 'Log ' || i ) <b> ;</b> <br>
+                      <span class="orclkey"> SAVEPOINT  </span> sp_log_insert <b> ;</b>
                     </ul>
-                    <span class="orclkey"> END LOOP  </span> <b> ; </b> <br>
+                    <span class="orclkey"> END LOOP  </span> <b> ; </b> 
                     <br>
-                        <span class="orclkey"> ROLLBACK TO  </span> sp_log_insert <b> ;</b>
-                 </code>
+                    <span class="orclkey"> ROLLBACK TO  </span> sp_log_insert <b> ;</b>
+                    <span class="orclkey"> COMMIT  </span>;
+                    </ul>
+                    <span class="orclkey"> END  </span>;<br>
+                    <span class="orclkey"> $$ </span> ;<br>
+                    <span class="orclkey"> COMMIT  </span> <b> ;</b>
+                    </code>
                 </div><br>
                 <p><b>Scenario 5:- (Partial Rollback in Order Processing ) </b> Allow rolling back part of a transaction
                     while keeping earlier changes intact..</p>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b> ;</b><br><br>
+                    <span class="orclkey"> BEGIN  </span> TRANSACTION <b>;</b><br>
                     <ul>
                         <span class="orclkey"> UPDATE  </span> Orders <span class="orclkey"> SET  </span> Status = 'Processing'
                         <span class="orclkey"> WHERE  </span> OrderID = 5001 <b> ;</b> <br>
                         <span class="orclkey"> SAVEPOINT  </span> BeforePayment <b> ;</b><br>
-                    <br>
-                    <span class="orclkey"> UPDATE  </span> Payments <span class="orclkey"> SET  </span> Status = 'Completed'
+                        <span class="orclkey"> UPDATE  </span> Payments <span class="orclkey"> SET  </span> Status = 'Completed'
                         <span class="orclkey"> WHERE  </span> PaymentID = 7001 <b> ;</b> <br>
                     </ul>
                     <br>
-                    - - If an error occurs in the payment step <br>
-                     <br>
-                        <span class="orclkey"> ROLLBACK TO SAVEPOINT  </span> BeforePayment <b> ;</b> <br>
+                    - - If an error occurs  <br>
+                     
+                        <span class="orclkey"> ROLLBACK TO  </span> BeforePayment <b> ;</b> <br>
                         <span class="orclkey"> COMMIT  </span> <b> ;</b>
                  </code>
                 </div><br><br>
-                <h2>Common Errors for SAVEPOINT</h2>
+                <h2>Common Errors with SAVEPOINT</h2>
                 <table>
                     <thead>
                         <tr>
@@ -1007,7 +1051,7 @@
                         </tr>
                     </tbody>
                 </table><br><br>
-                <h2>Do's and Don'ts</h2>
+                <h2>Do's and Don'ts with SAVEPOINT</h2>
                 <table>
                     <thead>
                         <tr>
@@ -1041,84 +1085,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

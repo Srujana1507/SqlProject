@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,7 +308,7 @@
         <main class="sidebar-content" data-topic="sqlLeftjoin">
 
             <div class="topic-buttons">
-                <a href="sql_innerjoin.html?topic=sqlInnerjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_innerjoin.html?topic=sqlInnerjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_rightjoin.html?topic=sqlRightjoin" class="next-button">Next &raquo;</a>
             </div>
 
@@ -316,13 +316,14 @@
             <p>A LEFT JOIN (also called LEFT OUTER JOIN) in SQL is used to retrieve all rows from the <b>left table</b>
                 and the matching rows from the <b>right table</b>. </p><br>
             <p>If no match is found, NULL values are returned for columns from the right table.</p><br>
+
             <h2>Key Characteristics of LEFT JOIN</h2>
             <p><b>1. All Rows from the Left Table:- </b> Every row from the left table appears in the result, regardless
                 of whether a match exists in the right table.</p><br>
             <p><b>2. NULLs for Non-Matches:- </b> When no match is found in the right table, NULL values are returned
                 for its columns.</p><br>
             <p><b>3. Versatility:- </b> Useful when you need to identify records in one table that do not have
-                corresponding entries in another.</p><br><br>
+                corresponding entries in another.</p><br>
             <h2>Syntax</h2>
             <div class="code-box">
                 <code>
@@ -333,7 +334,7 @@
                              <b> ;</b>
                     </code>
             </div><br>
-            <h2>Advantages and Disadvantages</h2>
+            <h2>Advantages and Disadvantages of Left Join</h2>
             <table>
                 <thead>
                     <tr>
@@ -490,10 +491,13 @@
                         <ul>
                             <span class="orclkey"> ON </span> u.user_id = s.user_id <br>
                             <span class="orclkey"> AND </span> s.subscription_date <span class="orclkey"> BETWEEN  </span>DATEADD( 
-                            <span class="orclkey"> MONTH </span> ,DATEDIFF(  <span class="orclkey"> MONTH </span> , 0, GETDATE()), 0) <br>
+                            <span class="orclkey"> MONTH </span> ,DATEDIFF( 
+                                <span class="orclkey"> MONTH </span> , 0, GETDATE()), 0) <br>
                             <span class="orclkey"> AND  </span>DATEADD( 
-                            <span class="orclkey"> MONTH </span> ,DATEDIFF(  <span class="orclkey"> MONTH </span> 0, GETDATE()) + 1, 0) - 1 <b> ;</b> 
+                            <span class="orclkey"> MONTH </span> ,DATEDIFF( 
+                                <span class="orclkey"> MONTH </span>, 0, GETDATE()) + 1, 0) - 1 <b> ;</b> 
                         </ul>
+
                  
             </code>
             </div><br>
@@ -526,24 +530,34 @@
             <p><b>Scenario 10:-</b> Rank all customers and products by sales, including those with no sales data.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> 
+                <span class="orclkey"> SELECT  *,</span> 
                 <ul>
-                    p.product_name, 
-                    c.customer_name, <br>
-                    RANK()  <span class="orclkey"> OVER </span>(  <span class="orclkey"> PARTITION BY </span>  p.product_id <span class="orclkey"> ORDER BY </span>
-                    SUM( s.amount ) 
+                    <br>
+                    RANK()
+                    <span class="orclkey"> OVER </span>( 
+                    <span class="orclkey"> PARTITION BY </span>  p.product_id 
+                    <span class="orclkey"> ORDER BY </span> total_sales 
+                    
                     <span class="orclkey"> DESC </span> )
                     <span class="orclkey">  AS </span> sales_rank
                 </ul>
-                <span class="orclkey"> FROM </span> products p <br>
-                        <span class="orclkey"> LEFT JOIN </span> sales s 
-                        <ul>
-                            <span class="orclkey"> ON </span> p.product_id = s.product_id <br></ul>
-                            <span class="orclkey"> LEFT JOIN </span> customers c
-                            <ul>
-                                <span class="orclkey"> ON </span> s.customer_id = c.customer_id
-                            </ul>
-                            <span class="orclkey"> GROUP BY </span> p.product_id, p.product_name, c.customer_name <b> ;</b>
+                <span class="orclkey"> FROM </span> 
+                 ( <ul>
+                 <span class="orclkey"> SELECT </span> 
+                    p.product_id,p.product_name,c.customer_name,
+                    <span class="orclkey"> SUM </span> (s.amount)
+                    <span class="orclkey"> AS </span> total_sales
+                    <span class="orclkey"> FROM </span> products p
+
+                 <span class="orclkey"> LEFT JOIN </span> sales s 
+                 <ul>
+                    <span class="orclkey"> ON </span> p.product_id = s.product_id <br>
+                    <span class="orclkey"> LEFT JOIN </span> customers c
+                    <ul>
+                      <span class="orclkey"> ON </span> s.customer_id = c.customer_id
+                    </ul>
+                      <span class="orclkey"> GROUP BY </span> p.product_id, p.product_name, c.customer_name 
+                 )ranked<b> ;</b>
             </code>
             </div><br>
             <p><b>Scenario 11:-</b> Retrieve sales representatives and their rolling 3-month sales totals, including
@@ -586,7 +600,7 @@
                             <span class="orclkey"> ON </span> sr.rep_id = rs.rep_id <b> ;</b></ul>
             </code>
             </div><br>
-            <h2>Common Errors in LEFT JOIN</h2>
+            <h2>Common Errors with LEFT JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -652,7 +666,7 @@
                     </tr>
                 </tbody>
             </table><br><br>
-            <h2>Do's and Don'ts of LEFT JOIN</h2>
+            <h2>Do's and Don'ts for LEFT JOIN</h2>
             <table>
                 <thead>
                     <tr>
@@ -688,7 +702,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_innerjoin.html?topic=sqlInnerjoin" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_innerjoin.html?topic=sqlInnerjoin" class="previou-button">&laquo; Previous</a>
                 <a href="sql_rightjoin.html?topic=sqlRightjoin" class="next-button">Next &raquo;</a>
             </div>
 
@@ -701,84 +715,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

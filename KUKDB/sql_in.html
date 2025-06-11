@@ -319,7 +319,8 @@
                 than using multiple OR conditions.</p><br>
             <p> <b>Execution:- </b>It picks one by one value from list of values.</p><br>
             <p>We can use <b>IN</b> with <b>SELECT, UPDATE, DELETE</b> statements.</p>
-            <h2>Key Features of the IN Operator</h2>
+            <br>
+            <h2>Key Features of IN </h2>
             <ul>
                 <li><b>Simplifies Queries:-</b> Replaces long OR conditions with a concise syntax.</li>
                 <li><b>Used in WHERE and HAVING Clauses:-</b> Commonly applied to filter rows based on a list of values
@@ -329,7 +330,7 @@
                 <li><b>Case-Sensitive in Some Databases:-</b> The behavior of IN can vary depending on the database
                     collation.</li>
             </ul>
-            
+
             <h2>Syntax</h2>
             <h3>1. Basic IN Syntax</h3>
             <div class="code-box">
@@ -347,7 +348,7 @@
                         <span class="orclkey">WHERE </span> column_name   <span class="orclkey"> IN </span> (<span class="orclkey">SELECT   </span> column_name <span class="orclkey"> FROM </span> another_table )<b> ; </b>
                     </code>
             </div><br>
-            <h3> Basic Examples</h3>
+            <h2> Basic Scenarios</h2>
             <p><b>Scenario 1:- </b>Retrieve employees working in departments 10, 20, or 30.</p>
             <div class="code-box">
                 <code>
@@ -355,7 +356,7 @@
                         <span class="orclkey">FROM </span> employees <br>
                         <span class="orclkey">WHERE </span> department_id <span class="orclkey"> IN </span> ( 10<b>,</b> 20<b>,</b> 30 ) <b> ; </b>
                     </code>
-            </div><br>
+            </div>
             <h4>Equivalent Query Using OR:</h4>
             <div class="code-box">
                 <code>
@@ -406,7 +407,7 @@
                     </code>
             </div><br>
             <h3> IN with Date Values</h3>
-            <p><b>Scenario 1:- </b> Retrieve orders placed on specific dates.</p>
+            <p><b>Scenario :- </b> Retrieve orders placed on specific dates.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> order_id<b> , </b>order_date<b> , </b>customer_id  <br>
@@ -415,7 +416,7 @@
                     </code>
             </div><br>
             <h3>IN with Multiple Columns (SQL Server and Oracle)</h3>
-            <p><b>Scenario 1:- </b> Retrieve employees whose department and job title match specific pairs of values.
+            <p><b>Scenario :- </b> Retrieve employees whose department and job title match specific pairs of values.
             </p>
             <div class="code-box">
                 <code>
@@ -425,7 +426,7 @@
                     </code>
             </div><br>
             <h3>Combining with Other Conditions</h3>
-            <p><b>Scenario 1:- </b> Retrieve employees in departments 10, 20, or 30, who also earn more than $50,000.
+            <p><b>Scenario :- </b> Retrieve employees in departments 10, 20, or 30, who also earn more than $50,000.
             </p>
             <div class="code-box">
                 <code>
@@ -464,7 +465,7 @@
                     </code>
                 - - No rows are returned because the NULL value causes NOT IN to evaluate to UNKNOWN.
             </div><br>
-            <p><b> Solutions</b></p>
+            <p><b> Solution</b></p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT   </span> employee_id <br>
@@ -564,7 +565,7 @@
             </div><br>
             <h3>10. IN with Dynamic Filters</h3>
             <p>In stored procedures or dynamic queries, the IN operator is often used for passing multiple values as
-                parameters.</p>
+                parameters.</p><br>
             <p><b>Scenario :- </b> IN with Dynamic Filters
             </p>
             <div class="code-box">
@@ -597,7 +598,7 @@
                 <li><b>Performance :- </b>Optimized by the database engine, especially for indexed columns.</li>
                 <li><b>Scalability :- </b>Works well with dynamically generated lists or subqueries.</li>
             </ul><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with IN</h2>
             <h3>1.NULL in NOT IN</h3>
             <div class="code-box">
                 <code>
@@ -629,7 +630,7 @@
             <p><b>3. Exclusion with NOT IN :</b>Example: Exclude products that belong to inactive categories.</p><br>
             <p><b>4. Dynamic Filters :</b>Example: Use IN to filter rows dynamically based on user input or application
                 data.</p><br>
-            <h2>Best Practices</h2>
+            <h2>Best Practices with IN</h2>
 
             <p><b>1. Avoid NULL in NOT IN:- </b></p>
             <ul>
@@ -687,84 +688,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,11 +308,11 @@
         <main class="sidebar-content" data-topic="sqlUnique">
 
             <div class="topic-buttons">
-                <a href="sql_notnull.html?topic=sqlNotnull" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_notnull.html?topic=sqlNotnull" class="previou-button">&laquo; Previous</a>
                 <a href="sql_primarykey.html?topic=sqlPrimarykey" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Unique Constraint </h1>
+            <h1>UNIQUE </h1>
             <p>The UNIQUE constraint ensures that all values in a column or a combination of columns are distinct. </p>
             <br>
             <p>It prevents duplicate entries but allows a single NULL value (depending on the database).</p> <br>
@@ -342,6 +342,8 @@
                     </tr>
                     <tr>
                         <td><b>Automatic Index Creation</b></td>
+                        <td>When a UNIQUE constraint is added, the database automatically creates a unique index on the
+                            column(s) to efficiently enforce uniqueness.</td>
                     </tr>
                 </tbody>
             </table> <br>
@@ -352,10 +354,10 @@
                 <span class="orclkey"> CREATE TABLE </span>  table_name ( <br>
                 <ul>
                     column_name data_type <span class="orclkey"> UNIQUE </span> , <br>
-                    other_column data_type
-                </ul>
-                )
+                    other_column data_type )
                  <b> ;</b> 
+                </ul>
+                
             </code>
             </div><br>
             <h3>2. Multiple Columns as UNIQUE</h3>
@@ -366,9 +368,9 @@
                     Column1 DataType, <br>
                     Column2 DataType, <br>
                     <span class="orclkey"> CONSTRAINT </span> ConstraintName <span class="orclkey"> UNIQUE  </span> (Column1, Column2)
-                </ul>
-                )
-                 <b> ;</b> 
+                 )
+                 <b> ;</b> </ul>
+               
             </code>
             </div><br>
             <h3>3. Adding to Existing Table</h3>
@@ -381,7 +383,7 @@
                 </ul>
             </code>
             </div><br>
-            <h2>Behavior of UNIQUE Constraint</h2>
+            <h2>Behavior of UNIQUE </h2>
             <table>
                 <thead>
                     <tr>
@@ -393,7 +395,7 @@
                     <tr>
                         <td><b>Inserting Duplicate Value</b></td>
                         <td>Throws an error if an attempt is made to insert a duplicate value in a column with the
-                            UNIQUE constraint.</td>
+                            UNIQUE constraint</td>
                     </tr>
                     <tr>
                         <td><b>Allows One NULL</b></td>
@@ -406,7 +408,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Advantages of UNIQUE Constraint</h2>
+            <h2>Advantages of UNIQUE </h2>
             <table>
                 <thead>
                     <tr>
@@ -441,8 +443,8 @@
                     <ul>
                         UserID INT <span class="orclkey"> PRIMARY KEY </span>,
                         Email VARCHAR(150) <span class="orclkey"> UNIQUE </span>,
-                        FullName VARCHAR(100)
-                    </ul> ) <b> ;</b>
+                        FullName VARCHAR(100) ) <b> ;</b>
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 2:- </b> Add a UNIQUE constraint to the PhoneNumber column in the Customers table to ensure
@@ -466,8 +468,8 @@
                         LastName VARCHAR(50), <br>
                         DateOfBirth DATE, <br>
                          <span class="orclkey"> CONSTRAINT  </span> UQ_StudentName  <span class="orclkey"> UNIQUE   </span>
-                         (FirstName, LastName)
-                    </ul> ) <b> ;</b>
+                         (FirstName, LastName)) <b> ;</b>
+                    </ul> 
                  </code>
             </div><br>
             <p><b>Scenario 4:- </b> Preventing Duplicate Product Codes( In a Products table, ensure each product has a
@@ -479,32 +481,37 @@
                         ProductID  INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         ProductName   VARCHAR(100) , <br>
                         ProductCode  VARCHAR(50) <span class="orclkey"> UNIQUE </span>, <br>
-                        Price DECIMAL(10, 2)
-                    </ul> ) <b> ;</b>
+                        Price DECIMAL(10, 2)  ) <b> ;</b>
+                    </ul>
                  </code>
             </div><br>
             <p><b>Scenario 5:- </b> Dropping a UNIQUE Constraint.</p>
             <div class="code-box">
                 <code>
+                ---SQL Server/PostgreSQL<br><br>
                 <span class="orclkey"> ALTER TABLE </span>  employees 
                 <ul>
                     <span class="orclkey"> DROP CONSTRAINT </span> unique_employee_code   <b> ;</b>
                 </ul>
             </code>
-            </div><br>
+            </div>
+            <br>
             <p><b>Scenario 6:- </b> Adding a UNIQUE Constraint with Default Values( Ensure that the CountryCode column
                 has unique values but allows a default.)</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> CREATE TABLE </span>  Countries    ( 
+                <span class="orclkey"> CREATE TABLE </span>  Countries 
+                ( 
                     <ul>
-                        CountryID   INT <span class="orclkey"> PRIMARY KEY </span>,
-                        CountryCode CHAR(2) <span class="orclkey"> UNIQUE DEFAULT  </span> 'NA', <br>
-                        CountryName VARCHAR(100)
-                    </ul> ) <b> ;</b>
+                        CountryID   INT 
+                        <span class="orclkey"> PRIMARY KEY </span>,
+                        CountryCode CHAR(2) 
+                        <span class="orclkey"> UNIQUE  </span>, <br>
+                        CountryName VARCHAR(100)) <b> ;</b>
+                    </ul> 
                  </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with UNIQUE</h2>
             <table>
                 <thead>
                     <tr>
@@ -536,7 +543,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Hints for Using UNIQUE Constraint</h2>
+            <h2>Performance Hints for UNIQUE </h2>
             <table>
                 <thead>
                     <tr>
@@ -601,7 +608,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with UNIQUE</h2>
             <table>
                 <thead>
                     <tr>
@@ -636,7 +643,7 @@
             <br>
 
             <div class="topic-buttons">
-                <a href="sql_notnull.html?topic=sqlNotnull" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_notnull.html?topic=sqlNotnull" class="previou-button">&laquo; Previous</a>
                 <a href="sql_primarykey.html?topic=sqlPrimarykey" class="next-button">Next &raquo;</a>
             </div>
 
@@ -649,84 +656,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

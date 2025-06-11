@@ -312,7 +312,7 @@
             </div>
 
             <h1>TRUNCATE</h1>
-            <br>
+            
             <ul>
                 <li>TRUNCATE command is a Data Definition Language (DDL) statement, used to remove all rows from
                     a
@@ -324,7 +324,7 @@
                 <li>TRUNCATE applies to the entire table and does not allow conditions (e.g., WHERE clause).
                 </li>
             </ul>
-            
+
             <h2>Syntax</h2>
             <div class="code-box">
                 <code>
@@ -332,7 +332,7 @@
                 </code>
             </div>
             <br>
-            <h2>Scenarios of TRUNCATE</h2>
+            <h2>Scenarios </h2>
             <h3>1. Remove all rows from the employees (Oracle, SQLite, SQL Server, PostgreSQL, MySQL)</h3>
             <div class="code-box">
                 <code>
@@ -361,7 +361,7 @@
             </div>
             <br> -->
             <h2>Truncate tables with Foreign Key</h2>
-            <br>
+            
             <h5>MySQL:</h5>
             <ul>
                 <li>In MySQL, TRUNCATE TABLE cannot truncate tables with foreign key constraints unless the
@@ -375,7 +375,7 @@
                 </code>
                 <ul>Temporarily disable foreign key checks, truncate table, and re-enable them</ul>
                 <code>
-                    
+
                     <span class="orclkey">TRUNCATE TABLE  </span> Orders ;<br>
                     <span class="orclkey">SET  </span>FOREIGN_KEY_CHECKS = 1 ;<br>
                 </code>
@@ -545,7 +545,7 @@
                 </tbody>
             </table>
             <br><br>
-            <h2>Best Practices</h2>
+            <h2>Best Practices for TRUNCATE</h2>
             <ul>
                 <li><b>Use TRUNCATE for High-Performance Table Resets - </b> Because it bypasses row-by-row
                     deletions,
@@ -563,10 +563,10 @@
                     especially in production environments.</li>
             </ul>
             <br>
-            <h2>Do’s and Don’ts When Using TRUNCATE </h2>
+            <h2>Do’s and Don’ts With TRUNCATE </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
-                <li>Do use TRUNCATE for temporary or staging tables  to quickly reset them.</li>
+                <li>Do use TRUNCATE for temporary or staging tables to quickly reset them.</li>
                 <li>Do ensure foreign key dependencies are cleared if truncating tables with
                     dependencies.
                 </li>
@@ -586,7 +586,9 @@
             </ul>
             <br>
             <table>
+            
                 <caption>Difference Between TRUNCATE and DELETE</caption>
+              
                 <thead>
                     <tr>
                         <th>Feature</th>
@@ -626,6 +628,7 @@
                         <td>Requires DELETE privilege.</td>
                     </tr>
                 </tbody>
+               
             </table>
 
 
@@ -645,84 +648,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

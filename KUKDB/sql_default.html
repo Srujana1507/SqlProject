@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,11 +308,11 @@
         <main class="sidebar-content" data-topic="sqlDefault">
 
             <div class="topic-buttons">
-                <a href="sql_check.html?topic=sqlCheck" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_check.html?topic=sqlCheck" class="previou-button">&laquo; Previous</a>
                 <a href="sql_dcl.html?topic=sqlDcl" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Default Constraint</h1>
+            <h1>Default </h1>
             <p>The Default Constraint in SQL is used to set a default value for a column when no value is specified
                 during an INSERT operation.</p><br>
             <p>It ensures that a column has a value even if the user does not explicitly provide one.</p><br>
@@ -347,14 +347,14 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Syntax</h2>
+            <h2>Syntax(SQL Server)</h2>
             <h3>1. Defining a DEFAULT Constraint During Table Creation </h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> CREATE TABLE </span>  table_name (
                     <ul>
                         column_name data_type <span class="orclkey"> DEFAULT  </span> default_value
-                        <ul>)  <b> ;</b></ul> </ul>  
+                        )  <b> ;</b><ul></ul> </ul>  
                  </code>
             </div><br>
             <h3>2. Using Named Constraints</h3>
@@ -363,7 +363,9 @@
                     <span class="orclkey"> CREATE TABLE </span>  table_name (
                     <ul>
                         ColumnName DataType, <br>
-                    <span class="orclkey">  CONSTRAINT </span> ConstraintName   <span class="orclkey"> DEFAULT  </span> default_value 
+                    <span class="orclkey">  CONSTRAINT </span> ConstraintName   
+                    <span class="orclkey"> DEFAULT  </span> default_value 
+                    <span class="orclkey"> FOR  </span> column_name
                     )<b> ;</b>
                     </ul> 
                  </code>
@@ -407,7 +409,7 @@
                     </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 2:- </b> Assign Pending as the default status for new orders.</p>
+            <p><b>Scenario 2:- </b> Set Default Discount Percentage for Products.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> CREATE TABLE </span>  products ( <br>
@@ -463,6 +465,7 @@
                 for the status column in the employees table.</p>
             <div class="code-box">
                 <code>
+                ---SQL <br>
                     <span class="orclkey"> ALTER TABLE </span>  employees <br>
                     <ul>
                         <span class="orclkey"> ADD CONSTRAINT </span> df_status 
@@ -473,6 +476,7 @@
             <p><b>Scenario 7:- </b> Remove the default value for the status column.</p>
             <div class="code-box">
                 <code>
+                ---SQL <br>
                     <span class="orclkey"> ALTER TABLE </span>  employees <br>
                     <ul>
                         <span class="orclkey"> ALTER COLUMN  </span> status  
@@ -484,70 +488,41 @@
                 example, assigning a future delivery date for orders.</p>
             <div class="code-box">
                 <code>
+                    ---SQL <br>
                     <span class="orclkey"> CREATE TABLE </span>  delivery_schedule ( <br>
                     <ul>
                         delivery_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         order_id INT, <br>
                         delivery_date DATE
-                    <span class="orclkey">  DEFAULT </span> DATEADD( <span class="orclkey"> DAY </span>, 7, GETDATE() ) <br>
-                    )<b> ;</b>
-                    </ul> 
+                    <span class="orclkey">  DEFAULT </span> (
+                    <span class="orclkey"> DATEADD(</span> 
+                     <span class="orclkey"> DAY, 7 ,</span> GETDATE() ) ) <b> );</b>
+                   </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 9:- ( Dynamic Default Value Based on Another Column ) </b> In a Products table, the Discount
-                column should have a default value that depends on the Category.</p>
+
+            <p><b>Scenario 9:- ( Default Value for Timestamps in Audit Tables ) </b> </p><br>
+            <p>In an AuditLogs table, automatically populate</p>
             <ul>
-                <ul>
-                    <li>If the Category is "Electronics," the default discount is 10%</li>
-                    <li>If the Category is "Clothing," the default discount is 20%.</li>
-                    <li>For other categories, the default discount is 5%</li>
-                </ul>
+                <li>Created At with the current timestamp when a new record is inserted.</li>
+                <li>Updated At with the same value as CreatedAt initially but updated whenever the record is
+                    modified.</li>
             </ul>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> CREATE TABLE </span>  Products ( <br>
-                    <ul>
-                        ProductID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
-                        ProductName VARCHAR(100), <br>
-                        Category VARCHAR(50), <br>
-                        Price DECIMAL(10, 2), <br>
-                        Discount DECIMAL(5, 2) <span class="orclkey">  DEFAULT </span> 
-                        <ul>
-                            <span class="orclkey">  CASE </span>
-                            <ul>
-                                <span class="orclkey">  WHEN </span> Category = 'Electronics' <span class="orclkey">  THEN </span> 10 <br>
-                                <span class="orclkey">  WHEN </span> Category = 'Clothing' <span class="orclkey">  THEN </span> 20 <br>
-                                <span class="orclkey">  ELSE </span> 5
-                            </ul>
-                            <span class="orclkey">  END </span>
-                        </ul>
-                    )<b> ;</b>
-                    </ul> 
-                 </code>
-            </div><br>
-            <p><b>Scenario 10:- ( Default Value for Timestamps in Audit Tables ) </b> In an AuditLogs table,
-                automatically populate</p>
-            <ul>
-                <ul>
-                    <li>CreatedAt with the current timestamp when a new record is inserted.</li>
-                    <li>UpdatedAt with the same value as CreatedAt initially but updated whenever the record is
-                        modified.</li>
-                </ul>
-            </ul>
-            <div class="code-box">
-                <code>
+                ---SQL <br>
                     <span class="orclkey"> CREATE TABLE </span>  AuditLogs ( <br>
                     <ul>
                         LogID INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         Action VARCHAR(100), <br>
-                        CreatedAt TIMESTAMP <span class="orclkey">  DEFAULT </span> CURRENT_TIMESTAMP, <br>
-                        CreatedAt TIMESTAMP <span class="orclkey">  DEFAULT </span> CURRENT_TIMESTAMP 
-                       <span class="orclkey">  ON UPDATE </span> CURRENT_TIMESTAMP
+                        CreatedAt DATETIME<span class="orclkey"> DEFAULT  </span>GETDATE() , <br>
+                        UpdatedAt DATETIME<span class="orclkey">  DEFAULT </span> GETDATE()  )<b> ;</b>  
+                       
                         </ul>
-                    )<b> ;</b> 
+                   
                  </code>
             </div><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with DEFAULT </h2>
             <table>
                 <thead>
                     <tr>
@@ -579,7 +554,7 @@
                     </tr>
                     <tr>
                         <td><b>Default Value on Unsupported Data Types</b></td>
-                        <td>ertain databases (e.g., MySQL) do not support default values on TEXT or BLOB columns.</td>
+                        <td>Certain databases (e.g., MySQL) do not support default values on TEXT or BLOB columns.</td>
                         <td>Avoid using default constraints on unsupported data types or redesign the schema to use
                             supported types like VARCHAR.</td>
                     </tr>
@@ -592,7 +567,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Hints to Use DEFAULT Constraint</h2>
+            <h2>Performance Hints for DEFAULT </h2>
             <table>
                 <thead>
                     <tr>
@@ -624,7 +599,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with DEFAULT</h2>
             <table>
                 <thead>
                     <tr>
@@ -663,7 +638,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_check.html?topic=sqlCheck" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_check.html?topic=sqlCheck" class="previou-button">&laquo; Previous</a>
                 <a href="sql_dcl.html?topic=sqlDcl" class="next-button">Next &raquo;</a>
             </div>
 
@@ -676,84 +651,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

@@ -311,7 +311,7 @@
             </div>
 
             <h1>DUAL</h1>
-            <br>
+            
             <p>In Oracle, DUAL is a system-defined special purpose table, with exactly a single row and a single
                 column named DUMMY, which contains the value 'X'.</p>
             <br>
@@ -322,7 +322,7 @@
                 <li>Test queries or expressions.</li>
                 <li>Create dummy data for testing purposes.</li>
             </ul>
-            <br>
+            
             <h2>Basic Syntax</h2>
             <div class="code-box">
                 <code>
@@ -365,136 +365,134 @@
                 </code>
             </div>
             <br>
-            <h2> Examples of DUAL Table</h2>
-            <ul>
-                <li><b>Scenario 1:- </b> Perform addition using the DUAL table</li>
-            </ul>
+            <h2> Examples </h2>
+            <p><b>Scenario 1:- </b> Perform addition using the DUAL table</p>
+           
             <div class="code-box">
-               
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> 10 + 20  <span class="orclkey">AS  </span>  total <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
             </div>
             <br>
             <h3>SQL Server & MySQL</h3>
-           
+
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> 10 + 20   <b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 2:- </b> Returning a Constant string, e.g. display Hello SQL</li>
-            </ul>
+          
+                <p><b>Scenario 2:- </b> Returning a Constant string, e.g. display Hello SQL</p>
+           
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> 'Hello, SQL!'  <span class="orclkey">AS  </span>  Greeting  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 3:- </b> Using Date Functions</li>
-            </ul>
+            
+                <p><b>Scenario 3:- </b> Using Date Functions</p>
+            
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> SYSDATE  <span class="orclkey">AS  </span>  Current_date  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
             </div>
             <br>
             <h3> In SQL Server</h3>
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> GETDATE()  <b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 4:- </b> Concatenating Strings </li>
-            </ul>
+            
+                <p><b>Scenario 4:- </b> Concatenating Strings </p>
+           
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> 'Hello, ' || 'World!'  <span class="orclkey">AS  </span>  Message  <span class="orclkey">FROM  </span> DUAL <b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 5:- </b> Generating Sequences numbers from 1 to 5. </li>
-            </ul>
+           
+                <p><b>Scenario 5:- </b> Generating Sequences numbers from 1 to 5. </p>
+            
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> ROWNUM  <span class="orclkey">AS  </span>  Seq_no  <span class="orclkey">FROM  </span> DUAL  <span class="orclkey"> CONNECT BY  </span> LEVEL <= 5<b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 6:- </b> Evaluating Complex Expressions </li>
-            </ul>
+           
+                <p><b>Scenario 6:- </b> Evaluating Complex Expressions </p>
+           
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> POWER( 2, 3 )   <span class="orclkey">AS  </span>  Exponent_Result   <span class="orclkey">FROM  </span> DUAL  <b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 7:- </b> Evaluate a conditional expression using CASE </li>
-            </ul>
+          
+                <p><b>Scenario 7:- </b> Evaluate a conditional expression using CASE </p>
+            
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  CASE WHEN</span> 5 > 3   <span class="orclkey">THEN  </span>  ' True '   <span class="orclkey">ELSE  </span> 
                         ' False '  <span class="orclkey">END AS </span> result <span class="orclkey">FROM  </span> DUAL<b>  ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 8:- </b> Retrieve current user using Metadata functions. </li>
-            </ul>
+          
+                <p><b>Scenario 8:- </b> Retrieve current user using Metadata functions. </p>
+        
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  USER  AS </span> Current_user  <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 9:- </b> Use Mathematical Functions. e.g Find the square root of a number. </li>
-            </ul>
+
+                <p><b>Scenario 9:- </b> Use Mathematical Functions. e.g Find the square root of a number. </p>
+           
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> SQRT(16)  <span class="orclkey">AS  </span> square_root  <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 10:- </b> Test String Functions. e.g Convert a string to uppercase. </li>
-            </ul>
+            <p><b>Scenario 10:- </b> Test String Functions. e.g Convert a string to uppercase. </p>
+          
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> UPPER ( 'hello')  <span class="orclkey">AS  </span> uppercase_string   <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
-            <ul>
-                <li><b>Scenario 11:- </b> Create dummy rows for testing. </li>
-            </ul>
+            
+                <p><b>Scenario 11:- </b> Create dummy rows for testing. </p>
+            
             <div class="code-box">
-                
-                    <code>
+
+                <code>
                         <span class="orclkey">SELECT  </span> 'Test Data'  <span class="orclkey">AS  </span> dummy_column   <span class="orclkey">FROM  </span> DUAL<b> ;</b>
                     </code>
             </div>
             <br>
-            <h2>Do’s and Don’ts </h2>
+            <h2>Do’s and Don’ts with DUAL </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
                 <li>Use DUAL for computations and function evaluations in Oracle.</li>
@@ -505,7 +503,7 @@
             <ul>
                 <li>Avoid overusing DUAL in complex queries where actual data is involved.</li>
                 <li>Do not assume DUAL is available in all databases; some systems like MySQL allow operations
-                        without a table reference.</li>
+                    without a table reference.</li>
             </ul>
             <br>
 
@@ -523,84 +521,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

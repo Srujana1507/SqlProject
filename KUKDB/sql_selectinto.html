@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -308,17 +308,16 @@
         <main class="sidebar-content" data-topic="sqlSelectinto">
 
             <div class="topic-buttons">
-                <a href="sql_aliases.html?topic=sqlAliases" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_aliases.html?topic=sqlAliases" class="previou-button">&laquo; Previous</a>
                 <a href="sql_insertinto_select.html?topic=sqlInsertintoselect" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>SELECT INTO Statement</h1>
+            <h1>SELECT INTO </h1>
             <p>SELECT INTO copies data from one table into a new table. The new table is created on the fly, inheriting
                 column names and data types from the source table.</p> <br>
             <p>This is useful for creating backups, archiving data, or preparing subsets of data for analysis.</p><br>
-            <p>The new table is created on the fly, inheriting column names and data types from the source table.</p>
-            <br>
-            <br>
+
+
             <h2>Key Features</h2>
             <table>
                 <thead>
@@ -456,7 +455,7 @@
                 </ul>
              </code>
             </div><br><br>
-            <p><b>Scenario 2:- (Partitioned Data Copy )</b> Create a table Orders2023 to store orders from 2024.
+            <p><b>Scenario 2:- (Partitioned Data Copy )</b> Create a table Orders 2024 to store orders from 2024.
             </p>
             <div class="code-box">
                 <code>
@@ -557,9 +556,9 @@
                         order_id, <br>
                         customer_id,<br>
                          total_amount,<br>
-                         'Historical' <span class="orclkey"> AS  </span> data_type
+                         'current' <span class="orclkey"> AS  </span> data_type
                     </ul>
-                    <span class="orclkey"> FROM  </span> historical_sales <br>
+                    <span class="orclkey"> FROM  </span> current_sales <br>
                 </ul>) combined_sales <b> ;</b>
                 <ul>
              </code>
@@ -574,15 +573,15 @@
                     -- Step 1: Extract yearly revenue data for each category <br>
                     <span class="orclkey"> SELECT  </span>
                     <ul>
-                        category_id, <br>
-                        category_name, <br>
+                        p.category_id, <br>
+                        p.category_name, <br>
                         <span class="orclkey"> YEAR  </span>(order_date) <span class="orclkey"> AS  </span> year, <br>
                         SUM(total_amount) <span class="orclkey"> AS  </span> total_revenue
                     </ul>
-                    <span class="orclkey"> INTO  </span> Annual_revenue_data <br>
+                    <span class="orclkey"> INTO  </span> yearly_revenue_data <br>
                     <span class="orclkey"> FROM  </span> orders o <br>
                     <span class="orclkey"> JOIN  </span> products p <span class="orclkey"> ON  </span> o.product_id = p.product_id <br>
-                    <span class="orclkey"> GROUP BY  </span> category_id, category_name,<span class="orclkey"> YEAR  </span> (order_date) <b> ;</b>
+                    <span class="orclkey"> GROUP BY  </span> p.category_id,p.category_name,<span class="orclkey"> YEAR  </span> (order_date) <b> ;</b>
                     <br><br>
                     -- Step 2: Calculate revenue growth compared to the previous year <br>
                     <span class="orclkey"> SELECT  </span> 
@@ -616,38 +615,43 @@
             </p>
             <div class="code-box">
                 <code>
-                    -- Step 1: Create a table for regions with their respective customer IDs. <br>
+                    -- Step 1: Create a table for regions with their respective customer IDs. <br><br>
                     <span class="orclkey"> SELECT DISTINCT </span> region, customer_id <br>
                     <span class="orclkey"> INTO  </span> region_customer_mapping <br>
                     <span class="orclkey"> FROM  </span> customers <b> ;</b>
                     <br>
                     <br>
-                    -- Step 2: Generate a backup table for each region. <br>
-                    <span class="orclkey"> DECLARE  </span> @region_name NVARCHAR(50) <b> ;</b>
-                    <span class="orclkey"> DECLARE  </span> region_cursor <span class="orclkey"> CURSOR FOR  </span><br>
+                    -- Step 2: Generate a backup table for each region. <br><br>
+                    <span class="orclkey"> DECLARE  </span> @region_name NVARCHAR(50) <b> ;</b> <br>
+                    <span class="orclkey"> DECLARE  </span> @query NVARCHAR(MAX); <br>
+                    <br>
+                    <span class="orclkey"> DECLARE  </span>region_cursor <br>
+                    <span class="orclkey"> CURSOR FOR  </span><br>
                     <span class="orclkey"> SELECT DISTINCT  </span> region <br>
                     <span class="orclkey"> FROM  </span> region_customer_mapping <b> ;</b><br>
                     <br>
-                    <span class="orclkey"> OPEN  </span> region_cursor <b> ;</b>
-                    <span class="orclkey"> FETCH  </span> NEXT <span class="orclkey"> FROM  </span> region_cursor <span class="orclkey"> INTO  </span> @region_name <b> ;</b>
+                    <span class="orclkey"> OPEN  </span> region_cursor <b> ;</b> <br>
+                    <span class="orclkey"> FETCH  </span> NEXT <span class="orclkey"> FROM  </span> region_cursor 
+                    <span class="orclkey"> INTO  </span> @region_name <b> ;</b>
                     <br>
                     <br>
                     WHILE @@FETCH_STATUS = 0 <br>
                     <span class="orclkey"> BEGIN  </span> <br>
                     <ul>
-                        <span class="orclkey"> DECLARE  </span> @query NVARCHAR(MAX) = <br>
+                        <span class="orclkey"> SET  </span> @query =
+                       
                         <ul>
-                            <b>'</b>
+                            <b>N'</b>
                             SELECT o.*  <br>
                             INTO ' + QUOTENAME(@region_name + '_orders_backup') + ' <br>
                             FROM orders o <br>
                             JOIN region_customer_mapping r ON o.customer_id = r.customer_id <br>
-                            WHERE r.region = ''' + @region_name + '''<b>;</b> 
-                            <b>'</b> <b> ;</b>
+                            WHERE r.region = ''' + REPLACE(@region_name ,'''','''''')+''''<b>;</b> 
+                          
                         </ul>
                         <br>
                     <br>
-                    <span class="orclkey"> EXCE  </span> sp_executesql @query ; <br>
+                    <span class="orclkey"> EXEC  </span> sp_executesql @query ; <br>
                     <br>
                     <span class="orclkey"> FETCH  </span> NEXT <span class="orclkey"> FROM  </span> region_cursor <span class="orclkey"> INTO  </span>
                     @region_name <b> ;</b> <br>
@@ -657,12 +661,12 @@
                     <span class="orclkey"> END  </span><b> ;</b>
                     <br>
                     <br>
-                    <span class="orclkey"> CLOSE  </span> region_cursor <b> ;</b>
+                    <span class="orclkey"> CLOSE  </span> region_cursor <b> ;</b> <br>
                     <span class="orclkey"> DEALLOCATE  </span> region_cursor <b> ;</b>
                     
              </code>
             </div><br><br>
-            <h2>Advantages</h2>
+            <h2>Advantages of SELECT INTO</h2>
             <table>
                 <thead>
                     <tr>
@@ -693,7 +697,7 @@
                     </tr>
                 </tbody>
             </table><br><br>
-            <h2>Common Errors in SELECT INTO</h2>
+            <h2>Common Errors with SELECT INTO</h2>
             <table>
                 <thead>
                     <tr>
@@ -736,7 +740,7 @@
                     </tr>
                 </tbody>
             </table><br><br>
-            <h2>Hints to Improve Performance</h2>
+            <h2>Performance Hints for SELECT INTO </h2>
             <table>
                 <thead>
                     <tr>
@@ -772,7 +776,7 @@
                     </tr>
                 </tbody>
             </table> <br><br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with SELECT INTO</h2>
             <table>
                 <thead>
                     <tr>
@@ -847,7 +851,7 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_aliases.html?topic=sqlAliases" class="previou-button">&laquo; Pevious</a>
+                <a href="sql_aliases.html?topic=sqlAliases" class="previou-button">&laquo; Previous</a>
                 <a href="sql_insertinto_select.html?topic=sqlInsertintoselect" class="next-button">Next &raquo;</a>
             </div>
 
@@ -860,84 +864,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

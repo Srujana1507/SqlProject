@@ -311,14 +311,14 @@
             </div>
 
             <h1>GROUP BY</h1>
-           
+
             <ul>
                 <li>GROUP BY clause is used to group rows with the same values in specified columns into summary
                     rows.</li>
                 <li>It is often used with aggregate functions like COUNT(), SUM(), AVG(), MAX(), and MIN() to perform
                     operations on each group.</li>
             </ul>
-           
+
             <h2>Syntax :-</h2>
             <div class="code-box">
                 <code>
@@ -344,7 +344,7 @@
                 <li><b>Columns in SELECT :- </b>Columns listed in the SELECT statement must either appear in the GROUP
                     BY clause or be used in an aggregate function.</li>
             </ul><br>
-            <h2>Examples of GROUP BY</h2>
+            <h2>Examples </h2>
             <h3>1. Basic Grouping</h3>
             <p><b>Scenario 1: </b>Retrieve the total sales for each department.</p>
             <div class="code-box">
@@ -363,10 +363,10 @@
                     <span class="orclkey">FROM   </span> Employees <br> 
                     <span class="orclkey">GROUP BY  </span>Department  <b>;</b> 
                 </code>
-            </div> 
+            </div>
             <br>
             <h3>2. Using GROUP BY Without Aggregate Functions</h3>
-            
+
             <p><b>Scenario: </b>List unique department IDs in the employees table.</p>
             <div class="code-box">
                 <code>
@@ -381,32 +381,33 @@
             <p><b>Scenario : </b>When a column has NULL values, they form their own group</p><br>
             <h3>Example Data:</h3>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>EmployeeID</th>
-                        <th>department_name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>1</b></td>
-                        <td>HR</td>
-                    </tr>
-                    <tr>
-                        <td><b>2</b></td>
-                        <td>Sales</td>
-                    </tr>
-                    <tr>
-                        <td><b>3</b></td>
-                        <td>NULL</td>
-                    </tr>
-                    <tr>
-                        <td><b>4</b></td>
-                        <td>HR</td>
-                    </tr>
-                </tbody>
-            </table></ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>EmployeeID</th>
+                            <th>department_name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>1</b></td>
+                            <td>HR</td>
+                        </tr>
+                        <tr>
+                            <td><b>2</b></td>
+                            <td>Sales</td>
+                        </tr>
+                        <tr>
+                            <td><b>3</b></td>
+                            <td>NULL</td>
+                        </tr>
+                        <tr>
+                            <td><b>4</b></td>
+                            <td>HR</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> department_name <b>,</b>COUNT(*)   <span class="orclkey">AS</span> EmployeeCount<br>
@@ -417,28 +418,29 @@
             </div><br>
             <h3>Output Data:</h3>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>department_name</th>
-                        <th>EmployeeCount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>HR</b></td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sales</b></td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td><b>Null</b></td>
-                        <td>1</td>
-                    </tr>
-                </tbody>
-            </table></ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>department_name</th>
+                            <th>EmployeeCount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>HR</b></td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><b>Sales</b></td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td><b>Null</b></td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
             <br>
             <h3>4. Using Aggregate Functions with multiple columns</h3>
             <p><b>Scenario : </b>Count the number of employees in each department</p>
@@ -451,7 +453,7 @@
                     - - Calculates the sum of salaries for each combination of department and job role.
                 </code>
             </div><br>
-            <h2>Advanced Examples</h2>
+            <h2>Advanced Scenarios</h2>
             <h3>1. GROUP BY with HAVING Clause</h3>
             <p><b>Scenario : </b>Find departments where the total salary exceeds 200,000.</p>
             <div class="code-box">
@@ -593,7 +595,7 @@
                 </li>
             </ul>
             <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with GROUP BY</h2>
             <h4><u>Do's</u> :-</h4>
             <h4>1. Always Include Non-Aggregated Columns in GROUP BY</h4>
             <ul>
@@ -622,7 +624,7 @@
             </ul>
             <br>
             <h4><u>Don'ts</u> :-</h4>
-           
+
             <h4>1.Avoid Mixing Aggregated and Non-Aggregated Columns Without Grouping:</h4>
             <ul>
                 <div class="code-box">
@@ -654,84 +656,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

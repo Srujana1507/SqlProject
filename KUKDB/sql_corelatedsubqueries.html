@@ -319,7 +319,7 @@
                 <li>A correlated subquery is executed repeatedly, once for each row evaluated by the outer query. </li>
                 <li>This creates a dependency between the subquery and the outer query.</li>
             </ul>
-            <h2>Key Features of Correlated Subqueries</h2>
+            <h2>Key Features</h2>
             <ul>
                 <li><b>Dependency:- </b> The subquery uses values from the outer query, making it "correlated" or
                     linked.</li>
@@ -349,7 +349,7 @@
                 <li>For each row in the outer query, the subquery executes using the current row's values.</li>
                 <li>The results of the subquery are used in the outer query's processing.</li>
             </ul>
-            <h2>Examples of Correlated Subqueries</h2>
+            <h2>Examples   </h2>
             <h3>1. Correlated Subquery in WHERE Clause</h3>
             <p><b>Scenario 1:- </b> Find Employees Earning Above the Department Average</p>
             <div class="code-box">
@@ -459,7 +459,7 @@
                                 - - The outer query excludes employees whose IDs appear in the manager list.
                             </code>
             </div><br>
-            <h2>Advanced Use Cases</h2>
+            <h2>Advanced Scenarios</h2>
             <h3>1. Aggregation with Correlated Subqueries</h3>
             <p><b>Scenario :- </b> Find departments where all employees earn above $50,000.
             </p>
@@ -516,7 +516,7 @@
                     to improve performance.</li>
                 <li><b>Indexes:- </b> Ensure that columns used in the correlated subquery conditions are indexed.</li>
             </ul>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with Correlated Subqueries</h2>
             <h3>Do's</h3>
             <ul>
                 <li>Use correlated subqueries for <b>dynamic comparisons </b>that require the outer query's context.
@@ -551,7 +551,7 @@
                 <li>Harder to debug and optimize compared to JOINs or window functions.</li>
                 <li>Often less efficient than alternative query designs.</li>
             </ul><br>
-            <h2>Best Practices</h2>
+            <h2>Best Practices with Correlated Subqueries </h2>
             <h4>1. Limit Subquery Results:-</h4>
             <ul>
                 <li>Reduce the scope of the subquery by limiting its result set.</li>
@@ -574,11 +574,11 @@
                                     </ul>
                                 </ul>
                             </code>
-            </div><br>
+            </div>
             <h4>3. Test on Sample Data</h4>
             <ul>
                 <li>Always test on small datasets before applying to large tables.</li>
-            </ul><br><br>
+            </ul>
 
 
 
@@ -596,84 +596,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>

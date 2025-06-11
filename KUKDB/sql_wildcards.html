@@ -312,7 +312,7 @@
                 <a href="sql_some.html?topic=sqlSome" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Wildcards </h1>
+            <h1>WILDCARDS </h1>
             <ul>
                 Wildcards are special characters used with the LIKE operator in SQL to perform pattern matching within
                 text fields.
@@ -330,32 +330,32 @@
                 <li>Used for broader searches, including substrings.</li>
             </ul>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pattern</th>
-                        <th>Meaning</th>
-                        <th>Example Match</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>'Ha%' </td>
-                        <td>Starts with "Ha"</td>
-                        <td>Harsha, Hari</td>
-                    </tr>
-                    <tr>
-                        <td>'%ala'</td>
-                        <td>Ends with "ala"</td>
-                        <td>Ujhala, Ujwala, utkala</td>
-                    </tr>
-                    <tr>
-                        <td>'%or%' </td>
-                        <td>Contains "or"</td>
-                        <td>George, Morgan</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Meaning</th>
+                            <th>Example Match</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>'Ha%' </td>
+                            <td>Starts with "Ha"</td>
+                            <td>Harsha, Hari</td>
+                        </tr>
+                        <tr>
+                            <td>'%ala'</td>
+                            <td>Ends with "ala"</td>
+                            <td>Ujhala, Ujwala, utkala</td>
+                        </tr>
+                        <tr>
+                            <td>'%or%' </td>
+                            <td>Contains "or"</td>
+                            <td>George, Morgan</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h3>2. _ (Underscore)</h3>
             <ul>
@@ -363,27 +363,27 @@
                 <li>Useful for more precise searches.</li>
             </ul>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pattern</th>
-                        <th>Meaning</th>
-                        <th>Example Match</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>'T_ _a' </td>
-                        <td>Starts with "T" and ends with "a"</td>
-                        <td>Tana, Tara, Teja, Tina</td>
-                    </tr>
-                    <tr>
-                        <td>'_ _ _aya'</td>
-                        <td>Six-character string ending with "aya"</td>
-                        <td>Samaya, Sanaya</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Meaning</th>
+                            <th>Example Match</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>'T_ _a' </td>
+                            <td>Starts with "T" and ends with "a"</td>
+                            <td>Tana, Tara, Teja, Tina</td>
+                        </tr>
+                        <tr>
+                            <td>'_ _ _aya'</td>
+                            <td>Six-character string ending with "aya"</td>
+                            <td>Samaya, Sanaya</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h3>3. [ ] (Square Brackets )</h3>
             <ul>
@@ -391,49 +391,49 @@
                 <li>Can define ranges (e.g., [A-Z]) or specific characters.</li>
             </ul>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pattern</th>
-                        <th>Meaning</th>
-                        <th>Example Match</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>'J[oa]n'</td>
-                        <td>Matches "Jan" or "Jon"</td>
-                        <td>Jan, Jon</td>
-                    </tr>
-                    <tr>
-                        <td>'T[aeiou]m'</td>
-                        <td>Matches "Tam", "Tem", "Tim", etc.</td>
-                        <td>Tom, Tim</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Meaning</th>
+                            <th>Example Match</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>'J[oa]n'</td>
+                            <td>Matches "Jan" or "Jon"</td>
+                            <td>Jan, Jon</td>
+                        </tr>
+                        <tr>
+                            <td>'T[aeiou]m'</td>
+                            <td>Matches "Tam", "Tem", "Tim", etc.</td>
+                            <td>Tom, Tim</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h3>4. [^ ] (Caret in Brackets)</h3>
             <ul>
                 <li>Matches <b>any single character not within the brackets</b> (SQL Server only).</li>
             </ul>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pattern</th>
-                        <th>Meaning</th>
-                        <th>Example Match</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>'J[^o]n'</td>
-                        <td>Matches "Jan", not "Jon"</td>
-                        <td>Jan, Jun</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Meaning</th>
+                            <th>Example Match</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>'J[^o]n'</td>
+                            <td>Matches "Jan", not "Jon"</td>
+                            <td>Jan, Jun</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h3>5. ESCAPE Clause</h3>
             <ul>
@@ -441,27 +441,27 @@
                 <li>Define an escape character to differentiate.</li>
             </ul><br>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pattern</th>
-                        <th>Meaning</th>
-                        <th>Example Match</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>'%\%%' ESCAPE '\'</td>
-                        <td>Matches strings containing a %</td>
-                        <td>50%, 100%</td>
-                    </tr>
-                    <tr>
-                        <td>'%\_%' ESCAPE '\'</td>
-                        <td>Matches strings containing _</td>
-                        <td>a_b, 1_2</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Meaning</th>
+                            <th>Example Match</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>'%\%%' ESCAPE '\'</td>
+                            <td>Matches strings containing a %</td>
+                            <td>50%, 100%</td>
+                        </tr>
+                        <tr>
+                            <td>'%\_%' ESCAPE '\'</td>
+                            <td>Matches strings containing _</td>
+                            <td>a_b, 1_2</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
             <h2>Syntax</h2>
             <h3>Basic Syntax:</h3>
@@ -489,7 +489,7 @@
                         <span class="orclkey">ESCAPE </span> <b>'</b>escape_character<b>'</b> <b> ; </b>
                     </code>
             </div><br>
-            <h2>Examples for Wildcards</h2>
+            <h2>Examples </h2>
             <h3>1. Basic Prefix Search</h3>
             <ul>Retrieve employees whose names start with "A".</ul>
             <div class="code-box">
@@ -573,56 +573,56 @@
             </ul><br>
             <h2>Comparison of Wildcards Across Databases</h2>
             <ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Wildcard</th>
-                        <th>Oracle</th>
-                        <th>SQL Server</th>
-                        <th>MySQL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> % </td>
-                        <td>Supported</td>
-                        <td>Supported</td>
-                        <td>Supported</td>
-                    </tr>
-                    <tr>
-                        <td> _ </td>
-                        <td>Supported</td>
-                        <td>Supported</td>
-                        <td>Supported</td>
-                    </tr>
-                    <tr>
-                        <td> [ ] </td>
-                        <td>Not Supported</td>
-                        <td>Supported</td>
-                        <td>Not Supported</td>
-                    </tr>
-                    <tr>
-                        <td> [^ ] </td>
-                        <td>Not Supported</td>
-                        <td>Supported</td>
-                        <td>Not Supported</td>
-                    </tr>
-                    <tr>
-                        <td> [^ ] or ! </td>
-                        <td>Not Supported</td>
-                        <td>Supported</td>
-                        <td>Not Supported</td>
-                    </tr>
-                    <tr>
-                        <td> ESCAPE Clause </td>
-                        <td>Supported</td>
-                        <td>Supported</td>
-                        <td>Supported</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Wildcard</th>
+                            <th>Oracle</th>
+                            <th>SQL Server</th>
+                            <th>MySQL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> % </td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                        </tr>
+                        <tr>
+                            <td> _ </td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                        </tr>
+                        <tr>
+                            <td> [ ] </td>
+                            <td>Not Supported</td>
+                            <td>Supported</td>
+                            <td>Not Supported</td>
+                        </tr>
+                        <tr>
+                            <td> [^ ] </td>
+                            <td>Not Supported</td>
+                            <td>Supported</td>
+                            <td>Not Supported</td>
+                        </tr>
+                        <tr>
+                            <td> [^ ] or ! </td>
+                            <td>Not Supported</td>
+                            <td>Supported</td>
+                            <td>Not Supported</td>
+                        </tr>
+                        <tr>
+                            <td> ESCAPE Clause </td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul><br>
-            <h2>Best Practices</h2>
+            <h2>Best Practices for WILDCARDS</h2>
             <p><b>1. Avoid Leading % :</b></p>
             <ul>
                 <ul>
@@ -633,7 +633,8 @@
             <ul>
                 <ul>
                     <li>When your data includes wildcard characters like % or _ as part of actual values,
-                    <br>use the ESCAPE clause to treat them literally.</li>
+                        <br>use the ESCAPE clause to treat them literally.
+                    </li>
                 </ul>
             </ul>
             <p><b>3. Combine with Other Filters :</b></p>
@@ -666,84 +667,79 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>
