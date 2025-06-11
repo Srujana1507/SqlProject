@@ -936,6 +936,134 @@
                 </tbody>
             </table> <br><br><br><br>
 
+            <h1>PERCENTILE_DISC() in Oracle SQL()</h1>
+            <p>PERCENTILE_DISC() is an inverse percentile function in Oracle SQL. It is used to find a specific
+                percentile from discrete (exact) values in a dataset.</p><br>
+            <p>It is used to return the first value in the dataset for which the cumulative distribution is greater than
+                or equal to the specified percentile.</p><br>
+            <p>Unlike PERCENTILE_CONT() (which interpolates between values), PERCENTILE_DISC() returns the actual value
+                from the dataset that is equal to or greater than the requested percentile.</p><br>
+            <h2>Key Characteristics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Type</td>
+                        <td>Inverse Percentile Function</td>
+                    </tr>
+                    <tr>
+                        <td>Returns</td>
+                        <td>Exact value from the dataset (not interpolated)</td>
+                    </tr>
+                    <tr>
+                        <td>Clause Required</td>
+                        <td>WITHIN GROUP (ORDER BY ...)</td>
+                    </tr>
+                    <tr>
+                        <td>Value Returned</td>
+                        <td>The lowest value in the ordered set whose cumulative distribution ≥ percentile</td>
+                    </tr>
+                    <tr>
+                        <td>Supported Percentile Range</td>
+                        <td>Between 0 and 1 (e.g., 0.5 for 50th percentile)</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclfun">PERCENTILE_DISC</span> (percentile) <br>
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> expr  [<span class="orclkey">ASC</span> ]
+                        ) <br><br>
+                        -- percentile: A number between 0 and 1 (like 0.25 for 25%, 0.5 for 50%, etc.) <br>
+                        -- expr:  Column to order by /  The column to rank and find the percentile value.
+                </code>
+            </div><br>
+            <h2>How It Works</h2>
+            <ul>
+                <li>Sorts the data using the ORDER BY clause.</li>
+                <li>Calculates the cumulative distribution.</li>
+                <li>Returns the first value where cumulative ≥ specified percentile.</li>
+            </ul><br>
+            <h2>Comparison with PERCENTILE_CONT()</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>PERCENTILE_CONT()</th>
+                        <th>PERCENTILE_DISC()</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Value Type</td>
+                        <td>Continuous (can interpolate)</td>
+                        <td>Discrete (exact data value)</td>
+                    </tr>
+                    <tr>
+                        <td>Returns actual dataset value?</td>
+                        <td>Not guaranteed</td>
+                        <td>Always</td>
+                    </tr>
+                    <tr>
+                        <td>Use case</td>
+                        <td>Exact percentile value (e.g., 90th salary cutoff)</td>
+                        <td>Pick a real value closest to percentile</td>
+                    </tr>
+                    <tr>
+                        <td>Precision</td>
+                        <td>Higher (but may not exist in data)</td>
+                        <td>Lower (but guaranteed to exist)</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Examples / Scenarios</h2>
+            <p><b>Scenario 1:- Find the 50th percentile salary (median) from an employees table.</b></p>
+            <p><b>Scenario 1: Find the Median Salary of All Employees</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                     <ul>
+                    <span class="orclfun">PERCENTILE_DISC</span> (0.5) <br>
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <span class="orclkey"> AS </span> median_salary 
+                        </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Returns the salary value that is at or just above the 50th percentile in the actual data.
+                </code>
+            </div><br>
+            <p><b>Scenario 2:- (With Partition - Department-wise Median Salary). Find the median salary in each
+                    department.</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                     <ul>
+                        department_id, <br>
+                        <span class="orclfun">PERCENTILE_DISC</span> (0.5)
+                        <ul>
+                            <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER </span> (
+                            <span class="orclkey">PARTITION BY  </span> department_id ) 
+                            <span class="orclkey"> AS </span> dept_median_salary
+                        </ul>
+                     </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Shows the median salary for each department. The result is shown row by row, but the median stays the same within a department.
+                </code>
+            </div><br>
 
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
