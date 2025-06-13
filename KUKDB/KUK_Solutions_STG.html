@@ -11,9 +11,9 @@
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
 
 <body>
     <header>
@@ -192,13 +192,11 @@
     <!-- Hero Section -->
     <div class="home-sidebar">
         <a href="#">Welcome</a>
-        <a href="#">Our Mission</a>
         <a href="#">Our Vision</a>
         <a href="#">What We Do</a>
-        <a href="#">Testimonials</a>
         <a href="#">Our Services</a>
     </div>
-    
+
     <section class="hero">
         <h3 class="hero-badge">🚀 Welcome To</h3>
         <h1 class="hero-title">KUK DB</h1>
@@ -208,13 +206,13 @@
         </p>
         <button class="hero-btn">Explore projects →</button>
     </section>
-    
+
     <!-- Projects Section -->
     <section class="projects-section">
         <div id="project-carousel" class="splide" aria-label="Project Carousel">
             <div class="splide__track">
                 <ul class="splide__list">
-    
+
                     <!-- Project Card 1 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -232,7 +230,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 2 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -250,7 +248,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 3 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -268,7 +266,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 4 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -286,7 +284,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 5 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -304,7 +302,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 6 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -322,7 +320,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 7 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -340,7 +338,7 @@
                             </div>
                         </div>
                     </li>
-    
+
                     <!-- Project Card 8 -->
                     <li class="splide__slide">
                         <div class="project-card">
@@ -358,12 +356,12 @@
                             </div>
                         </div>
                     </li>
-    
+
                 </ul>
             </div>
         </div>
     </section>
-    
+
     <section id="Our services" class="services">
         <h1>Our Services</h1>
         <ul class="services-lists">
@@ -397,7 +395,7 @@
                 databases.</li>
         </ul>
     </section>
-    
+
     <section id="contact" class="contact">
         <div class="contact-div">
             <div class="contactus">
@@ -411,7 +409,7 @@
                         <i class="fa fa-envelope icon"></i>
                         <input class="input-field" type="email" placeholder="Enter Your Email" name="email" required>
                     </div>
-    
+
                     <div class="input-container">
                         <i class="fa-solid fa-message icon"></i>
                         <textarea id="message" class="input-field" placeholder="Enter Your Message...." name="message"
@@ -428,7 +426,7 @@
             </div>
         </div>
     </section>
-    
+
     <button id="goToTopBtn" title="Go to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <!-- Footer Section -->
@@ -515,8 +513,8 @@
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
-<script>
-    
+    <script>
+
         // home page code starts here
         document.addEventListener('DOMContentLoaded', function () {
             new Splide('#project-carousel', {
@@ -542,14 +540,10 @@
                 }
             };
 
-
             // When the user clicks on the button, scroll to the top of the document
             goToTopBtn.addEventListener("click", () => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
             });
-
-
-
 
             // signup button
             // Close modals when clicking outside of modal content
@@ -568,7 +562,7 @@
         });
 
         // home page code end here
-</script>
+    </script>
     <script src="KUKscript.js"></script>
 </body>
 

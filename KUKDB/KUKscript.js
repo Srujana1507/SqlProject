@@ -1,12 +1,16 @@
 // home page script
-// Function to open the form
-// Get the modal
 var modal = document.getElementById('signUpForm');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    const signUpModal = document.getElementById('signUpForm');
+    const logInModal = document.getElementById('logInForm');
+
+    if (event.target == signUpModal) {
+        signUpModal.style.display = "none";
+    }
+    if (event.target == logInModal) {
+        logInModal.style.display = "none";
     }
 }
 
@@ -61,105 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 50);
     }
 });
-
-
-
-// sidebar start here
-// document.addEventListener("DOMContentLoaded", () => {
-//     // Select all sidebar links
-//     const links = document.querySelectorAll(".sidebar ul li a");
-
-//     links.forEach(link => {
-//         link.addEventListener("click", (event) => {
-//             event.preventDefault(); // Prevent default anchor behavior
-
-//             // Step 1: Highlight the selected link in the sidebar
-//             links.forEach(l => l.classList.remove("active")); // Remove active class from all links
-//             link.classList.add("active"); // Add active class to the clicked link
-
-//             // Step 2: Center the selected link in the sidebar
-//             const sidebar = document.querySelector(".sidebar");
-//             const linkTop = link.offsetTop; // Position of the link
-//             const sidebarHeight = sidebar.clientHeight; // Sidebar visible height
-//             sidebar.scrollTop = linkTop - sidebarHeight / 2 + link.offsetHeight / 2;
-
-//             // Step 3: Display the corresponding content
-//             const topicId = link.getAttribute("data-topic");
-//             const topics = document.querySelectorAll(".topic-content");
-//             topics.forEach(topic => topic.classList.remove("active")); // Hide all topics
-
-//             const selectedTopic = document.getElementById(topicId);
-//             if (selectedTopic) {
-//                 selectedTopic.classList.add("active"); // Show the selected topic
-//             }
-//         });
-//     });
-// });
-
-
-// // Function to parse URL query parameters
-//     function getQueryParam(param) {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     return urlParams.get(param);
-// }
-
-//     // Function to activate a topic
-//     function activateTopic(topicId) {
-//     // Deactivate all sidebar links
-//     const sidebarLinks = document.querySelectorAll('.sidebar a');
-//     sidebarLinks.forEach(link => link.classList.remove('active'));
-
-//     // Deactivate all content sections
-//     const topicContents = document.querySelectorAll('.topic-content');
-//     topicContents.forEach(content => content.classList.remove('active'));
-
-//     // Activate the selected sidebar link
-//     const activeLink = document.getElementById(topicId);
-//     if (activeLink) {
-//         activeLink.classList.add('active');
-//     }
-
-//     // Show the corresponding content section
-//     const activeContent = document.querySelector(`.topic-content[data-topic="${topicId}"]`);
-//     if (activeContent) {
-//         activeContent.classList.add('active');
-//     }
-// }
-
-//     // Function to handle sidebar initialization
-//     function initializeSidebar() {
-//     // Retrieve the active topic from the URL query parameter or localStorage
-//     const urlTopic = getQueryParam('topic');
-//     const savedTopic = localStorage.getItem('activeTopic');
-//     const activeTopic = urlTopic || savedTopic;
-
-//     if (activeTopic) {
-//         activateTopic(activeTopic);
-//     }
-
-//     // Attach click event listeners to all sidebar links
-//     const sidebarLinks = document.querySelectorAll('.sidebar a');
-//     sidebarLinks.forEach(link => {
-//         link.addEventListener('click', event => {
-//             const topicId = link.id;
-
-//             // Save the active topic in localStorage
-//             localStorage.setItem('activeTopic', topicId);
-
-//             // Allow navigation if the link is for a different page
-//             if (link.getAttribute('href')?.includes('.html')) {
-//                 return;
-//             }
-
-//             // Prevent default behavior for in-page links and activate the topic dynamically
-//             event.preventDefault();
-//             activateTopic(topicId);
-//         });
-//     });
-// }
-
-//     // Initialize the sidebar when the page loads
-//     document.addEventListener('DOMContentLoaded', initializeSidebar);
 
 // Function to parse URL query parameters
 function getQueryParam(param) {

@@ -736,7 +736,7 @@ hr {
 /* Home sidebar start Here */
 .home-sidebar {
   position: fixed;
-  top: 100px;
+  bottom: 50px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -769,7 +769,24 @@ hr {
   background-color: #1a202c;
 }
 
-/* Splide wrapper will use existing library styles */
+.splide {
+  position: relative;
+  z-index: 1;
+}
+
+.splide__slide {
+  scroll-snap-align: start;
+}
+
+#project-carousel {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.splide__track {
+  padding: 10px 0;
+}
+
 .splide {
   position: relative;
   z-index: 1;
@@ -785,21 +802,22 @@ hr {
   border-radius: 0.75rem;
   overflow: hidden;
   scroll-snap-align: start;
-  min-width: 280px;
-  max-width: 24rem;
+  min-width: 250px;
+  width: 20rem;
   z-index: -1;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
 }
 
 .project-card img {
   height: 200px;
   width: 100%;
-  display: block;
+  object-fit: cover;
+  /* display: block; */
 }
 
-@media (min-width: 768px) {
-  .project-card {
-    min-width: 22%;
-  }
+.project-card:hover {
+  transform: scale(0.95);
 }
 
 .project-card-inner {
@@ -857,16 +875,11 @@ hr {
 /* Project slides code end Here */
 
 /* Services and  Contact Style start Here */
-
 .services,
 .contact {
   padding: 20px;
   margin: 0;
   background-color: #1a202c;
-  /* border-radius: 20px;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            z-index: -1; */
 }
 
 .services h1,
@@ -874,7 +887,6 @@ hr {
   margin-left: 10px;
   margin-bottom: 10px;
   color: #0062ff;
-  /* text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); */
   text-align: left;
 }
 
@@ -890,9 +902,7 @@ hr {
   list-style: none;
   padding: 0;
   display: grid;
-  /* background-color: #87CEEB; */
   grid-template-columns: repeat(3, 1fr);
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
   gap: 20px;
   justify-items: center;
 }
@@ -950,6 +960,7 @@ hr {
   border-radius: 50px;
   margin-left: 150px;
 }
+
 /* Services and  Contact Style End Here */
 
 /* Go to Top Button start Here */
