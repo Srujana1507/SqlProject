@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+    <style>
+        /* content code start here */
+        .qus-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .qus-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .qus-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-family: Arial;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK Solutions</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="powerbiBignner">
+                <div class="qus-buttons">
+                    <a href="../powerbiinterview.html?topic=powerbiAdvanced" class="next-button">Advanced</a>
+                    <a href="../powerbiinterview.html?topic=powerbiExpert" class="next-button">Expert</a>
+                </div>
+
+                <!-- START OF Java Interview Questions. -->
+                <h1>Power BI Beginner</h1><br>
+                <p><b>1. What is Power BI?</b></p><br>
+                <p>
+                    Power BI is a business analytics tool developed by Microsoft that enables users to visualize data,
+                    share insights across an organization, or embed them in an app or website.
+                    It allows users to connect to various data sources, transform data, and create interactive
+                    dashboards and reports with ease.
+                </p><br><br>
+
+                <p><b>2. What are the main components of Power BI?</b></p><br>
+                <p>
+                    The primary components of Power BI include:
+                    <br> - <b>Power BI Desktop</b>: A Windows application used to create reports and visualizations.
+                    <br> - <b>Power BI Service</b>: An online SaaS (Software as a Service) platform for sharing and
+                    collaborating on reports.
+                    <br> - <b>Power BI Mobile</b>: Mobile apps for viewing reports on Android and iOS devices.
+                    <br> - <b>Power BI Gateway</b>: Connects on-premises data sources to Power BI services.
+                    <br> - <b>Power BI Report Server</b>: For hosting reports on-premises, useful for companies not
+                    ready to move to the cloud.
+                </p><br><br>
+
+                <p><b>3. What are some common data sources supported by Power BI?</b></p><br>
+                <p>
+                    Power BI supports a wide range of data sources, including:
+                <ul>
+                    <li>Excel, CSV, XML, JSON</li>
+                    <li>SQL Server, Oracle, MySQL</li>
+                    <li>Azure services</li>
+                    <li>SharePoint, OneDrive, Google Analytics</li>
+                    <li>OData Feed, Web, REST APIs</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>4. What is DAX in Power BI?</b></p><br>
+                <p>
+                    DAX (Data Analysis Expressions) is a formula expression language used in Power BI, Excel, and
+                    Analysis Services.
+                    It is used to create custom calculations in calculated columns, measures, and calculated tables.
+                    DAX includes functions like SUM, COUNTROWS, CALCULATE, and TIME INTELLIGENCE functions for date
+                    calculations.
+                </p><br><br>
+
+                <p><b>5. What is the difference between a calculated column and a measure in Power BI?</b></p><br>
+                <p>
+                    - <b>Calculated Column</b>: Adds a new column to your data model and stores results in memory.
+                    Useful when you need a column for filtering or grouping.
+                    <br> - <b>Measure</b>: Calculates values on the fly based on aggregations and does not store
+                    results. Used primarily in visualizations and reports.
+                </p><br><br>
+
+                <p><b>6. What are filters in Power BI and how many types are there?</b></p><br>
+                <p>
+                    Filters are used to restrict or control the data shown in reports. Power BI supports the following
+                    filter types:
+                <ul>
+                    <li><b>Visual Level Filters</b>: Apply to individual charts or visuals.</li>
+                    <li><b>Page Level Filters</b>: Apply to all visuals on a report page.</li>
+                    <li><b>Report Level Filters</b>: Apply to all pages within the report.</li>
+                    <li><b>Drillthrough Filters</b>: Enable navigation from one page to another with context.</li>
+                    <li><b>Slicer</b>: A visual filter for end-user interaction.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>7. What is the Power Query Editor?</b></p><br>
+                <p>
+                    Power Query Editor is a data transformation and preparation tool in Power BI Desktop. It allows you
+                    to:
+                <ul>
+                    <li>Connect to various data sources.</li>
+                    <li>Apply transformations like filtering, sorting, merging, and appending data.</li>
+                    <li>Shape and clean data before loading it into the data model.</li>
+                    <li>Generate M code (Power Query formula language) in the background.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>8. What is the difference between DirectQuery and Import mode?</b></p><br>
+                <p>
+                    - <b>Import Mode</b>: Loads data into Power BI’s in-memory engine. It provides faster performance
+                    but data must be refreshed manually or on a schedule.
+                    <br> - <b>DirectQuery Mode</b>: Data remains in the source system and queries are sent in real-time.
+                    Useful for large datasets, but performance may depend on the data source.
+                </p><br><br>
+
+                <p><b>9. How does Power BI handle data refresh?</b></p><br>
+                <p>
+                    Power BI allows scheduled and manual data refreshes. For cloud sources, refresh can be scheduled
+                    within Power BI Service.
+                    For on-premises data sources, Power BI Gateway must be configured. Refresh options include:
+                <ul>
+                    <li>Daily or hourly scheduling</li>
+                    <li>On-demand manual refresh</li>
+                    <li>Incremental refresh for large datasets</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>10. Can Power BI connect to real-time streaming data?</b></p><br>
+                <p>
+                    Yes, Power BI supports real-time streaming through:
+                <ul>
+                    <li>Push Datasets</li>
+                    <li>Streaming Datasets</li>
+                    <li>PubNub Streaming</li>
+                </ul>
+                These allow users to create dashboards that update live without needing to refresh manually.
+                </p><br><br>
+                <p><b>11. What is a relationship in Power BI?</b></p><br>
+                <p>
+                    In Power BI, a relationship defines how two tables are connected to one another. Relationships allow
+                    data to be queried across tables using primary and foreign keys.
+                    You can create:
+                <ul>
+                    <li><b>One-to-many</b> (1:*) — Most common relationship</li>
+                    <li><b>Many-to-one</b> (*:1)</li>
+                    <li><b>Many-to-many</b> (*:*) — Supported but used with caution</li>
+                </ul>
+                Relationships can be created automatically or manually in the data model view.
+                </p><br><br>
+
+                <p><b>12. What is a hierarchy in Power BI?</b></p><br>
+                <p>
+                    A hierarchy is a logical structure that organizes data into levels for drill-down analysis. For
+                    example, a Date hierarchy can include Year → Quarter → Month → Day.
+                    Hierarchies help users navigate data and drill into details in visuals.
+                </p><br><br>
+
+                <p><b>13. What is a slicer in Power BI?</b></p><br>
+                <p>
+                    A slicer is a visual filter that lets users interactively select values from a field and filter
+                    other visuals on the page. Slicers improve user experience by enabling quick filtering.
+                    Types of slicers:
+                <ul>
+                    <li>List</li>
+                    <li>Dropdown</li>
+                    <li>Date (Before, After, Between)</li>
+                    <li>Relative date</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>14. What is a KPI visual in Power BI?</b></p><br>
+                <p>
+                    KPI (Key Performance Indicator) visuals are used to measure the performance of a value against a
+                    target. It displays indicators like:
+                <ul>
+                    <li>Current value</li>
+                    <li>Target value</li>
+                    <li>Trend over time (optional)</li>
+                </ul>
+                It is ideal for showing metrics such as sales targets or website traffic goals.
+                </p><br><br>
+
+                <p><b>15. What are bookmarks in Power BI?</b></p><br>
+                <p>
+                    Bookmarks capture the current state of a report page including filters, slicers, and visual
+                    settings. Bookmarks can be used to:
+                <ul>
+                    <li>Create interactive reports</li>
+                    <li>Design custom navigation (like tabs)</li>
+                    <li>Highlight scenarios or user selections</li>
+                </ul>
+                Combined with buttons, bookmarks enable storytelling with data.
+                </p><br><br>
+
+                <p><b>16. What is the use of drill-down and drill-through in Power BI?</b></p><br>
+                <p>
+                    - <b>Drill-down</b>: Allows users to explore detailed data by navigating from summary-level views to
+                    lower levels in a hierarchy (e.g., Year → Month → Day).
+                    <br> - <b>Drill-through</b>: Navigates to a different page focused on a specific data context (e.g.,
+                    viewing customer details when clicking a customer name).
+                </p><br><br>
+
+                <p><b>17. What is the difference between a dashboard and a report in Power BI?</b></p><br>
+                <p>
+                    - <b>Dashboard</b>: A single-page, consolidated view created in Power BI Service. It can contain
+                    visuals from multiple reports and datasets.
+                    <br> - <b>Report</b>: A multi-page canvas created in Power BI Desktop with visuals from a single
+                    dataset. Reports offer detailed analysis and interactivity.
+                </p><br><br>
+
+                <p><b>18. What is Q&A in Power BI?</b></p><br>
+                <p>
+                    Q&A is a natural language feature in Power BI that allows users to ask questions using plain English
+                    and receive answers in the form of visuals.
+                    Example: Typing “Total sales by region” auto-generates a bar chart showing that data.
+                </p><br><br>
+
+                <p><b>19. What is Power BI Gateway?</b></p><br>
+                <p>
+                    Power BI Gateway is a bridge that connects on-premises data sources to Power BI Service for live
+                    queries and data refresh.
+                    Two types:
+                <ul>
+                    <li><b>Personal Mode</b>: For individual use, supports scheduled refresh only.</li>
+                    <li><b>Standard (Enterprise) Mode</b>: For organizations, supports live connections and multiple
+                        users.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>20. What is Row-Level Security (RLS) in Power BI?</b></p><br>
+                <p>
+                    Row-Level Security (RLS) restricts access to data at the row level for different users. You can
+                    define security roles and DAX filters so users see only the data relevant to them.
+                    Example:
+                    <br><code><b style="color:deeppink;">[Region] = "West"</b></code> — This filter can be applied to
+                    users assigned to the "West" role.
+                </p><br><br>
+                <p><b>21. What is the difference between calculated columns and measures in Power BI?</b></p><br>
+                <p>
+                    - <b>Calculated Column</b>: Adds a new column to your data model. It's evaluated row by row and
+                    stored in memory.
+                    <br> - <b>Measure</b>: A dynamic calculation based on aggregations (like SUM, COUNT). It is
+                    calculated on the fly and not stored in memory.
+                    <br><br>
+                    <code><b style="color:deeppink;">Sales[Profit] = Sales[Revenue] - Sales[Cost]</b></code> (calculated
+                    column)<br>
+                    <code><b style="color:deeppink;">Total Sales = SUM(Sales[Revenue])</b></code> (measure)
+                </p><br><br>
+
+                <p><b>22. What is a star schema in Power BI?</b></p><br>
+                <p>
+                    A star schema is a type of data modeling design that uses a central <b>fact table</b> (like Sales)
+                    connected to multiple <b>dimension tables</b> (like Date, Product, Region).
+                    It is the most optimal structure for Power BI performance and simplifies data relationships.
+                </p><br><br>
+
+                <p><b>23. What is the significance of data types in Power BI?</b></p><br>
+                <p>
+                    Setting correct data types (e.g., Text, Whole Number, Decimal, Date/Time) is essential for:
+                <ul>
+                    <li>Accurate calculations</li>
+                    <li>Sorting and filtering</li>
+                    <li>Performance optimization</li>
+                </ul>
+                Mismatched data types can lead to errors in visuals and incorrect aggregations.
+                </p><br><br>
+
+                <p><b>24. What is the difference between DirectQuery and Import mode?</b></p><br>
+                <p>
+                    - <b>Import Mode</b>: Loads data into Power BI's in-memory model. Faster performance, supports
+                    complex transformations.
+                    <br> - <b>DirectQuery</b>: Does not store data; queries the database in real-time. Ideal for large
+                    datasets or real-time reporting but has limitations in performance and DAX functions.
+                </p><br><br>
+
+                <p><b>25. What is the use of the LOOKUPVALUE() function in DAX?</b></p><br>
+                <p>
+                    The <code><b style="color:deeppink;">LOOKUPVALUE()</b></code> function retrieves a value from a
+                    table based on a search condition.
+                </p><br>
+                <div class="interview-box">
+                    <code>
+                LOOKUPVALUE(Result_ColumnName, Search_ColumnName, Search_Value)
+                </code>
+                </div><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                LOOKUPVALUE(Employee[Department], Employee[ID], 101)
+                </code>
+                </div><br><br>
+
+                <p><b>26. What is a tooltip in Power BI?</b></p><br>
+                <p>
+                    A tooltip is a small pop-up box that appears when a user hovers over a visual. It provides
+                    additional context or detailed data for the element being hovered over.
+                    Power BI also allows creating custom tooltip report pages for advanced interactions.
+                </p><br><br>
+
+                <p><b>27. What is the use of the ALL() function in DAX?</b></p><br>
+                <p>
+                    The <code><b style="color:deeppink;">ALL()</b></code> function removes filters from a table or
+                    column. It is commonly used in calculations like percentage of total.
+                </p>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+                Percentage = DIVIDE(SUM(Sales[Amount]), CALCULATE(SUM(Sales[Amount]), ALL(Sales)))
+                </code>
+                </div><br><br>
+
+                <p><b>28. How can you refresh data in Power BI?</b></p><br>
+                <p>
+                    Data refresh can be done in several ways:
+                <ul>
+                    <li>In Power BI Desktop: Click on “Refresh” to update queries from the source.</li>
+                    <li>In Power BI Service: Configure scheduled refresh using Gateway for on-premise data or automatic
+                        refresh for cloud sources.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>29. What is a tooltip page in Power BI?</b></p><br>
+                <p>
+                    A tooltip page is a dedicated report page used as a custom tooltip. When configured, hovering over
+                    visuals can display this page instead of the default tooltip.
+                    This enables richer insights with visuals, filters, and text.
+                </p><br><br>
+
+                <p><b>30. What is Power BI Service and how does it differ from Power BI Desktop?</b></p><br>
+                <p>
+                    - <b>Power BI Desktop</b>: A Windows application used to create reports and data models locally.
+                    <br> - <b>Power BI Service</b>: A cloud-based platform where reports and dashboards are published,
+                    shared, and collaborated on.
+                    <br><br>
+                    Power BI Service supports:
+                <ul>
+                    <li>Sharing and collaboration</li>
+                    <li>Scheduled data refresh</li>
+                    <li>Workspaces and apps</li>
+                    <li>Dashboard creation</li>
+                </ul>
+                </p><br><br>
+
+
+
+
+                <!-- END OF powerbi Interview Questions. -->
+
+                <div class="qus-buttons">
+                    <a href="../powerbiinterview.html?topic=powerbiAdvanced" class="next-button">Advanced</a>
+                    <a href="../powerbiinterview.html?topic=powerbiExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="powerbiAdvanced">
+                <div class="qus-buttons">
+                    <a href="../powerbiinterview.html?topic=powerbiBignner" class="previou-button">Beginner</a>
+                    <a href="../powerbiinterview.html?topic=powerbiExpert" class="next-button">Expert</a>
+                </div>
+
+                <h1>Power BI Advanced</h1>
+                <p><b>1. What is the difference between DirectQuery and Import mode in Power BI?</b></p><br>
+                <p>
+                    - <b>Import Mode</b>: Data is imported and stored in Power BI. It offers fast performance due to
+                    in-memory processing but may not always reflect real-time changes.
+                    <br> - <b>DirectQuery Mode</b>: Data remains in the source; only metadata is stored. Queries are
+                    sent directly to the data source at runtime, enabling real-time updates but may impact performance
+                    depending on the data source speed and load.
+                </p><br><br>
+
+                <p><b>2. What are Aggregations in Power BI and why are they used?</b></p><br>
+                <p>
+                    Aggregations are pre-calculated summary tables that help improve query performance by reducing the
+                    data volume at query time. Power BI uses them to redirect queries to smaller, summarized datasets
+                    when detailed data is not required.
+                    <br>This is especially useful when working with large datasets in DirectQuery or composite models.
+                </p><br><br>
+
+                <p><b>3. What is Row-Level Security (RLS) and how is it implemented in Power BI?</b></p><br>
+                <p>
+                    Row-Level Security (RLS) allows you to restrict data access for specific users based on filters. It
+                    is implemented by:
+                    <br> - Defining roles in Power BI Desktop.
+                    <br> - Applying DAX filters (e.g.,
+                    <code><b style="color:deeppink;">[Region] = USERNAME()</b></code>) on tables.
+                    <br> - Publishing the report and assigning roles in the Power BI Service.
+                </p><br><br>
+
+                <p><b>4. What is the purpose of the CALCULATE() function in DAX?</b></p><br>
+                <p>
+                    <code><b style="color:deeppink;">CALCULATE()</b></code> evaluates an expression in a modified filter
+                    context. It is a powerful function used to perform dynamic calculations, like changing the current
+                    filter context based on certain conditions or slicing data.
+                </p><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+    Sales_Last_Year = <b style="color:deeppink;">CALCULATE</b>(SUM(Sales[Amount]), Sales[Year] = 2023)
+</code>
+                </div><br><br>
+
+                <p><b>5. What is a composite model in Power BI?</b></p><br>
+                <p>
+                    A composite model allows you to combine data from multiple sources (Import + DirectQuery) in the
+                    same report. This provides greater flexibility by letting you balance performance with real-time
+                    access.
+                    <br>It also supports defining relationships between mixed-mode tables and using aggregations.
+                </p><br><br>
+                <p><b>6. What is the difference between ALL() and REMOVEFILTERS() in DAX?</b></p><br>
+                <p>
+                    Both functions remove filters, but they behave slightly differently:
+                    <br> - <b>ALL()</b>: Removes all filters from a table or column and can return all rows (ignores
+                    filter context entirely).
+                    <br> - <b>REMOVEFILTERS()</b>: Also removes filters, but it’s more explicit and recommended when you
+                    only want to clear filters without altering row context.
+                </p><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+    TotalSales_All = <b style="color:deeppink;">CALCULATE</b>(SUM(Sales[Amount]), <b style="color:deeppink;">ALL</b>(Sales[Region]))<br>
+    TotalSales_NoFilters = <b style="color:deeppink;">CALCULATE</b>(SUM(Sales[Amount]), <b style="color:deeppink;">REMOVEFILTERS</b>(Sales[Region]))
+</code>
+                </div><br><br>
+
+                <p><b>7. What are bookmarks in Power BI and how are they used?</b></p><br>
+                <p>
+                    Bookmarks capture the current state of a report page, including filters, slicers, and visuals. They
+                    are commonly used to create interactive experiences, such as:
+                    <br> - Creating custom navigation menus
+                    <br> - Showing/hiding visuals dynamically
+                    <br> - Enabling storytelling or guided analysis with buttons and bookmarks
+                </p><br><br>
+
+                <p><b>8. Explain the difference between Star Schema and Snowflake Schema in Power BI data modeling.</b>
+                </p><br>
+                <p>
+                    - <b>Star Schema</b>: Has a central fact table connected to multiple dimension tables. All dimension
+                    tables are directly linked to the fact table. Simpler, faster for queries.
+                    <br> - <b>Snowflake Schema</b>: Dimension tables are normalized, meaning they can connect to other
+                    dimension tables. This can reduce redundancy but increases complexity and can slightly impact
+                    performance.
+                </p><br><br>
+
+                <p><b>9. What is DAX Studio and how is it helpful in Power BI?</b></p><br>
+                <p>
+                    DAX Studio is a free external tool for writing, analyzing, and debugging DAX queries. It connects to
+                    your Power BI model and helps:
+                    <br> - Monitor query performance using server timings and query plans
+                    <br> - Run complex DAX measures
+                    <br> - Export data and analyze in Excel
+                    <br> - Identify bottlenecks in data models
+                </p><br><br>
+
+                <p><b>10. How do you optimize a slow Power BI report?</b></p><br>
+                <p>
+                    To optimize performance:
+                <ul>
+                    <li>Use <b>Import Mode</b> over DirectQuery for faster performance if real-time data is not
+                        essential.</li>
+                    <li>Reduce cardinality in columns (e.g., avoid high-uniqueness fields).</li>
+                    <li>Remove unnecessary columns and tables from the model.</li>
+                    <li>Optimize DAX measures using efficient functions like <b style="color:deeppink;">SUMX</b>, <b
+                            style="color:deeppink;">CALCULATE</b>, and avoid complex nested logic.</li>
+                    <li>Limit the use of visuals per page; Power BI renders all visuals simultaneously.</li>
+                    <li>Use <b>Performance Analyzer</b> to detect slow visuals and queries.</li>
+                </ul>
+                </p><br><br>
+                <p><b>11. What is a composite model in Power BI?</b></p><br>
+                <p>
+                    A composite model allows you to combine multiple data connectivity modes in one report — such as
+                    Import and DirectQuery. This enables:
+                    <br> - Real-time data access from certain sources (DirectQuery)
+                    <br> - Performance optimization by importing static tables
+                    <br> - Enhanced flexibility in combining cloud and on-premise sources
+                </p><br><br>
+
+                <p><b>12. What is the significance of the USERELATIONSHIP function in DAX?</b></p><br>
+                <p>
+                    <b>USERELATIONSHIP()</b> is used when you have multiple relationships between two tables, but only
+                    one can be active at a time. It allows you to activate an inactive relationship temporarily in a
+                    specific measure.
+                </p><br>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+    TotalSalesByShipDate = <b style="color:deeppink;">CALCULATE</b>(<br>
+        SUM(Sales[Amount]),<br>
+        USERELATIONSHIP(Sales[ShipDate], Calendar[Date])<br>
+    )
+</code>
+                </div><br><br>
+
+                <p><b>13. How can you implement Row-Level Security (RLS) in Power BI?</b></p><br>
+                <p>
+                    Row-Level Security (RLS) restricts access to data based on user roles. You can:
+                <ul>
+                    <li>Define roles in Power BI Desktop using DAX filters.</li>
+                    <li>Assign users to roles in the Power BI Service.</li>
+                    <li>Use functions like <b style="color:deeppink;">USERNAME()</b> or <b
+                            style="color:deeppink;">USERPRINCIPALNAME()</b> for dynamic security.</li>
+                </ul>
+                <p><b>Example DAX Filter:</b> <code>[Region] = USERNAME()</code></p>
+                </p><br><br>
+
+                <p><b>14. What is a calculation group in Power BI and how is it useful?</b></p><br>
+                <p>
+                    Calculation groups (available in Tabular Editor) allow you to create reusable logic for time
+                    intelligence or dynamic measures.
+                    <br> - Reduces measure duplication
+                    <br> - Useful for scenarios like YTD, MTD, and comparisons
+                    <br> - Improves model manageability and scalability
+                </p><br><br>
+
+                <p><b>15. What are Power BI Aggregations and how do they improve performance?</b></p><br>
+                <p>
+                    Aggregations allow you to precompute summary data at a higher grain and use it for faster reporting.
+                    Power BI intelligently directs queries to aggregation tables when possible.
+                    <br> - Speeds up performance on large datasets
+                    <br> - Works best with DirectQuery sources
+                    <br> - Can be managed in the Model view under Manage Aggregations
+                </p><br><br>
+
+                <p><b>16. What is the difference between Import mode and DirectQuery mode in Power BI?</b></p><br>
+                <p>
+                    - <b>Import Mode</b>: Data is imported and stored in Power BI. It provides fast performance and
+                    enables advanced transformations but can increase file size and requires scheduled refresh.
+                    <br> - <b>DirectQuery Mode</b>: Data is not stored; queries are sent live to the data source. It
+                    supports real-time updates and handles large datasets well but may suffer from slower performance
+                    depending on query complexity and source speed.
+                </p><br><br>
+
+                <p><b>17. How do you handle performance tuning in Power BI reports?</b></p><br>
+                <p>
+                    Performance tuning in Power BI involves several techniques:
+                <ul>
+                    <li>Use proper data modeling (star schema is preferred).</li>
+                    <li>Reduce number of visuals and interactions on a page.</li>
+                    <li>Limit use of complex DAX measures in visuals.</li>
+                    <li>Use aggregations and summary tables where possible.</li>
+                    <li>Leverage Performance Analyzer to identify bottlenecks.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>18. What is incremental refresh in Power BI and when should you use it?</b></p><br>
+                <p>
+                    Incremental refresh allows you to update only a portion of the data (e.g., recent months or years),
+                    reducing load time and enhancing performance. It's suitable for large datasets where refreshing all
+                    rows every time is inefficient.
+                </p><br>
+                <p><b>Steps:</b></p>
+                <ul>
+                    <li>Create date range filters in Power Query using parameters.</li>
+                    <li>Enable incremental refresh in table settings.</li>
+                    <li>Publish the report to Power BI Service.</li>
+                </ul><br><br>
+
+                <p><b>19. What is DAX Studio and how is it used in Power BI?</b></p><br>
+                <p>
+                    DAX Studio is an external tool for writing, running, and analyzing DAX queries in Power BI, Excel,
+                    and SSAS Tabular models. It is used for:
+                <ul>
+                    <li>Testing and debugging DAX formulas</li>
+                    <li>Capturing query plans and performance metrics</li>
+                    <li>Exporting data from Power BI models</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>20. What is the role of ALM Toolkit in Power BI?</b></p><br>
+                <p>
+                    ALM Toolkit is a schema comparison tool for Power BI datasets. It is mainly used for:
+                <ul>
+                    <li>Deploying changes from development to production</li>
+                    <li>Comparing models across environments</li>
+                    <li>Merging datasets while maintaining relationships and measures</li>
+                    <li>Version controlling Power BI models</li>
+                </ul>
+                It is especially useful in enterprise-level BI deployments.
+                </p><br><br>
+                <p><b>21. How does Power BI handle row-level security (RLS)?</b></p><br>
+                <p>
+                    Row-Level Security (RLS) in Power BI restricts data access for users at the row level. Filters are
+                    applied to roles, and these roles determine what data a user can see when a report is published to
+                    the Power BI service.
+                </p>
+                <p><b>Steps to implement RLS:</b></p>
+                <ul>
+                    <li>Define roles and filters in Power BI Desktop (Model View → Manage Roles).</li>
+                    <li>Assign DAX filters to limit data visibility.</li>
+                    <li>Publish the report and assign users to roles in the Power BI Service.</li>
+                </ul><br><br>
+
+                <p><b>22. What is a composite model in Power BI?</b></p><br>
+                <p>
+                    A composite model allows Power BI to use more than one data connection type in a single report
+                    (e.g., Import and DirectQuery together). This gives flexibility to balance performance and real-time
+                    access.
+                </p>
+                <p><b>Use Cases:</b></p>
+                <ul>
+                    <li>Combining static reference data (imported) with large transactional data (DirectQuery).</li>
+                    <li>Enabling users to build models on top of shared datasets using DirectQuery to Power BI datasets.
+                    </li>
+                </ul><br><br>
+
+                <p><b>23. What are some common DAX optimization techniques?</b></p><br>
+                <p>
+                    DAX optimization improves performance and ensures efficient calculation execution. Techniques
+                    include:
+                <ul>
+                    <li>Avoiding use of <code><b style="color:deeppink;">CALCULATE</b></code> inside iterators unless
+                        necessary.</li>
+                    <li>Reducing row context transitions.</li>
+                    <li>Using variables to store intermediate results.</li>
+                    <li>Preferring <code><b style="color:deeppink;">SUMX</b></code> over
+                        <code><b style="color:deeppink;">FILTER</b></code> when possible.</li>
+                    <li>Using tools like DAX Studio to identify slow-running queries.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>24. What is the difference between calculated columns and measures?</b></p><br>
+                <p>
+                    - <b>Calculated Column</b>: Computed during data refresh and stored in the data model. Useful when
+                    the result is needed per row.
+                    <br> - <b>Measure</b>: Calculated at query time based on filter context. It does not consume storage
+                    and is more efficient for aggregations.
+                </p>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                    <code>
+-- Calculated Column:<br>
+Profit = Sales[Revenue] - Sales[Cost]<br><br>
+-- Measure:<br>
+Total Profit = <b style="color:deeppink;">SUM</b>(Sales[Revenue]) - <b style="color:deeppink;">SUM</b>(Sales[Cost])
+</code>
+                </div><br><br>
+
+                <p><b>25. How do you use bookmarks in Power BI?</b></p><br>
+                <p>
+                    Bookmarks are used to capture the current state of a report page, including filters, visuals, and
+                    selection settings. They are useful for storytelling, navigation, and creating interactive reports.
+                </p>
+                <p><b>Usage:</b></p>
+                <ul>
+                    <li>Create visuals and apply desired filters.</li>
+                    <li>Go to the View tab → Bookmarks Pane → Add Bookmark.</li>
+                    <li>Use buttons or images to trigger bookmark navigation.</li>
+                </ul>
+
+                <p><b>26. What is the significance of the "Performance Analyzer" in Power BI?</b></p><br>
+                <p>
+                    The Performance Analyzer tool in Power BI Desktop helps diagnose slow report performance by
+                    measuring the time taken by each visual to render. It shows how long each component takes to query,
+                    render, and perform DAX evaluations.
+                </p>
+                <p><b>Steps to use:</b></p>
+                <ul>
+                    <li>Go to the "View" tab and enable "Performance Analyzer".</li>
+                    <li>Start recording and refresh visuals.</li>
+                    <li>Analyze the timing breakdown and export for further analysis (e.g., into DAX Studio).</li>
+                </ul><br><br>
+
+                <p><b>27. What are aggregations in Power BI and why are they useful?</b></p><br>
+                <p>
+                    Aggregations are pre-calculated summaries of data (like totals, averages) that improve performance,
+                    especially for large datasets. Power BI can automatically redirect queries to aggregated tables
+                    instead of detailed ones, thus reducing load time.
+                </p>
+                <p><b>Example:</b></p>
+                <ul>
+                    <li>Instead of querying transaction-level data, use an aggregated table grouped by Product and
+                        Month.</li>
+                    <li>Enable the "Manage Aggregations" option in Power BI to define how the aggregate table maps to
+                        the detailed table.</li>
+                </ul><br><br>
+
+                <p><b>28. How does incremental refresh work in Power BI?</b></p><br>
+                <p>
+                    Incremental refresh updates only the data that has changed (e.g., recent months) rather than
+                    refreshing the entire dataset. This improves performance and reduces resource usage.
+                </p>
+                <p><b>Steps:</b></p>
+                <ul>
+                    <li>Set parameters like RangeStart and RangeEnd in Power BI Desktop.</li>
+                    <li>Define filter logic in Power Query using these parameters.</li>
+                    <li>Configure the incremental refresh policy in the Power BI Service after publishing.</li>
+                </ul><br><br>
+
+                <p><b>29. Explain what "Analyze in Excel" does in Power BI.</b></p><br>
+                <p>
+                    The "Analyze in Excel" feature allows users to connect Excel to a Power BI dataset and use
+                    PivotTables to explore data. This is useful for users familiar with Excel who want to analyze Power
+                    BI models directly.
+                </p>
+                <p><b>Key Benefits:</b></p>
+                <ul>
+                    <li>Leverages Excel’s functionality while using the Power BI data model.</li>
+                    <li>No need to export data – the live connection ensures real-time updates.</li>
+                </ul><br><br>
+
+                <p><b>30. How can you optimize Power BI reports for mobile devices?</b></p><br>
+                <p>
+                    Power BI provides a dedicated layout view for mobile optimization. This allows you to arrange
+                    visuals specifically for smaller screens.
+                </p>
+                <p><b>Steps:</b></p>
+                <ul>
+                    <li>Click on "View" → "Mobile Layout" in Power BI Desktop.</li>
+                    <li>Drag and drop visuals onto the phone canvas.</li>
+                    <li>Test the layout using the Power BI Mobile app.</li>
+                </ul>
+                <p>This helps improve readability and user experience on mobile devices, ensuring that business insights
+                    are accessible anytime, anywhere.</p><br><br>
+
+
+
+
+
+
+                <div class="qus-buttons">
+                    <a href="../powerbiinterview.html?topic=powerbiBignner" class="previou-button">Beginner</a>
+                    <a href="../powerbiinterview.html?topic=powerbiExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="powerbiExpert">
+                <div class="qus-buttons">
+                    <a href="../powerbiinterview.html?topic=powerbiAdvanced" class="previou-button">Advanced</a>
+                    <a href="../powerbiinterview.html?topic=powerbiBignner" class="next-button">Beginner</a>
+                </div>
+
+                <h1>Power BI Expert</h1>
+                <p><b>1. How can you optimize DAX queries for better performance in Power BI?</b></p><br>
+                <p>
+                    Optimizing DAX involves reducing the computational load during query execution. Best practices
+                    include:
+                <ul>
+                    <li>Use <code><b style="color:deeppink;">SUMX</b></code> over
+                        <code><b style="color:deeppink;">CALCULATE</b></code> where appropriate for row-level
+                        calculations.</li>
+                    <li>Use variables (<code><b style="color:deeppink;">VAR</b></code>) to store expressions to avoid
+                        recomputation.</li>
+                    <li>Minimize use of <code><b style="color:deeppink;">FILTER</b></code> within
+                        <code><b style="color:deeppink;">CALCULATE</b></code> and prefer simpler predicates.</li>
+                    <li>Leverage star schema and avoid snowflake relationships in your model.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>2. What are calculation groups in Power BI and how do they help?</b></p><br>
+                <p>
+                    Calculation groups allow you to define a set of reusable calculations (like YTD, MTD, QoQ) that can
+                    be applied across multiple measures. They are created in Tabular Editor and reduce the number of
+                    repetitive measures in your model, improving maintainability and user experience.
+                </p><br><br>
+
+                <p><b>3. Explain how Row-Level Security (RLS) works in Power BI. How can you dynamically implement
+                        it?</b></p><br>
+                <p>
+                    RLS restricts data access for users at the row level. It is implemented using DAX filters in roles.
+                    Dynamic RLS involves linking users to data via a relationship and using
+                    <code><b style="color:deeppink;">USERNAME()</b></code> or
+                    <code><b style="color:deeppink;">USERPRINCIPALNAME()</b></code> to apply personalized filters.
+                </p><br><br>
+
+                <p><b>4. How does the VertiPaq engine work in Power BI?</b></p><br>
+                <p>
+                    VertiPaq is Power BI’s in-memory storage engine. It uses columnar storage and dictionary encoding to
+                    compress data efficiently. It stores each column as a separate structure and compresses it based on
+                    uniqueness, improving performance and reducing memory usage. The engine optimizes query execution by
+                    scanning only necessary columns.
+                </p><br><br>
+
+                <p><b>5. What is query folding, and why is it important?</b></p><br>
+                <p>
+                    Query folding is the process where Power Query transformations are translated into native source
+                    queries (like SQL). It enhances performance by offloading processing to the data source. Folding
+                    allows incremental refresh and efficient dataset loading. If a step breaks folding, all subsequent
+                    steps are computed locally, which can degrade performance.
+                </p><br><br>
+                <p><b>6. What are Aggregations in Power BI and how do they improve performance?</b></p><br>
+                <p>
+                    Aggregations are pre-summarized tables that reduce the volume of data Power BI has to process. By
+                    using aggregated tables (e.g., sales by region or month), Power BI can answer queries using smaller,
+                    faster tables rather than the full dataset. Aggregation awareness can be configured manually or
+                    automatically through composite models.
+                </p><br><br>
+
+                <p><b>7. How do you manage data refreshes in large datasets?</b></p><br>
+                <p>
+                    Managing large data refreshes involves:
+                <ul>
+                    <li>Implementing <b>Incremental Refresh</b> to update only recent data rather than the full dataset.
+                    </li>
+                    <li>Using <b>Dataflows</b> to centralize and pre-transform data.</li>
+                    <li>Scheduling refreshes during off-peak hours.</li>
+                    <li>Monitoring with Power BI Service refresh history and setting alerts for failures.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>8. What is the difference between DirectQuery, Import, and Composite models?</b></p><br>
+                <p>
+                    - <b>Import</b>: Loads data into Power BI’s in-memory model for fast performance.<br>
+                    - <b>DirectQuery</b>: Queries the source in real-time; slower but always up to date.<br>
+                    - <b>Composite Model</b>: Combines Import and DirectQuery modes, allowing hybrid datasets that
+                    balance freshness and performance.
+                </p><br><br>
+
+                <p><b>9. Explain the use of ALM Toolkit in Power BI projects.</b></p><br>
+                <p>
+                    ALM Toolkit is used for Application Lifecycle Management in Power BI. It enables:
+                <ul>
+                    <li>Schema comparison between datasets (Dev, Test, Prod).</li>
+                    <li>Deployment of metadata changes without full redeployment.</li>
+                    <li>Version control by integrating with source control systems.</li>
+                </ul>
+                It's especially useful for managing enterprise-scale semantic models.
+                </p><br><br>
+
+                <p><b>10. How do you handle performance bottlenecks in Power BI reports?</b></p><br>
+                <p>
+                    Performance bottlenecks can be handled by:
+                <ul>
+                    <li>Reducing visual elements (cards, tables, slicers).</li>
+                    <li>Using <b>Performance Analyzer</b> to identify slow visuals and DAX queries.</li>
+                    <li>Optimizing DAX calculations with variables and avoiding nested filters.</li>
+                    <li>Using star schema for data modeling and avoiding bi-directional relationships.</li>
+                    <li>Enabling query folding and aggregations.</li>
+                </ul>
+                </p><br><br>
+                <p><b>11. What is Query Folding and why is it important in Power BI?</b></p><br>
+                <p>
+                    Query Folding is the process where Power BI translates transformations applied in Power Query into
+                    native queries that are executed by the source database. It improves performance by:
+                <ul>
+                    <li>Minimizing data loaded into Power BI.</li>
+                    <li>Allowing the source system to handle complex operations.</li>
+                    <li>Enabling incremental refresh support.</li>
+                </ul>
+                Query folding can be broken if unsupported operations are used, so maintaining it is key for optimized
+                models.
+                </p><br><br>
+
+                <p><b>12. What are calculation groups in Tabular Editor and how do they help in Power BI?</b></p><br>
+                <p>
+                    Calculation groups in Tabular Editor help reduce DAX redundancy by defining reusable logic across
+                    multiple measures. For example, instead of creating separate measures for YTD, MTD, and QTD, a
+                    single measure with a calculation group can dynamically apply these time intelligence functions.
+                <ul>
+                    <li>Improves model readability and maintainability.</li>
+                    <li>Supports dynamic formatting and logic reuse.</li>
+                    <li>Only available via external tools like Tabular Editor.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>13. How would you implement Row-Level Security (RLS) with dynamic filters?</b></p><br>
+                <p>
+                    Dynamic RLS involves filtering data based on the current user. This can be achieved by:
+                <ul>
+                    <li>Creating a user mapping table that links usernames/emails to dimension values (e.g., region or
+                        department).</li>
+                    <li>Using DAX functions like <code><b style="color:deeppink;">USERPRINCIPALNAME()</b></code> or
+                        <code><b style="color:deeppink;">USERNAME()</b></code> to match the logged-in user.</li>
+                    <li>Creating roles in Power BI Desktop with filter expressions referencing the mapping table.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>14. Explain how you would optimize a slow DAX measure.</b></p><br>
+                <p>
+                    To optimize a slow DAX measure:
+                <ul>
+                    <li>Use <code><b style="color:deeppink;">VAR</b></code> to store intermediate results instead of
+                        repeating calculations.</li>
+                    <li>Minimize use of <code><b style="color:deeppink;">FILTER</b></code> and
+                        <code><b style="color:deeppink;">CALCULATE</b></code> unless necessary.</li>
+                    <li>Replace complex conditions with logical switches or precomputed columns.</li>
+                    <li>Use tools like DAX Studio or Performance Analyzer to identify bottlenecks and query durations.
+                    </li>
+                </ul>
+                </p><br><br>
+
+                <p><b>15. What are deployment pipelines in Power BI Service?</b></p><br>
+                <p>
+                    Deployment Pipelines allow for structured development in Power BI with stages like
+                    <b>Development</b>, <b>Test</b>, and <b>Production</b>. Features include:
+                <ul>
+                    <li>Version comparison between environments.</li>
+                    <li>Selective deployment of changes (datasets, reports).</li>
+                    <li>Visibility into changes before deployment.</li>
+                    <li>Maintaining dataset IDs for seamless report connection across environments.</li>
+                </ul>
+                They streamline the DevOps lifecycle in Power BI environments.
+                </p><br><br>
+                <p><b>16. How do you handle performance tuning in large Power BI models?</b></p><br>
+                <p>
+                    Performance tuning in Power BI for large datasets involves multiple best practices:
+                <ul>
+                    <li>Use star schema instead of snowflake schema.</li>
+                    <li>Reduce the number of columns and rows in fact tables.</li>
+                    <li>Disable auto date/time for new files and avoid calculated columns where possible.</li>
+                    <li>Use aggregations or summary tables to pre-calculate values.</li>
+                    <li>Optimize DAX queries using tools like DAX Studio and Performance Analyzer.</li>
+                    <li>Ensure proper indexing and partitioning at the source database level.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>17. Explain composite models in Power BI.</b></p><br>
+                <p>
+                    Composite models allow combining DirectQuery and Import data sources within a single dataset. This
+                    gives flexibility in performance and real-time access:
+                <ul>
+                    <li>Use Import mode for static data and DirectQuery for dynamic or large data sources.</li>
+                    <li>Supports many-to-many relationships via bidirectional filtering.</li>
+                    <li>Helps break monolithic models into modular, reusable datasets.</li>
+                    <li>Can define calculated tables across different sources.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>18. What is XMLA endpoint and how do you use it in Power BI?</b></p><br>
+                <p>
+                    The XMLA endpoint allows external tools to connect to Power BI datasets for management, automation,
+                    and scripting. It's available for datasets in Premium or Premium per User (PPU) workspaces.
+                <ul>
+                    <li>Used for deploying models via SSMS, Tabular Editor, or ALM Toolkit.</li>
+                    <li>Enables advanced features like role management, scripting, and partitioning.</li>
+                    <li>Allows automation of model updates in CI/CD pipelines.</li>
+                    <li>Connection format:
+                        <code><b style="color:deeppink;">powerbi://api.powerbi.com/v1.0/myorg/WorkspaceName</b></code>
+                    </li>
+                </ul>
+                </p><br><br>
+
+                <p><b>19. How do incremental refresh policies work in Power BI?</b></p><br>
+                <p>
+                    Incremental refresh in Power BI improves performance and refresh time for large datasets by only
+                    loading new or changed data instead of the entire dataset. Key concepts:
+                <ul>
+                    <li>Requires parameters <code><b style="color:deeppink;">RangeStart</b></code> and
+                        <code><b style="color:deeppink;">RangeEnd</b></code> in Power Query.</li>
+                    <li>Partitioned data at the model level for improved refresh logic.</li>
+                    <li>Only available in Pro (with small data) and Premium (large data) workspaces.</li>
+                    <li>Can combine with hybrid tables for real-time + historical data architecture.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>20. What are Hybrid Tables in Power BI?</b></p><br>
+                <p>
+                    Hybrid tables allow combining imported data (for historical performance) with real-time DirectQuery
+                    data (for the latest transactions) in a single table. Features include:
+                <ul>
+                    <li>Supports scenarios like daily imports with real-time intraday transactions.</li>
+                    <li>Available in Premium/PPU workspaces.</li>
+                    <li>Requires careful model and refresh design to ensure consistency.</li>
+                    <li>Useful for financial, retail, and time-sensitive dashboards.</li>
+                </ul>
+                </p><br><br>
+                <p><b>21. How can you implement Row-Level Security (RLS) in Power BI using DAX?</b></p><br>
+                <p>
+                    Row-Level Security (RLS) restricts data access for specific users by defining DAX filters on roles:
+                <ul>
+                    <li>In Power BI Desktop, go to <b>Modeling → Manage Roles</b>.</li>
+                    <li>Create a role with a DAX filter like:<br>
+                        <code><b style="color:deeppink;">[Region] = USERNAME()</b></code>
+                    </li>
+                    <li>Use <code><b style="color:deeppink;">USERPRINCIPALNAME()</b></code> to match domain emails when
+                        publishing to Power BI Service.</li>
+                    <li>Publish the report and assign users to roles in the Power BI Service under dataset security
+                        settings.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>22. What is the significance of using Calculation Groups in Power BI Tabular Editor?</b></p><br>
+                <p>
+                    Calculation Groups allow defining reusable logic for time intelligence or formatting across multiple
+                    measures:
+                <ul>
+                    <li>Reduces redundancy by creating a single calculation logic (e.g., YoY, MoM) that applies to
+                        multiple measures.</li>
+                    <li>Created using Tabular Editor and supported via XMLA endpoint.</li>
+                    <li>Improves model maintainability and reduces clutter in the fields pane.</li>
+                    <li>Useful for applying slicer-based dynamic calculations on visualizations.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>23. How does the Power BI Service dataset refresh mechanism work?</b></p><br>
+                <p>
+                    Power BI Service refreshes datasets through the following mechanisms:
+                <ul>
+                    <li><b>Import Mode</b>: Triggers full/incremental refreshes from source to Power BI dataset.</li>
+                    <li><b>Gateway</b>: Required for on-premises data sources. The gateway acts as a bridge.</li>
+                    <li><b>Scheduled Refresh</b>: Configured via the service with up to 8 (Pro) or 48 (Premium)
+                        refreshes per day.</li>
+                    <li><b>API Refresh</b>: Triggered programmatically using Power BI REST API.</li>
+                    <li>Monitored via the <b>Refresh History</b> tab to debug issues.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>24. What is a Shared Dataset and how is it used in Power BI?</b></p><br>
+                <p>
+                    A Shared Dataset is a dataset published once and reused across multiple reports in Power BI:
+                <ul>
+                    <li>Improves consistency and governance across reports.</li>
+                    <li>Enables separation of data modeling and report building responsibilities.</li>
+                    <li>Published datasets can be accessed by others via <b>Power BI Service → Get Data → Shared
+                            Datasets</b>.</li>
+                    <li>Supports <b>Certified</b> and <b>Promoted</b> labels to indicate trustworthiness.</li>
+                    <li>Works best in large organizations with centralized data teams.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>25. How can you troubleshoot and optimize slow visuals in Power BI?</b></p><br>
+                <p>
+                    To troubleshoot and optimize slow Power BI visuals:
+                <ul>
+                    <li>Use the <b>Performance Analyzer</b> to identify slow queries and visuals.</li>
+                    <li>Simplify visuals by reducing fields, calculations, and interactions.</li>
+                    <li>Optimize DAX using best practices like variables, avoiding nested iterators, etc.</li>
+                    <li>Reduce the data volume returned to visuals using filters or summarization.</li>
+                    <li>Use indexing and query folding in Power Query to improve backend performance.</li>
+                </ul>
+                </p><br><br>
+                <p><b>26. How do you handle dynamic axis titles in Power BI visuals?</b></p><br>
+                <p>
+                    Dynamic axis titles are used to reflect slicer/filter selections:
+                <ul>
+                    <li>Create a measure that returns the title dynamically using DAX:</li>
+                </ul>
+                <div class="interview-box"><code>
+        SelectedTitle = "Sales by " & SELECTEDVALUE('AxisTable'[Axis])
+    </code></div>
+                <ul>
+                    <li>Add a card or title textbox to the report and bind it to this measure.</li>
+                    <li>Currently, axis labels in charts can't be changed directly, but visuals like cards and titles
+                        can be made dynamic.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>27. What is the impact of using DirectQuery in Power BI and how do you optimize it?</b></p><br>
+                <p>
+                    <b>DirectQuery</b> keeps data in the source system and sends queries to it in real-time:
+                <ul>
+                    <li><b>Pros</b>: Real-time data, no need for refresh.</li>
+                    <li><b>Cons</b>: Slower performance, limited DAX functionality, query dependency on source DB
+                        optimization.</li>
+                    <li><b>Optimization Tips:</b>
+                        <ul>
+                            <li>Use aggregations to minimize query cost.</li>
+                            <li>Use filters to limit result set size.</li>
+                            <li>Index source tables effectively.</li>
+                            <li>Minimize calculated columns and complex measures in reports.</li>
+                        </ul>
+                    </li>
+                </ul>
+                </p><br><br>
+
+                <p><b>28. How can you implement custom visual interactions in Power BI?</b></p><br>
+                <p>
+                    Power BI allows custom visual interactions through:
+                <ul>
+                    <li><b>Edit Interactions</b>: Customize how each visual affects others when a selection is made
+                        (Filter/Highlight/None).</li>
+                    <li><b>Bookmarks and Selection Pane</b>: Create advanced navigation experiences by capturing visual
+                        states and toggling visibility.</li>
+                    <li><b>Drillthrough Filters</b>: Enable detailed view based on right-click from one visual into
+                        another report page.</li>
+                    <li>Advanced interactions can be enhanced using DAX-driven visibility and slicers.</li>
+                </ul>
+                </p><br><br>
+
+                <p><b>29. What are Aggregation Tables and how do they improve performance in Power BI?</b></p><br>
+                <p>
+                    Aggregation tables are pre-summarized datasets that speed up performance by reducing the query
+                    granularity:
+                <ul>
+                    <li>Created manually or using Power BI Aggregation feature.</li>
+                    <li>Linked to the main fact table using <b>Manage Aggregations</b> feature.</li>
+                    <li>Power BI will redirect queries to aggregation table if applicable.</li>
+                    <li>Reduces load on source systems and improves query performance, especially in DirectQuery mode.
+                    </li>
+                </ul>
+                </p><br><br>
+
+                <p><b>30. How do you integrate Power BI with Azure services for enterprise solutions?</b></p><br>
+                <p>
+                    Power BI integrates seamlessly with Azure to enable robust enterprise analytics:
+                <ul>
+                    <li><b>Azure Synapse Analytics</b>: For advanced data warehousing and integrated Power BI
+                        workspaces.</li>
+                    <li><b>Azure Data Factory</b>: To orchestrate ETL/ELT pipelines that load data into Power BI
+                        datasets.</li>
+                    <li><b>Azure Data Lake Storage</b>: Store large-scale data used by Power BI via connectors.</li>
+                    <li><b>Azure Analysis Services</b>: Host semantic models for enterprise-level scalability.</li>
+                    <li><b>Azure Logic Apps / Power Automate</b>: Trigger report refreshes, alerts, or workflows based
+                        on data.</li>
+                </ul>
+                </p><br><br>
+
+
+
+                <div class="qus-buttons">
+                    <a href="../powerbiinterview.html?topic=powerbiAdvanced" class="previou-button">Advanced</a>
+                    <a href="../powerbiinterview.html?topic=powerbiBignner" class="next-button">Beginner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                        <h4>PLANS</h4>
+                        <ul>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-column">
+                        <h4>RESOURCES</h4>
+                        <ul>
+                            <li><a href="#">KUK DB Blog</a></li>
+                            <li><a href="#">Data Challenges</a></li>
+                            <li><a href="#">Data Playground</a></li>
+                            <li><a href="#">Guides & Reports</a></li>
+                            <li><a href="#">KUK DB Data</a></li>
+                        </ul>
+                    </div>-->
+                <!-- <div class="link-column">
+                        <h4>SUPPORT</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Product Updates</a></li>
+                            <li><a href="#">Request A Feature</a></li>
+                            <li><a href="#">Site Map</a></li>
+                        </ul>
+                    </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.qus-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
