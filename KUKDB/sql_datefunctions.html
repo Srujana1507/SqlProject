@@ -307,15 +307,18 @@
         <main class="sidebar-content" data-topic="sqldatefunctions">
 
             <div class="topic-buttons">
-                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="previou-button">&laquo;
-                    Previous</a>
+                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="previou-button">
+                    &laquo;
+                    Previous
+                </a>
                 <a href="sql_groupfunctions.html?topic=sqlGroupFunctions" class="next-button">Next &raquo;</a>
             </div>
 
             <h1>Date Functions</h1>
             <p>SQL provides a variety of date functions to work with date and time data.</p><br>
 
-            <p>These functions allow you to manipulate, format, and extract information from date values effectively.
+            <p>
+                These functions allow you to manipulate, format, and extract information from date values effectively.
             </p><br>
 
             <h2>Date Functions Overview</h2>
@@ -350,7 +353,8 @@
                     <tr>
                         <td><a href="#dateadd"><b>DATEADD()</b></a> </td>
                         <td>Adds a specific interval to a date. </td>
-                        <td>Adds or subtracts a specified time interval (e.g., days, months, years) to a given date.
+                        <td>
+                            Adds or subtracts a specified time interval (e.g., days, months, years) to a given date.
                         </td>
                         <td>DATEADD(interval, number, date)</td>
                         <td>Adjusting schedules or creating future/past dates.</td>
@@ -359,7 +363,8 @@
                     <tr>
                         <td><a href="#datediff"><b>DATEDIFF()</b></a> </td>
                         <td>Calculates the difference between two dates. </td>
-                        <td>Returns the number of specified intervals (e.g., days, months, years) between two dates.
+                        <td>
+                            Returns the number of specified intervals (e.g., days, months, years) between two dates.
                         </td>
                         <td>DATEDIFF(interval, start_date, end_date)</td>
                         <td>Age calculation, measuring project duration.</td>
@@ -400,12 +405,16 @@
                     <tr>
                         <td><a href="#now"><b>NOW()</b></a> </td>
                         <td>Returns the system's current date and time (MySQL).</td>
-                        <td>The NOW() function retrieves the current system date and time in the YYYY-MM-DD HH:MM:SS
-                            format (depending on database settings). </td>
+                        <td>
+                            The NOW() function retrieves the current system date and time in the YYYY-MM-DD HH:MM:SS
+                            format (depending on database settings).
+                        </td>
                         <td>NOW()</td>
                         <td>Useful for logging, auditing, or generating timestamps in applications.</td>
-                        <td>Provides system time in UTC or local timezone based on server settings, which can cause
-                            confusion.</td>
+                        <td>
+                            Provides system time in UTC or local timezone based on server settings, which can cause
+                            confusion.
+                        </td>
                     </tr>
                     <tr>
                         <td><a href="#datetrunc"><b>DATE_TRUNC()</b></a> </td>
@@ -429,14 +438,17 @@
                         <td>Parses a string and converts it into a date value based on the format provided. </td>
                         <td>TO_DATE(string, 'format')</td>
                         <td>Useful for validating or converting user input to a valid date.</td>
-                        <td>Only supported in Oracle. Formats must exactly match the string's structure to avoid errors.
+                        <td>
+                            Only supported in Oracle. Formats must exactly match the string's structure to avoid errors.
                         </td>
                     </tr>
                     <tr>
                         <td><a href="#sysdatetime"><b>SYSDATETIME()</b></a> </td>
                         <td>Returns the current date and time with precision.</td>
-                        <td>Provides the system's current date and time as a DATETIME2 value with fractional seconds
-                            precision (up to 7 digits). </td>
+                        <td>
+                            Provides the system's current date and time as a DATETIME2 value with fractional seconds
+                            precision (up to 7 digits).
+                        </td>
                         <td>SYSDATETIME()</td>
                         <td>Use for applications requiring high-precision timestamps (e.g., scientific or logging).</td>
                         <td>SQL Server-specific; precision might not be necessary for all use cases. </td>
@@ -453,6 +465,7 @@
                 </code>
             </div>
             </ul><br>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b>(Generate Daily Reports) Retrieve sales made today.</p>
             <div class="code-box">
                 <code>
@@ -488,8 +501,11 @@
                     <span class="orclkey">FROM </span> customers <br>
                     <span class="orclkey">WHERE </span> EXTRACT( <span class="orclkey">MONTH FROM </span> dob) = EXTRACT( <span class="orclkey">MONTH FROM  </span>CURRENT_DATE ) <br>
                     <ul>
-                    <span class="orclkey">AND </span> EXTRACT( <span class="orclkey">DAY FROM </span> dob) = EXTRACT( <span class="orclkey">DAY FROM  </span>CURRENT_DATE )
-                    <b> ;</b></ul>
+                        <span class="orclkey">AND </span> EXTRACT(
+                        <span class="orclkey">DAY FROM </span> dob) = EXTRACT(
+                        <span class="orclkey">DAY FROM  </span>CURRENT_DATE )
+                        <b> ;</b>
+                    </ul>
                 </code>
             </div><br>
             <p><b>Scenario 5:-</b> Validate the scheduling of upcoming events.</p>
@@ -512,14 +528,22 @@
             </div><br>
             <h2 id="todate">2.TO_DATE()</h2>
             <p>Returns a String to a date in a specified format like MM/DD/YYYY.</p><br>
-            <h3>Syntax:</h3>
 
+            <h3>Syntax:</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> TO_DATE('2024-12-17', 'YYYY-MM-DD') <b>;</b><br>
+                    <br>-- Output: 17-12-2024
+                </code>
+            </div>
+            <br>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic Conversion </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> TO_DATE( '2024-12-17', 'YYYY-MM-DD' )  
-                    <span class="orclkey">AS </span> formatted_date   
-                    <span class="orclkey">FROM </span> DUAL 
+                    <span class="orclkey">SELECT </span> TO_DATE( '2024-12-17', 'YYYY-MM-DD' )
+                    <span class="orclkey">AS </span> formatted_date
+                    <span class="orclkey">FROM </span> DUAL
                     <b> ;</b> <br>
                     - - Output: 17-12-2024
                 </code>
@@ -528,7 +552,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> TO_DATE('17-12-2024 14:30:00', 'DD-MM-YYYY HH24:MI:SS')    <br>
-                    <span class="orclkey">AS </span> FullDate  
+                    <span class="orclkey">AS </span> FullDate
                     <span class="orclkey">FROM </span> dual
                     <b> ;</b>
                 </code>
@@ -536,7 +560,7 @@
             <p><b>Scenario 3:- </b>Comparison in WHERE Clause. </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> *    
+                    <span class="orclkey">SELECT </span> *
                     <span class="orclkey">FROM </span> orders  <br>
                     <span class="orclkey">WHERE </span> order_date = TO_DATE('2024-12-17', 'YYYY-MM-DD')
                     <b> ;</b>
@@ -546,7 +570,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">INSERT INTO </span> event_schedule (event_date)     <br>
-                    <span class="orclkey">VALUES  </span> ( TO_DATE( '25-Dec-2024', 'DD-Mon-YYYY' ) )  
+                    <span class="orclkey">VALUES  </span> ( TO_DATE( '25-Dec-2024', 'DD-Mon-YYYY' ) )
                     <b> ;</b>
                 </code>
             </div><br>
@@ -561,10 +585,10 @@
             <p><b>Scenario 6:- </b> Schedule an event exactly 6 months from a provided date.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> event_name, 
+                    <span class="orclkey">SELECT </span> event_name,
                     ADD_MONTHS(TO_DATE('01-DEC-2024', 'DD-MON-YYYY'),6  )
                     <span class="orclkey"> AS </span> event_date<br>
-                    <span class="orclkey">FROM </span> event_schedule 
+                    <span class="orclkey">FROM </span> event_schedule
                     <b> ;</b> <br>
                     <br>- - This query calculates the date 6 months from December 1, 2024.
                 </code>
@@ -573,10 +597,10 @@
             <div class="code-box">
                 <code>
 
-                    <span class="orclkey">SELECT </span> employee_id, 
-                    TO_CHAR(hire_date, 'YYYY-MM-DD') 
+                    <span class="orclkey">SELECT </span> employee_id,
+                    TO_CHAR(hire_date, 'YYYY-MM-DD')
                     <span class="orclkey"> AS </span> report_hire_date<br>
-                    <span class="orclkey">FROM </span> employees 
+                    <span class="orclkey">FROM </span> employees
                     <b> ;</b>
                 </code>
             </div><br>
@@ -611,7 +635,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for TO_DATE()</h2>
+            <h2>Do's and Don'ts with TO_DATE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -632,11 +656,21 @@
             </table><br>
             <h2 id="sysdatetime">3.SYSDATETIME()</h2>
             <p>Returns the current date and time with precision.</p><br>
+
             <h3>Syntax:</h3>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT</span> SYSDATETIME() <b>;</b><br>
+                    <br>-- Output: 2024-12-17 16:45:22.1234567
+                </code>
+            </div>
+            <br>
+
+            <h2> Basic Scenarios</h2>
             <p><b>Scenario 1:- Basic Conversion</b> Retrieve the current system date and time</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> SYSDATETIME()   <span class="orclkey">AS </span> currenttime_Timestamp   
+                    <span class="orclkey">SELECT </span> SYSDATETIME()   <span class="orclkey">AS </span> currenttime_Timestamp
                     <b> ;</b> <br>
                     - - Output: 17-12-2024 16:45:22
                 </code>
@@ -644,13 +678,13 @@
             <p><b>Scenario 2:- </b> Insert a new record with a precise timestamp.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">INSERT INTO </span> logs (log_time)  <span class="orclkey"> VALUES  </span> ( SYSDATETIME() ) 
+                    <span class="orclkey">INSERT INTO </span> logs (log_time)  <span class="orclkey"> VALUES  </span> ( SYSDATETIME() )
                     <b> ;</b>
                     <br>
-                    <span class="orclkey">INSERT INTO </span> orders (order_id, order_date ) <span class="orclkey"> VALUES  </span> ( 101,  SYSDATETIME() ) 
+                    <span class="orclkey">INSERT INTO </span> orders (order_id, order_date ) <span class="orclkey"> VALUES  </span> ( 101,  SYSDATETIME() )
                     <b> ;</b><br> <br>
                     - - Add an entry into the audit table with a timestamp.<br>
-                    <span class="orclkey">INSERT INTO </span> audit_logs ( user_id, action, log_time )<span class="orclkey"> VALUES  </span> ( 123, 'Login Attempt', SYSDATETIME() ) 
+                    <span class="orclkey">INSERT INTO </span> audit_logs ( user_id, action, log_time )<span class="orclkey"> VALUES  </span> ( 123, 'Login Attempt', SYSDATETIME() )
                     <b> ;</b><br>
                 </code>
             </div><br>
@@ -678,7 +712,7 @@
                     WAITFOR DELAY '00:00:05';  - - 5- second delay <br><br>
 
                     <span class="orclkey"> DECLARE </span> @end_time DATETIME2 = SYSDATETIME(); <br> <br>
-                    
+
                     <span class="orclkey"> SELECT  </span> DATEDIFF (MILLISECOND, @start_time, @end_time )  <span class="orclkey"> AS  </span> processing_time_ms
                     <b> ;</b> <br><br>
                     - - Output: processing Time (ms): 5000
@@ -699,17 +733,18 @@
                 <code>
                     <span class="orclkey"> SELECT </span> record_id, last_updated  <br>
                     <span class="orclkey"> FROM  </span> inventory  <br>
-                    <span class="orclkey"> WHERE  </span> last_updated > DATEADD( 
-                        <span class="orclkey">MINUTE  </span>, -60, SYSDATETIME())
+                    <span class="orclkey"> WHERE  </span> last_updated > DATEADD(
+                    <span class="orclkey">MINUTE  </span>, -60, SYSDATETIME())
                     <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 8:-</b> Create a high-precision timestamp for analytics calculations.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span> SYSDATETIME()  <span class="orclkey"> AS </span> precise_timestamp,<br> FORMAT(SYSDATETIME(), 'yyyy-MM-dd HH:mm:ss.fff') 
-                    <span class="orclkey"> AS  </span> formatted_timestamp  
-                   
+                    <span class="orclkey"> SELECT </span> SYSDATETIME() 
+                    <span class="orclkey"> AS </span> precise_timestamp,<br> FORMAT(SYSDATETIME(), 'yyyy-MM-dd HH:mm:ss.fff')
+                    <span class="orclkey"> AS  </span> formatted_timestamp
+
                     <b> ;</b>
                 </code>
             </div><br>
@@ -718,7 +753,7 @@
                 <code>
                     <span class="orclkey"> SELECT </span> event_id, event_name, scheduled_time <br>
                     <span class="orclkey"> FROM  </span> events  <br>
-                    <span class="orclkey"> WHERE  </span> scheduled_time < SYSDATETIME() 
+                    <span class="orclkey"> WHERE  </span> scheduled_time < SYSDATETIME()
                     <b> ;</b>
                 </code>
             </div><br>
@@ -735,12 +770,13 @@
                     <tr>
                         <td>Conversion failed when converting date... </td>
                         <td> Attempting to use SYSDATETIME with a lower precision type like DATE. </td>
-                        <td> Explicitly cast SYSDATETIME to a lower precision type, such as CAST(SYSDATETIME() AS DATE).
+                        <td>
+                            Explicitly cast SYSDATETIME to a lower precision type, such as CAST(SYSDATETIME() AS DATE).
                         </td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for SYSDATETIME()</h2>
+            <h2>Do's and Don'ts with SYSDATETIME()</h2>
             <table>
                 <thead>
                     <tr>
@@ -769,20 +805,23 @@
             </ul><br>
 
             <h2 id="now">4.NOW()</h2>
-            <p>The NOW() function ( specific to MySQL and PostgreeSQL) returns the current system date and time in the
-                format YYYY-MM-DD HH:MM:SS.</p><br>
+            <p>
+                The NOW() function ( specific to MySQL and PostgreSQL) returns the current system date and time in the
+                format YYYY-MM-DD HH:MM:SS.
+            </p><br>
             <h3>Syntax:</h3>
 
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> NOW()   
+                    <span class="orclkey">SELECT </span> NOW()
                     <b> ;</b>
                 </code>
             </div><br>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Retrieve the current date and time.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> NOW ()  <span class="orclkey"> AS  </span> current_date_time 
+                    <span class="orclkey">SELECT </span> NOW ()  <span class="orclkey"> AS  </span> current_date_time
                     <b> ;</b>
                 </code>
             </div><br>
@@ -808,9 +847,16 @@
                 <code>
                     <span class="orclkey">SELECT  </span>  <br>
                     <ul>
-                        o1.order_id <span class="orclkey"> AS   </span> order1, <br>
-                        o2.order_id <span class="orclkey"> AS   </span> order2, <br>
-                        TIMESTAMPDIFF ( <span class="orclkey"> HOUR   </span>,  o1.order_date, o2.order_date) <span class="orclkey"> AS   </span> hours_diff<br>
+                        o1.order_id
+                        <span class="orclkey"> AS   </span> order1,
+                        <br>
+                        o2.order_id
+                        <span class="orclkey"> AS   </span> order2,
+                        <br>
+                        TIMESTAMPDIFF (
+                        <span class="orclkey"> HOUR   </span>,  o1.order_date, o2.order_date)
+                        <span class="orclkey"> AS   </span> hours_diff
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM   </span> orders o1, orders o2 <br>
                     <span class="orclkey">WHERE </span> o1.order_id < o2.order_id
@@ -822,15 +868,20 @@
                 <code>
                     <span class="orclkey">SELECT  </span>  <br>
                     <ul>
-                        NOW() <span class="orclkey"> AS   </span> current_date_time, <br>
-                        DATE_ADD(NOW(), INTERVAL 7 <span class="orclkey"> DAY   </span> )  <span class="orclkey"> AS   </span>future_date
-                    <b> ;</b></ul>
+                        NOW()
+                        <span class="orclkey"> AS   </span> current_date_time,
+                        <br>
+                        DATE_ADD(NOW(), INTERVAL 7
+                        <span class="orclkey"> DAY   </span> )
+                        <span class="orclkey"> AS   </span>future_date
+                        <b> ;</b>
+                    </ul>
                 </code>
             </div><br>
             <p><b>Scenario 6:- </b> Fetch records created in the last 24 hours</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> * <br>                 
+                    <span class="orclkey">SELECT  </span> * <br>
                     <span class="orclkey"> FROM   </span> orders  <br>
                     <span class="orclkey"> WHERE   </span> order_date >= NOW() - INTERVAL 1  <span class="orclkey"> DAY   </span>
                     <b> ;</b>
@@ -840,8 +891,8 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  HOUR</span> (login_time)
-                    <span class="orclkey"> AS   </span>current_hour ,<br> 
-                    COUNT(*) <span class="orclkey"> AS   </span> login_count <br>                
+                    <span class="orclkey"> AS   </span>current_hour ,<br>
+                    COUNT(*) <span class="orclkey"> AS   </span> login_count <br>
                     <span class="orclkey"> FROM   </span> user_logins <br>
                     <span class="orclkey"> WHERE   </span>DATE (login_time) = CURDATE()
                     <span class="orclkey"> GROUP BY   HOUR</span>(login_time)  <br>
@@ -853,13 +904,18 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> <br>
-                    <ul>DATE(order_date)  <span class="orclkey"> AS   </span>order_day, <br> 
-                    COUNT(*) <span class="orclkey"> AS   </span> order_count <br>                
+                    <ul>
+                        DATE(order_date)
+                        <span class="orclkey"> AS   </span>order_day,
+                        <br>
+                        COUNT(*)
+                        <span class="orclkey"> AS   </span> order_count
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM   </span> orders <br>
                     <span class="orclkey"> GROUP BY </span>DATE(order_date) <br>
-                    <span class="orclkey"> ORDER BY   </span> order_day 
-                   <b> ;</b>
+                    <span class="orclkey"> ORDER BY   </span> order_day
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 9:- </b> Schedule recurring orders using a combination of NOW().</p>
@@ -867,27 +923,34 @@
                 <code>
                     <span class="orclkey">INSERT INTO </span> orders (customer_name, order_date) <br>
                     <span class="orclkey">SELECT </span>
-                    <ul>customer_name, <br> 
-                        DATE_ADD(NOW(), INTERVAL 1 <span class="orclkey"> MONTH   </span> )  <br>                
+                    <ul>
+                        customer_name,
+                        <br>
+                        DATE_ADD(NOW(), INTERVAL 1
+                        <span class="orclkey"> MONTH   </span> )
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM   </span> orders <br>
                     <span class="orclkey"> WHERE </span>customer_name = 'Harsha Vardhan'
-                   <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 10:- </b> Filter records from transactions that belong to the current month , then insert
-                them into the appropriate partition table.</p>
+            <p>
+                <b>Scenario 10:- </b> Filter records from transactions that belong to the current month , then insert
+                them into the appropriate partition table.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">INSERT INTO </span> transactions_202412 <br>
-                    <span class="orclkey">SELECT </span> * 
+                    <span class="orclkey">SELECT </span> *
                     <span class="orclkey"> FROM   </span> transactions <br>
                     <span class="orclkey"> WHERE  MONTH</span>(trans_date) =  <span class="orclkey"> MONTH</span>(NOW()) <br>
                     <ul>
-                        <span class="orclkey"> AND YEAR  </span>(trans_date) = 
-                        <span class="orclkey"> YEAR</span>(NOW())<b> ;</b>
+                        <span class="orclkey"> AND YEAR  </span>(trans_date) =
+                        <span class="orclkey"> YEAR</span>(NOW())
+                        <b> ;</b>
                     </ul>
-                   
+
                 </code>
             </div><br>
             <p><b>Scenario 11:- </b> Generate time-based report with intervals.</p>
@@ -896,18 +959,23 @@
                     <span class="orclkey">SELECT </span>  <br>
                     <ul>
                         CONCAT (
-                            <ul>
-                                <span class="orclkey">HOUR </span> (order_date), ':00 - ', <br>
-                                <span class="orclkey">HOUR </span> (order_date) + 1, ':00 '<br>
-                            </ul>
-                        ) <span class="orclkey"> AS </span> hour_interval, <br>
-                        COUNT(*) <span class="orclkey"> AS </span> total_orders
+                        <ul>
+                            <span class="orclkey">HOUR </span> (order_date), ':00 - ',
+                            <br>
+                            <span class="orclkey">HOUR </span> (order_date) + 1, ':00 '
+                            <br>
+                        </ul>
+                        )
+                        <span class="orclkey"> AS </span> hour_interval,
+                        <br>
+                        COUNT(*)
+                        <span class="orclkey"> AS </span> total_orders
                     </ul>
                     <span class="orclkey">FROM </span> orders  <br>
                     <span class="orclkey"> WHERE   </span> DATE(order_date) = CURDATE() <br>
                     <span class="orclkey"> GROUP BY HOUR </span>(order_date) <br>
                     <span class="orclkey"> ORDER BY </span> hour_interval
-                   <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 12:- </b> Auto-Suspend of overdue account more than 30 days as of now.</p>
@@ -917,7 +985,7 @@
                     <span class="orclkey">SET </span> status = 'Suspended'  <br>
                     <span class="orclkey"> WHERE   </span> DATEDIFF(NOW(), last_payment_date ) > 30  <br>
                     <span class="orclkey"> AND </span> status = 'Active'
-                   <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Common Errors with NOW()</h2>
@@ -957,7 +1025,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for Using NOW()</h2>
+            <h2>Do's and Don'ts with NOW()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1001,10 +1069,11 @@
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> GETDATE() 
-                   <b> ;</b>
+                    <span class="orclkey">SELECT </span> GETDATE()
+                    <b> ;</b>
                 </code>
             </div><br>
+            <h2> Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Retrieve the current date and time.</p>
             <div class="code-box">
                 <code>
@@ -1023,9 +1092,14 @@
                 <code>
                     <span class="orclkey"> SELECT </span> <br>
                     <ul>
-                        CAST(GETDATE() <span class="orclkey"> AS </span> DATE) <span class="orclkey"> AS </span> current_date,
-                        CAST(GETDATE() <span class="orclkey"> AS </span> TIME) <span class="orclkey"> AS </span> current_time <b> ;</b>
-                    </ul>   
+                        CAST(GETDATE()
+                        <span class="orclkey"> AS </span> DATE)
+                        <span class="orclkey"> AS </span> current_date,
+                        CAST(GETDATE()
+                        <span class="orclkey"> AS </span> TIME)
+                        <span class="orclkey"> AS </span> current_time
+                        <b> ;</b>
+                    </ul>
                 </code>
             </div><br>
             <p><b>Scenario 4:- </b> Calculate the difference in days, hours, or minutes.</p>
@@ -1034,23 +1108,32 @@
                     <span class="orclkey"> SELECT </span> <br>
                     <ul>
                         order_id,
-                        DATEDIFF( <span class="orclkey"> HOUR </span>, order_date, GETDATE() ) <span class="orclkey"> AS </span> hours_since_order
-                    </ul>   
+                        DATEDIFF(
+                        <span class="orclkey"> HOUR </span>, order_date, GETDATE() )
+                        <span class="orclkey"> AS </span> hours_since_order
+                    </ul>
                     <span class="orclkey"> FROM </span> orders<b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:- </b> Add or subtract time to/from the current date.</p>
+
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> <br>
                     <ul>
-                        GETDATE() <span class="orclkey"> AS </span>current_date_time, <br>
-                        DATEADD( <span class="orclkey"> DAY </span>, 7, GETDATE())
-                        <span class="orclkey"> AS </span> seven_days_later, <br>
-                        DATEADD( <span class="orclkey"> HOUR </span>, -2, GETDATE())
-                        <span class="orclkey"> AS </span> two_hours_earlier <b> ;</b>
-                    </ul>   
-                    
+                        GETDATE()
+                        <span class="orclkey"> AS </span>current_date_time,
+                        <br>
+                        DATEADD(
+                        <span class="orclkey"> DAY </span>, 7, GETDATE())
+                        <span class="orclkey"> AS </span> seven_days_later,
+                        <br>
+                        DATEADD(
+                        <span class="orclkey"> HOUR </span>, -2, GETDATE())
+                        <span class="orclkey"> AS </span> two_hours_earlier
+                        <b> ;</b>
+                    </ul>
+
                 </code>
             </div><br>
             <p><b>Scenario 6:- </b> recurring monthly orders, add 1 month to the current date.</p>
@@ -1059,18 +1142,21 @@
                     <span class="orclkey"> INSERT INTO </span> orders (customer_name, order_date)<br>
                     <span class="orclkey"> SELECT </span>
                     <ul>
-                        customer_name,  <br>
-                        DATEADD( <span class="orclkey"> MONTH </span>,  1, GETDATE() ) <br>
-                    </ul>  
-                  <span class="orclkey"> FROM </span> orders <br> <span class="orclkey"> WHERE </span> order_id = 1 <b> ;</b> 
+                        customer_name,
+                        <br>
+                        DATEADD(
+                        <span class="orclkey"> MONTH </span>,  1, GETDATE() )
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> orders <br> <span class="orclkey"> WHERE </span> order_id = 1 <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:- </b> Find records created in the last 24 hours.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> * <br>
-                    <span class="orclkey"> FROM  </span> orders  
-                  <span class="orclkey"> WHERE  </span> order_date >= DATEADD( <br> <span class="orclkey"> DAY </span>, -1, GETDATE() ) <b> ;</b> 
+                    <span class="orclkey"> FROM  </span> orders
+                    <span class="orclkey"> WHERE  </span> order_date >= DATEADD( <br> <span class="orclkey"> DAY </span>, -1, GETDATE() ) <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 8:- </b> Calculate exact time differences with milliseconds.</p>
@@ -1079,23 +1165,28 @@
                     <span class="orclkey"> SELECT </span>  <br>
                     <ul>
                         order_id,
-                        DATEDIFF( <span class="orclkey"> SECOND </span>,  order_date, GETDATE() ) <span class="orclkey"> AS </span> seconds_since_order, <br>
-                        DATEDIFF( MILLISECOND, order_date, GETDATE() )  <span class="orclkey"> AS </span> milliseconds_since_order <br>
+                        DATEDIFF(
+                        <span class="orclkey"> SECOND </span>,  order_date, GETDATE() )
+                        <span class="orclkey"> AS </span> seconds_since_order,
+                        <br>
+                        DATEDIFF( MILLISECOND, order_date, GETDATE() )
+                        <span class="orclkey"> AS </span> milliseconds_since_order
+                        <br>
                     </ul>
-                    <span class="orclkey"> FROM  </span> orders  
-                   <b> ;</b> 
+                    <span class="orclkey"> FROM  </span> orders
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 9:- </b> Retrieve and format the current date and time for a user report.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span>  FORMAT(GETDATE(), 'yyyy-MM-dd HH:mm:ss') <span class="orclkey"> AS </span>standard_time<br>
-                    
-                    <span class="orclkey"> FROM  </span> system_status  
-                   <b> ;</b> 
+
+                    <span class="orclkey"> FROM  </span> system_status
+                    <b> ;</b>
                 </code>
             </div><br>
-            <h2>Use Cases of GETDATE()</h2>
+            <h2>Use Cases of GETDATE() </h2>
             <table>
                 <thead>
                     <tr>
@@ -1122,12 +1213,13 @@
                     </tr>
                     <tr>
                         <td>Grouping records by date/hour </td>
-                        <td>SELECT CAST(order_date AS DATE), COUNT(*) FROM orders GROUP BY CAST(order_date AS DATE);
+                        <td>
+                            SELECT CAST(order_date AS DATE), COUNT(*) FROM orders GROUP BY CAST(order_date AS DATE);
                         </td>
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Common Errors</h2>
+            <h2>Common Errors with GETDATE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1159,7 +1251,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for Using GETDATE()</h2>
+            <h2>Do's and Don'ts with GETDATE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1187,8 +1279,12 @@
                 </tbody>
             </table><br>
             <h2 id="dateadd">6.DATEADD()</h2>
-            <p>The DATEADD() function is used to add or subtract a specific time interval (like days, months, hours,
-                etc.) to a given date or timestamp. </p>
+
+            <p>
+                The DATEADD() function is used to add or subtract a specific time interval (like days, months, hours,
+                etc.) to a given date or timestamp.
+            </p><br>
+            <h3>Syntax</h3>
             <div class="code-box">
                 <code>
                     DATEADD(interval, number, date)
@@ -1266,20 +1362,23 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h3>Basic Examples</h3>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Add 7 days to the current date.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> GETDATE() <span class="orclkey"> AS </span> current_date,  <br>
                     <ul>
-                        DATEADD(<span class="orclkey">DAY </span>, 7, GETDATE()) <span class="orclkey"> AS </span> date_after_7_days <b> ;</b>
-                    </ul> 
+                        DATEADD(
+                        <span class="orclkey">DAY </span>, 7, GETDATE())
+                        <span class="orclkey"> AS </span> date_after_7_days
+                        <b> ;</b>
+                    </ul>
                 </code>
             </div><br>
             <p><b>Scenario 2:- </b> Subtract 1 month from a specific date.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span> DATEADD ( <span class="orclkey"> MONTH </span>,  -1, '2024-06-17' ) 
+                    <span class="orclkey"> SELECT </span> DATEADD ( <span class="orclkey"> MONTH </span>,  -1, '2024-06-17' )
                     <span class="orclkey"> AS  </span> one_month_earlier  <b> ;</b>
                 </code>
             </div><br>
@@ -1333,7 +1432,7 @@
                 <code>
                     <span class="orclkey"> SELECT </span> flight_id, departure_time,   <br>
                     DATEADD ( <span class="orclkey"> HOUR </span>, flight_duration, departure_time) <span class="orclkey"> AS </span>arrival_time <br>
-                    <span class="orclkey"> FROM </span> flights 
+                    <span class="orclkey"> FROM </span> flights
                     <b> ;</b>
                 </code>
             </div><br>
@@ -1383,7 +1482,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for DATEADD()</h2>
+            <h2>Do's and Don'ts with DATEADD()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1402,19 +1501,23 @@
                     </tr>
                     <tr>
                         <td>Ensure compatibility by using database-specific interval syntax.</td>
-                        <td>Assume DATEADD() works in all databases. For Oracle, use ADD_MONTHS() or manual
-                            calculations.</td>
+                        <td>
+                            Assume DATEADD() works in all databases. For Oracle, use ADD_MONTHS() or manual
+                            calculations.
+                        </td>
                     </tr>
                 </tbody>
             </table><br>
             <h2 id="datediff">7.DATEDIFF() </h2>
-            <p>The DATEDIFF() function is used to calculate the difference between two dates or timestamps, returning
-                the result in a specified unit (e.g., days, months, years).</p> <br>
+            <p>
+                The DATEDIFF() function is used to calculate the difference between two dates or timestamps, returning
+                the result in a specified unit (e.g., days, months, years).
+            </p> <br>
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> DATEDIFF </span>(interval, start_date, end_date)   <br>
-                    </code>
+                    <span class="orclkey"> DATEDIFF </span>(interval, start_date, end_date)   <br>
+                </code>
             </div><br>
             <ul>
                 <li>interval: The unit of measurement for the difference (e.g., year, month, day, etc.).</li>
@@ -1477,12 +1580,12 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h3>Examples</h3>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Calculate the difference in days between two dates.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span>DATEDIFF(   
-                    <span class="orclkey"> DAY </span> , '2024-01-01', '2024-06-17') 
+                    <span class="orclkey"> SELECT </span>DATEDIFF(
+                    <span class="orclkey"> DAY </span> , '2024-01-01', '2024-06-17')
                     <span class="orclkey"> AS </span> Difference_in_Days
                     <b> ;</b> <br><br>
                     -  - Output: 168
@@ -1491,8 +1594,8 @@
             <p><b>Scenario 2:- </b> Calculate the difference in months.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span>DATEDIFF(   
-                    <span class="orclkey"> MONTH </span> , '2023-01-01', '2024-06-17' ) 
+                    <span class="orclkey"> SELECT </span>DATEDIFF(
+                    <span class="orclkey"> MONTH </span> , '2023-01-01', '2024-06-17' )
                     <span class="orclkey"> AS </span> Difference_in_Months
                     <b> ;</b> <br><br>
                     -  - Output: 17
@@ -1501,8 +1604,8 @@
             <p><b>Scenario 3:- </b> Calculate the difference in years.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span>DATEDIFF(   
-                    <span class="orclkey"> YEAR </span> , '2000-01-01', '2024-06-17' ) 
+                    <span class="orclkey"> SELECT </span>DATEDIFF(
+                    <span class="orclkey"> YEAR </span> , '2000-01-01', '2024-06-17' )
                     <span class="orclkey"> AS </span> Difference_in_Years
                     <b> ;</b> <br><br>
                     -  - Output: 24
@@ -1514,67 +1617,67 @@
                     <span class="orclkey"> SELECT </span> * <br>
                     <span class="orclkey"> FROM </span> orders <br>
                     <span class="orclkey"> WHERE </span>
-                    DATEDIFF(   
+                    DATEDIFF(
                     <span class="orclkey"> DAY </span> , order_date, GETDATE()) <= 30
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:- </b> Calculate time elapsed since order placement.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> order_id, <br>
-                   
-                    DATEDIFF(   
+
+                    DATEDIFF(
                     <span class="orclkey"> DAY </span> ,order_date, GETDATE() ) <span class="orclkey"> AS </span> days_elapsed, <br>
-                    DATEDIFF(   
-                        <span class="orclkey"> HOURS </span> ,order_date, GETDATE() ) <span class="orclkey"> AS </span> hours_elapsed <br>
+                    DATEDIFF(
+                    <span class="orclkey"> HOURS </span> ,order_date, GETDATE() ) <span class="orclkey"> AS </span> hours_elapsed <br>
                     <span class="orclkey"> FROM </span> orders
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:- </b> Calculate how many years an employee has worked since joining.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> employee_id, joining_date, <br>
-                    DATEDIFF(   
+                    DATEDIFF(
                     <span class="orclkey"> YEAR </span> , joining_date, GETDATE() ) <span class="orclkey"> AS </span> years_worked <br>
                     <span class="orclkey"> FROM </span> employees
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:- </b> Calculate the time taken to resolve support tickets in hours.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> ticket_id, created_time, resolved_time,  <br>
-                    DATEDIFF(   
+                    DATEDIFF(
                     <span class="orclkey"> HOUR </span> , created_time, resolved_time )
                     <span class="orclkey"> AS </span> response_hours <br>
                     <span class="orclkey"> FROM </span> support_tickets <br>
                     <span class="orclkey"> WHERE </span> status = 'Resolved'
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 8:- </b> Calculate the number of months between two sales dates.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> sale_id, first_sale_date, last_sale_date,  <br>
-                    DATEDIFF(   
+                    DATEDIFF(
                     <span class="orclkey"> MONTH </span> , first_sale_date, last_sale_date ) <span class="orclkey"> AS </span> months_between <br>
-                    <span class="orclkey"> FROM </span> sales 
-                    <b> ;</b> 
+                    <span class="orclkey"> FROM </span> sales
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 9:- </b> Calculate the total loan duration in days.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> loan_id, start_date, end_date,   <br>
-                    DATEDIFF(   
+                    DATEDIFF(
                     <span class="orclkey"> DAY </span> , start_date, end_date ) <span class="orclkey"> AS </span> loan_period_days <br>
-                    <span class="orclkey"> FROM </span> loans 
-                    <b> ;</b> 
+                    <span class="orclkey"> FROM </span> loans
+                    <b> ;</b>
                 </code>
             </div><br>
-            <h3>Common Errors with DATEDIFF()</h3>
+            <h2>Common Errors with DATEDIFF()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1606,7 +1709,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h3>Do's and Don'ts for Using DATEDIFF() </h3>
+            <h2>Do's and Don'ts with DATEDIFF() </h2>
             <table>
                 <thead>
                     <tr>
@@ -1634,19 +1737,23 @@
                 </tbody>
             </table><br>
             <h2 id="format">8.FORMAT()</h2>
-            <p>The FORMAT() function is used to format a value (like a number or date) into a specific format based on a
-                given culture or pattern. </p> <br>
+            <p>
+                The FORMAT() function is used to format a value (like a number or date) into a specific format based on a
+                given culture or pattern.
+            </p> <br>
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> FORMAT </span>( value, format, culture )   <br>
-                    </code>
+                    <span class="orclkey"> FORMAT </span>( value, format, culture )   <br>
+                </code>
             </div><br>
             <ul>
                 <li>value: The input value to be formatted (can be a number, date, or datetime).</li>
                 <li>format: The format pattern (e.g., 'yyyy-MM-dd' for dates, 'C' for currency).</li>
-                <li>culture: The optional culture/language code (e.g., 'en-US', 'fr-FR'). If omitted, the system's
-                    default culture is used.</li>
+                <li>
+                    culture: The optional culture/language code (e.g., 'en-US', 'fr-FR'). If omitted, the system's
+                    default culture is used.
+                </li>
             </ul><br>
             <h2>Supported Data Types</h2>
             <h3>Date/Time Format Strings</h3>
@@ -1723,15 +1830,15 @@
                 </tbody>
             </table><br>
 
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Format the current date into ISO and readable display formats.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span>  <br>
                     GETDATE() <span class="orclkey"> AS </span> original_date, <br>
-                    FORMAT(GETDATE(), 'yyyy-MM-dd' ) <span class="orclkey"> AS </span> iso_format_date , <br> 
-                    FORMAT(GETDATE(), 'yyyy-MM-dd' ) <span class="orclkey"> AS </span> readable_format_date
-                    <b> ;</b> 
+                    FORMAT(GETDATE(), 'yyyy-MM-dd' ) <span class="orclkey"> AS </span> iso_format_date , <br>
+                    FORMAT(GETDATE(), 'sdd-MM-YYYY' ) <span class="orclkey"> AS </span> readable_format_date
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 2:- </b> Format a number as currency.</p>
@@ -1740,8 +1847,8 @@
                     <span class="orclkey"> SELECT </span>  <br>
                     12345.678 AS original_number, <br>
                     FORMAT( 12345.678, 'C', 'en-US' ) <span class="orclkey"> AS </span> formatted_currency_us, <br>
-                    FORMAT( 12345.678, 'C', 'en-IN' ) <span class="orclkey"> AS </span> formatted_currency_inr 
-                    <b> ;</b> 
+                    FORMAT( 12345.678, 'C', 'en-IN' ) <span class="orclkey"> AS </span> formatted_currency_inr
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 3:- </b> Format a number as a percentage.</p>
@@ -1750,7 +1857,7 @@
                     <span class="orclkey"> SELECT </span>  <br>
                     0.875 AS original_number , <br>
                     FORMAT( 0.875, 'P' ) <span class="orclkey"> AS </span> percentage_format
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:- </b> Display Employee Joining Dates in Custom Format as 'Day-Month-Year'.</p>
@@ -1759,7 +1866,7 @@
                     <span class="orclkey"> SELECT </span> employee_id, joining_date, <br>
                     FORMAT( joining_date, 'dd-MM-yyyy' )  <span class="orclkey"> AS </span> join_date <br>
                     <span class="orclkey"> FROM </span> employees
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:- </b> Display Sales Amounts with Currency Format in US culture</p>
@@ -1768,7 +1875,7 @@
                     <span class="orclkey"> SELECT </span> sale_id, amount,  <br>
                     FORMAT( amount, 'C', 'en-US' ) <span class="orclkey"> AS </span> Amount_USD <br>
                     <span class="orclkey"> FROM </span> sales
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:- </b> Display report dates with full day and month names.</p>
@@ -1777,7 +1884,7 @@
                     <span class="orclkey"> SELECT </span> report_id, created_date,   <br>
                     FORMAT(created_date, 'dddd, MMMM d, yyyy') <span class="orclkey"> AS </span> Amount_USD <br>
                     <span class="orclkey"> FROM </span> reports
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:- </b> Calculate Percentage Increase in Sales.</p>
@@ -1787,7 +1894,7 @@
                     ( current_sales - previous_sales) / previous_sales * 100 <span class="orclkey"> AS </span> hike_Percentage, <br>
                     FORMAT((current_sales - previous_sales) / previous_sales, 'P') <span class="orclkey"> AS </span> formatted_percentage <br>
                     <span class="orclkey"> FROM </span> product_sales
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 8:- </b> Highlight Top Performers with Custom Number Formatting.</p>
@@ -1796,7 +1903,7 @@
                     <span class="orclkey"> SELECT </span> employee_id, performance_score ,<br>
                     FORMAT(performance_score, '0.00' ) <span class="orclkey"> AS </span> Score_Percentage <br>
                     <span class="orclkey"> FROM </span> performance
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 9:- </b> Create Invoice Numbers with Leading Zeros.</p>
@@ -1805,7 +1912,7 @@
                     <span class="orclkey"> SELECT </span>invoice_id ,   <br>
                     FORMAT(invoice_id, '0000' ) <span class="orclkey"> AS </span> Invoice <br>
                     <span class="orclkey"> FROM </span> invoices
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 10:- </b> Display Product Prices in Indian Rupees.</p>
@@ -1823,15 +1930,21 @@
                 <code>
                     <span class="orclkey"> SELECT </span> transaction_id ,   <br>
                     <ul>
-                        <span class="orclkey"> CASE </span><br>
+                        <span class="orclkey"> CASE </span>
+                        <br>
                         <ul>
-                            <span class="orclkey"> WHEN </span> transaction_type = 'Sale' <span class="orclkey"> THEN </span> FORMAT(amount, 'C', 'en-US')  <br>
-                            <span class="orclkey"> WHEN </span> transaction_type = 'Refund' <span class="orclkey"> THEN </span> FORMAT(amount, 'C', 'fr-FR')  <br>
+                            <span class="orclkey"> WHEN </span> transaction_type = 'Sale'
+                            <span class="orclkey"> THEN </span> FORMAT(amount, 'C', 'en-US')
+                            <br>
+                            <span class="orclkey"> WHEN </span> transaction_type = 'Refund'
+                            <span class="orclkey"> THEN </span> FORMAT(amount, 'C', 'fr-FR')
+                            <br>
                         </ul>
-                        <span class="orclkey"> END AS </span> formatted_amount <br>
+                        <span class="orclkey"> END AS </span> formatted_amount
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM </span> transactions
-                    <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Common Errors with FORMAT()</h2>
@@ -1862,7 +1975,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for FORMAT()</h2>
+            <h2>Do's and Don'ts with FORMAT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1873,29 +1986,37 @@
                 <tbody>
                     <tr>
                         <td>Use FORMAT() for display purposes, such as reports or user interfaces.</td>
-                        <td>Use FORMAT() for data manipulation; instead, store raw values and format during
-                            presentation.</td>
+                        <td>
+                            Use FORMAT() for data manipulation; instead, store raw values and format during
+                            presentation.
+                        </td>
                     </tr>
                     <tr>
                         <td>Always test custom formats and cultures in your environment.</td>
-                        <td>Use FORMAT() in performance-critical queries; it can significantly slow down execution
-                            times.</td>
+                        <td>
+                            Use FORMAT() in performance-critical queries; it can significantly slow down execution
+                            times.
+                        </td>
                     </tr>
                     <tr>
                         <td>Prefer numeric or date formats aligned with the target audience.</td>
-                        <td>Assume FORMAT() works identically across all databases (e.g., not available in Oracle or
-                            MySQL).</td>
+                        <td>
+                            Assume FORMAT() works identically across all databases (e.g., not available in Oracle or
+                            MySQL).
+                        </td>
                     </tr>
                 </tbody>
             </table><br>
             <h2 id="datepart">9.DATEPART()</h2>
-            <p>The DATEPART() function is used to extract a specific part of a date or time value, such as the year,
-                month, day, hour, minute, etc. </p><br>
+            <p>
+                The DATEPART() function is used to extract a specific part of a date or time value, such as the year,
+                month, day, hour, minute, etc.
+            </p><br>
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> DATEPART </span>( part, date )  
-                    </code>
+                    <span class="orclkey"> DATEPART </span>( part, date )
+                </code>
             </div><br>
             <ul>
                 <li><b>part: </b> The date part to extract (e.g., YEAR, MONTH, DAY, etc.).</li>
@@ -1954,20 +2075,26 @@
 
                 </tbody>
             </table><br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Extract year, month, and day from a date.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> transaction_id ,   <br>
                     <ul>
-                        DATEPART( <span class="orclkey"> YEAR </span>, '2024-12-19' ) 
-                        <span class="orclkey"> AS </span> Date_of_Year,<br>
-                        DATEPART( <span class="orclkey"> MONTH </span>, '2024-12-19' ) 
-                        <span class="orclkey"> AS </span> Date_of_Month,<br>
-                        DATEPART( <span class="orclkey"> DAY </span>, '2024-12-19' )
-                        <span class="orclkey"> AS </span> Date_of_Day  <b> ;</b> 
+                        DATEPART(
+                        <span class="orclkey"> YEAR </span>, '2024-12-19' )
+                        <span class="orclkey"> AS </span> Date_of_Year,
+                        <br>
+                        DATEPART(
+                        <span class="orclkey"> MONTH </span>, '2024-12-19' )
+                        <span class="orclkey"> AS </span> Date_of_Month,
+                        <br>
+                        DATEPART(
+                        <span class="orclkey"> DAY </span>, '2024-12-19' )
+                        <span class="orclkey"> AS </span> Date_of_Day
+                        <b> ;</b>
                     </ul>
-                   
+
                 </code>
             </div><br>
             <p><b>Scenario 2:- </b> Extract the year of joining for employees.</p>
@@ -1975,19 +2102,23 @@
                 <code>
                     <span class="orclkey"> SELECT </span> employee_id, joining_date ,   <br>
                     <ul>
-                        DATEPART( <span class="orclkey"> YEAR </span> , joining_date) <span class="orclkey"> AS </span> joining_year<br>
-                         <span class="orclkey"> FROM </span> employees  <b> ;</b> 
+                        DATEPART(
+                        <span class="orclkey"> YEAR </span> , joining_date)
+                        <span class="orclkey"> AS </span> joining_year
+                        <br>
+                        <span class="orclkey"> FROM </span> employees
+                        <b> ;</b>
                     </ul>
-                    
+
                 </code>
             </div><br>
             <p><b>Scenario 3:- </b> Find orders placed in December.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> order_id, order_date   <br>
-                         <span class="orclkey"> FROM </span> orders  <br>
-                         <span class="orclkey"> WHERE </span> DATEPART( <span class="orclkey"> MONTH </span> , order_date) = 12
-                         <b> ;</b> 
+                    <span class="orclkey"> FROM </span> orders  <br>
+                    <span class="orclkey"> WHERE </span> DATEPART( <span class="orclkey"> MONTH </span> , order_date) = 12
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:- </b> Summarize total sales by quarter.</p>
@@ -1995,9 +2126,9 @@
                 <code>
                     <span class="orclkey"> SELECT </span> DATEPART( QUARTER, sale_date ) <span class="orclkey"> AS </span>  sales_quarter, <br>
                     SUM( amount ) <span class="orclkey"> AS </span> total_sales <br>
-                         <span class="orclkey"> FROM </span> sales  <br>
-                         <span class="orclkey"> GROUP BY </span> DATEPART( QUARTER, sale_date )
-                         <b> ;</b> 
+                    <span class="orclkey"> FROM </span> sales  <br>
+                    <span class="orclkey"> GROUP BY </span> DATEPART( QUARTER, sale_date )
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:- </b> Find employees with birthdays this week.</p>
@@ -2005,22 +2136,22 @@
                 <code>
                     <span class="orclkey"> SELECT </span> employee_id, name, birth_date <br>
                     <span class="orclkey"> FROM </span>  employees <br>
-                         <span class="orclkey"> WHERE </span> DATEPART( WEEKDAY, birth_date ) <span class="orclkey"> BETWEEN  </span> 1 <span class="orclkey"> AND  </span> 7
-                         <b> ;</b> 
+                    <span class="orclkey"> WHERE </span> DATEPART( WEEKDAY, birth_date ) <span class="orclkey"> BETWEEN  </span> 1 <span class="orclkey"> AND  </span> 7
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:- </b> Analyze website traffic volume by hour.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span> DATEPART( 
-                        <span class="orclkey"> HOUR </span> , visit_time) 
-                        <span class="orclkey"> AS </span> visit_hour,<br>
+                    <span class="orclkey"> SELECT </span> DATEPART(
+                    <span class="orclkey"> HOUR </span> , visit_time)
+                    <span class="orclkey"> AS </span> visit_hour,<br>
                     <ul>COUNT( * ) <span class="orclkey"> AS </span> visit_count <br></ul>
                     <span class="orclkey"> FROM  </span> website_visits <br>
-                    <span class="orclkey"> GROUP BY </span>  DATEPART(   
-                        <span class="orclkey"> HOUR </span> , visit_time) <br>
-                         <span class="orclkey"> ORDER BY </span> visit_hour
-                         <b> ;</b> 
+                    <span class="orclkey"> GROUP BY </span>  DATEPART(
+                    <span class="orclkey"> HOUR </span> , visit_time) <br>
+                    <span class="orclkey"> ORDER BY </span> visit_hour
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:- </b> Find transactions that occurred on weekends.</p>
@@ -2030,7 +2161,7 @@
                     <span class="orclkey"> FROM  </span> transactions <br>
                     <span class="orclkey"> WHERE </span>  DATEPART(WEEKDAY, transaction_date)  <span class="orclkey"> IN </span>
                     ( 1, 7 ) <b> ;</b>  <br>
-                        
+
                 </code>
             </div><br>
             <h2>Common Errors with DATEPART()</h2>
@@ -2060,7 +2191,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for DATEPART()</h2>
+            <h2>Do's and Don'ts with DATEPART()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2071,13 +2202,17 @@
                 <tbody>
                     <tr>
                         <td>Use DATEPART() for granular date breakdowns like hours or weekdays.</td>
-                        <td>Use DATEPART() for unsupported databases (e.g., PostgreSQL or Oracle). Use EXTRACT()
-                            instead.</td>
+                        <td>
+                            Use DATEPART() for unsupported databases (e.g., PostgreSQL or Oracle). Use EXTRACT()
+                            instead.
+                        </td>
                     </tr>
                     <tr>
                         <td>Validate and test the date formats before querying.</td>
-                        <td>Assume day-of-week values (WEEKDAY) align with international standards (Sunday is day 1 in
-                            SQL).</td>
+                        <td>
+                            Assume day-of-week values (WEEKDAY) align with international standards (Sunday is day 1 in
+                            SQL).
+                        </td>
                     </tr>
                     <tr>
                         <td>Combine with aggregation functions like COUNT() or SUM().</td>
@@ -2088,16 +2223,19 @@
             <h2 id="tochar">10.TO_CHAR()</h2>
             <p>The TO_CHAR() function is used to convert dates, timestamps, or numbers into formatted strings.</p>
             <ul>
-                <li>This function is commonly available in databases like Oracle, PostgreSQL, and other SQL dialects.
+                <li>
+                    This function is commonly available in databases like Oracle, PostgreSQL, and other SQL dialects.
                 </li>
-                <li>It provides extensive flexibility to format date/time values and numeric values according to custom
-                    patterns.</li>
+                <li>
+                    It provides extensive flexibility to format date/time values and numeric values according to custom
+                    patterns.
+                </li>
             </ul> <br>
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> TO_CHAR </span>( value, format )  
-                    </code>
+                    <span class="orclkey"> TO_CHAR </span>( value, format )
+                </code>
             </div><br>
             <ul>
                 <li>value: The input date, timestamp, or numeric value to be converted.</li>
@@ -2203,14 +2341,14 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Display Employee Birthdays in Custom Format 'Day-MON-Year'</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> employee_id, birth_date,<br>
                     TO_CHAR( birth_date, 'DD-MON-YYYY' )<span class="orclkey"> AS  </span> Full_Birthday <br>
                     <span class="orclkey"> FROM </span> employees
-                         <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Format sales amounts as currency with two decimal points.</p>
@@ -2219,7 +2357,7 @@
                     <span class="orclkey"> SELECT </span> sale_id, amount,<br>
                     TO_CHAR(amount, 'L999G999G999D99') <span class="orclkey"> AS  </span> Sales_Amount <br>
                     <span class="orclkey"> FROM </span> sales
-                         <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 3:-</b> Create Reports with full day and month names.</p>
@@ -2228,7 +2366,7 @@
                     <span class="orclkey"> SELECT </span> report_id, created_date, <br>
                     TO_CHAR(created_date, 'Day, Month DD, YYYY') <span class="orclkey"> AS  </span> Full_date <br>
                     <span class="orclkey"> FROM </span> reports
-                         <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:-</b> Show check-in times with 12-hour clock and AM/PM.</p>
@@ -2237,7 +2375,7 @@
                     <span class="orclkey"> SELECT </span> employee_id, check_in_time, <br>
                     TO_CHAR(check_in_time, 'HH12:MI:SS AM') <span class="orclkey"> AS  </span> Time_in_AMPM <br>
                     <span class="orclkey"> FROM </span> attendance
-                         <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:-</b> Group transactions by month and year.</p>
@@ -2248,7 +2386,7 @@
                     <span class="orclkey"> FROM </span> Transactions <br>
                     <span class="orclkey"> GROUP BY  </span> TO_CHAR(transaction_date, 'YYYY-MM') <br>
                     <span class="orclkey"> ORDER BY  </span> Trans_month
-                         <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:-</b> Highlight Weekly sale dates to show the day of the week. </p>
@@ -2256,18 +2394,18 @@
                 <code>
                     <span class="orclkey"> SELECT </span> sale_id, sale_date, <br>
                     TO_CHAR(sale_date, 'Day') <span class="orclkey"> AS  </span> sale_day <br>
-                    <span class="orclkey"> FROM </span> sales 
-                         <b> ;</b> 
+                    <span class="orclkey"> FROM </span> sales
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:-</b> Add suffixes to days. </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span> TO_CHAR( SYSDATE, 'DDth' ) 
-                    <span class="orclkey"> AS  </span> day_with_suffix  
-                    <span class="orclkey"> FROM </span> dual 
-                         <b> ;</b> <br><br>
-                    - - 19th 
+                    <span class="orclkey"> SELECT </span> TO_CHAR( SYSDATE, 'DDth' )
+                    <span class="orclkey"> AS  </span> day_with_suffix
+                    <span class="orclkey"> FROM </span> dual
+                    <b> ;</b> <br><br>
+                    - - 19th
                 </code>
             </div><br>
             <p><b>Scenario 8:-</b> Validating Expiry Dates in Insurance. </p>
@@ -2275,16 +2413,18 @@
                 <code>
                     <span class="orclkey"> SELECT </span> policy_id, <br>
                     <ul>
-                    TO_CHAR(expiry_date, 'DD-Mon-YYYY') 
-                    <span class="orclkey"> AS  </span> Expire_date,  <br>
-                    'Expires in ' || (expiry_date - SYSDATE) || ' days' 
-                    <span class="orclkey"> AS  </span> Alert_message  <br>
+                        TO_CHAR(expiry_date, 'DD-Mon-YYYY')
+                        <span class="orclkey"> AS  </span> Expire_date,
+                        <br>
+                        'Expires in ' || (expiry_date - SYSDATE) || ' days'
+                        <span class="orclkey"> AS  </span> Alert_message
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM  </span> policies   <br>
-                    <span class="orclkey"> WHERE </span> Expire_date 
+                    <span class="orclkey"> WHERE </span> Expire_date
                     <span class="orclkey"> BETWEEN </span> SYSDATE
                     <span class="orclkey"> AND </span> SYSDATE + 30<b> ;</b> <br>
-                        
+
                 </code>
             </div><br>
             <h2>Common Errors with TO_CHAR()</h2>
@@ -2314,7 +2454,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for TO_CHAR()</h2>
+            <h2>Do's and Don'ts with TO_CHAR()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2325,7 +2465,8 @@
                 <tbody>
                     <tr>
                         <td>Use TO_CHAR() for custom formatting of dates and numbers.</td>
-                        <td>Use TO_CHAR() for date manipulation; use TO_DATE() for converting strings to dates instead.
+                        <td>
+                            Use TO_CHAR() for date manipulation; use TO_DATE() for converting strings to dates instead.
                         </td>
                     </tr>
                     <tr>
@@ -2334,28 +2475,35 @@
                     </tr>
                     <tr>
                         <td>Combine TO_CHAR() with aggregation functions for reporting.</td>
-                        <td>Assume TO_CHAR() exists in all databases; it’s specific to Oracle (use FORMAT() in SQL
-                            Server).</td>
+                        <td>
+                            Assume TO_CHAR() exists in all databases; it’s specific to Oracle (use FORMAT() in SQL
+                            Server).
+                        </td>
                     </tr>
                 </tbody>
             </table><br>
             <h2 id="datetrunc">11.DATE_TRUNC()</h2>
-            <p>The DATE_TRUNC() function is used to truncate a date, timestamp, or interval to the specified precision
-                (e.g., year, month, day, hour). </p>
+            <p>
+                The DATE_TRUNC() function is used to truncate a date, timestamp, or interval to the specified precision
+                (e.g., year, month, day, hour).
+            </p>
             <ul>
-                <li> It is commonly supported in databases like PostgreSQL, Redshift, and Snowflake, and is particularly
+                <li>
+                    It is commonly supported in databases like PostgreSQL, Redshift, and Snowflake, and is particularly
                     useful for grouping data by time intervals.
                 </li>
-            </ul> <br>
+            </ul> 
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> DATE_TRUNC </span>( precision, source )  
-                    </code>
+                    <span class="orclkey"> DATE_TRUNC </span>( precision, source )
+                </code>
             </div><br>
             <ul>
-                <li>precision: The level of truncation. Common values include year, quarter, month, week, day, hour,
-                    minute, second.</li>
+                <li>
+                    precision: The level of truncation. Common values include year, quarter, month, week, day, hour,
+                    minute, second.
+                </li>
                 <li>source: The date, timestamp, or interval to be truncated.</li>
             </ul><br>
             <h2>Supported Precisions</h2>
@@ -2415,26 +2563,28 @@
                     </tbody>
                 </table>
             </ul> <br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Group Sales by Month.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> DATE_TRUNC('month', sale_date) <span class="orclkey"> AS </span> Monthly_Sales,<br>
                     <ul>
-                        SUM(sale_amount)  <span class="orclkey"> AS  </span> Total_Sales  <br>
+                        SUM(sale_amount)
+                        <span class="orclkey"> AS  </span> Total_Sales
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM  </span> Sales   <br>
                     <span class="orclkey"> GROUP BY </span> DATE_TRUNC('month', sale_date)  <br>
-                    <span class="orclkey"> ORDER BY </span> Monthly_Sales 
-                         <b> ;</b>
+                    <span class="orclkey"> ORDER BY </span> Monthly_Sales
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 2:- </b> Truncate login timestamps to the start of the day.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> user_id, DATE_TRUNC('day', login_time) <span class="orclkey"> AS </span> Login_day<br>
-                    <span class="orclkey"> FROM  </span> user_logins  
-                         <b> ;</b>
+                    <span class="orclkey"> FROM  </span> user_logins
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 3:- </b> Find orders placed in the week of December 15, 2024.</p>
@@ -2442,8 +2592,8 @@
                 <code>
                     <span class="orclkey"> SELECT </span> order_id, order_date <br>
                     <span class="orclkey"> FROM </span> orders <br>
-                    <span class="orclkey"> WHERE  </span> DATE_TRUNC('week', order_date) = '2024-12-15 00:00:00'  
-                         <b> ;</b>
+                    <span class="orclkey"> WHERE  </span> DATE_TRUNC('week', order_date) = '2024-12-15 00:00:00'
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:- </b> Calculate Work Sessions durations by day</p>
@@ -2451,12 +2601,14 @@
                 <code>
                     <span class="orclkey"> SELECT </span> employee_id,  <br>
                     <ul>
-                    DATE_TRUNC('day', session_start) <span class="orclkey"> AS </span> work_day,
-                    SUM(session_duration) <span class="orclkey"> AS </span> total_work_duration
+                        DATE_TRUNC('day', session_start)
+                        <span class="orclkey"> AS </span> work_day,
+                        SUM(session_duration)
+                        <span class="orclkey"> AS </span> total_work_duration
                     </ul>
                     <span class="orclkey"> FROM </span> work_sessions <br>
-                    <span class="orclkey"> GROUP BY  </span> employee_id, DATE_TRUNC('day', session_start)  
-                         <b> ;</b>
+                    <span class="orclkey"> GROUP BY  </span> employee_id, DATE_TRUNC('day', session_start)
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:- </b> Tracking Daily website page views by day for analytics.</p>
@@ -2464,13 +2616,17 @@
                 <code>
                     <span class="orclkey"> SELECT </span> <br>
                     <ul>
-                        DATE_TRUNC('day', view_time) <span class="orclkey"> AS </span> day_start ,<br>
-                        COUNT(*) <span class="orclkey"> AS </span> total_views <br>
+                        DATE_TRUNC('day', view_time)
+                        <span class="orclkey"> AS </span> day_start ,
+                        <br>
+                        COUNT(*)
+                        <span class="orclkey"> AS </span> total_views
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM </span> page_views <br>
                     <span class="orclkey"> GROUP BY  </span> DATE_TRUNC('day', view_time) <br>
                     <span class="orclkey"> ORDER BY  </span> day_start
-                         <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Common Errors with DATE_TRUNC()</h2>
@@ -2500,7 +2656,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for DATE_TRUNC()</h2>
+            <h2>Do's and Don'ts with DATE_TRUNC()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2525,16 +2681,19 @@
             </table><br>
             <h2 id="sysdate">12.SYSDATE()</h2>
             <p>The SYSDATE() function is used to retrieve the current system date and time of the database server.</p>
+           <br>
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SYSDATE </span>( )  
-                    </code>
+                    <span class="orclkey"> SYSDATE </span>( )
+                </code>
             </div><br>
             <ul>
                 <li>Returns the current date and time based on the database server's clock.</li>
-                <li>It is similar to NOW() in MySQL, but the key difference is that SYSDATE() reflects the time when the
-                    function is executed, even if it's used multiple times in the same query. </li>
+                <li>
+                    It is similar to NOW() in MySQL, but the key difference is that SYSDATE() reflects the time when the
+                    function is executed, even if it's used multiple times in the same query.
+                </li>
             </ul><br>
             <h3>Database-Specific Behavior</h3>
             <table>
@@ -2547,13 +2706,17 @@
                 <tbody>
                     <tr>
                         <td><b>Oracle</b></td>
-                        <td>SYSDATE returns the date and time from the server's operating system. Precision is limited
-                            to seconds.</td>
+                        <td>
+                            SYSDATE returns the date and time from the server's operating system. Precision is limited
+                            to seconds.
+                        </td>
                     </tr>
                     <tr>
                         <td><b>MySQL</b></td>
-                        <td>SYSDATE() returns the current date and time. It is dynamic in statements unless the query
-                            uses SELECT ... FOR UPDATE.</td>
+                        <td>
+                            SYSDATE() returns the current date and time. It is dynamic in statements unless the query
+                            uses SELECT ... FOR UPDATE.
+                        </td>
                     </tr>
                     <tr>
                         <td><b>PostgreSQL</b></td>
@@ -2565,31 +2728,32 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h3>Examples</h3>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Retrieve Current Date and Time.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span> SYSDATE() 
+                    <span class="orclkey"> SELECT </span> SYSDATE()
                     <span class="orclkey"> AS </span> current_datetime    <b> ;</b><br><br>
-                         -- Output: 2024-12-20 07:45:30
+                    -- Output: 2024-12-20 07:45:30
                 </code>
             </div><br>
-            <p><b>Scenario 2:- </b> Retrieve only the current date without the time component.
+            <p>
+                <b>Scenario 2:- </b> Retrieve only the current date without the time component.
             </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> DATE(SYSDATE() )
                     <span class="orclkey"> AS </span> current_date
-                         <b> ;</b><br><br>
-                         -- Output: 2024-12-20
+                    <b> ;</b><br><br>
+                    -- Output: 2024-12-20
                 </code>
             </div><br>
             <p><b>Scenario 3:- </b> Insert a transaction with the current timestamp.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> INSERT INTO </span> transactions (transaction_id, amount, transaction_date)<br>
-                        <span class="orclkey"> VALUES </span> ( 101, 250.50, SYSDATE() )
-                         <b> ;</b>
+                    <span class="orclkey"> VALUES </span> ( 101, 250.50, SYSDATE() )
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:- </b> Find the duration since an event in seconds.</p>
@@ -2599,7 +2763,7 @@
                     SYSDATE() - event_time <span class="orclkey"> AS </span> seconds_elapsed <br>
                     <span class="orclkey"> FROM </span> events
 
-                         <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:- </b> Retrieve records created today.</p>
@@ -2607,8 +2771,8 @@
                 <code>
                     <span class="orclkey"> SELECT </span> employee_id, name, created_date  <br>
                     <span class="orclkey"> FROM </span> employees <br>
-                    <span class="orclkey"> WHERE </span> DATE(created_date) = DATE(SYSDATE())                    
-                         <b> ;</b>
+                    <span class="orclkey"> WHERE </span> DATE(created_date) = DATE(SYSDATE())
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:- </b> List events occurring within the next 7 days.</p>
@@ -2617,21 +2781,26 @@
                     <span class="orclkey"> SELECT </span> event_id, event_name, event_date  <br>
                     <span class="orclkey"> FROM </span> events <br>
                     <span class="orclkey"> WHERE </span> event_date <span class="orclkey"> BETWEEN </span>
-                    SYSDATE()  <span class="orclkey"> AND </span> SYSDATE() + INTERVAL 7  <span class="orclkey"> DAY </span>     
-                         <b> ;</b>
+                    SYSDATE()  <span class="orclkey"> AND </span> SYSDATE() + INTERVAL 7  <span class="orclkey"> DAY </span>
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 7:- </b> Generate a list of unresolved tickets that have exceeded the SLA based on the exact
-                system time.</p>
+            <p>
+                <b>Scenario 7:- </b> Generate a list of unresolved tickets that have exceeded the SLA based on the exact
+                system time.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> ticket_id, TIMESTAMPDIFF(  <span class="orclkey"> MINUTE , </span>
                     created_at, SYSDATE() ) <span class="orclkey"> AS </span> minutes_elapsed <br>
                     <span class="orclkey"> FROM </span> tickets <br>
                     <span class="orclkey"> WHERE </span> status = 'OPEN' <br>
-                    <ul> <span class="orclkey"> AND </span>
-                        TIMESTAMPDIFF(  <span class="orclkey"> MINUTE </span> , created_at, SYSDATE()) > sla_minutes     
-                         <b> ;</b></ul>
+                    <ul>
+                        <span class="orclkey"> AND </span>
+                        TIMESTAMPDIFF(
+                        <span class="orclkey"> MINUTE </span> , created_at, SYSDATE()) > sla_minutes
+                        <b> ;</b>
+                    </ul>
                 </code>
             </div><br>
             <h3>Key Differences Between SYSDATE() and NOW()</h3>
@@ -2684,7 +2853,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for SYSDATE()</h2>
+            <h2>Do's and Don'ts with SYSDATE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2714,15 +2883,16 @@
             <h2 id="extract">13.EXTRACT()</h2>
             <p>The EXTRACT() function is used to retrieve specific parts of a date, time, or timestamp value. </p><br>
             <ul>
-                <li> It is a versatile function supported by many relational databases, such as PostgreSQL, MySQL,
+                <li>
+                    It is a versatile function supported by many relational databases, such as PostgreSQL, MySQL,
                     Oracle, SQL Server, and others (with slight variations).
                 </li>
             </ul> <br>
             <h3>Syntax</h3>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> EXTRACT </span>( part <span class="orclkey"> FROM </span> source )  <b> ;</b>
-                    </code>
+                    <span class="orclkey"> EXTRACT </span>( part <span class="orclkey"> FROM </span> source )  <b> ;</b>
+                </code>
             </div><br>
             <ul>
                 <li>part: The component to extract, such as year, month, day, hour, etc.</li>
@@ -2775,103 +2945,112 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Extracting the Year.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span> EXTRACT( <span class="orclkey"> YEAR FROM </span> TIMESTAMP '2024-12-20 14:30:45' )  <span class="orclkey"> AS  year </span> 
+                    <span class="orclkey"> SELECT  </span> EXTRACT( <span class="orclkey"> YEAR FROM </span> TIMESTAMP '2024-12-20 14:30:45' )  <span class="orclkey"> AS  year </span>
                     <b> ;</b><br>
                     -- Output: 2024
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 2:- </b> Extracting the Month.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span> EXTRACT( <span class="orclkey"> MONTH FROM </span> TIMESTAMP '2024-12-20 14:30:45' )  <span class="orclkey"> AS  month </span> 
+                    <span class="orclkey"> SELECT  </span> EXTRACT( <span class="orclkey"> MONTH FROM </span> TIMESTAMP '2024-12-20 14:30:45' )  <span class="orclkey"> AS  month </span>
                     <b> ;</b><br>
                     -- Output: 12
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 3:- </b> Extracting the Day.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span> EXTRACT( <span class="orclkey"> DAY FROM </span> TIMESTAMP '2024-12-20 14:30:45' )  <span class="orclkey"> AS  day </span> 
+                    <span class="orclkey"> SELECT  </span> EXTRACT( <span class="orclkey"> DAY FROM </span> TIMESTAMP '2024-12-20 14:30:45' )  <span class="orclkey"> AS  day </span>
                     <b> ;</b><br>
                     -- Output: 20
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 4:- </b> Identify the quarter in which transactions occurred.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span> <br>
-                        transaction_id , <br>
-                        EXTRACT(QUARTER <span class="orclkey"> FROM </span> transaction_date )  <span class="orclkey"> AS </span> quarter <br>
-                        <span class="orclkey"> FROM  </span> Transactions
+                    <span class="orclkey"> SELECT  </span> <br>
+                    transaction_id , <br>
+                    EXTRACT(QUARTER <span class="orclkey"> FROM </span> transaction_date )  <span class="orclkey"> AS </span> quarter <br>
+                    <span class="orclkey"> FROM  </span> Transactions
                     <b> ;</b>
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 5:- </b> Group sales data by month and calculate total sales.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span> <br>
-                        EXTRACT( <span class="orclkey">MONTH FROM </span> sale_date )  <span class="orclkey"> AS month,</span>  <br>
-                        SUM(sales_amount) <span class="orclkey"> AS </span> Total_sales  <br>
-                        <span class="orclkey"> FROM  </span> sales <br>
-                        <span class="orclkey"> GROUP BY </span> EXTRACT(  <span class="orclkey"> MONTH FROM </span> sale_date) <br>
-                        <span class="orclkey"> ORDER BY month </span>
+                    <span class="orclkey"> SELECT  </span> <br>
+                    EXTRACT( <span class="orclkey">MONTH FROM </span> sale_date )  <span class="orclkey"> AS month,</span>  <br>
+                    SUM(sales_amount) <span class="orclkey"> AS </span> Total_sales  <br>
+                    <span class="orclkey"> FROM  </span> sales <br>
+                    <span class="orclkey"> GROUP BY </span> EXTRACT(  <span class="orclkey"> MONTH FROM </span> sale_date) <br>
+                    <span class="orclkey"> ORDER BY month </span>
                     <b> ;</b>
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 6:- </b> Summarize revenue by quarter.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span> 
-                        EXTRACT(Quarter <span class="orclkey"> FROM </span> trans_date)
-                        <span class="orclkey"> AS </span> Trans_Quarter, <br>
-                       <ul> SUM(amount) <span class="orclkey"> AS </span> Total_Revenue  <br></ul>
-                        <span class="orclkey"> FROM  </span> Transactions <br>
-                        <span class="orclkey"> GROUP BY </span> EXTRACT( Quarter  
-                        <span class="orclkey"> FROM </span> trans_date) <br>
-                        <span class="orclkey"> ORDER BY </span> Trans_Quarter
+                    <span class="orclkey"> SELECT  </span>
+                    EXTRACT(Quarter <span class="orclkey"> FROM </span> trans_date)
+                    <span class="orclkey"> AS </span> Trans_Quarter, <br>
+                    <ul> SUM(amount) <span class="orclkey"> AS </span> Total_Revenue  <br></ul>
+                    <span class="orclkey"> FROM  </span> Transactions <br>
+                    <span class="orclkey"> GROUP BY </span> EXTRACT( Quarter
+                    <span class="orclkey"> FROM </span> trans_date) <br>
+                    <span class="orclkey"> ORDER BY </span> Trans_Quarter
                     <b> ;</b>
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 7:- </b> Find events occurring on Sundays.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span>  event_id, event_date <br>
-                        <span class="orclkey"> FROM  </span> events <br>
-                        <span class="orclkey"> WHERE </span> EXTRACT(dow  <span class="orclkey"> FROM </span> event_date ) = 0 
+                    <span class="orclkey"> SELECT  </span>  event_id, event_date <br>
+                    <span class="orclkey"> FROM  </span> events <br>
+                    <span class="orclkey"> WHERE </span> EXTRACT(dow  <span class="orclkey"> FROM </span> event_date ) = 0
                     <b> ;</b>
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 8:- </b> Extract hour and minute components to calculate session duration.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span>  session_id ,  <br>
-                        <ul>
-                            EXTRACT( <span class="orclkey"> hour FROM </span> session_end - session_start ) * 60 +  <br>
-                            EXTRACT( <span class="orclkey"> minute FROM </span> session_end - session_start )
-                            <span class="orclkey"> AS </span> session_length_minutes  <br>
-                        </ul>
-                        <span class="orclkey"> FROM  </span> user_sessions 
+                    <span class="orclkey"> SELECT  </span>  session_id ,  <br>
+                    <ul>
+                        EXTRACT(
+                        <span class="orclkey"> hour FROM </span> session_end - session_start ) * 60 +
+                        <br>
+                        EXTRACT(
+                        <span class="orclkey"> minute FROM </span> session_end - session_start )
+                        <span class="orclkey"> AS </span> session_length_minutes
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM  </span> user_sessions
                     <b> ;</b>
-                    </code>
+                </code>
             </div><br>
             <p><b>Scenario 9:- </b> Identify the first Monday in December 2024.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> SELECT  </span>  date_value  <br>
-                        <span class="orclkey"> FROM  </span> calendar <br>
-                        <span class="orclkey"> WHERE  </span>
-                        <ul>
-                            EXTRACT( <span class="orclkey"> YEAR FROM </span> date_value) = 2024  <br>
-                            <span class="orclkey"> AND  </span> EXTRACT(MONTH <span class="orclkey"> FROM </span> date_value) = 12 <br>
-                             <span class="orclkey"> AND  </span> EXTRACT(DOW <span class="orclkey"> FROM  </span>date_value)=1
-                        </ul>
-                        <span class="orclkey"> ORDER BY  </span> date_value <br>
-                        LIMIT 1    <b> ;</b>
-                    </code>
+                    <span class="orclkey"> SELECT  </span>  date_value  <br>
+                    <span class="orclkey"> FROM  </span> calendar <br>
+                    <span class="orclkey"> WHERE  </span>
+                    <ul>
+                        EXTRACT(
+                        <span class="orclkey"> YEAR FROM </span> date_value) = 2024
+                        <br>
+                        <span class="orclkey"> AND  </span> EXTRACT(MONTH
+                        <span class="orclkey"> FROM </span> date_value) = 12
+                        <br>
+                        <span class="orclkey"> AND  </span> EXTRACT(DOW
+                        <span class="orclkey"> FROM  </span>date_value)=1
+                    </ul>
+                    <span class="orclkey"> ORDER BY  </span> date_value <br>
+                    LIMIT 1    <b> ;</b>
+                </code>
             </div><br><br>
             <h2>Common Errors with EXTRACT() </h2>
             <table>
@@ -2900,7 +3079,7 @@
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts of EXTRACT()</h2>
+            <h2>Do's and Don'ts with EXTRACT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2915,8 +3094,10 @@
                     </tr>
                     <tr>
                         <td>Validate date columns to ensure they are not NULL.</td>
-                        <td>Assume the function works across all databases; some may require alternatives or
-                            adjustments.</td>
+                        <td>
+                            Assume the function works across all databases; some may require alternatives or
+                            adjustments.
+                        </td>
                     </tr>
                     <tr>
                         <td>Combine with aggregation or grouping functions for better insights.</td>
@@ -2935,8 +3116,10 @@
 
 
             <div class="topic-buttons">
-                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="previou-button">&laquo;
-                    Previous</a>
+                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="previou-button">
+                    &laquo;
+                    Previous
+                </a>
                 <a href="sql_groupfunctions.html?topic=sqlGroupFunctions" class="next-button">Next &raquo;</a>
             </div>
 

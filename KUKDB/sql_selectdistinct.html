@@ -318,26 +318,24 @@
                 columns in a table. </p><br>
             <h2>Key Features of SELECT DISTINCT</h2>
             <ul>
-                <li><b>Eliminates Duplicates :- </b> Removes duplicate rows based on the selected columns.</li>
-                <li><b>Applicable to Single or Multiple Columns :- </b> Removes duplicate rows based on the selected
-                    columns.</li>
-                <li><b>Works Without Affecting the Original Data :- </b> Operates only on the result set, leaving
-                    the table data unchanged.</li>
-                <li><b>Common Use Cases :- </b>
+                <li><b>Eliminates Duplicates : </b> Removes duplicate rows based on the selected columns.</li>
+                <li><b>Applicable to Single or Multiple Columns : </b> Ensures uniqueness based on a single column or a combination of multiple columns. </li>
+                <li><b>Works Without Affecting the Original Data : </b> Operates only on the result set,the original table data remains unchanged.</li>
+                <li><b>Common Use Cases : </b>
                     <ul>
                         <li>To identify unique values in a column.</li>
                         <li>To count distinct values in a dataset.</li>
                     </ul>
                 </li>
             </ul>
-            <h2>Syntax</h2>
+            <h2>Syntax:</h2>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT DISTINCT  </span> column1<b> , </b>column2<b> , </b><b> .  .  . </b> <br>
                         <span class="orclkey">FROM </span> table_name <b> ; </b>
                     </code>
             </div><br>
-            <h2>1. Basic Examples</h2>
+            <h2> Basic Scenarios :</h2>
             <h3>Sample table</h3>
             <ul>
                 <table>
@@ -375,40 +373,20 @@
                             <td>India</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> 
             </ul><br>
-            <h3> Scenario 1:</h3>
-            <p>Retrieve the list of unique countries from Customers table.</p>
+            <p><b> Scenario 1:</b>
+            Retrieve the list of unique countries from the Customers table.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT DISTINCT  </span> Country <br>
                         <span class="orclkey">FROM </span> table_name <b> ; </b>
                     </code>
             </div><br>
-            <h3> Output</h3>
-            <ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>India</td>
-                        </tr>
-                        <tr>
-                            <td>USA</td>
-                        </tr>
-                        <tr>
-                            <td>Canada</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </ul>
+            
             <br>
-            <h3> Scenario 2:</h3>
-            <p>Retrieve distinct departments in the employees table.</p>
+            <p><b> Scenario 2:</b>
+            Retrieve distinct departments in the employees table.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT DISTINCT  </span> department_name <br>
@@ -416,8 +394,8 @@
                     </code>
             </div>
             <br>
-            <h3> Scenario 3:</h3>
-            <p><b>Unique Product Categories :- </b> Retrieve unique product categories from a products table.</p>
+            <p> <b> Scenario 3:</b>
+             Retrieve unique product categories from the products table.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT DISTINCT  </span> category <br>
@@ -443,18 +421,18 @@
                     </code>
             </div>
             <br>
-            <h2>Advanced Examples</h2>
-            <h3>3. Using DISTINCT with Expressions</h3>
+            <h2>Advanced Scenarios </h2>
+            <h3>1. Using DISTINCT with Expressions</h3>
             <p><b>Scenario :- </b>Retrieve distinct salary values with an additional bonus calculation</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT DISTINCT  </span> salary + 1000 <span class="orclkey"> AS </span> adjusted_salary<br>
                         <span class="orclkey">FROM </span> employees <b> ; </b>
                     </code>
-                - - The DISTINCT operator applies to the computed value (salary + 1000). <br>
+                - - The DISTINCT applies to the computed value (salary + 1000). <br>
             </div>
             <br>
-            <h3>4. Distinct with Aggregate Functions</h3>
+            <h3>2. Distinct with Aggregate Functions</h3>
             <p><b>Scenario 1:- </b>To count the number of unique departments.</p>
             <div class="code-box">
                 <code>
@@ -472,7 +450,8 @@
             </div>
             <br>
             <h2>Complex Scenarios</h2>
-            <p><b>Scenario 1:- Filtering with WHERE Clause: </b> Retrieve unique product categories with prices
+            <h3>1. Filtering with WHERE Clause: </h3>
+            <p><b>Scenario :-</b> Retrieve unique product categories with prices
                 above $50.</p>
             <div class="code-box">
                 <code>
@@ -482,7 +461,8 @@
                     </code>
             </div>
             <br>
-            <p><b>Scenario 2:- Using DISTINCT in a Subquery: </b> Find customers who placed orders in at least two
+            <h3>2.Using DISTINCT in a Subquery:</h3>
+            <p><b>Scenario :-  </b> Find customers who placed orders in at least two
                 unique countries.</p>
             <div class="code-box">
                 <code>
@@ -493,7 +473,8 @@
                     </code>
             </div>
             <br>
-            <p><b>Scenario 3:- Combining DISTINCT with Joins: </b> Retrieve unique product categories ordered by
+            <h3>3. Combining DISTINCT with Joins:</h3>
+            <p><b>Scenario :-  </b> Retrieve unique product categories ordered by
                 customers.</p>
             <div class="code-box">
                 <code>
@@ -504,7 +485,7 @@
                     </code>
             </div>
             <br>
-            <h2>Common Mistakes and How to Avoid Them</h2>
+            <h2>Common Mistakes with SELECT DISTINCT</h2>
             <h3>1. Using DISTINCT on All Columns:</h3>
             <p>DISTINCT applies to the entire row. Ensure you understand that it checks all selected columns for
                 uniqueness.</p>
@@ -517,8 +498,10 @@
             </div>
             <br>
             <h3>2. Expecting DISTINCT to Ignore Formatting Differences:</h3>
-            <p>DISTINCT treats 'John' and 'john' as different values in a case-sensitive collation. Use functions
-                like UPPER() or LOWER() to normalize.</p>
+            <p>
+                DISTINCT treats 'John' and 'john' as different values when the collation is case-sensitive. Use functions
+                like UPPER() or LOWER() to normalize.
+            </p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT DISTINCT</span> LOWER (name) <br>
@@ -530,10 +513,12 @@
             <p>Adding unnecessary columns can reduce the effectiveness of DISTINCT.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT DISTINCT</span> department_name<b> , </b> salary <br>
-                        <span class="orclkey">FROM </span> employees <b> ; </b>
-                    </code>
-                - - May not return expected distinct departments.
+                    <span class="orclkey">SELECT DISTINCT</span> department_name<b> , </b> salary <br>
+                    <span class="orclkey">FROM </span> employees <b> ; </b>
+                </code>
+                - -  May not return the expected list of distinct departments.
+
+                .
             </div><br>
             <h3>4. Performance Issues:</h3>
             <ul>
@@ -541,30 +526,31 @@
                 <li>Use indexes or pre-aggregated data to optimize queries.</li>
             </ul>
             <br>
-            <h3>Misunderstanding DISTINCT vs. GROUP BY:</h3>
-            <p>Both eliminate duplicates, but GROUP BY is used for aggregation, while DISTINCT is for deduplication.
+            <h3> DISTINCT vs GROUP BY</h3>
+            <p>
+                Both eliminate duplicates, but GROUP BY is used for aggregation, while DISTINCT is for Deduplication.
             </p><br>
-            <h2>Best Practices</h2>
-            <p><b>1. Use DISTINCT Judiciously</b></p>
+            <h2>Best Practices for SELECT DISTINCT</h2>
+            <p><b>1. Use DISTINCT Judiciously :</b></p>
             <ul>
                 <ul>
                     <li>Only use DISTINCT when duplicates are a problem. Avoid overusing it for every query as it
                         can degrade performance.</li>
                 </ul>
             </ul>
-            <p><b>2. Combine with Filters</b></p>
+            <p><b>2. Combine with Filters :</b></p>
             <ul>
                 <ul>
                     <li>Apply filters using WHERE or HAVING to reduce the dataset before deduplication.</li>
                 </ul>
             </ul>
-            <p><b>3. Leverage Indexing</b></p>
+            <p><b>3. Leverage Indexing :</b></p>
             <ul>
                 <ul>
                     <li>Ensure that columns used with DISTINCT are indexed for better performance.</li>
                 </ul>
             </ul>
-            <p><b>4. Compare with GROUP BY</b></p>
+            <p><b>4. Compare with GROUP BY : </b></p>
             <ul>
                 <ul>
                     <li>For queries involving aggregations, GROUP BY may be more efficient than DISTINCT.</li>

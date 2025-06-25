@@ -313,9 +313,11 @@
             </div>
 
             <h1>Aggregation or Group Functions </h1>
-            <p>Aggregation functions are used to perform calculations on a set of values and return a single summarized
-                result. </p><br>
-                <h2> Key Aggregation Functions</h2>
+            <p>
+                Aggregation functions are used to perform calculations on a set of values and return a single summarized
+                result.
+            </p><br>
+            <h2> Key Aggregation Functions</h2>
             <table>
                 <thead>
                     <tr>
@@ -390,8 +392,10 @@
                         <td><a href="#greatest"><b>GREATEST()</b></a></td>
                         <td>Compares multiple expressions and returns the largest (or "greatest") value from them.</td>
                         <td>GREATEST(value1, value2, ..., valueN)</td>
-                        <td>All input values must have compatible data types; otherwise, errors or inconsistent results
-                            may occur.</td>
+                        <td>
+                            All input values must have compatible data types; otherwise, errors or inconsistent results
+                            may occur.
+                        </td>
                     </tr>
                 </tbody>
 
@@ -405,7 +409,8 @@
             <ul>
                 <li>Example: The highest sales record or the earliest hire date.</li>
             </ul><br>
-            <p><b>3. Group-Level Insights:- </b> Work with GROUP BY to get summarized statistics for subsets of data.
+            <p>
+                <b>3. Group-Level Insights:- </b> Work with GROUP BY to get summarized statistics for subsets of data.
             </p>
             <ul>
                 <li>Example: Average salary by department.</li>
@@ -414,25 +419,27 @@
             <ul>
                 <li>Example: Generating KPIs, trends, or performance metrics.</li>
             </ul><br>
-            <p><b>5. Simplify Queries:- </b> Eliminate the need for additional calculations in application logic by
-                summarizing data directly in SQL.</p>
+            <p>
+                <b>5. Simplify Queries:- </b> Eliminate the need for additional calculations in application logic by
+                summarizing data directly in SQL.
+            </p>
             <br>
             <h2 id="count">1.COUNT()</h2>
             <p>Counts rows or specific non-NULL column values.</p><br>
-            <h4>Syntax</h4>
+            <h3> Basic Syntax</h3>
             <div class="code-box">
                 <code>
                     COUNT(expression)  - - Counts non-NULL values <br>
                     COUNT(*)           -- Counts all rows, including rows with NULL
                 </code>
             </div><br>
-            <h3>Examples</h3>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Count total rows in a table.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> COUNT(*) <span class="orclkey"> AS </span> Total_Employees <br>
-                    <span class="orclkey"> FROM </span> employees 
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Count the number of active employees in a company.</p>
@@ -440,8 +447,8 @@
                 <code>
                     <span class="orclkey">SELECT </span> COUNT(*) <span class="orclkey"> AS </span> Active_employees <br>
                     <span class="orclkey"> FROM </span> employees <br>
-                    <span class="orclkey"> WHERE </span>  status = 'Active' 
-                     <b> ;</b> 
+                    <span class="orclkey"> WHERE </span>  status = 'Active'
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 3:-</b> Count the number of unique job roles in the organization.</p>
@@ -449,7 +456,7 @@
                 <code>
                     <span class="orclkey">SELECT </span> COUNT(<span class="orclkey"> DISTINCT </span> job_role)  <span class="orclkey"> AS </span> Distinct_Roles <br>
                     <span class="orclkey"> FROM </span> employees
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:-</b> Count the number of employees in each department.</p>
@@ -458,18 +465,18 @@
                     <span class="orclkey">SELECT </span> department_id, COUNT(*)  <span class="orclkey"> AS </span> Emp_Count <br>
                     <span class="orclkey"> FROM </span> employees <br>
                     <span class="orclkey"> GROUP BY </span> department_id
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:-</b> Count distinct job roles in active departments.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> COUNT(DISTINCT job_role) 
+                    <span class="orclkey">SELECT </span> COUNT(DISTINCT job_role)
                     <span class="orclkey"> AS </span> DISTINCT_Roles <br>
                     <span class="orclkey"> FROM </span> employees <br>
-                    <span class="orclkey"> WHERE </span>  status = 'Active' 
-                    
-                     <b> ;</b> 
+                    <span class="orclkey"> WHERE </span>  status = 'Active'
+
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:-</b> Count the total number of orders placed by each customer.</p>
@@ -479,11 +486,11 @@
                     <span class="orclkey"> FROM </span> customers c <br>
                     <span class="orclkey"> LEFT JOIN </span>  orders o  <span class="orclkey"> ON </span>c.customer_id = o.customer_id <br>
                     <span class="orclkey"> GROUP BY </span> customer_id
-                     <b> ;</b> <br>
+                    <b> ;</b> <br>
                     <br>  <ul>
-                <li>A LEFT JOIN ensures all customers are included, even if they haven't placed any orders.</li>
-                <li>Groups by customer_id to count the number of orders for each customer.</li>
-            </ul>
+                        <li>A LEFT JOIN ensures all customers are included, even if they haven't placed any orders.</li>
+                        <li>Groups by customer_id to count the number of orders for each customer.</li>
+                    </ul>
                 </code>
             </div>
             <br>
@@ -494,7 +501,7 @@
                     <span class="orclkey"> FROM </span> employees <br>
                     <span class="orclkey"> GROUP BY </span> department_id <br>
                     <span class="orclkey"> HAVING </span> COUNT(*) > 10
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 8:-</b> Find customers who have placed more than 5 orders.</p>
@@ -504,26 +511,29 @@
                     <span class="orclkey"> FROM </span> orders <br>
                     <span class="orclkey"> GROUP BY </span> customer_id <br>
                     <span class="orclkey"> HAVING </span> COUNT(order_id) > 5
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 9:-</b> Rank employees based on the number of projects they are part of.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> employee_id, total_projects,<br>
-                <ul>
-                    <span class="orclkey"> RANK() OVER </span>(
-                    <span class="orclkey"> ORDER BY </span>total_projects DESC)
-                    <span class="orclkey"> AS </span> rank<br>
+                    <span class="orclkey">SELECT </span> employee_id, total_projects,<br>
+                    <ul>
+                        <span class="orclkey"> RANK() OVER </span>(
+                        <span class="orclkey"> ORDER BY </span>total_projects DESC)
+                        <span class="orclkey"> AS </span> rank
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM </span>
-                    <p>(
-                    <span class="orclkey">SELECT </span> employee_id, 
-                   <span class="orclkey">COUNT</span>(project_id)  
-                   <span class="orclkey"> AS </span> total_projects
-                    <span class="orclkey"> FROM </span>project_Assignments
-                    <span class="orclkey"> GROUP BY </span>employee_id)<br>
-                    <span class="orclkey"> AS </span>project_counts   <b> ;</b> </p>
+                    <p>
+                        (
+                        <span class="orclkey">SELECT </span> employee_id,
+                        <span class="orclkey">COUNT</span>(project_id)
+                        <span class="orclkey"> AS </span> total_projects
+                        <span class="orclkey"> FROM </span>project_Assignments
+                        <span class="orclkey"> GROUP BY </span>employee_id)<br>
+                        <span class="orclkey"> AS </span>project_counts   <b> ;</b>
+                    </p>
                 </code>
             </div><br>
             <p><b>Scenario 10:-</b> Count the number of active and inactive employees in the organization.</p>
@@ -535,45 +545,45 @@
                     COUNT(  <span class="orclkey"> CASE WHEN  </span> status = 'Inactive' <span class="orclkey"> THEN   </span> 1
                     <span class="orclkey"> END  </span> ) <span class="orclkey"> AS </span> inactive_employees <br>
                     <span class="orclkey"> FROM </span> employees
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 11:-</b> Count the number of employees per department who joined in each year.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> department_id, <br>
-                    <span class="orclkey">YEAR </span> (hire_date) <span class="orclkey"> AS </span> hire_year, 
+                    <span class="orclkey">YEAR </span> (hire_date) <span class="orclkey"> AS </span> hire_year,
                     COUNT(*) <span class="orclkey"> AS </span> Emp_Count <br>
                     <span class="orclkey"> FROM </span> employees <br>
                     <span class="orclkey"> GROUP BY </span> department_id,
                     <span class="orclkey"> YEAR </span> (hire_date) <br>
                     <span class="orclkey"> ORDER BY </span> department_id, hire_year
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
-            <h3 id="sum">2.SUM()</h3>
-            <p>The SUM() function is used to calculate the total sum of numeric values in a specified column.</p><br>
-            <h4>Syntax</h4>
+            <h2 id="sum">2.SUM()</h2>
+            <p>The SUM() function is used to calculate the total sum of numeric values in a specified column.</p>
+            <br> <h3>Basic Syntax</h3>
             <div class="code-box">
                 <code>
                     SUM(expression) <br>
                     - - expression: A numeric column or a calculation on numeric columns.
                 </code>
             </div><br>
-            <h2>SUM () Key Features</h2>
+            <h2> Key Features of SUM()</h2>
             <ul>
                 <li>Works only with numeric data types (e.g., integers, floats).</li>
                 <li>Ignores NULL values automatically.</li>
                 <li>Commonly used with GROUP BY, HAVING, and WHERE clauses.</li>
             </ul><br>
 
-            <h3>Examples</h3>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Calculate the total sales.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> SUM(sales_amount) <span class="orclkey"> AS </span> Total_Sales <br>
-                    <span class="orclkey"> FROM </span> sales 
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> sales
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Calculate the total sales for a specific region (North). </p>
@@ -581,8 +591,8 @@
                 <code>
                     <span class="orclkey">SELECT </span> SUM( sales_amount ) <span class="orclkey"> AS </span> Region_Sales <br>
                     <span class="orclkey"> FROM </span> sales <br>
-                    <span class="orclkey"> WHERE </span>  region  = 'North' 
-                     <b> ;</b> 
+                    <span class="orclkey"> WHERE </span>  region  = 'North'
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 3:-</b> Calculate the total sales for each region (Group By). </p>
@@ -591,7 +601,7 @@
                     <span class="orclkey">SELECT </span> region, SUM(sales_amount) <span class="orclkey"> AS </span> Region_Sales <br>
                     <span class="orclkey"> FROM </span> sales <br>
                     <span class="orclkey"> GROUP BY </span>  region
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:-</b> Calculate the total revenue for each customer based on orders. </p>
@@ -601,7 +611,7 @@
                     <span class="orclkey"> FROM </span> customers c <br>
                     <span class="orclkey"> JOIN </span>  orders o  <span class="orclkey"> ON </span>c.customer_id = o.customer_id <br>
                     <span class="orclkey"> GROUP BY </span>  c.customer_id
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:-</b> Find departments where total salaries exceed $1,000,000. </p>
@@ -609,75 +619,87 @@
                 <code>
                     <span class="orclkey">SELECT </span> department_id <br>
                     <span class="orclkey"> FROM </span> ( <br>
-                    <ul> 
-                    <span class="orclkey"> SELECT </span> department_id, SUM( salary ) <span class="orclkey"> AS </span> Total_Salary<br>
-                    <span class="orclkey"> FROM </span> employees <br>
-                    <span class="orclkey"> GROUP BY </span>  department_id <br>
+                    <ul>
+                        <span class="orclkey"> SELECT </span> department_id, SUM( salary )
+                        <span class="orclkey"> AS </span> Total_Salary
+                        <br>
+                        <span class="orclkey"> FROM </span> employees
+                        <br>
+                        <span class="orclkey"> GROUP BY </span>  department_id
+                        <br>
                     </ul>
                     ) subquery
-                    <span class="orclkey"> WHERE </span>  Total_Salary > 1000000                    
-                     <b> ;</b> 
+                    <span class="orclkey"> WHERE </span>  Total_Salary > 1000000
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 6:-</b> Calculate a running total of sales over time with Window Functions.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> sales_date, sales_amount, <br>
-                    SUM( sales_amount ) <span class="orclkey"> OVER </span> ( 
+                    SUM( sales_amount ) <span class="orclkey"> OVER </span> (
                     <span class="orclkey"> ORDER BY </span> sales_date )  <span class="orclkey"> AS </span> Running_Total<br>
-                    <span class="orclkey"> FROM </span> sales                    
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> sales
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:-</b> Calculate the total sales for products above and below $50 price.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span><br>
-                        SUM ( <span class="orclkey"> CASE WHEN </span> price >= 50 
-                        <span class="orclkey"> THEN </span> sales_amount
-                        <span class="orclkey"> ELSE </span> 0
-                        <span class="orclkey"> END </span> ) 
-                        <span class="orclkey"> AS </span> High_Sales, <br>
-                        SUM ( <span class="orclkey"> CASE WHEN </span> price <  50 
-                        <span class="orclkey"> THEN </span> sales_amount <span class="orclkey"> ELSE </span> 0
-                        <span class="orclkey"> END </span> ) <span class="orclkey"> AS </span> Low_Sales <br>
-                    </ul> 
-                    <span class="orclkey"> FROM </span> sales                    
-                     <b> ;</b> 
+                    SUM ( <span class="orclkey"> CASE WHEN </span> price >= 50
+                    <span class="orclkey"> THEN </span> sales_amount
+                    <span class="orclkey"> ELSE </span> 0
+                    <span class="orclkey"> END </span> )
+                    <span class="orclkey"> AS </span> High_Sales, <br>
+                    SUM ( <span class="orclkey"> CASE WHEN </span> price <  50
+                    <span class="orclkey"> THEN </span> sales_amount <span class="orclkey"> ELSE </span> 0
+                    <span class="orclkey"> END </span> ) <span class="orclkey"> AS </span> Low_Sales <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> sales
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 8:-</b> Calculate total revenue while handling NULL values explicitly.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span>SUM( COALESCE(revenue, 0) ) 
+                    <span class="orclkey">SELECT </span>SUM( COALESCE(revenue, 0) )
                     <span class="orclkey"> AS </span> total_revenue <br>
-                    <span class="orclkey"> FROM </span> sales                    
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> sales
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 9:-</b> Calculate the total cost of a product, including nested components in a Bill of
-                Materials (BOM) structure.</p>
+            <p>
+                <b>Scenario 9:-</b> Calculate the total cost of a product, including nested components in a Bill of
+                Materials (BOM) structure.
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">WITH RECURSIVE </span> ComponentCost 
-                    <span class="orclkey"> AS </span> ( <br> 
+                    <span class="orclkey">WITH RECURSIVE </span> ComponentCost
+                    <span class="orclkey"> AS </span> ( <br>
                     <ul>
-                        <span class="orclkey"> SELECT </span> component_id, cost <br>
-                        <span class="orclkey"> FROM </span> components <br>
-                        <span class="orclkey"> WHERE </span> parent_id 
-                        <span class="orclkey"> IS NULL </span> <br>
+                        <span class="orclkey"> SELECT </span> component_id, cost
+                        <br>
+                        <span class="orclkey"> FROM </span> components
+                        <br>
+                        <span class="orclkey"> WHERE </span> parent_id
+                        <span class="orclkey"> IS NULL </span>
+                        <br>
                         <span class="orclkey"> UNION ALL </span>
-                        <span class="orclkey"> SELECT </span> c.component_id, c.cost <br>
-                        <span class="orclkey"> FROM </span> components c <br>
-                        <span class="orclkey"> JOIN </span> ComponentCost cc  
-                        <span class="orclkey"> ON </span> 
-                        c.parent_id = cc.component_id<br>
+                        <span class="orclkey"> SELECT </span> c.component_id, c.cost
+                        <br>
+                        <span class="orclkey"> FROM </span> components c
+                        <br>
+                        <span class="orclkey"> JOIN </span> ComponentCost cc
+                        <span class="orclkey"> ON </span>
+                        c.parent_id = cc.component_id
+                        <br>
                     </ul>
                     )
-                    <span class="orclkey"> SELECT </span> SUM(cost) 
+                    <span class="orclkey"> SELECT </span> SUM(cost)
                     <span class="orclkey"> AS </span> total_cost<br>
-                    <span class="orclkey"> FROM </span> ComponentCost                    
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> ComponentCost
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Using SUM() with All SQL Clauses</h2>
@@ -756,50 +778,50 @@
             </ul><br>
             <h2 id="avg">3.AVG()</h2>
             <p>The AVG() function returns the arithmetic mean of a column's values, ignoring NULL values.</p><br>
-            <h3>Syntax</h3>
+            <h3>Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> AVG </span>( expression ) 
+                    <span class="orclkey"> AVG </span>( expression )
                 </code>
-            </div><br>
-            <ul>
-                <li>expression: A numeric column or an expression involving numeric columns.
+                <li>
+                    expression: A numeric column or an expression involving numeric columns.
                 </li>
-            </ul><br>
-            <h3>Key Features</h3>
+            </div><br>
+
+            <h2>Key Features of AVG()</h2>
 
             <p>1. Works only with numeric data types (e.g., integers, floats).</p>
             <p>2. Automatically ignores NULL values.</p>
             <p>3. Can be used with clauses like GROUP BY, HAVING, and WHERE.</p>
             <br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Find the average salary of all employees.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> AVG(salary)  
+                    <span class="orclkey">SELECT </span> AVG(salary)
                     <span class="orclkey"> AS </span> avg_salary <br>
-                    <span class="orclkey"> FROM </span> employees                    
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Find the average salary of employees in the "IT" department.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> AVG(salary)  
+                    <span class="orclkey">SELECT </span> AVG(salary)
                     <span class="orclkey"> AS </span> avg_salary <br>
-                    <span class="orclkey"> FROM </span> employees 
-                    <span class="orclkey"> WHERE </span>  department = 'IT'             
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <span class="orclkey"> WHERE </span>  department = 'IT'
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 3:-</b> Find the average salary for each department.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span>department, AVG(salary)  
+                    <span class="orclkey">SELECT </span>department, AVG(salary)
                     <span class="orclkey"> AS </span> avg_salary <br>
-                    <span class="orclkey"> FROM </span> employees 
-                    <span class="orclkey"> GROUP BY </span>  department          
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <span class="orclkey"> GROUP BY </span>  department
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 4:-</b> List employees whose salaries are above the company-wide average.</p>
@@ -808,8 +830,8 @@
                     <span class="orclkey">SELECT </span> employee_id, name, salary <br>
                     <span class="orclkey"> FROM </span> employees <br>
                     <span class="orclkey"> WHERE </span>  salary > ( <span class="orclkey"> SELECT </span>
-                    AVG(salary)  <span class="orclkey"> FROM </span> employees )        
-                     <b> ;</b> 
+                    AVG(salary)  <span class="orclkey"> FROM </span> employees )
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 5:-</b> Find the average salary of managers and non-managers.</p>
@@ -817,108 +839,126 @@
                 <code>
                     <span class="orclkey">SELECT </span> <br>
                     <ul>
-                    AVG( <span class="orclkey">CASE WHEN </span> job_title = 'Manager' 
-                    <span class="orclkey">THEN </span> salary <span class="orclkey"> ELSE NULL END </span> )
-                    <span class="orclkey"> AS </span> avg_manager_salary, <br>
-                    AVG( <span class="orclkey">CASE WHEN </span> job_title != 'Manager' 
-                    <span class="orclkey">THEN </span> salary <span class="orclkey"> ELSE NULL END </span> )
-                    <span class="orclkey"> AS </span> avg_non_manager_salary <br>
+                        AVG(
+                        <span class="orclkey">CASE WHEN </span> job_title = 'Manager'
+                        <span class="orclkey">THEN </span> salary
+                        <span class="orclkey"> ELSE NULL END </span> )
+                        <span class="orclkey"> AS </span> avg_manager_salary,
+                        <br>
+                        AVG(
+                        <span class="orclkey">CASE WHEN </span> job_title != 'Manager'
+                        <span class="orclkey">THEN </span> salary
+                        <span class="orclkey"> ELSE NULL END </span> )
+                        <span class="orclkey"> AS </span> avg_non_manager_salary
+                        <br>
                     </ul>
-                    <span class="orclkey"> FROM </span> employees   
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 6:-</b> Calculate the average salary of employees in departments that have more than 10
-                employees.</p>
+            <p>
+                <b>Scenario 6:-</b> Calculate the average salary of employees in departments that have more than 10
+                employees.
+            </p>
             <div class="code-box">
                 <code>
 
-                  <span class="orclkey"> SELECT </span> d.department_name, AVG( e.salary ) 
-                    <span class="orclkey"> AS </span> avg_salary <br> 
+                    <span class="orclkey"> SELECT </span> d.department_name, AVG( e.salary )
+                    <span class="orclkey"> AS </span> avg_salary <br>
                     <span class="orclkey"> FROM </span> departments d  <br>
                     <span class="orclkey"> JOIN </span>employees e
                     <span class="orclkey"> ON  </span> d.department_id = e.department_id <br>
-                    <span class="orclkey"> GROUP BY </span> d.department_name 
+                    <span class="orclkey"> GROUP BY </span> d.department_name
                     <span class="orclkey"> HAVING  </span> COUNT(e.employee_id) > 10
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 7:-</b> Calculate the average salary, explicitly including NULL as 0.</p>
             <div class="code-box">
                 <code>
 
-                  <span class="orclkey"> SELECT </span> AVG( COALESCE(salary, 0) ) 
-                    <span class="orclkey"> AS </span> Avg_Sal <br> 
+                    <span class="orclkey"> SELECT </span> AVG( COALESCE(salary, 0) )
+                    <span class="orclkey"> AS </span> Avg_Sal <br>
                     <span class="orclkey"> FROM </span> employees
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 8:-</b> Find a weighted average salary, where weight is the years of experience.
+            <p>
+                <b>Scenario 8:-</b> Find a weighted average salary, where weight is the years of experience.
             </p>
             <div class="code-box">
                 <code>
 
-                  <span class="orclkey"> SELECT </span> SUM( salary * years_experience ) / SUM( years_experience )
-                    <span class="orclkey"> AS </span> Avg_Sal <br> 
+                    <span class="orclkey"> SELECT </span> SUM( salary * years_experience ) / SUM( years_experience )
+                    <span class="orclkey"> AS </span> Avg_Sal <br>
                     <span class="orclkey"> FROM </span> employees
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 9:-</b> Calculate the running average salary over time.
+            <p>
+                <b>Scenario 9:-</b> Calculate the running average salary over time.
             </p>
             <div class="code-box">
                 <code>
 
-              <span class="orclkey"> SELECT </span> employee_id, salary,  <br>
-              <ul>
-              AVG(salary) <span class="orclkey"> OVER </span> (  <span class="orclkey"> ORDER BY </span> hire_date )  Avg_Salary<br> 
-                </ul>
-            <span class="orclkey"> FROM </span> employees
-                 <b> ;</b> 
-            </code>
+                    <span class="orclkey"> SELECT </span> employee_id, salary,  <br>
+                    <ul>
+                        AVG(salary)
+                        <span class="orclkey"> OVER </span> (
+                        <span class="orclkey"> ORDER BY </span> hire_date )  Avg_Salary
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 10:-</b> Calculate the average of unique salaries. </p>
             <div class="code-box">
                 <code>
-               <span class="orclkey"> SELECT </span> 
-               <span class="orclkey">AVG(salary)  </span> 
-               <span class="orclkey"> AS </span> Distinct_Avg_Salary <br> 
-               <span class="orclkey"> FROM </span> 
-                <ul>
-              (<span class="orclkey"> SELECT </span> 
-              <span class="orclkey">DISTINCT salary </span> 
-              <span class="orclkey"> FROM </span>employees)
-              <span class="orclkey"> AS </span> unique_salaries
-             <b> ;</b> 
-             </ul>
-        </code>
+                    <span class="orclkey"> SELECT </span>
+                    <span class="orclkey">AVG(salary)  </span>
+                    <span class="orclkey"> AS </span> Distinct_Avg_Salary <br>
+                    <span class="orclkey"> FROM </span>
+                    <ul>
+                        (
+                        <span class="orclkey"> SELECT </span>
+                        <span class="orclkey">DISTINCT salary </span>
+                        <span class="orclkey"> FROM </span>employees)
+                        <span class="orclkey"> AS </span> unique_salaries
+                        <b> ;</b>
+                    </ul>
+                </code>
             </div><br>
             <p><b>Scenario 11:-</b> Calculate average salaries at each management level. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> WITH </span>  ManagementHierarchy  AS ( <br> 
-            <ul>
-            <span class="orclkey"> SELECT </span>employee_id, salary, manager_id, 1 
-            <span class="orclkey"> AS </span>  LEVEL <br>
-            <span class="orclkey"> FROM </span>  employees <br>
-            <span class="orclkey"> WHERE  </span> manager_id
-            <span class="orclkey"> IS </span>  NULL <br>
-               <span class="orclkey"> UNION ALL </span> <br>
-            
-            </ul>
-            <span class="orclkey"> SELECT </span>e.employee_id, e.salary,e.manager_id , mh.level+1 
-            <span class="orclkey"> FROM </span>  employees  e<br>
-            <span class="orclkey"> JOIN  </span> ManagementHierarchy mh 
-            <span class="orclkey"> ON  </span> e.manager_id = mh.employee_id
-            </ul>)
-            <br><span class="orclkey"> SELECT </span> LEVEL, AVG(salary) 
-            <span class="orclkey"> AS </span> avg_salary  <br>
-            <span class="orclkey"> FROM </span> ManagementHierarchy <br>
-            <span class="orclkey"> GROUP BY </span> LEVEL
-            <span class="orclkey"> ORDER BY </span> LEVEL
+                    <span class="orclkey"> WITH </span>  ManagementHierarchy  AS ( <br>
+                    <ul>
+                        <span class="orclkey"> SELECT </span>employee_id, salary, manager_id, 1
+                        <span class="orclkey"> AS </span>  LEVEL
+                        <br>
+                        <span class="orclkey"> FROM </span>  employees
+                        <br>
+                        <span class="orclkey"> WHERE  </span> manager_id
+                        <span class="orclkey"> IS </span>  NULL
+                        <br>
+                        <span class="orclkey"> UNION ALL </span>
+                        <br>
 
-             <b> ;</b> 
-        </code>
+                    </ul>
+                    <span class="orclkey"> SELECT </span>e.employee_id, e.salary,e.manager_id , mh.level+1
+                    <span class="orclkey"> FROM </span>  employees  e<br>
+                    <span class="orclkey"> JOIN  </span> ManagementHierarchy mh
+                    <span class="orclkey"> ON  </span> e.manager_id = mh.employee_id
+                    </ul>)
+                    <br><span class="orclkey"> SELECT </span> LEVEL, AVG(salary)
+                    <span class="orclkey"> AS </span> avg_salary  <br>
+                    <span class="orclkey"> FROM </span> ManagementHierarchy <br>
+                    <span class="orclkey"> GROUP BY </span> LEVEL
+                    <span class="orclkey"> ORDER BY </span> LEVEL
+
+                    <b> ;</b>
+                </code>
             </div><br>
             <h2>Common Errors with AVG() </h2>
             <table>
@@ -952,7 +992,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for AVG()</h2>
+            <h2>Do's and Don'ts with AVG()</h2>
             <table>
                 <thead>
                     <tr>
@@ -974,7 +1014,8 @@
                         <td>Don’t forget the GROUP BY clause when including other columns in the query.</td>
                     </tr>
                     <tr>
-                        <td>Use window functions for advanced calculations like running averages or partitioned data.
+                        <td>
+                            Use window functions for advanced calculations like running averages or partitioned data.
                         </td>
                         <td>Don’t misuse PARTITION BY or forget to specify ORDER BY in window functions.</td>
                     </tr>
@@ -985,131 +1026,147 @@
                 </tbody>
             </table><br>
             <h2 id="max">4.MAX()</h2>
-            <p>The MAX() function returns the largest value from a specified column. It works on both numeric and date
-                types and ignores NULL values.</p><br>
+            <p>
+                The MAX() function returns the largest value from a specified column. It works on both numeric and date
+                types and ignores NULL values.
+            </p><br>
+            <h3>Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> MAX </span>( expression ) <br><br>
-                - - expression: The column or expression to evaluate.
-            </code>
+                    <span class="orclkey"> MAX </span>( expression ) <br>
+                    - - expression: The column or expression to evaluate.
+                </code>
             </div><br>
-            <h3>Key Features</h3>
+            <h2>Key Features of MAX()</h2>
 
             <p>1. Finds the maximum value in a column.</p>
             <p>2. Works on numeric, date, and string data types.</p>
             <p>3. Ignores NULL values by default.</p>
             <p>4. Can be combined with GROUP BY, HAVING, and other SQL clauses.</p>
             <br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Find the highest salary in the employees table. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> MAX( salary )   <span class="orclkey"> AS </span> max_salary  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> MAX( salary )   <span class="orclkey"> AS </span> max_salary  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Find the most recent hire date. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> MAX( hire_date )   <span class="orclkey"> AS </span> Recent_hire_date  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> MAX( hire_date )   <span class="orclkey"> AS </span> Recent_hire_date  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
-            <p><b>Scenario 3:-</b> Find the last name that comes last in alphabetical order.
-                . </p>
+            <p>
+                <b>Scenario 3:-</b> Find the last name that comes last in alphabetical order.
+                .
+            </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> MAX( Last_name )   <span class="orclkey"> AS </span> Last_name  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> MAX( Last_name )   <span class="orclkey"> AS </span> Last_name  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the highest salary for each department (Group By). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> department_id, MAX( Salary )  
-            <span class="orclkey"> AS </span> max_sal  <br>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> GROUP BY </span> department_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> department_id, MAX( Salary )
+                    <span class="orclkey"> AS </span> max_sal  <br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Find the highest salary in the "IT" department (Where). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT  </span> Dept_Name, MAX(Salary) 
-            <span class="orclkey"> AS </span> IT_max_sal  <br>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> WHERE </span> Dept_Name = 'IT'
-             <span class="orclkey"> GROUP BY </span> Dept_Name
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT  </span> Dept_Name, MAX(Salary)
+                    <span class="orclkey"> AS </span> IT_max_sal  <br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> WHERE </span> Dept_Name = 'IT'
+                    <span class="orclkey"> GROUP BY </span> Dept_Name
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Identify employees with the highest salary in the company (Sub Query). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> Emp_Id,Ename, Salary <br> 
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> WHERE </span> Salary = ( 
-                <span class="orclkey"> SELECT </span> MAX(Salary) 
-                <span class="orclkey"> FROM </span> employees)
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> Emp_Id,Ename, Salary <br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> WHERE </span> Salary = (
+                    <span class="orclkey"> SELECT </span> MAX(Salary)
+                    <span class="orclkey"> FROM </span> employees)
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Find the department with the highest average salary. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> Dept_Name,Avg_Salary
-     
-            <span class="orclkey"> FROM </span> ( <br>
-            <ul>
-                <span class="orclkey"> SELECT </span> Dept_Name, AVG(Salary) 
-                <span class="orclkey"> AS </span> avg_salary  <br>
-                <span class="orclkey"> FROM </span> employees <br>
-                <span class="orclkey"> GROUP BY </span> Dept_Name
-            </ul>
-            ) subquery
-             <span class="orclkey"> ORDER BY </span> avg_salary DESC LIMIT 1
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> Dept_Name,Avg_Salary
+
+                    <span class="orclkey"> FROM </span> ( <br>
+                    <ul>
+                        <span class="orclkey"> SELECT </span> Dept_Name, AVG(Salary)
+                        <span class="orclkey"> AS </span> avg_salary
+                        <br>
+                        <span class="orclkey"> FROM </span> employees
+                        <br>
+                        <span class="orclkey"> GROUP BY </span> Dept_Name
+                    </ul>
+                    ) subquery
+                    <span class="orclkey"> ORDER BY </span> avg_salary DESC LIMIT 1
+                    <b> ;</b>
+                </code>
             </div><br>
-            <p><b>Scenario 8:-</b> Calculate the maximum salary within each department while keeping all rows (Window
-                Function). </p>
+            <p>
+                <b>Scenario 8:-</b> Calculate the maximum salary within each department while keeping all rows (Window
+                Function).
+            </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> Emp_Id, Dept_Name, Salary, <br>  
-            <ul>
-                MAX( Salary ) <span class="orclkey"> OVER </span> (  <span class="orclkey"> PARTITION BY </span> Dept_Name )  <span class="orclkey"> AS </span> Max_Dept_Sal <br>
-            </ul>
-                <span class="orclkey"> FROM </span> employees 
-                <b> ;</b>      
-        </code>
+                    <span class="orclkey"> SELECT </span> Emp_Id, Dept_Name, Salary, <br>
+                    <ul>
+                        MAX( Salary )
+                        <span class="orclkey"> OVER </span> (
+                        <span class="orclkey"> PARTITION BY </span> Dept_Name )
+                        <span class="orclkey"> AS </span> Max_Dept_Sal
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 9:-</b> Find the maximum salary of managers only ( CASE ).</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> <br>
                     <ul>
-                    MAX( 
-                    <span class="orclkey">  CASE WHEN </span> job_title = 'Manager'
-                    <span class="orclkey">THEN </span> salary <span class="orclkey"> ELSE NULL END </span> )
-                    <span class="orclkey"> AS </span> max_manager_salary
+                        MAX(
+                        <span class="orclkey">  CASE WHEN </span> job_title = 'Manager'
+                        <span class="orclkey">THEN </span> salary
+                        <span class="orclkey"> ELSE NULL END </span> )
+                        <span class="orclkey"> AS </span> max_manager_salary
                     </ul>
-                    <span class="orclkey"> FROM </span> employees   
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 10:-</b> Find the longest tenure of an employee (difference between hire date and current
-                date).</p>
+            <p>
+                <b>Scenario 10:-</b> Find the longest tenure of an employee (difference between hire date and current
+                date).
+            </p>
             <div class="code-box">
                 ---postgreSQL
                 <code>
                     <span class="orclkey">SELECT </span> <br>
                     MAX(CURRENT_DATE - hire_date) <span class="orclkey"> AS </span> Long_Service_Emp
-                    <span class="orclkey"> FROM </span> employees   
-                     <b> ;</b> 
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Common Errors with MAX() </h2>
@@ -1139,7 +1196,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for MAX()</h2>
+            <h2>Do's and Don'ts with MAX()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1158,7 +1215,8 @@
                     </tr>
                     <tr>
                         <td>Use subqueries to identify rows corresponding to maximum values.</td>
-                        <td>Don’t expect MAX() to return rows—it returns a single scalar value unless used with OVER.
+                        <td>
+                            Don’t expect MAX() to return rows—it returns a single scalar value unless used with OVER.
                         </td>
                     </tr>
                     <tr>
@@ -1175,83 +1233,86 @@
             <p>The MIN() function returns the smallest value from a specified column or expression.</p>
             <ul>
                 <li>It works for numeric, date, and string data types and ignores NULL values by default.</li>
-                <li>It’s commonly used to determine the smallest number, earliest date, or alphabetically first string
-                    in a dataset.</li>
-            </ul>
+                <li>
+                    It’s commonly used to determine the smallest number, earliest date, or alphabetically first string
+                    in a dataset.
+                </li>
+            </ul><br>
+            <h3>Basic Synatx</h3>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> MIN </span>( expression ) <br><br>
+                    <span class="orclkey"> MIN </span>( expression ) <br>
                     - - expression: The column or calculated value from which to find the minimum.
                 </code>
             </div><br>
-            <h3>Key Features</h3>
+            <h2>Key Features of MIN()</h2>
 
             <p>1. Works with numeric, date, and string data types.</p>
             <p>2. Automatically ignores NULL values.</p>
             <p>3. Can be combined with SQL clauses like GROUP BY, HAVING, and WHERE.</p>
             <p>4. Efficiently finds the smallest value in both simple and complex scenarios.</p>
             <br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Find the lowest salary in the employees' table. </p>
             <div class="code-box">
                 <code>
-                <span class="orclkey"> SELECT </span> MIN( salary )   <span class="orclkey"> AS </span> min_salary  <br>
-                <span class="orclkey"> FROM </span> employees 
-                 <b> ;</b> 
-            </code>
+                    <span class="orclkey"> SELECT </span> MIN( salary )   <span class="orclkey"> AS </span> min_salary  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Find the first hire date. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> MIN( hire_date )   <span class="orclkey"> AS </span> First_hire_date  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> MIN( hire_date )   <span class="orclkey"> AS </span> First_hire_date  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Find the first name alphabetically. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> MIN( Last_name )   <span class="orclkey"> AS </span> First_Name_Order  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> MIN( Last_name )   <span class="orclkey"> AS </span> First_Name_Order  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the lowest salary for each department (Group By). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> department_id, MIN(Salary)  
-            <span class="orclkey"> AS </span> Min_Sal  <br>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> GROUP BY </span> department_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> department_id, MIN(Salary)
+                    <span class="orclkey"> AS </span> Min_Sal  <br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Find the department with the lowest employee salary and its details. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> d.Dept_Name, MIN( e.salary )  <span class="orclkey"> AS </span> Min_Sal  <br>
-            <span class="orclkey"> FROM </span> departments d <br>
-                <span class="orclkey"> JOIN </span> employees e  <span class="orclkey"> ON </span> d.department_id = e.department_id  <br>
-                <span class="orclkey"> GROUP BY </span> d.Dept_Name
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> d.Dept_Name, MIN( e.salary )  <span class="orclkey"> AS </span> Min_Sal  <br>
+                    <span class="orclkey"> FROM </span> departments d <br>
+                    <span class="orclkey"> JOIN </span> employees e  <span class="orclkey"> ON </span> d.department_id = e.department_id  <br>
+                    <span class="orclkey"> GROUP BY </span> d.Dept_Name
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Find the earliest order date for each customer. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> customer_id, MIN( order_date )  <span class="orclkey"> AS </span> First_Order_Date  <br>
-            <span class="orclkey"> FROM </span> orders <br>
-                <span class="orclkey"> GROUP BY </span> customer_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> customer_id, MIN( order_date )  <span class="orclkey"> AS </span> First_Order_Date  <br>
+                    <span class="orclkey"> FROM </span> orders <br>
+                    <span class="orclkey"> GROUP BY </span> customer_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Calculate the minimum salary, treating NULL as 0. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> MIN( COALESCE( salary, 0 ) )  <span class="orclkey"> AS </span> Min_Sal  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> MIN( COALESCE( salary, 0 ) )  <span class="orclkey"> AS </span> Min_Sal  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <h2>Common Errors with MIN()</h2>
             <table>
@@ -1280,7 +1341,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for MIN()</h2>
+            <h2>Do's and Don'ts with MIN()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1313,160 +1374,185 @@
             </table><br>
 
             <h2 id="groupconcat">6.GROUP_CONCAT()</h2>
-            <p>The GROUP_CONCAT() function concatenates values from a specified column or expression for rows grouped by
-                GROUP BY.</p><br>
+            <p>
+                The GROUP_CONCAT() function concatenates values from a specified column or expression for rows grouped by
+                GROUP BY.
+            </p><br>
             <ul>
-                <li>It is particularly useful for creating comma-separated lists or aggregating data into a single row.
+                <li>
+                    It is particularly useful for creating comma-separated lists or aggregating data into a single row.
                 </li>
                 <li>It works with string data and can include custom separators, sorting, and filtering.</li>
             </ul>
+            <h3>Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                GROUP_CONCAT( expression [ <span class="orclkey"> ORDER BY </span> expression  <span class="orclkey"> ASC </span> |
-                <span class="orclkey"> DESC </span> ] [SEPARATOR 'string'])
-            </code>
+                    GROUP_CONCAT( expression [ <span class="orclkey"> ORDER BY </span> expression
+                    <span class="orclkey"> ASC </span> |
+                    <span class="orclkey"> DESC </span> ] [SEPARATOR 'string']) <br>
+
+                    <br>
+                    <ul>
+                        <li>expression: The column or calculated value to concatenate.</li>
+                        <li>ORDER BY: Optional. Specifies the order of concatenation.</li>
+                        <li>
+                            SEPARATOR: Optional. Specifies the string to separate concatenated values (default is a comma ,).
+                        </li>
+                    </ul>
+                </code>
             </div><br>
-            <ul>
-                <li>expression: The column or calculated value to concatenate.</li>
-                <li>ORDER BY: Optional. Specifies the order of concatenation.</li>
-                <li>SEPARATOR: Optional. Specifies the string to separate concatenated values (default is a comma ,).
-                </li>
-            </ul><br>
-            <h3>Key Features</h3>
+            <br>
+            <h2>Key Features of GROUP_CONCAT()</h2>
 
             <p>1. Concatenates values from multiple rows into a single string.</p>
             <p>2. Supports custom ordering of concatenated values.</p>
             <p>3. Allows custom separators for concatenated values.</p>
             <p>4. Works only with MySQL and MariaDB (not standard in other SQL dialects).</p>
             <br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Create a comma-separated list of employee names. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> GROUP_CONCAT(name)  
-            <span class="orclkey"> AS </span> employee_names  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> <br>
-             - - Output: A single string of all employee names separated by commas.
-        </code>
+                    <span class="orclkey"> SELECT </span> GROUP_CONCAT(name)
+                    <span class="orclkey"> AS </span> employee_names  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b> <br>
+                    - - Output: A single string of all employee names separated by commas.
+                </code>
             </div><br>
 
             <p><b>Scenario 2:-</b> List employee names separated by a semicolon (;). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>GROUP_CONCAT(name SEPARATOR '; ')  <span class="orclkey"> AS </span> employee_names  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> <br>
-             -- Output: A single string with employee names separated by semicolons.
-        </code>
+                    <span class="orclkey"> SELECT </span>GROUP_CONCAT(name SEPARATOR '; ')  <span class="orclkey"> AS </span> employee_names  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b> <br>
+                    -- Output: A single string with employee names separated by semicolons.
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> List employee names in alphabetical order. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> GROUP_CONCAT( name <span class="orclkey"> ORDER BY </span> name  <span class="orclkey"> ASC </span> ) <span class="orclkey"> AS </span> employee_names <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> GROUP_CONCAT( name <span class="orclkey"> ORDER BY </span> name  <span class="orclkey"> ASC </span> ) <span class="orclkey"> AS </span> employee_names <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Concatenate employee names grouped by department. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> department_id, 
-            <ul> 
-                GROUP_CONCAT( name <span class="orclkey"> ORDER BY </span> name 
-                <span class="orclkey"> ASC </span> ) 
-                <span class="orclkey"> AS </span> employee_names <br>
-            </ul>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> GROUP BY </span> department_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> department_id,
+                    <ul>
+                        GROUP_CONCAT( name
+                        <span class="orclkey"> ORDER BY </span> name
+                        <span class="orclkey"> ASC </span> )
+                        <span class="orclkey"> AS </span> employee_names
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Concatenate names of employees hired after 2020. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> GROUP_CONCAT(name)   <span class="orclkey"> AS </span> Recent_Employee  <br>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> WHERE </span> hire_date > '2020-01-01'
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> GROUP_CONCAT(name)   <span class="orclkey"> AS </span> Recent_Employee  <br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> WHERE </span> hire_date > '2020-01-01'
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Concatenate names of employee with lowest salary. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT GROUP_CONCAT(name ORDER BY name) AS </span> lowest_paid_employees<br> 
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> WHERE </span> Salary = ( 
-                <span class="orclkey"> SELECT </span> MIN(Salary)
-                <span class="orclkey"> FROM </span> employees)
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT GROUP_CONCAT(name ORDER BY name) AS </span> lowest_paid_employees<br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> WHERE </span> Salary = (
+                    <span class="orclkey"> SELECT </span> MIN(Salary)
+                    <span class="orclkey"> FROM </span> employees)
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Find the department with the highest average salary. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> c.category_name, <br>
-            <ul>
-                GROUP_CONCAT(p.product_name  <span class="orclkey"> ORDER BY </span> p.product_name 
-                <span class="orclkey"> ASC </span> SEPARATOR ',') 
-                <span class="orclkey"> AS </span> products <br>
-            </ul>
-            <span class="orclkey"> FROM </span> categories c <br>
-                <span class="orclkey"> JOIN </span> products p 
-                <span class="orclkey"> ON </span> c.category_id = p.category_id  <br>
-                <span class="orclkey"> GROUP BY </span> c.category_name
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> c.category_name, <br>
+                    <ul>
+                        GROUP_CONCAT(p.product_name
+                        <span class="orclkey"> ORDER BY </span> p.product_name
+                        <span class="orclkey"> ASC </span> SEPARATOR ',')
+                        <span class="orclkey"> AS </span> products
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> categories c <br>
+                    <span class="orclkey"> JOIN </span> products p
+                    <span class="orclkey"> ON </span> c.category_id = p.category_id  <br>
+                    <span class="orclkey"> GROUP BY </span> c.category_name
+                    <b> ;</b>
+                </code>
             </div><br>
-            <p><b>Scenario 8:-</b> Concatenate project names handled by the highest-paid employee in each department.
+            <p>
+                <b>Scenario 8:-</b> Concatenate project names handled by the highest-paid employee in each department.
             </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> e.department_id,  <br>  
-            <ul>
-                (  <span class="orclkey"> SELECT </span> GROUP_CONCAT(project_name) <br>
-                <span class="orclkey"> FROM </span> projects p <br>
-                <span class="orclkey"> WHERE </span> p.employee_id = e.employee_id ) 
-                <span class="orclkey"> AS </span> project_list  <br> 
-            </ul>
-            <span class="orclkey"> FROM </span> employees e   <br>
-            <span class="orclkey"> WHERE </span> salary = ( 
-                <span class="orclkey"> SELECT </span>  MAX(salary) 
-                <span class="orclkey"> FROM </span> employees 
-                <span class="orclkey"> WHERE </span> department_id = e.department_id )
-                <b> ;</b>      
-        </code>
+                    <span class="orclkey"> SELECT </span> e.department_id,  <br>
+                    <ul>
+                        (
+                        <span class="orclkey"> SELECT </span> GROUP_CONCAT(project_name)
+                        <br>
+                        <span class="orclkey"> FROM </span> projects p
+                        <br>
+                        <span class="orclkey"> WHERE </span> p.employee_id = e.employee_id )
+                        <span class="orclkey"> AS </span> project_list
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees e   <br>
+                    <span class="orclkey"> WHERE </span> salary = (
+                    <span class="orclkey"> SELECT </span>  MAX(salary)
+                    <span class="orclkey"> FROM </span> employees
+                    <span class="orclkey"> WHERE </span> department_id = e.department_id )
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 9:-</b> Concatenate names of employees along with their department's highest salary.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> d.department_id,<br>
                     <ul>
-                        MAX( e.salary ) <span class="orclkey"> AS </span> max_salary, <br>
-                        GROUP_CONCAT( e.name <span class="orclkey">  ORDER BY </span> e.salary 
+                        MAX( e.salary )
+                        <span class="orclkey"> AS </span> max_salary,
+                        <br>
+                        GROUP_CONCAT( e.name
+                        <span class="orclkey">  ORDER BY </span> e.salary
                         <span class="orclkey">  DESC </span> )
-                        <span class="orclkey">  AS </span> employees_by_salary <br>
+                        <span class="orclkey">  AS </span> employees_by_salary
+                        <br>
                     </ul>
                     <span class="orclkey"> FROM </span> departments d <br>
-                    <span class="orclkey"> JOIN </span>   employees e 
+                    <span class="orclkey"> JOIN </span>   employees e
                     <span class="orclkey"> ON </span> d.department_id = e.department_id
                     <span class="orclkey"> GROUP BY </span> d.department_id
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 10:-</b> Create JSON-formatted data for front-end applications.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> JSON_OBJECT( <br>
-                    <ul><ul>
-                        'department_id', department_id, <br>
-                        'employees', GROUP_CONCAT(name SEPARATOR ', ') 
+                    <ul>
+                        <ul>
+                            'department_id', department_id,
+                            <br>
+                            'employees', GROUP_CONCAT(name SEPARATOR ', ')
                         </ul>
-                        ) <span class="orclkey"> AS </span> department_data
+                        )
+                        <span class="orclkey"> AS </span> department_data
                     </ul>
                     <span class="orclkey"> FROM </span> employees
-                    <span class="orclkey"> GROUP BY </span> department_id   
-                     <b> ;</b> 
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Common Errors with GROUP_CONCAT()</h2>
@@ -1501,7 +1587,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for GROUP_CONCAT()</h2>
+            <h2>Do's and Don'ts with GROUP_CONCAT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1524,137 +1610,154 @@
                     </tr>
                     <tr>
                         <td>Use subqueries for combining GROUP_CONCAT() results with other aggregates.</td>
-                        <td>Don’t use GROUP_CONCAT() in databases that don’t support it (e.g., SQL Server, PostgreSQL).
+                        <td>
+                            Don’t use GROUP_CONCAT() in databases that don’t support it (e.g., SQL Server, PostgreSQL).
                         </td>
                     </tr>
                 </tbody>
             </table><br>
             <h2 id="stringagg">7.STRING_AGG()</h2>
-            <p>The STRING_AGG() function is a powerful aggregate function, it is used to concatenate values from
-                multiple rows into a single string.</p><br>
+            <p>
+                The STRING_AGG() function is a powerful aggregate function, it is used to concatenate values from
+                multiple rows into a single string.
+            </p><br>
             <ul>
                 <li> It is similar to GROUP_CONCAT() in MySQL but is widely supported in SQL Server and PostgreSQL.</li>
             </ul>
+            <h3> Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                STRING_AGG(expression, separator) [ <span class="orclkey"> WITHIN GROUP </span> (  <span class="orclkey"> ORDER BY </span> expression)]
-            </code>
+                    STRING_AGG(expression, separator) [ <span class="orclkey"> WITHIN GROUP </span> (  <span class="orclkey"> ORDER BY </span> expression)]
+                    <br><br>
+                    <ul>
+                        <li>expression: The column or value to concatenate.</li>
+                        <li>separator: The string used to separate concatenated values (e.g., ,, |).</li>
+                        <li>WITHIN GROUP (ORDER BY expression): Optional. Specifies the order of concatenated values.</li>
+                    </ul>
+                </code>
             </div><br>
-            <ul>
-                <li>expression: The column or value to concatenate.</li>
-                <li>separator: The string used to separate concatenated values (e.g., ,, |).</li>
-                <li>WITHIN GROUP (ORDER BY expression): Optional. Specifies the order of concatenated values.</li>
-            </ul><br>
-            <h3>Key Features</h3>
+            <br>
+            <h2>Key Features of STRING_AGG()</h2>
 
             <p>1. Concatenates values from multiple rows into a single string.</p>
             <p>2. Supports ordering of concatenated results with the WITHIN GROUP clause.</p>
-            <p>3. Allows flexible separators, making it useful for custom-delimited outputs like CSV or
-                pipe-separated data.</p>
+            <p>
+                3. Allows flexible separators, making it useful for custom-delimited outputs like CSV or
+                pipe-separated data.
+            </p>
             <p>4. Automatically excludes NULL values.</p>
             <p>5. Supported in SQL Server (2017 and later) and PostgreSQL (9.0 and later).</p>
             <br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Create a comma-separated list of employee names. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STRING_AGG(name, ', ' )   <span class="orclkey"> AS </span> employee_names  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> <br>
-             - - Output: A single string with all employee names separated by commas.
-        </code>
+                    <span class="orclkey"> SELECT </span> STRING_AGG(name, ', ' )   <span class="orclkey"> AS </span> employee_names  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b> <br>
+                    - - Output: A single string with all employee names separated by commas.
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> List employee names separated by semicolons (;). </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STRING_AGG(name, '; ' )  <span class="orclkey"> AS </span> employee_names  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> <br>
-             -- Output: Employee names concatenated with a semicolon as the separator.
-        </code>
+                    <span class="orclkey"> SELECT </span> STRING_AGG(name, '; ' )  <span class="orclkey"> AS </span> employee_names  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b> <br>
+                    -- Output: Employee names concatenated with a semicolon as the separator.
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Create a list of employee names sorted alphabetically. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STRING_AGG(name, ', ') 
-            <span class="orclkey"> WITHIN GROUP </span> ( 
-                <span class="orclkey"> ORDER BY </span> name  
-                <span class="orclkey"> ASC </span> )
-                <span class="orclkey"> AS </span> employee_names 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> STRING_AGG(name, ', ')
+                    <span class="orclkey"> WITHIN GROUP </span> (
+                    <span class="orclkey"> ORDER BY </span> name
+                    <span class="orclkey"> ASC </span> )
+                    <span class="orclkey"> AS </span> employee_names
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Concatenate employee names grouped by department. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> Dept_Name, 
-            <ul> 
-                STRING_AGG(name, ', ' ) <span class="orclkey"> WITHIN GROUP  </span> (  <span class="orclkey"> ORDER BY </span> name  <span class="orclkey"> ASC </span> )
-                <span class="orclkey"> AS </span> Emp_Names_Sort 
-            </ul>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> GROUP BY </span> Dept_Name
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> Dept_Name,
+                    <ul>
+                        STRING_AGG(name, ', ' )
+                        <span class="orclkey"> WITHIN GROUP  </span> (
+                        <span class="orclkey"> ORDER BY </span> name
+                        <span class="orclkey"> ASC </span> )
+                        <span class="orclkey"> AS </span> Emp_Names_Sort
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> GROUP BY </span> Dept_Name
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Concatenate employee names hired after 2022. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STRING_AGG(name, ', ' )  <span class="orclkey"> AS </span> Recent_Employee  <br>
-            <span class="orclkey"> FROM </span> employees  <br>
-            <span class="orclkey"> WHERE </span> hire_date > '2022-01-01'
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> STRING_AGG(name, ', ' )  <span class="orclkey"> AS </span> Recent_Employee  <br>
+                    <span class="orclkey"> FROM </span> employees  <br>
+                    <span class="orclkey"> WHERE </span> hire_date > '2022-01-01'
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> List project names for each employee. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> e.Emp_Id, <br> 
-            <ul>
-                STRING_AGG(p.project_name, ', ' ) <span class="orclkey"> AS </span> Emp_Project_List <br>
-            </ul>
-            <span class="orclkey"> FROM </span> employees e  <br>
-            <span class="orclkey"> JOIN </span> projects p <span class="orclkey"> ON </span> e.Emp_Id = p.Emp_Id <br>
-            <span class="orclkey"> GROUP BY </span> e.Emp_Id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> e.Emp_Id, <br>
+                    <ul>
+                        STRING_AGG(p.project_name, ', ' )
+                        <span class="orclkey"> AS </span> Emp_Project_List
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees e  <br>
+                    <span class="orclkey"> JOIN </span> projects p <span class="orclkey"> ON </span> e.Emp_Id = p.Emp_Id <br>
+                    <span class="orclkey"> GROUP BY </span> e.Emp_Id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Generate JSON-formatted output for API consumption. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> JSON_BUILD_OBJECT(  <br>
-            <ul><ul>
-                'department_id', department_id, <br>
-           'employees', STRING_AGG(name, ', ')
-            </ul>
-            ) <span class="orclkey"> AS </span> department_data
-        </ul>
-            <span class="orclkey"> FROM </span> employees <br>
-                <span class="orclkey"> GROUP BY </span> department_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> JSON_BUILD_OBJECT(  <br>
+                    <ul>
+                        <ul>
+                            'department_id', department_id,
+                            <br>
+                            'employees', STRING_AGG(name, ', ')
+                        </ul>
+                        )
+                        <span class="orclkey"> AS </span> department_data
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 8:-</b> Include NULL as a placeholder for missing values. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STRING_AGG( COALESCE( name, 'N/A'), ', ' )  <span class="orclkey"> AS </span> employee_names <br>  
-            <span class="orclkey"> FROM </span> employees e   <br>  <br>
+                    <span class="orclkey"> SELECT </span> STRING_AGG( COALESCE( name, 'N/A'), ', ' )  <span class="orclkey"> AS </span> employee_names <br>
+                    <span class="orclkey"> FROM </span> employees e   <br>  <br>
 
-            - - STRING_AGG() ignores NULL values by default. To include them explicitly, use COALESCE.
-        </code>
+                    - - STRING_AGG() ignores NULL values by default. To include them explicitly, use COALESCE.
+                </code>
             </div><br>
             <p><b>Scenario 9:-</b> Concatenate product names for each supplier.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> s.supplier_name,<br>
                     <ul>
-                        STRING_AGG( p.product_name, ', ' ) <span class="orclkey"> AS </span> products 
+                        STRING_AGG( p.product_name, ', ' )
+                        <span class="orclkey"> AS </span> products
                     </ul>
-                        
+
                     <span class="orclkey"> FROM </span> suppliers s <br>
                     <span class="orclkey"> JOIN </span>   products p  <span class="orclkey"> ON </span> s.supplier_id = p.supplier_id <br>
                     <span class="orclkey"> GROUP BY </span> s.supplier_name
-                     <b> ;</b> 
+                    <b> ;</b>
                 </code>
             </div><br>
             <p><b>Scenario 10:-</b> Split concatenated results into chunks.</p>
@@ -1662,8 +1765,8 @@
                 <code>
                     <span class="orclkey">SELECT </span> array_to_string(array_agg(name), ', ')  <span class="orclkey"> AS </span> employee_chunks
                     <span class="orclkey"> FROM </span> employees
-                    <span class="orclkey"> GROUP BY </span> department_id   
-                     <b> ;</b> 
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>Common Errors with STRING_AGG()</h2>
@@ -1698,7 +1801,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for STRING_AGG()</h2>
+            <h2>Do's and Don'ts with STRING_AGG()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1760,162 +1863,180 @@
             <h2 id="variance">8.VARIANCE(expression)</h2>
             <p>The VARIANCE() function in SQL calculates the statistical variance of a numeric column or expression.</p>
             <ul>
-                <li> Variance is a measure of the dispersion of a set of values, showing how far individual numbers in a
-                    dataset are from the mean.</li>
+                <li>
+                    Variance is a measure of the dispersion of a set of values, showing how far individual numbers in a
+                    dataset are from the mean.
+                </li>
                 <li>Variance quantifies how spread out the data points in a dataset are. </li>
                 <li>Mathematically, it is the average of the squared differences from the mean.</li>
             </ul>
+            <h3> Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                VARIANCE( expression )
-            </code>
+                    VARIANCE( expression )
+                </code>
             </div><br>
             <ul>
-                <li><b>MySQL: </b> VARIANCE() is supported as of version 8.0. In earlier versions, you can use VAR_POP()
-                    for population variance.</li>
+                <li>
+                    <b>MySQL: </b> VARIANCE() is supported as of version 8.0. In earlier versions, you can use VAR_POP()
+                    for population variance.
+                </li>
                 <li><b>PostgreSQL: </b> Supports VARIANCE() for sample variance and also VAR_POP() and VAR_SAMP().</li>
-                <li><b>SQL Server: </b> Does not support VARIANCE(). Use VAR() for sample variance and VARP() for
-                    population variance.</li>
+                <li>
+                    <b>SQL Server: </b> Does not support VARIANCE(). Use VAR() for sample variance and VARP() for
+                    population variance.
+                </li>
                 <li><b> Oracle: </b> Supports VARIANCE() for population variance.</li>
             </ul><br>
 
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Calculate the variance of salaries across all employees. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> VARIANCE( salary )   <span class="orclkey"> AS </span> salary_variance  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> VARIANCE( salary )   <span class="orclkey"> AS </span> salary_variance  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Find how monthly sales vary for a product. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> product_id,  <br>
-            VARIANCE( sales ) <span class="orclkey"> AS </span> sales_variance  <br>
-            <span class="orclkey"> FROM </span> monthly_sales <br>
-            <span class="orclkey"> GROUP BY </span> product_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> product_id,  <br>
+                    VARIANCE( sales ) <span class="orclkey"> AS </span> sales_variance  <br>
+                    <span class="orclkey"> FROM </span> monthly_sales <br>
+                    <span class="orclkey"> GROUP BY </span> product_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Compute variance of distinct item prices in an inventory. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> VARIANCE(price)  <br>
-            <span class="orclkey"> AS  </span> price_variance<br>
-             <span class="orclkey"> FROM (</span>
-             <span class="orclkey"> SELECT DISTINCT  </span>price
-             <span class="orclkey"> FROM  </span>inventory )
-            <span class="orclkey"> AS  </span> distinct_prices
-            <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> VARIANCE(price)  <br>
+                    <span class="orclkey"> AS  </span> price_variance<br>
+                    <span class="orclkey"> FROM (</span>
+                    <span class="orclkey"> SELECT DISTINCT  </span>price
+                    <span class="orclkey"> FROM  </span>inventory )
+                    <span class="orclkey"> AS  </span> distinct_prices
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Measure variance in employee performance scores. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> department_id,   <br>
-            <ul>
-            VARIANCE( performance_score ) <span class="orclkey"> AS </span> performance_variance
-            </ul>
-            <span class="orclkey"> FROM </span> employee_performance 
-            <span class="orclkey"> GROUP BY </span> department_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> department_id,   <br>
+                    <ul>
+                        VARIANCE( performance_score )
+                        <span class="orclkey"> AS </span> performance_variance
+                    </ul>
+                    <span class="orclkey"> FROM </span> employee_performance
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Calculate variance in daily website traffic. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> VARIANCE( traffic_count ) <span class="orclkey"> AS </span>  traffic_variance<br>
-            <span class="orclkey"> FROM </span> website_traffic 
-            <span class="orclkey"> WHERE </span> visit_date <span class="orclkey"> BETWEEN </span> '2024-01-01' <span class="orclkey"> AND </span> '2024-12-31'
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> VARIANCE( traffic_count ) <span class="orclkey"> AS </span>  traffic_variance<br>
+                    <span class="orclkey"> FROM </span> website_traffic
+                    <span class="orclkey"> WHERE </span> visit_date <span class="orclkey"> BETWEEN </span> '2024-01-01' <span class="orclkey"> AND </span> '2024-12-31'
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Calculate variance in project budgets per department. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>d.department_name,  <br>
-            VARIANCE( p.budget ) <span class="orclkey"> AS </span>  budget_variance<br>
-            <span class="orclkey"> FROM </span> departments d <br>
-            <span class="orclkey"> JOIN </span> projects p <span class="orclkey"> ON </span> d.department_id = p.department_id <br>
-            <span class="orclkey"> GROUP BY </span> d.department_name
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span>d.department_name,  <br>
+                    VARIANCE( p.budget ) <span class="orclkey"> AS </span>  budget_variance<br>
+                    <span class="orclkey"> FROM </span> departments d <br>
+                    <span class="orclkey"> JOIN </span> projects p <span class="orclkey"> ON </span> d.department_id = p.department_id <br>
+                    <span class="orclkey"> GROUP BY </span> d.department_name
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Compare variance and standard deviation of sales for top-performing products. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> product_id,  <br>
-            <ul>
-                VARIANCE( sales ) <span class="orclkey"> AS </span> sales_variance, <br>
-                STDDEV( sales ) <span class="orclkey"> AS </span> sales_stddev 
-            </ul>
-            <span class="orclkey"> FROM </span>  sales_data <br>
-            <span class="orclkey"> WHERE </span> sales > 10000 <br>
-            <span class="orclkey"> GROUP BY </span> product_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> product_id,  <br>
+                    <ul>
+                        VARIANCE( sales )
+                        <span class="orclkey"> AS </span> sales_variance,
+                        <br>
+                        STDDEV( sales )
+                        <span class="orclkey"> AS </span> sales_stddev
+                    </ul>
+                    <span class="orclkey"> FROM </span>  sales_data <br>
+                    <span class="orclkey"> WHERE </span> sales > 10000 <br>
+                    <span class="orclkey"> GROUP BY </span> product_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 8:-</b> Calculate variance of test scores with a weightage factor. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> student_id,  <br>
-            <ul>
-                VARIANCE( score * weight ) <span class="orclkey"> AS </span> weighted_variance <br>
-            </ul>
-            <span class="orclkey"> FROM </span>  test_scores <br>
+                    <span class="orclkey"> SELECT </span> student_id,  <br>
+                    <ul>
+                        VARIANCE( score * weight )
+                        <span class="orclkey"> AS </span> weighted_variance
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span>  test_scores <br>
 
-            <span class="orclkey"> GROUP BY </span> student_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> GROUP BY </span> student_id
+                    <b> ;</b>
+                </code>
             </div><br>
 
             <p><b>Scenario 9:-</b> Find variance in sales relative to a moving average. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> WITH </span> moving_avg_sales
-            <span class="orclkey"> AS </span> ( <br>
-            <ul>
-                <span class="orclkey"> SELECT </span> product_id,sale_date,sales,
-                <span class="orclkey">AVG(sales) OVER </span> ( 
-                    <span class="orclkey"> PARTITION BY </span> product_id 
-                    <span class="orclkey"> ORDER BY </span> sale_date 
-                    <span class="orclkey"> ROWS BETWEEN </span> 6 PRECEDING
-                    <span class="orclkey"> AND CURRENT </span> ROW ) 
-                    <span class="orclkey"> AS </span> moving_avg
-                </ul>
-                <span class="orclkey"> FROM </span> sales
-            </ul>
-            )
-                <span class="orclkey"> SELECT  </span> product_id, <br>
-                <ul>
-                VARIANCE( sales - moving_avg ) 
-                <span class="orclkey"> AS  </span> variance_from_avg
-            </ul>
-            <span class="orclkey"> FROM  </span> moving_avg_sales
-            <span class="orclkey"> GROUP BY </span> product_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> WITH </span> moving_avg_sales
+                    <span class="orclkey"> AS </span> ( <br>
+                    <ul>
+                        <span class="orclkey"> SELECT </span> product_id,sale_date,sales,
+                        <span class="orclkey">AVG(sales) OVER </span> (
+                        <span class="orclkey"> PARTITION BY </span> product_id
+                        <span class="orclkey"> ORDER BY </span> sale_date
+                        <span class="orclkey"> ROWS BETWEEN </span> 6 PRECEDING
+                        <span class="orclkey"> AND CURRENT </span> ROW )
+                        <span class="orclkey"> AS </span> moving_avg
+                    </ul>
+                    <span class="orclkey"> FROM </span> sales
+                    </ul>
+                    )
+                    <span class="orclkey"> SELECT  </span> product_id, <br>
+                    <ul>
+                        VARIANCE( sales - moving_avg )
+                        <span class="orclkey"> AS  </span> variance_from_avg
+                    </ul>
+                    <span class="orclkey"> FROM  </span> moving_avg_sales
+                    <span class="orclkey"> GROUP BY </span> product_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 10:-</b> Find variance of product prices for the highest-selling categories. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> category_id,   <br>
-            <ul>
-                VARIANCE(price) <span class="orclkey"> AS </span> price_variance <br>
-            </ul>
-            <span class="orclkey"> FROM </span> products <br>
-            <span class="orclkey"> WHERE </span> category_id  <span class="orclkey"> IN </span> (
-            <ul>
-                <span class="orclkey"> SELECT </span> category_id <br>
-                <span class="orclkey"> FROM </span> sales <br>
-                <span class="orclkey"> GROUP BY </span> category_id <br>
-                <span class="orclkey"> HAVING  </span> SUM(quantity) > 1000 
-                </ul>
-            )
-                <span class="orclkey"> GROUP BY </span> category_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> category_id,   <br>
+                    <ul>
+                        VARIANCE(price)
+                        <span class="orclkey"> AS </span> price_variance
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span> products <br>
+                    <span class="orclkey"> WHERE </span> category_id  <span class="orclkey"> IN </span> (
+                    <ul>
+                        <span class="orclkey"> SELECT </span> category_id
+                        <br>
+                        <span class="orclkey"> FROM </span> sales
+                        <br>
+                        <span class="orclkey"> GROUP BY </span> category_id
+                        <br>
+                        <span class="orclkey"> HAVING  </span> SUM(quantity) > 1000
+                    </ul>
+                    )
+                    <span class="orclkey"> GROUP BY </span> category_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <h2>Common Errors with VARIANCE()</h2>
             <table>
@@ -1944,7 +2065,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for VARIANCE()</h2>
+            <h2>Do's and Don'ts with VARIANCE()</h2>
             <table>
                 <thead>
                     <tr>
@@ -1971,25 +2092,32 @@
             <h2 id="stddev">9.STDDEV(expression)</h2>
             <p>The STDDEV() function calculates the standard deviation of a set of numeric values.</p>
             <ul>
-                <li> Standard deviation is a measure of how spread out the numbers in a dataset are around their mean.
+                <li>
+                    Standard deviation is a measure of how spread out the numbers in a dataset are around their mean.
                 </li>
                 <li>It is commonly used in statistics to evaluate variability or consistency. </li>
                 <li><b>Low standard deviation: </b> Data points are close to the mean.</li>
                 <li><b>High standard deviation: </b> Data points are more spread out.</li>
             </ul>
+            <h3> Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                STDDEV( expression )
-            </code>
+                    STDDEV( expression )<br>
+                    <br>
+                    <ul>
+                        <li>
+                            expression: The numeric column or calculation for which you want to calculate the standard
+                            deviation.
+                        </li>
+                        <li>DISTINCT: Optional. Calculates the standard deviation of distinct values only.</li>
+                        <li>ALL: Optional (default). Includes all values.</li>
+                    </ul>
+                </code>
             </div><br>
-            <ul>
-                <li>expression: The numeric column or calculation for which you want to calculate the standard
-                    deviation.</li>
-                <li>DISTINCT: Optional. Calculates the standard deviation of distinct values only.</li>
-                <li>ALL: Optional (default). Includes all values.</li>
-            </ul><br>
+            <br>
+
+            <h2>Standard Deviation Functions</h2>
             <table>
-                <h2>Standard Deviation Functions</h2>
                 <thead>
                     <tr>
                         <th>Database</th>
@@ -2020,7 +2148,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h3>Key Features</h3>
+            <h2>Key Features of STDDEV()</h2>
             <ul>
                 <li>Measures variability or consistency in numeric datasets.</li>
                 <li>Can calculate for all values (ALL) or distinct values only (DISTINCT).</li>
@@ -2029,113 +2157,128 @@
             </ul>
 
 
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Calculate the standard deviation of all employee salaries. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STDDEV(salary) 
-            <span class="orclkey"> AS </span> Stddev_Sal  <br>
-            <span class="orclkey"> FROM </span> employees 
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> STDDEV(salary)
+                    <span class="orclkey"> AS </span> Stddev_Sal  <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Compute standard deviation of salaries for employees in a specific department. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STDDEV( salary ) 
-            <span class="orclkey"> AS </span> Dept_Stddev_Salary  <br>
-            <span class="orclkey"> FROM </span> employees <br>
-            <span class="orclkey"> WHERE </span> department_id = 101
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> STDDEV( salary )
+                    <span class="orclkey"> AS </span> Dept_Stddev_Salary  <br>
+                    <span class="orclkey"> FROM </span> employees <br>
+                    <span class="orclkey"> WHERE </span> department_id = 101
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Calculate the standard deviation of unique item prices. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> STDDEV(price)  
-            <span class="orclkey"> AS </span>
-            <span class="orclkey"> distinct_stddev_price </span>
-            <ul> 
-            <span class="orclkey"> FROM  </span>(
-            <span class="orclkey"> SELECT  DISTINCT</span> price
-            <span class="orclkey"> FROM </span> inventory )
-            <span class="orclkey"> AS </span>distinct_prices
-             <b> ;</b> </ul>
-        </code>
+                    <span class="orclkey"> SELECT </span> STDDEV(price)
+                    <span class="orclkey"> AS </span>
+                    <span class="orclkey"> distinct_stddev_price </span>
+                    <ul>
+                        <span class="orclkey"> FROM  </span>(
+                        <span class="orclkey"> SELECT  DISTINCT</span> price
+                        <span class="orclkey"> FROM </span> inventory )
+                        <span class="orclkey"> AS </span>distinct_prices
+                        <b> ;</b>
+                    </ul>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the standard deviation of sales per region. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> region,   
-           
-                STDDEV( sales ) <span class="orclkey"> AS </span> Stddev_Sales
-         
-            <span class="orclkey"> FROM </span> Sales <br>
-            <span class="orclkey"> GROUP BY </span> region
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> region,
+
+                    STDDEV( sales ) <span class="orclkey"> AS </span> Stddev_Sales
+
+                    <span class="orclkey"> FROM </span> Sales <br>
+                    <span class="orclkey"> GROUP BY </span> region
+                    <b> ;</b>
+                </code>
             </div><br>
-            <p><b>Scenario 5:-</b> Compare average and standard deviation of sales across products (Using Aggregation
-                Function) </p>
+            <p>
+                <b>Scenario 5:-</b> Compare average and standard deviation of sales across products (Using Aggregation
+                Function)
+            </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> product_id, <br>
-            <ul>
-                AVG( sales ) <span class="orclkey"> AS </span> average_sales ,<br>
-                STDDEV( sales ) <span class="orclkey"> AS </span> sales_stddev 
-            </ul> 
-            <span class="orclkey"> FROM </span> Sales 
-            <span class="orclkey"> GROUP BY </span> product_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> product_id, <br>
+                    <ul>
+                        AVG( sales )
+                        <span class="orclkey"> AS </span> average_sales ,
+                        <br>
+                        STDDEV( sales )
+                        <span class="orclkey"> AS </span> sales_stddev
+                    </ul>
+                    <span class="orclkey"> FROM </span> Sales
+                    <span class="orclkey"> GROUP BY </span> product_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Compute standard deviation for top-selling categories only. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> category_id,   <br>
-            <ul>
-                STDDEV( price )  <span class="orclkey"> AS </span> price_stddev <br>
-            </ul>
-            <span class="orclkey"> FROM </span>  products<br>
-            <span class="orclkey"> WHERE </span> category_id  
-            <span class="orclkey"> IN </span> ( 
-                <ul>
-                    <span class="orclkey"> SELECT </span> category_id <br>
-                    <span class="orclkey"> FROM </span>  Sales<br>
-                    <span class="orclkey"> GROUP BY </span> category_id <br>
-                    <span class="orclkey"> HAVING </span> SUM(quantity) > 1000
-                </ul>)
-            <span class="orclkey"> GROUP BY </span>category_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> category_id,   <br>
+                    <ul>
+                        STDDEV( price )
+                        <span class="orclkey"> AS </span> price_stddev
+                        <br>
+                    </ul>
+                    <span class="orclkey"> FROM </span>  products<br>
+                    <span class="orclkey"> WHERE </span> category_id
+                    <span class="orclkey"> IN </span> (
+                    <ul>
+                        <span class="orclkey"> SELECT </span> category_id
+                        <br>
+                        <span class="orclkey"> FROM </span>  Sales
+                        <br>
+                        <span class="orclkey"> GROUP BY </span> category_id
+                        <br>
+                        <span class="orclkey"> HAVING </span> SUM(quantity) > 1000
+                    </ul>)
+                    <span class="orclkey"> GROUP BY </span>category_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Compare variance and standard deviation of sales for top-performing products. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> product_id,  <br>
-            <ul>
-                VARIANCE( sales ) <span class="orclkey"> AS </span> sales_variance ,<br>
-                STDDEV( sales ) <span class="orclkey"> AS </span> sales_stddev 
-            </ul>
-            <span class="orclkey"> FROM </span>  sales_data <br>
-            <span class="orclkey"> WHERE </span> sales > 10000 <br>
-            <span class="orclkey"> GROUP BY </span> product_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> product_id,  <br>
+                    <ul>
+                        VARIANCE( sales )
+                        <span class="orclkey"> AS </span> sales_variance ,
+                        <br>
+                        STDDEV( sales )
+                        <span class="orclkey"> AS </span> sales_stddev
+                    </ul>
+                    <span class="orclkey"> FROM </span>  sales_data <br>
+                    <span class="orclkey"> WHERE </span> sales > 10000 <br>
+                    <span class="orclkey"> GROUP BY </span> product_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 8:-</b> Generate JSON-like output for performance metrics. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> JSON_BUILD_OBJECT (  <br>
-            <ul>
-                'department', department_id, <br>
-                'performance_stddev', STDDEV(performance_score) 
-            </ul>
-            ) <span class="orclkey"> AS </span> department_performance
-            <span class="orclkey"> FROM </span>  employee_performance <br>
-            <span class="orclkey"> GROUP BY </span> department_id
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> JSON_BUILD_OBJECT (  <br>
+                    <ul>
+                        'department', department_id,
+                        <br>
+                        'performance_stddev', STDDEV(performance_score)
+                    </ul>
+                    ) <span class="orclkey"> AS </span> department_performance
+                    <span class="orclkey"> FROM </span>  employee_performance <br>
+                    <span class="orclkey"> GROUP BY </span> department_id
+                    <b> ;</b>
+                </code>
             </div><br>
             <h2>Common Errors with STDDEV()</h2>
             <table>
@@ -2164,7 +2307,7 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Do's and Don'ts for STDDEV()</h2>
+            <h2>Do's and Don'ts with STDDEV()</h2>
             <table>
                 <thead>
                     <tr>
@@ -2192,109 +2335,129 @@
                 </tbody>
             </table><br>
             <h2 id="least">10.LEAST()</h2>
-            <p>The LEAST() function returns the smallest value from a list of provided arguments, which can include
-                columns, literals, or expressions.</p>
+            <p>
+                The LEAST() function returns the smallest value from a list of provided arguments, which can include
+                columns, literals, or expressions.
+            </p>
             <ul>
-                <li> It works with various data types, such as integers, decimals, strings, and dates, while ensuring
+                <li>
+                    It works with various data types, such as integers, decimals, strings, and dates, while ensuring
                     proper comparison.
                 </li>
-                <li>If any argument is NULL, the result is NULL, making it sensitive to incomplete data (except when
-                    handled with COALESCE()). </li>
-                <li>It is supported in databases like MySQL, PostgreSQL, and Oracle, but SQL Server does not have a
-                    built-in LEAST() function.</li>
+                <li>
+                    If any argument is NULL, the result is NULL, making it sensitive to incomplete data (except when
+                    handled with COALESCE()).
+                </li>
+                <li>
+                    It is supported in databases like MySQL, PostgreSQL, and Oracle, but SQL Server does not have a
+                    built-in LEAST() function.
+                </li>
             </ul><br>
+            <h3>basic Syntax</h3>
             <div class="code-box">
                 <code>
                     LEAST( value1, value2, ..., valueN )
-            </code>
+                    <br> <br>
+                    <ul>
+                        <li>
+                            value1, value2, ..., valueN: A list of expressions or values to compare. These can be columns,
+                            literals, or expressions.
+                        </li>
+                        <li>
+                            The function returns the smallest (minimum) value from the provided arguments.
+                        </li>
+                    </ul>
+                </code>
             </div><br>
-            <ul>
-                <li>value1, value2, ..., valueN: A list of expressions or values to compare. These can be columns,
-                    literals, or expressions.</li>
-                <li>The function returns the smallest (minimum) value from the provided arguments.
-                </li>
-            </ul><br>
+           <br>
 
             <h2>Examples</h2>
             <p><b>Scenario 1:-</b> Compare fixed values to find the smallest. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> LEAST(10, 20, 5, 15)   <span class="orclkey"> AS </span> smallest_value            
-             <b> ;</b> <br><br>
-             -- Output : 5
-        </code>
+                    <span class="orclkey"> SELECT </span> LEAST(10, 20, 5, 15)   <span class="orclkey"> AS </span> smallest_value
+                    <b> ;</b> <br><br>
+                    -- Output : 5
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Identify the lowest score of students. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> student_id, <br>
-            <ul>
-                LEAST( math_score, science_score, english_score ) <span class="orclkey"> AS </span> lowest_score
-            </ul>
-            <span class="orclkey"> FROM </span> student_scores
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> student_id, <br>
+                    <ul>
+                        LEAST( math_score, science_score, english_score )
+                        <span class="orclkey"> AS </span> lowest_score
+                    </ul>
+                    <span class="orclkey"> FROM </span> student_scores
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Find the earliest event date.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> event_id, <br>
-            <ul>
-                LEAST( start_date, end_date )  <span class="orclkey"> AS </span> earliest_date
-            </ul>
-            <span class="orclkey"> FROM </span> events
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> event_id, <br>
+                    <ul>
+                        LEAST( start_date, end_date )
+                        <span class="orclkey"> AS </span> earliest_date
+                    </ul>
+                    <span class="orclkey"> FROM </span> events
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the earliest date from multiple date columns.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> employee_id, <br>
-            <ul>
-                LEAST( joining_date, probation_end_date, contract_end_date )   <span class="orclkey"> AS </span> earliest_date
-            </ul>
-            <span class="orclkey"> FROM </span> employees
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> employee_id, <br>
+                    <ul>
+                        LEAST( joining_date, probation_end_date, contract_end_date )
+                        <span class="orclkey"> AS </span> earliest_date
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Find the smallest value after applying a calculation.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> <br>
-            LEAST(s.sum_sales, s.avg_sales, s.max_sales) 
-              
-            <span class="orclkey"> AS </span> lowest_stat
-            <span class="orclkey"> FROM </span> (
-            <ul>
-             <span class="orclkey"> SELECT SUM(Sales) AS </span>sum_sales, <br>
-             <span class="orclkey"> AVG(Sales) AS </span>avg_sales,<br>
-             <span class="orclkey"> MAX(Sales) AS </span>max_sales <br>
-            <span class="orclkey"> FROM</span> sales_data 
-            </ul>)
-            <span class="orclkey"> AS </span> s
-             <b> ;</b>   
-        </code>
+                    <span class="orclkey"> SELECT </span> <br>
+                    LEAST(s.sum_sales, s.avg_sales, s.max_sales)
+
+                    <span class="orclkey"> AS </span> lowest_stat
+                    <span class="orclkey"> FROM </span> (
+                    <ul>
+                        <span class="orclkey"> SELECT SUM(Sales) AS </span>sum_sales,
+                        <br>
+                        <span class="orclkey"> AVG(Sales) AS </span>avg_sales,
+                        <br>
+                        <span class="orclkey"> MAX(Sales) AS </span>max_sales
+                        <br>
+                        <span class="orclkey"> FROM</span> sales_data
+                    </ul>)
+                    <span class="orclkey"> AS </span> s
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Find the smallest discount applicable to a product.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> product_id, <br>
-            <ul>
-                LEAST( discount_rate, special_offer_rate, seasonal_offer_rate )   <span class="orclkey"> AS </span> best_discount
-            </ul>
-            <span class="orclkey"> FROM </span> product_discounts
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> product_id, <br>
+                    <ul>
+                        LEAST( discount_rate, special_offer_rate, seasonal_offer_rate )
+                        <span class="orclkey"> AS </span> best_discount
+                    </ul>
+                    <span class="orclkey"> FROM </span> product_discounts
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Compare timestamp and date to find the earliest.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>
-            LEAST( '2024-12-19 10:30:00', '2024-12-19' )  
-            <span class="orclkey"> AS </span> earliest_datetime <b> ;</b> 
-          
-             
-        </code>
+                    <span class="orclkey"> SELECT </span>
+                    LEAST( '2024-12-19 10:30:00', '2024-12-19' )
+                    <span class="orclkey"> AS </span> earliest_datetime <b> ;</b>
+
+
+                </code>
             </div><br>
             <h2>Common Errors with LEAST()</h2>
             <table>
@@ -2356,7 +2519,8 @@
             <h2 id="greatest">11.GREATEST()</h2>
             <p>The GREATEST() function returns the largest value from a list of provided values. </p>
             <ul>
-                <li>It can compare different data types (numbers, strings, dates) if the database supports implicit type
+                <li>
+                    It can compare different data types (numbers, strings, dates) if the database supports implicit type
                     conversion.
                 </li>
                 <li>If any argument is NULL, the result is NULL unless explicitly handled. </li>
@@ -2365,11 +2529,13 @@
             <div class="code-box">
                 <code>
                     GREATEST( value1, value2, ..., valueN )
-            </code>
+                </code>
             </div><br>
             <ul>
-                <li>value1, value2, ..., valueN: A list of expressions or values to compare. These can be columns,
-                    literals, or expressions.</li>
+                <li>
+                    value1, value2, ..., valueN: A list of expressions or values to compare. These can be columns,
+                    literals, or expressions.
+                </li>
                 <li>The function returns the largest (maximum) value among the provided arguments.</li>
             </ul><br>
 
@@ -2377,83 +2543,92 @@
             <p><b>Scenario 1:-</b> Find the largest from the given set . </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> GREATEST( 10, 20, 5, 15 )   <span class="orclkey"> AS </span> largest_value            
-             <b> ;</b> <br><br>
-             -- Output : 20
-        </code>
+                    <span class="orclkey"> SELECT </span> GREATEST( 10, 20, 5, 15 )   <span class="orclkey"> AS </span> largest_value
+                    <b> ;</b> <br><br>
+                    -- Output : 20
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Identify the highest score of students. </p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> student_id, <br>
-            <ul>
-                GREATEST( math_score, science_score, english_score ) <span class="orclkey"> AS </span> highest_score
-            </ul>
-            <span class="orclkey"> FROM </span> student_scores
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> student_id, <br>
+                    <ul>
+                        GREATEST( math_score, science_score, english_score )
+                        <span class="orclkey"> AS </span> highest_score
+                    </ul>
+                    <span class="orclkey"> FROM </span> student_scores
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Find the Latest event date.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> event_id, <br>
-            <ul>
-                GREATEST( start_date, end_date )  <span class="orclkey"> AS </span> latest_Event_date
-            </ul>
-            <span class="orclkey"> FROM </span> events
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> event_id, <br>
+                    <ul>
+                        GREATEST( start_date, end_date )
+                        <span class="orclkey"> AS </span> latest_Event_date
+                    </ul>
+                    <span class="orclkey"> FROM </span> events
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the latest date among multiple date columns.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> employee_id, <br>
-            <ul>
-                GREATEST( joining_date, probation_end_date, contract_end_date )   <span class="orclkey"> AS </span> latest_event
-            </ul>
-            <span class="orclkey"> FROM </span> employees
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> employee_id, <br>
+                    <ul>
+                        GREATEST( joining_date, probation_end_date, contract_end_date )
+                        <span class="orclkey"> AS </span> latest_event
+                    </ul>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 5:-</b> Find the largest value after applying calculations</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>  <br>
-            <ul>
-                GREATEST( s.sum_sales, s.avg_sales, s.max_sales )  
-                <span class="orclkey"> AS </span> highest_sales
-            </ul>
-            <span class="orclkey"> FROM </span> (
-            <ul>
-             <span class="orclkey"> SELECT SUM(Sales) AS </span>sum_sales, <br>
-             <span class="orclkey"> AVG(Sales) AS </span>avg_sales,<br>
-             <span class="orclkey"> MAX(Sales) AS </span>max_sales <br>
-            <span class="orclkey"> FROM</span> sales_data 
-            </ul>)
-            <span class="orclkey"> AS </span> s
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span>  <br>
+                    <ul>
+                        GREATEST( s.sum_sales, s.avg_sales, s.max_sales )
+                        <span class="orclkey"> AS </span> highest_sales
+                    </ul>
+                    <span class="orclkey"> FROM </span> (
+                    <ul>
+                        <span class="orclkey"> SELECT SUM(Sales) AS </span>sum_sales,
+                        <br>
+                        <span class="orclkey"> AVG(Sales) AS </span>avg_sales,
+                        <br>
+                        <span class="orclkey"> MAX(Sales) AS </span>max_sales
+                        <br>
+                        <span class="orclkey"> FROM</span> sales_data
+                    </ul>)
+                    <span class="orclkey"> AS </span> s
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 6:-</b> Find the highest discount applicable to a product.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span> product_id, <br>
-            <ul>
-                GREATEST( discount_rate, special_offer_rate, seasonal_offer_rate )   <span class="orclkey"> AS </span> best_discount
-            </ul>
-            <span class="orclkey"> FROM </span> product_discounts
-             <b> ;</b> 
-        </code>
+                    <span class="orclkey"> SELECT </span> product_id, <br>
+                    <ul>
+                        GREATEST( discount_rate, special_offer_rate, seasonal_offer_rate )
+                        <span class="orclkey"> AS </span> best_discount
+                    </ul>
+                    <span class="orclkey"> FROM </span> product_discounts
+                    <b> ;</b>
+                </code>
             </div><br>
             <p><b>Scenario 7:-</b> Compare timestamp and date to find the latest.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey"> SELECT </span>  <br>
-            <ul>
-                GREATEST( '2024-12-21 10:30:00', '2024-12-21' )   <span class="orclkey"> AS </span> latest_datetime <b> ;</b> 
-            </ul>
-             
-        </code>
+                    <span class="orclkey"> SELECT </span>  <br>
+                    <ul>
+                        GREATEST( '2024-12-21 10:30:00', '2024-12-21' )
+                        <span class="orclkey"> AS </span> latest_datetime
+                        <b> ;</b>
+                    </ul>
+
+                </code>
             </div><br>
             <h2>Common Errors with GREATEST()</h2>
             <table>
@@ -2498,7 +2673,8 @@
                 <tbody>
                     <tr>
                         <td>Use GREATEST() to simplify conditional logic when comparing multiple values.</td>
-                        <td>Assume GREATEST() is supported in all databases; check the database documentation first.
+                        <td>
+                            Assume GREATEST() is supported in all databases; check the database documentation first.
                         </td>
                     </tr>
                     <tr>

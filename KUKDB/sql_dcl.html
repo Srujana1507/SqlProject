@@ -399,7 +399,7 @@
                     <li>user_or_role: The user or role receiving the permissions.</li>
                     <li>WITH GRANT OPTION: Allows the user to further grant the same privileges to others.</li>
                 </ul><br>
-                <h2>Examples</h2>
+                <h2>Basic Scenarios</h2>
                 <p><b>Scenario 1:- (Grant SELECT Privilege on a Table ) </b> Grant SELECT access to the employees
                     table to user Uday.</p>
                 <div class="code-box">
@@ -417,7 +417,7 @@
                  </code>
                 </div><br>
                 <p><b>Scenario 3:- (Grant SELECT Privilege on a View ) </b>
-                    Grant SELECT access on the department_view to the reporting_team role..</p>
+                    Grant SELECT access on the department_view to the reporting_team role.</p>
                 <div class="code-box">
                     <code>
                 <span class="orclkey"> GRANT SELECT ON </span>  department_view <span class="orclkey"> TO  </span> reporting_team <b> ;</b>  
@@ -585,7 +585,7 @@
                     <a href="sql_tcl.html?topic=sqlTcl" class="next-button">Next &raquo;</a>
                 </div>
 
-                <h1>REVOKE Statement</h1>
+                <h1>REVOKE </h1>
                 <ul>
                     <li>The REVOKE command is a part of SQL Data Control Language (DCL). </li>
                     <li>It is used to remove <b>previously granted permissions</b> from users or roles on database
@@ -618,7 +618,7 @@
                     <li>CASCADE: Removes all dependent permissions from others granted by the user.</li>
                     <li>RESTRICT: Prevents revocation if it would affect dependent permissions.</li>
                 </ul><br>
-                <h2>Examples</h2>
+                <h2>Basic Scenarios</h2>
                 <p><b>Scenario 1:- (Revoke SELECT Privilege from a User) </b> Revoke the read-only access from the
                     user
                     Harsha on the employees table.</p>
@@ -689,7 +689,7 @@
                     <b>;</b>
                  </code>
                 </div><br>
-                <h2>Key Points</h2>
+                <h2>Key Points for REVOKE</h2>
                 <table>
                     <thead>
                         <tr>
