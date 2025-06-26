@@ -308,14 +308,18 @@
         <main class="sidebar-content" data-topic="sqlCharacterFunctions">
 
             <div class="topic-buttons">
-                <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="previou-button">&laquo;
-                    Previous</a>
+                <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="previou-button">
+                    &laquo;
+                    Previous
+                </a>
                 <a href="sql_datefunctions.html?topic=sqlDateFunctions" class="next-button">Next &raquo;</a>
             </div>
 
             <h1>Character Functions</h1>
-            <p>Character functions allow you to manipulate and analyze string (text) data.
-                They are widely used for formatting, searching, transforming, or extracting substrings. </p><br>
+            <p>
+                Character functions allow you to manipulate and analyze string (text) data.
+                They are widely used for formatting, searching, transforming, or extracting substrings.
+            </p><br>
             <h2>Key Arithmetic Functions</h2>
             <table>
                 <thead>
@@ -437,8 +441,10 @@
                         <td><b>REGEXP_REPLACE()</b> </td>
                         <td>Replace using a regular expression</td>
                         <td>Replaces a substring that matches a regular expression pattern.</td>
-                        <td>Advanced string manipulations, such as removing special characters or validating data
-                            formats.</td>
+                        <td>
+                            Advanced string manipulations, such as removing special characters or validating data
+                            formats.
+                        </td>
                         <td>May not be supported in all databases.</td>
                     </tr>
                     <tr>
@@ -450,18 +456,20 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Basic Examples</h2>
-            <h3>1. Case Conversion Functions</h3>
-            <p><b>A. UPPER() :</b> Converts all characters to uppercase.</p>
+
+            <h2> Case Conversion Functions</h2>
+            <p><b>1. UPPER() :</b> Converts all characters to uppercase.</p>
+            <br />
+
             <div class="code-box">
                 <code>
-                      -- SQL Server, MySQL<br>
-                    <span class="orclkey">SELECT  </span> UPPER('hello world') 
+                    -- SQL Server, MySQL<br>
+                    <span class="orclkey">SELECT  </span> UPPER('hello world')
                     <span class="orclkey"> AS </span> UpperText  <b> ;</b><br>
                     - - Output: HELLO WORLD <br><br>
                     -- Oracle <br>
-                    <span class="orclkey">SELECT  </span> UPPER('hello world') 
-                    <span class="orclkey"> AS </span> UpperText  
+                    <span class="orclkey">SELECT  </span> UPPER('hello world')
+                    <span class="orclkey"> AS </span> UpperText
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b> <br>
                     - - Output: HELLO WORLD
                 </code>
@@ -469,27 +477,27 @@
             <p><b>Scenario : </b> Normalize user inputs to ensure consistent case handling during for user login.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> UPPER(username) 
-                    <span class="orclkey"> AS </span> Capital_Name <br>   
+                    <span class="orclkey">SELECT  </span> UPPER(username)
+                    <span class="orclkey"> AS </span> Capital_Name <br>
                     <span class="orclkey"> FROM   </span> users <br>
                     <span class="orclkey">WHERE  </span>
-                    user_id = 101 <b> ;</b>  
+                    user_id = 101 <b> ;</b>
                     <br><br>
                     - - Input: 'HarshaVardhan' <br>
                     - - Output: 'HARSHAVARDHAN'
                 </code>
-            </div><br>
+            </div><br><br />
 
-            <p><b>B. LOWER() :</b> Converts all characters to lowercase.</p>
-            <div class="code-box">
+            <p><b>2. LOWER() :</b> Converts all characters to lowercase.</p>
+            <br /><div class="code-box">
                 <code>
-                     -- SQL Server, MySQL<br>
-                    <span class="orclkey">SELECT  </span> LOWER('Hello World') 
+                    -- SQL Server, MySQL<br>
+                    <span class="orclkey">SELECT  </span> LOWER('Hello World')
                     <span class="orclkey"> AS </span> LowerText  <b> ;</b><br>
                     - - Output: hello world <br><br>
-                     -- Oracle <br>
-                    <span class="orclkey">SELECT  </span> LOWER('Hello World') 
-                    <span class="orclkey"> AS </span> LowerText  
+                    -- Oracle <br>
+                    <span class="orclkey">SELECT  </span> LOWER('Hello World')
+                    <span class="orclkey"> AS </span> LowerText
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b><br>
                     - - Output: hello world
                 </code>
@@ -499,18 +507,19 @@
                 <code>
                     <span class="orclkey">SELECT  </span> LOWER( email  )
                     <span class="orclkey"> AS </span> NormalizedEmail <br>
-                    <span class="orclkey"> FROM  </span> customers  
-                    
+                    <span class="orclkey"> FROM  </span> customers
+
                     <span class="orclkey"> WHERE  </span> customer_id = 202 <b> ;</b>  <br>
                     <br>- - Input: 'UDAY.KUMAR@EMAIL.COM' <br>
                     - - Output: 'uday.kumar@email.com'
                 </code>
-            </div><br>
-            <p><b>C. INITCAP() :</b> Capitalizes the first letter of each word (Oracle, PostgreSQL).</p>
+            </div> <br><br />
+            <p><b>3. INITCAP() :</b> Capitalizes the first letter of each word (Oracle, PostgreSQL).</p>
+            <br />
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> INITCAP('hello world')
-                    <span class="orclkey"> AS </span> LowerText  
+                    <span class="orclkey"> AS </span> LowerText
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b> <br>
                     - - Output: Hello World
                 </code>
@@ -518,24 +527,25 @@
             <p><b>Scenario :- </b> Format customer names for display in proper case.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> INITCAP(customer_name) <span class="orclkey"> AS </span> Initi_Name  
+                    <span class="orclkey">SELECT  </span> INITCAP(customer_name) <span class="orclkey"> AS </span> Initi_Name
                     <span class="orclkey"> FROM  </span> Orders <b> ;</b> <br>
                     <br>- - Input: uday KUMAR <br>
                     - - Output: Uday Kumar
                 </code>
             </div><br>
-            <h3>2. Length and Substring Functions</h3>
-            <p><b>A. LENGTH() / LEN() :</b> Returns the number of characters in a string.</p>
+            <h2> Length and Substring Functions</h2>
+            <p><b>1. LENGTH() / LEN() :</b> Returns the number of characters in a string.</p>
+            <br />
             <div class="code-box">
                 <code>
-                     -- SQL Server<br>
-                     <span class="orclkey">SELECT  </span> LENGTH('SQL Tutorial') 
+                    -- SQL Server<br>
+                    <span class="orclkey">SELECT  </span> LENGTH('SQL Tutorial')
                     <span class="orclkey"> AS </span> StringLength <b> ;</b><br>
-                     - - Output: 12 <br><br>
+                    - - Output: 12 <br><br>
 
                     --MYSQL/Oracle<br>
-                    <span class="orclkey">SELECT  </span> LENGTH('SQL Tutorial') 
-                    <span class="orclkey"> AS </span> StringLength  
+                    <span class="orclkey">SELECT  </span> LENGTH('SQL Tutorial')
+                    <span class="orclkey"> AS </span> StringLength
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b><br>
                     - - Output: 12 <br><br>
                 </code>
@@ -545,10 +555,11 @@
                 <code>
                     <span class="orclkey">SELECT  CASE </span> <br>
                     <ul>
-                    <span class="orclkey"> WHEN </span>LENGTH(password) >= 8 
-                    <span class="orclkey"> THEN </span> 'Valid'  
-                    <span class="orclkey"> ELSE  </span> 'Invalid' <br>
-                    <span class="orclkey"> END AS  </span> PasswordStatus 
+                        <span class="orclkey"> WHEN </span>LENGTH(password) >= 8
+                        <span class="orclkey"> THEN </span> 'Valid'
+                        <span class="orclkey"> ELSE  </span> 'Invalid'
+                        <br>
+                        <span class="orclkey"> END AS  </span> PasswordStatus
                     </ul>
                     <span class="orclkey">FROM </span> users <b> ;</b> <br>
                     <br>- - Input: uday123 <br>
@@ -556,10 +567,10 @@
                 </code>
             </div><br>
 
-            <p><b>B. SUBSTRING() / SUBSTR() :</b> Extracts a portion of the string.</p>
+            <p><b>2. SUBSTRING() / SUBSTR() :</b> Extracts a portion of the string.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> SUBSTRING('SQL Tutorial', 1, 3)  <span class="orclkey"> AS </span> Sub_string  
+                    <span class="orclkey">SELECT  </span> SUBSTRING('SQL Tutorial', 1, 3)  <span class="orclkey"> AS </span> Sub_string
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b> <br>
                     <br>- - Output: SQL
                 </code>
@@ -567,7 +578,7 @@
             <p><b>Scenario 1:-</b> Extract area codes from phone numbers.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> SUBSTR(phone_number, 1, 3) 
+                    <span class="orclkey">SELECT </span> SUBSTR(phone_number, 1, 3)
                     <span class="orclkey"> AS </span> AreaCode  <span class="orclkey"> FROM </span> contacts  <b> ;</b> <br>
                     <br>- - Input: 9912660135 <br>
                     - - Output: 991
@@ -582,28 +593,35 @@
                     - - Output: sample.com
                 </code>
             </div><br>
-            <p><b>C. LEFT() / RIGHT(): </b> These functions are used to extract a specified number of characters from
-                the beginning(left) or end (right) of a string.</p>
-
+            <p>
+                <b>3. LEFT() / RIGHT(): </b> These functions are used to extract a specified number of characters from
+                the beginning(left) or end (right) of a string.
+            </p>
+            <br />
             <h4> LEFT ()</h4>
-            <p><b>Scenario 1:-</b> <br>You have a list of employee names, and you need to
-                extract the first two letters as initials.</p>
+
+            <p>
+                <b>Scenario 1:-</b> You have a list of employee names, and you need to
+                extract the first two letters as initials.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT LEFT </span> (employee_name, 2)
-                    <span class="orclkey"> AS </span> Initials 
+                    <span class="orclkey"> AS </span> Initials
                     <span class="orclkey"> FROM </span> employees <b> ;</b> <br>
                     <br>- - Input: Thammisetti <br>
                     - - Output: Th
                 </code>
             </div><br>
-            <p><b>Scenario 2:- </b> <br>You need to extract the
-                first 4 characters (year) from a string-formatted date (YYYY-MM-DD).</p>
+            <p>
+                <b>Scenario 2:- </b> You need to extract the
+                first 4 characters (year) from a string-formatted date (YYYY-MM-DD).
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT LEFT </span> (hire_date, 4)
-                    <span class="orclkey"> AS Year </span>, COUNT(*) 
-                    <span class="orclkey"> AS </span> emp_count 
+                    <span class="orclkey"> AS Year </span>, COUNT(*)
+                    <span class="orclkey"> AS </span> emp_count
                     <span class="orclkey"> FROM </span> employees  <br>
                     <span class="orclkey"> GROUP BY LEFT </span> (hire_date,4)<b> ;</b>
                     <br><br>
@@ -612,18 +630,22 @@
                 </code>
             </div><br>
             <h4>RIGHT()</h4>
-            <p><b>Scenario 1:- ( Extract File Extensions )</b> You have a list of file names, and you need to extract
-                the file extension.</p>
+            <p>
+                <b>Scenario 1:- ( Extract File Extensions )</b> You have a list of file names, and you need to extract
+                the file extension.
+            </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT RIGHT </span> ( file_name, CHARINDEX('.', REVERSE( file_name ) ) - 1 ) 
+                    <span class="orclkey">SELECT RIGHT </span> ( file_name, CHARINDEX('.', REVERSE( file_name ) ) - 1 )
                     <span class="orclkey"> AS </span> FileExtension   <span class="orclkey"> FROM </span> files <b> ;</b> <br>
                     <br>- - Input: kukreport.pdf <br>
                     - - Output: pdf
                 </code>
             </div><br>
-            <p><b>Scenario 2:- ( Last 4 Digits of a Credit Card Number )</b> You need to display only the last 4 digits
-                of a credit card number for security purposes.</p>
+            <p>
+                <b>Scenario 2:- ( Last 4 Digits of a Credit Card Number )</b> You need to display only the last 4 digits
+                of a credit card number for security purposes.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT CONCAT </span> ('**** **** **** ',
@@ -635,17 +657,21 @@
             </div><br>
             <h3>Notes on Usage</h3>
             <ul>
-                <li><b>LEFT()</b> is generally used when you need to extract prefixes, leading characters, or first few
-                    elements in structured data.</li>
-                <li><b>RIGHT()</b> is generally used when you need to extract suffixes, trailing characters, or the last
-                    few elements in structured data.</li>
+                <li>
+                    <b>LEFT()</b> is generally used when you need to extract prefixes, leading characters, or first few
+                    elements in structured data.
+                </li>
+                <li>
+                    <b>RIGHT()</b> is generally used when you need to extract suffixes, trailing characters, or the last
+                    few elements in structured data.
+                </li>
             </ul>
-            <h3>3. Trimming and Padding Functions</h3>
-            <p><b>A. TRIM(): </b> Removes leading, trailing, or both types of spaces from a string.</p>
+            <h2> Trimming and Padding Functions</h2>
+            <p><b>1. TRIM(): </b> Removes leading, trailing, or both types of spaces from a string.</p>
             .</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> TRIM('  SQL Tutorial  ') <span class="orclkey"> AS </span> Trim_String 
+                    <span class="orclkey">SELECT </span> TRIM('  SQL Tutorial  ') <span class="orclkey"> AS </span> Trim_String
                     <b> ;</b> <br>
                     <br>- - Output: SQL Tutorial <br>
                 </code>
@@ -653,30 +679,30 @@
             <p><b>Scenario :- </b> Remove both leading and trailing spaces from a product description.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> TRIM('  Amazing Product  ') <span class="orclkey"> AS </span> Ext_Description 
+                    <span class="orclkey">SELECT </span> TRIM('  Amazing Product  ') <span class="orclkey"> AS </span> Ext_Description
                     <b> ;</b> <br>
-                   <br> - - Input: '  Amazing Product  '  <br>
+                    <br> - - Input: '  Amazing Product  '  <br>
                     - - Output: 'Amazing Product'
                 </code>
             </div><br>
-            <p><b>B. LTRIM() / RTRIM(): </b> Removes spaces or specific characters from the left or right side.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SELECT </span>
-                     LTRIM(' SQL Tutorial') 
-                    <span class="orclkey"> AS </span> LeftTrim_String, <br> 
-                    RTRIM('SQL Tutorial ') 
-                    <span class="orclkey"> AS </span> RightTrim_String 
-                    <b> ;</b> 
-                    <br>
-                    <br>- - Output: SQL Tutorial <br>
-                </code>
-            </div><br>
+            <p><b>2. LTRIM() / RTRIM(): </b> Removes spaces or specific characters from the left or right side.</p>
+            <!-- <div class="code-box">
+        <code>
+            <span class="orclkey">SELECT </span>
+             LTRIM(' SQL Tutorial')
+            <span class="orclkey"> AS </span> LeftTrim_String, <br>
+            RTRIM('SQL Tutorial ')
+            <span class="orclkey"> AS </span> RightTrim_String
+            <b> ;</b>
+            <br>
+            <br>- - Output: SQL Tutorial <br>
+        </code>
+    </div><br>-->
             <h4>LTRIM()</h4>
             <p><b>Scenario :- </b> Remove unwanted leading characters in user-generated codes.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> LTRIM('00012345', '0') <span class="orclkey"> AS </span> Code 
+                    <span class="orclkey">SELECT </span> LTRIM('00012345', '0') <span class="orclkey"> AS </span> Code
                     <b> ;</b> <br>
                     <br>- - Input: '00012345'  <br>
                     - -  Output: '12345'
@@ -686,27 +712,29 @@
             <p><b>Scenario :- </b> Trim trailing spaces from file names before saving.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> RTRIM('report   ') <span class="orclkey"> AS </span> Filename 
+                    <span class="orclkey">SELECT </span> RTRIM('report   ') <span class="orclkey"> AS </span> Filename
                     <b> ;</b> <br>
                     - - Input: 'report   ' <br>
                     - -  Output: 'report'
                 </code>
             </div><br>
-            <h3>4. String Comparison Functions</h3>
-            <p><b>A. INSTR(): </b> The INSTR() function returns the position of the first occurrence of a substring
-                within a string. If the substring is not found, it returns 0.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SELECT INSTR </span> ( 'SQL Tutorial', 'Tutorial' ) <span class="orclkey"> AS </span> Position 
-                    <b> ;</b> <br>
-                    <br>- - Output: 5 <br>
-                </code>
-            </div><br>
+            <h2> String Comparison Functions</h2>
+            <p>
+                <b>1. INSTR(): </b> The INSTR() function returns the position of the first occurrence of a substring
+                within a string. If the substring is not found, it returns 0.
+            </p><br>
+            <!-- <div class="code-box">
+        <code>
+            <span class="orclkey">SELECT INSTR </span> ( 'SQL Tutorial', 'Tutorial' ) <span class="orclkey"> AS </span> Position
+            <b> ;</b> <br>
+            <br>- - Output: 5 <br>
+        </code>
+    </div><br>-->
             <p><b>Scenario 1:- </b> Find the position of a special character in file paths.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT INSTR </span> ('/home/user/documents/file.txt', '/') 
-                    <span class="orclkey"> AS </span> Fileposition 
+                    <span class="orclkey">SELECT INSTR </span> ('/home/user/documents/file.txt', '/')
+                    <span class="orclkey"> AS </span> Fileposition
                     <b> ;</b> <br>
                     <br>- - Output: 1 <br>
                 </code>
@@ -715,58 +743,67 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> email,  <br>
-                    SUBSTR( email, INSTR( email, '@') + 1 )  
+                    SUBSTR( email, INSTR( email, '@') + 1 )
                     <span class="orclkey"> AS </span> Domain
-                    <span class="orclkey"> FROM </span> users 
+                    <span class="orclkey"> FROM </span> users
                     <b> ;</b> <br>
                 </code>
             </div><br>
-            <p><b>Scenario 3:- </b> If the substring does not exist, INSTR() returns 0. Use this for conditional
-                checks:</p>
+            <p>
+                <b>Scenario 3:- </b> If the substring does not exist, INSTR() returns 0. Use this for conditional
+                checks:
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> email,  <br>
                     <span class="orclkey">CASE  </span>
                     <ul>
-                    <span class="orclkey">WHEN  </span> INSTR(email,'@') > 0 
-                    <span class="orclkey"> THEN </span> SUBSTR(email,INSTR(email,'@') + 1)
-                     <span class="orclkey"> END AS </span> Domain 
-                     </ul>
-                    <span class="orclkey"> FROM </span> users 
+                        <span class="orclkey">WHEN  </span> INSTR(email,'@') > 0
+                        <span class="orclkey"> THEN </span> SUBSTR(email,INSTR(email,'@') + 1)
+                        <span class="orclkey"> END AS </span> Domain
+                    </ul>
+                    <span class="orclkey"> FROM </span> users
                     <b> ;</b> <br>
                 </code>
             </div><br>
-            <p><b>Scenario 4:- </b> Identify all orders shipped via "EXPRESS" (part of a larger string) and find the
-                starting position of "EXPRESS" in the details.</p>
+            <p>
+                <b>Scenario 4:- </b> Identify all orders shipped via "EXPRESS" (part of a larger string) and find the
+                starting position of "EXPRESS" in the details.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> OrderID, <br>
                     <ul>
                         ShippingDetails,
-                        <span class="orclkey"> INSTR </span> ( ShippingDetails, 'EXPRESS' ) <span class="orclkey"> AS </span> ExpressPosition
+                        <span class="orclkey"> INSTR </span> ( ShippingDetails, 'EXPRESS' )
+                        <span class="orclkey"> AS </span> ExpressPosition
                     </ul>
                     <span class="orclkey"> FROM  </span> Orders <br>
-                    <span class="orclkey"> WHERE  INSTR</span> ( ShippingDetails, 'EXPRESS' ) > 0     
-                    <b> ;</b> <br>      
+                    <span class="orclkey"> WHERE  INSTR</span> ( ShippingDetails, 'EXPRESS' ) > 0
+                    <b> ;</b> <br>
                 </code>
             </div><br>
-            <p><b>Scenario 5:- </b> Identify customers who mention the keyword "refund" (case-sensitive) in their
-                reviews.</p>
+            <p>
+                <b>Scenario 5:- </b> Identify customers who mention the keyword "refund" (case-sensitive) in their
+                reviews.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> CustomerID, <br>
                     <ul>
                         Review,
-                        <span class="orclkey"> INSTR </span> (Review, 'refund') 
-                        <span class="orclkey"> AS </span> RefundKeywordPosition   
+                        <span class="orclkey"> INSTR </span> (Review, 'refund')
+                        <span class="orclkey"> AS </span> RefundKeywordPosition
                     </ul>
                     <span class="orclkey"> FROM  </span> Customers <br>
-                    <span class="orclkey"> WHERE  INSTR</span> (Review, 'refund') > 0     
-                    <b> ;</b> <br>      
+                    <span class="orclkey"> WHERE  INSTR</span> (Review, 'refund') > 0
+                    <b> ;</b> <br>
                 </code>
             </div><br>
-            <h2>The STRCMP() function (MySQL specific) </h2>
-            <p>It compares two strings lexicographically and returns:</p>
+            <p>
+                <b>2.STRCMP() function :</b>
+                It compares two strings lexicographically and returns -
+            </p>
             <ul>
 
                 <li>0 if the strings are equal.</li>
@@ -778,14 +815,16 @@
             <p><b>Scenario 1 :- </b> Compare two simple strings to see their lexicographical order.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT STRCMP </span> ( 'apple', 'banana' ) 
-                    <span class="orclkey"> AS </span> Strcmp_output   
-                    <b> ;</b> <br>  
-                    - - Output :  -1    
+                    <span class="orclkey">SELECT STRCMP </span> ( 'apple', 'banana' )
+                    <span class="orclkey"> AS </span> Strcmp_output
+                    <b> ;</b> <br>
+                    - - Output :  -1
                 </code>
             </div><br>
-            <p><b>Scenario 2 :- </b> Sort a list of products based on a custom lexicographical comparison, ignoring
-                case differences.</p>
+            <p>
+                <b>Scenario 2 :- </b> Sort a list of products based on a custom lexicographical comparison, ignoring
+                case differences.
+            </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> ProductName <br>
@@ -795,7 +834,7 @@
                     <b> ;</b> <br>  <br>
                     - - LOWER(ProductName) ensures a case-insensitive comparison. <br>
                     - - STRCMP() compares each product name with the string 'mango' lexicographically. <br>
-                    - - The ORDER BY sorts the product names based on the comparison results.   
+                    - - The ORDER BY sorts the product names based on the comparison results.
                 </code>
             </div><br>
             <p><b>Scenario 3 :- </b> Retrieve all product names that lexicographically come after "grape".</p>
@@ -806,7 +845,7 @@
                     <span class="orclkey">  WHERE </span>
                     STRCMP( ProductName,'grape') > 0
                     <b> ;</b> <br>  <br>
-                    - - The WHERE clause uses STRCMP() to filter product names that are greater than 'grape' lexicographically.  
+                    - - The WHERE clause uses STRCMP() to filter product names that are greater than 'grape' lexicographically.
                 </code>
             </div><br>
             <h2>Concatenation Functions</h2>
@@ -854,71 +893,74 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Basic Syntax Examples</h2>
+            <h2>Basic Syntax </h2>
             <h4>Oracle</h4>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT CONCAT</span> ( first_name, ' ', last_name ) 
-                    <span class="orclkey"> AS </span> FullName <br> 
-                    <span class="orclkey"> FROM </span> employees   
-                    <b> ;</b> <br>  
-                    <span class="orclkey">SELECT </span> first_name || ' ' || last_name <span class="orclkey"> AS </span> FullName <br> 
-                    <span class="orclkey"> FROM </span> employees   
-                    <b> ;</b> <br>   
+                    <span class="orclkey">SELECT CONCAT</span> ( first_name, ' ', last_name )
+                    <span class="orclkey"> AS </span> FullName <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b> <br>
+                    <span class="orclkey">SELECT </span> first_name || ' ' || last_name <span class="orclkey"> AS </span> FullName <br>
+                    <span class="orclkey"> FROM </span> employees
+                    <b> ;</b> <br>
                 </code>
             </div><br>
             <h4>MySQL</h4>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT CONCAT</span> ( 'Order: ', order_id, ', Date: ', order_date ) <span class="orclkey"> AS </span> OrderSummary  <br> 
-                    <span class="orclkey"> FROM </span> orders   
-                    <b> ;</b> <br>    
+                    <span class="orclkey">SELECT CONCAT</span> ( 'Order: ', order_id, ', Date: ', order_date ) <span class="orclkey"> AS </span> OrderSummary  <br>
+                    <span class="orclkey"> FROM </span> orders
+                    <b> ;</b> <br>
                 </code>
             </div><br>
             <h4>SQL Server</h4>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> 'Customer: ' + customer_name + ', City: ' + city <span class="orclkey"> AS </span> CustomerDetails  <br> 
-                    <span class="orclkey"> FROM </span> customers   
-                    <b> ;</b> <br>    
+                    <span class="orclkey">SELECT </span> 'Customer: ' + customer_name + ', City: ' + city <span class="orclkey"> AS </span> CustomerDetails  <br>
+                    <span class="orclkey"> FROM </span> customers
+                    <b> ;</b> <br>
                 </code>
             </div><br>
             <h4>PostgreSQL</h4>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> customer_name ||' - '|| phone_number 
-                    <span class="orclkey"> AS </span> ContactInfo  <br> 
-                    <span class="orclkey"> FROM </span> customers   
-                    <b> ;</b> <br>    
+                    <span class="orclkey">SELECT </span> customer_name ||' - '|| phone_number
+                    <span class="orclkey"> AS </span> ContactInfo  <br>
+                    <span class="orclkey"> FROM </span> customers
+                    <b> ;</b> <br>
                 </code>
             </div><br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with CONCAT()</h2>
             <h3>Do's</h3>
             <p><b>1. Handle NULLs Carefully</b></p>
             <ul>
                 <li>Use COALESCE() to replace NULL values with defaults (e.g., empty strings).</li>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey">SELECT </span> CONCAT( COALESCE(first_name, ''), ' ', COALESCE(last_name, '') ) <span class="orclkey"> AS </span> Fullname  <br> 
-                    <span class="orclkey"> FROM </span> employees   
-                    <b> ;</b> <br>    
-                </code>
-                </div><br>
+                        <span class="orclkey">SELECT </span> CONCAT( COALESCE(first_name, ''), ' ', COALESCE(last_name, '') ) <span class="orclkey"> AS </span> Fullname  <br>
+                        <span class="orclkey"> FROM </span> employees
+                        <b> ;</b> <br>
+                    </code>
+                </div>
+                <br>
             </ul>
             <p><b>2. Use Explicit Conversions for Non-String Data :</b></p>
             <ul>
                 <li>Convert numbers or dates explicitly to strings before concatenation:</li>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey">SELECT </span> CONCAT( 'Order# ', CAST(order_id AS CHAR ) ) <span class="orclkey"> AS </span> OrderInfo  <br> 
-                    <span class="orclkey"> FROM </span> orders   
-                    <b> ;</b> <br>    
-                </code>
-                </div><br>
+                        <span class="orclkey">SELECT </span> CONCAT( 'Order# ', CAST(order_id AS CHAR ) ) <span class="orclkey"> AS </span> OrderInfo  <br>
+                        <span class="orclkey"> FROM </span> orders
+                        <b> ;</b> <br>
+                    </code>
+                </div>
+                <br>
             </ul>
             <p><b>3. Optimize for Readability: </b></p>
             <ul>
-                <li>Use aliases to simplify query outputs.</li><br>
+                <li>Use aliases to simplify query outputs.</li>
+                <br>
             </ul>
             <h3>Don'ts</h3>
             <p><b>1. Don't Assume Uniform NULL Behavior</b></p>
@@ -927,8 +969,10 @@
             </ul>
             <p><b>2. Don't Ignore Performance</b></p>
             <ul>
-                <li>Overusing concatenation on large datasets can degrade performance, especially if combined with
-                    sorting or joins.</li>
+                <li>
+                    Overusing concatenation on large datasets can degrade performance, especially if combined with
+                    sorting or joins.
+                </li>
             </ul>
             <p><b>3. Don't Hardcode Separators</b></p>
             <ul>
@@ -936,18 +980,21 @@
                 <li>Convert numbers or dates explicitly to strings before concatenation:</li>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey">SELECT </span> CONCAT_WS( ', ', first_name, last_name, city ) <span class="orclkey"> AS </span> Details  <br> 
-                    <span class="orclkey"> FROM </span> customers   
-                    <b> ;</b>      
-                </code>
+                        <span class="orclkey">SELECT </span> CONCAT_WS( ', ', first_name, last_name, city ) <span class="orclkey"> AS </span> Details  <br>
+                        <span class="orclkey"> FROM </span> customers
+                        <b> ;</b>
+                    </code>
                 </div>
             </ul><br>
             <h2>Replacement Functions</h2>
             <ul>
-                <li>Replacement functions are used to find and replace specific text or patterns within a string.
+                <li>
+                    Replacement functions are used to find and replace specific text or patterns within a string.
                 </li>
-                <li>They are commonly used for data cleaning, formatting, or making adjustments to textual data in
-                    databases.</li>
+                <li>
+                    They are commonly used for data cleaning, formatting, or making adjustments to textual data in
+                    databases.
+                </li>
             </ul>
 
             <h2>Common Replacement Functions Across Databases</h2>
@@ -979,90 +1026,100 @@
                         </tr>
                         <tr>
                             <td><b>PostgreSQL</b> </td>
-                            <td>REPLACE() <br>
-                                REGEXP_REPLACE() </td>
-                            <td>Replaces all occurrences of a substring within a string. <br>
-                                Replaces substrings matching a regular expression pattern.</td>
+                            <td>
+                                REPLACE() <br>
+                                REGEXP_REPLACE()
+                            </td>
+                            <td>
+                                Replaces all occurrences of a substring within a string. <br>
+                                Replaces substrings matching a regular expression pattern.
+                            </td>
                         </tr>
                     </tbody>
 
-                </table><br>
+                </table>
+                <br>
             </ul>
-            <h3>Basic Syntax</h3>
-            <h4>1. REPLACE()</h4>
+
+            <h3>1. REPLACE()</h3>
+            <h4>Basic Syntax</h4>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> REPLACE(string, substring_to_replace, replacement_string) 
-                <span class="orclkey"> FROM </span> Tablename   
-                <b> ;</b>      
-                    </code>
+                    <span class="orclkey">SELECT </span> REPLACE(string, substring_to_replace, replacement_string)
+                    <span class="orclkey"> FROM </span> Tablename
+                    <b> ;</b>
+                </code>
             </div>
             <h4>REGEXP_REPLACE() (PostgreSQL & Oracle)</h4>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> REGEXP_REPLACE(string, pattern, replacement_string [, flags]) 
-                <span class="orclkey"> FROM </span> Tablename   
-                <b> ;</b>      
-                    </code>
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE(string, pattern, replacement_string [, flags])
+                    <span class="orclkey"> FROM </span> Tablename
+                    <b> ;</b>
+                </code>
             </div><br>
             <h2>Key Characteristics</h2>
             <ul>
                 <li><b>Case Sensitivity: </b> Replacement is typically case-sensitive.</li>
-                <li><b>Partial Matches: </b> Replaces exact matches of the substring (or pattern in regex
-                    functions).</li>
+                <li>
+                    <b>Partial Matches: </b> Replaces exact matches of the substring (or pattern in regex
+                    functions).
+                </li>
                 <li><b>Bulk Updates: </b> Can be used in UPDATE statements to replace text in columns.</li>
             </ul>
-            <h2>Basic Examples</h2>
+            <h2>Basic Scenarios</h2>
             <h3>Using REPLACE()</h3>
             <h4>MySQL/Oracle/SQL Server/PostgreSQL</h4>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> REPLACE( 'Hello World', 'World', 'SQL' ) <span class="orclkey">AS Result </span> 
-                <b> ;</b>    <br>
-                - - Output: 'Hello SQL'   
-                    </code>
+                    <span class="orclkey">SELECT </span> REPLACE( 'Hello World', 'World', 'SQL' ) <span class="orclkey">AS Result </span>
+                    <b> ;</b>    <br>
+                    - - Output: 'Hello SQL'
+                </code>
             </div><br>
             <h3>Using REGEXP_REPLACE()</h3>
             <h4>PostgreSQL</h4>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> REGEXP_REPLACE( 'Hello World', 'World$', 'SQL' ) <span class="orclkey">AS Result </span> 
-                <b> ;</b>  <br>
-                - - Output: 'Hello SQL' (Replaces 'World' at the end of the string).    
-                    </code>
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE( 'Hello World', 'World$', 'SQL' ) <span class="orclkey">AS Result </span>
+                    <b> ;</b>  <br>
+                    - - Output: 'Hello SQL' (Replaces 'World' at the end of the string).
+                </code>
             </div><br>
             <p><b>Scenario 1 :</b> Format phone numbers by replacing - with a space.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> customer_name, <br>
-                <span class="orclkey"> REPLACE(phone_number, '-', ' ') </span> <span class="orclkey"> AS     </span> Cust_phone         <br>
-                <span class="orclkey"> FROM </span> customers
-                <b> ;</b>
-                    </code>
+                    <span class="orclkey">SELECT </span> customer_name, <br>
+                    <span class="orclkey"> REPLACE(phone_number, '-', ' ') </span> <span class="orclkey"> AS     </span> Cust_phone         <br>
+                    <span class="orclkey"> FROM </span> customers
+                    <b> ;</b>
+                </code>
             </div> <br>
             <p><b>Scenario 2 :</b> Remove # and @ symbols from product codes.</p>
             <div class="code-box">
                 <code>
-                <span class="orclkey">SELECT </span> product_id, <br>
-                 REPLACE( REPLACE( product_code, '#', ''), '@', '' ) <span class="orclkey"> AS  </span> CleanedProductCode<br>
-                <span class="orclkey"> FROM </span> customers
-                <b> ;</b> 
-                    </code>
-            </div> <br>
+                    <span class="orclkey">SELECT </span> product_id, <br>
+                    REPLACE( REPLACE( product_code, '#', ''), '@', '' ) <span class="orclkey"> AS  </span> CleanedProductCode<br>
+                    <span class="orclkey"> FROM </span> customers
+                    <b> ;</b>
+                </code>
+            </div>
             <h4>SQL Query (PostgreSQL):</h4>
-            <p><b>Scenario 3 :</b> Replace the name of an obsolete product with "Updated Product" in the products
-                table.</p>
+            <p>
+                <b>Scenario 3 :</b> Replace the name of an obsolete product with "Updated Product" in the products
+                table.
+            </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey"> UPDATE </span> products <br>
-                        <span class="orclkey">SET </span> 
-                        product_name = REPLACE(product_name,'OldProduct','Updated Product') <br>
-                        <span class="orclkey"> WHERE  </span> product_name <br>
-                        <span class="orclkey"> LIKE  </span> '%OldProduct%'
-                <b> ;</b> 
-                    </code>
+                    <span class="orclkey"> UPDATE </span> products <br>
+                    <span class="orclkey">SET </span>
+                    product_name = REPLACE(product_name,'OldProduct','Updated Product') <br>
+                    <span class="orclkey"> WHERE  </span> product_name <br>
+                    <span class="orclkey"> LIKE  </span> '%OldProduct%'
+                    <b> ;</b>
+                </code>
             </div> <br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with REPLACE</h2>
             <h3>Do's</h3>
             <p><b>1. Handle Case Sensitivity</b></p>
             <ul>
@@ -1070,10 +1127,10 @@
                 <li>Use LOWER() or UPPER() for case-insensitive replacements if required.</li>
                 <div class="code-box">
                     <code>
-                    <span class="orclkey">SELECT </span> REPLACE( LOWER(column_name), 'old', 'new' ) 
-                    <span class="orclkey"> FROM </span> table_name   
-                    <b> ;</b> <br>    
-                </code>
+                        <span class="orclkey">SELECT </span> REPLACE( LOWER(column_name), 'old', 'new' )
+                        <span class="orclkey"> FROM </span> table_name
+                        <b> ;</b> <br>
+                    </code>
                 </div>
 
             </ul><br>
@@ -1086,8 +1143,10 @@
             <p><b>3. Use Regular Expressions (if supported) :</b></p>
 
             <ul>
-                <li>For more complex replacements, leverage
-                    REGEXP_REPLACE().</li>
+                <li>
+                    For more complex replacements, leverage
+                    REGEXP_REPLACE().
+                </li>
             </ul>
             <br>
             <h3>Don'ts</h3>
@@ -1097,12 +1156,12 @@
                 <li>Ensure the substring is specific enough to avoid unintended replacements.</li>
                 <div class="code-box">
                     <code>
-                            - - Problem: "cat" is replaced inside "category" <br>
-                    <span class="orclkey">SELECT </span> REPLACE('category', 'cat', 'dog')
-                    <span class="orclkey"> FROM </span> dual   
-                    <b> ;</b> <br> 
-                    - - Output: 'dogegory' (unexpected)   
-                </code>
+                        - - Problem: "cat" is replaced inside "category" <br>
+                        <span class="orclkey">SELECT </span> REPLACE('category', 'cat', 'dog')
+                        <span class="orclkey"> FROM </span> dual
+                        <b> ;</b> <br>
+                        - - Output: 'dogegory' (unexpected)
+                    </code>
                 </div>
             </ul><br>
 
@@ -1112,26 +1171,32 @@
                 <li>Use chained replacements judiciously to maintain query performance.</li>
             </ul>
             <br>
-            <h3>REGEXP_REPLACE()</h3>
+            <h3>2.REGEXP_REPLACE()</h3>
 
-            <p>The REGEXP_REPLACE function is used to search for a pattern (regular expression) within a string
+            <p>
+                The REGEXP_REPLACE function is used to search for a pattern (regular expression) within a string
                 and
-                replace it with another string.</p>
+                replace it with another string.
+            </p>
             <ul>
-                <li>It is highly useful for complex string manipulation, allowing operations like replacing
-                    substrings, formatting strings, or sanitizing inputs.</li>
-                <li>This function is supported in databases like Oracle, PostgreSQL, MySQL 8.0+, and others,
+                <li>
+                    It is highly useful for complex string manipulation, allowing operations like replacing
+                    substrings, formatting strings, or sanitizing inputs.
+                </li>
+                <li>
+                    This function is supported in databases like Oracle, PostgreSQL, MySQL 8.0+, and others,
                     though
-                    syntax and features may vary slightly between them.</li>
+                    syntax and features may vary slightly between them.
+                </li>
 
-            </ul><br>
-            <h2>Basic Syntax</h2>
+            </ul>
+            <h4>Basic Syntax</h4>
             <div class="code-box">
                 <code>
-            <span class="orclkey">SELECT </span> REGEXP_REPLACE(source_string, pattern, replacement [, position [, occurrence [, match_parameter]]])
-            <span class="orclkey"> FROM </span> table_name   
-            <b> ;</b> <br>  
-        </code>
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE(source_string, pattern, replacement [, position [, occurrence [, match_parameter]]])
+                    <span class="orclkey"> FROM </span> table_name
+                    <b> ;</b> <br>
+                </code>
             </div><br>
             <h3>Parameters:</h3>
             <ul>
@@ -1139,11 +1204,14 @@
                 <li> Source_string: The string where the search and replace operation is performed.</li>
                 <li> Pattern: The regular expression pattern to search for.</li>
                 <li> replacement: The string to replace the matching pattern with.</li>
-                <li> position (optional): The starting position in the source_string where the search begins (default
-                    is 1).</li>
+                <li>
+                    position (optional): The starting position in the source_string where the search begins (default
+                    is 1).
+                </li>
                 <li> Occurrence (optional): Specifies which occurrence of the pattern to replace</li>
                 <ul>
-                    <li>Default is 0 (replaces all occurrences).
+                    <li>
+                        Default is 0 (replaces all occurrences).
                     </li>
                 </ul>
 
@@ -1184,182 +1252,198 @@
                     </tbody>
                 </table>
             </ul><br>
-            <h2>Basic Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Replace all instances of the word 'cat' with 'dog' in a string.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey">SELECT </span> REGEXP_REPLACE('The cat sat on the cat mat.', 'cat', 'dog') <br> 
-            <span class="orclkey"> AS </span> RegExp
-            <span class="orclkey"> FROM </span> dual   
-            <b> ;</b> <br>  
-            <br>- - Output: 'The dog sat on the dog mat.'
-        </code>
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE('The cat sat on the cat mat.', 'cat', 'dog') <br>
+                    <span class="orclkey"> AS </span> RegExp
+                    <span class="orclkey"> FROM </span> dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 'The dog sat on the dog mat.'
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Remove Digits from a String.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey">SELECT </span> REGEXP_REPLACE('Order12345', '\d', '') <br> 
-            <span class="orclkey"> AS </span> CleanedString
-            <span class="orclkey"> FROM </span> dual   
-            <b> ;</b> <br>  
-            <br>- - Output: 'Order' <br>
-            <ul>
-                <li>\d: Matches any digit.</li>
-                <li>'': Replaces matched digits with an empty string.</li>
-            </ul>
-        </code>
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE('Order12345', '\d', '') <br>
+                    <span class="orclkey"> AS </span> CleanedString
+                    <span class="orclkey"> FROM </span> dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 'Order' <br>
+                    <ul>
+                        <li>\d: Matches any digit.</li>
+                        <li>'': Replaces matched digits with an empty string.</li>
+                    </ul>
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Replace Case-Insensitive Pattern.</p>
             <div class="code-box">
                 <code>
-            <span class="orclkey">SELECT </span> REGEXP_REPLACE('Hello World', 'world', 'Universe', 'i') <br> 
-            <span class="orclkey"> AS </span> result
-            <span class="orclkey"> FROM </span> dual   
-            <b> ;</b> <br>  
-            <br>- - Output: 'Hello Universe' <br>
-            <ul>
-                <li>i: Makes the replacement case-insensitive.</li> 
-            </ul>
-        </code>
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE('Hello World', 'world', 'Universe', 'i') <br>
+                    <span class="orclkey"> AS </span> result
+                    <span class="orclkey"> FROM </span> dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 'Hello Universe' <br>
+                    <ul>
+                        <li>i: Makes the replacement case-insensitive.</li>
+                    </ul>
+                </code>
             </div><br>
-            <h3>Replace All Matches (Global Replacement)</h3>
+            <h3>3.Replace All Matches (Global Replacement)</h3>
             <p>PostgreSQL Example: Remove All Special Characters</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT </span> REGEXP_REPLACE('Hello, World! SQL is #1.', '[^a-zA-Z0-9\s]', '', 'g') <br> 
+                    <span class="orclkey">SELECT </span> REGEXP_REPLACE('Hello, World! SQL is #1.', '[^a-zA-Z0-9\s]', '', 'g') <br>
                     <span class="orclkey"> AS </span> Postgre_Example
-                    <b> ;</b> <br>  
+                    <b> ;</b> <br>
                     <br>- - Output: 'Hello World SQL is 1' <br>
                     <ul>
-                        <li>[^a-zA-Z0-9\s]: Matches any character that is not a letter, digit, or space.</li> 
+                        <li>[^a-zA-Z0-9\s]: Matches any character that is not a letter, digit, or space.</li>
                         <li>'g': Global replacement.</li>
                     </ul>
-                    </code>
+                </code>
             </div><br>
             <p>PostgreSQL Example: Remove non-numeric characters from phone numbers.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> customer_name, <br>
-                    REGEXP_REPLACE(phone_number, '[^0-9]', '', 'g')  
+                    REGEXP_REPLACE(phone_number, '[^0-9]', '', 'g')
                     <span class="orclkey"> AS </span> Phone_number <br>
                     <span class="orclkey"> FROM </span> customers
-                    <b> ;</b> <br>  
+                    <b> ;</b> <br>
                     <br>- - Output: Uday 9912660135<br>
-                    </code>
+                </code>
             </div><br>
-            <p><b> Scenario 1:- </b> Standardize phone numbers in the Customers table to the format (XXX) XXX-XXXX.
+            <h3>Basic Scenarios</h3>
+            <p>
+                <b> Scenario 1:- </b> Standardize phone numbers in the Customers table to the format (XXX) XXX-XXXX.
             </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> CustomerID, Name, <br>
-                    REGEXP_REPLACE(Phone, '(\d{3})[\.\-]?(\d{3})[\.\-]?(\d{4})', '(\1) \2-\3') 
+                    REGEXP_REPLACE(Phone, '(\d{3})[\.\-]?(\d{3})[\.\-]?(\d{4})', '(\1) \2-\3')
                     <span class="orclkey"> AS </span> Phone_number <br>
                     <span class="orclkey"> FROM </span> Customers
-                    <b> ;</b> <br>  
+                    <b> ;</b> <br>
                     <br>- - Output: Uday 9912660135<br>
                     <ul>
                         <li>Pattern (\d{3})[\.\-]?(\d{3})[\.\-]?(\d{4}) matches phone numbers with various delimiters (. or -).</li>
                         <li>(\1) \2-\3 reorders and formats the phone number.</li>
                     </ul>
-                    </code>
+                </code>
             </div><br>
-            <p><b>Scenario 2:-</b> Protect privacy by masking employee email addresses except the first and last
-                character before the domain.</p>
+            <p>
+                <b>Scenario 2:-</b> Protect privacy by masking employee email addresses except the first and last
+                character before the domain.
+            </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> EmployeeID, Name, <br>
-                        REGEXP_REPLACE(Email, '(\w)(\w+)(\w)(@\w+\.\w+)', '\1****\3\4') 
-                        <span class="orclkey"> AS </span> MaskedEmail <br>
-                        <span class="orclkey"> FROM </span> Employees
-                        <b> ;</b>
-                        <br><br>  
-                        <ul>
-                            <li>(\w)(\w+)(\w)(@\w+\.\w+): Captures the first, middle, and last characters before the domain.</li>
-                            <li>\1****\3\4: Keeps the first and last characters, replacing the middle with asterisks.</li>
-                        </ul>
-                        </code>
+                    <span class="orclkey">SELECT </span> EmployeeID, Name, <br>
+                    REGEXP_REPLACE(Email, '(\w)(\w+)(\w)(@\w+\.\w+)', '\1****\3\4')
+                    <span class="orclkey"> AS </span> MaskedEmail <br>
+                    <span class="orclkey"> FROM </span> Employees
+                    <b> ;</b>
+                    <br><br>
+                    <ul>
+                        <li>(\w)(\w+)(\w)(@\w+\.\w+): Captures the first, middle, and last characters before the domain.</li>
+                        <li>\1****\3\4: Keeps the first and last characters, replacing the middle with asterisks.</li>
+                    </ul>
+                </code>
             </div><br>
-            <p><b>Scenario 3:- </b> Clean up order descriptions by removing any special characters except spaces and
-                alphanumeric characters.</p>
+            <p>
+                <b>Scenario 3:- </b> Clean up order descriptions by removing any special characters except spaces and
+                alphanumeric characters.
+            </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> OrderID,  <br>
-                        REGEXP_REPLACE(OrderDescription, '[^a-zA-Z0-9 ]', '')
-                        <span class="orclkey"> AS </span> Order_desc <br>
-                        <span class="orclkey"> FROM </span> Orders      
-                        <b> ;</b> <br>  
-                        <br>
-                        <ul>
-                            <li>[^a-zA-Z0-9 ] matches any character that is not a letter, digit, or space.</li>
-                            <li>Replacing with '' removes these unwanted characters.</li>
-                        </ul>
-                        </code>
+                    <span class="orclkey">SELECT </span> OrderID,  <br>
+                    REGEXP_REPLACE(OrderDescription, '[^a-zA-Z0-9 ]', '')
+                    <span class="orclkey"> AS </span> Order_desc <br>
+                    <span class="orclkey"> FROM </span> Orders
+                    <b> ;</b> <br>
+                    <br>
+                    <ul>
+                        <li>[^a-zA-Z0-9 ] matches any character that is not a letter, digit, or space.</li>
+                        <li>Replacing with '' removes these unwanted characters.</li>
+                    </ul>
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Extract only the shipping codes from a field containing combined details.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> ShippingID,  <br>
-                        REGEXP_REPLACE(ShippingDetails, '.*#', '')
-                        <span class="orclkey"> AS </span> Shipping_code <br>
-                        <span class="orclkey"> FROM </span> Shipping      
-                        <b> ;</b> <br>  
-                        <br>
-                        <ul>
-                            <li>Pattern .*# matches everything up to and including the # symbol.</li>
-                            <li>Replacing it with '' leaves only the shipping code. </li>
-                        </ul>
-                        </code>
+                    <span class="orclkey">SELECT </span> ShippingID,  <br>
+                    REGEXP_REPLACE(ShippingDetails, '.*#', '')
+                    <span class="orclkey"> AS </span> Shipping_code <br>
+                    <span class="orclkey"> FROM </span> Shipping
+                    <b> ;</b> <br>
+                    <br>
+                    <ul>
+                        <li>Pattern .*# matches everything up to and including the # symbol.</li>
+                        <li>Replacing it with '' leaves only the shipping code. </li>
+                    </ul>
+                </code>
             </div><br>
             <p><b>Scenario 5:- </b> Ensure ZIP codes are always 5 digits, and prepend a 0 if necessary.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> DepartmentID,  <br>
-                        REGEXP_REPLACE(DepartmentCode, '(.{2})', '\1-')
-                        <span class="orclkey"> AS </span> Dept_Code <br>
-                        <span class="orclkey"> FROM </span> Departments      
-                        <b> ;</b> <br>  
-                        <br>- - Expected Output is : HR-01-   <br>
-                        <ul>
-                            <li>Pattern (.{2}) captures every two characters.</li>
-                            <li>\1- adds a dash after every match. </li>
-                        </ul>
-                        </code>
+                    <span class="orclkey">SELECT </span> DepartmentID,  <br>
+                    REGEXP_REPLACE(DepartmentCode, '(.{2})', '\1-')
+                    <span class="orclkey"> AS </span> Dept_Code <br>
+                    <span class="orclkey"> FROM </span> Departments
+                    <b> ;</b> <br>
+                    <br>- - Expected Output is : HR-01-   <br>
+                    <ul>
+                        <li>Pattern (.{2}) captures every two characters.</li>
+                        <li>\1- adds a dash after every match. </li>
+                    </ul>
+                </code>
             </div><br>
-            <p><b>Scenario 6:- </b> Normalize ZIP codes to ensure they are exactly 5 digits by padding with leading
-                zeros and removing non-numeric characters.</p>
+            <p>
+                <b>Scenario 6:- </b> Normalize ZIP codes to ensure they are exactly 5 digits by padding with leading
+                zeros and removing non-numeric characters.
+            </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> CustomerID,  Name,  <br>
-                        REGEXP_REPLACE(LPAD(ZipCode, 5, '0'), '[^0-9]', '')
-                        <span class="orclkey"> AS </span> Zip_Code <br>
-                        <span class="orclkey"> FROM </span> Customers      
-                        <b> ;</b> <br>  
-                        <br>- - Expected Output is : 01234   <br>
-                        <ul>
-                            <li>LPAD(ZipCode, 5, '0'): Pads the ZipCode to ensure it’s at least 5 digits.</li>
-                            <li>REGEXP_REPLACE(..., '[^0-9]', ''): Removes any non-digit characters. </li>
-                        </ul>
-                        </code>
+                    <span class="orclkey">SELECT </span> CustomerID,  Name,  <br>
+                    REGEXP_REPLACE(LPAD(ZipCode, 5, '0'), '[^0-9]', '')
+                    <span class="orclkey"> AS </span> Zip_Code <br>
+                    <span class="orclkey"> FROM </span> Customers
+                    <b> ;</b> <br>
+                    <br>- - Expected Output is : 01234   <br>
+                    <ul>
+                        <li>LPAD(ZipCode, 5, '0'): Pads the ZipCode to ensure it’s at least 5 digits.</li>
+                        <li>REGEXP_REPLACE(..., '[^0-9]', ''): Removes any non-digit characters. </li>
+                    </ul>
+                </code>
             </div><br>
-            <h2>REGEXP_INSTR</h2>
-            <p>The REGEXP_INSTR function is used to <b>find the position of a substring within a string </b>that
-                matches a regular expression pattern. </p><br>
+            <h3>4.REGEXP_INSTR</h3>
+            <p>
+                The REGEXP_INSTR function is used to <b>find the position of a substring within a string </b>that
+                matches a regular expression pattern.
+            </p>
+            <h4>Basic Syntax</h4>
+            <div class="code-box">
+                <code>
+                    REGEXP_INSTR(source_string, pattern [, start_position [, occurrence [, return_option [, modifiers]]]])
+                </code>
+            </div><br>
             <h2>Key Characteristics</h2>
             <ul>
-                <li><b>Flexible Pattern Matching: </b> Allows for complex search patterns using regular expressions.
+                <li>
+                    <b>Flexible Pattern Matching: </b> Allows for complex search patterns using regular expressions.
                 </li>
                 <li><b>Position Control: </b> Can return the starting or ending position of the match.</li>
-                <li><b>Occurrence Handling: </b> Supports finding the first, second, or nth occurrence of the
-                    pattern.</li>
-                <li><b>Case Sensitivity: </b> Can be toggled using modifiers (e.g., i for case-insensitive search).
+                <li>
+                    <b>Occurrence Handling: </b> Supports finding the first, second, or nth occurrence of the
+                    pattern.
+                </li>
+                <li>
+                    <b>Case Sensitivity: </b> Can be toggled using modifiers (e.g., i for case-insensitive search).
                 </li>
                 <li><b>Multi-line Mode: </b> Useful for handling strings with newline characters.</li>
             </ul>
-            <div class="code-box">
-                <code>
-                        REGEXP_INSTR(source_string, pattern [, start_position [, occurrence [, return_option [, modifiers]]]])
-                        </code>
-            </div><br>
+
             <h3>Parameters:</h3>
             <ul>
                 <li> source_string: The string to be searched. </li>
@@ -1371,7 +1455,8 @@
                     <li>0: Returns the starting position of the match (default). </li>
                     <li>1: Returns the ending position of the match.</li>
                 </ul>
-                <li> modifiers (optional): Specifies pattern matching behavior (e.g., i for case-insensitive, m for
+                <li>
+                    modifiers (optional): Specifies pattern matching behavior (e.g., i for case-insensitive, m for
                     multi-line).
             </ul><br>
             <h2>Database-Specific Details</h2>
@@ -1409,138 +1494,155 @@
                 </table>
             </ul>
             <br>
-            <h2>Basic Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Find the Position of a Pattern.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> 
-                        REGEXP_INSTR( 'Learning SQL is fun with SQL!', 'SQL' )
-                        <span class="orclkey"> AS </span> Position  <br>
-                        <span class="orclkey"> FROM </span> Dual      
-                        <b> ;</b> <br>  
-                        <br>- - Output: 10 <br>
-                        - - The word "SQL" starts at position 10 in the string.
-                        </code>
+                    <span class="orclkey">SELECT </span>
+                    REGEXP_INSTR( 'Learning SQL is fun with SQL!', 'SQL' )
+                    <span class="orclkey"> AS </span> Position  <br>
+                    <span class="orclkey"> FROM </span> Dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 10 <br>
+                    - - The word "SQL" starts at position 10 in the string.
+                </code>
             </div><br>
-            <p><b>Scenario 2:-</b> Find the position of the second occurrence of the word "SQL" in the same string.
+            <p>
+                <b>Scenario 2:-</b> Find the position of the second occurrence of the word "SQL" in the same string.
             </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> 
-                        REGEXP_INSTR('Learning SQL is fun with SQL!', 'SQL', 1, 2)  
-                        <span class="orclkey"> AS </span> Position  <br>
-                        <span class="orclkey"> FROM </span> Dual      
-                        <b> ;</b> <br>  
-                        <br>- - Output: 25
-                        </code>
+                    <span class="orclkey">SELECT </span>
+                    REGEXP_INSTR('Learning SQL is fun with SQL!', 'SQL', 1, 2)
+                    <span class="orclkey"> AS </span> Position  <br>
+                    <span class="orclkey"> FROM </span> Dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 25
+                </code>
             </div><br>
-            <p><b>Scenario 3:-</b> Return the position immediately after the first match of the word "SQL".
+            <p>
+                <b>Scenario 3:-</b> Return the position immediately after the first match of the word "SQL".
             </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> 
-                        REGEXP_INSTR('Learning SQL is fun with SQL!', 'SQL', 1, 1, 1)
-                        <span class="orclkey"> AS </span> Position_After   <br>
-                        <span class="orclkey"> FROM </span> Dual      
-                        <b> ;</b> <br>  
-                        <br>- - Output: 13
-                        </code>
+                    <span class="orclkey">SELECT </span>
+                    REGEXP_INSTR('Learning SQL is fun with SQL!', 'SQL', 1, 1, 1)
+                    <span class="orclkey"> AS </span> Position_After   <br>
+                    <span class="orclkey"> FROM </span> Dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 13
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the position of "sql", ignoring case. </p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> 
-                        REGEXP_INSTR('Learning sql is fun with SQL!', 'sql', 1, 1, 0, 'i')
-                        <span class="orclkey"> AS </span> Position   <br>
-                        <span class="orclkey"> FROM </span> Dual      
-                        <b> ;</b> <br>  
-                        <br>- - Output: 10 <br>
-                        - - 'i' enables case-insensitive matching.
-                        </code>
+                    <span class="orclkey">SELECT </span>
+                    REGEXP_INSTR('Learning sql is fun with SQL!', 'sql', 1, 1, 0, 'i')
+                    <span class="orclkey"> AS </span> Position   <br>
+                    <span class="orclkey"> FROM </span> Dual
+                    <b> ;</b> <br>
+                    <br>- - Output: 10 <br>
+                    - - 'i' enables case-insensitive matching.
+                </code>
             </div><br>
-            <h2> Advance Examples</h2>
+            <h2> Advance Scenarios</h2>
             <p><b>Scenario 1:-</b> Find the position of special characters in product names.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> product_id, <br>
-                        REGEXP_INSTR(product_name, '[^a-zA-Z0-9 ]')
-                        <span class="orclkey"> AS </span> SpecialChar_Position   <br>
-                        <span class="orclkey"> FROM </span> products      
-                        <b> ;</b> <br>  
-                        </code>
+                    <span class="orclkey">SELECT </span> product_id, <br>
+                    REGEXP_INSTR(product_name, '[^a-zA-Z0-9 ]')
+                    <span class="orclkey"> AS </span> SpecialChar_Position   <br>
+                    <span class="orclkey"> FROM </span> products
+                    <b> ;</b> <br>
+                </code>
             </div><br>
             <p><b>Scenario 2:-</b> Find the starting position of the first numeric sequence in the Orders table.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> OrderID, <br>
-                        REGEXP_INSTR(Description, '\d+')
-                        <span class="orclkey"> AS </span> Position   <br>
-                        <span class="orclkey"> FROM </span> Orders      
-                        <b> ;</b> <br>  
-                        <br>
-                        - - \d+ matches one or more digits. <br>
-                        - - The position of the first numeric sequence (1234 or 5678) starts at position 8.
-                        </code>
+                    <span class="orclkey">SELECT </span> OrderID, <br>
+                    REGEXP_INSTR(Description, '\d+')
+                    <span class="orclkey"> AS </span> Position   <br>
+                    <span class="orclkey"> FROM </span> Orders
+                    <b> ;</b> <br>
+                    <br>
+                    - - \d+ matches one or more digits. <br>
+                    - - The position of the first numeric sequence (1234 or 5678) starts at position 8.
+                </code>
             </div><br>
             <p><b>Scenario 3:-</b> Find the position of the email domain in the Employees table.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> EmployeeID, <br>
-                        REGEXP_INSTR(Email, '@([^\.]+)', 1, 1, 0, NULL, 1)
-                        <span class="orclkey"> AS </span> Domain_Position   <br>
-                        <span class="orclkey"> FROM </span> Employees      
-                        <b> ;</b> <br>  
-                        <br>
-                        - - Pattern @([^\.]+) captures everything after the @ until the first . (e.g., company or example). <br>
-                        - - 1 in the sub_expression parameter tells the function to return the position of the captured group.
-                        </code>
+                    <span class="orclkey">SELECT </span> EmployeeID, <br>
+                    REGEXP_INSTR(Email, '@([^\.]+)', 1, 1, 0, NULL, 1)
+                    <span class="orclkey"> AS </span> Domain_Position   <br>
+                    <span class="orclkey"> FROM </span> Employees
+                    <b> ;</b> <br>
+                    <br>
+                    - - Pattern @([^\.]+) captures everything after the @ until the first . (e.g., company or example). <br>
+                    - - 1 in the sub_expression parameter tells the function to return the position of the captured group.
+                </code>
             </div><br>
             <p><b>Scenario 4:-</b> Find the position of the last digit in the shipping information.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT </span> ShippingID, <br>
-                        REGEXP_INSTR(ShippingDetails, '\d', 1, 1, 0, 'c')
-                        <span class="orclkey"> AS </span> FirstDigit_Position,   <br>
-                        REGEXP_INSTR(ShippingDetails, '\d', -1, 1, 0, 'c')
-                        <span class="orclkey"> AS </span> LastDigit_Position   <br>
-                        <span class="orclkey"> FROM </span> Shipping      
-                        <b> ;</b> <br>  
-                        <br>
-                        - - The first digit is matched at position 8 (the #-prefixed order number). <br>
-                        - - The last digit is matched using negative position (-1), which looks from the end of the string.
-                        </code>
+                    <span class="orclkey">SELECT </span> ShippingID, <br>
+                    REGEXP_INSTR(ShippingDetails, '\d', 1, 1, 0, 'c')
+                    <span class="orclkey"> AS </span> FirstDigit_Position,   <br>
+                    REGEXP_INSTR(ShippingDetails, '\d', -1, 1, 0, 'c')
+                    <span class="orclkey"> AS </span> LastDigit_Position   <br>
+                    <span class="orclkey"> FROM </span> Shipping
+                    <b> ;</b> <br>
+                    <br>
+                    - - The first digit is matched at position 8 (the #-prefixed order number). <br>
+                    - - The last digit is matched using negative position (-1), which looks from the end of the string.
+                </code>
             </div><br>
-            <h2>Do's and Don'ts</h2>
+            <h2>Do's and Don'ts with Replacement Functions</h2>
             <h3>Do's</h3>
-            <p><b>1. Use Subexpressions for Granular Matching: </b> When dealing with complex patterns, use
-                subexpressions to capture specific groups.</p>
+            <p>
+                <b>1. Use Subexpressions for Granular Matching: </b> When dealing with complex patterns, use
+                subexpressions to capture specific groups.
+            </p>
             <br>
-            <p><b>2. Combine with Other Functions :</b> Use SUBSTR() or REGEXP_SUBSTR() with REGEXP_INSTR for
-                advanced extraction.</p> <br>
+            <p>
+                <b>2. Combine with Other Functions :</b> Use SUBSTR() or REGEXP_SUBSTR() with REGEXP_INSTR for
+                advanced extraction.
+            </p> <br>
 
-            <p><b>3. Leverage Match Parameters :</b> Use 'i' for case-insensitivity or 'm' for multiline patterns as
-                needed.</p>
-            <p><b>4. Test Patterns: </b> Always test your regex patterns thoroughly before applying to production
+            <p>
+                <b>3. Leverage Match Parameters :</b> Use 'i' for case-insensitivity or 'm' for multiline patterns as
+                needed.
+            </p>
+            <p>
+                <b>4. Test Patterns: </b> Always test your regex patterns thoroughly before applying to production
                 data.
             </p>
             <br>
             <h3>Don'ts</h3>
-            <p><b>1. Avoid Overlapping Matches: </b> If you need multiple matches, ensure you correctly adjust the
-                occurrence parameter.</p>
+            <p>
+                <b>1. Avoid Overlapping Matches: </b> If you need multiple matches, ensure you correctly adjust the
+                occurrence parameter.
+            </p>
             <br>
-            <p><b>2. Don't Ignore Performance: </b> Regex operations can be slow on large datasets—optimize queries
-                when possible.</p>
+            <p>
+                <b>2. Don't Ignore Performance: </b> Regex operations can be slow on large datasets—optimize queries
+                when possible.
+            </p>
             <br>
-            <p><b>3. Avoid NULL Handling Issues :</b> REGEXP_INSTR returns NULL for NULL inputs. Use NVL() or
-                COALESCE() to handle these cases.</p>
+            <p>
+                <b>3. Avoid NULL Handling Issues :</b> REGEXP_INSTR returns NULL for NULL inputs. Use NVL() or
+                COALESCE() to handle these cases.
+            </p>
 
 
 
 
 
             <div class="topic-buttons">
-                <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="previou-button">&laquo;
-                    Previous</a>
+                <a href="sql_arithmeticfunctions.html?topic=sqlArithmeticFunctions" class="previou-button">
+                    &laquo;
+                    Previous
+                </a>
                 <a href="sql_datefunctions.html?topic=sqlDateFunctions" class="next-button">Next &raquo;</a>
             </div>
 
