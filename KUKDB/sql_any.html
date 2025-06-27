@@ -325,7 +325,7 @@
             <ul>
                 <li>Filtering rows by comparing a column to values from a subquery or list.</li>
                 <li>Handling scenarios where partial matches are required.</li>
-            </ul><br>
+            </ul>
             <h2>Purpose of ANY </h2>
             <p><b>1. Dynamic Filtering:- </b>Compare a value against one or more values dynamically retrieved from
                 another query.</p><br>
@@ -648,7 +648,7 @@
                 </code>
             </div><br>
             <h2>Common Errors with ANY</h2>
-            <h4>1. Empty Subquery Result:</h4>
+            <h3>1. Empty Subquery Result:</h3>
             <ul>
                 <li>If the subquery returns no rows, the condition is evaluated to FALSE because there are no values to
                     compare against.</li>
@@ -660,7 +660,7 @@
                           </code>
                 </div><br>
             </ul>
-            <h4>2. Mismatched Data Types:</h4>
+            <h3>2. Mismatched Data Types:</h3>
             <ul>
                 <li>The column and the values in the subquery or list must be of comparable data types. For instance.
                 </li>
@@ -672,7 +672,7 @@
                     - - This results in an error because Age (numeric) and Name (text) are incompatible.
                 </div><br>
             </ul>
-            <h4>3. Ambiguous Logic with NOT:</h4>
+            <h3>3. Ambiguous Logic with NOT:</h3>
             <ul>
                 <li>Combining NOT with ANY can be confusing. Ensure you understand its meaning:
 
@@ -681,7 +681,7 @@
             </li>
             </ul><br>
             <h2>Do's and Don'ts with ANY </h2>
-            <h4>Do's</h4><br>
+            <h3>Do's</h3>
             <ul>
                 <b>1. Use with Appropriate Operators :</b><br>
                 <ul>
@@ -724,7 +724,7 @@
                     <li>Use ANY in place of multiple OR conditions for better readability.</li>
                 </ul>
             </ul>
-            <h4>Don'ts</h4><br>
+            <h3>Don'ts</h3>
             <ul>
                 <b>1. Avoid Using with Large Subqueries :</b><br>
                 <ul>

@@ -320,7 +320,7 @@
                 Character functions allow you to manipulate and analyze string (text) data.
                 They are widely used for formatting, searching, transforming, or extracting substrings.
             </p><br>
-            <h2>Key Arithmetic Functions</h2>
+            <h2>Key Character Functions</h2>
             <table>
                 <thead>
                     <tr>
@@ -459,8 +459,7 @@
 
             <h2> Case Conversion Functions</h2>
             <p><b>1. UPPER() :</b> Converts all characters to uppercase.</p>
-            <br />
-
+            
             <div class="code-box">
                 <code>
                     -- SQL Server, MySQL<br>
@@ -489,7 +488,7 @@
             </div><br><br />
 
             <p><b>2. LOWER() :</b> Converts all characters to lowercase.</p>
-            <br /><div class="code-box">
+           <div class="code-box">
                 <code>
                     -- SQL Server, MySQL<br>
                     <span class="orclkey">SELECT  </span> LOWER('Hello World')
@@ -515,7 +514,7 @@
                 </code>
             </div> <br><br />
             <p><b>3. INITCAP() :</b> Capitalizes the first letter of each word (Oracle, PostgreSQL).</p>
-            <br />
+        
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> INITCAP('hello world')
@@ -535,7 +534,7 @@
             </div><br>
             <h2> Length and Substring Functions</h2>
             <p><b>1. LENGTH() / LEN() :</b> Returns the number of characters in a string.</p>
-            <br />
+     
             <div class="code-box">
                 <code>
                     -- SQL Server<br>
@@ -566,7 +565,7 @@
                     - - Output: Invalid<br>
                 </code>
             </div><br>
-
+            <br />
             <p><b>2. SUBSTRING() / SUBSTR() :</b> Extracts a portion of the string.</p>
             <div class="code-box">
                 <code>
@@ -592,13 +591,13 @@
                     <br>- - Input: harsha.vardhan@sample.com <br>
                     - - Output: sample.com
                 </code>
-            </div><br>
+            </div><br><br />
             <p>
                 <b>3. LEFT() / RIGHT(): </b> These functions are used to extract a specified number of characters from
                 the beginning(left) or end (right) of a string.
             </p>
-            <br />
-            <h4> LEFT ()</h4>
+           <br />
+            <h3> LEFT ()</h3>
 
             <p>
                 <b>Scenario 1:-</b> You have a list of employee names, and you need to
@@ -629,7 +628,7 @@
                     - - Output: 2024, emp_count: 5
                 </code>
             </div><br>
-            <h4>RIGHT()</h4>
+            <h3>RIGHT()</h3>
             <p>
                 <b>Scenario 1:- ( Extract File Extensions )</b> You have a list of file names, and you need to extract
                 the file extension.
@@ -654,7 +653,7 @@
                     <br><br>- - Input: '1234567812345678' <br>
                     - - Output: **** **** **** 5678
                 </code>
-            </div><br>
+            </div><br><br />
             <h3>Notes on Usage</h3>
             <ul>
                 <li>
@@ -665,10 +664,10 @@
                     <b>RIGHT()</b> is generally used when you need to extract suffixes, trailing characters, or the last
                     few elements in structured data.
                 </li>
-            </ul>
-            <h2> Trimming and Padding Functions</h2>
+            </ul><br />
+            <h2> Trimming and Padding Functions</h2><br />
             <p><b>1. TRIM(): </b> Removes leading, trailing, or both types of spaces from a string.</p>
-            .</p>
+         
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> TRIM('  SQL Tutorial  ') <span class="orclkey"> AS </span> Trim_String
@@ -684,7 +683,7 @@
                     <br> - - Input: '  Amazing Product  '  <br>
                     - - Output: 'Amazing Product'
                 </code>
-            </div><br>
+            </div><br><br />
             <p><b>2. LTRIM() / RTRIM(): </b> Removes spaces or specific characters from the left or right side.</p>
             <!-- <div class="code-box">
         <code>
@@ -698,7 +697,8 @@
             <br>- - Output: SQL Tutorial <br>
         </code>
     </div><br>-->
-            <h4>LTRIM()</h4>
+           <br />
+            <h3>LTRIM()</h3>
             <p><b>Scenario :- </b> Remove unwanted leading characters in user-generated codes.</p>
             <div class="code-box">
                 <code>
@@ -708,7 +708,7 @@
                     - -  Output: '12345'
                 </code>
             </div><br>
-            <h4>RTRIM()</h4>
+            <h3>RTRIM()</h3>
             <p><b>Scenario :- </b> Trim trailing spaces from file names before saving.</p>
             <div class="code-box">
                 <code>
@@ -717,8 +717,8 @@
                     - - Input: 'report   ' <br>
                     - -  Output: 'report'
                 </code>
-            </div><br>
-            <h2> String Comparison Functions</h2>
+            </div><br><br />
+            <h2> String Comparison Functions</h2><br />
             <p>
                 <b>1. INSTR(): </b> The INSTR() function returns the position of the first occurrence of a substring
                 within a string. If the substring is not found, it returns 0.
@@ -799,7 +799,7 @@
                     <span class="orclkey"> WHERE  INSTR</span> (Review, 'refund') > 0
                     <b> ;</b> <br>
                 </code>
-            </div><br>
+            </div><br><br />
             <p>
                 <b>2.STRCMP() function :</b>
                 It compares two strings lexicographically and returns -
@@ -847,7 +847,7 @@
                     <b> ;</b> <br>  <br>
                     - - The WHERE clause uses STRCMP() to filter product names that are greater than 'grape' lexicographically.
                 </code>
-            </div><br>
+            </div><br><br />
             <h2>Concatenation Functions</h2>
             <p> Concatenation functions are used to combine two or more strings into one.</p>
             <br>
@@ -894,7 +894,7 @@
                 </tbody>
             </table><br>
             <h2>Basic Syntax </h2>
-            <h4>Oracle</h4>
+            <h3>Oracle</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT CONCAT</span> ( first_name, ' ', last_name )
@@ -906,7 +906,7 @@
                     <b> ;</b> <br>
                 </code>
             </div><br>
-            <h4>MySQL</h4>
+            <h3>MySQL</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT CONCAT</span> ( 'Order: ', order_id, ', Date: ', order_date ) <span class="orclkey"> AS </span> OrderSummary  <br>
@@ -914,7 +914,7 @@
                     <b> ;</b> <br>
                 </code>
             </div><br>
-            <h4>SQL Server</h4>
+            <h3>SQL Server</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> 'Customer: ' + customer_name + ', City: ' + city <span class="orclkey"> AS </span> CustomerDetails  <br>
@@ -922,7 +922,7 @@
                     <b> ;</b> <br>
                 </code>
             </div><br>
-            <h4>PostgreSQL</h4>
+            <h3>PostgreSQL</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> customer_name ||' - '|| phone_number
@@ -985,7 +985,7 @@
                         <b> ;</b>
                     </code>
                 </div>
-            </ul><br>
+            </ul><br><br />
             <h2>Replacement Functions</h2>
             <ul>
                 <li>

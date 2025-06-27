@@ -614,10 +614,10 @@
                 <br> Apply ALL only when you need a condition
                 to hold true for <b>all values</b> in the subquery.
             </ul>
-            </p><br>
+            </p>
             <div class="code-box">
-                - - Example<br>
-                <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>( Subquery )
+
+               <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>( Subquery )
                 <b> ; </b>
                 </code>
             </div><br>
@@ -626,9 +626,8 @@
                 <br>Ensure that subqueries used with ALL do not return NULL values
                 unless explicitly handled, as NULL can make the condition evaluate to FALSE.
             </ul>
-            </p><br>
+            </p>
             <div class="code-box">
-                - - Example<br>
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span><br>
                 <ul>
                     <span class="orclkey">SELECT </span> salary
@@ -653,9 +652,9 @@
             <p><b>1. Avoid Using ALL with a Large Subquery:- </b>
             <ul><br>When the subquery returns a large dataset, ALL can
                 lead to performance degradation. In such cases, consider alternatives like joins.</ul>
-            </p><br>
+            </p>
             <div class="code-box">
-                - - Inefficient
+                - - Inefficient<br />
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>(
                 <span class="orclkey"> SELECT column FROM </span> large_table )
                 </code>

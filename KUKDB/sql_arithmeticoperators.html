@@ -476,7 +476,7 @@
                 </tbody>
             </table>
             <br>
-            <h2>Basic Scenarios</h2>
+           <h2>Arithmetic Operators</h2>
             <h3>1. Addition(+) Operator </h3>
             <p>
                 <b>Scenario :-</b> 5000(Constants value) as bonus to all employees and Add the bonus to salary and
@@ -821,7 +821,7 @@
                 </tbody>
             </table>
             <br>
-            <h3> Key Points :</h3>
+            <h2> Key Points :</h2>
             <ul>
                 <li>
                     Operators with higher precedence (*, /, %) are evaluated before those with lower precedence (+, -).
@@ -829,8 +829,8 @@
                 <li>When operators have the same precedence, evaluation proceeds from left to right.</li>
                 <li>Parentheses () can override the default precedence and force specific order of execution.</li>
             </ul>
-
-            <h4>Sample Example</h4>
+            <br />
+            <h3>Sample Scenario</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey">FROM   </span> DUAL <b> ;</b>  - - In Oracle<br>
@@ -838,36 +838,37 @@
                     - - result = 49
                 </code>
             </div><br>
-            <h4>Step-by-Step Execution of above examples</h4>
+            <h3>Step-by-Step Execution of above examples</h3>
             <ul>
                 <li><b>Evaluate Multiplication (*) :</b> 20 * 2= 40</li>
                 <li><b>Evaluate Division (/) :</b> 5 / 5 = 1</li>
                 <li><b>Evaluate Addition (+) :</b> 10 + 40 = 50</li>
                 <li><b>Evaluate Subtraction (-) :</b> 50 - 1 = 49</li>
             </ul>
+            <br />
 
-            <h4>Sample Example</h4>
+          <!-- <h3>Sample Scenario</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey"> AS </span>Final_result<span class="orclkey"> FROM   </span> DUAL <b> ;</b>  - - In Oracle<br>
                     <span class="orclkey">SELECT   </span> 10 + 20 * 2 - 5 / 5 <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br>
                     - - result = 49
                 </code>
-            </div>
-            <h4>Using Parentheses for Explicit Precedence</h4><br>
+            </div><br />-->
+            <h3>Using Parentheses for Explicit Precedence</h3>
             <p>
                 To change the order of execution, use parentheses. Operations inside parentheses are always evaluated
                 first.
-            </p>
-            <h4>Example with Parentheses</h4>
+            </p><br />
+            <h3>Example with Parentheses</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> ( 10 + 20 ) <b> * </b>( 2 - 5 / 5 ) <span class="orclkey"> AS </span>Final_result <span class="orclkey">FROM   </span> DUAL <b> ;</b>  - - In Oracle<br>
                     <span class="orclkey">SELECT   </span> ( 10 + 20 ) <b> * </b>( 2 - 5 / 5 ) <span class="orclkey">AS   </span> result <b> ;</b>  - -  In Other Databases<br>
                     - - result = 30
                 </code>
-            </div>
-            <h4>Step-by-Step Execution of above exampls</h4>
+            </div><br />
+            <h3>Step-by-Step Execution of above exampls</h3>
             <ul>
                 <li><b>Evaluate Division (/) in Parentheses: </b> 5 / 5 = 1.</li>
                 <li><b>Evaluate Subtraction (-) in Parentheses :</b> 2 - 1 = 1.</li>
@@ -901,6 +902,7 @@
                 </tbody>
             </table>
             <br>
+            <h3>Scenario 1: </h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span>  EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>
@@ -909,11 +911,11 @@
                     SALARY - 2300 <span class="orclkey"> AS </span> NET_AMOUNT,<br>
                     SALARY * 12 <span class="orclkey"> AS </span> Annual_Income <br>
                     <span class="orclkey"> FROM   </span> EMPLOYEE
-                    <b> ;</b> <br><br>
+                    <b> ;</b> <br>
                 </code>
             </div>
-
-            <h4> Output</h4>
+            <br />
+            <h3> Output</h3>
             <table>
                 <thead>
                     <tr>
@@ -938,8 +940,8 @@
                     </tr>
                 </tbody>
             </table>
-
-            <h4> Solution:</h4>
+            <br />
+            <h3>Scenario 2:</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span>  EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>
@@ -948,11 +950,11 @@
                     COALESCE(SALARY<b> , </b>0 ) - 2300 <span class="orclkey"> AS </span> NET_AMOUNT ,<br>
                     COALESCE(SALARY<b> , </b>0 ) * 12 <span class="orclkey"> AS </span> Annual_Income <br>
                     <span class="orclkey"> FROM   </span> EMPLOYEE
-                    <b> ;</b> <br><br>
+                    <b> ;</b> <br>
                 </code>
             </div>
-
-            <h4> Output</h4>
+            <br />
+            <h3> Output</h3>
             <table>
                 <thead>
                     <tr>
@@ -1044,7 +1046,7 @@
             </div>
             <br>
             <h2>Common Errors :-</h2>
-            <h4>1. Division by Zero</h4><br>
+            <h3>1. Division by Zero</h3>
             <ul>
                 <li><b>Cause :- </b> Using / where the divisor is zero.</li>
                 <li><b>Fix :- </b> Use a conditional check to avoid zero division (NULLIF)</li>
@@ -1055,8 +1057,8 @@
                         <b> ;</b> <br><br>
                     </code>
                 </div>
-            </ul>
-            <h4>2. Data Type Mismatch</h4> <br>
+            </ul><br />
+            <h3>2. Data Type Mismatch</h3> 
             <ul>
                 <li><b>Cause :- </b> Applying arithmetic on non-numeric data types (e.g., strings).</li>
                 <li><b>Fix :- </b> Ensure the columns are numeric or use CAST/CONVERT.</li>
@@ -1067,8 +1069,8 @@
                         <b> ;</b> <br><br>
                     </code>
                 </div>
-            </ul>
-            <h4>3. Overflow Errors</h4>
+            </ul><br />
+            <h3>3. Overflow Errors</h3>
             <ul>
                 <li>
                     <b>Cause :- </b> Operations exceeding the data type's limit (e.g., adding large numbers to an INT

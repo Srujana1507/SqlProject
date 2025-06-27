@@ -368,8 +368,8 @@
                         <span class="orclkey">ADD</span> column_name datatype ;
                     </code>
             </div>
-            <br>
-            <h5>Example:</h5>
+           
+            <h4>Example:</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employee<br>
@@ -384,8 +384,8 @@
                         <span class="orclkey">ADD CONSTRAINT </span> constraint_name constraint_definition ;
                     </code>
             </div>
-            <br>
-            <h5>Example:</h5>
+           
+            <h4>Example:</h4>
             <ul>
                 <li><b>Adding a Primary Key Constraint :</b></li>
             </ul>
@@ -409,7 +409,7 @@
             <br>
             <h3>3. Modifying an Existing Column (Modify Table - add hyper link here, create a seperate topic) :</h3>
 
-            <h5>Oracle</h5>
+            <h4>Oracle</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> table_name<br>
@@ -422,24 +422,24 @@
                     </div>
                 </code>
             </div>
-            <br>
-            <h5>SQL Server</h5>
+            
+            <h4>SQL Server</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
                     <span class="orclkey">ALTER COLUMN</span> phone_number  NVARCHAR(20) ;
                 </code>
             </div>
-            <br>
-            <h5>MySQL</h5>
+           
+            <h4>MySQL</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
                     <span class="orclkey">MODIFY</span> phone_number  VARCHAR(20) ;
                 </code>
             </div>
-            <br>
-            <h5>PostgreSQL</h5>
+        
+            <h4>PostgreSQL</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
@@ -454,8 +454,8 @@
                     <span class="orclkey">DROP COLUMN</span> column_name  ;<br>
                 </code>
             </div>
-            <br>
-            <h5>Example</h5>
+        
+            <h4>Example</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
@@ -470,16 +470,16 @@
                     <span class="orclkey">DROP CONSTRAINT</span> constraint_name  ;<br>
                 </code>
             </div>
-            <br>
-            <h5>Oracle and SQL Server</h5>
+         
+            <h4>Oracle and SQL Server</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
                     <span class="orclkey">DROP CONSTRAINT</span> pk_employee_id  ;<br>
                 </code>
             </div>
-            <br>
-            <h5>MySQL</h5>
+          
+            <h4>MySQL</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
@@ -489,22 +489,22 @@
             <br>
             <h3>6. Renaming Columns</h3>
             <p>Renaming a Column (Only supported in some databases directly in ALTER TABLE).</p>
-            <h5>SQL Server</h5>
+            <h4>SQL Server</h4>
             <div class="code-box">
                 <code>
                     EXEC sp_rename 'employees.phone_number', 'contact_number', 'COLUMN';
                 </code>
             </div>
-            <br>
-            <h5>MySQL</h5>
+          
+            <h4>MySQL</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees</p>
                     <span class="orclkey">CHANGE </span>phone_number contact_number VARCHAR(20)   ;</p>
                 </code>
             </div>
-            <br>
-            <h5>Oracle and MySQL </h5>
+        
+            <h4>Oracle and MySQL </h4>
             <div class="code-box">
                 <code>
                      <span class="orclkey">ALTER TABLE </span> employees</p>
@@ -533,15 +533,15 @@
             </div>
             <br>
             <h3>3. Add and Drop Indexes (MySQL Specific)</h3>
-            <h5>Add an index on the email column</h5>
+            <h4>Add an index on the email column</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
                     <span class="orclkey">ADD </span>INDEX idx_email (email) ;
                 </code>
             </div>
-            <br>
-            <h5>Drop an index</h5>
+           
+            <h4>Drop an index</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
@@ -561,7 +561,7 @@
                 </code>
             </div>
             <br>
-            <h2>Invalid Examples</h2>
+            <h2>Invalid Scenarios</h2>
             <h3>1. Modify column Datatype from INT to BOOLEAN on Multiple Columns</h3>
             <div class="code-box">
                 <code>
