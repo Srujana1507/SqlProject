@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -321,11 +321,11 @@
 
             <ul>
                 <h2>
-                    <li><b>Key Points to Remember: </b></li>
+                    <li>Key Points to Remember: </li>
                 </h2>
                 <ul>
                     <li>Using <b>DELETE</b> without a WHERE clause deletes all rows in the table but retains the
-                        table structure..</li>
+                        table structure.</li>
                     <li>Always include a <b>WHERE</b> clause unless the intention is to clear the table.</li>
                     <li><b>DELETE </b> removes rows but does not remove the table definition or schema.</li>
                     <li>If foreign keys are defined with <b>ON DELETE CASCADE</b> , deleting a parent row may also
@@ -343,7 +343,7 @@
 
             <br>
 
-            <h2>General Syntax</h2>
+            <h2>Basic Syntax</h2>
             <h3>1.Delete all rows from a table</h3>
             <div class="code-box">
                 <code>
@@ -354,13 +354,13 @@
             <h3>2. Delete specific rows from a Table:</h3>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">ALTER TABLE </span> emp
+                    <span class="orclkey">DELETE FROM  </span> emp
                     <br>
                     <span class="orclkey">WHERE</span> dept_name = 'HR' ;
                 </code>
             </div>
             <br>
-            <h2>Advanced Usage Examples:</h2>
+            <h2>Advanced Scenarios:</h2>
             <h3>1. Delete Using a Subquery </h3>
             <ul>
                 <li>Deletes rows in the employees table based on a condition derived from
@@ -413,7 +413,7 @@
                     <span class="orclkey"> DELETE FROM </span> Orders
                     <br>
                     <span class="orclkey">WHERE </span> status = 'Shipped'  
-                   <br> RETURNING order_id, CustID ;            
+                   <br> RETURNING order_id, customer_id;            
                 </code>
             </div>
             <br>
@@ -433,7 +433,7 @@
                 </code>
             </div>
             <br>
-            <h2>Best Practices:</h2>
+            <h2>Best Practices for DELETE:</h2>
             <h4>1. Always Use Transactions</h4> <br>
             <ul>- Wrap DELETE statements in transactions to ensure you can rollback in
                 case of errors.</ul>
@@ -458,7 +458,7 @@
                 </code>
             </div>
             <br>
-            <h2>Do’s and Don’ts When Using DELETE </h2>
+            <h2>Do’s and Don’ts with DELETE </h2>
             <h4><u>Do's</u> :-</h4>
             <ul>
                 <li><b>Do validate the data to be deleted</b> by running a SELECT with the same WHERE condition
@@ -470,7 +470,7 @@
             <h4><u>Don'ts</u> :-</h4>
             <ul>
                 <li><b>Don’t delete without a </b> WHERE clause unless you intend to clear the table entirely.</li>
-                <li><b>Don’t ignore cascading effects :</b> Check for ON DELETE CASCADE constraints if deleting from
+                <li><b>Don’t ignore cascading effects:</b> Check for ON DELETE CASCADE constraints if deleting from
                     tables with foreign key relationships.</li>
                 <li><b>Don’t run mass deletions during peak hours </b> in high-transaction environments, as they can
                     impact performance.</li>

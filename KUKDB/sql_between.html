@@ -318,7 +318,7 @@
                 the boundary values.</p><br>
             <p>It simplifies range-based filtering and works with <b>numerical, date, and text data types</b>.</p><br>
             <p>you can also use BETWEEN with <b>SELECT , UPDATE, DELETE, and CASE </b> statements.</p><br>
-            <h2>Key Features of the BETWEEN Operator</h2>
+            <h2>Key Features of BETWEEN </h2>
             <p><b>1. Inclusive of Boundary Values :</b></p>
             <ul>
                 <ul>
@@ -328,7 +328,7 @@
             <p><b>2. Simplifies Range Queries :</b></p>
             <ul>
                 <ul>
-                    <li>It provides a cleaner way to query ranges compared to using >= and <=.< /li>
+                    <li>It provides a cleaner way to query ranges compared to using >= and <=. </li>
                 </ul>
             </ul>
             <p><b>3. Supports Numbers, Dates, and Text :</b></p>
@@ -343,8 +343,8 @@
                     <li>Behavior for text comparisons depends on collation settings.</li>
                 </ul>
             </ul>
-            <h2>Syntax</h2>
-            <h3>Basic Syntax:</h3>
+            <h2> Basic Syntax</h2>
+        
             <div class="code-box">
                 <code>
                         <span class="orclkey">SELECT </span> column1, column2 <br>
@@ -362,14 +362,14 @@
                         <b> ; </b>
                     </code>
             </div><br>
-            <h2>Key Points</h2>
+            <h2>Key Points for BETWEEN </h2>
             <p><b>1. Inclusive :</b>The range includes both value1 and value2.</p> <br>
             <p><b>2. Works with Numeric, Date, and Text Data :</b>Suitable for various data types.</p> <br>
             <p><b>3. Simplifies Range Queries :</b>Equivalent to using >= and <= conditions together.</p> <br>
                     <p><b>4. Case Sensitivity :</b>For text data, behavior depends on the database (e.g., case-sensitive
                         by default in Oracle).</p> <br>
 
-                    <h2>Examples</h2>
+                    <h2>Basic Scenarios</h2>
                     <h3>1. Numerical Range</h3>
                     <p><b>Scenario :- </b> Retrieve employees with salaries between 30,000 and 60,000.
                     </p>
@@ -492,9 +492,9 @@
                     <span class="orclkey"> AND   </span> <b>'</b>2024-06-30<b>'</b><b> ; </b>
                     </code>
                     </div><br>
-                    <h2>Advanced Examples</h2>
+                    <h2>Advanced Scenarios</h2>
                     <h3>1. BETWEEN in INSERT INTO SELECT Statement</h3>
-                    <p><b>Scenario :- </b> Insert sales records from a specific period into a historical archive table.
+                    <p><b>Scenario :- </b> Insert sales records for a specific period into a historical archive table.
                     </p>
                     <div class="code-box">
                         <code>
@@ -546,7 +546,7 @@
                                     <span class="orclkey">HAVING </span>SUM( salary ) <span class="orclkey">BETWEEN  </span>500000 <span class="orclkey">AND  </span>1000000 <b> ; </b>
                     </code>
                     </div><br>
-                    <h2>Complex Examples</h2>
+                    <h2>Complex Scenarios</h2>
                     <h3>1. Combining BETWEEN with Window Functions</h3>
                     <p><b>Scenario :- </b> Retrieve sales transactions within the middle 50% (quartiles) of total sales.
                     </p>
@@ -626,7 +626,7 @@
                         </tbody>
                     </table>
                     <br>
-                    <h2>Common Errors</h2>
+                    <h2>Common Errors with BETWEEN</h2>
                     <p><b>1. Invalid Ranges:</b></p>
                     <ul>
                         <ul>
@@ -656,7 +656,7 @@
                             <li>Ensure the dates are formatted correctly as per the database engine.</li>
                         </ul>
                     </ul><br>
-                    <h2>Best Practices</h2>
+                    <h2>Best Practices for BETWEEN</h2>
                     <p><b>1. Index the Column:- </b></p>
                     <ul>
                         <ul>

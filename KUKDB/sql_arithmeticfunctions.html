@@ -427,21 +427,21 @@
                 <li><b>Non-Numeric Data:- </b> Functions are strictly for numeric data types. Applying them to text or
                     incompatible types results in errors.</li>
             </ul><br>
-            <h2>Detailed Explanation with Examples</h2>
-            <h3>1. ABS (Absolute Value)</h3>
-            <p>Returns the absolute value of a number (removes the negative sign if present).</p>
-            <h4>Syntax</h4>
+            
+            <h2>1. ABS (Absolute Value)</h2>
+            <p>Returns the absolute value of a number (removes the negative sign if present).</p><br>
+            <h3>  Syntax</h4>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ABS  </span> ( number )<br>
                 </code>
             </div><br>
-            <p><b>Scenarios</b></p>
+            <!--<p><b>Scenarios</b></p>
             <ul>
                 <li><b>Financial Analysis:- </b> Calculate the absolute difference in profit/loss across regions.</li>
                 <li><b>Error Handling:- </b> Remove negative values caused by errors.</li>
-            </ul>
-            <h4>Examples</h4>
+            </ul>-->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example</p>
             <div class="code-box">
                 <code>
@@ -466,21 +466,22 @@
                     <span class="orclkey"> FROM  </span> sales_data <b> ;</b>
                 </code>
             </div><br>
-            <h3>2. CEIL and FLOOR</h3>
-            <p>Rounds a number up to the nearest integer.</p>
-            <h4>Syntax</h4>
+            <h2>2. CEIL and FLOOR</h2>
+            <p>Rounds a number up to the nearest integer.</p><br>
+            <h3>  Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">CEIL</span> (number) - - in Oracle, MySQL.<br>
                     <span class="orclkey">CEILING</span> (number) - - in SQL Server.<br>
                 </code>
             </div><br>
-            <p><b>Scenarios</b></p>
+           <!-- <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Inventory Management:- </b> Round up the number of required boxes to pack items.
                 </li>
                 <li><b>Pricing Adjustments:- </b> Round prices up to the nearest dollar.</li>
-            </ul>
+            </ul>-->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Pricing adjustments where values are rounded up. )</p>
             <div class="code-box">
                 <code>
@@ -508,19 +509,20 @@
                 </code>
                 --MySql
             </div><br>
-            <h3>3. FLOOR( )</h3>
-            <p>Rounds a number down to the nearest integer.</p>
-            <h4>Syntax</h4>
+            <h2>3. FLOOR( )</h2>
+            <p>Rounds a number down to the nearest integer.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">FLOOR</span> ( number ) <br>
                 </code>
             </div><br>
-            <p><b>Scenarios</b></p>
+           <!-- <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Logistics:- </b> Calculate full truckloads required for shipping. </li>
                 <li><b>Budgeting:- </b> Allocate full dollar amounts while ignoring cents.</li>
-            </ul>
+            </ul>-->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example</p>
             <div class="code-box">
                 <code>
@@ -547,19 +549,20 @@
                     <span class="orclkey"> FROM  </span> shipments <b> ;</b>
                 </code>
             </div><br>
-            <h3>4. ROUND( )</h3>
+            <h2>4. ROUND( )</h2>
             <p>Rounds a number to a specified number of decimal places.</p>
-            <h4>Syntax</h4>
+            <br><h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ROUND</span> ( number, decimals ) <br>
                 </code>
             </div><br>
-            <p><b>Scenarios</b></p>
+            <!--<p><b>Scenarios</b></p>
             <ul>
                 <li><b>Finance:- </b> Round monetary values to two decimal places. </li>
                 <li><b>Data Presentation:- </b> Format values for reports.</li>
-            </ul>
+            </ul>-->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Financial calculations where rounding to a specific precision is
                 required. )</p>
             <div class="code-box">
@@ -585,20 +588,23 @@
                      <b> ;</b>
                 </code>
             </div><br>
-            <h3>5. MOD( ) or % (Modulo)</h3>
-            <p>Returns the remainder of a division operation.</p>
-            <h4>Syntax</h4>
+            <h2>5. MOD( ) or % (Modulo)</h2>
+            <p>Returns the remainder of a division operation.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">MOD</span> (number, divisor )  - - Oracle, MySQL<br>
                     number  %  divisor  - - SQL  Server
                 </code>
             </div><br>
+           <!--
             <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Scheduling:- </b> Determine odd/even weeks for task assignments. </li>
                 <li><b>Grouping:- </b> Assign records into groups based on remainders.</li>
-            </ul>
+            </ul> -->
+
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Grouping operations (e.g., odd/even checks) )</p>
             <div class="code-box">
                 <code>
@@ -627,19 +633,22 @@
                      <b> ;</b>
                 </code>
             </div><br>
-            <h3>6. POWER( )</h3>
-            <p>Raises a number to the power of another number.</p>
-            <h4>Syntax</h4>
+            <h2>6. POWER( )</h2>
+            <p>Raises a number to the power of another number.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">POWER</span> (base, exponent )  <br>
                 </code>
             </div><br>
+            <!--
             <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Finance:- </b> Calculate compound interest. </li>
                 <li><b>Mathematics:- </b> Compute exponential growth or decay.</li>
             </ul>
+            -->
+            <h2> Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Statistical computations and geometric calculations )</p>
             <div class="code-box">
                 <code>
@@ -664,19 +673,22 @@
                     <span class="orclkey"> FROM  </span> accounts  <b> ;</b>
                 </code>
             </div><br>
-            <h3>7. EXP( )</h3>
-            <p>Calculates the exponential value of a number (e^x).</p>
-            <h4>Syntax</h4>
+            <h2>7. EXP( )</h2>
+            <p>Calculates the exponential value of a number (e^x).</p><br >
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">EXP</span> ( Number )  <br>
                 </code>
             </div><br>
+            <!--
             <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Statistics:- </b> Model exponential growth (e.g., population growth) </li>
                 <li><b>Data Science:- </b> Calculate natural exponential values in algorithms.</li>
             </ul>
+            -->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Financial calculations like compound interest. )</p>
             <div class="code-box">
                 <code>
@@ -700,19 +712,22 @@
                     <span class="orclkey"> FROM  </span> population  <b> ;</b>
                 </code>
             </div><br>
-            <h3>8. LN( )</h3>
-            <p>Returns the natural logarithm of a number.</p>
-            <h4>Syntax</h4>
+            <h2>8. LN( )</h2>
+            <p>Returns the natural logarithm of a number.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">LN</span> ( Number )  <br>
                 </code>
             </div><br>
+            <!--
             <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Data Science:- </b> Normalize data. </li>
                 <li><b>Mathematics:- </b> Solve equations involving logarithms.</li>
             </ul>
+            -->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example </p>
             <div class="code-box">
                 <code>
@@ -737,20 +752,23 @@
                     <span class="orclkey"> FROM  </span> Financials  <b> ;</b>
                 </code>
             </div><br>
-            <h3>9. LOG()</h3>
-            <p>Returns the logarithm of a number with a specified base.</p>
-            <h4>Syntax</h4>
+            <h2>9. LOG()</h2>
+            <p>Returns the logarithm of a number with a specified base.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">LOG</span> ( base, number )  - - MySQL <br>
                     <span class="orclkey">LOG</span> ( number )  - - SQL Server (base 10 by default) <br>
                 </code>
             </div><br>
+            <!--
             <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Analytics:- </b> Perform base-specific logarithmic transformations. </li>
                 <li><b>Math:- </b> Solve problems involving logarithms.</li>
             </ul>
+            -->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Financial calculations like compound interest. ) </p>
             <div class="code-box">
                 <code>
@@ -774,19 +792,21 @@
                     <span class="orclkey"> FROM  </span> user_metrics  <b> ;</b>
                 </code>
             </div><br>
-            <h3>10. SQRT()</h3>
-            <p>Returns the square root of a number.</p>
-            <h4>Syntax</h4>
+            <h2>10. SQRT()</h2>
+            <p>Returns the square root of a number.</p><br >
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SQRT</span> ( number )   <br>
                 </code>
             </div><br>
+            <!--
             <p><b>Scenarios</b></p>
             <ul>
                 <li><b>Statistics:- </b> Calculate the standard deviation. </li>
                 <li><b>Engineering:- </b> Solve geometric problems.</li>
-            </ul>
+            </ul>-->
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example </p>
             <div class="code-box">
                 <code>
@@ -810,14 +830,15 @@
                     <span class="orclkey"> FROM  </span> sales_data  <b> ;</b>
                 </code>
             </div><br>
-            <h3>11. PI()</h3>
-            <p>Calculate the circumference of a circle.</p>
-            <h4>Syntax</h4>
+            <h2>11. PI()</h2>
+            <p>Calculate the circumference of a circle.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">PI</span> (  )   <br>
                 </code>
             </div><br>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example ( Returns the mathematical constant π. ) </p>
             <div class="code-box">
                 <code>
@@ -842,14 +863,15 @@
                     - - Result: 31.41592653589793
                 </code>
             </div><br>
-            <h3>12. TRUNCATE(x, d) - ( MySQL-Specific ) </h3>
+            <h2>12. TRUNCATE(x, d) - ( MySQL-Specific ) </h2>
             <p> Truncates a number to a specific number of decimal places without rounding.</p>
-            <h4>Syntax</h4>
+            <br ><h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">TRUNCATE</span> ( number, decimals )   <br>
                 </code>
             </div><br>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example </p>
             <div class="code-box">
                 <code>
@@ -866,32 +888,33 @@
                     <span class="orclkey"> FROM  </span> Products  <b> ;</b> <br>
                 </code>
             </div><br>
-            <h3>13. SIGN(x) </h3>
-            <p> Identify the sign of a number.</p>
-            <h4>Syntax</h4>
+            <h2>13. SIGN(x) </h2>
+            <p> Identify the sign of a number.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SIGN</span> ( number )   <br>
                 </code>
             </div><br>
-            <p><b> Basic example </b></p>
+            <h2>Basic Scenarios</h2>
+       
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> SIGN(-10)
                     <span class="orclkey"> AS </span> sign_of_negative   <br>
-                    - -Output:  -1 <br>
+                    - -Output:  -1 <br><br>
                     <span class="orclkey">SELECT </span> SIGN(0)
                     <span class="orclkey"> AS </span> sign_of_zero <br>
-                     - - Output: 0 <br>
+                     - - Output: 0 <br><br>
                     <span class="orclkey">SELECT </span> SIGN(10)
                     <span class="orclkey"> AS </span> sign_of_positive <b> ;</b>
                     <br>- - Output: 1                  
                 </code>
             </div><br>
 
-            <h3>14. RANDOM() / RAND() </h3>
-            <p> Generate random numbers.</p>
-            <h4>Syntax</h4>
+            <h2>14. RANDOM() / RAND() </h2>
+            <p> Generate random numbers.</p><br>
+            <h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">RAND</span> (  )  - -  MySQL, SQL Server  <br>
@@ -899,6 +922,7 @@
                     <span class="orclkey">DBMS_RANDOM</span> (  )  - -  Oracle  <br>
                     </code>
             </div><br>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:-</b> Basic example </p>
             <div class="code-box">
                 <code>

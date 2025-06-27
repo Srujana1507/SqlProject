@@ -312,11 +312,11 @@
                 <a href="sql_dcl.html?topic=sqlDcl" class="next-button">Next &raquo;</a>
             </div>
 
-            <h1>Default </h1>
+            <h1>DEFAULT </h1>
             <p>The Default Constraint in SQL is used to set a default value for a column when no value is specified
                 during an INSERT operation.</p><br>
             <p>It ensures that a column has a value even if the user does not explicitly provide one.</p><br>
-            <h2>Key Points</h2>
+            <h2>Key Points for DEFAULT </h2>
             <table>
                 <thead>
                     <tr>
@@ -395,7 +395,7 @@
                     </ul> 
                  </code>
             </div><br>
-            <h2>Examples</h2>
+            <h2>Basic Scenarios</h2>
             <p><b>Scenario 1:- </b> Assign Pending as the default status for new orders.</p>
             <div class="code-box">
                 <code>
@@ -435,7 +435,7 @@
                     </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 4:- </b> Assign Default Role for Newly Created Users.</p>
+                  <p><b>Scenario 4:- </b> Assign 'User' Default Role for Newly Created Users.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> CREATE TABLE </span>  Users ( <br>
@@ -448,7 +448,7 @@
                     </ul> 
                  </code>
             </div><br>
-            <p><b>Scenario 5:- </b> Default Tax Rate for Sales.</p>
+            <p><b>Scenario 5:- </b>Set Default Tax Rate for Sales.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> CREATE TABLE </span>  Sales ( <br>
@@ -469,7 +469,8 @@
                     <span class="orclkey"> ALTER TABLE </span>  employees <br>
                     <ul>
                         <span class="orclkey"> ADD CONSTRAINT </span> df_status 
-                    <span class="orclkey">  DEFAULT </span> 'Active'  <span class="orclkey">  FOR </span> status <b> ;</b>
+                    <span class="orclkey">  DEFAULT </span> 'Active' 
+                        <span class="orclkey">  FOR </span> status <b> ;</b> -- adds default to existing column
                     </ul> 
                  </code>
             </div><br>
@@ -494,7 +495,7 @@
                         delivery_id INT <span class="orclkey"> PRIMARY KEY </span>, <br>
                         order_id INT, <br>
                         delivery_date DATE
-                    <span class="orclkey">  DEFAULT </span> (
+                    <span class="orclkey">  DEFAULT </span> 
                     <span class="orclkey"> DATEADD(</span> 
                      <span class="orclkey"> DAY, 7 ,</span> GETDATE() ) ) <b> );</b>
                    </ul> 

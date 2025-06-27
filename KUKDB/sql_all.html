@@ -312,7 +312,7 @@
             <p>The ALL operator is used in combination with comparison operators (<b>=, <,>, >=, <=, !=</b>) to compare
                             a value
                             against all values in a set (subquery or list). </p><br>
-            <h2>Purpose of the ALL Operator</h2>
+            <h2>Purpose of ALL Operator</h2>
             <p><b>1. Comparison Across Multiple Values:- </b> Compare a value with every value in a subquery
                 result.</p><br>
             <p><b>2. Filter Data Dynamically:- </b> Combine with other operators like<b> =, >, <, </b>etc., for
@@ -342,7 +342,7 @@
                     <li><b>subquery:- </b>A query that returns a result set to compare against.</li>
                 </ul>
             </div><br>
-            <h2>How the ALL Operator Works</h2>
+            <h2>How ALL Work</h2>
             <p>The condition evaluates to:</p>
             <ul>
                 <ul>
@@ -350,7 +350,7 @@
                     <li><b>FALSE: </b>If any value in the subquery result fails to meet the condition.</li>
                 </ul>
             </ul>
-            <h2>Basic Examples</h2>
+            <h2>Basic Scenarios</h2>
             <h3>1. Greater Than All Values</h3>
             <p><b>Scenario :- </b> Retrieve products whose price is higher than all other products in a specific
                 category.
@@ -716,7 +716,7 @@
                     <span class="orclkey">WHERE </span> Price > <span class="orclkey"> ALL </span>(
                     <span class="orclkey"> SELECT </span> Price <span class="orclkey"> FROM </span> Products
                     <span class="orclkey"> WHERE </span> 1 = 0 ) <b> ; </b><br>
-                    - -If the subquery returns no rows, ALL evaluates the condition as TRUE by default.
+                    - -If the subquery returns no rows, ALL evaluates the condition to TRUE by default.
                     </code>
                 </div>
 

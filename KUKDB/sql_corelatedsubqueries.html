@@ -313,7 +313,7 @@
             </div>
 
             <h1>Correlated Subqueries</h1>
-            <p><b>A correlated subquery</b> is a subquery that depends on values from the outer query for its execution.
+            <p><b>A correlated subquery</b> is a subquery that depends on values from the outer query for their execution.
             </p> <br>
             <ul>
                 <li>A correlated subquery is executed repeatedly, once for each row evaluated by the outer query. </li>
@@ -349,7 +349,7 @@
                 <li>For each row in the outer query, the subquery executes using the current row's values.</li>
                 <li>The results of the subquery are used in the outer query's processing.</li>
             </ul>
-            <h2>Examples   </h2>
+            <h2>Basic Scenarios   </h2>
             <h3>1. Correlated Subquery in WHERE Clause</h3>
             <p><b>Scenario 1:- </b> Find Employees Earning Above the Department Average</p>
             <div class="code-box">
@@ -538,6 +538,7 @@
                     Minimize nesting levels to keep queries readable and maintainable.
                 </li>
             </ul> <br>
+            <h2>Advantages and Disadvantages of Corelated Subqueries</h2>
             <h3>Advantages</h3>
             <ul>
                 <li>Simplicity in handling row-specific logic.</li>
@@ -554,7 +555,7 @@
             <h2>Best Practices with Correlated Subqueries </h2>
             <h4>1. Limit Subquery Results:-</h4>
             <ul>
-                <li>Reduce the scope of the subquery by limiting its result set.</li>
+                <li>Reduce the scope of the subquery by limiting their result set.</li>
             </ul>
             <h4>2. Use EXISTS for Better Performance</h4>
             <ul>
