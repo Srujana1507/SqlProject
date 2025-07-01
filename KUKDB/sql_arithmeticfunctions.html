@@ -316,20 +316,25 @@
             </div>
 
             <h1>Arithmetic Functions</h1>
-            <p>Arithmetic functions are built-in functions that perform mathematical calculations on numeric data types.
-            </p><br>
+            <p>
+                Arithmetic functions are built-in functions that perform mathematical calculations on numeric data types.
+            </p>
             <ul>
-                <li>These functions enable operations like rounding, generating absolute values, calculating power,
+                <li>
+                    These functions enable operations like rounding, generating absolute values, calculating power,
                     and
                     more.
                 </li>
-                <li>They are essential for data analysis, financial calculations, and transforming numeric data.
+                <li>
+                    They are essential for data analysis, financial calculations, and transforming numeric data.
                 </li>
 
-                <li>They simplify complex arithmetic operations and are used in SELECT statements, WHERE clauses, or
+                <li>
+                    They simplify complex arithmetic operations and are used in SELECT statements, WHERE clauses, or
                     as
                     part
-                    of other SQL operations.</li>
+                    of other SQL operations.
+                </li>
                 <br>
             </ul>
             <h2>Key Arithmetic Functions</h2>
@@ -403,8 +408,10 @@
                     <tr>
                         <td><b>LOG(base,x)</b> </td>
                         <td>Find logarithm of specified base</td>
-                        <td>Returns the logarithm of a number with a given base (base-10 or custom depending on the
-                            database).</td>
+                        <td>
+                            Returns the logarithm of a number with a given base (base-10 or custom depending on the
+                            database).
+                        </td>
                         <td>Financial modeling, analyzing rates of change.</td>
                         <td>Undefined for non-positive values; some databases have limited base support.</td>
                     </tr>
@@ -417,56 +424,47 @@
                     </tr>
                 </tbody>
             </table><br>
-            <h2>Key Notes on Limits:</h2>
-            <ul>
-                <li><b>NULL Values:- </b> Most arithmetic functions return NULL when applied to NULL values. Always
-                    handle NULL explicitly with functions like COALESCE.</li>
-                <li><b>Overflow Errors:- </b> Functions like POWER and EXP can produce extremely large numbers, leading
-                    to overflows. Be cautious when working with high exponents or bases.</li>
-                <li><b>Division by Zero:- </b> The MOD() or % function will throw errors if the divisor is zero.</li>
-                <li><b>Non-Numeric Data:- </b> Functions are strictly for numeric data types. Applying them to text or
-                    incompatible types results in errors.</li>
-            </ul><br>
-            
+
+
             <h2>1. ABS (Absolute Value)</h2>
             <p>Returns the absolute value of a number (removes the negative sign if present).</p><br>
-            <h3>  Syntax</h4>
+            <h3>  Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ABS  </span> ( number )<br>
                 </code>
             </div><br>
             <!--<p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Financial Analysis:- </b> Calculate the absolute difference in profit/loss across regions.</li>
-                <li><b>Error Handling:- </b> Remove negative values caused by errors.</li>
-            </ul>-->
+    <ul>
+        <li><b>Financial Analysis:- </b> Calculate the absolute difference in profit/loss across regions.</li>
+        <li><b>Error Handling:- </b> Remove negative values caused by errors.</li>
+    </ul>-->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example</p>
+            <p><b>Scenario 1:-</b> Compute the absolute value of a negative number.</p>
             <div class="code-box">
                 <code>
                     - - SQL Server, MySQL<br>
-                    <span class="orclkey">SELECT  </span>ABS(-45) 
-                    <span class="orclkey"> AS </span> AbsoluteValue  <b> ;</b> 
+                    <span class="orclkey">SELECT  </span>ABS(-45)
+                    <span class="orclkey"> AS </span> AbsoluteValue  <b> ;</b>
                     <br>---- Output: 45 <br><br>
                     - - Oracle <br>
-                    <span class="orclkey">SELECT  </span>ABS(-45) 
-                    <span class="orclkey"> AS </span> AbsoluteValue  
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span>ABS(-45)
+                    <span class="orclkey"> AS </span> AbsoluteValue
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>---- Output: 45
                 </code>
             </div><br>
-            <p><b>Scenario 2:-</b> Find the absolute difference between budgeted_sales and actual_sales</p>
+            <p><b>Scenario 2:-</b> Find the absolute difference between budgeted_sales and actual_sales.</p>
             <div class="code-box">
                 <code>
-                ---SQL <br><br>
+                    ---SQL <br><br>
                     <span class="orclkey">SELECT  </span> department_id, <br>
                     ABS ( budgeted_sales - actual_sales )
                     <span class="orclkey"> AS </span> difference <br>
                     <span class="orclkey"> FROM  </span> sales_data <b> ;</b>
                 </code>
             </div><br>
-            <h2>2. CEIL and FLOOR</h2>
+            <h2>2. CEIL </h2>
             <p>Rounds a number up to the nearest integer.</p><br>
             <h3>  Syntax</h3>
             <div class="code-box">
@@ -475,29 +473,29 @@
                     <span class="orclkey">CEILING</span> (number) - - in SQL Server.<br>
                 </code>
             </div><br>
-           <!-- <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Inventory Management:- </b> Round up the number of required boxes to pack items.
-                </li>
-                <li><b>Pricing Adjustments:- </b> Round prices up to the nearest dollar.</li>
-            </ul>-->
+            <!-- <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Inventory Management:- </b> Round up the number of required boxes to pack items.
+        </li>
+        <li><b>Pricing Adjustments:- </b> Round prices up to the nearest dollar.</li>
+    </ul>-->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Pricing adjustments where values are rounded up. )</p>
+            <p><b>Scenario 1:-</b> Round prices up to the nearest whole number.</p>
             <div class="code-box">
                 <code>
-                    -- MYSQL<br> 
+                    -- MYSQL<br>
                     <span class="orclkey">SELECT  </span> CEIL(12.34)
-                    <span class="orclkey"> AS </span> RoundedUp  <b> ;</b> 
+                    <span class="orclkey"> AS </span> RoundedUp  <b> ;</b>
                     <br>-- Output: 13 <br>
-                    <br>-- SQL Server<br> 
+                    <br>-- SQL Server<br>
                     <span class="orclkey">SELECT  </span> CEILING(12.34)
-                    <span class="orclkey"> AS </span> RoundedUp  <b> ;</b> 
+                    <span class="orclkey"> AS </span> RoundedUp  <b> ;</b>
                     <br>-- Output: 13 <br>
-                   <br> -- Oracle <br>
-                    <span class="orclkey">SELECT  </span> CEIL(12.34) 
-                    <span class="orclkey"> AS </span> RoundedUp  
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
-                   <br> -- Output : 13
+                    <br> -- Oracle <br>
+                    <span class="orclkey">SELECT  </span> CEIL(12.34)
+                    <span class="orclkey"> AS </span> RoundedUp
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
+                    <br> -- Output : 13
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Calculate the minimum number of cartons needed for items.</p>
@@ -517,25 +515,25 @@
                     <span class="orclkey">FLOOR</span> ( number ) <br>
                 </code>
             </div><br>
-           <!-- <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Logistics:- </b> Calculate full truckloads required for shipping. </li>
-                <li><b>Budgeting:- </b> Allocate full dollar amounts while ignoring cents.</li>
-            </ul>-->
+            <!-- <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Logistics:- </b> Calculate full truckloads required for shipping. </li>
+        <li><b>Budgeting:- </b> Allocate full dollar amounts while ignoring cents.</li>
+    </ul>-->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example</p>
+            <p><b>Scenario 1:-</b>Round values down to the nearest integer.</p>
             <div class="code-box">
                 <code>
 
 
-            </ul>
-            --- MySQL/SQL server <br>
-                    <span class="orclkey">SELECT  </span> FLOOR(12.34) 
+                    </ul>
+                    --- MySQL/SQL server <br>
+                    <span class="orclkey">SELECT  </span> FLOOR(12.34)
                     <span class="orclkey"> AS </span> RoundedDown  <b> ;</b>  <br>
                     - - Output: 12 <br><br>
-                     -- Oracle <br>
-                    <span class="orclkey">SELECT  </span> FLOOR(12.34) 
-                    <span class="orclkey"> AS </span> RoundedDown 
+                    -- Oracle <br>
+                    <span class="orclkey">SELECT  </span> FLOOR(12.34)
+                    <span class="orclkey"> AS </span> RoundedDown
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b>  <br>
                     - - Output : 12
                 </code>
@@ -558,23 +556,24 @@
                 </code>
             </div><br>
             <!--<p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Finance:- </b> Round monetary values to two decimal places. </li>
-                <li><b>Data Presentation:- </b> Format values for reports.</li>
-            </ul>-->
+    <ul>
+        <li><b>Finance:- </b> Round monetary values to two decimal places. </li>
+        <li><b>Data Presentation:- </b> Format values for reports.</li>
+    </ul>-->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Financial calculations where rounding to a specific precision is
-                required. )</p>
+            <p>
+                <b>Scenario 1:-</b>  Round numeric values to a fixed number of decimal places.
+            </p>
             <div class="code-box">
                 <code>
-                     -- SQL Server, MySQL<br> 
+                    -- SQL Server, MySQL<br>
                     <span class="orclkey">SELECT  </span> ROUND(123.4567, 2)
-                    <span class="orclkey"> AS </span> RoundedValue  <b> ;</b> 
+                    <span class="orclkey"> AS </span> RoundedValue  <b> ;</b>
                     <br>- - Output: 123.46 <br>
                     <br>-- Oracle <br>
-                    <span class="orclkey">SELECT  </span> ROUND(123.4567, 2) 
-                    <span class="orclkey"> AS </span> RoundedUp  
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span> ROUND(123.4567, 2)
+                    <span class="orclkey"> AS </span> RoundedUp
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output : 123.46
                 </code>
             </div><br>
@@ -585,7 +584,7 @@
                     ROUND( AVG( score), 1 ) <span class="orclkey"> AS </span> average_score <br>
                     <span class="orclkey"> FROM  </span> exam_results <br>
                     <span class="orclkey"> GROUP BY  </span> student_id
-                     <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>5. MOD( ) or % (Modulo)</h2>
@@ -594,32 +593,32 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">MOD</span> (number, divisor )  - - Oracle, MySQL<br>
-                    number  %  divisor  - - SQL  Server
+                    number  %  divisor  - - MYSQL
                 </code>
             </div><br>
-           <!--
-            <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Scheduling:- </b> Determine odd/even weeks for task assignments. </li>
-                <li><b>Grouping:- </b> Assign records into groups based on remainders.</li>
-            </ul> -->
+            <!--
+    <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Scheduling:- </b> Determine odd/even weeks for task assignments. </li>
+        <li><b>Grouping:- </b> Assign records into groups based on remainders.</li>
+    </ul> -->
 
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Grouping operations (e.g., odd/even checks) )</p>
+            <p><b>Scenario 1:-</b>  Use MOD to perform remainder-based grouping or classification.</p>
             <div class="code-box">
                 <code>
-                    --  MySQL<br> 
-                    <span class="orclkey">SELECT  </span> MOD(23, 3) 
-                    <span class="orclkey"> AS </span> ModResult  <b> ;</b> 
+                    --  MySQL<br>
+                    <span class="orclkey">SELECT  </span> MOD(23, 3)
+                    <span class="orclkey"> AS </span> ModResult  <b> ;</b>
                     <br>- - Output: 2 <br>
                     <br>-- Oracle <br>
                     <span class="orclkey">SELECT  </span> MOD(34, 4)
-                    <span class="orclkey"> AS </span> ModResult  
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey"> AS </span> ModResult
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output: 1 <br>
-                    <br>--  MySQL<br> 
-                    <span class="orclkey">SELECT  </span> 15 % 4 
-                    <span class="orclkey"> AS </span> ModResult  <b> ;</b> 
+                    <br>--  MySQL<br>
+                    <span class="orclkey">SELECT  </span> 15 % 4
+                    <span class="orclkey"> AS </span> ModResult  <b> ;</b>
                     <br>- - Output: 3
                 </code>
             </div><br>
@@ -630,7 +629,7 @@
                     MOD(employee_id, 2) <span class="orclkey"> AS </span> group_assignment <br>
                     <span class="orclkey"> FROM  </span> employees <br>
                     <span class="orclkey"> WHERE  </span> MOD( employee_id, 2 ) = 1
-                     <b> ;</b>
+                    <b> ;</b>
                 </code>
             </div><br>
             <h2>6. POWER( )</h2>
@@ -642,39 +641,39 @@
                 </code>
             </div><br>
             <!--
-            <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Finance:- </b> Calculate compound interest. </li>
-                <li><b>Mathematics:- </b> Compute exponential growth or decay.</li>
-            </ul>
-            -->
+    <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Finance:- </b> Calculate compound interest. </li>
+        <li><b>Mathematics:- </b> Compute exponential growth or decay.</li>
+    </ul>
+    -->
             <h2> Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Statistical computations and geometric calculations )</p>
+            <p><b>Scenario 1:-</b> Raise a number to a specific power using POWER().</p>
             <div class="code-box">
                 <code>
-                    -- SQL Server, MySQL<br> 
-                    <span class="orclkey">SELECT  </span>POWER(2, 3) 
-                    <span class="orclkey"> AS </span> Powerof2  <b> ;</b> 
+                    -- SQL Server, MySQL<br>
+                    <span class="orclkey">SELECT  </span>POWER(2, 3)
+                    <span class="orclkey"> AS </span> Powerof2  <b> ;</b>
                     <br>- - Output: 8 <br>
-                     <br>- - Oracle <br>
-                    <span class="orclkey">SELECT  </span> POWER(2, 3) 
-                    <span class="orclkey"> AS </span> Powerof2 
+                    <br>- - Oracle <br>
+                    <span class="orclkey">SELECT  </span> POWER(2, 3)
+                    <span class="orclkey"> AS </span> Powerof2
                     <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
-                   <br> - - Output: 8 <br>
-                    
+                    <br> - - Output: 8 <br>
+
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Calculate compound interest for accounts.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> account_id,  <br>
-                    principal_amount * POWER( 1 + interest_rate, years ) 
+                    principal_amount * POWER( 1 + interest_rate, years )
                     <span class="orclkey"> AS </span> total_amount <br>
                     <span class="orclkey"> FROM  </span> accounts  <b> ;</b>
                 </code>
             </div><br>
             <h2>7. EXP( )</h2>
-            <p>Calculates the exponential value of a number (e^x).</p><br >
+            <p>Calculates the exponential value of a number (e^x).</p><br>
             <h3> Syntax</h3>
             <div class="code-box">
                 <code>
@@ -682,26 +681,26 @@
                 </code>
             </div><br>
             <!--
-            <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Statistics:- </b> Model exponential growth (e.g., population growth) </li>
-                <li><b>Data Science:- </b> Calculate natural exponential values in algorithms.</li>
-            </ul>
-            -->
+    <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Statistics:- </b> Model exponential growth (e.g., population growth) </li>
+        <li><b>Data Science:- </b> Calculate natural exponential values in algorithms.</li>
+    </ul>
+    -->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Financial calculations like compound interest. )</p>
+            <p><b>Scenario 1:-</b> Compute the exponential value of a number using EXP(). </p>
             <div class="code-box">
                 <code>
-                     -- SQL Server, MySQL<br> 
+                    -- SQL Server, MySQL<br>
                     <span class="orclkey">SELECT  </span>EXP(2)
                     <span class="orclkey"> AS </span> Exp2Result  <b> ;</b>
                     <br>- - Output: 7.389 <br>
                     <br>-- Oracle <br>
-                    <span class="orclkey">SELECT  </span> EXP(5) 
-                    <span class="orclkey"> AS </span> Exp2Result 
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span> EXP(5)
+                    <span class="orclkey"> AS </span> Exp2Result
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output: 148.413 <br>
-                    
+
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Predict population growth using an exponential formula.</p>
@@ -721,33 +720,33 @@
                 </code>
             </div><br>
             <!--
-            <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Data Science:- </b> Normalize data. </li>
-                <li><b>Mathematics:- </b> Solve equations involving logarithms.</li>
-            </ul>
-            -->
+    <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Data Science:- </b> Normalize data. </li>
+        <li><b>Mathematics:- </b> Solve equations involving logarithms.</li>
+    </ul>
+    -->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example </p>
+            <p><b>Scenario 1:-</b> Calculate the natural logarithm (base e) of a number. </p>
             <div class="code-box">
                 <code>
-                   -- SQL Server, MySQL<br> 
-                    <span class="orclkey">SELECT  </span>LN(10) 
-                    <span class="orclkey"> AS </span> NaturalLog10  <b> ;</b> 
+                    -- SQL Server, MySQL<br>
+                    <span class="orclkey">SELECT  </span>LN(10)
+                    <span class="orclkey"> AS </span> NaturalLog10  <b> ;</b>
                     <br>- - Output: 2.302 <br>
                     <br>-- Oracle <br>
-                    <span class="orclkey">SELECT  </span> LN(7) 
-                    <span class="orclkey"> AS </span> NaturalLog7 
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span> LN(7)
+                    <span class="orclkey"> AS </span> NaturalLog7
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output: 1.945 <br>
-                    
+
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Calculate the natural logarithm of revenue.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> department_id,  <br>
-                    LN(revenue) 
+                    LN(revenue)
                     <span class="orclkey"> AS </span> log_revenue <br>
                     <span class="orclkey"> FROM  </span> Financials  <b> ;</b>
                 </code>
@@ -762,26 +761,30 @@
                 </code>
             </div><br>
             <!--
-            <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Analytics:- </b> Perform base-specific logarithmic transformations. </li>
-                <li><b>Math:- </b> Solve problems involving logarithms.</li>
-            </ul>
-            -->
+    <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Analytics:- </b> Perform base-specific logarithmic transformations. </li>
+        <li><b>Math:- </b> Solve problems involving logarithms.</li>
+    </ul>
+    -->
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Financial calculations like compound interest. ) </p>
+            <p><b>Scenario 1:-</b> Compute base-10 logarithms across different SQL dialects. </p>
             <div class="code-box">
                 <code>
-                    -- SQL Server, MySQL<br>
-                    <span class="orclkey">SELECT  </span>LOG(10, 100) 
-                    <span class="orclkey"> AS </span> Logarithm  <b> ;</b>  
+                    -- MySQL<br>
+                    <span class="orclkey">SELECT  </span>LOG(10, 100)
+                    <span class="orclkey"> AS </span> Logarithm  <b> ;</b>
+                    <br>- - Output: 2 <br>
+                    --SQL Server<br>
+                    <span class="orclkey">SELECT  </span>LOG10(100)
+                    <span class="orclkey"> AS </span> Logarithm  <b> ;</b>
                     <br>- - Output: 2 <br>
                     <br>-- Oracle <br>
-                    <span class="orclkey">SELECT  </span> LOG(10, 100) 
-                    <span class="orclkey"> AS </span> Logarithm 
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span> LOG(100)
+                    <span class="orclkey"> AS </span> Logarithm
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output: 2 <br>
-                    
+
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Calculate base-10 logarithms of user engagement rates.</p>
@@ -793,7 +796,7 @@
                 </code>
             </div><br>
             <h2>10. SQRT()</h2>
-            <p>Returns the square root of a number.</p><br >
+            <p>Returns the square root of a number.</p><br>
             <h3> Syntax</h3>
             <div class="code-box">
                 <code>
@@ -801,37 +804,38 @@
                 </code>
             </div><br>
             <!--
-            <p><b>Scenarios</b></p>
-            <ul>
-                <li><b>Statistics:- </b> Calculate the standard deviation. </li>
-                <li><b>Engineering:- </b> Solve geometric problems.</li>
-            </ul>-->
-            <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example </p>
+    <p><b>Scenarios</b></p>
+    <ul>
+        <li><b>Statistics:- </b> Calculate the standard deviation. </li>
+        <li><b>Engineering:- </b> Solve geometric problems.</li>
+    </ul>-->
+            <h2>Basic Scenario</h2>
+            <p><b>Scenario :-</b> Calculate the square root of a numeric value. </p>
             <div class="code-box">
                 <code>
-                 -- SQL Server, MySQL<br> 
-                    <span class="orclkey">SELECT  </span> SQRT(16) 
+                    -- SQL Server, MySQL<br>
+                    <span class="orclkey">SELECT  </span> SQRT(16)
                     <span class="orclkey"> AS </span> SquareRoot  <b> ;</b>
                     <br>- - Output: 4 <br>
                     <br>-- Oracle <br>
-                    <span class="orclkey">SELECT  </span> SQRT(16) 
-                    <span class="orclkey"> AS </span> SquareRoot  
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span> SQRT(16)
+                    <span class="orclkey"> AS </span> SquareRoot
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output: 4 <br>
-                    
+
                 </code>
             </div><br>
-            <p><b>Scenario 2:-</b> Compute the standard deviation of sales.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SELECT  </span> STDDEV(sales)
-                    <span class="orclkey"> AS </span> std_dev <br>
-                    <span class="orclkey"> FROM  </span> sales_data  <b> ;</b>
-                </code>
-            </div><br>
+            <!--
+    <p><b>Scenario 2:-</b> Compute the standard deviation of sales.</p>
+    <div class="code-box">
+        <code>
+            <span class="orclkey">SELECT  </span> STDDEV(sales)
+            <span class="orclkey"> AS </span> std_dev <br>
+            <span class="orclkey"> FROM  </span> sales_data  <b> ;</b>
+        </code>
+    </div><br>-->
             <h2>11. PI()</h2>
-            <p>Calculate the circumference of a circle.</p><br>
+            <p>Returns the mathematical constant π.</p><br>
             <h3> Syntax</h3>
             <div class="code-box">
                 <code>
@@ -839,25 +843,25 @@
                 </code>
             </div><br>
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example ( Returns the mathematical constant π. ) </p>
+            <p><b>Scenario 1:-</b> Retrieve the mathematical constant π using PI() </p>
             <div class="code-box">
                 <code>
-                     -- SQL Server, MySQL<br> 
-                    <span class="orclkey">SELECT  </span> PI() 
+                    -- SQL Server, MySQL<br>
+                    <span class="orclkey">SELECT  </span> PI()
                     <span class="orclkey"> AS </span> PiValue  <b> ;</b>
                     <br>- - Output: 3.141592653589793 <br>
                     <br>-- Oracle <br>
-                    <span class="orclkey">SELECT  </span> PI() 
-                    <span class="orclkey"> AS </span> PiValue 
-                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b> 
+                    <span class="orclkey">SELECT  </span> PI()
+                    <span class="orclkey"> AS </span> PiValue
+                    <span class="orclkey"> FROM  </span> DUAL<b> ;</b>
                     <br>- - Output: 3.141592653589793 <br>
-                    
+
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Calculate the circumference of a circle.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  </span> 
+                    <span class="orclkey">SELECT  </span>
                     2 * PI() * 5  <span class="orclkey"> AS </span> circumference <br>
                     <span class="orclkey"> FROM  </span> DUAL  <b> ;</b> <br>
                     - - Result: 31.41592653589793
@@ -865,25 +869,25 @@
             </div><br>
             <h2>12. TRUNCATE(x, d) - ( MySQL-Specific ) </h2>
             <p> Truncates a number to a specific number of decimal places without rounding.</p>
-            <br ><h3> Syntax</h3>
+            <br><h3> Syntax</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">TRUNCATE</span> ( number, decimals )   <br>
                 </code>
             </div><br>
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example </p>
+            <p><b>Scenario 1:-</b> Truncate a number to a fixed number of decimal places. </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  TRUNCATE</span> (359.4567, 2) 
-                    <span class="orclkey"> AS </span> TruncatedValue  <b> ;</b> 
-                    <br>- - Output: 359.45                   
+                    <span class="orclkey">SELECT  TRUNCATE</span> (359.4567, 2)
+                    <span class="orclkey"> AS </span> TruncatedValue  <b> ;</b>
+                    <br>- - Output: 359.45
                 </code>
             </div><br>
             <p><b>Scenario 2:-</b> Truncate product prices to 2 decimals.</p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey">SELECT  TRUNCATE</span> 
+                    <span class="orclkey">SELECT  TRUNCATE</span>
                     (Price, 2)  <span class="orclkey"> AS </span> TruncatedPrice <br>
                     <span class="orclkey"> FROM  </span> Products  <b> ;</b> <br>
                 </code>
@@ -896,8 +900,9 @@
                     <span class="orclkey">SIGN</span> ( number )   <br>
                 </code>
             </div><br>
-            <h2>Basic Scenarios</h2>
-       
+            <h2>Basic Scenario</h2>
+            <p><b>Scenario :-</b> Determine the sign of positive, negative, and zero values</p>
+
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT </span> SIGN(-10)
@@ -905,10 +910,10 @@
                     - -Output:  -1 <br><br>
                     <span class="orclkey">SELECT </span> SIGN(0)
                     <span class="orclkey"> AS </span> sign_of_zero <br>
-                     - - Output: 0 <br><br>
+                    - - Output: 0 <br><br>
                     <span class="orclkey">SELECT </span> SIGN(10)
                     <span class="orclkey"> AS </span> sign_of_positive <b> ;</b>
-                    <br>- - Output: 1                  
+                    <br>- - Output: 1
                 </code>
             </div><br>
 
@@ -918,49 +923,49 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">RAND</span> (  )  - -  MySQL, SQL Server  <br>
-                   
+
                     <span class="orclkey">DBMS_RANDOM</span> (  )  - -  Oracle  <br>
-                    </code>
+                </code>
             </div><br>
-            <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Basic example </p>
+            <h2>Basic Scenario</h2>
+            <p><b>Scenario :-</b>  Generate random values using database-specific functions. </p>
             <div class="code-box">
                 <code>
-                   - -MYSQL<br>
-                    <span class="orclkey">SELECT </span> RAND() 
+                    - -MYSQL<br>
+                    <span class="orclkey">SELECT </span> RAND()
                     <span class="orclkey"> AS </span> random_value  <b> ;</b>  <br>
                     Output: A random value between 0 and 1 (e.g., 0.726345). <br>
-                  <br>- - SQL Server<br>
+                    <br>- - SQL Server<br>
                     <span class="orclkey">SELECT </span> RAND() * 100
-                    <span class="orclkey"> AS </span> scaled_random <b> ;</b> 
+                    <span class="orclkey"> AS </span> scaled_random <b> ;</b>
                     <br>Output: A random number between 0 and 100 (e.g., 56.348734). <br>
                     <br>- - Oracle <br>
                     <span class="orclkey">SELECT </span> DBMS_RANDOM.VALUE(1, 10)
-                    <span class="orclkey"> AS </span> random_1_10_10 
+                    <span class="orclkey"> AS </span> random_1_10_10
                     <span class="orclkey"> FROM </span> DUAL;
                     <br>Output: A random value between 1 and 10.
                 </code>
             </div><br>
-            <h2>Key Notes on Limits</h2>
+            <h2>Key Notes on Limits:</h2>
             <ul>
-                <li><b>PI() :</b> Fixed value and cannot be modified.</li>
-                <li><b>TRUNCATE(x, d) :</b> Negative d values may reduce precision; not all databases support it
-                    natively
-                    (e.g., SQL Server uses ROUND(x, d, 1) for truncation).</li>
-                <li><b>SIGN(x) :</b> Undefined for NULL inputs.</li>
-                <li><b>RANDOM() / RAND() :</b></li>
-                <ul>
-                    <li>Randomness quality varies between databases.</li>
-                    <li>Use seeds (RAND(seed) in MySQL or SETSEED in Oracle) for reproducible results if required.</li>
-                </ul>
-            </ul><br>
+                <li><b>NULL Values:- </b> Most arithmetic functions return NULL when applied to NULL values. Always handle NULL explicitly with functions like COALESCE().</li>
+                <li><b>Overflow Errors:- </b> Functions like POWER() and EXP() can produce extremely large numbers, leading to overflows. Be cautious when working with high exponents or large values.</li>
+                <li><b>Division by Zero:- </b> The MOD() or % function will throw errors if the divisor is zero. Use NULLIF() to avoid division-by-zero errors.</li>
+                <li><b>Non-Numeric Data:- </b> Functions are strictly for numeric data types. Applying them to text or incompatible types results in errors.</li>
+                <li><b>PI():- </b> Returns a fixed constant value (π ≈ 3.14159) and cannot be modified.</li>
+                <li><b>TRUNCATE(x, d):- </b> Only available in MySQL. Negative d values may reduce precision. In SQL Server, use ROUND(x, d, 1) to simulate truncation.</li>
+                <li><b>SIGN(x):- </b> Returns -1, 0, or 1 based on the input value. Returns NULL if input is NULL.</li>
+                <li><b>RANDOM() / RAND():- </b> Random number behavior varies by database. Use RAND(seed) in MySQL/SQL Server or DBMS_RANDOM.SEED() in Oracle for reproducible results.</li>
+            </ul>
+
+
             <h2>Advanced Scenarios </h2>
             <h3>1. Using Arithmetic Functions in WHERE Clause</h3>
             <p><b>Scenario :-</b> Retrieves orders where the absolute value of the discount exceeds 10. </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> * <span class="orclkey"> FROM </span> Orders <br>
-                    <span class="orclkey">WHERE  </span> ABS(Discount) > 10 <b> ;</b> <br>                
+                    <span class="orclkey">WHERE  </span> ABS(Discount) > 10 <b> ;</b> <br>
                 </code>
             </div><br>
             <h3>2. Calculate Compound Interest</h3>
@@ -969,7 +974,7 @@
                 <code>
                     <span class="orclkey">SELECT  </span> Principal, Rate, Years, <br>
                     Principal * POWER( ( 1 + Rate / 100 ), Years )<span class="orclkey"> AS </span> Compound_Interest <br>
-                    <span class="orclkey"> FROM </span> Investments <b> ;</b> <br>                
+                    <span class="orclkey"> FROM </span> Investments <b> ;</b> <br>
                 </code>
             </div><br>
             <h3>3. Determine Odd or Even</h3>
@@ -978,7 +983,7 @@
                 <code>
                     <span class="orclkey">SELECT  </span> EmployeeID, MOD(EmployeeID, 2)
                     <span class="orclkey"> AS </span> IsOdd <br>
-                    <span class="orclkey"> FROM </span> Employees <b> ;</b> <br>                
+                    <span class="orclkey"> FROM </span> Employees <b> ;</b> <br>
                 </code>
             </div><br>
             <h3>4. Rounding and Truncation</h3>
@@ -988,7 +993,7 @@
                     <span class="orclkey">SELECT  </span> ProductID, ROUND(Price, 2)
                     <span class="orclkey"> AS </span> RoundedPrice, <br>
                     <span class="orclkey"> TRUNCATE </span> ( Price, 2 ) <span class="orclkey"> AS </span> Truncated_Price
-                    <span class="orclkey"> FROM </span> Products <b> ;</b> <br>                
+                    <span class="orclkey"> FROM </span> Products <b> ;</b> <br>
                 </code>
             </div><br>
             <h3>5. Randomized Sampling</h3>
@@ -996,8 +1001,8 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT  </span> CustomerID <br>
-                    <span class="orclkey"> FROM </span> Customers 
-                    <span class="orclkey"> WHERE </span> RAND() > 0.5<b> ;</b> <br>                
+                    <span class="orclkey"> FROM </span> Customers
+                    <span class="orclkey"> WHERE </span> RAND() > 0.5<b> ;</b> <br>
                 </code>
             </div><br>
             <h2>Common Errors and Fixes</h2>
@@ -1008,9 +1013,9 @@
                 <li><b>Fix :</b> Use COALESCE() to replace NULL values.</li>
                 <div class="code-box">
                     <code>
-                            <span class="orclkey">SELECT  </span> ABS( COALESCE( value, 0 ) ) 
-                            <span class="orclkey"> FROM </span> Customers <b> ;</b> <br>                
-                        </code>
+                        <span class="orclkey">SELECT  </span> ABS( COALESCE( value, 0 ) )
+                        <span class="orclkey"> FROM </span> Customers <b> ;</b> <br>
+                    </code>
                 </div>
 
             </ul> <br>
@@ -1020,7 +1025,7 @@
                 <div class="code-box">
                     <code>
                         <span class="orclkey">SELECT  </span> 100 / NULLIF( column, 0 )
-                        <span class="orclkey"> FROM </span> Table <b> ;</b> <br>                
+                        <span class="orclkey"> FROM </span> Table <b> ;</b> <br>
                     </code>
                 </div>
             </ul><br>
@@ -1031,7 +1036,7 @@
                 <div class="code-box">
                     <code>
                         <span class="orclkey">SELECT  CASE WHEN value </span> >= 0 <br>
-                        <span class="orclkey"> THEN  </span> SQRT(value) <span class="orclkey">ELSE NULL END AS Result FROM Table </span> <b> ;</b> <br>                
+                        <span class="orclkey"> THEN  </span> SQRT(value) <span class="orclkey">ELSE NULL END AS Result FROM Table </span> <b> ;</b> <br>
                     </code>
                 </div>
             </ul>
@@ -1042,8 +1047,10 @@
 
             <div class="topic-buttons">
                 <a href="sql_minus.html?topic=sqlMinus" class="previou-button">&laquo; Previous</a>
-                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="next-button">Next
-                    &raquo;</a>
+                <a href="sql_characterfunctions.html?topic=sqlCharacterFunctions" class="next-button">
+                    Next
+                    &raquo;
+                </a>
             </div>
 
         </main>

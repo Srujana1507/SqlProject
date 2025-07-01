@@ -53,7 +53,7 @@
             <a href="sql.html">SQL</a>
             <a href="#">Java</a>
             <a href="#">Excel</a>
-            <a href="#">MsWord</a>
+            <a href="#">Ms Word</a>
             <a href="#">BootStrap</a>
             <a href="#">Salesforce</a>
             <a href="#">SQL Server</a>
@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -315,15 +315,13 @@
             </div>
 
             <h1>ALTER </h1>
-            <p><li>The ALTER TABLE statement in SQL is used to modify the structure of an existing table without
-                needing to recreate it.</li></p>
+            <p><li>The ALTER TABLE is used to modify the structure of an existing table — such as adding, modifying, or deleting columns and constraints
+               without recreating it.</li></p>
             <p><li>The ALTER statement can be used to perform the following actions on various database
-                objects (e.g., table, Views, Schemas, Triggers, etc..)</li></p>
-             <p><li>It allows changes like adding, modifying, or deleting columns, as well as applying constraints. ALTER
-                TABLE is a crucial tool for database maintenance and incremental changes in a database schema.</li></p>
+                objects (e.g., Tables, Views, Schemas, Triggers, etc..)</li></p>
+             <p><li> ALTER TABLE is a crucial tool for database maintenance and incremental changes in a database schema.</li></p>
        
-         
-                <li><b>Operations on Tables: </b></li>
+         <h3>Operations on Tables: </h3>
                 <ul>
                     <li><b>Add Columns :</b> Add new columns to an existing table.</li>
                     <li><b>Modify Columns :</b> Change a column's data type, size, or constraints.</li>
@@ -334,17 +332,17 @@
                     <li><b>Drop Constraints :</b> Remove existing constraints.</li>
                 </ul>
 
-                <li><b> ALTER actions on Objects: </b></li>
+               <h3> ALTER actions on Objects:</h3>
                 <ul>
                     <li><b>Alter Views :</b> Modify an existing view's definition or its schema.</li>
-                    <li><b>Rename</b> an existing index and <b>Rebuild</b> a fragmented index to improve performance
-                        (in some DBMS ).</li>
+                    <li><b>Rename</b> an existing index and <b>rebuild</b> a fragmented index to improve performance
+                        (in some DBMS).</li>
                     <li><b>Modify Schemas</b> - Change the ownership of a schema or database object.</li>
                     <li><b>Modify Databases </b>- Change Database Properties such as collation or character set.
                     </li>
                     <li><b>Modify Storage Options (MySQL)</b> - Add or modify partitions in a table.</li>
                     <li><b>Modify Triggers (in some DBMS)</b> - Temporarily disable or re-enable triggers.</li>
-                    <li>Restart or Set Sequence Values - in <b>PostgreSQL</b></li>
+                    <li><b>Restart or Set </b> Sequence Values - in PostgreSQL</li>
                 </ul>
             
             <br>
@@ -352,8 +350,10 @@
            
             <h2> Syntax</h2>
 
-            <p>The basic syntax of ALTER TABLE varies slightly by the specific action you wish to perform. below are
-                action's syntax and examples.</p>
+            <p>
+                The basic syntax of ALTER TABLE varies slightly based on the specific action you wish to perform. Below is the syntax for each action along with examples.
+
+            </p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">ALTER TABLE </span> table_name <br>
@@ -373,7 +373,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employee<br>
-                    <span class="orclkey">ADD</span> Mobile VARCHAR( 10 ) ;                
+                    <span class="orclkey">ADD</span> mobile VARCHAR(10) ;                
                 </code>
             </div>
             <br>
@@ -407,7 +407,7 @@
                 </code>
             </div>
             <br>
-            <h3>3. Modifying an Existing Column (Modify Table - add hyper link here, create a seperate topic) :</h3>
+            <h3>3. Modifying an Existing Column. </h3>
 
             <h4>Oracle</h4>
             <div class="code-box">
@@ -416,9 +416,9 @@
                     <span class="orclkey">MODIFY</span> column_name new_datatype ;<br>
                     <br>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">MODIFY</span> phone_number  VARCHAR2(20) ; <br>
+                    <span class="orclkey">MODIFY</span> phone_number  VARCHAR2(20); <br>
                     <div class="note-box">
-                        <b>Note :</b> make sure the new datatype can handle the old datatype, otherwise you will get an error.
+                        <b>Note :</b> Ensure the new datatype is compatible with the existing data, or the operation may fail.
                     </div>
                 </code>
             </div>
@@ -427,7 +427,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">ALTER COLUMN</span> phone_number  NVARCHAR(20) ;
+                    <span class="orclkey">ALTER COLUMN</span> phone_number  NVARCHAR(20);
                 </code>
             </div>
            
@@ -435,7 +435,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">MODIFY</span> phone_number  VARCHAR(20) ;
+                    <span class="orclkey">MODIFY</span> phone_number  VARCHAR(20);
                 </code>
             </div>
         
@@ -443,11 +443,11 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">ALTER COLUMN</span> salary TYPE NUMERIC( 10, 2 ) ; <br>
+                    <span class="orclkey">ALTER COLUMN</span> salary TYPE NUMERIC(10, 2); <br>
                 </code>
             </div>
             <br>
-            <h3>4. Drop a column :</h3>
+            <h3>4. Dropping a column :</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> table_name<br>
@@ -500,30 +500,30 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees</p>
-                    <span class="orclkey">CHANGE </span>phone_number contact_number VARCHAR(20)   ;</p>
+                    <span class="orclkey">CHANGE </span>phone_number contact_number VARCHAR(20);</p>
                 </code>
             </div>
         
-            <h4>Oracle and MySQL </h4>
+            <h4>Oracle </h4>
             <div class="code-box">
                 <code>
                      <span class="orclkey">ALTER TABLE </span> employees</p>
-                      <span class="orclkey">RENAME </span>TO Staff  ;</p>
-                    ALTER TABLE employees RENAME TO staff;
+                      <span class="orclkey">RENAME </span>TO staff  ;</p>
+
                 </code>
             </div>
             <br>
             <h2>Advanced Scenarios</h2>
-            <h3>1. Add Multiple Columns</h3>
+            <h3>1. Adding Multiple Columns</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">ADD </span>dept_id INT ,<br>
+                    <span class="orclkey">ADD </span>dept_id INT,<br>
                     <span class="orclkey">ADD </span>location VARCHAR(50) ;
                 </code>
             </div>
             <br>
-            <h3>2. Modify a Column’s Default Value</h3>
+            <h3>2. Modifying a Column’s Default Value</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
@@ -545,7 +545,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees<br>
-                    <span class="orclkey">DROP </span>INDEX idx_email ;
+                    <span class="orclkey">DROP </span>INDEX idx_email;
                 </code>
             </div>
             <br>
@@ -557,17 +557,17 @@
                     <span class="orclkey">PARTITION  </span> p1  <span class="orclkey">VALUES  </span>LESS THAN ( '2023-01-01'),<br>
                     <span class="orclkey">PARTITION  </span> p2 
                     <span class="orclkey">VALUES  </span>LESS THAN ( '2024-01-01')
-                    ) ;
+                    );
                 </code>
             </div>
             <br>
             <h2>Invalid Scenarios</h2>
-            <h3>1. Modify column Datatype from INT to BOOLEAN on Multiple Columns</h3>
+            <h3>1. Modify column datatype from INT to BOOLEAN (not allowed when multiple columns are involved).</h3>
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> employees</p>
-                    <span class="orclkey">ALTER COLUMNS </span>salary TYPE BOOLEAN ;</p>
-                   <br><b>Error :</b> DECIMAL values cannot be converted to BOOLEAN.
+                    <span class="orclkey">ALTER COLUMN </span>salary TYPE BOOLEAN;</p>
+                   <br><b>Error :</b> DECIMAL values cannot be directly converted to BOOLEAN.
                 </code>
             </div>
             <br>
@@ -575,7 +575,7 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> Orders</p>
-                    <span class="orclkey">ALTER COLUMNS </span>order_id TYPE BIGINT ;</p>
+                    <span class="orclkey">ALTER COLUMN </span>order_id TYPE BIGINT ;</p>
                     <br>
                     <b>Error :</b> order_id is referenced by another table and cannot be changed directly.
                 </code>
@@ -585,9 +585,9 @@
             <div class="code-box">
                 <code>
                     <span class="orclkey">ALTER TABLE </span> Products</p>
-                    <span class="orclkey">ALTER COLUMNS </span>prod_name TYPE VARCHAR( 10 ) ;</p>
+                    <span class="orclkey">ALTER COLUMN </span>prod_name TYPE VARCHAR(10) ;</p>
                     <br>
-                    <b>Risk :</b> Statement will execute without error , but existing values exceeding 10 characters will be truncated.
+                    <b>Risk :</b> The statement may succeed, but values longer than 10 characters will be truncated without warning.
                 </code>
             </div>
             <br>
@@ -602,16 +602,16 @@
             </ul>
             <br>
             <h2>Do’s and Don’ts with ALTER </h2>
-            <h4><u>Do's</u> :-</h4>
+            <h3><u>Do's</u> :-</h3>
             <ul>
                 <li><b>Do validate changes with a SELECT query</b> after making modifications, especially when
-                    altering constraints or default values.</li>
+                   altering constraints or default values.</li>
                 <li><b>Do keep your schema under version control</b> or document changes to track updates.</li>
                 <li><b>Do check for dependencies: </b> Make sure no other tables, views, or procedures are adversely
                     impacted by the structural change.</li>
             </ul>
 
-            <h4><u>Don'ts</u> :-</h4>
+            <h3><u>Don'ts</u> :-</h3>
             <ul>
                 <li><b>Don’t drop columns without verifying dependencies: </b> Dropping columns can break dependent
                     views, triggers, and procedures.</li>

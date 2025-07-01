@@ -351,7 +351,7 @@
                 </tbody>
             </table> <br>
             <h2>Syntax</h2>
-            <h3>1. For Column Alias</h3>
+            <h3>1. For Column Aliases </h3>
 
             <div class="code-box">
                 <code>
@@ -362,7 +362,7 @@
                   </ul>
                </code>
             </div><br>
-            <h3>2. For Table Alias</h3>
+            <h3>2. For Table Aliases </h3>
 
             <div class="code-box">
                 <code>
@@ -380,7 +380,7 @@
                 <li>Table aliases can be used throughout the query after they are declared.</li>
             </ul><br>
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:- </b> Simple Renaming
+            <p><b>Scenario 1:- </b> Simple Renaming.
             </p>
             <div class="code-box">
                 <code>
@@ -390,7 +390,7 @@
                     <span class="orclkey"> FROM  </span> Employees  <b>;</b>
              </code>
             </div><br>
-            <p><b>Scenario 2:- </b> Alias Without AS
+            <p><b>Scenario 2:- </b> Alias Without the keyword AS.
             </p>
             <div class="code-box">
                 <code>
@@ -399,8 +399,9 @@
                     <span class="orclkey"> FROM  </span> Employees  <b>;</b>
              </code>
             </div><br>
-            <p><b>Scenario 3:- </b> Change the output column name for user-friendly display.
-            </p>
+                  <p>
+                      <b>Scenario 3:- </b> Rename output columns for better readability.
+                  </p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT  </span> first_name <span class="orclkey"> AS  </span> "First Name", 
@@ -409,7 +410,7 @@
                     <span class="orclkey"> FROM  </span> Employees  <b> ;</b>
              </code>
             </div><br>
-            <p><b>Scenario 4:- </b> Provide a meaningful name for calculated fields.
+            <p><b>Scenario 4:- </b> Provide meaningful name for calculated fields.
             </p>
             <div class="code-box">
                 <code>
@@ -418,8 +419,9 @@
                     <span class="orclkey"> FROM  </span> order_details  <b>;</b>
              </code>
             </div><br>
-            <p><b>Scenario 5:- </b> Alias the same table for self-referencing.
-            </p>
+                  <p>
+                      <b>Scenario 5:- </b> Use aliases for the same table in self-joins.
+                  </p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT  </span>  e1.name <span class="orclkey"> AS  </span> "Employee", 
@@ -431,8 +433,10 @@
                      <b> ;</b>
              </code>
             </div><br>
-            <p><b>Scenario 6:- </b> Derived/Calculated Columns
-            </p>
+                  <p>
+                      <b>Scenario 6:- </b> Use Aliases for Calculated Columns.
+
+                  </p>
             <div class="code-box">
                 <code>
                 <span class="orclkey"> SELECT  </span>  product_price * 0.90 <span class="orclkey"> AS  </span> Discounted_Price
@@ -441,7 +445,7 @@
                      <b>;</b>
              </code>
             </div><br>
-            <p><b>Scenario 7:- </b> Renaming Aggregate Results
+            <p><b>Scenario 7:- </b> Rename Aggregated Results.
             </p>
             <div class="code-box">
                 <code>

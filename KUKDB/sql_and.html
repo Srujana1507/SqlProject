@@ -94,7 +94,7 @@
 
                 <div class="input-container">
                     <i class="fa fa-lock icon"></i>
-                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
                         required>
                 </div>
 
@@ -314,7 +314,7 @@
             </div>
 
             <h1> AND </h1>
-            <p>The AND operator returns <b>TRUE if all conditions</b> joined by it are TRUE. If <b>any condition is
+            <p>The AND operator returns <b>TRUE only if all conditions</b> are TRUE. If <b>any condition is
                     FALSE</b>, the result is FALSE.</p><br>
             <h2>Syntax</h2>
             <div class="code-box">
@@ -338,7 +338,7 @@
                 "Electronics" category and have a stock quantity greater than 100.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT   </span> ProductID<b> , </b>Name<b> , </b>Category<b> , </b>Stock<b></b>  <br>
+                        <span class="orclkey">SELECT   </span> ProductID<b>, </b>Name<b>, </b>Category<b>, </b>Stock<b></b>  <br>
                         <span class="orclkey">FROM </span> Products <br>
                         <span class="orclkey">WHERE </span> Category = <b> '</b>Electronics<b>' </b>  <span class="orclkey"> AND </span> Stock  <b> > </b> 100 <b> ; </b>
                     </code>
@@ -393,7 +393,7 @@
                         <span class="orclkey">FROM </span> employees <br>
                         <span class="orclkey">WHERE </span> department_id<b> =  </b>10 <span class="orclkey"> OR </span> salary <b> > </b> 50000  <span class="orclkey"> AND NOT </span> job_title  <b> = </b> <b> '</b>Manager<b>' </b><b> ; </b>
                 </code>
-                ---- give parenthesis for clarity. <br>
+                ---- add parenthesis for clarity. <br>
             </div><br>
             <h3>To change precedence:</h3>
             <div class="code-box">
@@ -411,13 +411,13 @@
                 than 'Salesman'.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary <b> , </b>job_title <br>
-                        <span class="orclkey">FROM </span> employees <br>
-                        <span class="orclkey">WHERE </span> department_id<b> =  </b>20 <span class="orclkey"> AND </span>( salary <b> > </b> 60000  <span class="orclkey"> OR </span> job_title != <b> </b> <b> '</b>Salesman<b>' )</b><b> ; </b>
-                    </code>
-                - - 1. Evaluate NOT job_title = 'Manager'. <br>
-                - - 2. Evaluate salary > 50000 AND result_of_NOT. <br>
-                - - 3. Evaluate department_id = 10 OR result_of_AND. <br>
+                    <span class="orclkey">SELECT   </span> employee_id<b> , </b>department_id<b> , </b>salary <b> , </b>job_title <br>
+                    <span class="orclkey">FROM </span> employees <br>
+                    <span class="orclkey">WHERE </span> department_id<b> =  </b>20 <span class="orclkey"> AND </span>( salary <b> > </b> 60000  <span class="orclkey"> OR </span> job_title != <b> </b> <b> '</b>Salesman<b>' )</b><b> ; </b>
+                </code>
+                - - 1. Evaluate salary > 60000 OR job_title != 'Salesman'<br>
+                - - 2. Evaluate result of OR with department_id = 20 using AND<br>
+  
             </div><br>
             <h2>Advanced Scenarios</h2>
             <h3>1. Combining AND with OR</h3>
@@ -434,11 +434,14 @@
                 least two projects.</p>
             <div class="code-box">
                 <code>
-                        <span class="orclkey">SELECT   </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name<b> , </b>COUNT ( p.ProjectID ) <span class="orclkey">AS   </span> ProjectCount <br>
+                        <span class="orclkey">SELECT   </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name<b> , </b>COUNT( p.ProjectID ) 
+                        <span class="orclkey">AS   </span> ProjectCount <br>
                         <span class="orclkey">FROM </span> Employees e <br>
-                        <span class="orclkey">JOIN  </span> Projects p <span class="orclkey">ON  </span>e.EmployeeID = p.EmployeeID<br>
-                        <span class="orclkey">WHERE </span> (e.department_name <b> = '</b>Sales<b>'</b><span class="orclkey">OR  </span>e.department_name<b> = '</b>Marketing<b>'</b> )<br>
-                        <span class="orclkey">AND </span> p.Status <b> = ' </b>Completed <b>'</b> <br>
+                        <span class="orclkey">JOIN  </span> Projects p
+                        <span class="orclkey">ON  </span>e.EmployeeID = p.EmployeeID<br>
+                        <span class="orclkey">WHERE </span> (e.department_name <b> = '</b>Sales<b>'</b>
+                        <span class="orclkey"> OR  </span>e.department_name<b> = '</b>Marketing<b>'</b> )<br>
+                        <span class="orclkey">AND </span> p.Status <b> = '</b>Completed<b>'</b> <br>
                         <span class="orclkey">GROUP BY </span> e.EmployeeID<b> , </b>e.Name<b> , </b>e.department_name
                         <span class="orclkey">HAVING </span> COUNT(p.ProjectID) <b>>= </b>2 <b> ; </b>
                     </code>
@@ -450,14 +453,15 @@
                 <code>
                         <span class="orclkey">SELECT   </span> OrderID<b> , </b>CustomerID<b> , </b>OrderDate<b> , </b>Amount<br>
                         <span class="orclkey">FROM </span> Orders <br>
-                        <span class="orclkey">WHERE  </span> CustomerID  <span class="orclkey">IN  </span> ( <br>
+                        <span class="orclkey">WHERE  </span> CustomerID  
+                         <span class="orclkey">IN  </span> ( <br>
                         <ul>
                             
                                 <span class="orclkey">SELECT   </span> CustomerID <br>
                                 <span class="orclkey">FROM </span> Orders <br>
-                                <span class="orclkey">WHERE </span> State <b> = ' </b>California <b>'</b> <br>
+                                <span class="orclkey">WHERE </span> State <b> = '</b>California<b>'</b> <br>
                                 <span class="orclkey">GROUP BY </span> CustomerID <br>
-                                <span class="orclkey">HAVING </span> COUNT(OrderCount)<b> > </b> 3 <b> ); </b>
+                                <span class="orclkey">HAVING </span> COUNT(OrderID)<b> > </b> 3  )<b>; </b>
                            
                         </ul> 
                 </code>
@@ -478,15 +482,15 @@
                     </code>
             </div><br>
             <h3>2. Logical Conflicts</h3>
-            <p>Contradictory conditions result in no rows.</p>
+            <p>Conditions that contradict each other will return no rows.</p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">WHERE </span>Price  <b> < </b>50  <span class="orclkey"> AND </span> Price     <b> > </b> 100 <b> ; </b>
                     </code>
                 - - Always false.
             </div><br>
-            <h3>3. Null Values</h3>
-            <p>Conditions involving NULL without IS NULL can lead to errors.</p>
+            <h3>3. Null Handling in AND conditions</h3>
+            <p>Conditions involving NULLs require special attention. </p>
             <div class="code-box">
                 <code>
                         <span class="orclkey">WHERE </span>Category  <span class="orclkey"> IS NOT NULL AND </span> Stock<b> > </b> 0 <b> ; </b>

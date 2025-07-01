@@ -485,7 +485,7 @@
                     <span class="orclkey">SELECT </span> c.customer_id, COUNT(o.order_id) <span class="orclkey"> AS </span> total_orders <br>
                     <span class="orclkey"> FROM </span> customers c <br>
                     <span class="orclkey"> LEFT JOIN </span>  orders o  <span class="orclkey"> ON </span>c.customer_id = o.customer_id <br>
-                    <span class="orclkey"> GROUP BY </span> customer_id
+                    <span class="orclkey"> GROUP BY </span> c.customer_id
                     <b> ;</b> <br>
                     <br>  <ul>
                         <li>A LEFT JOIN ensures all customers are included, even if they haven't placed any orders.</li>
@@ -1056,14 +1056,15 @@
             <p><b>Scenario 2:-</b> Find the most recent hire date. </p>
             <div class="code-box">
                 <code>
-                    <span class="orclkey"> SELECT </span> MAX( hire_date )   <span class="orclkey"> AS </span> Recent_hire_date  <br>
+                    <span class="orclkey"> SELECT </span> MAX( hire_date )  
+                    <span class="orclkey"> AS </span> Recent_hire_date  <br>
                     <span class="orclkey"> FROM </span> employees
                     <b> ;</b>
                 </code>
             </div><br>
             <p>
                 <b>Scenario 3:-</b> Find the last name that comes last in alphabetical order.
-                .
+                
             </p>
             <div class="code-box">
                 <code>
@@ -1253,7 +1254,7 @@
             <p>4. Efficiently finds the smallest value in both simple and complex scenarios.</p>
             <br>
             <h2>Basic Scenarios</h2>
-            <p><b>Scenario 1:-</b> Find the lowest salary in the employees' table. </p>
+            <p><b>Scenario 1:-</b> Find the lowest salary in the employees table. </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> MIN( salary )   <span class="orclkey"> AS </span> min_salary  <br>
@@ -1474,7 +1475,7 @@
                     <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 7:-</b> Find the department with the highest average salary. </p>
+                  <p><b>Scenario 7:-</b>Concatenate all the product names under each category in alphabetical order. </p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span> c.category_name, <br>
@@ -1489,7 +1490,7 @@
                     <span class="orclkey"> JOIN </span> products p
                     <span class="orclkey"> ON </span> c.category_id = p.category_id  <br>
                     <span class="orclkey"> GROUP BY </span> c.category_name
-                    <b> ;</b>
+                    <b>;</b>
                 </code>
             </div><br>
             <p>
@@ -2206,7 +2207,7 @@
             </div><br>
             <p>
                 <b>Scenario 5:-</b> Compare average and standard deviation of sales across products (Using Aggregation
-                Function)
+                Function).
             </p>
             <div class="code-box">
                 <code>
@@ -2586,7 +2587,7 @@
                     <b> ;</b>
                 </code>
             </div><br>
-            <p><b>Scenario 5:-</b> Find the largest value after applying calculations</p>
+            <p><b>Scenario 5:-</b> Find the largest value after applying calculations.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey"> SELECT </span>  <br>

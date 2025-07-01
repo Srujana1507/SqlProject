@@ -313,15 +313,14 @@
             </div>
 
             <h1>ANY </h1>
-            <p>The ANY operator is used to compare a value to <b>any value</b> in a list or the result of a subquery.
-            </p><br>
-            <p>It is also known as the <b>SOME</b> operator (in some databases) because it evaluates to <b>TRUE if any
-                    one </b>of the conditions matches.</p><br>
+            <p> The ANY operator (also known as SOME in some databases) compares a value to each item in a list or
+               subquery and returns true if any one condition is satisfied. </p><br>
+           
             <h2>Key Features of ANY </h2>
-            <p><b>1. Set Comparison: </b>The ANY operator allows comparisons against multiple values.</b></p><br>
+            <p><b>1. Set Comparison: </b>The ANY operator allows comparisons against multiple values.</p><br>
             <p><b>2. Logical Meaning: </b>Returns TRUE if the condition is true for <b>at least one value</b> in the
                 set.</b></p><br>
-            <p><b>3. Common Use Cases: </b></p><br>
+            <h3> Common Use Cases: </h3>
             <ul>
                 <li>Filtering rows by comparing a column to values from a subquery or list.</li>
                 <li>Handling scenarios where partial matches are required.</li>
@@ -591,8 +590,11 @@
                 </code>
             </div><br>
             <h3>5. Using ANY in UPDATE Statement</h3>
-            <p><b>Scenario :- </b>Update prices for products that are cheaper than <b>any</b> product in the
-                "Electronics" category.</p>
+            <p>
+                <b>Scenario :- </b>Update prices for products that are cheaper than at least one product 
+                in the "Electronics" category.
+
+            </p>
             <div class="code-box">
                 <code>
                             <span class="orclkey">UPDATE </span> products <br>
@@ -627,24 +629,29 @@
                 sales representative in the "East" region.</p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> department_id, SUM(sales_amount) 
-                            <span class="orclkey"> AS </span> total_sales <br>
-                            <span class="orclkey">FROM  </span> Sales <br>
-                             <span class="orclkey">GROUP BY  </span> department_id <br>
-                            <span class="orclkey">HAVING </span>
-                            <span class="orclkey">SUM </span> (sales_amount) > 
-                            <span class="orclkey"> ANY </span> (<br>
-                            <ul>
-                            <span class="orclkey">SELECT </span> sales_amount <br>
-                            <span class="orclkey">FROM  </span> Sales <br>
-                            <span class="orclkey">WHERE </span> region   =  <b>'</b>East<b>'</b>);  <br>
-                        </ul>
-                        
-                            <br>  
-                            - - The <b>subquery </b>retrieves the sales_amount of all sales representatives in the "East" region. <br>
-                            - - The <b>WHERE </b>clause filters the rows in the sales table to include only those where the sales_amount is greater than <b>any of the values</b> in the subquery (e.g., > 5000, > 7500, or > 10000). <br>
-                            - - After filtering rows based on the <b>ANY </b>condition, the remaining rows are grouped by department_id. <br>
-                            - - The <b>SUM(sales_amount) </b>function calculates the total sales for each department.
+                    <span class="orclkey">SELECT </span> department_id, SUM(sales_amount)
+                    <span class="orclkey"> AS </span> total_sales <br>
+                    <span class="orclkey">FROM  </span> Sales <br>
+                    <span class="orclkey">GROUP BY  </span> department_id <br>
+                    <span class="orclkey">HAVING </span>
+                    <span class="orclkey">SUM </span> (sales_amount) >
+                    <span class="orclkey"> ANY </span> (<br>
+                    <ul>
+                        <span class="orclkey">SELECT </span> sales_amount
+                        <br>
+                        <span class="orclkey">FROM  </span> Sales
+                        <br>
+                        <span class="orclkey">WHERE </span> region   =
+                        <b>'</b>East
+                        <b>'</b>);
+                        <br>
+                    </ul>
+
+                    <br>
+                    - - The <b>subquery </b>retrieves the individual sales_amount values of all sales representatives in the "East" region.<br>
+                    - - The <b>HAVING </b>clause filters each department’s total sales and checks whether it is greater than at least one value from the subquery.
+                    <br>
+                    - - The <b>SUM(sales_amount) </b>- function computes total sales per department for comparison.
                 </code>
             </div><br>
             <h2>Common Errors with ANY</h2>

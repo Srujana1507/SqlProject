@@ -479,8 +479,8 @@
            <h2>Arithmetic Operators</h2>
             <h3>1. Addition(+) Operator </h3>
             <p>
-                <b>Scenario :-</b> 5000(Constants value) as bonus to all employees and Add the bonus to salary and
-                display it as new_salary in output.
+               <b>Scenario :-</b> Add constant bonus to salary
+                and display it as new_salary in output.
             </p>
             <div class="code-box">
                 <code>
@@ -541,7 +541,7 @@
             <br>
             <h3>2. Subtraction(-) Operator </h3>
             <p>
-                <b>Scenario :-</b>Calculate Net_amount after deductions of PF (2300 - Constants value) for all employee.
+                <b>Scenario :-</b>Subtract PF deduction from employees salary.
             </p>
             <div class="code-box">
                 <code>
@@ -660,7 +660,7 @@
             </table>
             <br>
             <h3>4.Division(/) Operator </h3>
-            <p><b>Scenario :-</b>Calculate daily salary portion of all employees.</p>
+            <p><b>Scenario :-</b> Divide monthly salary to calculate daily pay.</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> EMP_ID <b>, </b>ENAME<b>, </b>SALARY<b>, </b>SALARY / 30 <span class="orclkey"> AS </span> Day_Salary <span class="orclkey"> FROM   </span> EMPLOYEE
@@ -785,7 +785,7 @@
             </div>
             <br>
             <h3>Example 2: Combining Multiple Operators</h3>
-            <p>Calculate total profit percentage</p>
+            <p>Calculate total profit percentage using Arithmetic Operators</p>
             <div class="code-box">
                 <code>
                     <span class="orclkey">SELECT   </span> Product_id<b>, </b><br>
@@ -868,7 +868,7 @@
                     - - result = 30
                 </code>
             </div><br />
-            <h3>Step-by-Step Execution of above exampls</h3>
+            <h3>Step-by-Step Execution of above examples</h3>
             <ul>
                 <li><b>Evaluate Division (/) in Parentheses: </b> 5 / 5 = 1.</li>
                 <li><b>Evaluate Subtraction (-) in Parentheses :</b> 2 - 1 = 1.</li>
@@ -879,7 +879,7 @@
             <h3>Example 3: Handling NULL Values</h3>
             <p>If any operand is NULL, the result of the operation is NULL</p><br>
             <ul>
-                <li> Let's assume, for EMPID = 107 salary was credited (null).</li>
+                <li> Let's assume, for EMPID = 107 salary was credited as NULL.</li>
             </ul>
             <table>
                 <thead>

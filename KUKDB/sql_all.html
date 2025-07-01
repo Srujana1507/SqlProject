@@ -309,251 +309,316 @@
             </div>
 
             <h1>ALL </h1>
-            <p>The ALL operator is used in combination with comparison operators (<b>=, <,>, >=, <=, !=</b>) to compare
-                            a value
-                            against all values in a set (subquery or list). </p><br>
+            <p>
+                The ALL operator is used in combination with comparison operators (<b>=, <,>, >=, <=, !=</b>) to compare
+                a value
+                against all values in a set (subquery or list).
+            </p><br>
             <h2>Purpose of ALL Operator</h2>
-            <p><b>1. Comparison Across Multiple Values:- </b> Compare a value with every value in a subquery
-                result.</p><br>
-            <p><b>2. Filter Data Dynamically:- </b> Combine with other operators like<b> =, >, <, </b>etc., for
-                        advanced filtering.</p><br>
-            <p><b>3. Enhance Query Logic:- </b> Ensure conditions are universally satisfied across a
-                dataset.</p><br>
-            <p><b>4. Logical Meaning:- </b> Returns <b>TRUE</b> only if the condition is satisfied for
-                every value in the set.</p><br>
-            <p><b>5. Common Use Cases:- </b> </p><br>
-            <ul>
+            <p>
+                <b>1. Comparison Across Multiple Values:- </b> Compares a value with every value returned by a subquery.
+               
+            </p><br>
+                <p>
+                    <b>2. Filter Data Dynamically:- </b>Can be combined with comparison operators like<b> =, >, <, </b>etc., for
+                    advanced filtering.
+                </p><br>
+                <p>
+                    <b>3. Enhance Query Logic:- </b> Ensures that a condition is satisfied for all values in a dataset.
+                </p><br>
+            <p>
+                <b>4. Logical Meaning:- </b> Returns <b>TRUE</b> only if the condition is satisfied for
+                every value in the set.
+            </p><br>
+            <h2>Common Use Cases:- </h2>
+       
                 <ul>
-                    <li>ALL is used with <b>SELECT, WHERE, and HAVING</b> Statements.</li>
-                    <li>Validating a value against all other values.</li>
+                    <li>
+                        ALL is typically used in <b>WHERE and HAVING </b>clauses for filtering results based on a condition evaluated against a subquery.
+                    </li>
+                    <li>Validate a value against all values returned by a subquery.</li>
                     <li>Filtering data using aggregate comparisons.</li>
                 </ul>
-            </ul>
-            <h2> Basic Syntax</h2>
+          
+            <h3> Basic Syntax</h3>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> column1, column2 <br>
-                            <span class="orclkey">FROM   </span>table_name <br>
-                            <span class="orclkey">WHERE </span>expression  operator <span class="orclkey"> ALL </span> ( subquery ) <b> ; </b>
-                        </code>
+                    <span class="orclkey">SELECT </span> column1, column2 <br>
+                    <span class="orclkey">FROM   </span>table_name <br>
+                    <span class="orclkey">WHERE </span>expression  operator <span class="orclkey"> ALL </span> ( subquery ) <b> ; </b>
+                </code>
                 <ul>
                     <li><b>expression:- </b>The column or value being compared.</li>
                     <li><b>operator:- </b>A comparison operator (=, <,>, <= ,>= , !=, etc.).</li>
                     <li><b>subquery:- </b>A query that returns a result set to compare against.</li>
                 </ul>
             </div><br>
-            <h2>How ALL Work</h2>
+            <h2>How ALL Works</h2>
             <p>The condition evaluates to:</p>
             <ul>
                 <ul>
-                    <li><b>TRUE: </b>If the comparison is true for <b>all</b> values returned by the subquery.</li>
-                    <li><b>FALSE: </b>If any value in the subquery result fails to meet the condition.</li>
+                    <li><b>TRUE- </b>If the comparison is true for <b>all</b> values returned by the subquery.</li>
+                    <li><b>FALSE- </b>If any value in the subquery result fails to meet the condition.</li>
                 </ul>
             </ul>
             <h2>Basic Scenarios</h2>
             <h3>1. Greater Than All Values</h3>
-            <p><b>Scenario :- </b> Retrieve products whose price is higher than all other products in a specific
+            <p>
+                <b>Scenario :- </b> Retrieve products whose price is higher than all other products in a specific
                 category.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
-                            <span class="orclkey">FROM </span>Products <br>
-                            <span class="orclkey">WHERE </span> Price > <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> Price <br>
-                            <span class="orclkey">FROM  </span> Products <br>
-                            <span class="orclkey">WHERE </span> CategoryName =  <b>'</b>Electronics<b>'</b>  )<b> ; </b><br>
+                    <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                    <span class="orclkey">FROM </span>Products <br>
+                    <span class="orclkey">WHERE </span> Price > <span class="orclkey">ALL </span> (<br>
+                    <ul>
+                        <ul>
+                            <span class="orclkey">SELECT </span> Price
+                            <br>
+                            <span class="orclkey">FROM  </span> Products
+                            <br>
+                            <span class="orclkey">WHERE </span> CategoryName =
+                            <b>'</b>Electronics<b>'</b>))
+
+
+                            <b> ; </b>
+                            <br>
                         </ul>
-                       
+
                     </ul>
-                        </code>
+                </code>
                 - - Compares the Price of each product against all prices in the subquery. <br>
                 - - Only products with a Price greater than every value in the subquery will be returned.
             </div><br>
             <h3>2. Equal to All Values</h3>
-            <p><b>Scenario :- </b> Retrieve employees whose salary is the same as all salaries in IT department.
+            <p>
+                <b>Scenario :- </b> Retrieve employees whose salary is the same as all salaries in IT department.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
-                            <span class="orclkey">FROM </span>Employees <br>
-                            <span class="orclkey">WHERE </span> Salary  =
-                            <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                                <span class="orclkey">SELECT  </span> Salary <br>
-                                <span class="orclkey">FROM  </span> Employees <br>
-                                <span class="orclkey">WHERE </span> <br> Department  =  <b>'</b>IT<b>'</b>  )<b> ; </b>
-                            </ul>
-                       
-                   
-                        </code>
+                    <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
+                    <span class="orclkey">FROM </span>Employees <br>
+                    <span class="orclkey">WHERE </span> Salary  =
+                    <span class="orclkey">ALL </span> (<br>
+                    <ul>
+                        <span class="orclkey">SELECT  </span> Salary
+                        <br>
+                        <span class="orclkey">FROM  </span> Employees
+                        <br>
+                        <span class="orclkey">WHERE </span>
+                        <br> Department  =
+                        <b>'</b>IT<b>'</b>)
+                        <b> ; </b>
+                    </ul>
+
+
+                </code>
                 - - The condition is true only if the Salary matches every salary in the result set of the subquery.
                 <br>
             </div><br>
             <h3>3. Less Than or Equal to All Values</h3>
-            <p><b>Scenario :- </b> Retrieve students who scored less than or equal to the lowest score among all
+            <p>
+                <b>Scenario :- </b> Retrieve students who scored less than or equal to the lowest score among all
                 students.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> StudentID, Name, Score <br>
-                            <span class="orclkey">FROM </span>Students <br>
-                            <span class="orclkey">WHERE </span> Score   <= <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                                <ul>
-                            <span class="orclkey">SELECT </span> Score <br>
-                            <span class="orclkey">FROM  </span> Students )<b> ; </b> <br>
+                    <span class="orclkey">SELECT </span> StudentID, Name, Score <br>
+                    <span class="orclkey">FROM </span>Students <br>
+                    <span class="orclkey">WHERE </span> Score   <= <span class="orclkey">ALL </span> (<br>
+                    <ul>
+                        <ul>
+                            <span class="orclkey">SELECT </span> Score
+                            <br>
+                            <span class="orclkey">FROM  </span> Students )
+                            <b> ; </b>
+                            <br>
                         </ul>
-                       
+
                     </ul>
-                        </code>
+                </code>
                 - - This fetches students with scores equal to or lower than the smallest score.
                 <br>
             </div><br>
             <h3>4. ALL with a Range</h3>
-            <p><b>Scenario :- </b> List products whose price is greater than or equal to all products in the
+            <p>
+                <b>Scenario :- </b> List products whose price is greater than or equal to all products in the
                 "Discounted" category.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> product_id, product_name <br>
-                            <span class="orclkey">FROM </span>products <br>
-                            <span class="orclkey">WHERE </span> price >= <span class="orclkey">ALL </span> (<br>
-                           
-                                <ul>
-                            <span class="orclkey">SELECT </span> price <br>
-                            <span class="orclkey">FROM  </span> products <br>
-                            <span class="orclkey">WHERE </span> status  =  <b>'</b>Discounted<b>'</b> ) <b> ; </b> <br>
-                        </ul>
-                       
-                    
-                        </code>
+                    <span class="orclkey">SELECT </span> product_id, product_name <br>
+                    <span class="orclkey">FROM </span>Products <br>
+                    <span class="orclkey">WHERE </span> price >= <span class="orclkey">ALL </span> (<br>
+
+                    <ul>
+                        <span class="orclkey">SELECT </span> price
+                        <br>
+                        <span class="orclkey">FROM  </span> Products
+                        <br>
+                        <span class="orclkey">WHERE </span> status  =
+                        <b>'</b>Discounted<b>'</b>)
+                        <b>;</b>
+                        <br>
+                    </ul>
+
+
+                </code>
                 - - This fetches products with prices equal to or greater than the highest price in the discounted
                 products.
                 <br>
             </div><br>
             <h2>Advanced Scenarios</h2>
             <h3>1. Using ALL with NOT</h3>
-            <p><b>Scenario :- </b> Retrieve products that are not cheaper than any product in the "Books" category.
+            <p>
+                <b>Scenario :- </b> Retrieve products that are not cheaper than any product in the "Books" category.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
-                            <span class="orclkey">FROM </span>Products <br>
-                            <span class="orclkey">WHERE NOT </span> Price < <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                               
-                            <span class="orclkey">SELECT </span> Price <br>
-                            <span class="orclkey">FROM  </span> Products <br>
-                            <span class="orclkey">WHERE </span> Category =  <b>'</b>Books<b>'</b> )<b> ; </b> <br>
-                        </ul>
-                       
-                        </code>
-                - - NOT Price < ALL ensures that the Price is <b>not less than all </b>
-                    prices in the "Books" category.
-                    In other words, it is greater than or equal to at least one of them.
-                    <br>
+                    <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                    <span class="orclkey">FROM </span>Products <br>
+                    <span class="orclkey">WHERE  </span> NOT Price < <span class="orclkey">ALL </span> (<br>
+                    <ul>
+
+                        <span class="orclkey">SELECT </span> Price
+                        <br>
+                        <span class="orclkey">FROM  </span> Products
+                        <br>
+                        <span class="orclkey">WHERE </span> Category =
+                        <b>'</b>Books
+                        <b>'</b> )
+                        <b> ; </b>
+                        <br>
+                    </ul>
+
+                </code>
+                - - NOT Price < ALL (...) ensures that the product's price is greater than or equal to at least one price in the 'Books' category.
+                In other words, it is greater than or equal to at least one of them.
+                <br>
             </div><br>
             <h3>2. ALL with Multiple Filters</h3>
-            <p><b>Scenario :- </b> Retrieve orders placed by customers who spend more than all other customers in a
+            <p>
+                <b>Scenario :- </b> Retrieve orders placed by customers who spend more than all other customers in a
                 specific region.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> OrderID, CustomerID, TotalAmount <br>
-                            <span class="orclkey">FROM </span>Orders <br>
-                            <span class="orclkey">WHERE </span> TotalAmount  > <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                               
-                            <span class="orclkey">SELECT </span> SUM( TotalAmount ) <br>
-                            <span class="orclkey">FROM  </span> Orders <br>
-                            <span class="orclkey">WHERE </span> Region  =  <b>'</b>North<b>'</b>
-                            <span class="orclkey">GROUP BY </span> CustomerID  )<b> ; </b> <br>
-                        </ul>
-               </code>
+                    <span class="orclkey">SELECT </span> OrderID, CustomerID, TotalAmount <br>
+                    <span class="orclkey">FROM </span>Orders <br>
+                    <span class="orclkey">WHERE </span> TotalAmount  > <span class="orclkey">ALL </span> (<br>
+                    <ul>
+
+                        <span class="orclkey">SELECT </span> SUM(TotalAmount)
+                        <br>
+                        <span class="orclkey">FROM  </span> Orders
+                        <br>
+                        <span class="orclkey">WHERE </span> Region  =
+                        <b>'</b>North<b>'</b>
+                        <span class="orclkey">GROUP BY </span> CustomerID  )
+                        <b> ; </b>
+                        <br>
+                    </ul>
+                </code>
                 - - Compares each order's total amount against the total spend of all customers in the "North" region.
                 <br>
             </div><br>
             <h3>3. ALL with Explicit List</h3>
-            <p><b>Scenario :- </b> Retrieve employees whose salary is greater than all listed values.
+            <p>
+                <b>Scenario :- </b> Retrieve employees whose salary is greater than all listed values.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
-                            <span class="orclkey">FROM </span>Employees <br>
-                            <span class="orclkey">WHERE </span> Salary > <span class="orclkey">ALL </span> (20000, 30000, 40000
-                        )<b> ; </b>
-               
-                        </code>
+                    <span class="orclkey">SELECT </span> EmployeeID, Name, Salary <br>
+                    <span class="orclkey">FROM </span>Employees <br>
+                    <span class="orclkey">WHERE </span> Salary > <span class="orclkey">ALL </span> (20000, 30000, 40000)<b> ; </b>
+
+                </code>
                 - - Fetches employees whose salary exceeds the highest value in the list (in this case, 40,000).
             </div><br>
             <h3>4. Using ALL with Aggregates</h3>
-            <p>While ALL is often combined with subqueries, it can also work with aggregate functions when combined with
-                appropriate comparisons.</p> <br>
-            <p><b>Scenario :- </b> Find products priced higher than all average prices in their respective categories.
+            <p>
+                While ALL is often combined with subqueries, it can also work with aggregate functions when combined with
+                appropriate comparisons.
+            </p> <br>
+            <p>
+                <b>Scenario :- </b> Find products priced higher than all average prices in their respective categories.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
-                            <span class="orclkey">FROM </span>Products p <br>
-                            <span class="orclkey">WHERE </span> Price  >
-                            
-                            <ul>
-                              (
-                                <span class="orclkey">SELECT </span> AVG(Price) <br>
-                                <span class="orclkey">FROM  </span> Products <br>
-                                <span class="orclkey">WHERE </span>Category= p.Category   )<b> ; </b> <br>
-                                
-                            
-                      
+                    <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                    <span class="orclkey">FROM </span>Products p <br>
+                    <span class="orclkey">WHERE </span> Price  >
+
+                    <ul>
+                        (
+                        <span class="orclkey">SELECT </span> AVG(Price)
+                        <br>
+                        <span class="orclkey">FROM  </span> Products
+                        <br>
+                        <span class="orclkey">WHERE </span>Category = p.Category   )
+                        <b> ; </b>
+                        <br>
+
+
+
                     </ul>
-                        </code>
+                </code>
                 - - Compares each product's price to the average price of its category and selects those priced higher
                 than all category averages.
             </div><br>
             <h3>5. ALL in the HAVING Clause</h3>
-            <p><b>Scenario :- </b> Find departments where the maximum salary is greater than the maximum salary of all
+            <p>
+                <b>Scenario :- </b> Find departments where the maximum salary is greater than the maximum salary of all
                 employees in the "Sales" department.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> department, MAX( salary ) <span class="orclkey"> AS </span> max_salary <br>
-                            <span class="orclkey">FROM </span>employees <br>
-                            <span class="orclkey">GROUP BY </span>department <br>
-                            <span class="orclkey">HAVING  </span>  MAX( salary )  > <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                                
-                            <span class="orclkey">SELECT </span>MAX( salary ) <br>
-                            <span class="orclkey">FROM  </span> employees <br>
-                            <span class="orclkey">WHERE </span> department  = <b>'</b>Sales<b>'</b> )<b> ; </b> <br>
-                        </ul>
-                       
-                   
-                        </code>
+                    <span class="orclkey">SELECT </span> department, MAX( salary ) <span class="orclkey"> AS </span> max_salary <br>
+                    <span class="orclkey">FROM </span>employees <br>
+                    <span class="orclkey">GROUP BY </span>department <br>
+                    <span class="orclkey">HAVING  </span>  MAX( salary )  > <span class="orclkey">ALL </span> (<br>
+                    <ul>
+
+                        <span class="orclkey">SELECT </span>MAX( salary )
+                        <br>
+                        <span class="orclkey">FROM  </span> employees
+                        <br>
+                        <span class="orclkey">WHERE </span> department  =
+                        <b>'</b>Sales<b>'</b> )
+                        <b> ; </b>
+                        <br>
+                    </ul>
+
+
+                </code>
             </div><br>
             <h3>6. ALL with Correlated Subqueries</h3>
-            <p><b>Scenario :- </b> Find employees whose salary is greater than the salary of all employees in
-                their respective departments.
+            <p>
+                <b>Scenario :- </b> Find employees who have the highest salary in their respective departments.
             </p>
             <div class="code-box">
                 <code>
-                            <span class="orclkey">SELECT </span> e1.employee_id, e1.name, e1.salary <br>
-                            <span class="orclkey">FROM </span>employees e1 <br>
-                            <span class="orclkey">WHERE </span>  e1.salary > 
-                            <span class="orclkey">ALL </span> (<br>
-                            <ul>
-                                <span class="orclkey">SELECT </span>e2.salary <br>
-                                <span class="orclkey">FROM  </span> employees e2 <br>
-                                <span class="orclkey">WHERE </span> e2.department = e1.department <br>
-                                <span class="orclkey">AND </span> e2.employee_id ! = e1.employee_id         )<b> ; </b><br>
-                        
-                
+                    <span class="orclkey">SELECT </span> e1.employee_id, e1.name, e1.salary <br>
+                    <span class="orclkey">FROM </span>employees e1 <br>
+                    <span class="orclkey">WHERE </span>  e1.salary >
+                    <span class="orclkey">ALL </span> (<br>
+                    <ul>
+                        <span class="orclkey">SELECT </span>e2.salary
+                        <br>
+                        <span class="orclkey">FROM  </span> employees e2
+                        <br>
+                        <span class="orclkey">WHERE </span> e2.department = e1.department
+                        <br>
+                        <span class="orclkey">AND </span> e2.employee_id != e1.employee_id         )
+                        <b> ; </b>
+                        <br>
+
+
                     </ul>
-                        </code>
+                </code>
             </div><br>
-            <h2>Difference Between ALL and Other Operators</h2>
+            <h2>Differences Between ALL and Other Operators</h2>
             <table>
                 <thead>
                     <tr>
@@ -576,11 +641,11 @@
                     </tr>
                     <tr>
                         <td> IN </td>
-                        <td>checks if a value matches <b>any value </b>in the subquery or list.</td>
+                        <td> TRUE if the value matches any value in the subquery or list.</td>
                     </tr>
                     <tr>
                         <td> ALL </td>
-                        <td>requires the value to meet a condition against <b>all values</b>.</td>
+                        <td>TRUE if the value satisfies the condition for all values in the subquery.</td>
                     </tr>
                 </tbody>
             </table><br>
@@ -603,106 +668,141 @@
                     </tr>
                     <tr>
                         <td> MySQL </td>
-                        <td>Fully Supported but case-insensitive by default.</td>
+                        <td>
+                            Fully Supported.(Note: String comparisons are case-insensitive by default.)
+
+                        </td>
                     </tr>
                 </tbody>
             </table><br>
             <h2>Do's and Don'ts with ALL </h2>
-            <h4>Do's</h4><br>
-            <p><b>1. Use in Comparisons Where Universal Truth is Needed:- </b>
-            <ul>
-                <br> Apply ALL only when you need a condition
-                to hold true for <b>all values</b> in the subquery.
-            </ul>
+            <h3>Do's</h3>
+            <p>
+                <b>1. Use in comparisons where universal truth is needed: </b>
+                <ul>
+                    <br> Apply ALL only when you need a condition
+                    to hold true for
+                    <b>all values</b> in the subquery.
+                </ul>
             </p>
             <div class="code-box">
 
-               <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>( Subquery )
+                <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>( Subquery )
                 <b> ; </b>
                 </code>
             </div><br>
-            <p><b>2. Test Subqueries for NULLs:- </b>
-            <ul>
-                <br>Ensure that subqueries used with ALL do not return NULL values
-                unless explicitly handled, as NULL can make the condition evaluate to FALSE.
-            </ul>
+            <p>
+                <b>2. Test Subqueries for NULLs:- </b>
+                <ul>
+                    <br>Ensure that subqueries used with ALL do not return NULL values
+                    unless explicitly handled, as NULL can make the condition evaluate to FALSE.
+                </ul>
             </p>
             <div class="code-box">
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span><br>
-                <ul>
+                <ul>(
                     <span class="orclkey">SELECT </span> salary
-                    <span class="orclkey">FROM </span> employees <br>
-                    <span class="orclkey">WHERE </span> salary <span class="orclkey">IS NOT NULL</span><b> ; </b>
+                    <span class="orclkey">FROM </span> employees
+                    <br>
+                    <span class="orclkey">WHERE </span> salary
+                    <span class="orclkey">IS NOT NULL</span>
+                    )<b> ; </b>
                 </ul>
 
                 </code>
             </div><br>
-            <p><b>3. Optimize Subqueries:- </b>
-            <ul> <br>Use indexes and simplified logic in subqueries to improve query
-                performance when using ALL.</ul>
+            <p>
+                <b>3. Optimize Subqueries:- </b>
+                <ul>
+                    <br>Use indexes and simplified logic in subqueries to improve query
+                    performance when using ALL.
+                </ul>
             </p><br>
-            <p><b>4. Combine with Parentheses:- </b>
-            <ul>
-                <br>Use parentheses to group logical expressions for clarity and avoid
-                precedence issues.
-            </ul>
+            <p>
+                <b>4. Combine with Parentheses:- </b>
+                <ul>
+                    <br>Use parentheses to group logical expressions for clarity and avoid
+                    precedence issues.
+                </ul>
             </p><br>
 
-            <h4>Don'ts</h4><br>
-            <p><b>1. Avoid Using ALL with a Large Subquery:- </b>
-            <ul><br>When the subquery returns a large dataset, ALL can
-                lead to performance degradation. In such cases, consider alternatives like joins.</ul>
+            <h3>Don'ts</h3>
+            <p>
+                <b>1. Avoid Using ALL with a Large Subquery:- </b>
+                <ul>
+                    <br>When the subquery returns a large dataset, ALL can
+                    lead to performance degradation. In such cases, consider alternatives like joins.
+                </ul>
             </p>
             <div class="code-box">
                 - - Inefficient<br />
                 <span class="orclkey">WHERE value </span> > <span class="orclkey"> ALL </span>(
-                <span class="orclkey"> SELECT column FROM </span> large_table )
+                <span class="orclkey"> SELECT column FROM </span> large_table );
                 </code>
             </div><br>
-            <p><b>2. Do Not Assume Universal Applicability:- </b>
-            <ul><br>ALL may not always be the best choice. For partial
-                comparisons, use ANY or joins.</ul>
+            <p>
+                <b>2. Do Not Assume Universal Applicability:- </b>
+                <ul>
+                    <br>ALL may not always be the best choice. For partial
+                    comparisons, use ANY or joins.
+                </ul>
             </p><br>
-            <p><b>3. Avoid Mixing with Non-Comparable Types:- </b>
-            <ul><br>Ensure that the subquery's data type matches the
-                column you're comparing.</ul>
+            <p>
+                <b>3. Avoid Mixing with Non-Comparable Types:- </b>
+                <ul>
+                    <br>Ensure that the subquery's data type matches the
+                    column you're comparing.
+                </ul>
             </p><br>
-            <p><b>4. Don't Use Without Understanding Subquery Behavior:- </b>
-            <ul> <br>If the subquery returns no rows, the ALL
-                operator evaluates to TRUE by default. Handle such cases carefully.</ul>
+            <p>
+                <b>4. Don't Use Without Understanding Subquery Behavior:- </b>
+                <ul>
+                    <br>If the subquery returns no rows, the ALL
+                    operator evaluates to TRUE by default. Handle such cases carefully.
+                </ul>
             </p><br>
 
             <h2>Points to Add</h2>
 
             <p><b>Advantages of ALL</b></p>
             <ul>
-                <li>Enables <b>dynamic and universal comparisons,</b> making it powerful for data validation and
-                    aggregation.</li>
+                <li>
+                    Enables <b>dynamic and universal comparisons,</b> making it powerful for data validation and
+                    aggregation.
+                </li>
                 <li>Provides flexibility when used with other clauses like HAVING and subqueries.</li>
             </ul>
             <br>
 
             <p><b>Challenges with ALL</b></p>
             <ul>
-                <li><b>Performance Issues:</b> When the subquery returns a large dataset, queries with ALL can slow
-                    down significantly.</li>
-                <li><b>Complex Logic: </b>In certain cases, using ALL may result in overly complicated queries,
-                    reducing readability.</li>
+                <li>
+                    <b>Performance Issues:</b> When the subquery returns a large dataset, queries with ALL can slow
+                    down significantly.
+                </li>
+                <li>
+                    <b>Complex Logic: </b>In certain cases, using ALL may result in overly complicated queries,
+                    reducing readability.
+                </li>
 
             </ul>
             <br>
 
             <p><b>Best Practice for Performance</b></p>
             <ul>
-                <li>For large datasets, consider using joins with GROUP BY or alternative logic to achieve similar
-                    results.</li>
+                <li>
+                    For large datasets, consider using joins with GROUP BY or alternative logic to achieve similar
+                    results.
+                </li>
             </ul>
             </ul><br>
 
             <p><b>Alternatives to ALL</b></p>
             <ul>
-                <li>Use EXISTS, ANY, or NOT EXISTS when the condition does not require checking all values in a
-                    subquery.</li>
+                <li>
+                    Use EXISTS, ANY, or NOT EXISTS when the condition does not require checking all values in a
+                    subquery.
+                </li>
             </ul>
             <br>
             <h2>Common Errors with ALL</h2>
@@ -710,7 +810,8 @@
             <ul>
 
                 <li>
-                    If the subquery returns no rows, the condition evaluates to TRUE.</li>
+                    If the subquery returns no rows, ALL evaluates to TRUE by default—but this can lead to unexpected results.
+                </li>
                 <div class="code-box">
                     <span class="orclkey">WHERE </span> Price > <span class="orclkey"> ALL </span>(
                     <span class="orclkey"> SELECT </span> Price <span class="orclkey"> FROM </span> Products
