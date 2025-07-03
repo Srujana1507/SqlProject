@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="../Oracle/orclsql.html">Oracle SQL</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>Oracle SQL Topics</h2>
+                <ul>
+                    <li><a href="../Oracle/orclsql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="../Oracle/orclsql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="../Oracle/orclsql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <ul>
+                    <li><a href="../Oracle/orclsql.html?topic=sqlSelectTable" id="sqlSelectTable">Select</a></li>
+                    <li><a href="../Oracle/orclsql_selectdistinct.html" id="sqlSelectDistinct">Select Distinct</a>
+                    </li>
+
+                    <li><a href="../Oracle/orclsql_where.html" id="sqlWhere">Where</a></li>
+                    <li><a href="../Oracle/orclsql_groupby.html" id="sqlGroupBy">Group
+                            By</a></li>
+                    <li><a href="../Oracle/orclsql_having.html" id="sqlHaving">Having</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_orderby.html" id="sqlOrderBy">Order
+                            By</a></li>
+                    <li><a href="../Oracle/orclsql_logicaloperators.html" id="sqlLogicalOperators">Logical
+                            Operators</a></li>
+                    <li><a href="../Oracle/orclsql_and.html" id="sqlAnd">And</a></li>
+                    <li><a href="../Oracle/orclsql_or.html" id="sqlOr">Or</a></li>
+                    <li><a href="../Oracle/orclsql_between.html" id="sqlBetween">Between</a></li>
+                    <li><a href="../Oracle/orclsql_in.html" id="sqlIn">In</a></li>
+                    <li><a href="../Oracle/orclsql_exists.html" id="sqlExists">EXISTS</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_not.html" id="sqlNot">Not</a></li>
+                    <!--  <li><a href="../Oracle/orclsql_null.html" id="sqlNull">Null</a></li> -->
+
+                    <li><a href="../Oracle/orclsql_isnull.html" id="sqlIsNull">IS
+                            Null / IS Not
+                            Null</a>
+                    </li>
+
+                    <li><a href="../Oracle/orclsql_like.html" id="sqlLike">Like</a></li>
+                    <li><a href="../Oracle/orclsql_dual.html" id="sqlDual">Dual Table</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_case.html" id="sqlCase">CASE</a></li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html" id="sqlCompOperators">Comparison
+                            Operators</a> </li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html?topic=sqlEqual" id="sqlEqual">Equal =
+                        </a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html?topic=sqlNotEqual" id="sqlNotEqual">Not
+                            equal != or <> </a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than < </a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThan"
+                            id="sqlGreaterThan">Greater than > </a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html?topic=sqlLessThan" id="sqlLessThan">Less
+                            than or
+                            equal to <= </a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_ComparisonOperators.html?topic=sqlGreaterThanOrEqualTo"
+                            id="sqlGreaterThanOrEqualTo">Greater than or
+                            equal to >=</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_all.html" id="sqlAll">ALL</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_any.html" id="sqlAny">Any</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="../Oracle/orclsql_joins.html" id="sqlJoins">Joins</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_innerjoin.html" id="sqlInnerJoin">Inner
+                            Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_leftouterjoin.html" id="sqlLeftJoin">Left
+                            Outer Join</a>
+
+                    <li><a href="../Oracle/orclsql_rightjoin.html" id="sqlRightJoin">Right
+                            Outer Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_fullouterjoin.html" id="sqlFullOuterJoin">Full Outer Join</a>
+                    </li>
+                    </li>
+                    <li><a href="../Oracle/orclsql_crossjoin.html" id="sqlCrossJoin">Cross
+                            Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_selfjoin.html" id="sqlSelfJoin">Self
+                            Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_naturaljoin.html" id="sqlNaturalJoin">Natural Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_equijoin.html" id="sqlEquiJoin">Equi
+                            Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_nonequijoin.html" id="sqlNonEquiJoin">Non-Equi Join</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html" id="sqlNumaricFunctions">Numeric
+                            Functions</a></li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlAbsSign" id="sqlAbsSign">Abs(x),
+                            Sign</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlBitand" id="sqlBitand">BITAND(x,y)</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlCeil" id="sqlCeil">Ceil</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlExp" id="sqlExp">Exp</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlFloorRound" id="sqlFloorRound">Floor,
+                            Round</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlLnLog"
+                            id="sqlLnLog">LN(n),LOG(m,n)</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlMod" id="sqlMod">Mod</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlRemainder"
+                            id="sqlRemainder">REMAINDER(n1,n2)</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlSqrt" id="sqlSqrt">Sqrt(x)</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlTrunc" id="sqlTrunc">Trunc</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlSinCosTan" id="sqlSinCosTan">SIN(n),
+                            COS(n),
+                            TAN(n)</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=sqlAsin" id="sqlAsinAcos">ASIN(n),
+                            ACOS(n) </a> </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">SINH(n), COSH(n),
+                            TANH(n)</a> </li>
+                    <li><a href="../Oracle/orclsql_numericfunctions.html?topic=" id="sqlNull">ATAN(n),
+                            ATAN2(x,y)</a>
+                    </li>
+                    <ul>
+                        <li><a href="../Oracle/orclsql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic
+                                Operators</a></li>
+                        <li><a href="../Oracle/orclsql_relationaloperators.html" id="sqlRelationalOperators">Relational
+                                Operators</a></li>
+
+                    </ul>
+                    <li><a href="../Oracle/orclsql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation
+                            Functions</a>
+                    </li>
+
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlAvg" id="sqlAvg">AVG</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlCount" id="sqlCount">Count(x)</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlMax" id="sqlMax">MAX</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlMin" id="sqlMin">MIN</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlMedian" id="sqlMedian">MEDIAN</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlStddev" id="sqlStddev">STDDEV</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlSum" id="sqlSum">SUM</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_aggregationfunctions.html?topic=sqlVariance"
+                            id="sqlVariance">VARIANCE</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html" id="sqlstringfunctions">String
+                            Functions</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlAscii" id="sqlAscii">ASCII</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlChar" id="sqlChar">CHAR(n)</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlconcat" id="sqlconcat">CONCAT</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlInitcap" id="sqlInitcap">INITCAP</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlInstr" id="sqlInstr">INSTR</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlLength" id="sqlLength">Length</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlLowerUpper" id="sqlLowerUpper">Lower,
+                            Upper</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlLpadRpad" id="sqlLpadRpad">Lpad,
+                            Rpad</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlTrim" id="sqlTrim">Trim, RTrim,
+                            LTrim</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_COUNT"
+                            id="sqlREGEXP_COUNT">REGEXP_COUNT</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_INSTR"
+                            id="sqlREGEXP_INSTR">REGEXP_INSTR</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_LIKE"
+                            id="sqlREGEXP_LIKE">REGEXP_LIKE</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlReplace" id="sqlReplace">REPLACE</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_REPLACE"
+                            id="sqlREGEXP_REPLACE">REGEXP_REPLACE</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlSubstr" id="sqlSubstr">SUBSTR</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlREGEXP_SUBSTR"
+                            id="sqlREGEXP_SUBSTR">REGEXP_SUBSTR</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlSOUNDEX" id="sqlSOUNDEX">SOUNDEX</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlTranslate"
+                            id="sqlTranslate">TRANSLATE</a></li>
+                    <li><a href="../Oracle/orclsql_stringfunctions.html?topic=sqlVSIZE" id="sqlVSIZE">VSIZE</a></li>
+
+                    <li><a href="../Oracle/orclsql_subqueries.html" id="sqlSubqueries">Sub
+                            Queries</a></li>
+                    <li><a href="../Oracle/orclsql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated
+                            Sub Queries</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="../Oracle/orclsql_timestampfunctions.html" id="sqlTimestampFunctions">Timestamp
+                            Functions</a></li>
+                    <li><a href="../Oracle/orclsql_timeintervalfunctions.html" id="sqlTimeIntervalFunctions">Time
+                            Interval Functions</a></li>
+                    <li><a href="../Oracle/orclsql_timezonefunctions.html" id="sqlTimeZoneFunctions">Time Zone
+                            Functions</a></li>
+                </ul>
+
+                <h2>Table</h2>
+                <ul>
+                    <li><a href="../Oracle/orclsql_create.html" id="sqlCreateTable">Create
+                            Table</a></li>
+                    <li><a href="../Oracle/orclsql_insert.html" id="sqlinsert">INSERT</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_update.html" id="sqlupdate">UPDATE</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_delete.html" id="sqldelete">DELETE</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_alter.html" id="sqlinsert">ALTER</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_truncate.html" id="sqltruncate">TRUNCATE</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_returning.html" id="sqlreturning">RETURNING</a></li>
+                    <li><a href="../Oracle/orclsql_merge.html" id="sqlmerge">MERGE</a></li>
+                    <li><a href="../Oracle/orclsql_rename.html" id="sqlrename">RENME</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_drop.html" id="sqldrop">DROP</a></li>
+                </ul>
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="../Oracle/orclsql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="../Oracle/orclsql_unionall.html" id="sqlUnionall">Union
+                            All</a></li>
+                    <li><a href="../Oracle/orclsql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="../Oracle/orclsql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <ul>
+                    <li><a href="../Oracle/orclsql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="../Oracle/orclsql_notnull.html" id="sqlNotnull">Not
+                            Null</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_unique.html" id="sqlUnique">Unique</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_primarykey.html" id="sqlPrimarykey">Primary
+                            Key</a></li>
+                    <li><a href="../Oracle/orclsql_foreginkey.html" id="sqlForeignkey">Foreign
+                            Key</a></li>
+                    <li><a href="../Oracle/orclsql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="../Oracle/orclsql_default.html" id="sqlDefault">Default</a>
+                    </li>
+                    <li><a href="../Oracle/orclsql_readonly.html" id="sqlReadOnly">Read
+                            Only</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="../Oracle/orclsql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="../Oracle/orclsql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="../Oracle/orclsql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="../Oracle/orclsql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="../Oracle/orclsql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a>
+                    </li>
+                </ul>
+                <h2>Analytical Functions</h2>
+                <ul>
+                    <li><a href="../Oracle/orclAnalyticalFunctions.html?topic=sqlRankingFunctions "
+                            id="sqlRankingFunctions">Ranking Functions</a>
+                    </li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlRownum" id="sqlRownum">ROWNUM</a></li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlRownumber"
+                            id="sqlRownumber">ROW_NUMBER</a></li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlRank" id="sqlRank">RANK</a></li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlDenseRank"
+                            id="sqlDenseRank">DENSE_RANK</a></li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlPersentRank"
+                            id="sqlPersentRank">PERCENT_RANK()</a></li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlCumeDist" id="sqlCumeDist">CUME_DIST</a>
+                    </li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlNtile" id="sqlNtile">NTILE</a></li>
+                    <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlNthValue" id="sqlNthValue">NTH_VALUE()</a>
+                    </li>
+
+                    <h2>Group By Functions</h2>
+                    <li><a href="../Oracle/orclGroupfunctions.html" id="sqlGroupFunctions">Group By Functions</a>
+                    </li>
+                    <li><a href="../Oracle/orclGroupfunctions.html?topic=sqlPartitionby" id="sqlPartitionby">PARTITION
+                            BY</a></li>
+                    <li><a href="../Oracle/orclGroupfunctions.html?topic=sqlCube" id="sqlCube">CUBE</a></li>
+                    <li><a href="../Oracle/orclGroupfunctions.html?topic=sqlRollup" id="sqlRollup">ROLLUP</a></li>
+                    <li><a href="../Oracle/orclGroupfunctions.html?topic=sqlGrouping" id="sqlGrouping">GROUPING</a>
+                    </li>
+                    <li><a href="../Oracle/orclGroupfunctions.html?topic=sqlGroupingId"
+                            id="sqlGroupingId">GROUPING_ID</a></li>
+                    <li><a href="../Oracle/orclGroupfunctions.html?topic=sqlGroupId" id="sqlGroupId">GROUP_ID</a>
+                    </li>
+
+                    <li><a href="../Oracle/orclsqlInversePercentileFunctions.html"
+                            id="sqlInversePercentileFunctions">Inverse Percentile Functions</a></li>
+                    <li><a href="../Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+                    <li><a href="../Oracle/orclsqlWindowFunctions.html" id="sqlWindowFunctions">Window Functions</a>
+                    </li>
+
+
+                    <li><a href="../Oracle/orclsql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="../Oracle/orclsql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="../Oracle/orclsql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="../Oracle/orclsql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="../Oracle/orclsql_insertinto_select.html" id="sqlInsertintoselect">Insert into
+                            Select</a></li>
+                    <li><a href="../Oracle/orclsql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="../Oracle/orclsql_decode.html" id="sqlDecode">Decode</a>
+                    </li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+        <main class="sidebar-content" data-topic="sqlCase">
+
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+            <br>
+
+            <h1>TCL (Transaction Control Language) in Oracle SQL</h1>
+            <p>TCL commands are used to manage changes made by DML statements (INSERT, UPDATE, DELETE) in a transaction.
+            </p> <br>
+
+            <ul>
+                <li>They help you commit (save) or rollback (undo) those changes in the database.</li>
+                <li>A transaction is a group of operations that are treated as a single unit of work.</li>
+                <li>It is a set of SQL commands used to manage transactions in a database. A transaction is a group of
+                    SQL operations that are executed as a single unit of work.</li>
+                <li>If all the operations in a transaction succeed, the transaction is saved permanently. If something
+                    goes wrong, you can undo all changes made during that transaction.</li>
+            </ul> <br>
+            <h2>Purpose / Importance of TCL in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose / Importance</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Data Integrity</b></td>
+                        <td>Ensures that only valid and consistent data is saved to the database by grouping related
+                            operations into a single transaction.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Error Recovery</b></td>
+                        <td>Allows you to undo changes made during a transaction if an error occurs, using
+                            <b>ROLLBACK</b>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Atomicity</b></td>
+                        <td>Guarantees that all operations within a transaction are completed successfully, or none are
+                            applied at all.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Consistency</b></td>
+                        <td>Keeps the database in a consistent state before and after a transaction.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Control Over Changes</b></td>
+                        <td>Gives you the ability to <b>COMMIT</b> (save) or <b>ROLLBACK</b> (undo) changes, providing
+                            flexibility and control over data modifications.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Savepoints</b></td>
+                        <td>Enables partial rollbacks to specific points within a transaction using <b>SAVEPOINT</b>,
+                            making error handling more granular.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Concurrency Control</b></td>
+                        <td>Helps manage concurrent access to the database, ensuring that multiple transactions can
+                            occur without conflicts.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Optimization</b></td>
+                        <td>Allows you to group multiple DML operations into a single transaction, reducing the overhead
+                            of committing each operation individually.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Safe Testingts</b></td>
+                        <td>Allows testing of data changes before making them permanent.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>TCL Commands in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>TCL Command</th>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>COMMIT</b></td>
+                        <td>Save changes</td>
+                        <td>Saves all changes made in the current transaction permanently to the database.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ROLLBACK</b></td>
+                        <td>Undo changes</td>
+                        <td>Undoes all changes made in the current transaction since the last COMMIT or ROLLBACK.</td>
+                    </tr>
+                    <tr>
+                        <td><b>SAVEPOINT</b></td>
+                        <td>Set a savepoint</td>
+                        <td>Sets a point within a transaction to which you can later roll back, without affecting prior
+                            work.</td>
+                    </tr>
+                    <tr>
+                        <td><b>SET TRANSACTION</b></td>
+                        <td>Set transaction properties</td>
+                        <td>Specifies characteristics for the current transaction, such as read consistency or isolation
+                            level.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Default Behavior in Oracle</h2>
+            <ul>
+                <li>DML operations (INSERT, UPDATE, DELETE) are not permanent until you run COMMIT.</li>
+                <li>You can undo them using ROLLBACK before commit.</li>
+            </ul>
+            <br>
+            <!-- Add after the "Default Behavior in Oracle" section -->
+            <h2>Common Errors When Using TCL in Oracle</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error / Issue</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-01086: savepoint never established</td>
+                        <td>You tried to ROLLBACK TO a savepoint that does not exist in the current transaction.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01093: COMMIT or ROLLBACK not allowed in a trigger</td>
+                        <td>COMMIT or ROLLBACK statements are not permitted inside triggers.</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-01453: SET TRANSACTION must be first statement of transaction</td>
+                        <td>You issued SET TRANSACTION after DML or other statements; it must be the first statement in
+                            a transaction.</td>
+                    </tr>
+                    <tr>
+                        <td>Changes lost due to missing COMMIT</td>
+                        <td>If you forget to COMMIT, changes may be lost if the session ends or you issue a ROLLBACK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unintended data changes due to auto-commit</td>
+                        <td>Some tools (like SQL Developer) may auto-commit by default, making ROLLBACK ineffective.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ROLLBACK undoes all changes since last COMMIT</td>
+                        <td>ROLLBACK will undo all uncommitted changes, not just the last statement, unless you use
+                            SAVEPOINT.</td>
+                    </tr>
+                    <tr>
+                        <td>Using TCL with DDL statements</td>
+                        <td>DDL statements (CREATE, ALTER, DROP) auto-commit in Oracle, so TCL commands do not affect
+                            them.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>Do’s and Don’ts of TCL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Always use COMMIT after successful DML operations.</td>
+                        <td>Don't forget to ROLLBACK if an error occurs before COMMIT.</td>
+                    </tr>
+                    <tr>
+                        <td>Use SAVEPOINT to create restore points within a transaction.</td>
+                        <td>Don't use COMMIT or ROLLBACK inside triggers.</td>
+                    </tr>
+                    <tr>
+                        <td>Test your transactions in a safe environment before applying them to production.</td>
+                        <td>Don't assume changes are permanent without a COMMIT.</td>
+                    </tr>
+                    <tr>
+                        <td>Use SET TRANSACTION to define transaction properties when needed.</td>
+                        <td>Don't mix DDL and TCL commands in the same transaction.</td>
+                    </tr>
+                </tbody><br>
+            </table><br>
+            <h2>Do's and Don'ts of TCL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use COMMIT only after verifying all changes</td>
+                        <td>Don’t forget to commit — changes will be lost</td>
+                    </tr>
+                    <tr>
+                        <td>Use SAVEPOINT for long or complex transactions</td>
+                        <td>Don’t assume ROLLBACK will work after COMMIT</td>
+                    </tr>
+                    <tr>
+                        <td>Use TCL to protect data integrity</td>
+                        <td>Don’t use TCL on DDL — it’s auto-committed</td>
+                    </tr>
+                    <tr>
+                        <td>Rollback if you catch an error in the transaction</td>
+                        <td>Don’t commit partial or unverified data</td>
+                    </tr>
+                    <tr>
+                        <td>Use clear, meaningful savepoint names</td>
+                        <td>Don’t reuse savepoint names carelessly</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Best Practices When Using TCL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Best Practice</th>
+                        <th>Why It’s Important</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Commit regularly</b></td>
+                        <td>Prevents loss of important work during session disconnects</td>
+                    </tr>
+                    <tr>
+                        <td><b>Group logical changes in one transaction</b></td>
+                        <td>Maintains data consistency and integrity</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use SAVEPOINT in long transactions</b></td>
+
+                        <td>Allows partial rollback without discarding all changes</td>
+                    </tr>
+                    <tr>
+                        <td><b>Log significant transactions</b></td>
+                        <td>Helps in tracking and debugging</td>
+                    </tr>
+                    <tr>
+                        <td><b>Always test before COMMIT</b></td>
+                        <td>Ensures that only clean, error-free data is saved</td>
+                    </tr>
+                    <tr>
+                        <td><b>Handle exceptions in PL/SQL with rollback</b></td>
+                        <td>Protects data in case of run-time failures</td>
+                    </tr>
+                </tbody>
+            </table><br> <br> <br>
+            <h1>COMMIT in Oracle SQL</h1>
+            <p>COMMIT is a Transaction Control Language (TCL) command used to permanently save all the changes made
+                by DML operations (INSERT, UPDATE, DELETE) during the current transaction.</p><br>
+            <p> Once a COMMIT is issued, the changes are made visible to all other users, and you cannot undo them
+                using ROLLBACK.</p> <br>
+            <p>Once you run COMMIT, your changes:</p>
+            <ul>
+                <li>Become visible to other users.</li>
+                <li>Cannot be undone using ROLLBACK</li>
+                <li>Are stored permanently in the database</li>
+            </ul><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">COMMIT </span> 
+                     <b>;</b> <br>
+                     -- You don’t need to specify anything else — just run it when you're ready to save your changes.
+                     
+                        </code>
+            </div><br>
+            <h2>Purpose of COMMIT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Permanency</b></td>
+                        <td>Saves all work done so far in a transaction</td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                                Data Sharing </b>
+                        </td>
+                        <td>Makes your changes visible to other users</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Ends Transaction</b>
+                        </td>
+                        <td>Ends the current transaction and starts a new one automatically</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b> Locks Released</b>
+                        </td>
+                        <td>Releases any locks held on the rows by your session</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Properties of COMMIT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Irreversible</b></td>
+                        <td>Once committed, changes cannot be undone</td>
+                    </tr>
+                    <tr>
+                        <td><b>Session-Based</b></td>
+                        <td>Only affects the current session’s changes</td>
+                    </tr>
+                    <tr>
+                        <td><b>Auto-Starts Next Transaction</b></td>
+                        <td>New transaction begins immediately after COMMIT</td>
+                    </tr>
+                    <tr>
+                        <td><b>DDL Implication</b></td>
+                        <td>Any CREATE, DROP, ALTER auto-commits changes</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>When to Use COMMIT</h2>
+            <p>You should use COMMIT: </p>
+            <ul>
+                <li>After completing a logical unit of work.</li>
+                <li>When you're sure your changes are correct.</li>
+                <li>Before releasing control to other users or applications.</li>
+            </ul><br>
+            <h2>Behavior of COMMIT</h2>
+            <ul>
+                <li>Releases row-level locks.</li>
+                <li>Ends the current transaction.</li>
+                <li>Starts a new transaction automatically.</li>
+                <li>Makes all changes made by the transaction permanent.</li>
+            </ul><br>
+            <h2>Real-Time Scenarios Using COMMIT</h2>
+            <p><b>Scenario 1: </b> Simple Insert with COMMIT.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> employees (emp_id, name, department) <br>
+                    <span class="orclkey"> VALUES </span> (101, <span class="orclg">'Alice'</span>,
+                     <span class="orclg">'HR'</span>) <b>;</b> <br><br>
+                    <span class="orclkey">COMMIT </span> 
+                     <b>;</b> <br><br>
+                     -- Now, all users can see this new row.
+                        </code>
+            </div><br>
+            <p><b>Scenario 2: </b> Updating Data and Committing.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">UPDATE </span> employees  <br>
+                    <span class="orclkey"> SET </span> department = <span class="orclg">'Finance'</span>
+                    <span class="orclkey">WHERE</span> emp_id = 101  <b>;</b> <br><br>
+                    <span class="orclkey">COMMIT </span> 
+                     <b>;</b> <br><br>
+                     -- This makes the department update permanent and visible to others.
+                        </code>
+            </div><br>
+            <p><b>Scenario 3: Insert + Update + Delete + Commit Together.</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">INSERT INTO </span> employees  <br>
+                    <span class="orclkey"> VALUES </span> (102, <span class="orclg">'Bob'</span>, 
+                    <span class="orclg">'IT'</span> ) <b>;</b> <br><br>
+                    <span class="orclkey">UPDATE </span> employees  <br>
+                    <span class="orclkey"> SET </span> department = <span class="orclg">'Admin'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 102  <b>;</b> <br><br>
+                    <span class="orclkey">DELETE FROM </span> employees <span class="orclkey">WHERE</span> 
+                    emp_id = 100  <b>;</b> -- removing old record <br><br>
+                    <span class="orclkey">COMMIT </span> 
+                     -- All these DML changes are committed as one logical unit. Either all changes are saved, or if you had rolled back earlier, all would be undone.
+                        </code>
+            </div><br>
+            <p><b>Scenario 4: Without COMMIT (Changes Lost).</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">UPDATE </span> employees  <br>
+                    <span class="orclkey"> SET </span> department = <span class="orclg">'R&D'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 102  <b>;</b> <br><br>
+                    <span class="orclkey">DELETE FROM </span> employees <span class="orclkey">WHERE</span> 
+                    emp_id = 103  <b>;</b> <br><br>
+                    -- Forgot to write COMMIT <br>
+                    -- Session crashes or user closes tool <br>
+                     -- Changes are lost because COMMIT wasn’t issued.
+                        </code>
+            </div><br>
+            <p><b>Scenario 5: COMMIT in a PL/SQL Block.</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">BEGIN </span> 
+                    <ul>
+                        <span class="orclkey">INSERT INTO </span> employees  <br>
+                    <span class="orclkey"> VALUES </span> (104, <span class="orclg">'Charlie'</span>, 
+                    <span class="orclg">'Legal'</span> ) <b>;</b> <br>
+                    <span class="orclkey">COMMIT </span> 
+                     <b>;</b> <br>
+                    </ul>
+                    <span class="orclkey">END </span> 
+                     <b>;</b><br>
+                     / <br>
+                    -- Useful when you want to commit changes inside procedures or anonymous blocks. <br>
+                        </code>
+            </div><br>
+            <p><b>Real-Time Example: Bank Transfer</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">BEGIN </span> 
+                    <ul>
+                        <span class="orclkey">UPDATE </span> accounts  <br>
+                    <span class="orclkey"> SET </span> balance = balance - 1000<br>
+                    <span class="orclkey">WHERE</span> account_id = 1  <b>;</b> <br> <br>
+                    <span class="orclkey">UPDATE </span> accounts  <br>
+                    <span class="orclkey"> SET </span> balance = balance + 1000<br>
+                    <span class="orclkey">WHERE</span> account_id = 2  <b>;</b> <br>
+                    </ul>
+                    <span class="orclkey">COMMIT </span> 
+                     -- Finalizes the transfer
+                     <b>;</b><br>
+                    </ul>
+                    <span class="orclkey">END </span> 
+                     <b>;</b><br>
+                     / 
+                        </code>
+            </div><br>
+            <p>If any issue had occurred, you could do:</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ROLLBACK </span> <b>
+                        ;
+                    </b> <br><br>
+                    -- But once COMMIT is issued, you cannot go back.
+                        </code>
+            </div><br>
+            <h2>COMMIT vs DDL (Important)</h2>
+            <p>Oracle automatically commits any DDL statement.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">CREATE TABLE </span> dept_backup 
+                    <span class="orclkey">AS SELECT </span> * 
+                    <span class="orclkey"> FROM </span> departments
+                    <b> ; </b> <br>
+                    -- Auto-committed, no need for explicit COMMIT <br> <br>
+                    <span class="orclkey">DROP TABLE </span> employees <b> ;</b> <br>
+                    -- Auto-committed, no need for explicit COMMIT <br> <br>
+                    -- You cannot ROLLBACK a DROP, ALTER, or CREATE.
+                                                </code>
+            </div><br>
+            <h2>Internal Actions Triggered by COMMIT</h2>
+            <p>When you issue COMMIT:</p>
+            <ul>
+                <li>
+                    Oracle writes the data from the redo log buffer to the online redo log files.
+                </li>
+                <li>Releases any locks held by the session.</li>
+                <li>Clears undo information.</li>
+            </ul> <br>
+            <h2>Viewing Pending (Uncommitted) Transactions</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> * 
+                    <span class="orclkey"> FROM </span> v$transaction
+                    <b> ; </b> <br>
+                    -- You can also check DBA_BLOCKERS, DBA_WAITERS, and V$SESSION to troubleshoot locking and transaction issues.
+                                                </code>
+            </div><br>
+            <h2>Common Errors / Misunderstandings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Scenario</th>
+                        <th>Error Message</th>
+                        <th>Resolution / Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Committing incorrect or unverified data</td>
+                        <td>(No error — data gets saved)</td>
+                        <td>Always validate your data before issuing COMMIT. Use SELECT statements or test
+                            environments to review changes.</td>
+                    </tr>
+                    <tr>
+                        <td>Trying to ROLLBACK after COMMIT</td>
+                        <td>(No error — but rollback has no effect)</td>
+                        <td>Understand that COMMIT is final. Plan carefully before committing, especially in
+                            scripts.</td>
+                    </tr>
+                    <tr>
+                        <td>Assuming SELECT needs COMMIT</td>
+                        <td>(No error — COMMIT has no effect) </td>
+                        <td>SELECT queries do not require COMMIT, since they don’t change data. No fix needed — just
+                            awareness.</td>
+                    </tr>
+                    <tr>
+                        <td>Committing in the middle of a faulty process</td>
+                        <td>(No error, but results in partial/incorrect data)</td>
+                        td
+                        Avoid committing too early. Wait until entire transaction (all DML steps) are completed
+                        successfully.
+                    </tr>
+                    <tr>
+                        <td>Auto-commit settings in tools like SQL Developer</td>
+                        <td>(No error, but implicit commits occur)</td>
+                        <td>Turn off auto-commit in SQL Developer, TOAD, etc., for better control. This setting can
+                            lead to unintended commits.</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction committed accidentally in script</td>
+                        <td>(No error, but transaction is saved)</td>
+                        <td>Review scripts to avoid placing COMMIT statements automatically. Use conditional logic
+                            in PL/SQL where needed.</td>
+                    </tr>
+                    <tr>
+                        <td>Committing before exception handling in PL/SQL</td>
+                        <td>ORA-06510 or other unhandled exceptions after commit</td>
+                        <td>Structure PL/SQL blocks to handle exceptions before committing, or commit only when no
+                            errors occur.</td>
+                    </tr>
+                    <tr>
+                        <td>Trying to commit read-only transactions</td>
+                        <td>ORA-01456: may not perform insert/delete/update operation inside a READ ONLY transaction
+                        </td>
+                        <td>Change transaction mode using SET TRANSACTION READ WRITE or check user privileges.</td>
+                    </tr>
+                    <tr>
+                        <td>Expecting COMMIT to make DDL changes reversible</td>
+                        <td>(No error — but DDL is auto-committed)</td>
+                        <td>Understand that DDL auto-commits, so COMMIT or ROLLBACK won’t affect those. Use with
+                            caution in mixed scripts.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Best Practices for COMMIT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Best Practice</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use after successful data validation</td>
+                        <td>Prevents saving wrong or incomplete data</td>
+                    </tr>
+                    <tr>
+                        <td>Group logical operations in one transaction</td>
+                        <td>Maintains data integrity</td>
+                    </tr>
+                    <tr>
+                        <td>Use COMMIT in exception handling wisely</td>
+                        <td>Prevents committing in error conditions</td>
+                    </tr>
+                    <tr>
+                        <td>Avoid unnecessary commits in large batch jobs</td>
+                        <td>Too many commits can slow performance</td>
+                    </tr>
+                    <tr>
+                        <td>Log critical commits for audit trails in production systems</td>
+                        <td>Helps in tracking issues</td>
+                    </tr>
+                </tbody>
+            </table> <br><br><br>
+            <h1>ROLLBACK in Oracle SQL</h1>
+            <p>ROLLBACK is a TCL (Transaction Control Language) command used to undo changes made by DML statements
+                (INSERT, UPDATE, DELETE) in the current transaction, since the last COMMIT or a SAVEPOINT.</p> <br>
+            <p>It is like an "Undo" button — it reverts the database to its previous stable state before the
+                transaction began or to a specified SAVEPOINT.</p><br>
+            <p><b>Syntax</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">ROLLBACK </span> <b>
+                        ;
+                    </b> <br>
+                    -- -- Undo all uncommitted changes. <br><br>
+                    <span class="orclkey">ROLLBACK TO SAVEPOINT </span> savepoint_name<b>
+                        ;
+                    </b> <br>-- Undo changes after a savepoint.
+                        </code>
+            </div><br>
+            <h2>How ROLLBACK Works</h2>
+            <ul>
+                <li>Oracle uses undo segments to store the before image of rows.</li>
+                <li>ROLLBACK reverts the data using these undo records.</li>
+                <li>It releases locks held by the session after rollback.</li>
+            </ul> <br>
+            <h2>Purpose of ROLLBACK</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Undo Changes</b></td>
+                        <td>Cancels uncommitted DML operations</td>
+                    </tr>
+                    <tr>
+                        <td><b>Error Recovery</b></td>
+                        <td>Helps recover from logical errors or incorrect updates</td>
+                    </tr>
+                    <tr>
+                        <td><b>Protect Data Integrity</b></td>
+                        <td>Ensures wrong data doesn’t get saved</td>
+                    </tr>
+                    <tr>
+                        <td><b>Partial Undo</b></td>
+                        <td>Can roll back to a specific point using SAVEPOINT</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Properties of ROLLBACK</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Session-Specific</b></td>
+                        <td>Only affects changes made in the current session.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Only Works Before COMMIT</b></td>
+                        <td>Once committed, data cannot be rolled back</td>
+                    </tr>
+                    <tr>
+                        <td><b>Auto-Rollback on Exit</b></td>
+                        <td>If session ends without COMMIT, Oracle auto-rolls back.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Releases Locks</b></td>
+                        <td>Frees all row-level locks held by your session</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Real-Time Scenarios Using ROLLBACK</h2>
+            <p><b>Scenario 1: Rollback Entire Transaction</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">UPDATE </span> employees
+                    <ul>
+                    <span class="orclkey"> SET </span> department = <span class="orclg">'Test'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 105  <b>;</b> <br> <br>
+                    <span class="orclkey">DELETE FROM </span> employees  <br>
+                    <span class="orclkey">WHERE</span> emp_id = 100  <b>;</b> 
+                    </ul><br><br>
+                    -- Realize there was a mistake <br>
+                    <span class="orclkey">ROLLBACK </span> 
+                     <b>;</b><br><br>
+                     -- Both changes are undone, and data is back to its original state.
+                            </code>
+            </div><br>
+            <p><b>Scenario 2: Rolling Back After an Insert.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">INSERT INTO </span> employees  <br>
+                    <span class="orclkey"> VALUES </span> (106, <span class="orclg">'Uday'</span>, 
+                    <span class="orclg">'IT'</span> ) <b>;</b> <br>
+                    <span class="orclkey">ROLLBACK </span> 
+                     <b>;</b> <br><br>
+                     --Now, emp_id = 106 will not exist in the table — the insert was undone.
+                        </code>
+            </div><br>
+            <p><b>Scenario 3: Using ROLLBACK TO SAVEPOINT</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SAVEPOINT  </span> pointA  <b>;</b><br> <br>
+                        <span class="orclkey">UPDATE </span> employees
+                        <span class="orclkey"> SET </span> department = <span class="orclg">'R&D'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 101  <b>;</b> <br> <br>
+                    <span class="orclkey">SAVEPOINT  </span> pointB  <b>;</b><br> <br>
+                    <span class="orclkey">UPDATE </span> employees
+                        <span class="orclkey"> SET </span> name = <span class="orclg">'harsha'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 101  <b>;</b> <br> <br>
+                    <span class="orclkey"> ROLLBACK TO SAVEPOINT </span>  pointA<b>;</b> <br><br>
+                    
+                     --Only changes after pointA are undone. department = 'R&D' remains, but name = 'harsha' is reverted.
+                        </code>
+            </div><br>
+            <p><b>Scenario 4: Session Closes Before COMMIT.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">UPDATE </span> employees
+                        <span class="orclkey"> SET </span> department = <span class="orclg">'HR'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 102  <b>;</b> <br> <br>
+                    
+                     -- Oracle automatically ROLLBACKs since no COMMIT was issued.                   
+
+                        </code>
+            </div><br>
+            <p><b>Scenario 5: Using ROLLBACK in a PL/SQL Block (Error Handling).</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">BEGIN </span>
+                        <ul>
+                            <span class="orclkey">INSERT INTO </span> employees  <br>
+                    <span class="orclkey"> VALUES </span> (107, <span class="orclg">'vardhan'</span>, 
+                    <span class="orclg">'Admin'</span> ) <b>;</b> <br><br>
+                    -- Simulate error <br>
+                    <span class="orclkey">RAISE_APPLICATION_ERROR </span>( -20001, <span class="orclg">'Error occurred'</span> )<b>;</b> <br><br>
+                        </ul>
+                        <span class="orclkey">EXCEPTION </span>
+                        <ul>
+                             <span class="orclkey"> WHEN  </span>OTHERS  <span class="orclkey">THEN</span> <br>
+                             <span class="orclkey">ROLLBACK</span> <b>;</b> <br>
+                                <span class="orclkey">DBMS_OUTPUT.PUT_LINE </span>(<span class="orclg">'Transaction rolled back due to error'</span>)<b>;</b> <br>
+                        </ul>
+                        <span class="orclkey">END </span> <b>;</b><br>
+                        / <br>
+                        -- This prevents bad or partial data from being saved.
+
+                        </code>
+            </div><br>
+            <p><b>Scenario 6: ROLLBACK in PL/SQL Block.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">BEGIN </span>
+                        <ul>
+                            <span class="orclkey">DELETE FROM </span> employees  <br>
+                    <span class="orclkey"> WHERE </span> department =  <span class="orclg">'TestDept'</span><b>;</b> <br><br>
+                    <span class="orclkey">IF SQL%ROWCOUNT  </span> = 0<span class="orclkey">THEN</span> <br>
+                    <ul>
+                    <span class="orclkey">ROLLBACK</span> <b> ; </b>
+                    </ul>
+                    <span class="orclkey">ELSE</span> 
+                    <ul>
+                    <span class="orclkey">COMMIT</span> <b> ; </b>
+                    </ul>
+                    <span class="orclkey">END IF </span> <b>;</b><br>
+                        </ul>
+                        <span class="orclkey">END </span>
+                        
+                        -- If no rows were deleted, changes are rolled back.
+                        </code>
+            </div><br>
+            <h2>System View to Monitor Transactions</h2>
+            <p>You can check uncommitted transactions.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> s.sid, s.serial#, t.status <br>
+                    <span class="orclkey"> FROM </span> v$session s <br>
+                    <span class="orclkey"> JOIN </span> v$transaction t <br>
+                    <span class="orclkey"> ON </span> s.saddr = t.ses_addr 
+                    <b> ; </b> <br>
+                        </code>
+            </div><br>
+            <h2>Common Mistakes / Errors with ROLLBACK</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Scenario</th>
+                        <th>Error Message</th>
+                        <th>Resolution / Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>ROLLBACK after COMMIT</b></td>
+                        <td>(No error message) - but nothing is rolled back</td>
+                        <td>Understand that ROLLBACK has no effect after a COMMIT. Make sure to verify data
+                            before
+                            committing.</td>
+                    </tr>
+                    <tr>
+                        <td><b>ROLLBACK TO invalid SAVEPOINT</b></td>
+                        <td>ORA-01086: savepoint 'XYZ' never established in this session or is invalid</td>
+                        <td>Make sure the savepoint exists before you try to roll back to it. Check spelling
+                            and
+                            case-sensitivity.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Expecting ROLLBACK to undo DDL (e.g., CREATE TABLE)</b></td>
+                        <td>(No error, but doesn’t rollback)</td>
+                        <td>Oracle auto-commits before/after DDL. You cannot rollback CREATE, DROP, or ALTER
+                            commands. Use DDL carefully.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Issuing ROLLBACK with no prior transaction</b></td>
+                        <td>(No error, no effect)</td>
+                        <td>If no DML (INSERT, UPDATE, DELETE) occurred, ROLLBACK will do nothing. This is
+                            normal.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>ROLLBACK inside an unhandled PL/SQL error block </b></td>
+                        <td>ORA-06510: PL/SQL: unhandled user-defined exception (or similar)</td>
+                        <td>Always use proper EXCEPTION handling inside PL/SQL to catch and rollback on errors.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Rollback fails due to lost connection</b></td>
+                        <td>ORA-03113: end-of-file on communication channel</td>
+                        <td>If the session is lost/crashed, Oracle auto-rolls back uncommitted changes. No
+                            manual
+                            action needed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Mixing TCL and DDL improperly</b></td>
+                        <td>No rollback of DML due to DDL auto-commit</td>
+                        <td>Avoid placing DDL (like CREATE, DROP) in the middle of DML unless changes are
+                            committed
+                            separately.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Rollback fails in read-only session</b></td>
+                        <td>ORA-01456: may not perform insert/delete/update operation inside a READ ONLY
+                            transaction
+                        </td>
+                        <td>Make sure you're not in SET TRANSACTION READ ONLY mode before DML. Change to READ
+                            WRITE
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Best Practices for Using ROLLBACK</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Best Practice</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use SAVEPOINT for long transactions</td>
+                        <td>Allows partial undo and flexibility</td>
+                    </tr>
+                    <tr>
+                        <td>Rollback in case of exceptions </td>
+                        <td>Keeps database clean and consistent</td>
+                    </tr>
+                    <tr>
+                        <td>Avoid auto-commit in dev tools</td>
+                        <td>Enables better control using ROLLBACK</td>
+                    </tr>
+                    <tr>
+                        <td>Log failed transactions</td>
+                        <td>Helps with debugging and audits</td>
+                    </tr>
+                    <tr>
+                        <td>Always test DML in safe environments first</td>
+                        <td>Prevents unnecessary rollbacks in production </td>
+                    </tr>
+
+                </tbody>
+            </table><br><br><br><br>
+            <h1>SAVEPOINT in Oracle SQL</h1>
+            <p>A SAVEPOINT is a named point within a transaction to which you can later ROLLBACK without undoing
+                the entire transaction. It provides partial rollback capability.</p><br>
+            <p>It allows you to partially rollback the transaction up to that point without affecting the
+                changes made before the savepoint.</p><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SAVEPOINT </span> savepoint_name <b>;</b> <br>
+                        <br>
+                        -- To rollback to a savepoint:  <br>
+                        <span class="orclkey"> ROLLBACK TO  </span> savepoint_name  <b>;</b> 
+
+                        </code>
+            </div><br>
+            <h2>When to Use SAVEPOINT</h2>
+            <ul>
+                <li>When your transaction has multiple DML operations.</li>
+                <li>When you want to rollback only a part of the transaction.</li>
+                <li>When you want to test operations step-by-step.</li>
+                <li>In complex PL/SQL blocks with conditional logic.</li>
+            </ul> <br>
+            <h2>Purpose of SAVEPOINT</h2>
+            <ul>
+                <li><b>Partial Undo:- </b> Allows undoing only a part of the transaction.</li>
+                <li><b>Safe Testing:- </b> Try risky updates between savepoints and undo if needed.</li>
+                <li><b>Logical Grouping:- </b> Break large transactions into smaller checkpoints.</li>
+                <li><b>No Auto-Rollback:- </b> SAVEPOINTs survive unless manually rolled back or transaction is
+                    committed.</li>
+            </ul><br>
+            <h2>Key Properties</h2>
+            <ul>
+                <li><b>Session-specific:- </b> SAVEPOINT is local to your session.</li>
+                <li><b>Lasts until COMMIT/ROLLBACK:- </b> All SAVEPOINTs are removed on COMMIT or full ROLLBACK.
+                </li>
+                <li><b>Can be reused:- </b> You can reassign a SAVEPOINT name; it will override the earlier one.
+                </li>
+                <li><b>Used with ROLLBACK TO:- </b> Only useful if you plan to roll back partially.</li>
+            </ul><br>
+            <h2>Rules and Behavior</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rule</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Multiple savepoints allowed</td>
+                        <td>Yes, in a single transaction</td>
+                    </tr>
+                    <tr>
+                        <td>Rollback to any savepoint</td>
+                        <td>Yes, selectively undo work</td>
+                    </tr>
+                    <tr>
+                        <td>Affects only changes after the savepoint</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Savepoints are released</td>
+                        <td>When you issue a COMMIT or full ROLLBACK</td>
+                    </tr>
+                    <tr>
+                        <td>Same name reused</td>
+                        <td>Old one is replaced with the new one</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Real-Time Scenarios Using SAVEPOINT</h2>
+            <p><b>Scenario 1: Basic SAVEPOINT Usage</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SAVEPOINT </span> sp_before_insert  <b>;</b><br>
+                        <span class="orclkey">INSERT INTO </span> employees  
+                    <span class="orclkey"> VALUES </span> (108, <span class="orclg">'uday'</span>, 
+                    <span class="orclg">'Finance'</span> ) <b>;</b> <br><br>
+                    <span class="orclkey">SAVEPOINT </span> sp_before_update  <b>;</b><br>
+                    <span class="orclkey">UPATE </span> employees   
+                    <span class="orclkey">SET</span>  department = <span class="orclg">'HR'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 108  <b>;</b> <br><br>
+                    <span class="orclkey">ROLLBACK TO SAVEPOINT </span> sp_before_insert<b>;</b> <br><br>
+                     -- This rolls back both INSERT and UPDATE, effectively removing the new record.
+                        </code>
+            </div><br>
+            <p><b>Scenario 2: Rollback only second action</b></p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">INSERT INTO </span> employees  <br>
+                    <span class="orclkey"> VALUES </span> (202, <span class="orclg">'Harsha'</span>, 
+                    <span class="orclg">'IT'</span> ) <b>;</b> <br><br>
+                    <span class="orclkey">SAVEPOINT </span> emp_added     <b>;</b><br>
+                    <span class="orclkey">UPATE </span> employees   
+                    <span class="orclkey">SET</span> department = <span class="orclg">'Sales'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 202  <b>;</b> <br><br>
+                    <span class="orclkey">ROLLBACK TO </span> emp_added<b>;</b> <br><br>
+                     -- Only the update is rolled back. Insert stays and gets committed. <br>
+                     <span class="orclkey">SELECT </span> *
+                    <span class="orclkey">COMMIT</span> <b>;</b><br><br>
+                     -- Only the update is rolled back. Insert stays and gets committed.    
+                        </code>
+            </div><br>
+            <p><b>Scenario 3: Reusing Savepoint Name (Overwriting).</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SAVEPOINT </span> stage1 <b>;</b> <br>
+                        <span class="orclkey">UPATE </span> employees  
+                    <span class="orclkey">SET</span>  department = <span class="orclg">'A'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 101  <b>;</b> <br>  <br>
+                     <span class="orclkey">SAVEPOINT </span> stage1 <b>;</b> -- previous stage1 is now replaced.<br>
+                     <span class="orclkey">UPATE </span> employees   
+                    <span class="orclkey">SET</span>  department = <span class="orclg">'B'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 101  <b>;</b> <br>  <br> 
+                    
+                    <span class="orclkey">ROLLBACK TO </span> stage1 <b>;</b><br>
+                            
+                     -- Only the last update ('B') is rolled back. 'A' remains, as the original stage1 was overwritten.    
+                        </code>
+            </div><br>
+            <p><b>Scenario 4: Commit clears all SAVEPOINTs</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SAVEPOINT </span> point1 <b>;</b> <br>
+                        <span class="orclkey">UPATE </span> employees  
+                    <span class="orclkey">SET</span>  department = <span class="orclg">'Legal'</span><br>
+                    <span class="orclkey">WHERE</span> emp_id = 203  <b>;</b> <br>  <br>
+                    <span class="orclkey">COMMIT </span>  <b>;</b><br> <br>
+                    <span class="orclkey">ROLLBACK TO </span> point1 <b>;</b>
+                            
+                     -- Error: ORA-01086: savepoint 'POINT1' never established — because COMMIT removes all SAVEPOINTs.    
+                        </code>
+            </div><br>
+            <p><b>SAVEPOINT in PL/SQL Block</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">BEGIN </span>
+                        <ul>
+                            <span class="orclkey">SAVEPOINT </span> start_point  <b>;</b><br>
+                            <span class="orclkey">INSERT INTO </span> logs  
+                    <span class="orclkey"> VALUES </span> ( <span class="orclg">'Start Transaction'</span>, 
+                    SYSDATE ) <b>;</b> <br><br>
+                    -- Error or unexpected condition <br>
+                    <span class="orclkey">IF </span> some_condition <span class="orclkey">THEN</span> 
+                    <ul>
+                    <span class="orclkey">ROLLBACK TO SAVEPOINT </span> start_point<b>;</b>
+                    </ul>
+                    <span class="orclkey">END IF </span> <b>;</b> <br> <br>
+
+                    <span class="orclkey">COMMIT</span>   <b>;</b> <br><br>
+                    
+                        </ul>
+                        
+                        <span class="orclkey">END </span> <b>;</b> <br>
+                        <br>
+                        -- This gives you granular control over transaction flow in procedural code.
+                       
+                        </code>
+            </div><br>
+            <h2>Common Errors with SAVEPOINT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Scenario</th>
+                        <th>Error Code & Message</th>
+                        <th>Resolution / Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Rolling back to a non-existent savepoint</b></td>
+                        <td>ORA-01086: savepoint 'SP1' never established in this session or is invalid</td>
+                        <td>Ensure that the savepoint exists in the current session and transaction before rolling
+                            back to it. Check for typos or wrong savepoint name.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Trying to use savepoint after COMMIT</b></td>
+                        <td>ORA-01086: savepoint 'SP2' never established in this session or is invalid</td>
+                        <td>Once you commit, all savepoints are lost. Declare new savepoints after a new transaction
+                            begins.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Savepoint name spelling/case mismatch</b></td>
+                        <td>ORA-01086: savepoint 'sp3' never established in this session or is invalid</td>
+                        <td>Oracle is case-insensitive, but avoid inconsistencies. Always double-check spelling. Use
+                            consistent naming.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Trying to rollback to a savepoint after full ROLLBACK</b></td>
+                        <td>ORA-01086: savepoint 'SP4' never established in this session or is invalid</td>
+                        <td>A full ROLLBACK; clears all savepoints. You must set a new savepoint before using
+                            ROLLBACK TO.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Using SAVEPOINT in read-only transactions</b></td>
+                        <td>ORA-01456: may not perform insert/delete/update operation inside a READ ONLY transaction
+                        </td>
+                        <td>If you're in a READ ONLY transaction, you cannot perform DML or use savepoints. Use SET
+                            TRANSACTION READ WRITE instead.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Re-declaring same SAVEPOINT and expecting earlier one</b></td>
+                        <td>(No error, but logical error — earlier savepoint overwritten)</td>
+                        <td>Oracle allows reuse of savepoint names — it just overrides the previous one. Avoid
+                            reusing names unless intentional.</td>
+                    </tr>
+                    <tr>
+                        <td><b>SAVEPOINT inside autonomous transactions not visible to main transaction</b></td>
+                        <td>(No error, but savepoint not accessible from outside)</td>
+                        <td>Each autonomous transaction has its own scope. Don’t expect savepoints declared in one
+                            block to be accessible in another.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Rollback to savepoint inside read-only mode</b></td>
+                        <td>ORA-01456: may not perform insert/delete/update operation inside a READ ONLY transaction
+                        </td>
+                        <td>Same as Error #5 — change the transaction to READ WRITE mode if you want to use
+                            savepoints and rollback.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts of SAVEPOINT in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use SAVEPOINT to mark logical checkpoints in a long or critical transaction.</td>
+                        <td>Don’t expect SAVEPOINT to work after a COMMIT — all savepoints are cleared.</td>
+                    </tr>
+                    <tr>
+                        <td>Name your savepoints descriptively (e.g., before_update, stage1) for clarity.</td>
+                        <td>Don’t use duplicate savepoint names unless you intend to overwrite the earlier one.</td>
+                    </tr>
+                    <tr>
+                        <td>Use ROLLBACK TO SAVEPOINT to partially undo changes without affecting earlier successful
+                            operations.</td>
+                        <td>Don’t confuse SAVEPOINT with full ROLLBACK; savepoints are for partial rollbacks only.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Use savepoints in large or complex scripts to avoid redoing the whole transaction on
+                            errors.</td>
+                        <td>Don’t assume SAVEPOINT will persist between different PL/SQL blocks or sessions. They’re
+                            local to your session.</td>
+                    </tr>
+                    <tr>
+                        <td>Combine SAVEPOINT with exception handling in PL/SQL to manage controlled rollbacks.</td>
+                        <td>Don’t use SAVEPOINT inside READ ONLY transactions — it only works in DML-active mode.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Remove unnecessary savepoints once you’re sure of the transaction outcome.</td>
+                        <td>Don’t overuse savepoints — they consume memory and can make your transaction logic
+                            confusing.</td>
+                    </tr>
+                    <tr>
+                        <td>Test savepoint behavior thoroughly in nested PL/SQL blocks or with autonomous
+                            transactions.</td>
+                        <td>Don’t assume a ROLLBACK TO will automatically remove all changes after the savepoint —
+                            it only undoes changes made after the savepoint.</td>
+                    </tr>
+                    <tr>
+                        <td>Document the use of savepoints in code comments when used in critical or multi-step
+                            processes.</td>
+                        <td>Don’t forget to COMMIT at the end of the transaction — savepoints don’t save data to the
+                            database permanently.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br><br><br>
+
+            <h1>SET TRANSACTION in Oracle SQL</h1>
+            <p>The SET TRANSACTION command is a part of TCL (Transaction Control Language) in Oracle SQL. It allows you
+                to specify the properties of a transaction before any DML operation (INSERT, UPDATE, DELETE) is
+                executed.</p> <br>
+            <p>It is mainly used to:</p>
+            <ul>
+                <li>Define the isolation level of a transaction.</li>
+                <li>Set the transaction to be read-only or read-write.</li>
+                <li>Assign a transaction name (optional, for identification/logging).</li>
+            </ul><br>
+            <h2>Syntax of SET TRANSACTION</h2>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SET TRANSACTION </span> [
+                        <span class="orclkey">READ ONLY</span> | <span class="orclkey">READ WRITE</span> ]
+                        <ul>
+<ul>
+
+                        [<span class="orclkey">ISOLATION LEVEL </span> isolation_level] <br>
+                        [<span class="orclkey">NAME </span> transaction_name] <b>;</b> <br>
+    </ul>                                            </ul>
+    <br>
+    -- You must issue SET TRANSACTION before any DML or DDL statements in a session.
+                        </code>
+            </div><br>
+            <h2>Purpose of Each Clause</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clause</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>READ ONLY</b></td>
+                        <td>You can only query data(Allows only SELECT statements), no DML operations allowed in this
+                            transaction.</td>
+                    </tr>
+                    <tr>
+                        <td><b>READ WRITE</b></td>
+                        <td>Allows DML operations( INSERT, UPDATE, DELETE) in the transaction (default mode).</td>
+                    </tr>
+                    <tr>
+                        <td><b>ISOLATION LEVELREAD COMMITTED</b></td>
+                        <td>Default mode. Prevents dirty reads but allows non-repeatable reads and phantom reads.</td>
+                    </tr>
+                    <tr>
+                        <td>ISOLATION LEVEL SERIALIZABLE</td>
+                        <td>Makes the transaction behave as if all were executed in serial order. Prevents dirty,
+                            non-repeatable, and phantom reads.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NAME</b></td>
+                        <td>Useful for naming and tracking transactions (especially in tools or logs).</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Key Properties of SET TRANSACTION</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Session-Specific</b></td>
+                        <td>Only affects the current session until COMMIT or ROLLBACK.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Isolation Levels</b></td>
+                        <td>Controls how data is read and locked during the transaction.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Read-Only vs Read-Write</b></td>
+                        <td>Defines whether DML operations are allowed in the transaction.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Transaction Name</b></td>
+                        <td>Optional name for easier identification in logs or monitoring.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Examples with Modes</h2>
+            <p><b>Example 1: Setting a Transaction to Read-Only</b></p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SET TRANSACTION </span> READ ONLY <b>;</b> <br><br>
+                                -- This transaction can only perform SELECT statements. <br>
+                                <span class="orclkey">SELECT </span> * <span class="orclkey">FROM</span> employees <b>;</b> <br>
+                                -- Any DML operation here will result in an error.
+                                -- Now, only SELECT statements are allowed in this transaction.
+                        </code>
+            </div><br>
+            <p><b>Example 2: Setting a Transaction to Read-Write</b></p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SET TRANSACTION </span> READ WRITE <b>;</b> <br><br>
+                                -- This transaction can perform DML operations. <br>
+                                <span class="orclkey">INSERT INTO </span> employees  
+                            <span class="orclkey"> VALUES </span> (109, <span class="orclg">'Kumar'</span>, 
+                            <span class="orclg">'Marketing'</span> ) <b>;</b> <br>
+                                -- Now, you can perform INSERT, UPDATE, DELETE operations.
+                        </code>
+            </div><br>
+            <p><b>Example 3: Setting Isolation Level to SERIALIZABLE</b></p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SET TRANSACTION </span> ISOLATION LEVEL SERIALIZABLE <b>;</b> <br><br>
+                                -- This transaction will behave as if all operations are executed in serial order. <br>
+                                <span class="orclkey">SELECT </span> * <span class="orclkey">FROM</span> employees <b>;</b> <br>
+                                -- Prevents dirty reads, non-repeatable reads, and phantom reads.
+                        </code>
+            </div><br>
+            <p><b>Example 4: Naming a Transaction</b></p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SET TRANSACTION </span> NAME <span class="orclg">'MyTransaction'</span> <b>;</b> <br><br>
+                                -- This transaction can be identified by the name 'MyTransaction' in logs or monitoring
+                               tools. <br>
+                                <span class="orclkey">INSERT INTO </span> employees  
+                            <span class="orclkey"> VALUES </span> (110, <span class="orclg">'Vardhan'</span>, 
+                            <span class="orclg">'Sales'</span> ) <b>;</b> <br>
+                        </code>
+            </div><br>
+            <p><b>Example 5: Combining Multiple Clauses</b></p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SET TRANSACTION </span> READ WRITE, 
+                            ISOLATION LEVEL SERIALIZABLE, NAME <span class="orclg">'ComplexTransaction'</span> <b>;</b> <br><br>
+                                -- This transaction allows DML, uses SERIALIZABLE isolation, and is named 'ComplexTransaction'. <br>
+                                <span class="orclkey">INSERT INTO </span> employees  
+                            <span class="orclkey"> VALUES </span> (111, <span class="orclg">'Sita'</span>, 
+                            <span class="orclg">'HR'</span> ) <b>;</b> <br>
+                        </code>
+            </div> <br>
+            <h2>Real-time scenarios</h2>
+            <p><b>Scenario 1: Use READ ONLY to ensure consistent report data.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SET TRANSACTION </span> READ ONLY <b>;</b> <br><br>
+                        -- Generate a report without allowing any data changes during the transaction. <br>
+                        <span class="orclkey">SELECT </span> * <span class="orclkey">FROM</span> sales_data <b>;</b> <br>
+                        -- Any attempt to INSERT/UPDATE will raise an error.
+                        </code>
+            </div><br>
+            <p><b>Scenario 2: Block unintended DML using READ ONLY.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SET TRANSACTION </span> READ ONLY <b>;</b> <br><br>
+                        -- Prevent accidental data changes in a critical reporting session. <br>
+                        <span class="orclkey">UPDATE </span> employees <span class="orclkey">SET </span> department =
+                         <span class="orclg">'Admin'</span> <span class="orclkey">WHERE </span> emp_id = 101 <b>;</b> <br>
+                        -- Any DML operation will raise an error. <br>
+                        -- ORA-01456: may not perform insert/delete/update operation inside a READ ONLY transaction.
+                        </code>
+            </div><br>
+            <p><b>Scenario 3: Using SERIALIZABLE for consistent reads in a multi-user app.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SET TRANSACTION </span> ISOLATION LEVEL SERIALIZABLE <b>;</b> <br><br>
+                        -- Ensure no dirty reads or phantom reads in a multi-user environment. <br>
+                        <span class="orclkey">SELECT </span> * <span class="orclkey">FROM</span> inventory <b>;</b> <br><br>
+                        -- This transaction will behave as if all operations are executed in serial order. <br>
+                        -- If another transaction updates the same rows, Oracle raises an error to maintain consistency.
+                        </code>
+            </div><br>
+            <p><b>Scenario 4: Using READ WRITE for a complex transaction with multiple DMLs.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SET TRANSACTION </span> READ WRITE <b>;</b> <br><br>
+                        -- Allow multiple DML operations in a single transaction. <br>
+                        <span class="orclkey">INSERT INTO </span> orders  
+                    <span class="orclkey"> VALUES </span> (201, <span class="orclg">'Order1'</span>, SYSDATE ) <b>;</b> <br>
+                        <span class="orclkey">UPDATE </span> customers  
+                    <span class="orclkey">SET </span> status = <span class="orclg">'Active'</span><br>
+                    <span class="orclkey">WHERE </span> customer_id = 101 <b>;</b> <br>
+                        -- Commit the changes after all operations are done.
+                        <span class="orclkey">COMMIT</span>  <b>;</b>
+                        </code>
+            </div><br>
+            <p><b>Scenario 5: Naming a transaction for easier tracking.</b></p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SET TRANSACTION </span> NAME <span class="orclg">'OrderProcessing'</span> <b>;</b> <br><br>
+                        -- This transaction can be identified by the name 'OrderProcessing' in logs or monitoring
+tools. <br>
+                        <span class="orclkey">INSERT INTO </span> orders  
+                    <span class="orclkey"> VALUES </span> (202, <span class="orclg">'Order2'</span>, SYSDATE ) <b>;</b> <br>
+                        -- Useful for debugging and tracking complex transactions.
+                        </code>
+            </div><br>
+            <h2>Key Points / Notes</h2>
+            <ul>
+                <li>SET TRANSACTION must be the first statement in a transaction.</li>
+                <li>It cannot be used after any DML or DDL operations.</li>
+                <li>READ ONLY transactions cannot perform any DML operations.</li>
+                <li>Isolation levels control how data is read and locked during the transaction.</li>
+                <li>Transaction names are optional but useful for tracking and debugging.</li>
+            </ul> <br>
+            <h2>Common Errors with SET TRANSACTION</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Scenario</th>
+                        <th>Error Code & Message</th>
+                        <th>Resolution / Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Using SET TRANSACTION after DML operations</b></td>
+                        <td>ORA-01086: savepoint 'SP1' never established in this session or is invalid</td>
+                        <td>SET TRANSACTION must be the first statement in a transaction. Move it before any DML
+                            statements.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Setting READ ONLY but trying to perform DML</b></td>
+                        <td>ORA-01456: may not perform insert/delete/update operation inside a READ ONLY
+                            transaction
+                        </td>
+                        <td>Ensure you set READ WRITE if you need to perform DML operations.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Using an invalid isolation level</b></td>
+                        <td>ORA-02049: timeout: distributed transaction waiting for lock</td>
+                        <td>Check the isolation level syntax and ensure it is supported by your Oracle version.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Using SET TRANSACTION in a read-only session</b></td>
+                        <td>ORA-01456: may not perform insert/delete/update operation inside a READ ONLY
+                            transaction
+                        </td>
+                        <td>If you need to change transaction properties, switch to READ WRITE mode first.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do’s and Don’ts of SET TRANSACTION in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use SET TRANSACTION to define transaction properties before any DML operations.</td>
+                        <td>Don’t use SET TRANSACTION after executing any DML statements in the session.</td>
+                    </tr>
+                    <tr>
+                        <td>Set READ ONLY for reporting transactions to prevent accidental data changes.</td>
+                        <td>Don’t try to perform DML operations in a READ ONLY transaction.</td>
+                    </tr>
+                    <tr>
+                        <td>Use SERIALIZABLE isolation level for critical transactions requiring strict
+                            consistency.
+                        </td>
+                        <td>Don’t set an unsupported isolation level; check your Oracle version documentation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name your transactions for easier tracking and debugging.</td>
+                        <td>Don’t forget to COMMIT or ROLLBACK at the end of the transaction to save changes.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test different isolation levels in a development environment before using them in
+                            production.</td>
+                        <td>Don’t assume that all isolation levels behave the same; they can have different
+                            locking
+                            and concurrency effects.</td>
+                    </tr>
+
+                </tbody>
+            </table><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="topic-buttons">
+                <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
+                    Pevious</a>
+                <a href="orclsql_arithmeticoperators.html?topic=sqlArithmeticOperators" class="next-button">Next
+                    &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="/KUKDB/KUKscript.js">
+    </script>
+
+</body>
+
+</html>

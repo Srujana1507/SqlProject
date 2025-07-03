@@ -453,7 +453,8 @@
                 </ul>
                 <h2>Analytical Functions</h2>
                 <ul>
-                    <li><a href="../Oracle/orclRankingfunctions.html" id="sqlRankingFunctions">Ranking Functions</a>
+                    <li><a href="../Oracle/orclAnalyticalFunctions.html?topic=sqlRankingFunctions "
+                            id="sqlRankingFunctions">Ranking Functions</a>
                     </li>
                     <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlRownum" id="sqlRownum">ROWNUM</a></li>
                     <li><a href="../Oracle/orclRankingfunctions.html?topic=sqlRownumber"
@@ -516,310 +517,402 @@
             </div>
             <br>
 
-            <h1>RENAME TABLE Statement in Oracle SQL</h1>
-            <p>In Oracle SQL, the RENAME statement is used to change the name of an existing table, view, sequence,
-                synonym, or other schema objects.
-            </p><br>
-            <p>Unlike other RDBMSs like MySQL, Oracle does not support renaming multiple tables or renaming tables
-                across different schemas.</p><br>
-            <p>The RENAME statement is a DDL (Data Definition Language) operation, which means it is automatically
-                committed once executed and cannot be rolled back.</p><br>
-
-            <h2>Syntax</h2>
-            <h2>Basic Syntax</h2>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">RENAME </span> old_table_name  <span class="orclkey">TO </span> new_table_name
-                       <b> ; </b> 
-                        </code>
-                <ul>
-                    <li>old_table_name – The current name of the table.</li>
-                    <li>new_table_name – The new name for the table.</li>
-                </ul>
-            </div><br>
-            <h2>Key Points</h2>
+            <h1>Inverse Percentile Functions in Oracle SQL</h1>
+            <p>Inverse Percentile Functions return a value from a dataset based on a given percentile.</p><br>
+            <p>Unlike normal percentile functions (like PERCENT_RANK() or CUME_DIST()), which return the rank or
+                position of a value, inverse percentile functions return the value itself that corresponds to a given
+                percentile.</p>
+            <br>
+            <h2>Why Use Inverse Percentile Functions</h2>
             <ul>
-                <li>The RENAME statement commits automatically — it cannot be rolled back.</li>
-                <li>After renaming, any existing indexes, constraints, and triggers remain associated with the renamed
-                    table.</li>
-                <li>The RENAME statement cannot be used on:</li>
-                <ul>
-                    <li>Tables in a different schema.</li>
-                    <li>Materialized views, partitions, or cluster tables.</li>
-                    <ul>
-                        <li>If there are dependent objects (like views, procedures, or synonyms), renaming the table
-                            will cause them to become invalid.</li>
-                        <li>All permissions (grants) on the table remain after renaming.</li>
-                    </ul>
-                </ul>
-            </ul><br>
-            <h2>Restrictions on RENAME </h2>
-            <ul>
-                <li>You cannot rename:</li>
-                <ul>
-                    <li>A table that is part of a cluster.</li>
-                    <li>A table owned by another user.</li>
-                    <li>A table referenced by a foreign key constraint from another table.</li>
-                </ul>
-                <li>You cannot rename:</li>
-                <ul>
-                    <li>Synonyms for tables.</li>
-                    <li>Materialized views.</li>
-                </ul>
-            </ul><br>
-
-
-            <h2>Example</h2>
-            <p><b>1. Rename a Table:- </b> Renaming the employees table to staff</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">RENAME </span> employees <span class="orclkey">TO </span> staff
-                       <b> ; </b> <br>
-                       <ul>
-                        <li>Table employees is now referred to as staff.</li>
-                        <li>All data, indexes, and triggers remain intact.</li>
-                       </ul>
-                        </code>
-            </div><br>
-
-            <p><b>2. Rename a Sequence:-</b> Renaming a sequence emp_seq to staff_seq.</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">RENAME  </span> emp_seq   <span class="orclkey">TO </span>staff_seq
-                       <b> ; </b> <br>
-                       <ul>
-                        <li>The sequence will retain its properties (like increment values).
-                        </li>
-                       </ul>
-                        </code>
-            </div><br>
-
-            <p><b>3. Rename a Synonym:-</b> Renaming a synonym emp_view to staff_view.</p> <br>
-
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">RENAME  </span> emp_view   <span class="orclkey">TO </span>staff_view
-                    <b> ; </b> <br>
-                     <ul>
-                        <li>The synonym will point to the same object under the new name.</li>
-                       </ul>
-                        </code>
-            </div><br>
-
-            <p><b>4. Rename a View:-</b> Renaming a view v_employee to v_staff
-            </p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">RENAME  </span> v_employee   <span class="orclkey">TO </span>v_staff
-                    <b> ; </b> <br>
-                   <ul>
-                    <li>The underlying query of the view remains unchanged.</li>
-                    <li>If any objects depend on the view, they may become invalid.</li>
-                   </ul>
-                        </code>
-            </div><br>
-
-            <p><b>5. Rename a Table with Constraints:-</b> If the employees table has a primary key, foreign key, or
-                other constraints, renaming will keep them intact.
-            </p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">RENAME  </span> employees    <span class="orclkey">TO </span> staff
-                       <b> ; </b> <br>
-                   <ul>
-                    <li>All constraints will be preserved.</li>
-                    <li>If other tables reference employees with a foreign key, those references will break unless updated manually.</li>
-                   </ul>
-                        </code>
-            </div><br>
-
-            <h2>Difference Between RENAME and ALTER TABLE RENAME</h2>
+                <li>Setting thresholds (e.g., top 10% salaries).</li>
+                <li>Building data distribution bands (quartiles, deciles).</li>
+                <li>Performing percentile-based segmentation (e.g., grading, marketing targeting).</li>
+                <li>Supporting business decisions where thresholds need to be calculated dynamically from data.</li>
+            </ul> <br>
+            <h2>Inverse Percentile Functions in Oracle SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PERCENTILE_CONT()</td>
+                        <td>Returns a continuous (interpolated) value at a given percentile</td>
+                    </tr>
+                    <tr>
+                        <td>PERCENTILE_DISC()</td>
+                        <td>Returns a discrete (actual existing) value at a given percentile</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Difference Between PERCENTILE_CONT and PERCENTILE_DISC</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Feature</th>
-                        <th>RENAME</th>
-                        <th>ALTER TABLE RENAME</th>
+                        <th>PERCENTILE_CONT</th>
+                        <th>PERCENTILE_DISC</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b>Scope</b></td>
-                        <td>Renames table, sequence, synonym, or view</td>
-                        <td>Only renames a table or column</td>
+                        <td>Value Type</td>
+                        <td>Interpolated (may not exist in data)</td>
+                        <td>Actual value from the dataset</td>
                     </tr>
                     <tr>
-                        <td><b>Syntax Complexity</b></td>
-                        <td>Simple syntax</td>
-                        <td>More complex</td>
+                        <td>Use Case</td>
+                        <td>For smooth distributions (e.g., median income)</td>
+                        <td>For category-based thresholds</td>
                     </tr>
                     <tr>
-                        <td><b>Rollback</b></td>
-                        <td>No rollback</td>
-                        <td>No rollback</td>
-                    </tr>
-                    <tr>
-                        <td><b>Effect on Indexes/Triggers</b></td>
-                        <td>Retained</td>
-                        <td>Retained</td>
-                    </tr>
-                    <tr>
-                        <td><b>Effect on Dependencies</b></td>
-                        <td>Dependencies may become invalid</td>
-                        <td>Dependencies may become invalid</td>
-                    </tr>
-                    <tr>
-                        <td><b>Permissions</b></td>
-                        <td>Remains unchanged</td>
-                        <td>Remains unchanged</td>
-                    </tr>
-                    <tr>
-                        <td><b>Supported Objects</b></td>
-                        <td>Tables, sequences, views, synonyms</td>
-                        <td>Tables, columns</td>
+                        <td>Performance</td>
+                        <td>Slightly more computation due to interpolation</td>
+                        <td>Faster since it uses existing values</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Advantages of RENAME</h2>
+            </table><br>
+            <h2>Limitations & Considerations</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Advantage</th>
+                        <th>Limitations</th>
                         <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b>Simple to Use</b></td>
-                        <td>The RENAME statement is easy to write and execute.</td>
+                        <td>Requires ORDER BY in WITHIN GROUP</td>
+                        <td>Without it, Oracle throws an error</td>
                     </tr>
                     <tr>
-                        <td><b>Retains Indexes and Triggers</b></td>
-                        <td>Indexes and triggers remain valid after renaming.</td>
+                        <td>Percentile must be between 0 and 1</td>
+                        <td>Anything else results in an error</td>
                     </tr>
                     <tr>
-                        <td><b>Fast Operation</b></td>
-                        <td>Renaming is a metadata change and is executed quickly.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Works on Multiple Object Types</b></td>
-                        <td>Can be used on tables, sequences, synonyms, and views.</td>
-                    </tr>
-                    <tr>
-                        <td><b>No Data Loss</b></td>
-                        <td>Data remains intact after renaming.</td>
+                        <td>May return NULL</td>
+                        <td>If data is NULL or empty</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Disadvantages of RENAME</h2>
+            <h2>Common Mistakes</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Disadvantage</th>
-                        <th>Description</th>
+                        <th>Mistake</th>
+                        <th>Why it’s Wrong</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b>Cannot Rename Across Schemas</b></td>
-                        <td>You cannot rename a table across different schemas.</td>
+                        <td>Using percentile > 1 (e.g., 90 instead of 0.9)</td>
+                        <td>Percentile value must be between 0 and 1</td>
                     </tr>
                     <tr>
-                        <td><b>No Rollback</b></td>
-                        <td>Since it’s a DDL operation, it auto-commits and cannot be rolled back.</td>
+                        <td>Using PERCENTILE_CONT without WITHIN GROUP</td>
+                        <td>This clause is mandatory</td>
                     </tr>
                     <tr>
-                        <td><b>Breaks Object Dependencies</b></td>
-                        <td>Objects (like views, procedures, or triggers) depending on the renamed table become invalid.
-                        </td>
+                        <td>Using ORDER BY with DESC inside the WITHIN GROUP</td>
+                        <td>Oracle requires ascending order</td>
                     </tr>
                     <tr>
-                        <td><b>No Clustered Table Support</b></td>
-                        <td>Cannot rename a table that is part of a cluster.</td>
-                    </tr>
-                    <tr>
-                        <td><b>No Partitioned Table Support</b></td>
-                        <td>Cannot rename partitions or subpartitions directly.</td>
+                        <td>Assuming PERCENTILE_CONT returns a real value from data</td>
+                        <td>It interpolates, may return non-existent value</td>
                     </tr>
                 </tbody>
-            </table> <br>
-            <h2>Limitations of RENAME</h2>
+            </table><br>
+            <h2>Error Messages with Inverse Percentile</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Limitation</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Cannot Rename Columns</b></td>
-                        <td>Use ALTER TABLE to rename columns instead.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Foreign Key Reference Issue</b></td>
-                        <td>If a table is referenced by a foreign key, renaming will cause the reference to break.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Partitioned Tables</b></td>
-                        <td>Cannot rename partitioned tables or partitions.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Schema Limitation</b></td>
-                        <td>Cannot rename tables across different schemas.</td>
-                    </tr>
-                    <tr>
-                        <td><b>Materialized Views</b></td>
-                        <td>Cannot rename materialized views directly.</td>
-                    </tr>
-                </tbody>
-            </table> <br>
-            <h2>Common Errors and Solutions</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            Error Code
-                        </th>
+                        <th>Error Code/Message</th>
                         <th>Cause</th>
-                        <th>Solution</th>
+                        <th>Resolution</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-01765: specifying table name does not exist</td>
-                        <td>Table does not exist.</td>
-                        <td>Ensure the table name is correct.</td>
+                        <td>ORA-30483: Window function not allowed here</td>
+                        <td>Used in wrong clause</td>
+                        <td>Use in SELECT or ORDER BY only</td>
                     </tr>
                     <tr>
-                        <td>ORA-04043: object does not exist</td>
-                        <td>Attempt to rename an object that does not exist.</td>
-                        <td>Verify the object name.</td>
+                        <td>ORA-30484: Missing WITHIN GROUP clause</td>
+                        <td>Required for inverse percentile</td>
+                        <td>Add WITHIN GROUP (ORDER BY ...) clause</td>
                     </tr>
                     <tr>
-                        <td>
-                            ORA-02266: unique/primary keys referenced by foreign keys
-                        </td>
-                        <td>
-                            Table is referenced by a foreign key.
-                        </td>
-                        <td>
-                            Drop or disable the foreign key constraint.
-                        </td>
+                        <td>ORA-30485: Percentile must be numeric between 0 and 1</td>
+                        <td>Invalid percentile value</td>
+                        <td>Use a number like 0.25, 0.5, 0.9, etc.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br><br><br>
+            <h1>PERCENTILE_CONT() in Oracle SQL</h1>
+            <p>PERCENTILE_CONT() (Percentile Continuous) is an analytic or aggregate function used to find the value in
+                a dataset at a given percentile, possibly interpolating between values if the percentile lies between
+                two rows.</p><br>
+            <p>It helps you find a value from a numeric column at a specific percentile (like 50%, 90%, etc.) — even if
+                that value doesn't exactly exist in the data.</p>
+            <ul>
+                <li>It calculates the value by interpolating between two rows, not just picking a real value.</li>
+            </ul>
+            <br>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Type</td>
+                        <td>Inverse percentile, continuous</td>
                     </tr>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>Table is in a different schema.</td>
-                        <td>Rename tables only in the same schema.</td>
+                        <td>Returns</td>
+                        <td>A calculated/interpolated value at a specified percentile</td>
                     </tr>
                     <tr>
-                        <td>ORA-01502: index or partition of such name exists</td>
-                        <td>Trying to rename an index or partition directly.</td>
-                        <td>Indexes and partitions cannot be renamed directly.</td>
+                        <td>Input</td>
+                        <td>Percentile (between 0 and 1)</td>
+                    </tr>
+                    <tr>
+                        <td>Requires</td>
+                        <td>WITHIN GROUP (ORDER BY column) clause</td>
+                    </tr>
+                    <tr>
+                        <td>Usage Context</td>
+                        <td>Can be used in SELECT, GROUP BY, OVER() analytic functions</td>
+                    </tr>
+                    <tr>
+                        <td>Optional</td>
+                        <td>Can use OVER(PARTITION BY ...) for groups</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclfun">PERCENTILE_CONT</span> (n) <br>
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> expr  [<span class="orclkey">ASC</span> ]
+                        ) <br><br>
+                        -- n: A number between 0 and 1 representing the percentile. <br>
+                        -- expr: The column on which the percentile is calculated.
+                </code>
+            </div><br>
+            <h2>How It Works</h2>
+            <ul>
+                <li>Oracle sorts the data using the ORDER BY clause.</li>
+                <li>Determines the position using:</li>
+                <ul>
+                    <li>position = (n * (number of rows - 1)) + 1</li>
+                </ul>
+                <li>If the position is not an integer, it interpolates between the surrounding values.</li>
+            </ul> <br>
+            <h2>Real-time scenarios</h2>
+            <p><b>Scenario 1: Find the Median Salary of All Employees</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                    <span class="orclfun">PERCENTILE_CONT</span> (0.5) <br>
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <span class="orclkey"> AS </span> median_salary 
+                        </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Returns the middle salary (or the average of two middle salaries if total is even).
+                </code>
+            </div><br>
+            <p><b>Scenario 2: Find the Median Salary by Department</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> department_id, 
+                    <ul>
+                    <span class="orclfun">PERCENTILE_CONT</span> (0.5)
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER  </span>( <span class="orclkey"> PARTITION BY</span> department_id ) 
+                        <span class="orclkey"> AS </span> median_salary 
+                        </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                        -- Calculates the median salary for each department separately.
+                </code>
+            </div><br>
+
+            <p><b>Scenario 3: 90th Percentile of Sales by Region</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> region, 
+                    <ul>
+                    <span class="orclfun">PERCENTILE_CONT</span> (0.9)
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> total_sales   
+                        ) <br>
+                        <span class="orclkey"> OVER  </span>( <span class="orclkey"> PARTITION BY</span> region ) 
+                        <span class="orclkey"> AS </span> top_10_percent_threshold 
+                        </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                        -- Helps you find what sales number a person needs to cross to be in the top 10% of a region.
+                </code>
+            </div><br>
+            <p><b>Scenario 4: Quartile (25%, 50%, 75%) Split of Product Prices</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span>  
+                    <ul>
+                    <span class="orclfun">PERCENTILE_CONT</span> (0.25)
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> price   
+                        ) <span class="orclkey"> AS </span> Q1 , <br>
+                        <span class="orclfun">PERCENTILE_CONT</span> (0.5)
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> price   
+                        ) <span class="orclkey"> AS </span> Median , <br>
+                        <span class="orclfun">PERCENTILE_CONT</span> (0.75)
+                         <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> price   
+                        ) <span class="orclkey"> AS </span> Q3 
+                        </ul>
+                        <span class="orclkey"> FROM </span> products <b> ;</b>
+                        <br><br>
+                        -- Used for statistical analysis, e.g., box plot calculations.
+                </code>
+            </div><br>
+            <p><b>Scenario 5: Compare Individual Salary vs Team Median.</b></p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, department_id, salary, 
+                    <ul>
+                    <span class="orclfun">PERCENTILE_CONT</span> (0.5)
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER  </span>( <span class="orclkey"> PARTITION BY</span> department_id ) 
+                        <span class="orclkey"> AS </span> dept_median  <br>
+                        salary -  <span class="orclfun">PERCENTILE_CONT</span> (0.5)
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER  </span>( <span class="orclkey"> PARTITION BY</span> department_id ) 
+                        <span class="orclkey"> AS </span> diff_from_median
+                        </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                        -- Helps identify if an employee is above or below the department average.
+                </code>
+            </div><br>
+            <h2>Comparison: PERCENTILE_CONT() vs MEDIAN() vs NTILE()</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>PERCENTILE_CONT()</th>
+                        <th>MEDIAN()</th>
+                        <th>NTILE(n)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Returns interpolated value at any percentile</td>
+                        <td>Returns exact middle value (50th percentile only)</td>
+                        <td>Divides rows into n buckets</td>
+                    </tr>
+                    <tr>
+                        <td>Supports Any Percentile?</td>
+                        <td>Yes (e.g., 0.25, 0.75)</td>
+                        <td>Only 0.5</td>
+                        <td>Uses buckets, not precise percentiles</td>
+                    </tr>
+                    <tr>
+                        <td>Interpolates Value?</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Returns Exact Data Value?</td>
+                        <td>Not always</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Requires WITHIN GROUP</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Supports Analytic Use?</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Common Errors with PERCENTILE_CONT()</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code/Message</th>
+                        <th>Cause</th>
+                        <th>Resolution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ORA-30484: Missing WITHIN GROUP clause</td>
+                        <td>Function requires WITHIN GROUP</td>
+                        <td>Always include it with ORDER BY</td>
+                    </tr>
+                    <tr>
+                        <td>ORA-30485: Invalid percentile value</td>
+                        <td>Value not between 0 and 1</td>
+                        <td>Use 0 ≤ value ≤ 1 (e.g., 0.25, 0.5)</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do's and Don'ts of RENAME TABLE</h2>
+            <h2>When to Use PERCENTILE_CONT()</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Why Use It</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Median salary/income/score</td>
+                        <td>Balanced distribution point</td>
+                    </tr>
+                    <tr>
+                        <td>Percentile bands (Q1, Q3)</td>
+                        <td>Statistical segmentation</td>
+                    </tr>
+                    <tr>
+                        <td>Detect outliers</td>
+                        <td>Compare against 90th, 95th percentiles</td>
+                    </tr>
+                    <tr>
+                        <td>Data bucketing</td>
+                        <td>Use in grading, pricing, risk analysis</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Do's and Don'ts for PERCENTILE_CONT()</h2>
             <table>
                 <thead>
                     <tr>
@@ -829,247 +922,204 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Ensure that no critical objects depend on the table before renaming.</td>
-                        <td> Don’t rename a table that is referenced by foreign keys without updating dependencies.</td>
+                        <td>Use OVER(PARTITION BY ...) for grouping</td>
+                        <td>Don’t forget WITHIN GROUP (ORDER BY ...)</td>
                     </tr>
                     <tr>
-                        <td>Use RENAME when you need to change the logical meaning of the table name.</td>
-                        <td>Don’t rename a table when it’s part of a materialized view or cluster.</td>
+                        <td>Use when exact median is not in data</td>
+                        <td>Don’t confuse with PERCENTILE_DISC()</td>
                     </tr>
                     <tr>
-                        <td>Ensure that renaming does not impact application code or stored procedures.</td>
-                        <td>Don’t rename tables frequently in production environments without testing.</td>
+                        <td>Useful for box plot or percentile bands</td>
+                        <td>Not suitable for categorical data</td>
+                    </tr>
+                </tbody>
+            </table> <br><br><br><br>
+
+            <h1>PERCENTILE_DISC() in Oracle SQL()</h1>
+            <p>PERCENTILE_DISC() is an inverse percentile function in Oracle SQL. It is used to find a specific
+                percentile from discrete (exact) values in a dataset.</p><br>
+            <p>It is used to return the first value in the dataset for which the cumulative distribution is greater than
+                or equal to the specified percentile.</p><br>
+            <p>Unlike PERCENTILE_CONT() (which interpolates between values), PERCENTILE_DISC() returns the actual value
+                from the dataset that is equal to or greater than the requested percentile.</p><br>
+            <h2>Key Characteristics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Type</td>
+                        <td>Inverse Percentile Function</td>
                     </tr>
                     <tr>
-                        <td>Use RENAME instead of ALTER TABLE when renaming views or sequences.</td>
-                        <td>Don’t rename a table involved in active transactions.</td>
+                        <td>Returns</td>
+                        <td>Exact value from the dataset (not interpolated)</td>
+                    </tr>
+                    <tr>
+                        <td>Clause Required</td>
+                        <td>WITHIN GROUP (ORDER BY ...)</td>
+                    </tr>
+                    <tr>
+                        <td>Value Returned</td>
+                        <td>The lowest value in the ordered set whose cumulative distribution ≥ percentile</td>
+                    </tr>
+                    <tr>
+                        <td>Supported Percentile Range</td>
+                        <td>Between 0 and 1 (e.g., 0.5 for 50th percentile)</td>
                     </tr>
                 </tbody>
             </table><br>
-
-            <h2>Best Practices</h2>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclfun">PERCENTILE_DISC</span> (percentile) <br>
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> expr  [<span class="orclkey">ASC</span> ]
+                        ) <br><br>
+                        -- percentile: A number between 0 and 1 (like 0.25 for 25%, 0.5 for 50%, etc.) <br>
+                        -- expr:  Column to order by /  The column to rank and find the percentile value.
+                </code>
+            </div><br>
+            <h2>How It Works</h2>
             <ul>
-                <li>Use RENAME only when absolutely necessary — especially in production environments.</li>
-                <li>Always check for dependent objects (like views, triggers, and constraints) before renaming.</li>
-                <li>Rename tables in a development environment first to avoid breaking production dependencies.</li>
-                <li>Use ALTER TABLE if you need to rename a column instead of renaming the whole table.</li>
-            </ul>
-
-
-
-
-
-
-
-
-
-
-            <p><b>6. Drop a Global Temporary Table:-</b> You can drop a global temporary table like any other table.
-            </p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">DROP TABLE  </span> temp_sales
-                       <b> ; </b> <br>
-                   <ul>
-                    <li>Drops the definition of the global temporary table.</li>
-                    <li>Session-specific data is automatically deleted.</li>
-                   </ul>
-                        </code>
-            </div><br>
-
-            <h2>FLASHBACK AFTER DROP</h2>
-            <p>If a table is dropped without the PURGE option, you can restore it using the FLASHBACK command</p><br>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">FLASHBACK TABLE  </span> employees <span class="orclkey">TO  </span>BEFORE<span class="orclkey">DROP </span>
-                       <b> ; </b> <br>
-                   <ul>
-                    <li>Recovers the table from the RECYCLEBIN.</li>
-                   </ul>
-                        </code>
-            </div><br>
-            <h2>List Tables in the Recycle Bin</h2>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SHOW </span> RECYCLEBIN
-                       <b> ; </b> <br>
-                   <ul>
-                    <li>Lists all objects in the recycle bin.</li>
-                   </ul>
-                        </code>
-            </div><br>
-            <h2>Data Dictionary View for Dropped Tables</h2>
-            <p>You can check the list of dropped tables in the RECYCLEBIN using</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">SELECT </span> object_name, original_name, type, droptime <br>
-                    <span class="orclkey">FROM </span> recyclebin
-                       <b> ; </b> <br>
-                   <ul>
-                    <li>Lists all objects in the recycle bin.</li>
-                   </ul>
-                        </code>
-            </div><br>
-            <h2>How to Empty the Recycle Bin</h2>
-            <p>You can remove all objects from the recycle bin using</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">PURGE RECYCLEBIN </span> 
-                       <b> ; </b> <br>
-                        </code>
-            </div><br>
-            <h2>How to Purge a Specific Table from the Recycle Bin</h2>
-            <p>You can purge a specific table from the recycle bin using</p>
-            <div class="code-box">
-                <code>
-                    <span class="orclkey">PURGE TABL </span> "BIN$xy+Vdd4BgW7gRAADGG3Lxg==$0"
-                       <b> ; </b> <br>
-                       - - Use the object name from the recyclebin.
-                        </code>
-            </div><br>
-            <h2>Common Errors and Solutions</h2>
+                <li>Sorts the data using the ORDER BY clause.</li>
+                <li>Calculates the cumulative distribution.</li>
+                <li>Returns the first value where cumulative ≥ specified percentile.</li>
+            </ul><br>
+            <h2>Comparison with PERCENTILE_CONT()</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Error Code</th>
-                        <th>Cause</th>
-                        <th>Solution</th>
+                        <th>Feature</th>
+                        <th>PERCENTILE_CONT()</th>
+                        <th>PERCENTILE_DISC()</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ORA-00942: table or view does not exist</td>
-                        <td>The table does not exist.</td>
-                        <td>Ensure the table name is correct.</td>
+                        <td>Value Type</td>
+                        <td>Continuous (can interpolate)</td>
+                        <td>Discrete (exact data value)</td>
                     </tr>
                     <tr>
-                        <td>ORA-02449: unique/primary keys in table referenced by foreign keys</td>
-                        <td>A foreign key exists on the table being dropped.</td>
-                        <td>Use CASCADE CONSTRAINTS to drop dependent constraints.</td>
+                        <td>Returns actual dataset value?</td>
+                        <td>Not guaranteed</td>
+                        <td>Always</td>
                     </tr>
                     <tr>
-                        <td>ORA-08186: invalid timestamp specified</td>
-                        <td>Issue with flashback recovery.</td>
-                        <td>Ensure the table is in the RECYCLEBIN and flashback is supported.</td>
+                        <td>Use case</td>
+                        <td>Exact percentile value (e.g., 90th salary cutoff)</td>
+                        <td>Pick a real value closest to percentile</td>
                     </tr>
                     <tr>
-                        <td>ORA-38301: not a valid object in the recycle bin</td>
-                        <td>Attempt to purge a non-existent table from the recycle bin.</td>
-                        <td>Verify the table name using SHOW RECYCLEBIN.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-00903: invalid table name</td>
-                        <td>Invalid table name specified.</td>
-                        <td>Use correct table name format.</td>
-                    </tr>
-                    <tr>
-                        <td>ORA-00933: SQL command not properly ended</td>
-                        <td>Incorrect syntax.</td>
-                        <td>Fix the syntax.</td>
-                    </tr>
-                </tbody>
-            </table><br>
-
-            <h2>Advantages and Disadvantages of DROP TABLE</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Advantages</th>
-                        <th>Disadvantages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Frees up storage space immediately.</td>
-                        <td>Data is lost permanently if PURGE is used.</td>
-                    </tr>
-                    <tr>
-                        <td>Helps in database cleanup by removing unused tables.</td>
-                        <td>If dropped without PURGE, recovery might lead to corruption if data is modified.</td>
-                    </tr>
-                    <tr>
-                        <td>Ensures clean removal of dependent objects when CASCADE CONSTRAINTS is used.</td>
-                        <td>May cause invalidation of dependent objects (views, triggers).</td>
-                    </tr>
-                    <tr>
-                        <td>FLASHBACK allows recovery if PURGE is not used.</td>
-                        <td>Performance issues if many objects are dropped simultaneously.</td>
-                    </tr>
-                    <tr>
-                        <td>Helps in schema redesign by removing obsolete tables.</td>
-                        <td>Large tables with many indexes may take time to drop.</td>
-                    </tr>
-                </tbody>
-            </table><br>
-            <h2>Limitations of DROP TABLE</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Limitation</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Recycle Bin Dependency</td>
-                        <td>FLASHBACK is not possible if the recycle bin is disabled or PURGE is used.</td>
-                    </tr>
-                    <tr>
-                        <td>Foreign Key Constraints</td>
-                        <td>Requires CASCADE CONSTRAINTS if there are foreign key references.</td>
-                    </tr>
-                    <tr>
-                        <td>Partitioned Tables</td>
-                        <td>Dropping a partitioned table drops all partitions and their data.</td>
-                    </tr>
-                    <tr>
-                        <td>Materialized Views</td>
-                        <td>Dropping a table used in a materialized view causes the view to become invalid.</td>
-                    </tr>
-                    <tr>
-                        <td>Rollback Not Supported</td>
-                        <td>A DROP TABLE operation cannot be rolled back using ROLLBACK.</td>
+                        <td>Precision</td>
+                        <td>Higher (but may not exist in data)</td>
+                        <td>Lower (but guaranteed to exist)</td>
                     </tr>
                 </tbody>
             </table> <br>
-            <h2>Do’s and Don’ts of DROP TABLE</h2>
+            <h2>Examples / Scenarios</h2>
+            <p><b>Scenario 1:- Find the 50th percentile salary (median) from an employees table.</b></p>
+            <p><b>Scenario 1: Find the Median Salary of All Employees</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                     <ul>
+                    <span class="orclfun">PERCENTILE_DISC</span> (0.5) <br>
+                    <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <span class="orclkey"> AS </span> median_salary 
+                        </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Returns the salary value that is at or just above the 50th percentile in the actual data.
+                </code>
+            </div><br>
+            <p><b>Scenario 2:- (With Partition - Department-wise Median Salary). Find the median salary in each
+                    department.</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                     <ul>
+                        department_id, <br>
+                        <span class="orclfun">PERCENTILE_DISC</span> (0.5)
+                        <ul>
+                            <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER </span> (
+                            <span class="orclkey">PARTITION BY  </span> department_id ) 
+                            <span class="orclkey"> AS </span> dept_median_salary
+                        </ul>
+                     </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Shows the median salary for each department. The result is shown row by row, but the median stays the same within a department.
+                </code>
+            </div><br>
+            <p><b>Scenario 3: (Top 25% Performer in Each Department):- Find the salary of the top 25% performer (75th
+                    percentile) in each department.</b></p>
+            <div class="code-box">
+                <code>
+                     <span class="orclkey">SELECT </span> 
+                     <ul>
+                        department_id, <br>
+                        <span class="orclfun">PERCENTILE_DISC</span> (0.75)
+                        <ul>
+                            <span class="orclkey">WITHIN GROUP </span> ( 
+                            <span class="orclkey">ORDER BY</span> salary   
+                        ) <br>
+                        <span class="orclkey"> OVER </span> (
+                            <span class="orclkey">PARTITION BY  </span> department_id ) 
+                            <span class="orclkey"> AS </span> top_25_salary
+                        </ul>
+                     </ul>
+                        <span class="orclkey"> FROM </span> employees <b> ;</b>
+                        <br><br>
+                
+                        -- Note: Ordering by DESC gives you the top performers.
+                </code>
+            </div><br>
+            <h2>Common Mistakes</h2>
             <table>
-                <tr>
-                    <th>Do's</th>
-                    <th>Don'ts</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Mistake</th>
+                        <th>Why it happens</th>
+                        <th>Fix</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
-                        <td>Use DROP TABLE with PURGE only when permanent removal is intended.</td>
-                        <td>Don’t use DROP TABLE on active tables during business hours.</td>
+                        <td>Missing WITHIN GROUP</td>
+                        <td>It's mandatory for this function</td>
+                        <td>Always use WITHIN GROUP (ORDER BY col)</td>
                     </tr>
                     <tr>
-                        <td>Use CASCADE CONSTRAINTS when dropping tables with foreign keys.</td>
-                        <td> Don’t drop system tables or Oracle-maintained objects.</td>
+                        <td>Percentile > 1 or < 0</td>
+                        <td>Invalid range</td>
+                        <td>Use value between 0 and 1</td>
                     </tr>
                     <tr>
-                        <td>Verify if the table is still required before dropping.</td>
-                        <td>Don’t drop a table referenced by other objects without reviewing dependencies.</td>
-                    </tr>
-                    <tr>
-                        <td>Use FLASHBACK to recover tables when PURGE is not used.</td>
-                        <td>Don’t rely on FLASHBACK if the recycle bin is disabled.</td>
-                    </tr>
-                    <tr>
-                        <td>Use DROP carefully in production environments.</td>
-                        <td>Don’t drop large tables without estimating the impact on performance.</td>
+                        <td>No ORDER BY inside WITHIN GROUP</td>
+                        <td>Invalid syntax</td>
+                        <td>Always include ORDER BY</td>
                     </tr>
                 </tbody>
             </table> <br>
             <h2>Best Practices</h2>
             <ul>
-                <li>Always back up data before dropping tables.</li>
-                <li>Use FLASHBACK to recover dropped tables if the recycle bin is enabled.</li>
-                <li>Use CASCADE CONSTRAINTS cautiously to avoid accidental removal of dependent objects.</li>
-                <li>Avoid dropping large tables during peak hours — it can cause locking and performance issues.</li>
-                <li>Always test in a development environment before executing in production.</li>
-            </ul> <br><br><br>
-
+                <li>Use DISC when working with categories, IDs, real values (like price tiers, batch numbers).</li>
+                <li>Use CONT for scientific/statistical analysis.</li>
+                <li>Combine with analytic OVER() clause for advanced row-wise logic.</li>
+            </ul> <br><br><br><br>
 
             <div class="topic-buttons">
                 <a href="orclsql_nonequijoin.html?topic=sqlNonEquiJoin" class="previou-button">&laquo;
@@ -1087,79 +1137,84 @@
     </button>
 
     <footer class="footerleft">
-        <div class="footer">
-            <div class="footer-container">
-                <!-- <div class="footer-top"> -->
-                <div class="logo-section">
-                    <h2>KUK DB</h2>
-                    <p>Empowering everyday people with life-changing data skills.</p>
-                    <form class="newsletter-form">
-                        <!-- <label for="email">Subscribe to the newsletter</label> -->
-                        <input type="email" id="email" placeholder="Email address" required>
-                        <button type="submit" class="subs-button">Subscribe</button>
-                    </form>
-                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
-                </div>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
             </div>
-            <div class="footer-links">
-                <div class="link-column">
-                    <h4>LEARN</h4>
-                    <ul>
-                        <li><a href="#">SQL</a></li>
-                        <li><a href="#">Oracle</a></li>
-                        <li><a href="#">SQL Server</a></li>
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                </div>
-
-                <!-- <div class="link-column">
-                    <h4>PLANS</h4>
-                    <ul>
-                        <li><a href="#">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="link-column">
-                    <h4>RESOURCES</h4>
-                    <ul>
-                        <li><a href="#">KUK DB Blog</a></li>
-                        <li><a href="#">Data Challenges</a></li>
-                        <li><a href="#">Data Playground</a></li>
-                        <li><a href="#">Guides & Reports</a></li>
-                        <li><a href="#">KUK DB Data</a></li>
-                    </ul>
-                </div>-->
-                <!-- <div class="link-column">
-                                <h4>SUPPORT</h4>
-                                <ul>
-                                    <li><a href="#">Help Center</a></li>
-                                    <li><a href="#">Product Updates</a></li>
-                                    <li><a href="#">Request A Feature</a></li>
-                                    <li><a href="#">Site Map</a></li>
-                                </ul>
-                            </div> -->
-                <div class="link-column">
-                    <h4>COMPANY</h4>
-                    <ul>
-                        <li><a href="#">Meet The Team</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="link-column">
-                    <h4>BUSINESS</h4>
-                    <ul>
-                        <li><a href="#">KUK DB For Business</a></li>
-                        <li><a href="#">Resource Hub</a></li>
-                        <li><a href="#">Customer Stories</a></li>
-                        <li><a href="#">Consulting</a></li>
-                    </ul>
-                </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
             </div>
-
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
         </div>
         <div class="footer-bottom">
-            <p>© KUK DB | All Rights Reserved</p>
+            <p>© KUK Solutions | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>
