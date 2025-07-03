@@ -803,7 +803,7 @@ hr {
   overflow: hidden;
   scroll-snap-align: start;
   min-width: 250px;
-  width: 20rem;
+  /* width: 20rem; */
   z-index: -1;
   transform: scale(0.9);
   transition: transform 0.3s ease;
@@ -872,6 +872,7 @@ hr {
   border: none;
   cursor: pointer;
 }
+
 /* Project slides code end Here */
 
 /* Services and  Contact Style start Here */
@@ -979,9 +980,9 @@ hr {
   /* transition: background-color 0.3s; */
 }
 
-#goToTopBtn i:hover {
+/* #goToTopBtn i:hover {
   background-color: #f472b6;
-}
+} */
 
 #goToTopBtn.show {
   display: block;
@@ -1440,15 +1441,9 @@ footer {
 
 /* footer code end here */
 /* 26-11 */
-.important {
+/* .important {
   color: red;
-}
-
-p {
-  margin-left: 30px;
-  text-align: justify;
-  /* padding: 5px; */
-}
+} */
 
 /* resource page start here */
 .resource-container {

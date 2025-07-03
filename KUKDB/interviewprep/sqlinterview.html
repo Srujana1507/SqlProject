@@ -5,151 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL - KUK Solutions</title>
-    <!-- <link rel="stylesheet" href="../KUKstyles.css"> -->
+    <link rel="stylesheet" href="../KUKstyles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Set the entire page background */
-        body {
-            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
-            background-color: white;
-            background-size: auto;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            background: linear-gradient(90deg, purple, #1d1d8f);
-            color: #fff;
-            padding: 5px;
-            text-align: left;
-            position: fixed;
-            box-shadow: 0 2px 10px #00000033;
-            /* border-radius: 20px; */
-            width: 100%;
-            /* height: auto; */
-            top: 0;
-            left: 0;
-            /* z-index: 1000; */
-        }
-
-        header img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50px;
-            margin-left: 15px;
-            margin-top: 5px;
-        }
-
-        header .kuk-solutions {
-            color: #f7fbfc;
-            letter-spacing: 2px;
-            font-size: 20px;
-            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
-            border: 2px solid transparent;
-            padding: 5px;
-            border-radius: 15px;
-            display: inline-block;
-        }
-
-        header nav {
-            display: inline-block;
-            /* margin-top: 10px; */
-        }
-
-        header nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 16px;
-            position: relative;
-        }
-
-        header nav a:hover::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            height: 2px;
-            width: 100%;
-            background: #fff;
-        }
-
-        /* Sign Up and Log In button styling */
-        .button-container {
-            display: flex;
-            width: fit-content;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            overflow: hidden;
-            background-color: #f0f8f0;
-            /* margin-top: 20px; */
-            width: fit-content;
-        }
-
-        .auth-button {
-            position: absolute;
-            top: 5px;
-            padding: 10px 30px;
-            border-radius: 50px;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease,
-                box-shadow 0.3s ease;
-            /* transition: background-color 0.3s ease, transform 0.2s ease; */
-            overflow: hidden;
-        }
-
-        .sign-in {
-            right: 110px;
-            background-color: #5858c5;
-            color: white;
-            border: 50px;
-            /* border-bottom-right-radius: 50px; */
-            font-weight: bold;
-        }
-
-        .sign-in:hover {
-            background-color: #5858c5;
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .sign-up {
-            right: 10px;
-            background-color: #22da22;
-            color: white;
-            font-weight: bold;
-            /* border: 50px; */
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-        }
-
-        .sign-up:hover {
-            background-color: #46ca46;
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-
-        /* hedder end here */
         /* content code start here */
-        .topic-buttons {
+        .qus-buttons {
             margin-top: 20px;
             text-align: center;
         }
 
-        .topic-buttons a {
+        .qus-buttons a {
             display: inline-block;
             padding: 10px 20px;
             margin: 5px;
@@ -161,7 +25,7 @@
             transition: background-color 0.3s;
         }
 
-        .topic-buttons a:hover {
+        .qus-buttons a:hover {
             background-color: #71b5fd;
         }
 
@@ -211,129 +75,24 @@
 
         /* content start here */
 
-        /* footer code start here */
-        footer {
-            text-align: center;
-            background-color: #111;
-            color: #fff;
-            padding: 20px 0;
-            width: 100%;
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
         }
 
-        .footerleft {
-            position: relative;
-            margin-left: 200px;
-            /* margin-right: 10px; */
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            line-height: 1.5;
+            color: black;
         }
 
-        .footer-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
         }
-
-        .logo-section h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #00ffcc;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 0;
-            margin: 0;
-            padding: 0;
-            flex-wrap: nowrap;
-            align-items: stretch;
-            justify-content: center;
-        }
-
-        .newsletter-form input {
-            flex: none;
-            width: 350px;
-            padding: 10px;
-            border: 1px solid #333;
-            border-right: none;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-            box-sizing: border-box;
-            margin: 0;
-        }
-
-        .newsletter-form .subs-button {
-            padding: 10px 20px;
-            background-color: #00ffcc;
-            color: #111;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            border-left: none;
-            box-sizing: border-box;
-            margin: 0;
-        }
-
-        .newsletter-form .subs-button:hover {
-            background-color: #00cca3;
-        }
-
-        .newsletter-form .no-spam {
-            font-size: 12px;
-            color: #aaa;
-            margin-top: 5px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-        }
-
-        .link-column {
-            flex: 1 1 150px;
-        }
-
-        .link-column h4 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: #00ffcc;
-        }
-
-        .link-column ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .link-column ul li {
-            margin-bottom: 5px;
-        }
-
-        .link-column ul li a {
-            color: #aaa;
-            text-decoration: none;
-        }
-
-        .link-column ul li a:hover {
-            color: #00ffcc;
-        }
-
-        .footer-bottom {
-            margin-top: 20px;
-            font-size: 14px;
-            text-align: center;
-            color: #aaa;
-        }
-
-        .footer-bottom a {
-            color: #00ffcc;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
-        }
-
-        /* footer code end hrere */
     </style>
 </head>
 
@@ -355,7 +114,7 @@
             <a href="KUK_Solutions_STG.html">Home</a>
             <a href="KUKabout.html">About Us</a>
             <a href="#courses" onclick="openNav()">Courses</a>
-            <a href="interviewprep.html">Interview Prep</a>
+            <a href="../interviewprep.html">Interview Prep</a>
             <!-- <a href="#blog">Blog/Articles</a> -->
             <!-- <a href="#community">Community</a> -->
             <a href="Kukresources.html">Resources</a>
@@ -374,9 +133,9 @@
     <div class="course-container">
         <main class="sidebar-content">
             <div class="topic-content active" data-topic="sqlBignner">
-                <div class="topic-buttons">
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlAdvanced" class="next-button">Advanced</a>
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
+                <div class="qus-buttons">
+                    <a href="../sqlinterview.html?topic=sqlAdvanced" class="next-button">Advanced</a>
+                    <a href="../sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
                 </div>
 
 
@@ -398,34 +157,34 @@
                     </li>
                 </ul>
 
-                <div class="topic-buttons">
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlAdvanced" class="next-button">Advanced</a>
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
+                <div class="qus-buttons">
+                    <a href="../sqlinterview.html?topic=sqlAdvanced" class="next-button">Advanced</a>
+                    <a href="../sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
 
                 </div>
             </div>
 
             <div class="topic-content" data-topic="sqlAdvanced">
-                <div class="topic-buttons">
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlBignner" class="previou-button">Beginner</a>
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
+                <div class="qus-buttons">
+                    <a href="../sqlinterview.html?topic=sqlBignner" class="previou-button">Beginner</a>
+                    <a href="../sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
                 </div>
                 <h1>SQL Advanced</h1>
-                <div class="topic-buttons">
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlBignner" class="previou-button">Beginner</a>
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
+                <div class="qus-buttons">
+                    <a href="../sqlinterview.html?topic=sqlBignner" class="previou-button">Beginner</a>
+                    <a href="../sqlinterview.html?topic=sqlExpert" class="next-button">Expert</a>
                 </div>
             </div>
 
             <div class="topic-content" data-topic="sqlExpert">
-                <div class="topic-buttons">
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlAdvanced" class="previou-button">Advanced</a>
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlBignner" class="next-button">Beginner</a>
+                <div class="qus-buttons">
+                    <a href="../sqlinterview.html?topic=sqlAdvanced" class="previou-button">Advanced</a>
+                    <a href="../sqlinterview.html?topic=sqlBignner" class="next-button">Beginner</a>
                 </div>
                 <h1>SQL Expert</h1>
-                <div class="topic-buttons">
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlAdvanced" class="previou-button">Advanced</a>
-                    <a href="/interviewprep/sqlinterview.html?topic=sqlBignner" class="next-button">Beginner</a>
+                <div class="qus-buttons">
+                    <a href="../sqlinterview.html?topic=sqlAdvanced" class="previou-button">Advanced</a>
+                    <a href="../sqlinterview.html?topic=sqlBignner" class="next-button">Beginner</a>
                 </div>
             </div>
         </main>
@@ -434,84 +193,79 @@
 
     <!-- Footer Section -->
     <footer>
-        <div class="footer-container">
-            <!-- <div class="footer-top"> -->
-            <div class="logo-section">
-                <h2>KUK <span>Solutions</span></h2>
-                <p>Empowering everyday people with life-changing data skills.</p>
-                <form class="newsletter-form">
-                    <!-- <label for="email">Subscribe to the newsletter</label> -->
-                    <input type="email" id="email" placeholder="Email address" required>
-                    <button type="submit" class="subs-button">Subscribe</button>
-                </form>
-                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
             </div>
-        </div>
-        <div class="footer-links">
-            <div class="link-column">
-                <h4>LEARN</h4>
-                <ul>
-                    <li><a href="#">Self-Paced Courses</a></li>
-                    <li><a href="#">Learning Paths</a></li>
-                    <li><a href="#">Guided Projects</a></li>
-                    <li><a href="#">Cohort Learning</a></li>
-                    <li><a href="#">Crash Courses</a></li>
-                    <li><a href="#">Credentials & Badges</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                        <h4>PLANS</h4>
+                        <ul>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-column">
+                        <h4>RESOURCES</h4>
+                        <ul>
+                            <li><a href="#">KUK DB Blog</a></li>
+                            <li><a href="#">Data Challenges</a></li>
+                            <li><a href="#">Data Playground</a></li>
+                            <li><a href="#">Guides & Reports</a></li>
+                            <li><a href="#">KUK DB Data</a></li>
+                        </ul>
+                    </div>-->
+                <!-- <div class="link-column">
+                        <h4>SUPPORT</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Product Updates</a></li>
+                            <li><a href="#">Request A Feature</a></li>
+                            <li><a href="#">Site Map</a></li>
+                        </ul>
+                    </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="link-column">
-                <h4>DISCOVER</h4>
-                <ul>
-                    <li><a href="#">Maven Showcase</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>PLANS</h4>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Maven Blog</a></li>
-                    <li><a href="#">Data Challenges</a></li>
-                    <li><a href="#">Data Playground</a></li>
-                    <li><a href="#">Guides & Reports</a></li>
-                    <li><a href="#">Mavens Of Data</a></li>
-                    <li><a href="#">Data Literacy Assessment</a></li>
-                    <li><a href="#">Find Your Path</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>SUPPORT</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Product Updates</a></li>
-                    <li><a href="#">Request A Feature</a></li>
-                    <li><a href="#">Site Map</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">Meet The Team</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="link-column">
-                <h4>BUSINESS</h4>
-                <ul>
-                    <li><a href="#">Maven For Business</a></li>
-                    <li><a href="#">Resource Hub</a></li>
-                    <li><a href="#">Customer Stories</a></li>
-                    <li><a href="#">Consulting</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="footer-bottom">
-            <p>© KUK Solutions | All Rights Reserved</p>
+            <p>© KUK DB | All Rights Reserved</p>
             <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
                 |
                 <a href="#">Contact</a>
@@ -521,7 +275,7 @@
     </footer>
     <!-- JavaScript to switch content -->
     <script>
-        document.querySelectorAll('.topic-buttons a').forEach(button => {
+        document.querySelectorAll('.qus-buttons a').forEach(button => {
             button.addEventListener('click', function (event) {
                 event.preventDefault();
                 // Hide all topics
