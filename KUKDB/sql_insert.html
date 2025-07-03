@@ -254,7 +254,6 @@
                     <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
                     <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
                     </li>
-                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
                 </ul>
                 <ul>
                     <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
@@ -347,18 +346,18 @@
             </code>
             </div><br>
             <h2>Examples</h2>
-            
-              <p> <b> 1.Add/Insert a single row to the employees table.</b></p>
-            
+
+            <p> <b> 1.Add/Insert a single row to the employees table.</b></p>
+
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name,location ) <br>
                 <span class="orclkey">VALUES </span> ( 101, 'Kumar', 'Kanaka', 'Finance', 'India') ;
             </code>
             </div><br>
-            
-             <p><b>2.Insert Multiple rows to the employees table</b></p>
-            
+
+            <p><b>2.Insert Multiple rows to the employees table</b></p>
+
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name,location ) <br>
@@ -366,9 +365,9 @@
                         ( 102, 'Harsh', 'Thammi', 'Product', 'New York' ) ;
             </code>
             </div><br>
-            
-                <p><b>3.Inserting Only Specific Columns</b></p>
-            
+
+            <p><b>3.Inserting Only Specific Columns</b></p>
+
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name ) <br>
@@ -379,10 +378,10 @@
                         
             </code>
             </div><br>
-           
-                <p><b>4.Inserting Data from Another Table:</b> Copy data from the archived_employees table to the
-                    employees table.</p>
-            
+
+            <p><b>4.Inserting Data from Another Table:</b> Copy data from the archived_employees table to the
+                employees table.</p>
+
             <div class="code-box">
                 <code>
             <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name, location ) <br>
@@ -392,8 +391,8 @@
             </code>
             </div><br>
             <p><b>5.Inserting Data Using Default Values: </b> Some databases allow inserting rows and using DEFAULT
-                    values where available</p>
-            
+                values where available</p>
+
             <div class="code-box">
                 <code>
                 <span class="orclkey">INSERT INTO  </span> employee ( EmpID, First_name, Last_name, department_name, location ) <br>
@@ -424,7 +423,7 @@
                 <span class="orclkey">ON </span> DUPLICATE KEY <span class="orclkey">UPDATE  </span>( 105, 'sham', ' Green', 'Sales', 'Hong Kong' ) ; 
                 </code>
             </div><br>
-            <h3>2. Using RETURNING (PostgreSQL and Oracle)</h3> 
+            <h3>2. Using RETURNING (PostgreSQL and Oracle)</h3>
             <p>In PostgreSQL and Oracle, use the RETURNING clause to capture values (like auto-generated IDs) from
                 newly inserted rows.</p>
 

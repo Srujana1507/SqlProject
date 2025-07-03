@@ -264,7 +264,6 @@
                     <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
                     <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
                     </li>
-                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
                 </ul>
                 <ul>
                     <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
@@ -359,7 +358,8 @@
                                 </ul>
                                 <h2>Common Uses of SQL / Functions of SQL</h2>
                                 <ul>
-                                    <li> <b>Data Management : </b>SQL excels in managing structured data, which is stored
+                                    <li> <b>Data Management : </b>SQL excels in managing structured data, which is
+                                        stored
                                         in rows and columns. It
                                         allows you to perform the below operations:</li>
                                     <li><b>Retrieve Data: </b> Pull specific data or information from the
@@ -463,7 +463,7 @@
                                         the same. However, it's a good practice to use uppercase for keywords (SELECT,
                                         FROM)
                                         and lowercase for table/column names.</li>
-                                    <li>Use Proper Statement Structure. A basic SQL query follows this structure  </li>
+                                    <li>Use Proper Statement Structure. A basic SQL query follows this structure </li>
                                     <code>
                                     <span class="orclkey">SELECT</span> column_names <br>
                                     <span class="orclkey">FROM</span> table_name <br>
@@ -501,7 +501,7 @@
                                             <td>SELECT e.name AS employee_name, d.name AS department_name
                                                 FROM employee e
                                                 JOIN departments d ON e.dept_id = d.dept_id;
-    
+
                                             </td>
                                         </tr>
                                     </table>
@@ -517,7 +517,7 @@
                                     <li>Understand the different types of joins (INNER, LEFT, RIGHT, FULL) and use them
                                         appropriately to combine data from multiple tables.</li>
                                     <li>Add comments for clarity, especially in complex queries.
-                                        for  Single-line comment use '--', and for
+                                        for Single-line comment use '--', and for
                                         Multi-line comment use /* This is sample query */
                                     </li>
                                     <li>Always test your query on a smaller dataset to ensure accuracy before running it
@@ -538,14 +538,16 @@
                                         for
                                         SQL.</li>
                                     <li><b>1974: SQL is Born - </b>SQL was developed by <b>Donald D. Chamberlin and
-                                        Raymond F. Boyce </b> at IBM. Initially called SEQUEL (Structured English Query
+                                            Raymond F. Boyce </b> at IBM. Initially called SEQUEL (Structured English
+                                        Query
                                         Language),
                                         it was designed to interact with IBM's relational database system.</li>
                                     <li><b>1979: Commercialization of SQL </b>- SQL was adopted as a
-                                            <b>standard by the American National Standards Institute </b>(ANSI)
+                                        <b>standard by the American National Standards Institute </b>(ANSI)
                                         and later by the <b>International Organization for Standardization
                                             (ISO)</b>. This made SQL the official standard language for relational
-                                        databases</li>
+                                        databases
+                                    </li>
                                     <li><b>1986: SQL Standardization by ANSI - </b>Call data records, customer
                                         relationship management, and network usage analysis.</li>
                                     <li><b>1989: SQL-89 (First Revision) - </b>Minor enhancements and
@@ -589,7 +591,7 @@
                 </div>
 
                 <h1>SQL Data Types</h1>
-                <h2>What is a Data Type?</h2>  
+                <h2>What is a Data Type?</h2>
                 <p>A <b> Data Type </b>in SQL defines the type of data that a column can hold in a database
                     table. It determines:</p>
                 <ul>
@@ -598,7 +600,7 @@
                     <li><b>The operations allowed: </b> e.g: mathematical operations on numeric types or
                         string functions on text types.</li>
                     <li><b>The storage requirements: </b> The amount of memory allocated for each data value.
-                    </li> 
+                    </li>
                 </ul>
                 <h2>Why Are Data Types Important in SQL?</h2>
                 <ul>
@@ -611,7 +613,7 @@
                     <li><b>Logical Constraints: </b> Helps enforce rules like a column only accepting positive
                         numbers or specific text lengths.</li>
                 </ul> <br>
-                <h2>SQL Data Types:</h2> 
+                <h2>SQL Data Types:</h2>
 
                 <!-- Oracle SQL Data Types -->
                 <table>
@@ -708,7 +710,7 @@
                         </tr>
                         <tr>
                             <td>VARCHAR(n)</td>
-                            <td>  Variable-length string of n characters,</td>
+                            <td> Variable-length string of n characters,</td>
                             <td>Used for storing Flexible text fields.</td>
                             <td>Up to 8,000 characters or MAX (2 GB).</td>
                         </tr>
@@ -1145,16 +1147,17 @@
                 <br>
                 <h2>1. Data Query Language (DQL):</h2>
                 <p>DQL statements can range from simple queries to complex multiple-clause commands.
-                     components
+                    components
                 </p><br>
                 <h3>Purpose :</h3>
                 <ul>
-               <li>DQL focuses only on querying and reading the data stored in tables.</li>
-               <li>It primarily uses the SELECT statement to fetch specific data based on certain conditions.</li>
-               <li>Unlike DML, which modifies data, DQL is read-only and does not change the database contents.</li>
-               </ul>
-               <li>Key Command: <b><a href="sql.html?topic=sqlSelectTable">SELECT</a></b></li>
-                
+                    <li>DQL focuses only on querying and reading the data stored in tables.</li>
+                    <li>It primarily uses the SELECT statement to fetch specific data based on certain conditions.</li>
+                    <li>Unlike DML, which modifies data, DQL is read-only and does not change the database contents.
+                    </li>
+                </ul>
+                <li>Key Command: <b><a href="sql.html?topic=sqlSelectTable">SELECT</a></b></li>
+
 
                 <table>
                     <caption> Components:</caption>
@@ -1182,12 +1185,14 @@
                         <tr>
                             <td><b>Predicates</b></td>
                             <td>Used to define conditions for filtering rows.</td>
-                            <td><code>SELECT CustomerID, customer_name FROM Customer WHERE Age > 30 AND City = 'Chicago';</code></td>
+                            <td><code>SELECT CustomerID, customer_name FROM Customer WHERE Age > 30 AND City = 'Chicago';</code>
+                            </td>
                         </tr>
                         <tr>
                             <td><b>Logical Connectives</b></td>
                             <td>Combine multiple conditions (e.g: AND, OR, NOT).</td>
-                            <td><code>SELECT CustomerID, customer_name FROM Customer WHERE City = 'New York' OR City = 'Los Angeles'; </code></td>
+                            <td><code>SELECT CustomerID, customer_name FROM Customer WHERE City = 'New York' OR City = 'Los Angeles'; </code>
+                            </td>
                         </tr>
                         <tr>
                             <td><b>Aggregate Functions</b></td>
@@ -1306,9 +1311,10 @@
                         </tr>
                         <tr>
                             <td><b>Understand the Database Requirements</b> </td>
-                            <td>Gather business and technical needs to identify entities, attributes, and data relationships essential for the database structure.
+                            <td>Gather business and technical needs to identify entities, attributes, and data
+                                relationships essential for the database structure.
 
-.</td>
+                                .</td>
                         </tr>
                         <tr>
                             <td><b>Validate Primary Keys</b> </td>
@@ -1341,7 +1347,7 @@
                         <b>contents </b>within those structures.
                     </li>
                 </ul>
-                
+
                 <h3>Key Commands :</h3>
                 <ul>
                     <li><b>INSERT :</b> Adds new rows of data to a table.</li>
@@ -1374,7 +1380,7 @@
                     </code>
                 </ul>
                 <br>
-    
+
                 <h3>Best Practices for DML Statements:</h3>
                 <ul>
                     <li><b>Break Down Complex Queries - </b> Analyze and test components of complex queries
@@ -1403,432 +1409,437 @@
                 </ul>
                 <br>
                 <h2>4. Data Control Language (DCL)</h2>
-                 <p>Data Control Language (DCL) is a subset of SQL that focuses on managing and securing access to the
+                <p>Data Control Language (DCL) is a subset of SQL that focuses on managing and securing access to the
                     database.</p> <br>
-                    <h3>Purpose </h3>
+                <h3>Purpose </h3>
                 <ul>
-                 <li>It focuses on controlling user permissions and safeguarding data integrity.</li>
-                 <li>It is primarily used to grant or revoke access rights to users over database objects.</li>
-                   Unlike DML, which manipulates data, DCL ensures only authorized users can perform specific operations.</p> <br>
+                    <li>It focuses on controlling user permissions and safeguarding data integrity.</li>
+                    <li>It is primarily used to grant or revoke access rights to users over database objects.</li>
+                    Unlike DML, which manipulates data, DCL ensures only authorized users can perform specific
+                    operations.</p> <br>
                 </ul>
-                
+
                 <h3>Importance of DCL:</h3>
-               
+
                 <ul>
-                  <li>
-                  DCL helps enforce data security policies within a database system.</li>
-                 <li>It is essential for multi-user environments, preventing unauthorized access and ensuring that sensitive data is protected.</li>
-                  </li>  DCL also contributes to compliance and auditability by defining clear access controls.</li>
-                 </ul> 
+                    <li>
+                        DCL helps enforce data security policies within a database system.</li>
+                    <li>It is essential for multi-user environments, preventing unauthorized access and ensuring that
+                        sensitive data is protected.</li>
+                    </li> DCL also contributes to compliance and auditability by defining clear access controls.</li>
+                </ul>
 
-                  <br>
-                   <table>
-                        <caption>DCL Commands:</caption>
-                        <thead>
-                            <tr>
-                                <th>Command</th>
-                                <th>Purpose</th>
-                                <th>Usage</th>
-                                <th>Example</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>GRANT</b></td>
-                                <td>Assigns specific permissions or privileges to users or roles.</td>
-                                <td>Depends on user and department</td>
-                                <td><code>GRANT SELECT, INSERT ON Employees TO User1;
+                <br>
+                <table>
+                    <caption>DCL Commands:</caption>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Purpose</th>
+                            <th>Usage</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>GRANT</b></td>
+                            <td>Assigns specific permissions or privileges to users or roles.</td>
+                            <td>Depends on user and department</td>
+                            <td><code>GRANT SELECT, INSERT ON Employees TO User1;
                                 </code>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>REVOKE</b></td>
-                                <td>Removes previously granted permissions from users or roles.</td>
-                                <td>Depends on user and department</td>
-                                <td><code>REVOKE INSERT ON Employees FROM User1;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>REVOKE</b></td>
+                            <td>Removes previously granted permissions from users or roles.</td>
+                            <td>Depends on user and department</td>
+                            <td><code>REVOKE INSERT ON Employees FROM User1;
                                     </code>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br><br>
-                    <h3>Data Integrity and Security with DCL</h3>
-                    <h4>Preventing Data Corruption</h4>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br>
+                <h3>Data Integrity and Security with DCL</h3>
+                <h4>Preventing Data Corruption</h4>
+                <ul>
+                    <li> SQL transactions ensure that operations are logged and can be rolled back in case of
+                        errors.
+                    </li>
+                    <li>Logging minimizes risks during failures, as incomplete transactions can be undone.</li>
+                </ul>
+                <h4>Managing Multi-User Environments</h4>
+                <ul>
+                    <li>DCL restricts simultaneous conflicting operations by isolating user actions.</li>
+                    <li>Example Problems Addressed:</li>
                     <ul>
-                        <li> SQL transactions ensure that operations are logged and can be rolled back in case of
-                            errors.
+                        <li><b>Lost Updates: </b>When one user's changes overwrite another's without
+                            knowledge.</li>
+                        <li><b>Dirty Reads: </b>When a user reads uncommitted changes made by another user.
                         </li>
-                        <li>Logging minimizes risks during failures, as incomplete transactions can be undone.</li>
+                        <li><b>Inconsistent Data: </b>When changes are partially visible to other users.</li>
                     </ul>
-                    <h4>Managing Multi-User Environments</h4>
-                    <ul>
-                        <li>DCL restricts simultaneous conflicting operations by isolating user actions.</li>
-                        <li>Example Problems Addressed:</li>
-                        <ul>
-                            <li><b>Lost Updates: </b>When one user's changes overwrite another's without
-                                knowledge.</li>
-                            <li><b>Dirty Reads: </b>When a user reads uncommitted changes made by another user.
-                            </li>
-                            <li><b>Inconsistent Data: </b>When changes are partially visible to other users.</li>
-                        </ul>
-                    </ul>
+                </ul>
 
-                    <h4>What is User Role?</h4>
+                <h4>What is User Role?</h4>
+                <ul>
+                    <li><b>user roles - </b>are a way to group and manage permissions for multiple users within a
+                        database system. Instead of assigning permissions individually to each user,
+                        roles simplify the process by allowing database administrators to assign permissions to
+                        roles,
+                        and
+                        then assign those roles to users.</li>
+                    <li><b>Authentication - </b>Ensures that only authorized users can access the database.
+                    </li>
+                    <li><b>Authorization - </b>Controls what actions an authenticated user can perform.</li>
+                </ul>
+                <h4>Advantages of Roles:</h4>
+                <ul>
+                    <li> <b>Centralized Access Control - </b>Simplifies permission management by grouping
+                        users with similar access requirements. </li>
+                    <li> <b>Enhanced Security - </b>Avoids granting excessive permissions directly to users.
+                    </li>
+                    <li> <b>Scalability - </b>Easily add or remove users from a role as team compositions
+                        change. </li>
+                </ul>
+                <h4>User Roles in few SQL Systems</h4>
+                <ul>
+                    <h5>1. SQL Server</h5>
                     <ul>
-                        <li><b>user roles - </b>are a way to group and manage permissions for multiple users within a
-                            database system. Instead of assigning permissions individually to each user,
-                            roles simplify the process by allowing database administrators to assign permissions to
-                            roles,
-                            and
-                            then assign those roles to users.</li>
-                        <li><b>Authentication - </b>Ensures that only authorized users can access the database.
-                        </li>
-                        <li><b>Authorization - </b>Controls what actions an authenticated user can perform.</li>
+                        <li><b>Predefined roles - </b> db_owner, db_reader, db_writer.</li>
+                        <li><b>Custom roles - </b> Supported.</li>
                     </ul>
-                    <h4>Advantages of Roles:</h4>
+                    <h5>2. Oracle</h5>
                     <ul>
-                        <li> <b>Centralized Access Control - </b>Simplifies permission management by grouping
-                            users with similar access requirements. </li>
-                        <li> <b>Enhanced Security - </b>Avoids granting excessive permissions directly to users.
-                        </li>
-                        <li> <b>Scalability - </b>Easily add or remove users from a role as team compositions
-                            change. </li>
+                        <li>Supports roles with the CREATE ROLE command.</li>
+                        <li>Example predefined roles: CONNECT, RESOURCE, DBA.</li>
                     </ul>
-                    <h4>User Roles in few SQL Systems</h4>
+                    <h5>3. PostgreSQL</h5>
                     <ul>
-                        <h5>1. SQL Server</h5>
-                        <ul>
-                            <li><b>Predefined roles - </b> db_owner, db_reader, db_writer.</li>
-                            <li><b>Custom roles - </b> Supported.</li>
-                        </ul>
-                        <h5>2. Oracle</h5>
-                        <ul>
-                            <li>Supports roles with the CREATE ROLE command.</li>
-                            <li>Example predefined roles: CONNECT, RESOURCE, DBA.</li>
-                        </ul>
-                        <h5>3. PostgreSQL</h5>
-                        <ul>
-                            <li>Combines roles and users. Roles can log in if given login privileges.</li>
-                            <li>Uses GRANT and REVOKE for role management.</li>
-                        </ul>
-                        <h5>4. MySQL</h5>
-                        <ul>
-                            <li>Introduced roles in version 8.0.</li>
-                            <li>Roles can be created, granted privileges, and assigned to users.</li>
-                        </ul>
-                        <h5>5. MongoDB</h5>
-                        <ul>
-                            <li>Role-based access control (RBAC) system with built-in roles like read, readWrite, and
-                                custom
-                                roles.</li>
-                        </ul>
+                        <li>Combines roles and users. Roles can log in if given login privileges.</li>
+                        <li>Uses GRANT and REVOKE for role management.</li>
                     </ul>
-                    <h4>Advanced Features of DCL</h4>
+                    <h5>4. MySQL</h5>
+                    <ul>
+                        <li>Introduced roles in version 8.0.</li>
+                        <li>Roles can be created, granted privileges, and assigned to users.</li>
+                    </ul>
+                    <h5>5. MongoDB</h5>
+                    <ul>
+                        <li>Role-based access control (RBAC) system with built-in roles like read, readWrite, and
+                            custom
+                            roles.</li>
+                    </ul>
+                </ul>
+                <h4>Advanced Features of DCL</h4>
+
+                <ul>
+                    <li><b>Role Management - </b>DCL allows grouping privileges into roles, which can be
+                        then assigned to users</li>
+
+                </ul>
+                <ul>
+                    <li><b>Protection of Database Objects</b></li>
 
                     <ul>
-                        <li><b>Role Management - </b>DCL allows grouping privileges into roles, which can be
-                           then assigned to users</li>
-
+                        <li><b>Tables - </b>Control who can see or modify data.</li>
+                        <li><b>Columns - </b>Restrict access to specific attributes.</li>
+                        <li><b>Views - </b>Grant access to derived / aggregated data.</li>
+                        <li><b>Domains and Constraints - </b>Protect schema-level objects like constraints
+                            and types.</li>
                     </ul>
-                    <ul>
-                        <li><b>Protection of Database Objects</b></li>
+                </ul>
+                <br>
+                <table>
+                    <caption>Types of Privileges:</caption>
+                    <caption>1. Data Access Privileges</caption>
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>GRANT SELECT</b></td>
+                            <td>Used to provide the privilege (or permission) for a user or role to retrieve data
+                                from a specific table or view.
+                                This allows the specified user or role to read the data but not modify it.</td>
+                        </tr>
+                        <tr>
+                            <td><b>REVOKE SELECT</b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to retrieve data
+                                from a specific table or view.
+                                This ensures that the specified user or role can no longer read the data.</td>
+                        </tr>
+                        <tr>
+                            <td><b>GRANT INSERT</b></td>
+                            <td>Used to provide the privilege (or permission) for a user or role to add new rows of
+                                data into a specific table or view.
+                                This allows the specified user or role to insert data but not necessarily view,
+                                update, or delete it. </td>
+                        </tr>
+                        <tr>
+                            <td><b>REVOKE INSERT</b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to insert new rows
+                                into a specific table or view.
+                                This ensures that the specified user or role cannot add new data to the table or
+                                view.</td>
+                        </tr>
+                        <tr>
+                            <td><b>GRANT UPDATE </b></td>
+                            <td>Used to provide the privilege (or permission) for a user or role to modify existing
+                                data in specific columns of a table or view.
+                                This allows the specified user or role to update data but does not permit inserting,
+                                deleting, or viewing data unless explicitly granted.</td>
+                        </tr>
+                        <tr>
+                            <td><b>REVOKE UPDATE </b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to modify existing
+                                data in specific columns of a table or view.
+                                This ensures that the specified user or role can no longer update the data.</td>
+                        </tr>
+                        <tr>
+                            <td><b>GRANT DELETE </b></td>
+                            <td>Used to provide the privilege (or permission) for a user or role to remove rows from
+                                a specific table or view.
+                                This allows the specified user or role to delete data but does not permit inserting,
+                                updating, or viewing data unless explicitly granted.</td>
+                        </tr>
+                        <tr>
+                            <td><b>REVOKE DELETE</b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to delete rows from
+                                a specific table or view.
+                                This ensures that the specified user or role can no longer remove data from the
+                                table or view.</td>
+                        </tr>
 
-                        <ul>
-                            <li><b>Tables - </b>Control who can see or modify data.</li>
-                            <li><b>Columns - </b>Restrict access to specific attributes.</li>
-                            <li><b>Views - </b>Grant access to derived / aggregated data.</li>
-                            <li><b>Domains and Constraints - </b>Protect schema-level objects like constraints
-                                and types.</li>
-                        </ul>
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <table>
+                    <caption>2. Object Usage Privileges</caption>
+
+                    <ul>
+                        <li>A <b>domain </b>is a user-defined data type that specifies a data type along with
+                            optional constraints, such as a range or specific allowed values.</li>
+                        <li>A <b>collation </b>determines the rules for comparing and sorting strings of text,
+                            including case sensitivity, accent sensitivity, and language-specific ordering.</li>
+                        <li>A <b>translation </b>defines a mapping or transformation between character sets or
+                            encodings, allowing data to be converted from one format to another.</li> <br>
                     </ul>
-                    <br>
-                    <table>
-                        <caption>Types of Privileges:</caption>
-                        <caption>1. Data Access Privileges</caption>
-                        <thead>
-                            <tr>
-                                <th>Statement</th>
-                                <th>Operation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>GRANT SELECT</b></td>
-                                <td>Used to provide the privilege (or permission) for a user or role to retrieve data
-                                    from a specific table or view.
-                                    This allows the specified user or role to read the data but not modify it.</td>
-                            </tr>
-                            <tr>
-                                <td><b>REVOKE SELECT</b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to retrieve data
-                                    from a specific table or view.
-                                    This ensures that the specified user or role can no longer read the data.</td>
-                            </tr>
-                            <tr>
-                                <td><b>GRANT INSERT</b></td>
-                                <td>Used to provide the privilege (or permission) for a user or role to add new rows of
-                                    data into a specific table or view.
-                                    This allows the specified user or role to insert data but not necessarily view,
-                                    update, or delete it. </td>
-                            </tr>
-                            <tr>
-                                <td><b>REVOKE INSERT</b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to insert new rows
-                                    into a specific table or view.
-                                    This ensures that the specified user or role cannot add new data to the table or
-                                    view.</td>
-                            </tr>
-                            <tr>
-                                <td><b>GRANT UPDATE </b></td>
-                                <td>Used to provide the privilege (or permission) for a user or role to modify existing
-                                    data in specific columns of a table or view.
-                                    This allows the specified user or role to update data but does not permit inserting,
-                                    deleting, or viewing data unless explicitly granted.</td>
-                            </tr>
-                            <tr>
-                                <td><b>REVOKE UPDATE </b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to modify existing
-                                    data in specific columns of a table or view.
-                                    This ensures that the specified user or role can no longer update the data.</td>
-                            </tr>
-                            <tr>
-                                <td><b>GRANT DELETE </b></td>
-                                <td>Used to provide the privilege (or permission) for a user or role to remove rows from
-                                    a specific table or view.
-                                    This allows the specified user or role to delete data but does not permit inserting,
-                                    updating, or viewing data unless explicitly granted.</td>
-                            </tr>
-                            <tr>
-                                <td><b>REVOKE DELETE</b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to delete rows from
-                                    a specific table or view.
-                                    This ensures that the specified user or role can no longer remove data from the
-                                    table or view.</td>
-                            </tr>
-                           
-                        </tbody>
-                    </table>
-                    <br>
-                    <br>
-                    <table>
-                        <caption>2. Object Usage Privileges</caption>
-                        
-                        <ul>
-                            <li>A <b>domain </b>is a user-defined data type that specifies a data type along with
-                                optional constraints, such as a range or specific allowed values.</li>
-                            <li>A <b>collation </b>determines the rules for comparing and sorting strings of text,
-                                including case sensitivity, accent sensitivity, and language-specific ordering.</li>
-                            <li>A <b>translation </b>defines a mapping or transformation between character sets or
-                                encodings, allowing data to be converted from one format to another.</li> <br>
-                        </ul>
 
-                        <thead>
-                            <tr>
-                                <th>Statement</th>
-                                <th>Operation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b><code>GRANT USAGE ON DOMAIN</code></b></td>
-                                <td>Used to grant a user or role the privilege to use a specific<b>
-                                        domain</b>.
-                                    By granting USAGE on a domain, the user or role is permitted to reference the domain
-                                    in their operations, such as creating tables or defining columns using that domain.
-                                    This privilege is useful for managing access to shared, standardized data types in a
-                                    database.</td>
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b><code>GRANT USAGE ON DOMAIN</code></b></td>
+                            <td>Used to grant a user or role the privilege to use a specific<b>
+                                    domain</b>.
+                                By granting USAGE on a domain, the user or role is permitted to reference the domain
+                                in their operations, such as creating tables or defining columns using that domain.
+                                This privilege is useful for managing access to shared, standardized data types in a
+                                database.</td>
 
-                            </tr>
-                            <tr>
-                                <td><b><code>GRANT USAGE ON CHARACTER SET</code></b></td>
-                                <td>Used to grant a user or role the privilege to use a specific <b>character set
-                                    </b>in the database.
-                                    By granting USAGE on a domain, the user or role is permitted to reference the domain
-                                    in their operations, such as creating tables or defining columns using that domain.
-                                    This privilege is useful for managing access to shared, standardized data types in a
-                                    database.</td>
+                        </tr>
+                        <tr>
+                            <td><b><code>GRANT USAGE ON CHARACTER SET</code></b></td>
+                            <td>Used to grant a user or role the privilege to use a specific <b>character set
+                                </b>in the database.
+                                By granting USAGE on a domain, the user or role is permitted to reference the domain
+                                in their operations, such as creating tables or defining columns using that domain.
+                                This privilege is useful for managing access to shared, standardized data types in a
+                                database.</td>
 
-                            </tr>
-                            <tr>
-                                <td><b><code>GRANT USAGE ON COLLATION</code></b></td>
-                                <td>Used to grant a user or role the privilege to use a specific
-                                    <b>collation</b> in the database. By granting USAGE on a collation,
-                                    you allow the specified user or role to reference that collation when defining or
-                                    altering database objects, such as columns, tables, or queries.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b><code>GRANT USAGE ON TRANSLATION</code></b></td>
-                                <td>Used to grant a user or role the privilege to use a specific <b>translation
-                                    </b>in the database.
-                                    By granting USAGE on a translation, you permit the specified user or role to
-                                    reference and apply the translation when performing operations that require
-                                    character set conversion.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b><code>REVOKE USAGE ON DOMAIN</code></b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to use a specific
-                                    <b>domain </b>in the database.
-                                    By revoking USAGE on a domain, you ensure that the specified user or role can no
-                                    longer create or reference columns or objects based on that domain.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b><code>REVOKE USAGE ON CHARACTER SET</code></b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to use a specific
-                                    <b>character set</b> in the database.
-                                    By revoking USAGE on a character set, you restrict the specified user or role from
-                                    creating or modifying objects (such as tables or columns) that depend on that
-                                    character set.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b><code>REVOKE USAGE ON COLLATION</code></b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to use a specific
-                                    <b>collation</b> in the database.
-                                    By revoking USAGE on a collation, you restrict the specified user or role from
-                                    applying that collation to database objects like tables, views, or columns.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b><code>REVOKE USAGE ON TRANSLATION</code></b></td>
-                                <td>Used to remove the privilege (or permission) for a user or role to use a specific
-                                    <b>translation </b>in the database.
-                                    By revoking USAGE on a translation, the specified user or role is restricted from
-                                    applying that translation to character data within the database.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br>
-                    <br><table>
-                        <caption>3. Object References Privileges</caption>
+                        </tr>
+                        <tr>
+                            <td><b><code>GRANT USAGE ON COLLATION</code></b></td>
+                            <td>Used to grant a user or role the privilege to use a specific
+                                <b>collation</b> in the database. By granting USAGE on a collation,
+                                you allow the specified user or role to reference that collation when defining or
+                                altering database objects, such as columns, tables, or queries.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b><code>GRANT USAGE ON TRANSLATION</code></b></td>
+                            <td>Used to grant a user or role the privilege to use a specific <b>translation
+                                </b>in the database.
+                                By granting USAGE on a translation, you permit the specified user or role to
+                                reference and apply the translation when performing operations that require
+                                character set conversion.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b><code>REVOKE USAGE ON DOMAIN</code></b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                                <b>domain </b>in the database.
+                                By revoking USAGE on a domain, you ensure that the specified user or role can no
+                                longer create or reference columns or objects based on that domain.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b><code>REVOKE USAGE ON CHARACTER SET</code></b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                                <b>character set</b> in the database.
+                                By revoking USAGE on a character set, you restrict the specified user or role from
+                                creating or modifying objects (such as tables or columns) that depend on that
+                                character set.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b><code>REVOKE USAGE ON COLLATION</code></b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                                <b>collation</b> in the database.
+                                By revoking USAGE on a collation, you restrict the specified user or role from
+                                applying that collation to database objects like tables, views, or columns.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b><code>REVOKE USAGE ON TRANSLATION</code></b></td>
+                            <td>Used to remove the privilege (or permission) for a user or role to use a specific
+                                <b>translation </b>in the database.
+                                By revoking USAGE on a translation, the specified user or role is restricted from
+                                applying that translation to character data within the database.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <table>
+                    <caption>3. Object References Privileges</caption>
 
-                        <thead>
-                            <tr>
-                                <th>Statement</th>
-                                <th>Operation</th>
-                                <th>Purpose</th>
-                                <th>Example</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b><code>GRANT REFERENCES</code></b></td>
-                                <td>Used to give a user or role the privilege to create foreign key constraints that
-                                    reference a specific table or column.</td>
-                                <td>It allows user or Role to Define relationships between tables by referencing the
-                                    primary or unique key of the table on which the privilege is granted.</td>
-                                <td><code>GRANT REFERENCES ON TableName TO UserName;</code></td>
-                            </tr>
-                            <tr>
-                                <td><b><code>REVOKE REFERENCES</code></b></td>
-                                <td>Used to remove the privilege of a user or role to create foreign key constraints
-                                    that reference a specific table or column.</td>
-                                <td>Prevents the user or role from creating foreign key relationships that reference the
-                                    specified table or column.</td>
-                                <td><code>REVOKE REFERENCES ON TableName FROM UserName;</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br>
-                    <br><h2>5. Transaction Control Language (TCL)</h2>
-                    <ul><b>Transaction Control Language</b> (TCL) is a subset of SQL that manages transactions in a database.
-                        Transactions are sequences of SQL operations performed as a single logical unit of work.
-                         TCL commands ensure that these transactions maintain data integrity and consistency.</ul><br>
-                   <h3>Key Features </h3>
-                    <ul>
-                        <li><b>Atomicity - </b> Ensures that all operations in a transaction are completed
-                            successfully. If any operation fails, the entire transaction is rolled back.</li>
-                        <li><b>Consistency - </b> Guarantees that a transaction brings the database from one
-                            valid state to another, maintaining defined rules and constraints.</li>
-                        <li><b>Isolation - </b> Ensures that transactions are executed independently of one
-                            another.</li>
-                        <li><b>Durability - </b> Once a transaction is committed, changes are permanent even
-                            in case of a system failure.</li> <br>
-                    </ul>
-                    <table>
-                        <caption>TCL Commands</caption>
-                        <thead>
-                            <tr>
-                                <th>Command</th>
-                                <th>Description</th>
-                                <th>Syntax</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>COMMIT</b></td>
-                                <td>Saves all the changes made during the transaction permanently in the database.</td>
-                                <td><code>COMMIT;</code></td>
-                            </tr>
-                            <tr>
-                                <td><b>ROLLBACK</b></td>
-                                <td>Reverts all changes made during the current transaction, restoring the database to
-                                    its previous state.</td>
-                                <td><code>ROLLBACK;</code></td>
-                            </tr>
-                            <tr>
-                                <td><b>SAVEPOINT</b></td>
-                                <td>Creates a checkpoint within a transaction to enable partial rollbacks.</td>
-                                <td><code>SAVEPOINT sp1;</code></td>
-                            </tr>
-                            <tr>
-                                <td><b>SET TRANSACTION</b></td>
-                                <td>Sets transaction properties like isolation levels.</td>
-                                <td><code>SET TRANSACTION READ ONLY;</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br>
-                    <h4>COMMIT</h4>
-                    <ul>
-                        
-                        <li><b>Use Case - </b> Finalizing successful operations.</li>
-                        <li><b>Example</b></li>
-                        <div class="code-box">
-                            <code>
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Operation</th>
+                            <th>Purpose</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b><code>GRANT REFERENCES</code></b></td>
+                            <td>Used to give a user or role the privilege to create foreign key constraints that
+                                reference a specific table or column.</td>
+                            <td>It allows user or Role to Define relationships between tables by referencing the
+                                primary or unique key of the table on which the privilege is granted.</td>
+                            <td><code>GRANT REFERENCES ON TableName TO UserName;</code></td>
+                        </tr>
+                        <tr>
+                            <td><b><code>REVOKE REFERENCES</code></b></td>
+                            <td>Used to remove the privilege of a user or role to create foreign key constraints
+                                that reference a specific table or column.</td>
+                            <td>Prevents the user or role from creating foreign key relationships that reference the
+                                specified table or column.</td>
+                            <td><code>REVOKE REFERENCES ON TableName FROM UserName;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <h2>5. Transaction Control Language (TCL)</h2>
+                <ul><b>Transaction Control Language</b> (TCL) is a subset of SQL that manages transactions in a
+                    database.
+                    Transactions are sequences of SQL operations performed as a single logical unit of work.
+                    TCL commands ensure that these transactions maintain data integrity and consistency.</ul><br>
+                <h3>Key Features </h3>
+                <ul>
+                    <li><b>Atomicity - </b> Ensures that all operations in a transaction are completed
+                        successfully. If any operation fails, the entire transaction is rolled back.</li>
+                    <li><b>Consistency - </b> Guarantees that a transaction brings the database from one
+                        valid state to another, maintaining defined rules and constraints.</li>
+                    <li><b>Isolation - </b> Ensures that transactions are executed independently of one
+                        another.</li>
+                    <li><b>Durability - </b> Once a transaction is committed, changes are permanent even
+                        in case of a system failure.</li> <br>
+                </ul>
+                <table>
+                    <caption>TCL Commands</caption>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Description</th>
+                            <th>Syntax</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>COMMIT</b></td>
+                            <td>Saves all the changes made during the transaction permanently in the database.</td>
+                            <td><code>COMMIT;</code></td>
+                        </tr>
+                        <tr>
+                            <td><b>ROLLBACK</b></td>
+                            <td>Reverts all changes made during the current transaction, restoring the database to
+                                its previous state.</td>
+                            <td><code>ROLLBACK;</code></td>
+                        </tr>
+                        <tr>
+                            <td><b>SAVEPOINT</b></td>
+                            <td>Creates a checkpoint within a transaction to enable partial rollbacks.</td>
+                            <td><code>SAVEPOINT sp1;</code></td>
+                        </tr>
+                        <tr>
+                            <td><b>SET TRANSACTION</b></td>
+                            <td>Sets transaction properties like isolation levels.</td>
+                            <td><code>SET TRANSACTION READ ONLY;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <h4>COMMIT</h4>
+                <ul>
+
+                    <li><b>Use Case - </b> Finalizing successful operations.</li>
+                    <li><b>Example</b></li>
+                    <div class="code-box">
+                        <code>
                                 <span class="orclkey">BEGIN TRANSACTION</span>;<br>
                                 <span class="orclkey">INSERT INTO </span>Employees (ID, Name, Department) <span class="orclkey">VALUES</span> (1, 'Alice', 'HR');<br>
                                 <span class="orclkey">UPDATE</span> Employees <span class="orclkey">SET</span> Department = 'Finance' <span class="orclkey">WHERE</span> ID = 1;<br>
                                 <span class="orclkey">COMMIT</span>;
                             </code>
-                            <h5>In the above example: </h5>
-                            <ul>
-                                <li>The transaction inserts and updates records.</li>
-                                <li>The COMMIT statement makes these changes permanent.</li>
-                            </ul>
-                        </div>
+                        <h5>In the above example: </h5>
+                        <ul>
+                            <li>The transaction inserts and updates records.</li>
+                            <li>The COMMIT statement makes these changes permanent.</li>
+                        </ul>
+                    </div>
 
-                    </ul>
-                    <h4>ROLLBACK</h4>
-                    <ul>
-                      
-                        <li><b>Use Case - </b> Used when errors occur or when a transaction must be aborted.
-                        </li>
-                        <li><b>Example</b></li>
-                        <div class="code-box">
-                            <code>
+                </ul>
+                <h4>ROLLBACK</h4>
+                <ul>
+
+                    <li><b>Use Case - </b> Used when errors occur or when a transaction must be aborted.
+                    </li>
+                    <li><b>Example</b></li>
+                    <div class="code-box">
+                        <code>
                                 <span class="orclkey">BEGIN TRANSACTION</span>; <br>
                                 <span class="orclkey">INSERT INTO </span>Employees (ID, Name, Department) <span class="orclkey">VALUES</span> (2, 'Bob', 'IT');<br>
                                 <span class="orclkey">UPDATE </span>Employees SET Department = 'Marketing' <span class="orclkey">WHERE</span> ID = 2;<br>
                                 <span class="orclkey">ROLLBACK</span>;
                             </code>
-                            <h5>In the above example: </h5>
-                            <ul>
-                                <li> Any changes made by the INSERT and UPDATE statements are undone by ROLLBACK</li>
-                            </ul>
-                        </div>
+                        <h5>In the above example: </h5>
+                        <ul>
+                            <li> Any changes made by the INSERT and UPDATE statements are undone by ROLLBACK</li>
+                        </ul>
+                    </div>
 
-                    </ul>
-                    <h4>SAVEPOINT</h4>
-                    <ul>
-                      
-                        <li><b>Use Case - </b> Used for partial rollback within a transaction.</li>
-                        <li><b>Example</b></li>
-                        <div class="code-box">
-                            <code>
+                </ul>
+                <h4>SAVEPOINT</h4>
+                <ul>
+
+                    <li><b>Use Case - </b> Used for partial rollback within a transaction.</li>
+                    <li><b>Example</b></li>
+                    <div class="code-box">
+                        <code>
                                 <span class="orclkey">BEGIN TRANSACTION</span>;<br>
                                 <span class="orclkey">INSERT INTO </span>Employees (ID, Name, Department) <span class="orclkey">VALUES </span>(3, 'Charlie', 'Sales');<br>
                                 <span class="orclkey">SAVEPOINT</span> sp1;<br>
@@ -1836,38 +1847,38 @@
                                 <span class="orclkey">ROLLBACK TO </span>sp1;<br>
                                 <span class="orclkey">COMMIT</span>;
                             </code>
-                            <h5>In the above example: </h4>
-                                <ul>
-                                    <li>The INSERT operation is saved with SAVEPOINT sp1.</li>
-                                    <li>The UPDATE operation is undone with ROLLBACK TO sp1.</li>
-                                    <li>The transaction is committed with only the INSERT operation.</li>
-                                </ul>
-                        </div>
-                    </ul>
-                    <h4>SET TRANSACTION</h4>
-                    <ul>
-                       
-                        <li><b>Use Case - </b> Used to control how data modifications and reads interact in a
-                            multi-user environment.</li>
-                        <li><b>Example</b></li>
-                        <div class="code-box">
-                            <code>
+                        <h5>In the above example: </h4>
+                            <ul>
+                                <li>The INSERT operation is saved with SAVEPOINT sp1.</li>
+                                <li>The UPDATE operation is undone with ROLLBACK TO sp1.</li>
+                                <li>The transaction is committed with only the INSERT operation.</li>
+                            </ul>
+                    </div>
+                </ul>
+                <h4>SET TRANSACTION</h4>
+                <ul>
+
+                    <li><b>Use Case - </b> Used to control how data modifications and reads interact in a
+                        multi-user environment.</li>
+                    <li><b>Example</b></li>
+                    <div class="code-box">
+                        <code>
                                 <span class="orclkey">SET TRANSACTION READ ONLY</span>;<br>
                                 <span class="orclkey">SELECT</span> * <span class="orclkey">FROM</span> Employees <span class="orclkey">WHERE</span> Department = 'HR';<br>
                             </code>
-                            <h5>In the above example: </h4>
-                                <ul>
-                                    <li>The transaction is set to READ ONLY, ensuring no changes can be made to the
-                                        data.
-                                    </li>
-                                </ul>
-                        </div>
+                        <h5>In the above example: </h4>
+                            <ul>
+                                <li>The transaction is set to READ ONLY, ensuring no changes can be made to the
+                                    data.
+                                </li>
+                            </ul>
+                    </div>
 
-                    </ul>
-                    <br>
-                    <h3>Properties of Transactions</h3>
-                    <p>TCL ensures that every transaction adheres to the ACID properties.</p>
-                   <ul><br>
+                </ul>
+                <br>
+                <h3>Properties of Transactions</h3>
+                <p>TCL ensures that every transaction adheres to the ACID properties.</p>
+                <ul><br>
                     <table>
                         <thead>
                             <tr>
@@ -1894,38 +1905,38 @@
                             </tr>
                         </tbody>
                     </table>
-                    </ul>
-                    <br>
-                    <h3>Real-World Use Cases</h3>
-                    <h4>Banking System</h4>
-                    <ul>
-                        <li>
-                            Transferring money between accounts involves multiple steps
-                            <ul>
-                                <li>Debit from one account.</li>
-                                <li>Credit to another account.</li>
-                            </ul>
-                        </li>
-                        <li>TCL ensures that both steps succeed or fail as a unit to maintain consistency.</li>
-                    </ul>
-                    <h4>E-Commerce Transactions</h4>
-                    <ul>
-                        <li>
-                            Processing an order involves:
-                            <ul>
-                                <li>Updating inventory.</li>
-                                <li>Recording payment.</li>
-                                <li>Generating invoices</li>
-                            </ul>
-                        </li>
-                        <li>Transactions ensure that all these steps are completed successfully, or none of them are
-                            applied.</li>
-                    </ul>
-                    <!-- Add advanced sections for DDL, DML, DCL, TCL -->
-                    <br>
-                    <h2>SQL Languages</h2>
-                    
-                    <ul>
+                </ul>
+                <br>
+                <h3>Real-World Use Cases</h3>
+                <h4>Banking System</h4>
+                <ul>
+                    <li>
+                        Transferring money between accounts involves multiple steps
+                        <ul>
+                            <li>Debit from one account.</li>
+                            <li>Credit to another account.</li>
+                        </ul>
+                    </li>
+                    <li>TCL ensures that both steps succeed or fail as a unit to maintain consistency.</li>
+                </ul>
+                <h4>E-Commerce Transactions</h4>
+                <ul>
+                    <li>
+                        Processing an order involves:
+                        <ul>
+                            <li>Updating inventory.</li>
+                            <li>Recording payment.</li>
+                            <li>Generating invoices</li>
+                        </ul>
+                    </li>
+                    <li>Transactions ensure that all these steps are completed successfully, or none of them are
+                        applied.</li>
+                </ul>
+                <!-- Add advanced sections for DDL, DML, DCL, TCL -->
+                <br>
+                <h2>SQL Languages</h2>
+
+                <ul>
                     <table>
                         <thead>
                             <tr>
@@ -1962,11 +1973,11 @@
                             </tr>
                         </tbody>
                     </table>
-                    </ul>
-                    <div class="topic-buttons">
-                        <a href="sql.html?topic=sqlDataTypes" class="previou-button">&laquo; Previous</a>
-                        <a href="sql.html?topic=sqlSelectTable" class="next-button">Next &raquo;</a>
-                    </div>
+                </ul>
+                <div class="topic-buttons">
+                    <a href="sql.html?topic=sqlDataTypes" class="previou-button">&laquo; Previous</a>
+                    <a href="sql.html?topic=sqlSelectTable" class="next-button">Next &raquo;</a>
+                </div>
             </div>
 
             <div class="topic-content" data-topic="sqlSelectTable">
@@ -2175,11 +2186,11 @@
                     </code>
                 </div>
                 <h4>2. Creating a Table with Constraints and Default Values</h4>
-                
+
                 <br>
                 <h5>Oracle:</h5>
                 <div class="code-box">
-                        
+
                     <code>
                         <span class="orclkey">CREATE TABLE</span> employee (<br>
                         emp_id NUMBER(5) <span class="orclkey">PRIMARY KEY</span> ,<br>
@@ -2216,9 +2227,10 @@
                         ) ;
                     </code>
                 </div>
-                
+
                 <h4>3. Creating a Table with Foreign Key Constraints</h4>
-                <br> <h5>Oracle:</h5>
+                <br>
+                <h5>Oracle:</h5>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">CREATE TABLE</span> department (<br>
@@ -2265,9 +2277,9 @@
                 <h2> Advanced Features</h2>
                 <h4>1.Temporary Tables</h4>
                 <ul>
-                <li>Temporary tables are used to store intermediate results. They exist only for the duration of the
-                    database session.</li>
-                    </ul>
+                    <li>Temporary tables are used to store intermediate results. They exist only for the duration of the
+                        database session.</li>
+                </ul>
                 <div class="code-box">
                     <code>
                         <span class="orclkey">CREATE</span> TEMPORARY <span class="orclkey">TABLE</span> Tempsales (<br>
@@ -2279,7 +2291,7 @@
                 </div>
                 <h4>2.Partitioned Tables (MySQL Example)</h4>
                 <ul>
-                <li>Partitioning divides a table into smaller parts for performance and manageability.</li>
+                    <li>Partitioning divides a table into smaller parts for performance and manageability.</li>
                 </ul>
                 <div class="code-box">
                     <code>
@@ -2479,7 +2491,7 @@
                         <li><a href="#"></a></li>
                     </ul>
                 </div>
-    
+
                 <!-- <div class="link-column">
                         <h4>PLANS</h4>
                         <ul>
@@ -2522,7 +2534,7 @@
                     </ul>
                 </div>
             </div>
-    
+
         </div>
         <div class="footer-bottom">
             <p>© KUK DB | All Rights Reserved</p>

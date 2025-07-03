@@ -256,7 +256,6 @@
                     <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
                     <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
                     </li>
-                    <li><a href="sql_generalfunctions.html" id="sqlGeneralFunctions">General Functions</a></li>
                 </ul>
                 <ul>
                     <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
@@ -315,41 +314,48 @@
             </div>
 
             <h1>ALTER </h1>
-            <p><li>The ALTER TABLE statement in SQL is used to modify the structure of an existing table without
-                needing to recreate it.</li></p>
-            <p><li>The ALTER statement can be used to perform the following actions on various database
-                objects (e.g., table, Views, Schemas, Triggers, etc..)</li></p>
-             <p><li>It allows changes like adding, modifying, or deleting columns, as well as applying constraints. ALTER
-                TABLE is a crucial tool for database maintenance and incremental changes in a database schema.</li></p>
-       
-         
-                <li><b>Operations on Tables: </b></li>
-                <ul>
-                    <li><b>Add Columns :</b> Add new columns to an existing table.</li>
-                    <li><b>Modify Columns :</b> Change a column's data type, size, or constraints.</li>
-                    <li><b>Drop Columns: </b>Remove a column from a table.</li>
-                    <li><b>Rename Columns (in some DBMS) :</b> Change the name of a column.</li>
-                    <li><b>Add Constraints :</b> Add constraints such as PRIMARY KEY, FOREIGN KEY, UNIQUE, or CHECK.
-                    </li>
-                    <li><b>Drop Constraints :</b> Remove existing constraints.</li>
-                </ul>
+            <p>
+                <li>The ALTER TABLE statement in SQL is used to modify the structure of an existing table without
+                    needing to recreate it.</li>
+            </p>
+            <p>
+                <li>The ALTER statement can be used to perform the following actions on various database
+                    objects (e.g., table, Views, Schemas, Triggers, etc..)</li>
+            </p>
+            <p>
+                <li>It allows changes like adding, modifying, or deleting columns, as well as applying constraints.
+                    ALTER
+                    TABLE is a crucial tool for database maintenance and incremental changes in a database schema.</li>
+            </p>
 
-                <li><b> ALTER actions on Objects: </b></li>
-                <ul>
-                    <li><b>Alter Views :</b> Modify an existing view's definition or its schema.</li>
-                    <li><b>Rename</b> an existing index and <b>Rebuild</b> a fragmented index to improve performance
-                        (in some DBMS ).</li>
-                    <li><b>Modify Schemas</b> - Change the ownership of a schema or database object.</li>
-                    <li><b>Modify Databases </b>- Change Database Properties such as collation or character set.
-                    </li>
-                    <li><b>Modify Storage Options (MySQL)</b> - Add or modify partitions in a table.</li>
-                    <li><b>Modify Triggers (in some DBMS)</b> - Temporarily disable or re-enable triggers.</li>
-                    <li>Restart or Set Sequence Values - in <b>PostgreSQL</b></li>
-                </ul>
-            
+
+            <li><b>Operations on Tables: </b></li>
+            <ul>
+                <li><b>Add Columns :</b> Add new columns to an existing table.</li>
+                <li><b>Modify Columns :</b> Change a column's data type, size, or constraints.</li>
+                <li><b>Drop Columns: </b>Remove a column from a table.</li>
+                <li><b>Rename Columns (in some DBMS) :</b> Change the name of a column.</li>
+                <li><b>Add Constraints :</b> Add constraints such as PRIMARY KEY, FOREIGN KEY, UNIQUE, or CHECK.
+                </li>
+                <li><b>Drop Constraints :</b> Remove existing constraints.</li>
+            </ul>
+
+            <li><b> ALTER actions on Objects: </b></li>
+            <ul>
+                <li><b>Alter Views :</b> Modify an existing view's definition or its schema.</li>
+                <li><b>Rename</b> an existing index and <b>Rebuild</b> a fragmented index to improve performance
+                    (in some DBMS ).</li>
+                <li><b>Modify Schemas</b> - Change the ownership of a schema or database object.</li>
+                <li><b>Modify Databases </b>- Change Database Properties such as collation or character set.
+                </li>
+                <li><b>Modify Storage Options (MySQL)</b> - Add or modify partitions in a table.</li>
+                <li><b>Modify Triggers (in some DBMS)</b> - Temporarily disable or re-enable triggers.</li>
+                <li>Restart or Set Sequence Values - in <b>PostgreSQL</b></li>
+            </ul>
+
             <br>
-           
-           
+
+
             <h2> Syntax</h2>
             <h3> Basic syntax</h3>
             <p>The basic syntax of ALTER TABLE varies slightly by the specific action you wish to perform. below are
