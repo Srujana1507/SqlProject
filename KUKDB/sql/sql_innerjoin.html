@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlInnerjoin">
+
+            <div class="topic-buttons">
+                <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="previou-button">&laquo;
+                    Previous</a>
+                <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>INNER JOIN </h1>
+            <p>The INNER JOIN combines rows from two or more tables based on a matching condition,
+                Only rows with matching values in the joined columns are included in the result set.</p><br>
+            <h2>Syntax</h2>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span> table1.column1, table2.column2, . . .  <br>
+                    <span class="orclkey"> FROM </span> table1 <br>
+                    <span class="orclkey"> INNER JOIN </span> table2  <br>
+                    <span class="orclkey"> ON </span> table1.common_column = table2.common_column   
+                         <b> ;</b>
+                </code>
+            </div><br>
+            <h2>Examples </h2>
+            <p><b>Scenario 1:-</b> Retrieve a list of customers and their orders from a database with Customers and
+                Orders tables.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  c.CustomerID, c.Name, o.OrderID, o.Amount <br>
+            <span class="orclkey"> FROM </span> Customers c<br>
+                    <span class="orclkey"> INNER JOIN </span> Orders o  <br>
+                    <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 2:-</b> Find employees and the departments they work in, but only include employees who are
+                assigned to a department.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  e.emp_id, e.Name, d.Dept_Name <br>
+            <span class="orclkey"> FROM </span> Employees e <br>
+                    <span class="orclkey"> INNER JOIN </span> Departments d  <br>
+                    <span class="orclkey"> ON </span> e.Dept_ID = d.Dept_ID
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 3:-</b> Find all customers who placed orders, including their city, order ID, and order
+                amounts, but also include the shipping details.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  c.Name, c.City, o.OrderID, o.Amount, s.ShippingDate <br>
+            <span class="orclkey"> FROM </span> Customers c <br>
+                    <span class="orclkey"> INNER JOIN </span> Orders o  <br>
+                    <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID <br>
+                    <span class="orclkey"> INNER JOIN </span> Shipping s  <br>
+                    <span class="orclkey"> ON </span> o.OrderID = s.OrderID
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 4:-</b> Retrieve students and the courses they enrolled in.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  s.student_id, s.name AS student_name, c.course_name <br>
+            <span class="orclkey"> FROM </span> Students s <br>
+                    <span class="orclkey"> INNER JOIN </span> Enrollments e <br>
+                    <span class="orclkey"> ON </span> s.student_id = e.student_id <br>
+                    <span class="orclkey"> INNER JOIN </span> Courses c  <br>
+                    <span class="orclkey"> ON </span> e.course_id = c.course_id
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 5:-</b> Find the name of each customer and the total number of orders they have placed.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  c.customer_id,c.customer_name, COUNT( o.order_id ) <span class="orclkey"> AS </span> total_orders<br>
+            <span class="orclkey"> FROM </span> customers c <br>
+                    <span class="orclkey"> INNER JOIN </span> orders o <br>
+                    <span class="orclkey"> ON </span> c.customer_id = o.customer_id <br>
+                    <span class="orclkey"> GROUP BY </span> c.customer_id,c.customer_name  
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 6:-</b> Show student names along with the count of courses they are enrolled in, but only for
+                students enrolled in more than one course.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span> s.student_id, s.name 
+            <span class="orclkey"> AS </span> Student_Name ,
+             COUNT( e.course_id ) <span class="orclkey"> AS </span> enrolled_courses<br>
+            <span class="orclkey"> FROM </span> students s <br>
+                    <span class="orclkey"> INNER JOIN </span> enrollments e <br>
+                    <span class="orclkey"> ON </span> s.student_id = e.student_id <br>
+                    <span class="orclkey"> GROUP BY </span> s.student_id,s.name <br>
+                    <span class="orclkey"> HAVING </span> COUNT(e.course_id) > 1
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 7:-</b> Display each order’s details along with customer names and product names for products
+                in the order.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  o.order_id, c.customer_name, p.product_name, od.quantity <br>
+            <span class="orclkey"> FROM </span> orders o <br>
+                    <span class="orclkey"> INNER JOIN </span> customers c <br>
+                    <span class="orclkey"> ON </span> o.customer_id = c.customer_id <br>
+                    <span class="orclkey"> INNER JOIN </span> order_details od <br>
+                    <span class="orclkey"> ON </span> o.order_id = od.order_id <br>
+                    <span class="orclkey"> INNER JOIN </span> products p <br>
+                    <span class="orclkey"> ON </span> od.product_id = p.product_id
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 8:-</b> Show the employee name, project name, and total hours worked, grouped by employee and
+                project.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span>  e.name <span class="orclkey"> AS </span> employee_name , p.project_name,
+                    SUM(pa.hours_worked) <span class="orclkey"> AS </span> total_hours<br>
+                   <span class="orclkey"> FROM </span> employees e <br>
+                           <span class="orclkey"> INNER JOIN </span> project_assignments pa <br>
+                           <span class="orclkey"> ON </span> e.employee_id = pa.employee_id <br>
+                           <span class="orclkey"> INNER JOIN </span> projects p <br>
+                           <span class="orclkey"> ON </span> pa.project_id = p.project_id <br>
+                           <span class="orclkey"> GROUP BY </span> e.employee_id, e.name, p.project_name
+                    <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 9:-</b> Retrieve invoice IDs, the amount, the payment date, and the corresponding customer
+                name for all paid invoices.</p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey"> SELECT </span>i.invoice_id, i.amount, p.payment_date, c.customer_name <br>
+                   <span class="orclkey"> FROM </span> invoices i <br>
+                           <span class="orclkey"> INNER JOIN </span> payments p <br>
+                           <span class="orclkey"> ON </span> i.invoice_id = p.invoice_id <br>
+                           <span class="orclkey"> INNER JOIN </span> customers c <br>
+                           <span class="orclkey"> ON </span> i.customer_id = c.customer_id <br>
+                           <span class="orclkey"> WHERE </span> p.status = 'PAID'
+                    <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 10:-</b> Get the total order amount for each customer who has placed orders totaling more
+                than
+                $300.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span>  c.CustomerID, c.Name, SUM( o.Amount ) <span class="orclkey"> AS </span> TotalAmount <br>
+            <span class="orclkey"> FROM </span> Customers c <br>
+                    <span class="orclkey"> INNER JOIN </span> Orders o <br>
+                    <span class="orclkey"> ON </span> c.CustomerID = o.CustomerID <br>
+                    <span class="orclkey"> GROUP BY </span> c.CustomerID, c.Name <br>
+                    <span class="orclkey"> HAVING </span> SUM(o.Amount) > 300
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <p><b>Scenario 11:-</b> Find the most recent order placed by each customer.</p>
+            <div class="code-box">
+                <code>
+            <span class="orclkey"> SELECT </span> c.CustomerID, c.Name, o.OrderID, o.Amount, o.OrderDate <br>
+            <span class="orclkey"> FROM </span> Customers c <br>
+                    <span class="orclkey"> INNER JOIN </span>( <br>
+                    <ul>
+                        <span class="orclkey"> SELECT </span> CustomerID, MAX( OrderDate ) <span class="orclkey"> AS </span> LatestOrderDate <br>
+                        <span class="orclkey"> FROM </span> Orders <br>
+                        <span class="orclkey"> GROUP BY </span> CustomerID
+                    </ul> ) recent_orders <br>
+                    <span class="orclkey"> ON </span> c.CustomerID = recent_orders.CustomerID <br>
+                    <span class="orclkey"> INNER JOIN </span> Orders o <br>
+                    <span class="orclkey"> ON </span> recent_orders.CustomerID = o.CustomerID  <br>
+                    <span class="orclkey"> AND </span> recent_orders.LatestOrderDate = o.OrderDate
+             <b> ;</b> 
+        </code>
+            </div><br>
+            <h2>Common Errors with INNER JOIN</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Explanation</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Missing ON Clause </b></td>
+                        <td>Failing to specify the ON condition leads to a syntax error.</td>
+                        <td>Always include a proper ON condition for the INNER JOIN, e.g., ON table1.column =
+                            table2.column.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ambiguous Column Reference</b></td>
+                        <td>Occurs when column names are present in both tables without being prefixed with the table or
+                            alias name.</td>
+                        <td>Use fully qualified column names or aliases (e.g., table1.column or t1.column) to avoid
+                            ambiguity.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Matching Rows</b></td>
+                        <td>If no rows match the join condition, the result is an empty set.</td>
+                        <td>Verify your join condition and ensure related data exists in both tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Incorrect Join Condition</b></td>
+                        <td>Using incorrect columns or conditions in the ON clause results in unintended output or no
+                            output.</td>
+                        <td>Double-check column relationships and ensure they are logically related (e.g., primary
+                            key–foreign key).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cartesian Product Instead of Join</b></td>
+                        <td>Missing the join condition entirely results in a CROSS JOIN (Cartesian product).</td>
+                        <td>Always specify a valid join condition in the ON clause.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Using Non-Indexed Columns in Join Conditions</b></td>
+                        <td>Joining on non-indexed columns can severely impact query performance.</td>
+                        <td>Ensure columns in the ON clause are indexed (primary key, foreign key, or regular index).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Mismatched Data Types in Join Columns</b></td>
+                        <td>Joining on columns with different data types can result in runtime errors or empty results.
+                        </td>
+                        <td>Ensure join columns have compatible or identical data types. If needed, use CAST or CONVERT.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Values in Join Columns</b></td>
+                        <td>If join columns contain NULL, those rows are excluded in INNER JOIN.</td>
+                        <td>Use OUTER JOIN instead, or filter out NULL values explicitly with WHERE column IS NOT NULL.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Duplicate Column Names in Result Set</b></td>
+                        <td>If both tables have columns with the same name, the result set will have duplicate column
+                            names.</td>
+                        <td>Use aliases (AS) to rename columns in the SELECT statement, or prefix columns with table
+                            names.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Unnecessary Large Joins</b></td>
+                        <td>Joining tables with irrelevant or excessive data leads to high memory and CPU usage.</td>
+                        <td>Filter rows with WHERE or use appropriate indexes before performing the join.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Incorrect Use of Aggregate Functions</b></td>
+                        <td>Failing to group rows properly when using aggregate functions can cause logical errors.</td>
+                        <td>Use GROUP BY with aggregate functions and ensure proper grouping for accurate results.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Joining Too Many Tables</b></td>
+                        <td>Joining multiple tables without proper design can lead to performance degradation and
+                            complexity.</td>
+                        <td>Optimize the query by limiting the number of joins, using derived tables, or indexing join
+                            columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Syntax Differences Across Databases</b></td>
+                        <td>Different databases (e.g., MySQL, SQL Server, PostgreSQL) have varying syntax for joins.
+                        </td>
+                        <td>Ensure the join syntax complies with the specific database being used.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Unintended Join Condition Logic</b></td>
+                        <td>Complex conditions in the ON clause might introduce logical errors (e.g., using OR
+                            carelessly).</td>
+                        <td>Simplify the join condition and validate its logic. Split conditions into multiple joins if
+                            needed.</td>
+                    </tr>
+
+                </tbody>
+            </table><br>
+            <h2>Performance Hints for INNER JOIN</h2>
+            <p><b>1. Indexing:- </b> Create indexes on the columns used in the join condition to speed up the query.</p>
+            <br>
+            <p><b>2. Minimize Columns:- </b> Select only required columns to reduce data retrieval overhead.</p><br>
+            <p><b>3. Query Optimization:- </b> Use query execution plans to identify bottlenecks and optimize joins.</p>
+            <br>
+            <p><b>4. Avoid Functions:- </b> Avoid using functions in join conditions as they can prevent index
+                utilization.</p><br><br>
+            <h2>Do's and Don'ts for Inner Join </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Use Proper Join Conditions:</b> Specify clear and correct join conditions using primary
+                            and foreign keys.</td>
+                        <td><b>Don’t Omit the ON Clause:</b> Failing to provide a join condition results in a Cartesian
+                            product.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Qualify Column Names:</b> Use table aliases or table names to avoid ambiguity when
+                            columns have the same name.</td>
+                        <td><b>Don’t Use Wildcards (*) in SELECT:</b> It can lead to performance issues and includes
+                            unnecessary columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ensure Proper Indexing: </b> Add indexes on columns used in the join condition to improve
+                            query performance.</td>
+                        <td><b>Don’t Join Unindexed Columns:</b> This can significantly degrade performance for large
+                            datasets.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Table Aliases: </b> Shorten table names with aliases for better readability and
+                            maintainability.</td>
+                        <td><b>Don’t Forget to Validate Data Types:</b> Mismatched data types in join conditions can
+                            lead to errors or incorrect results.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Test with Sample Data: </b> Run the query with a small dataset to verify correctness
+                            before applying it to large tables.</td>
+                        <td><b>Don’t Overcomplicate Queries:</b> Avoid unnecessary joins or complex conditions that make
+                            the query harder to understand and maintain.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Optimize SELECT Clause: </b> Retrieve only the necessary columns to minimize data
+                            transfer and processing.</td>
+                        <td><b>Don’t Ignore Query Performance:</b> Failing to monitor performance can cause slowdowns in
+                            large-scale databases.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Descriptive Aliases: </b> Use meaningful aliases to make the query self-explanatory.
+                        </td>
+                        <td><b>Don’t Rely Solely on Natural JOIN:</b> Implicit joins like NATURAL JOIN may not work as
+                            expected if column names accidentally match.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Document Complex Queries: </b> Add comments for complex join logic for future reference
+                            and debugging. </td>
+                        <td><b>Don’t Assume Column Names Are Unique:</b> Always qualify columns if there's any chance of
+                            ambiguity.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Review Execution Plans: </b> Use tools to analyze query execution plans and optimize
+                            accordingly. </td>
+                        <td><b>Don’t Ignore Redundant Joins:</b> Joining unnecessary tables can cause performance
+                            bottlenecks.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+
+
+            <div class="topic-buttons">
+                <a href="sql_generalfunctions.html?topic=sqlGeneralFunctions" class="previou-button">&laquo;
+                    Previous</a>
+                <a href="sql_leftjoin.html?topic=sqlLeftjoin" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

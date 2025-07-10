@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqldatefunctions">
+
+            <div class="topic-buttons">
+                <a href="sql_case.html?topic=sqlCase" class="previou-button">&laquo; Previous</a>
+                <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1> SUBQUERIES</h1>
+            <h2>Definition</h2>
+            <p>A subquery is a SQL query nested inside another query,used to perform intermediate calculations or to
+                fetch data that the main query will use.</p>
+            <ul>
+                <li> Subqueries are powerful tools for breaking down complex queries into manageable parts.</li>
+                <li>It is enclosed in parentheses and can be used in various parts of an SQL statement, such as the
+                    SELECT, FROM, WHERE, HAVING, or even JOIN clauses.</li>
+                <li>Subqueries allow dynamic data retrieval by providing intermediate results to the main query.</li>
+            </ul>
+            <h2>Why Use Subqueries?</h2>
+            <ul>
+                <li>To break down complex problems into manageable steps.</li>
+                <li>To dynamically retrieve data without hardcoding values.</li>
+                <li>To compare aggregate data or computed values.</li>
+                <li>To simplify query construction and improve readability.</li>
+            </ul>
+            <h2>Basic Syntax</h2>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> column_name <br>
+                            <span class="orclkey">FROM </span> table_name <br>
+                            <span class="orclkey">WHERE </span> column_name [operator]  <br>
+                            <ul>
+                            ( <span class="orclkey"> SELECT </span> column_name  <br>
+                            <span class="orclkey">FROM  </span> another_table  <br>
+                            <span class="orclkey">WHERE condition</span> 
+                        )<b> ; </b>
+                    </ul>
+                        </code>
+            </div><br>
+            <h2>Types of Subqueries</h2>
+            <h3>1. Single-row Subquery</h3>
+            <p><b>Scenario :- </b>Retrieve employees who earn more than the average salary.</p>
+            <ul>
+                <li>Returns a single row with one or more columns.</li>
+                <li>Used with comparison operators like =, <,>, <=,>=, <>.</li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">SELECT </span> employee_id, Name, Salary <br>
+                                <span class="orclkey">FROM </span> Employees <br>
+                                <span class="orclkey">WHERE </span> Salary > 
+                                
+                                ( <span class="orclkey"> SELECT </span> AVG(Salary) 
+                                <span class="orclkey">FROM  </span> Employees  )<b> ; </b>
+                        
+                            </code>
+                </div><br>
+            </ul><br>
+            <h3>2. Multi-row Subquery</h3>
+            <p><b>Scenario :- </b>Find employees who work in specific departments.</p>
+            <ul>
+                <li>Returns multiple rows.</li>
+                <li>Used with operators like IN, ANY, ALL.</li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">SELECT </span> Name <br>
+                                <span class="orclkey">FROM </span> Employees <br>
+                                <span class="orclkey">WHERE </span> DepartmentID 
+                                <span class="orclkey"> IN </span>
+                                
+                                ( <span class="orclkey"> SELECT </span> DepartmentID   
+                                <span class="orclkey">FROM  </span> Departments <br>
+                                <span class="orclkey">WHERE </span>  Location = <b>'</b>India<b>'</b>
+                                  )<b> ; </b>
+                        
+                            </code>
+                </div><br>
+            </ul><br>
+            <h3>3. Multi-column Subquery</h3>
+            <p><b>Scenario :- </b>Identify current employees who are qualified for or aligned with open job positions.
+            </p>
+            <ul>
+                <li>Returns multiple rows.</li>
+                <li>Often used in IN or comparison with tuples.</li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">SELECT </span> Name <br>
+                                <span class="orclkey">FROM </span> Employees <br>
+                                <span class="orclkey">WHERE </span> (DepartmentID, JobTitle)
+                                <span class="orclkey"> IN </span>
+                                ( <span class="orclkey"> SELECT </span> DepartmentID, JobTitle   
+                                <span class="orclkey">FROM  </span> OpenPositions 
+                                  )<b> ; </b>
+              </code>
+                </div><br>
+            </ul><br>
+            <h3>4. Correlated Subquery</h3>
+            <p><b>Scenario :- </b>Identify employees whose salaries are higher than the average salary within their
+                respective departments.
+            </p>
+            <ul>
+                <li>Subquery depends on the outer query for its execution.</li>
+                <li>Evaluated once for each row in the outer query.</li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">SELECT </span> employee_id, Name, Salary, JobTitle <br>
+                                <span class="orclkey">FROM </span> Employees E <br>
+                                <span class="orclkey">WHERE </span> Salary > 
+                                ( <span class="orclkey"> SELECT </span> AVG( Salary )  
+                                <span class="orclkey">FROM  </span>Employees 
+                                <span class="orclkey">WHERE </span>  DepartmentID = E.DepartmentID 
+                                  )<b> ; </b>
+                                                   </code>
+                </div><br>
+            </ul><br>
+            <h3>5. Nested Subquery</h3>
+            <p><b>Scenario :- </b>Find the employee(s) with the highest salary in the department located in Hyderabad.
+            </p>
+            <ul>
+                <li>Subqueries within subqueries.</li>
+                <li>Useful for deeply layered logic.</li>
+                <div class="code-box">
+                    <code>
+                                <span class="orclkey">SELECT </span> employee_id, Name, JobTitle <br>
+                                <span class="orclkey">FROM </span> Employees E <br>
+                                <span class="orclkey">WHERE </span> Salary = <br>
+                                <ul>
+                                (
+                                <span class="orclkey"> SELECT </span> MAX(Salary)   
+                                <span class="orclkey">FROM  </span>Employees  
+                                <span class="orclkey">WHERE </span>  DepartmentID =  <br>(
+                                <span class="orclkey"> SELECT </span>DepartmentID    
+                                <span class="orclkey">FROM  </span> Departments 
+                                <span class="orclkey">WHERE </span>  Location = <b>'</b>Hyderabad<b>'</b>  ))<b> ; </b>
+                                </ul>
+                     </code>
+                </div><br>
+            </ul><br>
+            <h2>Using Subqueries in SQL Statements</h2>
+            <h3>1. Subquery in WHERE Clause</h3>
+            <p><b>Scenario :- </b> Retrieve employees who earn more than the average salary.
+            </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> employee_id, name, salary <br>
+                                <span class="orclkey">FROM </span> Employees <br>
+                                <span class="orclkey">WHERE </span> Salary > 
+                               
+                                ( <span class="orclkey"> SELECT </span> AVG( salary )    
+                                <span class="orclkey">FROM  </span>Employees);  <br>
+                           
+                            </code>
+            </div><br>
+            <h3>2. Subquery in SELECT Clause</h3>
+            <p><b>Scenario :- </b> Show each employee's salary along with the company’s average salary. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> employee_id, name, salary, <br>
+                                ( <span class="orclkey"> SELECT </span> AVG(salary)    
+                                <span class="orclkey">FROM  </span>Employees  )
+                                <span class="orclkey"> AS </span> avg_salary
+                                <span class="orclkey">FROM  </span>Employees <b> ; </b>
+                            </code>
+            </div><br>
+            <h3>3. Subquery in FROM Clause (Inline View)</h3>
+            <p><b>Scenario :- </b> Find the highest salary in each department. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> department_id, MAX(salary)  
+                                <span class="orclkey"> AS </span> max_salary <br>
+                                <span class="orclkey">FROM  </span>
+                                ( <span class="orclkey"> SELECT </span> department_id, salary    
+                                <span class="orclkey">FROM  </span>Employees  )<br>
+                                <span class="orclkey"> AS </span> temp_table
+                                <span class="orclkey">GROUP BY  </span>department_id <b> ; </b>
+                            </code>
+            </div><br>
+            <h3>4. Subquery with EXISTS</h3>
+            <p><b>Scenario :- </b> Check if a department has employees with a salary above $50,000. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> department_id, department_name   <br>
+                                <span class="orclkey">FROM  </span> departments d 
+                                <span class="orclkey">WHERE EXISTS  </span><br>
+                                ( <span class="orclkey"> SELECT </span> 1    
+                             
+                                <span class="orclkey">FROM  </span>employees e  
+                                <span class="orclkey"> WHERE </span> e.department_id = d.department_id
+                                <span class="orclkey"> AND  </span>  e.salary > 50000) <b> ; </b>
+                             
+                        
+                            </code>
+            </div><br>
+            <h3>5. Subquery in UPDATE</h3>
+            <p><b>Scenario :- </b> Update salaries of employees by 10% in departments with fewer than 5 employees. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">UPDATE </span> employees  <br>
+                                <span class="orclkey">SET  </span> salary = salary * 1.10 <br>
+                                <span class="orclkey">WHERE  </span> department_id 
+                                <span class="orclkey">IN  </span><br>
+                                ( <span class="orclkey"> SELECT </span> department_id   
+                                <span class="orclkey">FROM  </span>employees  
+                                <span class="orclkey"> GROUP BY </span> department_id  
+                                <span class="orclkey"> HAVING  </span> COUNT(*) < 5
+                                ) <b> ; </b>
+                    
+                            </code>
+            </div><br>
+            <h3>6. Subquery in DELETE</h3>
+            <p><b>Scenario :- </b> Remove employees who haven’t worked on any projects. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">DELETE FROM </span> employees  <br>
+                                <span class="orclkey">WHERE  </span> employee_id  <span class="orclkey">NOT IN  </span>
+                                ( <span class="orclkey"> SELECT </span> employee_id   
+                                <span class="orclkey">FROM  </span>project_assignments  
+                                ) <b> ; </b>
+                        
+                            </code>
+            </div><br>
+            <h3>7. Scalar Subquery</h3>
+            <p><b>Scenario :- </b> Use a single-value subquery to display a constant. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> employee_id, name, salary,  <br>
+                                ( <span class="orclkey"> SELECT </span> COUNT(*) 
+                                <span class="orclkey"> FROM </span> employees )
+                                <span class="orclkey">AS  </span>total_employees  
+                                <span class="orclkey">FROM  </span> employees
+                            <b> ; </b>
+                        
+                            </code>
+            </div><br>
+            <h2>Advanced Scenarios</h2>
+            <h3>1. Combining Subqueries with Joins</h3>
+            <p><b>Scenario 1:- </b> Retrieve departments where the average salary exceeds the global average. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> d.department_id, d.department_name  <br>
+                                <span class="orclkey">FROM </span> departments d <br>
+                                <span class="orclkey">JOIN  </span> ( <span class="orclkey"> SELECT </span> department_id,  AVG( salary ) <span class="orclkey"> AS  </span> avg_salary <br>
+                                <ul><ul>
+                                <span class="orclkey"> FROM </span> employees  <br>
+                                <span class="orclkey"> GROUP BY  </span>department_id) temp  
+                            </ul></ul>
+                            <span class="orclkey">ON  </span> d.department_id = temp.department_id <br>
+                            <span class="orclkey">WHERE  </span> temp.avg_salary > ( <span class="orclkey"> SELECT </span> AVG( salary ) <span class="orclkey"> FROM </span> employees
+                            ) <b> ; </b>
+                        
+                            </code>
+            </div><br>
+            <p><b>Scenario 2:- </b> Rank employees based on salary within their department. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> Name, DepartmentID, Salary,  <br>
+                               
+                                ( <span class="orclkey"> SELECT </span> COUNT(*) <br>
+                                <span class="orclkey">FROM </span> Employees E2 
+                                <span class="orclkey"> WHERE </span>E2.DepartmentID = E1.DepartmentID 
+                                <span class="orclkey"> AND  </span> E2.Salary > E1.Salary ) + 1
+                                <span class="orclkey"> AS  </span> Rank <br>
+                    
+                            <span class="orclkey"> FROM </span>  Employees E1 
+                            <span class="orclkey"> ORDER BY </span> DepartmentID,Rank ;  <br>
+                       <br> - - The subquery counts the number of employees in the same department with a higher salary. <br>
+                        - - The rank is calculated as the count + 1.
+                            </code>
+            </div><br>
+            <h3>2. Find Top-N Per Group</h3>
+            <p><b>Scenario :- </b> Get the highest-paid employee in each department. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> Name, DepartmentID, Salary  <br>
+                                <span class="orclkey">FROM </span> Employees E1 <br>
+                                <span class="orclkey"> WHERE </span> Salary = 
+                                ( <span class="orclkey"> SELECT </span> MAX(Salary)<br>
+                            
+                                <span class="orclkey">FROM </span> Employees E2 <br>
+                                <span class="orclkey"> AND  </span> E1.DepartmentID = E2.DepartmentID); <br>
+       
+                            </code>
+            </div><br>
+            <h3>3. Use in Complex Filtering</h3>
+            <p><b>Scenario :- </b> Find employees who have more than the average salary in departments located in 'UK'.
+            </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">SELECT </span> Name, Salary  <br>
+                                <span class="orclkey">FROM </span> Employees <br>
+                                <span class="orclkey"> WHERE </span> DepartmentID 
+                                <span class="orclkey"> IN </span> <br>( 
+                                <span class="orclkey">SELECT </span> DepartmentID 
+                                <span class="orclkey">FROM </span> Departments 
+                                <span class="orclkey"> WHERE  </span> Location  = <b>'</b>UK<b>'</b>) <br>
+                                <span class="orclkey"> AND  </span> Salary > ( 
+                                <span class="orclkey"> SELECT  </span> AVG( Salary )
+                            <span class="orclkey"> FROM </span> Employees ) <b> ; </b>
+                            </code>
+            </div><br>
+            <h3>4. Recursive Subqueries (With Clause)</h3>
+            <p>Some databases like PostgreSQL or SQL Server allow recursive subqueries for hierarchical data.</p><br>
+            <p><b>Scenario :- </b> Find all employees under a specific manager. </p>
+            <div class="code-box">
+                <code>
+                                <span class="orclkey">WITH RECURSIVE </span> subordinates
+                                <span class="orclkey">AS </span> ( <br>
+                                <span class="orclkey">SELECT </span> employee_id, manager_id 
+                                <span class="orclkey">FROM </span> employees 
+                                <span class="orclkey"> WHERE </span> manager_id = 101   
+                                <span class="orclkey"> UNION ALL </span><br>
+                                
+                                <span class="orclkey">SELECT </span> e.employee_id, e.manager_id 
+                                <span class="orclkey">FROM </span> employees e <br>
+                                <span class="orclkey">JOIN </span> subordinates s 
+                                <span class="orclkey">ON </span> e.manager_id = s.employee_id) <br>
+                                <span class="orclkey"> SELECT  </span> * 
+                                 <span class="orclkey"> FROM </span> subordinates <b> ; </b>
+                            </code>
+            </div><br>
+            <h2>Do's and Don'ts with SUBQUERIES</h2>
+            <h3>Do's</h3>
+            <ul>
+                <li><b>Use for Modularization:- </b> Break down complex queries into smaller, understandable subqueries.
+                </li>
+                <li><b>Use Derived Tables for Clarity:- </b> Use subqueries in FROM to improve readability when multiple
+                    aggregations are involved.</li>
+                <li><b>Optimize Performance:- </b> Index columns used in subqueries for better performance.</li>
+            </ul><br>
+            <h3>Don'ts</h3>
+            <ul>
+                <li>
+                    <b>Avoid Correlated Subqueries if Possible:- </b> They can be inefficient due to repeated execution
+                    for each outer query row.
+                </li>
+                <li>
+                    <b>Beware of NULLs:- </b> Ensure subqueries return expected values, handling NULL appropriately.
+                </li>
+                <li>
+                    <b>Avoid Deep Nesting:- </b> Deeply nested subqueries can become hard to read and maintain.
+                </li>
+            </ul> <br>
+            <h2>Common Errors with SUBQUERIES</h2>
+            <h3>1. Subquery Returns Multiple Rows</h3>
+            <ul>
+                <li>Using = with a multi-row subquery results in an error.</li>
+                <li>Fix: Use IN or ANY.</li>
+                <div class="code-box">
+                    <code>
+                        - - Error:<br>
+                                    <span class="orclkey">SELECT </span> Name  
+                                    <span class="orclkey">FROM </span> Employees 
+                                    <span class="orclkey"> WHERE </span> DepartmentID  = 
+                                    ( <span class="orclkey"> SELECT </span> DepartmentID <span class="orclkey">FROM </span> Departments ) <b> ; </b><br>
+                                    <br>
+                                    - - Fix:<br>
+                                    <span class="orclkey">SELECT </span> Name  
+                                    <span class="orclkey">FROM </span> Employees 
+                                    <span class="orclkey"> WHERE </span> DepartmentID  = 
+                                    ( <span class="orclkey"> SELECT </span> DepartmentID <span class="orclkey">FROM </span> Departments ) <b> ; </b><br>
+                                </code>
+                </div><br>
+            </ul>
+            <h3>2. NULL Handling</h3>
+            <ul>
+                <li>If a subquery returns NULL, comparisons may fail.</li>
+                <li>Fix: Fix: Use IS NOT NULL.</li>
+                <div class="code-box">
+                    <code>
+                                    <span class="orclkey">SELECT </span> Name   <br>
+                                    <span class="orclkey">FROM </span> Employees <br>
+                                    <span class="orclkey"> WHERE </span> Salary > (
+                                    <span class="orclkey"> SELECT </span> MAX( Salary ) <span class="orclkey">FROM </span> Employees 
+                                    <span class="orclkey"> WHERE </span> DepartmentID 
+                                    <span class="orclkey"> IS NOT NULL </span>
+                                    ) <b> ; </b>
+                                </code>
+                </div><br>
+            </ul>
+            <h3>3.Performance Issues</h3>
+            <ul>
+                <li>Unoptimized subqueries can lead to slow queries.</li>
+                <li>Fix: Use EXISTS or joins where applicable.</li>
+            </ul><br>
+            <h2>Best Practices</h2>
+            <ul>
+                <li><b>Use Joins When Possible:- </b> For performance, replace subqueries with joins if the logic
+                    allows.</li>
+                <li><b>Leverage EXISTS:- </b> Use EXISTS for checking row existence instead of IN for better performance
+                    in large datasets.</li>
+                <li><b>Limit Columns in SELECT:- </b> Ensure subqueries return only the necessary columns to minimize
+                    computation.</li>
+            </ul><br>
+            <h2>Database-Specific Details</h2>
+            <h4>Oracle:</h4>
+            <ul>
+                <li>Oracle supports subqueries in almost all SQL contexts and allows them in UPDATE, DELETE, and MERGE
+                    statements.</li>
+            </ul>
+            <h4>SQL Server:</h4>
+            <ul>
+                <li>SQL Server supports subqueries in common table expressions (CTEs) and allows correlated subqueries
+                    in CASE statements.</li>
+            </ul>
+            <h4>MySQL:</h4>
+            <ul>
+                <li>MySQL supports subqueries but has limitations on certain types (e.g., LIMIT in subqueries for older
+                    versions).</li>
+            </ul>
+            <h4>PostgreSQL:</h4>
+            <ul>
+                <li>PostgreSQL supports advanced recursive subqueries using the WITH RECURSIVE clause.</li>
+            </ul>
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_case.html?topic=sqlCase" class="previou-button">&laquo; Previous</a>
+                <a href="sql_corelatedsubqueries.html?topic=sqlCorelatedsubqueries" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlViews">
+
+            <div class="topic-buttons">
+                <a href="sql_tcl.html?topic=sqlSavepoint" class="previou-button">&laquo; Previous</a>
+                <a href="sql_mview.html?topic=sqlMaterializedviews" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>VIEWS</h1>
+            <p>A View is a virtual table in SQL that is based on the result set of a SQL query.</p><br>
+            <ul>
+                <li>It does not store the data itself but displays data dynamically retrieved from the underlying base
+                    tables.</li>
+                <li>Views act as a layer of abstraction, providing a simplified, customized, or secured representation
+                    of the data.</li>
+            </ul><br>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Virtual Table</b></td>
+                        <td>Does not store data; retrieves data from the underlying tables dynamically.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Customizable Output</b></td>
+                        <td>Allows creating tailored representations of data by filtering or joining.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Security</b></td>
+                        <td>Restricts access to specific columns or rows by exposing only selected data.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Reusable Query Logic</b></td>
+                        <td>Encapsulates complex SQL queries, making them reusable and simpler to manage.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Optimization</b></td>
+                        <td>Improves performance by simplifying frequently executed queries.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Advantages of Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Simplify Complex Queries</b></td>
+                        <td>Encapsulates complicated joins and aggregations, making them easier to use.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Enhance Security</b></td>
+                        <td>Limits user access to sensitive data by exposing only necessary columns or rows.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Increase Productivity</b></td>
+                        <td>Reduces redundancy by reusing query logic, saving time for developers and analysts.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Provide Data Abstraction</b></td>
+                        <td>Offers a high-level, user-friendly representation of the underlying database structure.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Facilitate Migration</b></td>
+                        <td>Acts as an interface to maintain application compatibility during schema changes.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Modifiability</b></td>
+                        <td>Allows updates, deletions, and inserts (if conditions are met).</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Syntax</h2>
+            <h3>1. Basic Syntax for Creating a View</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> view_name  <span class="orclkey"> AS  </span> <br>
+                     <ul> <span class="orclkey"> SELECT  </span> column1, column2, . . . <br>
+                    <span class="orclkey"> FROM  </span> table_name <br>
+                    <span class="orclkey"> WHERE condition  </span>  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h3>2. Modifying an Existing View (if supported by the database)</h3>
+            <p>Some databases allow altering a view directly; others require dropping and recreating it.</p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE OR REPLACE VIEW  </span> view_name  <span class="orclkey"> AS  </span> <br>
+            <ul> <span class="orclkey"> SELECT  </span> column1, column2, . . . <br>
+                    <span class="orclkey"> FROM  </span> table_name <br>
+                    <span class="orclkey"> WHERE condition  </span>  <b> ;</b>
+                </ul>
+             </code>
+            </div><br>
+            <h3>3. Syntax to Drop a View</h3>
+            <p>Deletes the view from the database.</p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> DROP VIEW  </span> view_name  <b> ; </b>
+             </code>
+            </div><br><br>
+            <h3>4. Creating a View with the WITH CHECK OPTION</h3>
+            <p>This ensures data integrity by preventing updates or inserts that violate the view's conditions.</p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> view_name  <span class="orclkey"> AS  </span> <br>
+            <ul> <span class="orclkey"> SELECT  </span> column1, column2, . . . <br>
+                    <span class="orclkey"> FROM  </span> table_name <br>
+                <ul><span class="orclkey"> WHERE condition  </span> </ul>
+                    <span class="orclkey"> WITH CHECK  </span> OPTION <b> ;</b>
+                </ul>
+             </code>
+            </div><br>
+
+            <h2>Behavior of Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Behavior</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Definition</b></td>
+                        <td>A view is a virtual table representing the result of a SQL query. It does not store data
+                            physically but dynamically retrieves data from the underlying base tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Retrieval</b></td>
+                        <td>Data in a view is fetched in real-time from the underlying tables. Any updates to the base
+                            tables are reflected in the view.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Dependency</b></td>
+                        <td>Views depend on the schema and data of the underlying tables. Changes in table structure
+                            (e.g., column deletion) can break the view.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Modifications</b></td>
+                        <td>In general, views allow INSERT, UPDATE, and DELETE operations, but only if the view adheres
+                            to certain rules (e.g., no aggregates or joins).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Performance Impact</b></td>
+                        <td>Views simplify complex queries but can introduce performance overhead if poorly optimized or
+                            involving large datasets. Indexed or materialized views can improve performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Security</b></td>
+                        <td>Views can restrict access by exposing only specific columns or rows, acting as a layer of
+                            abstraction for users with limited permissions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Usage in Queries</b></td>
+                        <td>Views can be queried like a table and used in joins, subqueries, or aggregation to simplify
+                            query logic.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Constraints</b></td>
+                        <td>Constraints like WITH CHECK OPTION enforce consistency, ensuring that data modifications
+                            respect the view's filtering conditions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Materialized Views</b></td>
+                        <td>In some databases (e.g., Oracle, PostgreSQL), materialized views store query results
+                            physically, improving performance for frequent and complex queries.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Limitations</b></td>
+                        <td>Views cannot include certain SQL clauses (e.g., ORDER BY without TOP in SQL Server). Nested
+                            or overly complex views can be hard to manage and maintain.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Types of Views</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Simple View</b></td>
+                        <td>Based on a single table without complex logic.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Complex View</b></td>
+                        <td>Involves multiple tables, joins, or aggregation functions.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Inline View</b></td>
+                        <td>A subquery in the FROM clause treated as a temporary view for the query's scope.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Materialized View</b></td>
+                        <td>Physically stores data for faster access (supported by Oracle, PostgreSQL, etc.).</td>
+                    </tr>
+                </tbody>
+
+            </table><br><br>
+
+            <h2>Basic Scenarios</h2>
+            <p><b>Scenario 1:- </b> Create a view that shows customer names and their contact details (phone and email).
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> CustomerContacts_vw  <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> CustomerID, 
+                      CustomerName, 
+                      PhoneNumber, 
+                      Email <br>
+                    <span class="orclkey"> FROM  </span> Customers  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+
+            <p><b>Scenario 2:- </b> Show active customer data with selected details like customer ID, name, and email.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> CustomerSummary_vw  <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> customer_id, name, email <br>
+                    <span class="orclkey"> FROM  </span> Customers <br>
+                <ul><span class="orclkey"> WHERE  </span> status = 'Active' <b> ;</b></ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 3:- </b> Restrict access to confidential employee data by exposing only selected columns to
+                authorized users.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> EmployeeData_vw   <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> employee_id, name, department_id <br>
+                    <span class="orclkey"> FROM  </span> Employees <br>
+                <ul><span class="orclkey"> WHERE  </span> access_level = 'Confidential' <b> ;</b></ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 4:- </b> Create a view to display all products with their names, categories, and prices.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> ProductPrice_vw   <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> ProductID, 
+                      ProductName, 
+                      Category, 
+                      Price <br>
+                    <span class="orclkey"> FROM  </span> Products  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 5:- (With JOINs)</b> Combine product and sales information to show product names, sales
+                dates, and sales amounts.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> ProductSales_vw   <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> p.product_name, s.sales_date, s.sales_amount <br>
+                    <span class="orclkey"> FROM  </span> Products p  <br>
+                    <span class="orclkey"> JOIN  </span> Sales s <span class="orclkey"> ON  </span> p.product_id = s.product_id
+                    <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+
+            <h2>Complex Scenarios</h2>
+            <p><b>Scenario 1:- (Employee Performance Analysis)</b> Create a view that displays employee details along
+                with their total sales for the month. Only include employees with sales greater than $10,000 and group
+                the data by department.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> EmpPerformance_vw    <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>e.EmployeeID, 
+                e.Name, 
+                d.DepartmentName, <br>
+                SUM(s.SaleAmount) <span class="orclkey"> AS  </span> TotalSales
+            </ul>
+                    <span class="orclkey"> FROM  </span>  
+                    <ul>
+                        Employees e 
+                    </ul>
+                    <span class="orclkey"> JOIN  </span> 
+                    <ul>
+                        Departments d <span class="orclkey"> ON  </span> e.DepartmentID = d.DepartmentID
+                    </ul>
+                    <span class="orclkey"> JOIN  </span> 
+                    <ul>
+                        Sales s <span class="orclkey"> ON  </span> e.EmployeeID = s.EmployeeID
+                    </ul>
+                    <span class="orclkey"> WHERE  </span> 
+                    <ul>
+                        s.SaleDate <span class="orclkey"> BETWEEN  </span> '2023-12-01' <span class="orclkey"> AND  </span> '2023-12-31'
+                    </ul>
+                    <span class="orclkey"> GROUP BY  </span> 
+                    <ul>
+                        e.EmployeeID, e.Name, d.DepartmentName
+                    </ul>
+                    <span class="orclkey"> HAVING  </span> 
+                    <ul>
+                        SUM(s.SaleAmount) > 10000
+                    </ul>
+                    <span class="orclkey"> ORDER BY  </span> 
+                    <ul>
+                        d.DepartmentName, TotalSales <span class="orclkey"> DESC  <b> ;</b> </span> 
+                    </ul>
+                    
+                   
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 2:- (Product Availability by Region)</b> Create a view that lists products along with the
+                regions where they are available, the total stock in each region, and the stock status (Low, Medium,
+                High).
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> ProductReview_vw  
+                <span class="orclkey"> AS  </span> <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>p.ProductID, 
+                    p.ProductName, 
+                    r.RegionName,  <br>
+                    SUM( s.StockQuantity ) <span class="orclkey"> AS  </span> TotalStock, <br>
+            
+            <span class="orclkey"> CASE  </span>
+            <ul>
+                <span class="orclkey"> WHEN  </span> SUM( s.StockQuantity ) < 50 <span class="orclkey"> THEN  </span> 'Low' <br>
+                <span class="orclkey"> WHEN  </span> SUM( s.StockQuantity ) <span class="orclkey"> BETWEEN  </span> 50 
+                <span class="orclkey"> AND  </span> 200 <span class="orclkey"> THEN  </span> 'Medium'<br>
+                <span class="orclkey"> ELSE  </span> 'High'
+            </ul>
+                    <span class="orclkey"> END AS  </span>  StockStatus
+                </ul>
+                <span class="orclkey"> FROM  </span> 
+                    <ul>
+                        Products p 
+                    </ul>
+                    <span class="orclkey"> JOIN  </span> 
+                    <ul>
+                        Stocks s <span class="orclkey"> ON  </span> p.ProductID = s.ProductID
+                    </ul>
+                    <span class="orclkey"> JOIN  </span> 
+                    <ul>
+                        Regions r <span class="orclkey"> ON  </span> s.RegionID = r.RegionID
+                    </ul>
+                    <span class="orclkey"> GROUP BY  </span> 
+                    <ul>
+                        p.ProductID, p.ProductName, r.RegionName
+                    </ul>
+                    <span class="orclkey"> ORDER BY  </span> 
+                    <ul>
+                        TotalStock <span class="orclkey"> DESC <b> ;</b> </span> 
+                    </ul>
+                    
+                    
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 3:- (With Sub Queries )</b> Identify high-value customers by calculating total spending and
+                filtering those who placed more than ten orders.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> HighProfileCustomers_vw  
+                <span class="orclkey"> AS  </span> <br>
+                <ul>
+                <span class="orclkey"> SELECT  </span> 
+                   <ul>
+                     c.customer_id, c.name,SUM(o.order_amount)   
+                     <span class="orclkey"> AS  </span> TotalSpent <br>
+                     <span class="orclkey"> FROM  </span>  Customers c <br>
+                    </ul>
+                    <span class="orclkey"> JOIN  </span>
+                    <span class="orclkey"> Orders o ON  </span> c.customer_id = o.customer_id <br>
+                    <span class="orclkey"> GROUP BY  </span>c.customer_id,c.name <br>
+                    <span class="orclkey"> HAVING  </span> <br>
+                    <span class="orclkey"> COUNT  </span> (o.order_id)
+                     <span class="orclkey"> >  </span> 10;
+             </code>
+            </div><br><br>
+            <p><b>Scenario 4:- (With UNION )</b> Display the hierarchical structure of departments by recursively
+                finding parent-child relationships.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> DepartmentHierarchy_vw    <span class="orclkey"> AS  </span> <br>
+                <span class="orclkey"> WITH RECURSIVE  </span> DeptCTE <span class="orclkey"> AS  </span>( <br>
+            <ul><span class="orclkey"> SELECT  </span> 
+                <ul>
+                    department_id, department_name, parent_department_id 
+                  
+                   </ul>
+            <span class="orclkey"> FROM  </span> Departments <br>
+            <ul>
+                <span class="orclkey"> WHERE  </span> parent_department_id  <span class="orclkey"> IS NULL  </span>
+            </ul>
+            <span class="orclkey"> UNION ALL  </span> <br>
+            <ul>
+                <span class="orclkey"> SELECT  </span> 
+                <ul>
+                    d.department_id, d.department_name, d.parent_department_id
+                   </ul>
+                   <span class="orclkey"> FROM  </span> Departments d <br>
+               </ul>
+               <span class="orclkey"> INNER JOIN   </span>  DeptCTE cte <span class="orclkey"> ON   </span>
+               d.parent_department_id = cte.department_id <br>
+                )
+
+                </ul> 
+                
+                </ul>
+                <span class="orclkey"> SELECT   </span> * <span class="orclkey"> FROM   </span> DeptCTE
+                    <b> ;</b>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 5:- (Active Subscriptions View)</b> Create a view to list active subscriptions along with
+                customer details and their subscription status.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE VIEW  </span> ActiveSubscriptions_vw    
+                <span class="orclkey"> AS  </span> <br>
+                <span class="orclkey"> SELECT  </span> 
+                <ul>s.SubscriptionID, 
+                    c.CustomerName, 
+                    s.StartDate, 
+                    s.EndDate,
+            
+                   <span class="orclkey"> CASE  </span>
+                  <ul>
+                   <span class="orclkey"> WHEN  </span> s.EndDate >= CURRENT_DATE 
+                   <span class="orclkey"> THEN  </span> 'Active' <br>
+                   <span class="orclkey"> ELSE  </span> 'Expired'
+                  </ul>
+                  <span class="orclkey"> END AS  </span>  SubscriptionStatus
+               </ul>
+                <span class="orclkey"> FROM  </span> 
+                    <ul>
+                        Subscriptions s
+                    </ul>
+                    <span class="orclkey"> JOIN  </span>  Customers c 
+                   
+                    <span class="orclkey"> ON  </span> s.CustomerID = c.CustomerID <br>
+                   
+                    <span class="orclkey"> WHERE  </span> <br>
+                    <ul>
+                        s.StartDate <= CURRENT_DATE;
+                    </ul>
+                    
+             </code>
+            </div><br>
+            <h2>Common Errors with VIEWS </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Explanation</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Invalid column name</td>
+                        <td>A referenced column in the view no longer exists in the base table.</td>
+                        <td>Update the view definition or table schema.</td>
+                    </tr>
+                    <tr>
+                        <td>Cannot perform INSERT/UPDATE</td>
+                        <td>View is not updatable due to joins or derived columns.</td>
+                        <td>Use INSTEAD OF triggers if needed.</td>
+                    </tr>
+                    <tr>
+                        <td>Recursive View Definition</td>
+                        <td>Circular dependency detected when referencing the view itself.</td>
+                        <td>Avoid self-referencing in view creation.</td>
+                    </tr>
+                    <tr>
+                        <td>WITH CHECK OPTION violation</td>
+                        <td>Insert or update operation violates the condition of WITH CHECK OPTION.</td>
+                        <td>Ensure the condition aligns with the update.</td>
+                    </tr>
+                    <tr>
+                        <td>View already exists</td>
+                        <td>Attempting to create a view with an existing name.</td>
+                        <td>Drop the view or use CREATE OR REPLACE.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Performance Hints for writing a View</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hint</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Limit Columns and Rows</b></td>
+                        <td>Retrieve only the necessary columns and rows to reduce data load.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Optimize Query Performance</b></td>
+                        <td>Avoid using computationally expensive operations like nested queries or non-indexed columns.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Descriptive Names</b></td>
+                        <td>Name views to reflect their purpose or logic for better maintainability.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Leverage Indexes on Base Tables</b></td>
+                        <td>Ensure indexed columns are used to improve performance of queries referencing the view.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Nested Views</b></td>
+                        <td>Refrain from creating views that depend on other views to avoid performance degradation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Keep Queries Modular</b></td>
+                        <td>Break down complex logic into smaller, reusable views.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Materialized Views for Large Data</b></td>
+                        <td>Use materialized views for complex, computationally expensive queries to improve
+                            performance.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <h2>Do’s and Don’ts with VIEWS</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use views to encapsulate frequently used complex queries.</td>
+                        <td>Don’t use views as a replacement for stored tables for large datasets.</td>
+                    </tr>
+                    <tr>
+                        <td>Create views to enforce data security and access control.</td>
+                        <td>Don’t create nested views unnecessarily as they can degrade performance.</td>
+                    </tr>
+                    <tr>
+                        <td>Test views after modifying underlying tables or schema.</td>
+                        <td>Don’t assume that views improve performance without understanding the query execution plan.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Use materialized views for static, computationally expensive data.</td>
+                        <td>Don’t rely on views for heavy transactional operations.</td>
+                    </tr>
+                    <tr>
+                        <td>Use WITH SCHEMABINDING to prevent table modifications that could break the view.</td>
+                        <td>Don’t rely on views for high-performance-critical operations without testing.</td>
+                    </tr>
+                    <tr>
+                        <td>Use WITH CHECK OPTION for data integrity.</td>
+                        <td>Don’t use views for direct bulk data manipulation if it impacts base tables heavily.</td>
+                    </tr>
+                    <tr>
+                        <td>Document view logic for clarity.</td>
+                        <td>Avoid exposing sensitive data via views inadvertently.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+            <div class="topic-buttons">
+                <a href="sql_tcl.html?topic=sqlSavepoint" class="previou-button">&laquo; Previous</a>
+                <a href="sql_mview.html?topic=sqlMaterializedviews" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

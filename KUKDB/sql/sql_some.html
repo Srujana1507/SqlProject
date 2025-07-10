@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlSome">
+
+            <div class="topic-buttons">
+                <a href="sql_wildcards.html?topic=sqlWildcards" class="previou-button">&laquo; Previous</a>
+                <a href="sql_case.html?topic=sqlCase" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>SOME Operator</h1>
+            <p>The SOME operator in SQL is used to compare a value to a set of values returned by a subquery.</p>
+            <ul>
+                <li>It is a logical operator that works similarly to the ANY operator and evaluates to TRUE if the
+                    condition is satisfied by any value in the subquery.</li>
+                <li>It is generally used with comparison operators like =, <,>, <=,>=, and <>.</li>
+            </ul>
+            <h2>Basic Syntax</h2>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> column1, column2, . . . . <br>
+                            <span class="orclkey">FROM   </span>table_name <br>
+                            <span class="orclkey">WHERE </span> column_name comparison_operator <span class="orclkey"> SOME </span>(<br>
+                            <ul>
+                                <span class="orclkey">SELECT </span> column_name <br>
+                                <span class="orclkey">FROM </span> related_table
+                                <span class="orclkey">WHERE condition </span> 
+                            </ul> ) <b> ; </b>
+                        </code>
+                - - comparison_operator: Includes operators like =, !=, <, <=,>, >=. <br>
+                    - - <b>Subquery:-</b> A query that returns a list of values to compare against.<br>
+                    - - expression: A column or calculated value to compare. <br>
+            </div><br>
+            <h2>Key Features</h2>
+            <p><b>1. Alias for ANY :</b></p>
+            <ul>
+                <li>SOME is functionally equivalent to the ANY operator. Both mean "at least one value matches."</li>
+            </ul>
+            <p><b>2. Comparison with Subquery Results :</b></p>
+            <ul>
+                <li>Evaluates each value in the subquery result set against the condition.</li>
+            </ul>
+            <p><b>3. Result Based on Match :</b></p>
+            <ul>
+                <li>Returns TRUE if any value satisfies the condition.</li>
+            </ul>
+            <h2>Examples</h2>
+            <h3>1. Using SOME with Greater Than ( > )</h3>
+            <p><b>Scenario :- </b> Retrieve products whose price is greater than the price of some items in a specific
+                category.
+            </p>
+            <div class="code-box">
+                <code>
+                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                            <span class="orclkey">FROM </span>Products <br>
+                            <span class="orclkey">WHERE </span> Price > 
+                            <span class="orclkey"> SOME </span> (
+                            <ul>
+                                
+                            <span class="orclkey">SELECT </span> Price <br>
+                            <span class="orclkey">FROM  </span> Products <br>
+                            <span class="orclkey">WHERE </span> Category =  <b>'</b>Electronics<b>'</b>  )<b> ; </b> <br>
+                        </ul>
+                      
+                                     </code>
+                - - The subquery retrieves prices of all products in the Electronics category. <br>
+                - - The SOME operator checks if the price of a product is greater than at least one price in the
+                subquery.
+            </div><br>
+            <h3>2. Using SOME with Less Than ( < )</h3>
+                    <p><b>Scenario :- </b> Retrieve employees whose salary is less than some of the salaries of
+                        employees in the 'Manager' position.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> EmployeeID, EmployeeName, Salary <br>
+                            <span class="orclkey">FROM </span>Employees <br>
+                            <span class="orclkey">WHERE </span> Salary < 
+                            <span class="orclkey"> SOME </span> (<br>
+                            <ul>
+                               
+                            <span class="orclkey">SELECT </span> Salary <br>
+                            <span class="orclkey">FROM  </span> Employees <br>
+                            <span class="orclkey">WHERE </span> JobTitle  =  <b>'</b>Manager<b>'</b>  )<b> ; </b><br>
+                        </ul>
+                       
+                        </code>
+                        - - The subquery fetches salaries of all employees with the title 'Manager'. <br>
+                        - - The SOME operator evaluates if an employee's salary is less than any of these.
+                    </div><br>
+                    <h3>3. Using SOME with Not Equal ( <> )</h3>
+                    <p><b>Scenario :- </b> Retrieve orders where the amount is not equal to some of the amounts in the
+                        subquery.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> OrderID, Amount <br>
+                            <span class="orclkey">FROM </span>Orders <br>
+                            <span class="orclkey">WHERE </span> Amount <>
+                            <span class="orclkey"> SOME </span> (<br>
+                            <ul>
+                            <span class="orclkey">SELECT </span> Amount <br>
+                            <span class="orclkey">FROM  </span> Payments)<b> ; </b> 
+                            <br>
+                        </ul>
+                     </code>
+                        - - The subquery fetches all payment amounts. <br>
+                        - - The SOME operator checks if the order amount is different from <b>at least one</b> of the
+                        payment amounts.
+                    </div><br>
+                    <h3>4. Using SOME with Equality ( = )</h3>
+                    <p><b>Scenario :- </b> Retrieve customers whose city matches some of the cities from a list of
+                        suppliers.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> CustomerID, CustomerName, City <br>
+                            <span class="orclkey">FROM </span>Customers <br>
+                            <span class="orclkey">WHERE </span> City =
+                            <span class="orclkey"> SOME </span> (<br>
+                            <ul>
+                            <span class="orclkey">SELECT </span> City <br>
+                            <span class="orclkey">FROM  </span> Suppliers  )<b> ; </b> 
+                            <br>
+                        </ul>
+              </code>
+                        - - The subquery returns a list of cities where suppliers are located. <br>
+                        - - The SOME operator ensures that the customer's city matches <b>at least one</b> city in the
+                        subquery.
+                    </div><br>
+                    <h3>5. With != Operator </h3>
+                    <p><b>Scenario :- </b> Retrieve orders where the total is not equal to the total of <b>some</b>
+                        orders in the "North" region.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> order_id, total_amount <br>
+                            <span class="orclkey">FROM </span> orders <br>
+                            <span class="orclkey">WHERE </span> total_amount != <span class="orclkey"> SOME </span> (<br>
+                            <ul>
+                                
+                            <span class="orclkey">SELECT </span> total_amount <br>
+                            <span class="orclkey">FROM  </span> orders <br>
+                            <span class="orclkey">WHERE </span> region = <b>'</b>North<b>'</b> )<b> ; </b>
+                            <br>
+                        </ul>
+                      
+                        </code>
+                        - - The subquery returns total amounts of orders in north region. <br>
+
+                    </div><br>
+                    <h3>6. Inserting Data </h3>
+                    <p><b>Scenario :- </b> Insert customers who belong to some regions listed in another table.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">INSERT INTO </span> vip_customers ( customer_id, name, region ) <br>
+                            <span class="orclkey">SELECT </span> customer_id, name, region <br>
+                            <span class="orclkey">FROM </span> customers <br>
+                            <span class="orclkey">WHERE </span> region =
+                            <span class="orclkey"> SOME </span> (<br>
+                            <ul>
+                               
+                            <span class="orclkey">SELECT </span> region <br>
+                            <span class="orclkey">FROM  </span> preferred_regions)<b> ; </b>
+                        </ul>
+                        
+                    </ul>
+                        </code>
+                    </div><br>
+
+                    <h2> Complex Scenarios </h2>
+                    <h3>1. SOME With Aggregate Functions and HAVING </h3>
+                    <p><b>Scenario :- </b> Find departments where the average salary is higher than the salary of some
+                        employees in the "Marketing" team.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> department_id, AVG( salary ) <span class="orclkey"> AS </span>avg_salary <br>
+                            <span class="orclkey">FROM </span> employees <br>
+                            <span class="orclkey">GROUP BY </span> department_id <br>
+                            <span class="orclkey"> HAVING </span> AVG(salary) > 
+                            <span class="orclkey"> SOME </span>( <br>
+                            <ul>
+                               
+                            <span class="orclkey">SELECT </span> salary <br>
+                            <span class="orclkey">FROM  </span> employees <br>
+                            <span class="orclkey">WHERE </span> department = <b>'</b>Marketing<b>'</b> )<b> ; </b> <br>
+                           </ul>
+                        </code>
+                    </div><br>
+                    <h3>2. Data Validation </h3>
+                    <p><b>Scenario :- </b> Check if any invoices have a total greater than the total of some other
+                        invoices in the same month.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> i1.invoice_id, i1.total <br>
+                            <span class="orclkey">FROM </span> invoices i1 <br>
+                            <span class="orclkey"> WHERE </span> i1.total >
+                            <span class="orclkey"> SOME </span>( <br>
+                            <ul>
+                               
+                            <span class="orclkey">SELECT </span> i2.total <br>
+                            <span class="orclkey">FROM  </span> invoices i2 <br>
+                            <span class="orclkey">WHERE </span> i1.month = i2.month <br>
+                            <span class="orclkey">AND </span> i1.invoice_id != i2.invoice_id)<b> ; </b> <br>
+                        
+                        
+                    </ul>
+                        </code>
+                    </div><br>
+                    <h3>3. Using SOME with Multiple Conditions </h3>
+                    <p><b>Scenario :- </b> Retrieve products with prices greater than <b>some</b> and less than
+                        <b>some</b> values in a specific category.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> ProductID, ProductName, Price <br>
+                            <span class="orclkey">FROM </span> Products <br>
+                            <span class="orclkey"> WHERE </span> Price >
+                            
+                            <ul>
+                            <span class="orclkey"> SOME </span>( 
+                            <span class="orclkey">SELECT </span> Price
+                            <span class="orclkey">FROM  </span> Products 
+                            <span class="orclkey">WHERE </span> Category  = <b>'</b>Electronics') <br>
+                            <span class="orclkey"> AND </span> Price <
+                            <span class="orclkey"> SOME </span>(
+                            <span class="orclkey"> SELECT  </span> Price
+                            <span class="orclkey"> FROM  </span> Products 
+                            <span class="orclkey"> WHERE  </span> Category  = <b>'</b>Furniture<b>'</b> ) <b> ;</b> <br>
+                        </ul>                 
+                        </code>
+                        - - The query compares product prices to values from two different subqueries. <br>
+                        - - It ensures that a product's price is greater than <b>some</b> prices in the 'Electronics'
+                        category and less than <b>some</b> prices in the 'Furniture' category.
+                    </div><br>
+                    <h3>4. Combining SOME with NOT </h3>
+                    <p><b>Scenario :- </b> Retrieve orders where the amount is <b>not greater</b> <b>than some</b>
+                        payment amounts.
+                    </p>
+                    <div class="code-box">
+                        <code>
+                            <span class="orclkey">SELECT </span> OrderID, Amount <br>
+                            <span class="orclkey">FROM </span> Orders <br>
+                            <span class="orclkey"> WHERE NOT </span> ( Amount > <span class="orclkey"> SOME </span>( <br>
+                            <ul>
+                            <span class="orclkey">SELECT </span> Amount <br>
+                            <span class="orclkey">FROM  </span> Payments ) )<b> ; </b> <br>
+                        </ul>
+                 
+                        </code>
+                        - - This checks that the order amount is <b>not greater</b> than any of the payment amounts.
+                    </div><br>
+                    <h2>SOME vs ANY</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>SOME</th>
+                                <th>ANY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Definition </td>
+                                <td>Checks if the condition is satisfied by at least one value from a subquery.</td>
+                                <td>Checks if the condition is satisfied by at least one value from a subquery.</td>
+                            </tr>
+                            <tr>
+                                <td> Functionality </td>
+                                <td>SOME is functionally identical to ANY. They both evaluate to TRUE if any one of the
+                                    values in the subquery satisfies the condition.</td>
+                                <td>Same as SOME. No functional difference.</td>
+                            </tr>
+                            <tr>
+                                <td> Syntax </td>
+                                <td>expression operator SOME (subquery)</td>
+                                <td>expression operator ANY (subquery)</td>
+                            </tr>
+                            <tr>
+                                <td> Usability </td>
+                                <td>Rarely used in practice; less familiar to many developers.</td>
+                                <td>More commonly used; widely recognized and preferred for readability.</td>
+                            </tr>
+                            <tr>
+                                <td> Operators Supported </td>
+                                <td>Supports comparison operators such as =, <,>, <=,>=, <>.</td>
+                                <td>Supports the same comparison operators: =, <,>, <=,>=, <>.</td>
+                            </tr>
+                            <tr>
+                                <td> Readability </td>
+                                <td>May confuse readers who are not familiar with SQL standards.</td>
+                                <td>Easier to understand and widely accepted in SQL queries.</td>
+                            </tr>
+                            <tr>
+                                <td> Performance </td>
+                                <td>Both have the same performance as they are internally equivalent.</td>
+                                <td>Same performance as SOME.</td>
+                            </tr>
+                            <tr>
+                                <td> Alternative to IN </td>
+                                <td>Can sometimes replace IN, but less intuitive.</td>
+                                <td>Commonly used as a replacement for IN with comparison operators.</td>
+                            </tr>
+                            <tr>
+                                <td> Use Case </td>
+                                <td>Rarely chosen in real-world scenarios due to familiarity issues.</td>
+                                <td>Commonly chosen for better code clarity.</td>
+                            </tr>
+                            <tr>
+                                <td> Example Query </td>
+                                <td>sql SELECT * FROM Orders WHERE Amount > SOME (SELECT Amount FROM Payments);</td>
+                                <td>sql SELECT * FROM Orders WHERE Amount > ANY (SELECT Amount FROM Payments);</td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+
+                    <h2>Common Errors</h2>
+                    <p><b>1. Empty Subquery Result:- </b> If the subquery returns no rows, the SOME condition evaluates
+                        to FALSE.</p> <br>
+                    <p><b>2. Invalid Data Types:- </b> Ensure the column being compared and the subquery return column
+                        have compatible data types.</p> <br>
+                    <p><b>3. Using Unnecessary Operators:- </b> Avoid using SOME with operators like = when IN might
+                        suffice.</p> <br>
+                    <div class="code-box">
+                        <code> - - <b>Less efficient with SOME</b><br>
+                                <span class="orclkey">SELECT </span> * 
+                                <span class="orclkey">FROM Table WHERE Column </span> = 
+                                <span class="orclkey"> SOME </span> ( subquery )<b> ; </b>
+                            </code>
+
+                        <code>  - - <b>More efficient with IN</b> <br>
+                                <span class="orclkey">SELECT </span> * 
+                                <span class="orclkey">FROM Table WHERE Column </span> 
+                                <span class="orclkey"> IN </span> ( subquery )<b> ; </b>
+                            </code>
+                    </div><br>
+                    <h2>Do's and Dont's</h2>
+                    <h4>Do's</h4>
+                    <ul>
+                        <li>Use SOME or ANY interchangeably for clarity, based on team standards.</li>
+                        <li>Combine with subqueries to filter datasets efficiently.</li>
+                        <li>Use indexed columns in the subquery to optimize performance.</li>
+                    </ul><br>
+                    <h4>Don'ts</h4>
+                    <ul>
+                        <li>Avoid using SOME for non-comparative operations.</li>
+                        <li>Do not rely on SOME for fetching exact matches; use IN instead.</li>
+                        <li>Avoid deeply nested subqueries as they can impact readability and performance.</li>
+                    </ul><br>
+                    <h2>Challenges</h2>
+                    <p><b>1. Readability:- </b> SOME is less intuitive for many developers compared to ANY.</p>
+                    <p><b>2. Subquery Performance:- </b> Large datasets in the subquery can slow down execution without
+                        proper indexing.</p>
+                    <p><b>3. Compatibility:- </b> Ensure that your SQL database supports SOME (though most major systems
+                        do).</p>
+
+
+                    <div class="topic-buttons">
+                        <a href="sql_wildcards.html?topic=sqlWildcards" class="previou-button">&laquo; Previous</a>
+                        <a href="sql_case.html?topic=sqlCase" class="next-button">Next &raquo;</a>
+                    </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

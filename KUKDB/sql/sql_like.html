@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+        <main class="sidebar-content" data-topic="sqlLike">
+
+            <div class="topic-buttons">
+                <a href="sql_between.html?topic=sqlBetween" class="previou-button">&laquo; Previous</a>
+                <a href="sql_not.html?topic=sqlNot" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>LIKE </h1>
+            <ul>
+                <li>1. The LIKE operator is used to search for a specified pattern within a column.</li>
+                <li>2. It is typically used with <b>SELECT, UPDATE, or DELETE</b> statements to perform partial matches
+                    in <b>text-based</b> data.
+                </li>
+                <li>3. The LIKE operator allows for flexible pattern matching using wildcards.</li>
+            </ul>
+
+            <h2>Why Use the LIKE Operator?</h2>
+            <ul>
+                <li>To filter records based on partial text matches.</li>
+                <li>To search for patterns within text columns.</li>
+                <li>To handle cases where exact matches (=) are not practical.</li>
+                <li>To retrieve data with flexible matching criteria such as prefixes, suffixes, or substrings.</li>
+            </ul>
+            <h2>Key Wildcards in LIKE</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Wildcard</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>%</b> </td>
+                        <td>Matches zero, one, or more characters.</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td><b>_</b> </td>
+                        <td>Matches exactly one character.</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td><b>[ ]</b> </td>
+                        <td>Matches any one character within the brackets (only in SQL Server).</td>
+                    </tr>
+                    <tr>
+                        <td><b>[^ ] </b>or <b> ! </b> </td>
+                        <td>Matches any single character NOT within the brackets (only in SQL Server).</td>
+                    </tr>
+                    <tr>
+                        <td>ESCAPE </td>
+                        <td>Specifies an escape character to search for literal <b> % </b>or <b> _ </b>.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h2>Syntax</h2>
+            <h3> Basic Syntax:</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> column1, column2 <br>
+                        <span class="orclkey">FROM  </span> table_name <br>
+                        <span class="orclkey">WHERE </span>  column_name  <span class="orclkey"> LIKE pattern  </span>  <b> ; </b>
+                    </code>
+            </div><br>
+            <h3> Using NOT LIKE:</h3>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> column1, column2 <br>
+                        <span class="orclkey">FROM  </span> table_name <br>
+                        <span class="orclkey">WHERE </span>  column_name  <span class="orclkey">NOT LIKE pattern  </span>  <b> ; </b>
+                    </code>
+            </div><br>
+            <h2> Examples:</h2>
+            <h3>1. Match Strings Starting with a Specific Character</h3>
+            <p><b>Scenario :- </b>Retrieve all employees whose names start with "Ha".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> employee_id, first_name <br>
+                        <span class="orclkey">FROM  </span> employees <br>
+                        <span class="orclkey">WHERE </span>  first_name   <span class="orclkey"> LIKE </span><b>'</b>Ha%<b>'</b>  <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>2. Match Strings Ending with a Specific Character</h3>
+            <p><b>Scenario :- </b>Retrieve products that end with "Pro".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> product_id, product_name <br>
+                        <span class="orclkey">FROM  </span> products <br>
+                        <span class="orclkey">WHERE </span>  product_name    <span class="orclkey"> LIKE </span><b>'</b>%Pro<b>'</b>  <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>3. Match Strings Containing a Specific Substring</h3>
+            <p><b>Scenario 1:- </b>Retrieve customers whose email contains "gmail".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> customer_id, email <br>
+                        <span class="orclkey">FROM  </span> customers <br>
+                        <span class="orclkey">WHERE </span>  email     <span class="orclkey"> LIKE </span><b>'</b>%gmail%<b>'</b>  <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 2:- </b>Retrieve customers names whose name starts and end with "A" .</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> customer_id, name <br>
+                        <span class="orclkey">FROM  </span> customers <br>
+                        <span class="orclkey">WHERE </span>  name     <span class="orclkey"> LIKE </span><b>'</b>A%A<b>'</b>  <b> ; </b>
+                    </code>
+            </div><br>
+            <p><b>Scenario 3:- </b>Find all IP addresses starting with "192.168" . .</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> user_id, ip_address <br>
+                        <span class="orclkey">FROM  </span> user_logs <br>
+                        <span class="orclkey">WHERE </span>  ip_address <span class="orclkey"> LIKE </span><b>'</b>192.168%<b>'</b>  <b> ; </b>
+                    </code>
+            </div><br>
+
+            <h3>4. Single Character Matching ( _ ) and Match Strings of Specific Length</h3>
+            <p><b>Scenario 1:- </b>Retrieve employees whose names are exactly 4 characters long and start with "A".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> employee_id, first_name <br>
+                        <span class="orclkey">FROM  </span> employees <br>
+                        <span class="orclkey">WHERE </span>  first_name
+                        <span class="orclkey"> LIKE </span><b>'</b>A____<b>'</b>  <b> ; </b>
+                        <br>- - Output: Anand<br><br>
+                        - - Each "_ " is a single character in LIKE operator.
+                    </code>
+            </div><br>
+            <p><b>Scenario 2:- </b>Retrieve employees whose names contains second letters as "a".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> employee_id, first_name <br>
+                        <span class="orclkey">FROM  </span> employees <br>
+                        <span class="orclkey">WHERE </span>  first_name <span class="orclkey"> LIKE </span><b>'</b>_a%<b>'</b>  <b> ; </b> 
+                    </code>
+            </div><br>
+            <h3>5. Finding Numeric Patterns in Strings</h3>
+            <p><b>Scenario :- </b>Retrieve employee IDs that start with "E" and have exactly 3 digits following it
+                (e.g., E123).</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> employee_id, first_name <br>
+                        <span class="orclkey">FROM  </span> employees <br>
+                        <span class="orclkey">WHERE </span>  employee_id 
+                        <span class="orclkey"> LIKE </span><b>'</b>E___<b>'</b>  <b> ; </b> 
+                    </code>
+            </div><br>
+            <h3>6. Finding Numeric Patterns in Strings</h3>
+            <p><b>Scenario :- </b>Retrieve all employee names with exactly 5 characters.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> employee_id, first_name <br>
+                        <span class="orclkey">FROM  </span> employees <br>
+                        <span class="orclkey">WHERE </span>  first_name  
+                        <span class="orclkey"> LIKE </span><b>'</b>_____<b>'</b>  <b> ; </b> 
+                    </code>
+            </div><br>
+
+            <h3>7. Partial Matching for Web URLs</h3>
+            <p><b>Scenario :- </b>Find all users visiting URLs from a specific domain.</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> *  <br>
+                        <span class="orclkey">FROM  </span> web_logs <br>
+                        <span class="orclkey">WHERE </span>  visit_url 
+                        <span class="orclkey"> LIKE </span>
+                        <b>'</b>https://www.example.com%<b>'</b>  <b> ; </b> 
+                    </code>
+            </div><br>
+            <h3>8. LIKE in DELETE</h3>
+            <p><b>Scenario :- </b>Delete products whose names include "Demo".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">DELETE FROM </span> products  <br>
+                        <span class="orclkey">WHERE </span>  product_name  <span class="orclkey"> LIKE </span><b>'</b>%Demo%<b>'</b>  <b> ; </b> 
+                    </code>
+            </div><br>
+            <h3>9. LIKE in UPDATE</h3>
+            <p><b>Scenario :- </b>Update the status of inactive customers whose names start with "Test".</p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">UPDATE </span> customers  <br>
+                        <span class="orclkey">SET </span> status = <b>'</b>Inactive<b>'</b>  <br>
+                        <span class="orclkey">WHERE </span>  name
+                        <span class="orclkey"> LIKE </span><b>'</b>Test%<b>' </b>
+                        <span class="orclkey"> AND </span>status!=
+                        <span class="orclkey"> 'Inactive' </span><b> ; </b> 
+                    </code>
+            </div><br>
+            <h2>Advanced Scenarios </h2>
+            <h3>1. Locating Null-like Entries</h3>
+            <p><b>Scenario :- </b>Identify rows with placeholder text (e.g., "N/A" or "UNKNOWN") instead of actual data.
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> *  <br>
+                        <span class="orclkey">FROM  </span> data_table <br>
+                        <span class="orclkey">WHERE </span>  column_name
+                        <span class="orclkey"> IN </span> (
+                        'N/A','UNKNOWN'<b> );</b>
+                    </code>
+            </div><br>
+            <h3>2. Combine LIKE with AND/OR</h3>
+            <p><b>Scenario :- </b>Find all products that either start with "Choco" or end with "Mix".
+            </p>
+            <div class="code-box">
+                <code>
+                        <span class="orclkey">SELECT </span> ProductName  <br>
+                        <span class="orclkey">FROM  </span> Products <br>
+                        <span class="orclkey">WHERE </span>  ProductName   <span class="orclkey"> LIKE </span><b>'</b>Choco%<b>'</b> <span class="orclkey"> OR  </span>
+                        ProductName  <span class="orclkey"> LIKE </span><b>'</b>%Mix<b>'</b>
+                         <b> ; </b> 
+                    </code>
+            </div><br>
+            <h3>3. Case-Insensitive Search</h3>
+            <p><b>Scenario :- </b>Find employee names containing "harsha", regardless of case.
+            </p>
+            <div class="code-box">
+                <code>
+                    <span class="orclkey">SELECT </span> employee_id, first_name <br>
+                    <span class="orclkey">FROM  </span> employees <br>
+                    <span class="orclkey">WHERE </span>  LOWER(first_name)  
+                    <span class="orclkey"> LIKE </span><b>'</b>%harsha%<b>'</b>  <b> ; </b> 
+                    </code>
+                - - Use LOWER() or UPPER() for case-insensitive matching since LIKE may be case-sensitive depending on
+                the database.
+            </div><br>
+            <h3>4. Using LIKE in Subqueries</h3>
+            <p><b>Scenario :- </b>Find customers who purchased products with names containing "luxury".
+            </p>
+            <div class="code-box">
+                <ul>
+                    <span class="orclkey">SELECT </span> CustomerID , CustomerName <br>
+                    <span class="orclkey">FROM </span> Customers <br>
+                    <span class="orclkey">WHERE </span> CustomerID <span class="orclkey"> IN </span> ( <br>
+                    <ul>
+                        <span class="orclkey">SELECT </span> CustomerID<br>
+                        <span class="orclkey">FROM </span> Orders <br>
+                        <span class="orclkey">WHERE </span> ProductName <span class="orclkey"> LIKE </span>
+                        <b>'</b>%luxury%<b>'</b>
+                    </ul> ) <b> ; </b>
+                    </code>
+            </div><br>
+            <h3>5. Use LIKE with NOT for Exclusions</h3>
+            <p><b>Scenario :- </b>Retrieve customer names that do not start with "A".
+            </p>
+            <div class="code-box">
+                <span class="orclkey">SELECT </span> customer_id, CustomerName <br>
+                <span class="orclkey">FROM </span> customers <br>
+                <span class="orclkey">WHERE </span> CustomerName <span class="orclkey">NOT LIKE
+                </span><b>'</b>A%<b>'</b> <b> ; </b>
+                </code>
+            </div><br>
+            <h3>6. Matching Multiple Prefixes</h3>
+            <p><b>Scenario :- </b>Retrieve customer names that start with "Mr.", "Mrs.", or "Dr.".
+            </p>
+            <h4>Query (SQL Server):</h4>
+            <div class="code-box">
+                <span class="orclkey">SELECT </span> customer_id, CustomerName <br>
+                <span class="orclkey">FROM </span> customers <br>
+                <span class="orclkey">WHERE </span> CustomerName <span class="orclkey"> LIKE
+                </span><b>'</b>Mr.%<b>'</b> <span class="orclkey">OR </span>
+                CustomerName <span class="orclkey"> LIKE </span><b>'</b>Mrs.%<b>'</b> <span class="orclkey">OR
+                </span>
+                CustomerName <span class="orclkey"> LIKE </span><b>'</b>Dr.%<b>'</b> <b> ; </b>
+                </code>
+            </div><br>
+            <h2>Common Errors with LIKE</h2>
+            <h4>1. Using LIKE Without Wildcards:</h4>
+            <div class="code-box">
+                - - Incorrect
+                <span class="orclkey">WHERE </span> Name <span class="orclkey"> LIKE </span><b>'</b>John<b>'</b>
+                <b> ; </b>
+                </code>
+                - -This is equivalent to <b>=</b>. Use wildcards for partial matches.
+            </div>
+            <h4>2. Case Sensitivity Confusion:</h4>
+            <ul>Ensure you know if your database treats LIKE as case-sensitive. Use UPPER() or LOWER() for consistency.
+            </ul>
+            <h4>3. Neglecting Escaping:</h4>
+            <ul>Forgetting to escape % or _ can lead to incorrect results.</ul>
+            <h4>4. Inefficient Queries:</h4>
+            <ul>Using %term% in large datasets can degrade performance due to full table scans.</ul><br>
+
+            <h2>Best Practices for LIKE</h2>
+            <p><b>1. Optimize Patterns:- </b></p>
+            <ul>
+                <ul>
+                    <li>Use % only where necessary. For example, prefer LIKE 'term%' over LIKE '%term%' to allow index
+                        usage.</li>
+                </ul>
+            </ul>
+            <p><b>2. Combine with Other Filters:- </b></p>
+            <ul>
+                <ul>
+                    <li>Narrow down the dataset using other filters (WHERE, JOIN) before applying LIKE.</li>
+                </ul>
+            </ul>
+            <p><b>3. Full-Text Search for Complex Queries:- </b></p>
+            <ul>
+                <ul>
+                    <li>Use LIKE for simple pattern matching, but migrate to full-text search for extensive queries.
+                    </li>
+                </ul>
+            </ul>
+            <p><b>4. Escape User Input:- </b></p>
+            <ul>
+                <ul>
+                    <li>Sanitize input patterns to prevent SQL injection.</li>
+                </ul>
+            </ul>
+            <p><b>5. Escape Special Characters:- </b></p>
+            <ul>
+                <ul>
+                    <li>Use the ESCAPE clause when searching for % or _.</li>
+                </ul>
+            </ul>
+            <h2>Comparison of LIKE Across Databases</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Database</th>
+                        <th>Case Sensitivity</th>
+                        <th>Special Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Oracle</td>
+                        <td>Case-sensitive by default (use UPPER() or LOWER() for insensitivity).</td>
+                        <td>Supports escape characters.</td>
+                    </tr>
+                    <tr>
+                        <td>SQL Server</td>
+                        <td>Case-insensitivity depends on collation (default is insensitive).</td>
+                        <td>Supports [ ] for ranges and [^ ] for exclusions.</td>
+                    </tr>
+                    <tr>
+                        <td>MySQL</td>
+                        <td>Case-insensitive by default.</td>
+                        <td>Uses _ and % only.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_between.html?topic=sqlBetween" class="previou-button">&laquo; Previous</a>
+                <a href="sql_not.html?topic=sqlNot" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

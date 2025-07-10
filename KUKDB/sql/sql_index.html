@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Conform Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlIndex">
+
+            <div class="topic-buttons">
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
+                <a href="#" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>Index</h1>
+            <p>An index is a database object created to speed up the retrieval of rows by using a pointer mechanism.
+            </p><br>
+            <ul>
+                <li>They function like a roadmap for the database, allowing it to quickly locate rows in a table without
+                    scanning the entire dataset.</li>
+                <li> Indexes are created on columns of a table or a view and can be applied to one or multiple columns.
+                </li>
+            </ul> <br>
+            <h2>Why are Indexes important in a Database</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reason</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Faster Query Execution</b></td>
+                        <td>Improves the speed of SELECT queries, especially for large tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Efficient Sorting</b></td>
+                        <td>Allows faster execution of queries involving ORDER BY and GROUP BY.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Join Optimization</b></td>
+                        <td>Enhances the performance of JOIN operations by indexing the joined columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Supports Constraints</b></td>
+                        <td>Enforces constraints like primary keys and unique constraints effectively.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Full Table Scans</b></td>
+                        <td>Reduces the need for a full table scan by directly accessing rows based on indexed columns.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Impact on DML Operations</b></td>
+                        <td>Indexes can slow down INSERT, UPDATE, and DELETE operations due to the need for index
+                            maintenance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Composite Index Order</b></td>
+                        <td>Order matters. Place columns with higher selectivity (more unique values) first.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>SQL Syntax for Creating Indexes</h2>
+            <h3>1. Create a Simple Index</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE  </span> INDEX index_name   <br>
+                     <ul> <span class="orclkey"> ON   </span> table_name (column1)  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h3>2. Create a Unique Index</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE UNIQUE  </span> INDEX index_name   <br>
+                     <ul> <span class="orclkey"> ON   </span> table_name (column1)  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h3>3. Create a Composite Index</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE </span> INDEX index_name   <br>
+                     <ul> <span class="orclkey"> ON   </span> table_name (column1, column2)  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h3>4. Drop an Index</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> DROP </span> INDEX index_name <span class="orclkey"> ON </span> table_name <b> ;</b> -- For SQL Server<br><br>
+                
+                <span class="orclkey"> DROP   </span> INDEX index_name  <b> ;</b> -- For MySQL, Oracle and PostgreSQL
+                
+             </code>
+            </div><br><br>
+            <h3>5. View Indexes</h3>
+
+            <div class="code-box">
+                <code>
+                    - - For most of the Databases <br>
+                <span class="orclkey"> SHOW </span> INDEXES 
+                <span class="orclkey"> FROM </span> table_name <b> ;</b><br><br>
+                
+                -- For SQL Server <br>
+                <span class="orclkey"> SELECT   </span> * 
+                <span class="orclkey"> FROM   </span>  sys.indexes <br>
+                <span class="orclkey"> WHERE   </span> object_id = OBJECT_ID('table_name')
+                <b> ;</b> 
+                
+             </code>
+            </div><br><br>
+            <h2>Behavior</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Implicit Indexing</b></td>
+                        <td>Primary key and unique constraints automatically create indexes.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Redundancy</b></td>
+                        <td>Indexes store a copy of the indexed columns, increasing storage usage.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Query Optimization</b></td>
+                        <td>The database query optimizer decides when and how to use indexes during query execution.
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Features of INDEXES</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key Point</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Column-based</b></td>
+                        <td>Indexes are applied to specific columns of a table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Improved Read Performance</b></td>
+                        <td>Queries with indexed columns execute faster.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Trade-off</b></td>
+                        <td>Indexes consume storage and can slow down write operations (INSERT, UPDATE, DELETE).</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Storage</b></td>
+                        <td>Indexes require additional storage and can increase the size of the database.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Real-Time Scenarios</h2>
+            <p><b>Scenario 1:- </b> Find all orders placed by a specific customer.</p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE  </span> INDEX idx_customer_id   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        orders (customer_id)  <b> ;</b>
+                        <br><br>
+                      
+                        <span class="orclkey"> SELECT  </span> * <br>
+                        <span class="orclkey"> FROM  </span> Orders <br>
+                        <span class="orclkey"> WHERE  </span> customer_id = 12345 <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 2:- </b> Optimize queries filtering orders by date.</p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE  </span> INDEX idx_order_date   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        orders (order_date)  <b> ;</b>
+                        <br><br>
+                      
+                        <span class="orclkey"> SELECT  </span> * <br>
+                        <span class="orclkey"> FROM  </span> Orders  <br>
+                        <span class="orclkey"> WHERE  </span> order_date  <br>
+                        <span class="orclkey"> BETWEEN   </span> '2024-01-01' <span class="orclkey"> AND </span> '2024-12-31' <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 3:- </b> Speed up a query joining orders and customers tables.</p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> CREATE  </span> INDEX idx_customer_id   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        customers (customer_id)  <b> ;</b>
+                        <br><br>
+                      
+                        <span class="orclkey"> SELECT  </span> o.order_id, c.name <br>
+                        <span class="orclkey"> FROM  </span> Orders o <br>
+                        <span class="orclkey"> JOIN  </span> customers c <br>
+                        <span class="orclkey"> ON  </span> o.customer_id = c.customer_id <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 4:- </b> Retrieve employees with no manager assigned (manager_id is NULL).</p>
+            <div class="code-box">
+                <code>
+                    -- Create an index on the manager_id column <br>
+                <span class="orclkey"> CREATE  </span> INDEX idx_manager_id   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        Employees (manager_id)  <b> ;</b>
+                        <br><br>
+                      - - Retrieve employees with no manager <br>
+                        <span class="orclkey"> SELECT  </span> employee_id, employee_name <br>
+                        <span class="orclkey"> FROM  </span> Employees <br>
+                        <span class="orclkey"> WHERE  </span> manager_id 
+                        <span class="orclkey"> IS NULL  </span>  <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 5:- (Using Aggregations) </b> Retrieve the highest salary for each department in a company.
+            </p>
+            <div class="code-box">
+                <code>
+                    - - Create an index on department and salary <br>
+                <span class="orclkey"> CREATE  </span> INDEX idx_salary_department   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        Employees (department, salary)  <b> ;</b>
+                        <br><br>
+                      - - Use an aggregate function <br>
+                        <span class="orclkey"> SELECT  </span> department, MAX(salary) <span class="orclkey"> AS  </span> max_salary<br>
+                        <span class="orclkey"> FROM  </span> Employees <br>
+                        <span class="orclkey"> GROUP BY  </span> department 
+                          <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 6:- (Covering Index) </b> Retrieve product details without accessing the base table.
+            </p>
+            <div class="code-box">
+                <code>
+                    - - Create a covering index for the query <br>
+                <span class="orclkey"> CREATE  </span> INDEX idx_covering_product   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        Products (product_name, price, category)  <b> ;</b>
+                        <br><br>
+                      - - Query using the indexed columns <br>
+                        <span class="orclkey"> SELECT  </span> product_name, price, category <br>
+                        <span class="orclkey"> FROM  </span> Products <br>
+                        <span class="orclkey"> WHERE   </span> category = 'Electronics' <span class="orclkey"> AND  </span> price > 500
+                          <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 7:- (Low Cardinality) </b> Optimize searches for employees with NULL or specific statuses.
+            </p>
+            <div class="code-box">
+                <code>
+                    - - Create a filtered index (SQL Server specific) <br>
+                <span class="orclkey"> CREATE  </span> INDEX idx_filtered_status   <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        Employees (status)  <br>
+                        <span class="orclkey"> WHERE   </span> status<span class="orclkey"> IS NOT NULL   </span>
+                        <b> ;</b>
+                        <br><br>
+                      - - Query using the indexed column <br>
+                        <span class="orclkey"> SELECT  </span> employee_id, status <br>
+                        <span class="orclkey"> FROM  </span> Employees <br>
+                        <span class="orclkey"> WHERE   </span> status = 'Active'
+                          <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 8:- </b> Search for products containing specific words in their descriptions.
+            </p>
+            <div class="code-box">
+                <code>
+                    - - Create a full-text index for large text columns <br>
+                <span class="orclkey"> CREATE  </span> FULLTEXT INDEX    <br>
+                     <ul> <span class="orclkey"> ON   </span> 
+                        Products (description)   <b> ;</b>
+                        <br><br>
+                      - - Query for text matching <br>
+                        <span class="orclkey"> SELECT  </span> product_name <br>
+                        <span class="orclkey"> FROM  </span> Products <br>
+                        <span class="orclkey"> WHERE CONTAINS </span> (description, 'wireless AND headset')
+                          <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 9:-(Parallel Query Execution with Partitioned Indexes) </b> Retrieve sales data by year from
+                a large Sales table.</p>
+            <div class="code-box">
+                <code>
+                    - - Create a partitioned index by sales year <br>
+                <span class="orclkey"> CREATE PARTITION FUNCTION  </span> pf_sales_year (INT)    <br>
+                     <ul> <span class="orclkey"> AS RANGE LEFT FOR VALUES   </span> 
+                        (2019, 2020, 2021)   <b> ;</b>
+                        <br><br>
+
+                        <span class="orclkey"> CREATE PARTITION  </span> SCHEME ps_sales_year    <br>
+                     <ul> <span class="orclkey"> AS PARTITION </span> 
+                        pf_sales_year  <span class="orclkey"> ALL TO </span>([
+                            <span class="orclkey">PRIMARY</span>])  <b> ;</b>
+                        <br><br>
+                        <span class="orclkey"> CREATE   </span> INDEX idx_sales_year    <br>
+                     <ul> <span class="orclkey"> ON </span> Sales (sales_year) <br>
+                        <span class="orclkey"> ON </span> ps_sales_year <b> ;</b>
+                        <br><br>
+                      - - Query the partitioned table <br>
+                        <span class="orclkey"> SELECT  </span> * <br>
+                        <span class="orclkey"> FROM  </span> Sales <br>
+                        <span class="orclkey"> WHERE </span> sales_year = 2020
+                          <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <h2>Types of Indexes in SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Index Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Clustered Index</b></td>
+                        <td>Determines the physical order of data in a table. Only one clustered index is allowed per
+                            table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Non-Clustered Index</b></td>
+                        <td>A separate structure that maintains a reference to the actual table rows. Multiple can
+                            exist.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Unique Index</b></td>
+                        <td>Ensures that all values in the index column(s) are unique.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Filtered Index</b></td>
+                        <td>Index with a WHERE clause to improve query performance for a subset of rows (SQL Server).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Bitmap Index</b></td>
+                        <td>Used in some databases (e.g., Oracle) for columns with a low cardinality of values.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Full-Text Index</b></td>
+                        <td>Optimized for full-text searches and supports advanced searching like prefix matches and
+                            synonyms.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Composite Index</b></td>
+                        <td>Created on multiple columns.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Advantages of Indexes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Advantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Improved Query Performance</b></td>
+                        <td>Speeds up data retrieval significantly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Reduces Disk I/O</b></td>
+                        <td>Limits the amount of data scanned, improving overall system efficiency.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Improves Join Performance</b></td>
+                        <td>Enhances the speed of complex joins by indexing join keys.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Facilitates Sorting</b></td>
+                        <td>Accelerates queries with ORDER BY or GROUP BY clauses.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Search Flexibility</b></td>
+                        <td>Full-text indexes enable advanced text searches.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Disadvantages of Indexes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disadvantage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Maintenance Overhead</b></td>
+                        <td>Indexes require regular maintenance, especially for large datasets.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Limited Use for Small Tables</b></td>
+                        <td>Small tables may not benefit significantly from indexing.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Increased Storage</b></td>
+                        <td>Requires additional storage for maintaining indexes.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Slower DML Operations</b></td>
+                        <td>INSERT, UPDATE, and DELETE operations are slower because the index must be updated.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Common Errors with INDEXES</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Explanation</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Index Not Used</b></td>
+                        <td>Query plan shows no index usage despite being created.</td>
+                        <td>Ensure the index matches query patterns (e.g., WHERE).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Incorrect Column Order in Composite Index</b></td>
+                        <td>Poorly ordered columns can render composite indexes inefficient.</td>
+                        <td>Use the most selective column first in the index.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Duplicate Index Creation</b></td>
+                        <td>Unknowingly creating multiple indexes on the same column(s).</td>
+                        <td>Check existing indexes before creating new ones.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Fragmentation</b></td>
+                        <td>Over time, frequent updates cause index fragmentation.</td>
+                        <td>Rebuild or reorganize indexes regularly.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Unused Indexes</b></td>
+                        <td>Some indexes may never be used, wasting resources.</td>
+                        <td>Use database monitoring tools to identify and drop unused indexes.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Performance Hints for Indexing</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Index Selective Columns</b></td>
+                        <td>Index columns with high cardinality (e.g., unique or near-unique values).</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Covering Indexes</b></td>
+                        <td>Create indexes that "cover" all columns used in a query to avoid accessing the base table.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Monitor Fragmentation</b></td>
+                        <td>Regularly rebuild or reorganize indexes to reduce fragmentation.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Over-Indexing</b></td>
+                        <td>Too many indexes can degrade write performance.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Composite Indexes Wisely</b></td>
+                        <td>Use composite indexes for queries that filter or sort on multiple columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Index Only Frequently Queried Columns</b></td>
+                        <td>Avoid indexing every column to reduce overhead.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Do's and Don'ts with INDEXES</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Use indexes for frequently queried columns.</td>
+                        <td>Don’t index columns with low cardinality (few unique values).</td>
+                    </tr>
+                    <tr>
+                        <td>Index foreign key columns for joins.</td>
+                        <td>Don’t use indexes on volatile columns that change frequently.</td>
+                    </tr>
+                    <tr>
+                        <td>Regularly rebuild or reorganize indexes.</td>
+                        <td>Don’t rely solely on indexes for performance; optimize queries too.</td>
+                    </tr>
+                    <tr>
+                        <td>Use composite indexes for multi-column filtering.</td>
+                        <td>Don’t ignore query performance testing before deploying indexes.</td>
+                    </tr>
+                    <tr>
+                        <td>Monitor and maintain index performance.</td>
+                        <td>Don’t create too many indexes on a single table.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
+                <a href="#" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

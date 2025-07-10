@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlJoins">
+
+            <div class="topic-buttons">
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
+                <a href="#" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1> JOINS </h1>
+            <p>Joins in SQL are used to combine rows from two or more tables based on a related column between them.</p>
+            <br>
+            <ul>
+                <li>They are one of the fundamental concepts for querying relational databases and allow you to retrieve
+                    meaningful and combined data across multiple tables.</li>
+                <li>Joins allow you to retrieve meaningful information by linking tables. These tables typically have a
+                    defined relationship, often through a common key (like a foreign key referencing a primary key in
+                    another table).</li>
+            </ul><br>
+            <h2>Why use Joins in SQL?</h2>
+            <ul>
+                <li><b>Data Distribution Across Tables:- </b> Relational databases are designed to normalize data,
+                    meaning related data is often stored in separate tables to reduce redundancy.</li>
+                <li><b>Consolidated Results:- </b> Joins help in querying data from multiple tables in a cohesive and
+                    structured format.</li>
+                <li><b>Complex Queries:- </b> They allow the retrieval of complex relationships between datasets in a
+                    single query.</li>
+                <li><b>Data Integrity:- </b> By enforcing relationships using JOINs, we maintain data consistency and
+                    avoid duplication.</li>
+            </ul><br>
+            <h2>Common uses of Joins </h2>
+            <ul>
+                <li><b>Data Analysis:- </b> To combine data from multiple sources and perform analytics.</li>
+                <li><b>Reporting:- </b> To fetch related data for creating detailed reports.</li>
+                <li><b>Data Integrity:- </b> To verify relationships between tables.</li>
+                <li><b>Application Functionality:- </b> To support business logic requiring data from different parts of
+                    the database.</li>
+            </ul><br>
+            <h2>Advantages of Joins</h2>
+            <ul>
+                <li><b>Efficient Data Retrieval:- </b> Joins allow fetching related data from multiple tables in a
+                    single query.</li>
+                <li><b>Data Normalization Support:- </b> They work seamlessly with normalized databases.</li>
+                <li><b>Improved Performance:- </b> Properly indexed tables with Joins can outperform alternatives like
+                    subqueries in terms of speed.</li>
+                <li><b>Flexibility:- </b> They provide options to combine data in various ways (inner, outer, cross,
+                    etc.).</li>
+                <li><b>Scalability:- </b> Joins can be scaled to work with complex database schemas.</li>
+            </ul><br>
+            <h2>Disadvantages of Joins</h2>
+            <ul>
+                <li><b>Complexity:- </b> As the number of tables and relationships increase, Joins can become harder to
+                    write and debug.</li>
+                <li><b>Performance Bottlenecks:- </b> Large datasets with poorly optimized queries or missing indexes
+                    can lead to slow JOIN operations.</li>
+                <li><b>Learning Curve:- </b> Understanding and writing advanced Joins can be challenging for beginners.
+                </li>
+                <li><b>Overhead:- </b> Complex Joins can cause memory and CPU usage to spike, impacting database
+                    performance.</li>
+                <li><b>Readability:- </b> JOIN involving multiple conditions or large tables can be hard to
+                    read and maintain.</li>
+            </ul><br>
+            <h2>Types of Joins in SQL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>JOIN Type</th>
+                        <th>Description</th>
+                        <th>Use Case</th>
+                        <th>Behavior</th>
+                        <th>Limitations</th>
+                        <th>Additional Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b><a href="sql_innerjoin.html">INNER JOIN</a></b></td>
+                        <td>Combines rows from both tables where the join condition is met.</td>
+                        <td>Retrieve rows with matching data in both tables.</td>
+                        <td>Only returns rows with matching values in both tables.</td>
+                        <td>Excludes rows without matches in either table.</td>
+                        <td>Most commonly used JOIN. Ensures data consistency between tables.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_leftjoin.html">LEFT OUTER JOIN</a></b></td>
+                        <td>Returns all rows from the left table, and matching rows from the right table. Missing
+                            matches are NULL.</td>
+                        <td>Retrieve all data from the left table, regardless of matching rows in the right table.</td>
+                        <td>Includes all rows from the left table, even if no match is found in the right table. Fills
+                            unmatched rows with NULL.</td>
+                        <td>Can return many NULL values, which might require handling in queries or reports.</td>
+                        <td>Useful for identifying unmatched rows in the right table.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_rightjoin.html">RIGHT OUTER JOIN</a></b></td>
+                        <td>Returns all rows from the right table, and matching rows from the left table. Missing
+                            matches are NULL.</td>
+                        <td>Retrieve all data from the right table, regardless of matching rows in the left table.</td>
+                        <td>Includes all rows from the right table, even if no match is found in the left table. Fills
+                            unmatched rows with NULL.</td>
+                        <td>Can return many NULL values, which might require handling in queries or reports.</td>
+                        <td>Often used when the right table is larger or more important.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_fullouterjoin.html">FULL OUTER JOIN</a></b></td>
+                        <td>Combines rows from both tables, including unmatched rows with NULL values for missing data.
+                        </td>
+                        <td>Retrieve all rows from both tables, regardless of matches.</td>
+                        <td>Returns matched rows and unmatched rows from both tables, with NULL for missing data.</td>
+                        <td>Can result in very large datasets if both tables are large.</td>
+                        <td>Useful for comparing datasets to find matches and mismatches.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_crossjoin.html">CROSS JOIN</a></b></td>
+                        <td>Produces a Cartesian product, pairing each row in the first table with every row in the
+                            second table.</td>
+                        <td>Generate combinations of rows, such as for testing or generating permutations.</td>
+                        <td>Returns all possible combinations of rows from both tables.</td>
+                        <td>Results can grow exponentially with large tables, leading to performance and storage issues.
+                        </td>
+                        <td>Use only when combinations are required, and always apply filters afterward to limit the
+                            result set.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_selfjoin.html">SELF JOIN</a></b></td>
+                        <td>A table is joined with itself using aliases to distinguish instances.</td>
+                        <td>Compare rows within the same table (e.g., hierarchical or duplicate data).</td>
+                        <td>Treats the table as two separate instances and matches rows based on the join condition.
+                        </td>
+                        <td>Can become complex and hard to understand in large queries.</td>
+                        <td>Useful for recursive relationships like parent-child or adjacency list structures.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_naturaljoin.html">NATURAL JOIN</a></b></td>
+                        <td>Automatically joins tables based on columns with the same name and compatible data types.
+                        </td>
+                        <td>Simplifies queries where column names are standardized across tables.</td>
+                        <td>Matches rows using columns with the same names in both tables.
+                        </td>
+                        <td>Not flexible; fails if column names or data types don’t match.</td>
+                        <td>Avoid unless column names and data types are consistent.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_equijoin.html">EQUI JOIN</a></b></td>
+                        <td>Joins tables based on a condition using the equality operator (=).</td>
+                        <td>Most common join for retrieving related data.</td>
+                        <td>Matches rows based on column values being equal.
+                        </td>
+                        <td>Limited to exact matches only; doesn’t handle range-based relationships.</td>
+                        <td>Can be used as the base for other types of JOINS.</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="sql_nonequijoin.html">NON-EQUI JOIN</a></b></td>
+                        <td>Joins tables using conditions other than equality (<,>, <=,>=, BETWEEN, etc.).</td>
+                        <td>Query relationships based on ranges or non-equal conditions.</td>
+                        <td>Matches rows based on the specified condition (e.g., range).
+                        </td>
+                        <td>Not as commonly supported in SQL syntax for complex Joins as EQUI JOIN.</td>
+                        <td>Common in queries with ranges like date intervals or thresholds.</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <h2>Key Points</h2>
+            <p><b>1. Performance Considerations:</b></p><br>
+            <ul>
+                <li>Avoid unnecessary Joins in queries as they can lead to performance degradation.</li>
+                <li>Use indexes on columns involved in the join condition to speed up execution.</li>
+            </ul><br>
+            <p><b>2. Handling NULL Values:</b></p><br>
+            <ul>
+                <li>Outer Joins often introduce NULL values for unmatched rows. Plan for handling these in your
+                    application logic.</li>
+            </ul><br>
+            <p><b>3. Choice of JOIN</b></p><br>
+            <ul>
+                <li>Use INNER JOIN when you need only matched rows.</li>
+                <li>Use LEFT JOIN for retaining all rows from the left table.</li>
+                <li>Use FULL JOIN for retrieving all rows, matched and unmatched.</li>
+                <li>Use CROSS JOIN cautiously, as it generates all possible combinations.</li>
+            </ul><br>
+            <p><b>4. Database-Specific Behavior:</b></p><br>
+            <ul>
+                <li>Some databases (e.g., SQL Server) may not support certain Joins (e.g., NATURAL JOIN) natively.</li>
+            </ul><br>
+            <p><b>5. Join Order:</b></p><br>
+            <ul>
+                <li>For complex queries, the order of Joins can impact performance. Query optimizers often decide the
+                    execution order.</li>
+            </ul><br>
+            <p><b>6. Use of Aliases :</b></p><br>
+            <ul>
+                <li>Use table aliases (AS) in queries to improve readability, especially in queries with multiple joins.
+                </li>
+            </ul><br>
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_insertinto_select.html?topic=" class="previou-button">&laquo; Previous</a>
+                <a href="#" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>

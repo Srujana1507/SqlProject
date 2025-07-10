@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="../KUKstyles.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK DB</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- Overlay for Courses -->
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">JavaScript</a>
+            <a href="#">Power BI</a>
+            <a href="#">Tableau</a>
+            <a href="#">HTML</a>
+            <a href="#">Unix</a>
+            <a href="#">CSS</a>
+            <a href="sql.html">SQL</a>
+            <a href="#">Java</a>
+            <a href="#">Excel</a>
+            <a href="#">MsWord</a>
+            <a href="#">BootStrap</a>
+            <a href="#">Salesforce</a>
+            <a href="#">SQL Server</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <!-- Sign Up and Login Page code START Here -->
+    <!-- Sign Up Form (Hidden by default) -->
+    <div id="signUpForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Confirm Password" name="psw-repeat"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-briefcase icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Designation" name="designation" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-building icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Company or College" name="company"
+                        required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-users icon"></i>
+                    <select name="user-type" class="input-field" required>
+                        <option value="fresher">Fresher</option>
+                        <option value="professional">Professional</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <p>Already have an account ?<a href="#logInForm" style="color:dodgerblue">Log In</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('signUpForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login in Form (Hidden by default) -->
+
+    <div id="logInForm" class="modal">
+        <!-- <span onclick="document.getElementById('signUpForm').style.display='none'" class="close"  title="Close Modal">&times;</span> -->
+        <form class="modal-content" action="/action_page.php">
+            <div class="container-form">
+                <h1>Login</h1>
+                <hr>
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Enter Email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-lock icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+                </div>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('logInForm').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Login</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <div class="sidebar-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <h2>SQL Topics</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlIntro" id="sqlIntro">Introduction</a></li>
+                    <li><a href="sql.html?topic=sqlDataTypes" id="sqlDataTypes">Data Types</a></li>
+                    <li><a href="sql.html?topic=sqlLanguages" id="sqlLanguages">SQL Languages</a></li>
+                </ul>
+                <h2>SELECT Statement</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlSelectTable" id="sqlSelectTable">SELECT</a></li>
+                    <li><a href="sql_selectdistinct.html" id="sqlSelectDistinct">SELECT Distinct</a></li>
+
+
+                    <li><a href="sql_where.html" id="sqlWhere">WHERE</a></li>
+                    <li><a href="sql_groupby.html" id="sqlGroupBy">GROUP BY</a></li>
+                    <li><a href="sql_having.html" id="sqlHaving">HAVING</a></li>
+                    <li><a href="sql_orderby.html" id="sqlOrderBy">ORDER BY</a></li>
+                    <li><a href="sql_null.html" id="sqlNull">NULL</a></li>
+                    <li><a href="sql_nvl.html" id="sqlNvl">NVL</a></li>
+                </ul>
+                <h2>SQL Table</h2>
+                <ul>
+                    <li><a href="sql.html?topic=sqlCreateTable" id="sqlCreateTable">CREATE Table</a></li>
+                    <li><a href="sql_alter.html" id="sqlAlter">ALTER Table</a></li>
+                    <li><a href="sql_delete.html" id="sqlDelete">DELETE</a></li>
+                    <li><a href="sql_trunk.html" id="sqlTruncate">TRUNCATE</a></li>
+                    <li><a href="sql_drop.html" id="sqlDrop">DROP</a></li>
+                    <li><a href="sql_insert.html" id="sqlInsert">INSERT</a></li>
+                    <li><a href="sql_update.html" id="sqlUpdate">UPDATE</a></li>
+                    <li><a href="sql_dual.html" id="sqlDual">DUAL</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_arithmeticoperators.html" id="sqlArithmeticOperators">Arithmetic Operators</a></li>
+                    <li><a href="sql_relationaloperators.html" id="sqlRelationalOperators">Relational Operators</a></li>
+                    <li><a href="sql_logicaloperators.html" id="sqlLogicalOperators">Logical Operators</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_and.html" id="sqlAnd">AND</a></li>
+                    <li><a href="sql_or.html" id="sqlOr">OR</a></li>
+                    <li><a href="sql_in.html" id="sqlIn">IN</a></li>
+                    <li><a href="sql_between.html" id="sqlBetween">BETWEEN</a></li>
+                    <li><a href="sql_like.html" id="sqlLike">LIKE</a></li>
+                    <li><a href="sql_not.html" id="sqlNot">NOT</a></li>
+                    <li><a href="sql_all.html" id="sqlAll">ALL</a></li>
+                    <li><a href="sql_any.html" id="sqlAny">ANY</a></li>
+                    <li><a href="sql_exists.html" id="sqlExists">EXISTS</a></li>
+                    <li><a href="sql_wildcards.html" id="sqlWildcards">Wildcards</a></li>
+                    <li><a href="sql_some.html" id="sqlSome">SOME</a></li>
+                </ul>
+                <h2>Conditional Operators</h2>
+                <ul>
+                    <li><a href="sql_case.html" id="sqlCase">CASE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_subqueries.html" id="sqlSubqueries">Sub Queries</a></li>
+                    <li><a href="sql_corelatedsubqueries.html" id="sqlCorelatedsubqueries">Correlated Sub Queries</a>
+                    </li>
+                </ul>
+
+                <h2>Set Operators</h2>
+                <ul>
+                    <li><a href="sql_union.html" id="sqlUnion">Union</a></li>
+                    <li><a href="sql_unionall.html" id="sqlUnionall">Union All</a></li>
+                    <li><a href="sql_intersect.html" id="sqlIntersect">Intersect</a></li>
+                    <li><a href="sql_minus.html" id="sqlMinus">Minus</a></li>
+                </ul>
+                <h2>Functions</h2>
+                <ul>
+                    <li><a href="sql_arithmeticfunctions.html" id="sqlArithmeticFunctions">Arithmetic Functions</a></li>
+                    <li><a href="sql_characterfunctions.html" id="sqlCharacterFunctions">Character Functions</a></li>
+                    <li><a href="sql_datefunctions.html" id="sqlDateFunctions">Date Functions</a></li>
+                    <li><a href="sql_aggregationfunctions.html" id="sqlAggregationFunctions">Aggregation Functions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="sql_joins.html" id="sqlJoins">Joins</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_innerjoin.html" id="sqlInnerjoin">Inner Join</a></li>
+                    <li><a href="sql_leftjoin.html" id="sqlLeftjoin">Left Join</a></li>
+                    <li><a href="sql_rightjoin.html" id="sqlRightjoin">Right Join</a></li>
+                    <li><a href="sql_selfjoin.html" id="sqlSelfjoin">Self Join</a></li>
+                    <li><a href="sql_crossjoin.html" id="sqlCrossjoin">Cross Join</a></li>
+                    <li><a href="sql_fullouterjoin.html" id="sqlFullouterjoin">Full Outer Join</a></li>
+                </ul>
+                <ul>
+                    <li><a href="sql_constraints.html" id="sqlConstraints">Constraints</a></li>
+                    <li><a href="sql_notnull.html" id="sqlNotnull">Not Null</a></li>
+                    <li><a href="sql_unique.html" id="sqlUnique">Unique</a></li>
+                    <li><a href="sql_primarykey.html" id="sqlPrimarykey">Primary Key</a></li>
+                    <li><a href="sql_foreginkey.html" id="sqlForeignkey">Foreign Key</a></li>
+                    <li><a href="sql_check.html" id="sqlCheck">Check</a></li>
+                    <li><a href="sql_default.html" id="sqlDefault">Default</a></li>
+                </ul>
+                <h2>Data Control Language</h2>
+                <ul>
+                    <li><a href="sql_dcl.html?topic=sqlGrant" id="sqlGrant">Grant</a></li>
+                    <li><a href="sql_dcl.html?topic=sqlRevoke" id="sqlRevoke">Revoke</a></li>
+                </ul>
+                <h2>Transaction Control Language</h2>
+                <ul>
+                    <li><a href="sql_tcl.html?topic=sqlCommit" id="sqlCommit">Commit</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlRollback" id="sqlRollback">Roll Back</a></li>
+                    <li><a href="sql_tcl.html?topic=sqlSavepoint" id="sqlSavepoint">Save Point</a></li>
+                </ul>
+                <h2>Others</h2>
+                <ul>
+                    <li><a href="sql_views.html" id="sqlViews">Views</a></li>
+                    <li><a href="sql_mview.html" id="sqlMaterializedviews">Materialized-Views</a></li>
+                    <li><a href="sql_aliases.html" id="sqlAliases">Aliases</a></li>
+                    <li><a href="sql_selectinto.html" id="sqlSelectinto">Select into</a></li>
+                    <li><a href="sql_insertinto_select.html" id="sqlInsertintoselect">Insert into Select</a></li>
+                    <li><a href="sql_index.html" id="sqlIndex">Index</a></li>
+                    <li><a href="sql_decode.html" id="sqlDecode">Decode</a></li>
+                </ul>
+                <div class="resizer" id="resizer"></div>
+            </aside>
+        </div>
+
+
+
+
+
+        <main class="sidebar-content" data-topic="sqlInsertintoselect">
+
+            <div class="topic-buttons">
+                <a href="sql_selectinto.html?topic=sqlSelectinto" class="previou-button">&laquo; Previous</a>
+                <a href="sql_index.html?topic=sqlIndex" class="next-button">Next &raquo;</a>
+            </div>
+
+            <h1>INSERT INTO SELECT</h1>
+            <p>The INSERT INTO SELECT statement is used to copy data from one table into another table by selecting rows
+                from the source table. </p><br>
+            <ul>
+                <li>SELECT INTO, it does not create a new table; it inserts data into an existing table.</li>
+                <li>This is particularly useful for copying data between tables or performing data transformations
+                    during insertion.</li>
+            </ul>
+            <br>
+            <h2>Definition and Purpose</h2>
+            <p><b>Definition</b></p>
+            <ul>
+                <li>The INSERT INTO SELECT statement inserts the results of a SELECT query into an existing table.</li>
+            </ul>
+            <p><b>Purpose</b></p>
+            <ul>
+                <li>To copy data from one table to another.</li>
+                <li>To migrate or backup data.</li>
+                <li>To insert transformed or aggregated data into a new table.</li>
+            </ul><br>
+            <h2>Syntax</h2>
+            <h3>1. With All Columns</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO  </span> target_table   <br>
+                     <ul> <span class="orclkey"> SELECT   </span> * <br>
+                    <span class="orclkey"> FROM  </span> source_table  <b> ;</b>
+                </ul>
+             </code>
+            </div><br>
+            <h3>2. With Specific Columns</h3>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO  </span> target_table (column1, column2, . . . )   <br>
+                     <ul> <span class="orclkey"> SELECT   </span> column1, column2, . . . <br>
+                    <span class="orclkey"> FROM  </span> source_table  <br>
+                    <span class="orclkey"> WHERE condition </span><b> ;</b>
+                </ul>
+             </code>
+            </div><br>
+            <h2>Key Points</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key Point</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Column Matching</b></td>
+                        <td>Columns in the SELECT must match the target table's structure (number, type, and order).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Transformation</b></td>
+                        <td>Supports transformations like CASE, JOIN, and GROUP BY in the SELECT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Schema Validation</b></td>
+                        <td>Target table must exist and match the data types of the selected columns.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Handling</b></td>
+                        <td>Ensure default values or NULL handling for non-selected columns in the target table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>No Table Creation</b></td>
+                        <td>Unlike SELECT INTO, INSERT INTO SELECT does not create a new table; the target must
+                            pre-exist.</td>
+                    </tr>
+                </tbody>
+            </table> <br><br>
+            <h2>Basic Scenarios</h2>
+            <p><b>Scenario 1:- ( Insert All Data )</b>Copy all rows from the Products table to the ProductsArchive
+                table.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> ProductsArchive   <br>
+            <ul><span class="orclkey"> SELECT  </span> * <br>
+                     <ul><span class="orclkey"> FROM  </span> Products  <b> ;</b></ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 2:- ( Insert Filtered Data )</b> Copy only active products into the ActiveProducts table.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> ActiveProducts   <br>
+            <ul><span class="orclkey"> SELECT  </span> ProductID, ProductName, Category, Price <br>
+                     <ul><span class="orclkey"> FROM  </span> Products  
+                        <ul><span class="orclkey"> WHERE  </span> Status = 'Active' <b> ;</b></ul>
+                        </ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 3:- (Insert with Transformation )</b> Copy product data with a 10% price increase into the
+                DiscountedProducts table.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> DiscountedProducts ( ProductID, ProductName, NewPrice )   <br>
+            <ul><span class="orclkey"> SELECT  </span> ProductID, ProductName, Price * 1.10 <br>
+                     <ul><span class="orclkey"> FROM  </span> Products  
+                        <b> ;</b>
+                        </ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 4:- ( Using Joins to Transform Data )</b> Insert enriched order details by combining customer
+                and order data.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> enriched_orders ( order_id, customer_name, order_date, total_amount )   <br>
+            <ul><span class="orclkey"> SELECT  </span> o.order_id, c.name, o.order_date, o.total_amount <br>
+                     <ul><span class="orclkey"> FROM  </span> orders o  
+                        
+                        </ul>
+                        <span class="orclkey"> JOIN  </span> customers c <span class="orclkey"> ON  </span>
+                        o.customer_id = c.customer_id <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 5:- ( Partitioned Data Insertion )</b> Insert data for a specific region into a partitioned
+                table.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> regional_sales ( region, product_id, sales_amount )   <br>
+            <ul><span class="orclkey"> SELECT  </span> region, product_id, SUM( sales_amount ) <br>
+                     <ul>
+                        <span class="orclkey"> FROM  </span> Sales  
+                        </ul>
+                        <span class="orclkey"> WHERE  </span> region = 'North' <br>
+                        <span class="orclkey"> GROUP BY  </span>
+                        region, product_id <b> ;</b>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 6:- ( Combining Data from Multiple Sources )</b> Insert data from two tables using a UNION.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> all_orders ( order_id, customer_id, order_date, total_amount )   <br>
+            <ul><span class="orclkey"> SELECT  </span> order_id, customer_id, order_date, total_amount <br>
+                     <ul>
+                        <span class="orclkey"> FROM  </span> online_orders  
+                        </ul>
+                        <span class="orclkey"> UNION  </span> <br>
+                        <span class="orclkey"> SELECT  </span> order_id, customer_id, order_date, total_amount <br>
+                        <ul><span class="orclkey"> FROM  </span>
+                        store_orders <b> ;</b></ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 7:- ( Insert with Conditional Logic )</b> Copy products into the DiscountedProducts table
+                with conditional discounts based on categories.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> DiscountedProducts ( ProductID, ProductName, DiscountedPrice )   <br>
+            <ul>
+                <span class="orclkey"> SELECT  </span> ProductID, ProductName, <br>
+                <ul>
+                    <span class="orclkey"> CASE  </span>
+                    <ul>
+                        <span class="orclkey"> WHEN  </span> Category = 'Electronics' <span class="orclkey"> THEN  </span> Price * 0.90 <br>
+                        <span class="orclkey"> WHEN  </span> Category = 'Furniture' <span class="orclkey"> THEN  </span> Price * 0.85 <br>
+                        <span class="orclkey"> ELSE  </span> Price * 0.95
+                    </ul>
+                    <span class="orclkey"> END  </span>
+                </ul>
+                </ul>
+                <span class="orclkey"> FROM  </span> Products <b> ;</b>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 8:- ( Insert Across Databases )</b> Insert rows from a table in one database into another
+                database.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> TargetDB.dbo.Customers (CustomerID, CustomerName, City)   <br>
+            <ul>
+                <span class="orclkey"> SELECT  </span> CustomerID, CustomerName, City 
+                </ul>
+                <span class="orclkey"> FROM  </span> SourceDB.dbo.Customers <b> ;</b>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 9:- ( Data Backup Before Deletion )</b> Backup data before performing a cleanup operation.
+            </p>
+            <div class="code-box">
+                <code>
+                <span class="orclkey"> INSERT INTO </span> old_orders_backup   <br>
+            <ul>
+                <span class="orclkey"> SELECT  </span> * 
+                <ul>
+                    <span class="orclkey"> FROM  </span> Orders
+                    <ul>
+                        <span class="orclkey"> WHERE  </span>  order_date < DATEADD ( <span class="orclkey"> YEAR  </span>,
+                        -2, GETDATE() ) <b> ;</b>
+                    </ul>
+                </ul>
+                </ul>
+             </code>
+            </div><br><br>
+            <p><b>Scenario 10:- </b> Consolidate sales data from online_sales and store_sales into a unified table. Each
+                source has different date formats and naming conventions.
+            </p>
+            <div class="code-box">
+                <code>
+                --SQL server <br>
+                <span class="orclkey"> INSERT INTO </span> unified_sales (sale_id, sale_date, sale_amount, source)   <br>
+            
+                <span class="orclkey"> SELECT  </span> sale_id, <br> 
+                <ul>
+                    <span class="orclkey"> CONVERT  </span>( DATE, sale_date, 103 ) <span class="orclkey"> AS  </span> sale_date, <br>
+                    sale_amount, <br>
+                    'Online' <span class="orclkey"> AS  </span> source
+                    </ul>
+                    <span class="orclkey"> FROM  </span> online_sales <br>
+                    <span class="orclkey"> UNION ALL  </span> <br>
+                    <span class="orclkey"> SELECT  </span> sale_id, 
+                    <ul>
+                        <span class="orclkey"> CONVERT  </span>( DATE, sale_date, 103 ) <span class="orclkey"> AS  </span> sale_date, <br>
+                    sale_amount, <br>
+                    'Store' <span class="orclkey"> AS  </span> source
+                    </ul>
+                    <span class="orclkey"> FROM  </span> store_sales
+                     <b> ;</b>
+                    </ul>
+             </code>
+            </div><br>
+            <h2>Common Errors with INSERT INTO SELECT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Explanation</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Column Count Mismatch</b></td>
+                        <td>The number of columns in the SELECT doesn't match the target table.</td>
+                        <td>Ensure the SELECT query matches the column count of the target table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Data Type Mismatch</b></td>
+                        <td>Column data types in SELECT and target table are incompatible.</td>
+                        <td>Verify that the data types align or use explicit casting in SELECT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Unique Constraint Violation</b></td>
+                        <td>Duplicate data violates a unique constraint on the target table.</td>
+                        <td>Filter duplicates using DISTINCT or a WHERE clause in the SELECT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Target Table Not Found</b></td>
+                        <td>The target table does not exist.</td>
+                        <td>Create the target table before executing the INSERT INTO SELECT.</td>
+                    </tr>
+                    <tr>
+                        <td><b>NULL Constraint Violation</b></td>
+                        <td>NULL values inserted into a non-nullable column.</td>
+                        <td>Provide default values or exclude columns that cannot accept NULL.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Insufficient Permissions</b></td>
+                        <td>User lacks permission to insert data into the target table.</td>
+                        <td>Grant INSERT permission on the target table.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Performance Hints for INSERT INTO SELECT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Use Indexing</b></td>
+                        <td>Ensure indexes exist on the columns involved in SELECT and target table.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Limit Data Scope</b></td>
+                        <td>Use WHERE clauses to filter data, reducing the size of data being processed.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Optimize Joins</b></td>
+                        <td>Minimize joins in the SELECT query by indexing join columns and using appropriate join
+                            types.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Avoid Duplicate Data</b></td>
+                        <td>Use DISTINCT or GROUP BY to eliminate duplicates if the target table has unique constraints.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Batch Processing</b></td>
+                        <td>For large datasets, process data in smaller batches to avoid locking or resource contention.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Use Appropriate Filters</b></td>
+                        <td>Filter unnecessary data to reduce insertion overhead.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Check Constraints</b></td>
+                        <td>Ensure that the target table’s constraints are compatible with the selected data.</td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+            <h2>Do's and Don'ts with INSERT INTO SELECT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Do's</th>
+                        <th>Don'ts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Match column types and order.</td>
+                        <td>Don’t insert large datasets without using a transaction or logging.</td>
+                    </tr>
+                    <tr>
+                        <td>Use WHERE clauses to limit data.</td>
+                        <td>Don’t ignore index usage for frequently queried or joined columns.</td>
+                    </tr>
+                    <tr>
+                        <td>Validate data before insertion.</td>
+                        <td>Don’t insert into a table without understanding its constraints.</td>
+                    </tr>
+                    <tr>
+                        <td>Backup critical data before insertion.</td>
+                        <td>Don’t assume compatibility between source and target table schemas without verification.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test with a smaller dataset first.</td>
+                        <td>Don’t overlook NULL handling for non-nullable columns.</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+
+
+
+            <div class="topic-buttons">
+                <a href="sql_selectinto.html?topic=sqlSelectinto" class="previou-button">&laquo; Previous</a>
+                <a href="sql_index.html?topic=sqlIndex" class="next-button">Next &raquo;</a>
+            </div>
+
+        </main>
+
+    </div>
+    <!-- Back button to return to KUK Solutions main page -->
+    <button onclick="window.location.href='KUK_Solutions_STG.html'">
+        Back to KUK Solutions
+    </button>
+
+    <footer class="footerleft">
+        <div class="footer">
+            <div class="footer-container">
+                <!-- <div class="footer-top"> -->
+                <div class="logo-section">
+                    <h2>KUK DB</h2>
+                    <p>Empowering everyday people with life-changing data skills.</p>
+                    <form class="newsletter-form">
+                        <!-- <label for="email">Subscribe to the newsletter</label> -->
+                        <input type="email" id="email" placeholder="Email address" required>
+                        <button type="submit" class="subs-button">Subscribe</button>
+                    </form>
+                    <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>LEARN</h4>
+                    <ul>
+                        <li><a href="#">SQL</a></li>
+                        <li><a href="#">Oracle</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="link-column">
+                    <h4>PLANS</h4>
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">KUK DB Blog</a></li>
+                        <li><a href="#">Data Challenges</a></li>
+                        <li><a href="#">Data Playground</a></li>
+                        <li><a href="#">Guides & Reports</a></li>
+                        <li><a href="#">KUK DB Data</a></li>
+                    </ul>
+                </div>-->
+                <!-- <div class="link-column">
+                                <h4>SUPPORT</h4>
+                                <ul>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Product Updates</a></li>
+                                    <li><a href="#">Request A Feature</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div> -->
+                <div class="link-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">Meet The Team</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>BUSINESS</h4>
+                    <ul>
+                        <li><a href="#">KUK DB For Business</a></li>
+                        <li><a href="#">Resource Hub</a></li>
+                        <li><a href="#">Customer Stories</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK DB | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script src="../KUKscript.js">
+    </script>
+
+</body>
+
+</html>
