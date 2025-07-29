@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* footer code end hrere */
+
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-family: Arial;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK Solutions</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="pythonBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced" class="next-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+   
+                <!-- START OF Java Interview Questions. -->
+                <h1>Java Beginner</h1><br>
+                <p><b>1. What is Java?</b></p><br>
+<p>
+    Java is a high-level, class-based, object-oriented programming language developed by Sun Microsystems in 1995 and now maintained by Oracle Corporation. 
+    It follows the principle of "Write Once, Run Anywhere" (WORA), meaning compiled Java code can run on any platform that supports the Java Virtual Machine (JVM). 
+    Java is widely used for building enterprise-scale applications, Android apps, web servers, and backend systems due to its stability, security, and large developer community.
+</p><br><br>
+
+<p><b>2. What are the main features of Java?</b></p><br>
+<p>
+    Java provides several powerful features:
+    <br> - <b>Platform Independent</b>: Bytecode runs on any JVM, regardless of the platform.
+    <br> - <b>Object-Oriented</b>: Everything in Java is treated as an object.
+    <br> - <b>Robust</b>: Java handles errors using strong memory management and exception handling.
+    <br> - <b>Secure</b>: Java has built-in security features like bytecode verification and a security manager.
+    <br> - <b>Multithreaded</b>: Java supports concurrent execution using threads.
+    <br> - <b>High Performance</b>: The Just-In-Time (JIT) compiler improves performance by compiling bytecode to native machine code at runtime.
+</p><br><br>
+
+<p><b>3. What is the Java Virtual Machine (JVM)?</b></p><br>
+<p>
+    The Java Virtual Machine (JVM) is an abstract computing machine that enables a computer to run Java programs. 
+    It loads, verifies, and executes Java bytecode. The JVM is platform-dependent but allows Java programs to be platform-independent. 
+    It also provides features such as automatic memory management (garbage collection), runtime optimization, and security enforcement.
+</p><br><br>
+
+<p><b>4. What is the difference between JDK, JRE, and JVM?</b></p><br>
+<p>
+    - <b>JVM (Java Virtual Machine)</b>: It runs Java bytecode and is responsible for the runtime environment.
+    <br> - <b>JRE (Java Runtime Environment)</b>: It includes the JVM and standard Java class libraries. It is used to run Java applications.
+    <br> - <b>JDK (Java Development Kit)</b>: It includes the JRE and development tools such as the Java compiler (`javac`). It is required for developing Java applications.
+</p><br><br>
+
+<p><b>5. What is a Class in Java?</b></p><br>
+<p>
+    A class in Java is a blueprint or prototype from which objects are created. It defines the structure and behavior (fields and methods) that the objects of the class will have. 
+    For example, a `Car` class can define properties like color, model, and speed, and methods like accelerate and brake.
+</p><br><br>
+
+<p><b>6. What is an Object in Java?</b></p><br>
+<p>
+    An object is an instance of a class. It represents a real-world entity that has state (attributes) and behavior (methods). 
+    In Java, objects are created using the `new` keyword. For example:
+    <br><code><b style="color:deeppink;">Car myCar = new Car();</b></code>
+</p><br><br>
+
+<p><b>7. What is the main() method in Java?</b></p><br>
+<p>
+    The `main()` method is the entry point of any Java application. It is defined as:
+    <br><code><b style="color:deeppink;">public static void main(String[] args)</b></code>
+    <br> - <b>public</b>: Accessible from anywhere.
+    <br> - <b>static</b>: No object is needed to call this method.
+    <br> - <b>void</b>: No return value.
+    <br> - <b>String[] args</b>: Accepts command-line arguments.
+</p><br><br>
+
+<p><b>8. What is the difference between method overloading and method overriding?</b></p><br>
+<p>
+    - <b>Method Overloading</b>: Occurs within the same class when two or more methods have the same name but different parameter lists. It is a compile-time polymorphism.
+    <br> - <b>Method Overriding</b>: Occurs in a subclass when a method defined in the parent class is redefined with the same name and parameters. It is runtime polymorphism.
+</p><br><br>
+
+<p><b>9. What are constructors in Java?</b></p><br>
+<p>
+    A constructor is a special method used to initialize objects. It has the same name as the class and no return type. 
+    Java provides a default constructor, but you can also create parameterized constructors to set initial values.
+    <br><code><b style="color:deeppink;">public Car(String model) { this.model = model; }</b></code>
+</p><br><br>
+
+<p><b>10. What is inheritance in Java?</b></p><br>
+<p>
+    Inheritance is one of the core concepts of OOP where one class (child/subclass) inherits the fields and methods of another class (parent/superclass). 
+    This promotes code reuse and establishes an "is-a" relationship. 
+    <br><code><b style="color:deeppink;">class Dog extends Animal</b></code>
+</p><br><br>
+
+<p><b>11. What is Polymorphism in Java?</b></p><br>
+<p>
+    Polymorphism means "many forms". In Java, it allows one method or object to behave differently based on the context. 
+    It can be achieved in two ways:
+</p>
+<ul>
+    <li><b>Compile-time Polymorphism (Method Overloading)</b>: Same method name with different parameter lists in the same class.</li><br>
+    <li><b>Runtime Polymorphism (Method Overriding)</b>: Subclass provides a specific implementation of a method already defined in the parent class.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Animal {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">void sound()</b> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:deeppink;">System.out.println</b>("Animal makes a sound");<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+class Dog extends Animal {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">void sound()</b> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:deeppink;">System.out.println</b>("Dog barks");<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+public class TestPolymorphism {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">public static void main(String[] args)</b> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Animal a = new Dog();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.sound(); // Dog barks<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>12. What is Encapsulation in Java?</b></p><br>
+<p>
+    Encapsulation is the concept of wrapping data (variables) and code (methods) together as a single unit. It protects the internal state of an object by using access modifiers.
+</p>
+<ul>
+    <li>Declare variables <b>private</b>.</li><br>
+    <li>Provide <b>public getter and setter methods</b> to access and modify the private variables.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Employee {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">private</b> int salary;<br><br>
+&nbsp;&nbsp;<b style="color:deeppink;">public int getSalary()</b> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:deeppink;">return</b> salary;<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;<b style="color:deeppink;">public void setSalary(int sal)</b> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;salary = sal;<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>13. What is Abstraction in Java?</b></p><br>
+<p>
+    Abstraction is the process of hiding internal details and showing only the necessary features of an object. 
+    It helps reduce complexity and increase efficiency. In Java, abstraction is achieved using:
+</p>
+<ul>
+    <li><b>Abstract Classes</b>: A class declared with the <code><b style="color:deeppink;">abstract</b></code> keyword that may contain abstract (without body) and non-abstract methods.</li><br>
+    <li><b>Interfaces</b>: A completely abstract class that can have only abstract methods (Java 8+ supports default/static methods).</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+<b style="color:deeppink;">abstract class</b> Shape {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">abstract void draw();</b><br>
+}<br><br>
+class Circle extends Shape {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">void draw()</b> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:deeppink;">System.out.println</b>("Drawing Circle");<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>14. What is the difference between an Interface and an Abstract Class in Java?</b></p><br>
+<ul>
+    <li><b>Abstract Class</b> can have both abstract and concrete methods, whereas <b>Interface</b> can only have abstract methods (until Java 7).</li><br>
+    <li><b>Interface</b> supports multiple inheritance, abstract classes do not.</li><br>
+    <li>Variables in <b>Interface</b> are implicitly <code><b style="color:deeppink;">public static final</b></code>.</li><br>
+    <li><b>Abstract Class</b> can have constructors and member variables; <b>Interface</b> cannot (before Java 8).</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+<b style="color:deeppink;">interface</b> Drawable {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">void draw();</b><br>
+}<br><br>
+<b style="color:deeppink;">abstract class</b> Shape {<br>
+&nbsp;&nbsp;<b style="color:deeppink;">abstract void display();</b><br>
+}
+</code>
+</div><br><br>
+
+<p><b>15. What is the difference between Array and ArrayList in Java?</b></p><br>
+<p>
+    <ul>
+        <li><b>Array</b>: Fixed in size, can hold primitive types and objects.</li>
+        <li><b>ArrayList</b>: Dynamic size, only holds objects, and provides methods for manipulation.</li>
+    </ul>
+</p><br><br>
+
+<p><b>16. What is the difference between <code>==</code> and <code>equals()</code> in Java?</b></p><br>
+<ul>
+    <li><span class="interview-keyword">==</span>: Compares the reference (memory address) of two objects.</li><br>
+    <li><span class="interview-keyword">equals()</span>: Compares the content/value of two objects (can be overridden).</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+String a = new String("Hello");<br>
+String b = new String("Hello");<br>
+System.out.println(a == b); // false<br>
+System.out.println(a.equals(b)); // true<br><br>
+- - <b>Output:</b> <br>false<br>true
+</code>
+</div><br><br>
+
+<p><b>17. What are static methods and variables in Java?</b></p><br>
+<p>
+Static methods and variables belong to the class rather than instances of the class. They are shared across all objects. 
+They are accessed using the class name and don't require object creation.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class MathUtils {<br>
+&nbsp;&nbsp;static int count = 0;<br>
+&nbsp;&nbsp;static void printCount() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Count: " + count);<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+MathUtils.count = 10;<br>
+MathUtils.printCount();<br><br>
+- - <b>Output:</b> <br>Count: 10
+</code>
+</div><br><br>
+
+<p><b>18. What is the final keyword in Java?</b></p><br>
+<p>
+The <code>final</code> keyword in Java is used to restrict the user. It can be applied to variables, methods, and classes:
+</p>
+<ul>
+    <li><b>Final variable</b>: Value cannot be changed once assigned.</li><br>
+    <li><b>Final method</b>: Cannot be overridden by subclasses.</li><br>
+    <li><b>Final class</b>: Cannot be inherited.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+final int x = 100;<br>
+System.out.println(x);<br>
+x = 200; // Compile-time error<br><br>
+- - <b>Output:</b> <br>Compile-time error: cannot assign a value to final variable 'x'
+</code>
+</div><br><br>
+
+<p><b>19. What is the use of <code>this</code> keyword in Java?</b></p><br>
+<p>
+The <code>this</code> keyword is used to refer to the current object inside a class. It's commonly used to differentiate between instance variables and parameters with the same name.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Car {<br>
+&nbsp;&nbsp;String model;<br>
+&nbsp;&nbsp;Car(String model) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.model = model;<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+Car c = new Car("BMW");<br>
+System.out.println(c.model);<br><br>
+- - <b>Output:</b> <br>BMW
+</code>
+</div><br><br>
+
+<p><b>20. What are access modifiers in Java?</b></p><br>
+<p>
+Access modifiers control the visibility of classes, methods, and variables. Java has four types:
+</p>
+<ul>
+    <li><b>private</b>: Accessible only within the class.</li><br>
+    <li><b>default</b> (no modifier): Accessible within the same package.</li><br>
+    <li><b>protected</b>: Accessible within the same package and subclasses.</li><br>
+    <li><b>public</b>: Accessible from anywhere.</li><br>
+</ul>
+<br><br>
+<p><b>21. What is a Java Wrapper Class, and why is it used?</b></p><br>
+<p>
+    Wrapper classes provide object representations for primitive data types (e.g., <code><b style="color:deeppink;">Integer</b></code>, <code><b style="color:deeppink;">Double</b></code>). 
+    They’re useful when you need objects instead of primitives (e.g. in Collections like <code><b style="color:deeppink;">ArrayList&lt;Integer&gt;</b></code>) and offer utility methods for parsing and conversion.
+</p><br><br>
+
+<p><b>22. What is Autoboxing and Unboxing in Java?</b></p><br>
+<p>
+    Autoboxing is the automatic conversion of primitive types into their corresponding wrapper classes (e.g., <code><b style="color:deeppink;">int</b></code> → <code><b style="color:deeppink;">Integer</b></code>), 
+    and Unboxing is the reverse process.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+Integer num = <b style="color:deeppink;">10</b>;  // Autoboxing<br>
+int x = num;  // Unboxing<br>
+System.out.println(num + x);  <br><br>
+- - <b>Output:</b> <br>20
+</code>
+</div><br><br>
+
+<p><b>23. What is Exception Handling in Java?</b></p><br>
+<p>
+    Java handles runtime errors using exceptions and provides a robust try-catch mechanism to manage them. You can use <b>try</b>, <b>catch</b>, <b>finally</b>, and <b>throw</b> to manage error cases without crashing the program.
+</p><br><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+try {<br>
+&nbsp;&nbsp;int result = 10 / 0;<br>
+} catch (ArithmeticException e) {<br>
+&nbsp;&nbsp;System.out.println("Division by zero!");<br>
+} finally {<br>
+&nbsp;&nbsp;System.out.println("Cleanup if needed.");<br>
+}<br><br>
+- - <b>Output:</b> <br>Division by zero!<br>Cleanup if needed.
+</code>
+</div><br><br>
+
+<p><b>24. What is the difference between Checked and Unchecked Exceptions?</b></p><br>
+<p>
+    - <b>Checked Exceptions</b> (e.g., IOException) are checked at compile time and must be handled.  
+    - <b>Unchecked Exceptions</b> (e.g., NullPointerException) are runtime exceptions and don’t require mandatory handling.
+</p><br><br>
+
+<p><b>25. What is a Java Package and why is it used?</b></p><br>
+<p>
+    A package groups related classes and interfaces together, providing:
+    <br>- **Namespace management**, preventing naming conflicts  
+    <br>- **Access control**, as scoped with package-private visibility  
+    <br>- **Organization**, making large codebases easier to manage
+</p><br><br>
+
+<p><b>26. What is the difference between String, StringBuilder, and StringBuffer in Java?</b></p><br>
+<p>
+    - <b>String</b>: Immutable. Once created, it cannot be changed.<br>
+    - <b>StringBuilder</b>: Mutable, faster than StringBuffer, but not thread-safe.<br>
+    - <b>StringBuffer</b>: Mutable and thread-safe (synchronized), but slightly slower than StringBuilder.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+String str = "Hello";<br>
+str.concat(" World");<br>
+System.out.println(str);  <span class="interview-comment">// Immutable, result still "Hello"</span><br><br>
+
+StringBuilder sb = new StringBuilder("Hello");<br>
+sb.append(" World");<br>
+System.out.println(sb);  <span class="interview-comment">// Mutable, result is "Hello World"</span><br><br>
+
+- - <b>Output:</b> <br>Hello<br>Hello World
+</code>
+</div><br><br>
+
+<p><b>27. What is a static block in Java?</b></p><br>
+<p>
+    A static block is used for static initializations of a class. It executes when the class is first loaded into memory. 
+    It is useful when initializing static variables or performing setup before the main logic runs.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Demo {<br>
+&nbsp;&nbsp;static {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Static block executed");<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;public static void main(String[] args) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Main method executed");<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+
+- - <b>Output:</b> <br>Static block executed<br>Main method executed
+</code>
+</div><br><br>
+
+<p><b>28. What is the 'final' keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">final</b></code> keyword is used to create constants or prevent modification.
+    <ul>
+        <li><b>Final variable</b>: Cannot be reassigned.</li>
+        <li><b>Final method</b>: Cannot be overridden.</li>
+        <li><b>Final class</b>: Cannot be inherited.</li>
+    </ul>
+</p><br><br>
+
+<p><b>29. What is the use of the 'this' keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">this</b></code> keyword refers to the current instance of the class. It is commonly used to differentiate instance variables from parameters when their names are the same, or to call another constructor in the same class.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Car {<br>
+&nbsp;&nbsp;String model;<br>
+&nbsp;&nbsp;Car(String model) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.model = model;<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>30. What is a Singleton class in Java?</b></p><br>
+<p>
+    A Singleton class allows only one instance to exist during the application lifecycle. It is used for things like database connections or logging services.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Singleton {<br>
+&nbsp;&nbsp;private static Singleton instance = null;<br>
+&nbsp;&nbsp;private Singleton() {}  <span class="interview-comment">// Private constructor</span><br>
+&nbsp;&nbsp;public static Singleton getInstance() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (instance == null) instance = new Singleton();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return instance;<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>31. What is the difference between 'throw' and 'throws' in Java?</b></p><br>
+<p>
+    - <b>throw</b>: Used to explicitly throw an exception from a method or block of code.<br>
+    - <b>throws</b>: Declares the exceptions a method might throw, used in method signature.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+public class Example {<br>
+&nbsp;&nbsp;public static void riskyMethod() <b style="color:deeppink;">throws</b> ArithmeticException {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:deeppink;">throw</b> new ArithmeticException("Divide by zero");<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;public static void main(String[] args) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;riskyMethod();<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+
+- - <b>Output:</b><br>Exception in thread "main" java.lang.ArithmeticException: Divide by zero
+</code>
+</div><br><br>
+
+<p><b>32. What is a Package in Java?</b></p><br>
+<p>
+    A package in Java is a namespace that organizes a set of related classes and interfaces. It helps avoid name conflicts and makes it easier to locate and use classes.
+    Common packages include <code><b style="color:deeppink;">java.util</b></code>, <code><b style="color:deeppink;">java.io</b></code>, etc.
+</p><br><br>
+
+<p><b>33. What is a Marker Interface?</b></p><br>
+<p>
+    A marker interface in Java is an interface that does not contain any methods or fields. It is used to convey metadata to the JVM or compiler.
+    Example: <code><b style="color:deeppink;">Serializable</b></code>, <code><b style="color:deeppink;">Cloneable</b></code>.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Student implements Serializable {<br>
+&nbsp;&nbsp;int id;<br>
+&nbsp;&nbsp;String name;<br>
+}
+</code>
+</div><br><br>
+
+<p><b>34. What is the 'instanceof' keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">instanceof</b></code> keyword is used to test whether an object is an instance of a specific class or subclass.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+String s = "Hello";<br>
+System.out.println(s instanceof String);<br><br>
+
+- - <b>Output:</b><br>true
+</code>
+</div><br><br>
+
+<p><b>35. What is method chaining in Java?</b></p><br>
+<p>
+    Method chaining is a technique where multiple methods are called on the same object in a single statement. Each method returns the object so the next method can be called.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Student {<br>
+&nbsp;&nbsp;Student setName(String name) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Name: " + name);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;Student setAge(int age) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Age: " + age);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this;<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+
+public class Main {<br>
+&nbsp;&nbsp;public static void main(String[] args) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new Student().setName("John").setAge(25);<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+
+- - <b>Output:</b><br>Name: John<br>Age: 25
+</code>
+</div><br><br>
+
+                
+
+                   
+                <!-- END OF Python Interview Questions. -->
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced" class="next-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="previou-button">Beginner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+
+                <h1>Java Advanced</h1>
+                <p><b>1. What is the difference between HashMap, LinkedHashMap, and TreeMap in Java?</b></p><br>
+<p>
+These three classes are implementations of the Map interface, but they differ in internal data structure and order of elements:
+<ul>
+    <li><b>HashMap</b>: Uses a hash table. No guaranteed order of keys. Allows one null key and multiple null values.</li>
+    <li><b>LinkedHashMap</b>: Maintains insertion order using a doubly-linked list. Useful when order matters.</li>
+    <li><b>TreeMap</b>: Implements a Red-Black tree. Keys are stored in natural or custom order (sorted map). Does not allow null keys.</li>
+</ul>
+</p><br>
+
+<p><b>2. Explain the concept of Java Memory Model (JMM) and its relevance in multithreading.</b></p><br>
+<p>
+The Java Memory Model (JMM) defines how threads interact through memory and what behaviors are allowed in concurrent execution. It ensures:
+<ul>
+    <li>Visibility: Changes made by one thread to shared variables are visible to other threads.</li>
+    <li>Atomicity: Actions like reading/writing a variable are performed atomically.</li>
+    <li>Ordering: Rules to prevent instruction reordering that breaks correctness.</li>
+</ul>
+JMM provides the foundation for `volatile`, `synchronized`, and `java.util.concurrent` tools.
+</p><br>
+
+<p><b>3. What is the difference between wait(), sleep(), and join() methods in Java?</b></p><br>
+<p>
+<ul>
+    <li><b>wait()</b>: Releases the lock and allows other threads to execute. It must be called from a synchronized block or method.</li>
+    <li><b>sleep()</b>: Pauses the thread for a specified time but does not release the lock.</li>
+    <li><b>join()</b>: Waits for another thread to finish execution before continuing.</li>
+</ul>
+</p><br>
+
+<p><b>4. How does Java handle memory management and garbage collection?</b></p><br>
+<p>
+Java uses an automatic garbage collector to reclaim memory used by unreachable objects. The memory is divided into:
+<ul>
+    <li><b>Young Generation</b>: Stores short-lived objects. Minor GC occurs here.</li>
+    <li><b>Old Generation</b>: Stores long-lived objects. Major GC (or Full GC) is triggered here.</li>
+    <li><b>Metaspace</b>: Replaces PermGen from Java 8, stores class metadata.</li>
+</ul>
+Garbage collection algorithms include Serial, Parallel, CMS, and G1 GC.
+</p><br>
+
+<p><b>5. What is the difference between final, finally, and finalize() in Java?</b></p><br>
+<p>
+<ul>
+    <li><b>final</b>: A keyword used to declare constants, prevent method overriding, or inheritance of classes.</li>
+    <li><b>finally</b>: A block used with try-catch to execute important code like resource cleanup, regardless of exception.</li>
+    <li><b>finalize()</b>: A method called by the garbage collector before an object is reclaimed. Deprecated from Java 9 onwards.</li>
+</ul>
+</p><br>
+
+<p><b>6. What are the different types of class loaders in Java?</b></p><br>
+<p>
+    Java uses class loaders to load classes at runtime. The main types are:
+    <br> - <b>Bootstrap ClassLoader</b>: Loads core Java classes (e.g., java.lang).
+    <br> - <b>Extension ClassLoader</b>: Loads classes from the `ext` directory.
+    <br> - <b>System/Application ClassLoader</b>: Loads classes from the application's classpath.
+    <br>Developers can also create <b>custom class loaders</b> to load classes in specific ways, often for modular systems or security.
+</p><br><br>
+
+<p><b>7. What is the difference between `final`, `finally`, and `finalize()` in Java?</b></p><br>
+<ul>
+    <li><span class="interview-keyword">final</span>: Used to declare constants, prevent method overriding, or inheritance.</li><br>
+    <li><span class="interview-keyword">finally</span>: A block that always executes after try-catch for cleanup code.</li><br>
+    <li><span class="interview-keyword">finalize()</span>: A method called by the garbage collector before destroying an object (deprecated in recent Java versions).</li><br>
+</ul><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    final int a = 10;<br><br>
+    try {<br>
+      System.out.println("Try block");<br>
+    } finally {<br>
+      System.out.println("Finally block executed");<br>
+    }
+</code>
+</div><br><br>
+
+<p><b>8. What is the Java Memory Model (JMM)?</b></p><br>
+<p>
+    The Java Memory Model defines how threads interact through memory and what behaviors are allowed in concurrent programming. It handles:
+    <br> - Visibility of variables across threads
+    <br> - Instruction reordering by the compiler or CPU
+    <br> - Happens-before relationships
+    <br>This ensures consistency and safe multithreaded programming using `volatile`, `synchronized`, and other constructs.
+</p><br><br>
+
+<p><b>9. What are weak references in Java?</b></p><br>
+<p>
+    Java provides different types of references in the <code>java.lang.ref</code> package. A <b>WeakReference</b> allows an object to be garbage collected even if it's still referenced weakly. It's commonly used in caches.
+</p><br>
+
+<div class="interview-box">
+<code>
+    WeakReference&lt;String&gt; ref = new WeakReference&lt;&gt;(new String("Java"));<br>
+    System.out.println(ref.get());<br>
+    System.gc();<br>
+    Thread.sleep(1000);<br>
+    System.out.println(ref.get());<br><br>
+    - - <b>Output:</b><br>
+    Java<br>
+    null (possibly, depending on GC)
+</code>
+</div><br><br>
+
+<p><b>10. What is the difference between Callable and Runnable in Java?</b></p><br>
+<ul>
+    <li><span class="interview-keyword">Runnable</span>: Does not return a result and cannot throw checked exceptions.</li><br>
+    <li><span class="interview-keyword">Callable</span>: Returns a result and can throw checked exceptions.</li><br>
+</ul><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    Callable&lt;Integer&gt; task = () -&gt; { return 10 + 20; };<br>
+    ExecutorService executor = Executors.newSingleThreadExecutor();<br>
+    Future&lt;Integer&gt; future = executor.submit(task);<br>
+    System.out.println(future.get());<br><br>
+    - - <b>Output:</b><br>
+    30
+</code>
+</div><br><br>
+
+<p><b>11. What is the difference between `HashMap` and `ConcurrentHashMap`?</b></p><br>
+<p>
+    - <b>HashMap</b> is not thread-safe and can lead to data inconsistency when accessed by multiple threads concurrently.<br>
+    - <b>ConcurrentHashMap</b> is thread-safe and designed for concurrent access by using internal segment locking.<br>
+    - In <b>HashMap</b>, structure can be corrupted if modified while iterating, whereas <b>ConcurrentHashMap</b> avoids `ConcurrentModificationException`.
+</p><br><br>
+
+<p><b>12. What is the volatile keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">volatile</b></code> keyword ensures visibility and ordering of variables across threads. When a variable is declared volatile:
+    <br> - Reads/writes go directly to main memory.
+    <br> - It prevents threads from caching variables locally.
+    <br> - It doesn’t guarantee atomicity; useful for flags and simple state changes.
+</p><br><br>
+
+<p><b>13. How does Java handle memory management?</b></p><br>
+<p>
+    Java handles memory management using:
+    <br> - <b>Heap Memory</b>: Stores objects and class instances.
+    <br> - <b>Stack Memory</b>: Stores method calls and local variables.
+    <br> - <b>Garbage Collection</b>: Automatically removes unused objects to free memory.
+    <br>Java's Garbage Collector uses algorithms like Mark-and-Sweep, Generational GC, G1 GC, and ZGC in recent versions.
+</p><br><br>
+
+<p><b>14. What is reflection in Java?</b></p><br>
+<p>
+    Reflection is a feature in Java that allows programs to inspect and manipulate classes, methods, and fields at runtime using classes in the <code>java.lang.reflect</code> package.
+    <br>It is commonly used in frameworks, tools, and libraries like Spring and Hibernate.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    Class&lt;?&gt; clazz = Class.forName("java.lang.String");<br>
+    Method[] methods = clazz.getDeclaredMethods();<br>
+    for (Method m : methods) {<br>
+      System.out.println(m.getName());<br>
+    }<br><br>
+    - - <b>Output:</b><br>
+    (All method names from String class)
+</code>
+</div><br><br>
+
+<p><b>15. What are functional interfaces in Java?</b></p><br>
+<p>
+    A functional interface is an interface that has exactly one abstract method. They are used primarily in lambda expressions and method references.
+    <br>Examples include: <code>Runnable</code>, <code>Callable</code>, <code>Comparator</code>, and custom interfaces annotated with <code>@FunctionalInterface</code>.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    @FunctionalInterface<br>
+    interface MyFunc {<br>
+      void sayHello();<br>
+    }<br><br>
+    MyFunc msg = () -&gt; System.out.println("Hello from Lambda!");<br>
+    msg.sayHello();<br><br>
+    - - <b>Output:</b><br>
+    Hello from Lambda!
+</code>
+</div><br><br>
+
+<p><b>16. What is the difference between checked and unchecked exceptions in Java?</b></p><br>
+<p>
+    - <b>Checked Exceptions</b> are checked at compile-time. The compiler ensures you handle or declare them using `try-catch` or `throws`. Examples: <code>IOException</code>, <code>SQLException</code>.<br>
+    - <b>Unchecked Exceptions</b> are checked at runtime. These are subclasses of <code>RuntimeException</code>. Examples: <code>NullPointerException</code>, <code>ArrayIndexOutOfBoundsException</code>.
+</p><br><br>
+
+<p><b>17. What is the Java Memory Model (JMM)?</b></p><br>
+<p>
+    The Java Memory Model defines how threads interact through memory and what behaviors are allowed in concurrent execution. It specifies:
+    <br> - Rules about visibility of shared variables.
+    <br> - Effects of synchronization and `volatile`.
+    <br> - Reordering of instructions for performance.
+    <br>JMM ensures visibility and ordering guarantees necessary for correct multithreaded behavior.
+</p><br><br>
+
+<p><b>18. How does the try-with-resources statement work in Java?</b></p><br>
+<p>
+    Introduced in Java 7, the <code>try-with-resources</code> statement automatically closes resources that implement the <code>AutoCloseable</code> interface (like streams, readers).
+    <br>This helps in avoiding resource leaks and reducing boilerplate code.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {<br>
+      System.out.println(br.readLine());<br>
+    } catch (IOException e) {<br>
+      e.printStackTrace();<br>
+    }<br><br>
+    - - <b>Output:</b><br>
+    (Prints the first line of the file or exception trace)
+</code>
+</div><br><br>
+
+<p><b>19. What is the Fork/Join framework in Java?</b></p><br>
+<p>
+    The Fork/Join framework is a parallel computing framework introduced in Java 7 that helps in executing tasks concurrently by breaking them into smaller subtasks (fork), and then combining the results (join).
+    <br>It is part of the <code>java.util.concurrent</code> package and is useful for CPU-intensive operations.
+</p><br><br>
+
+<p><b>20. What are method references in Java?</b></p><br>
+<p>
+    Method references provide a concise way to refer to a method without executing it. It uses the <code>::</code> operator and is commonly used with streams and functional interfaces.
+    <br>Types of method references:
+    <br> - <code>ClassName::staticMethod</code>
+    <br> - <code>object::instanceMethod</code>
+    <br> - <code>ClassName::new</code> (constructor reference)
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    List&lt;String&gt; names = Arrays.asList("John", "Jane", "Alice");<br>
+    names.forEach(System.out::println);<br><br>
+    - - <b>Output:</b><br>
+    John<br>
+    Jane<br>
+    Alice
+</code>
+</div><br><br>
+
+<p><b>21. What is the difference between `synchronized` block and `ReentrantLock`?</b></p><br>
+<p>
+    Both are used to provide thread safety, but there are differences:<br>
+    - <b>`synchronized`</b> is a keyword with implicit lock management and no explicit lock/unlock mechanism.<br>
+    - <b>`ReentrantLock`</b> (from `java.util.concurrent.locks`) allows more flexible lock control, including try-locking, interruptible locks, and fairness policies.<br>
+    It also provides methods like <code>lockInterruptibly()</code>, <code>tryLock()</code>, and <code>unlock()</code> for fine-grained control.
+</p><br><br>
+
+<p><b>22. What is the volatile keyword in Java?</b></p><br>
+<p>
+    The <code>volatile</code> keyword ensures that changes to a variable are always visible to all threads. It prevents caching of the variable and guarantees visibility and ordering.
+    However, it does not ensure atomicity or synchronization of compound actions.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    class Example {<br>
+      volatile boolean flag = true;<br>
+      // all threads see updated value of flag immediately<br>
+    }
+</code>
+</div><br><br>
+
+<p><b>23. How does Java handle memory leaks?</b></p><br>
+<p>
+    Java uses automatic garbage collection to reclaim memory. However, memory leaks can still occur if object references are unintentionally held (e.g., in static collections).
+    <br>Common causes:
+    <br> - Static field holding reference to an object.
+    <br> - Unclosed resources (e.g., streams, sockets).
+    <br> - Listeners or callbacks not deregistered.
+    <br>Tools like VisualVM or Eclipse MAT help detect memory leaks.
+</p><br><br>
+
+<p><b>24. What are phantom references in Java?</b></p><br>
+<p>
+    A <b>phantom reference</b> is the weakest level of reference in Java, used to determine exactly when an object is removed from memory.
+    It is used in conjunction with <code>ReferenceQueue</code> to do post-mortem cleanup activities after garbage collection.
+    <br>Unlike soft/weak references, phantom references always return <code>null</code> on <code>get()</code>.
+</p><br><br>
+
+<p><b>25. What are default methods in interfaces?</b></p><br>
+<p>
+    Introduced in Java 8, <b>default methods</b> allow interfaces to provide method implementations using the <code>default</code> keyword.
+    This enables interface evolution without breaking existing implementations.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    interface MyInterface {<br>
+      default void greet() {<br>
+        System.out.println("Hello from default method!");<br>
+      }<br>
+    }<br><br>
+    - - <b>Output:</b><br>
+    Hello from default method!
+</code>
+</div><br><br>
+
+<p><b>26. What is the difference between Callable and Runnable in Java?</b></p><br>
+<p>
+    Both <code>Callable</code> and <code>Runnable</code> are used to define tasks that run on separate threads, but with key differences:<br>
+    - <b>Runnable</b>: Does not return a result and cannot throw a checked exception.<br>
+    - <b>Callable</b>: Returns a result (via <code>Future</code>) and can throw checked exceptions.<br>
+    Callable is preferred when you need a result from a background task.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    Callable&lt;Integer&gt; task = () -&gt; { return 42; };<br>
+    ExecutorService executor = Executors.newSingleThreadExecutor();<br>
+    Future&lt;Integer&gt; result = executor.submit(task);<br>
+    System.out.println(result.get());<br><br>
+    - - <b>Output:</b><br>
+    42
+</code>
+</div><br><br>
+
+<p><b>27. What is the Fork/Join framework in Java?</b></p><br>
+<p>
+    Introduced in Java 7, the <b>Fork/Join framework</b> is used to recursively split a task into smaller subtasks and then combine the results.
+    It is ideal for parallelizing large tasks using the "divide-and-conquer" strategy. It works with the <code>ForkJoinPool</code> and <code>RecursiveTask</code>/<code>RecursiveAction</code> classes.
+</p><br><br>
+
+<p><b>28. What is method reference in Java 8?</b></p><br>
+<p>
+    Method reference is a shorthand notation of a lambda expression to call a method. It improves code readability and reduces boilerplate.
+    Syntax: <code>ClassName::methodName</code><br>
+    Types of method references:
+    <ul>
+        <li>Static method reference – <code>ClassName::staticMethod</code></li>
+        <li>Instance method on object – <code>object::instanceMethod</code></li>
+        <li>Instance method on class – <code>ClassName::instanceMethod</code></li>
+        <li>Constructor reference – <code>ClassName::new</code></li>
+    </ul>
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    List&lt;String&gt; names = Arrays.asList("John", "Jane");<br>
+    names.forEach(System.out::println);<br><br>
+    - - <b>Output:</b><br>
+    John<br>
+    Jane
+</code>
+</div><br><br>
+
+<p><b>29. What is the difference between Stream’s map() and flatMap()?</b></p><br>
+<p>
+    - <b>map()</b>: Transforms each element into another form, returning a one-to-one mapping.<br>
+    - <b>flatMap()</b>: Flattens a stream of streams into a single stream, useful when the transformation returns multiple elements (e.g., a List).
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    List&lt;String&gt; words = Arrays.asList("Hello", "World");<br>
+    List&lt;String&gt; result = words.stream()<br>
+      .flatMap(word -&gt; Arrays.stream(word.split("")))<br>
+      .collect(Collectors.toList());<br>
+    System.out.println(result);<br><br>
+    - - <b>Output:</b><br>
+    [H, e, l, l, o, W, o, r, l, d]
+</code>
+</div><br><br>
+
+<p><b>30. What is CompletableFuture in Java?</b></p><br>
+<p>
+    Introduced in Java 8, <code>CompletableFuture</code> is used for asynchronous programming. It represents a future result that may not yet be available and provides methods to chain asynchronous tasks without blocking.
+    It supports both <code>supplyAsync()</code> (with return) and <code>runAsync()</code> (without return) for task execution.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+    CompletableFuture&lt;String&gt; future = CompletableFuture.supplyAsync(() -&gt; "Hello");<br>
+    String result = future.thenApply(s -&gt; s + " World").join();<br>
+    System.out.println(result);<br><br>
+    - - <b>Output:</b><br>
+    Hello World
+</code>
+</div><br><br>
+
+
+
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="previou-button">Beginner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previou-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Beginner</a>
+                </div>
+
+                <h1>Java Expert</h1>
+                <p><b>1. What are the different memory areas allocated by the JVM?</b></p><br>
+<p>
+    The JVM divides memory into several areas for efficient program execution and memory management:
+    <br> - <b>Heap</b>: Stores objects and class instances.
+    <br> - <b>Stack</b>: Stores method call frames, local variables, and partial results.
+    <br> - <b>Method Area</b>: Stores class-level data such as method and field information, runtime constant pool.
+    <br> - <b>Program Counter (PC) Register</b>: Stores the address of the current executing instruction.
+    <br> - <b>Native Method Stack</b>: Used for native (non-Java) method calls.
+</p><br><br>
+
+<p><b>2. What is the difference between a strong, weak, soft, and phantom reference in Java?</b></p><br>
+<p>
+    Java provides different types of references to control memory more precisely, especially in cache implementations:
+</p>
+<ul>
+    <li><span class="interview-keyword">Strong Reference</span>: The default type. Objects are not garbage collected as long as strong references exist.</li><br>
+    <li><span class="interview-keyword">Soft Reference</span>: Objects are collected only when memory is low. Useful for implementing memory-sensitive caches.</li><br>
+    <li><span class="interview-keyword">Weak Reference</span>: Objects are collected at the next GC cycle if only weak references are pointing to them.</li><br>
+    <li><span class="interview-keyword">Phantom Reference</span>: Used to determine exactly when an object was removed from memory, before final cleanup.</li><br>
+</ul><br>
+
+<p><b>3. Explain the concept of memory leaks in Java and how to detect them.</b></p><br>
+<p>
+    A memory leak in Java occurs when objects are no longer needed but are still referenced, preventing garbage collection. Over time, this can lead to increased memory usage and OutOfMemoryError.
+</p>
+<p>
+    <b>Detection tools:</b> VisualVM, JProfiler, Eclipse MAT, Java Flight Recorder. These tools help identify objects occupying memory without being released.
+</p><br><br>
+
+<p><b>4. What is the volatile keyword in Java and how does it work?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">volatile</b></code> keyword ensures visibility and ordering in multi-threaded environments. When a variable is declared volatile, updates to that variable are always visible to all threads.
+</p>
+<p>
+    It prevents threads from caching variables locally. Instead, every read/write is done directly from/to the main memory.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+private <b style="color:deeppink;">volatile</b> boolean flag = false;<br><br>
+public void setFlagTrue() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flag = true;<br>
+}<br>
+public void waitForFlag() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while (!flag) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// busy wait<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>5. How does the Java Memory Model (JMM) handle thread communication and instruction reordering?</b></p><br>
+<p>
+    The JMM defines how threads interact through memory and what behaviors are allowed in concurrent execution. It specifies:
+</p>
+<ul>
+    <li>When writes by one thread become visible to another.</li><br>
+    <li>Instruction reordering and the rules to ensure visibility and atomicity.</li><br>
+    <li>Use of <code><b style="color:deeppink;">synchronized</b></code> blocks, <code><b style="color:deeppink;">volatile</b></code> variables, and <code><b style="color:deeppink;">final</b></code> fields to establish happens-before relationships.</li><br>
+</ul><br>
+<p>
+    This prevents unexpected results from compiler or CPU optimizations in a concurrent environment.
+</p><br><br>
+
+<p><b>6. What is the difference between ReentrantLock and synchronized block?</b></p><br>
+<p>
+    Both are used for thread synchronization, but they differ in features and flexibility:
+</p>
+<ul>
+    <li><span class="interview-keyword">synchronized</span>: Simpler to use. The thread acquires an intrinsic lock automatically. Cannot try to acquire a lock with timeout or interruptibility.</li><br>
+    <li><span class="interview-keyword">ReentrantLock</span>: More flexible. Allows interruptible lock acquisition, timeout, and tryLock. Also supports fair locking and condition variables for advanced thread coordination.</li><br>
+</ul><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+ReentrantLock lock = new ReentrantLock();<br><br>
+lock.lock();<br>
+try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// critical section<br>
+} finally {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lock.unlock();<br>
+}
+</code>
+</div><br><br>
+
+<p><b>7. What are ThreadLocal variables in Java?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">ThreadLocal</b></code> provides thread-local variables, meaning each thread accessing the variable gets an isolated copy. It's useful when you want to avoid synchronization and ensure that variables are not shared between threads.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+ThreadLocal&lt;Integer&gt; userId = new ThreadLocal&lt;&gt;();<br>
+userId.set(100);<br>
+Integer id = userId.get();
+</code>
+</div><br><br>
+
+<p><b>8. What is the difference between fail-fast and fail-safe iterators?</b></p><br>
+<p>
+    Iterators behave differently when the underlying collection is modified:
+</p>
+<ul>
+    <li><span class="interview-keyword">Fail-Fast</span>: Throws <code><b style="color:deeppink;">ConcurrentModificationException</b></code> if the collection is modified while iterating. Example: <code>ArrayList</code>, <code>HashMap</code>.</li><br>
+    <li><span class="interview-keyword">Fail-Safe</span>: Allows modifications during iteration by working on a cloned copy. Example: <code>CopyOnWriteArrayList</code>, <code>ConcurrentHashMap</code>.</li><br>
+</ul><br><br>
+
+<p><b>9. How does Garbage Collection work in Java? Explain G1 and CMS collectors.</b></p><br>
+<p>
+    Java uses automatic garbage collection to reclaim memory used by unreachable objects. JVM provides various collectors:
+</p>
+<ul>
+    <li><span class="interview-keyword">G1 (Garbage First)</span>: Breaks the heap into regions and prioritizes low-pause-time collection. Suitable for large heaps and real-time applications.</li><br>
+    <li><span class="interview-keyword">CMS (Concurrent Mark-Sweep)</span>: Minimizes pause times by performing most GC work concurrently with the application threads. It's deprecated in recent JDK versions.</li><br>
+</ul><br><br>
+
+<p><b>10. What are functional interfaces and how are they used in Java 8?</b></p><br>
+<p>
+    A <code><b style="color:deeppink;">functional interface</b></code> is an interface with only one abstract method. They are used primarily with lambda expressions and method references.
+</p>
+<p>
+    Java provides many built-in functional interfaces like <code>Runnable</code>, <code>Callable</code>, <code>Consumer</code>, <code>Predicate</code>, <code>Function</code>, etc.
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+@FunctionalInterface<br>
+interface Calculator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int add(int a, int b);<br>
+}<br><br>
+Calculator calc = (x, y) -&gt; x + y;<br>
+System.out.println(calc.add(10, 20));<br><br>
+- - <b>Output:</b> <br>30
+</code>
+</div><br><br>
+
+<p><b>11. What is a memory leak in Java and how can it be avoided?</b></p><br>
+<p>
+    A memory leak in Java occurs when objects are no longer used by the application but are still referenced, preventing garbage collection. 
+    This leads to increased memory usage and potential <code><b style="color:deeppink;">OutOfMemoryError</b></code>.
+</p>
+<p>Common causes include:</p>
+<ul>
+    <li>Unclosed resources like <code>InputStream</code>, <code>Connection</code>.</li><br>
+    <li>Static collections holding object references indefinitely.</li><br>
+    <li>Event listeners not being removed.</li><br>
+</ul>
+<p>
+    Use tools like VisualVM or Eclipse MAT to detect memory leaks. Always release resources in <code>finally</code> blocks or use <code>try-with-resources</code>.
+</p><br><br>
+
+<p><b>12. What is the volatile keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">volatile</b></code> keyword in Java ensures that the value of a variable is always read from the main memory, not from a thread's local cache. 
+    It is used for variables accessed by multiple threads without using synchronization.
+</p>
+<p>
+    It guarantees visibility but not atomicity. Use it when updates are simple and do not depend on the current value (e.g., flags).
+</p><br>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+private volatile boolean running = true;<br><br>
+public void stop() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running = false;<br>
+}
+</code>
+</div><br><br>
+
+<p><b>13. What are method references in Java 8?</b></p><br>
+<p>
+    Method references are a shorthand notation of lambda expressions to call a method directly. They improve code readability.
+</p>
+<p>Types of method references:</p>
+<ul>
+    <li><code>ClassName::staticMethod</code></li><br>
+    <li><code>object::instanceMethod</code></li><br>
+    <li><code>ClassName::new</code> (for constructor references)</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+List&lt;String&gt; list = Arrays.asList("Java", "Python", "C++");<br>
+list.forEach(System.out::println);<br><br>
+- - <b>Output:</b> <br>Java<br>Python<br>C++
+</code>
+</div><br><br>
+
+<p><b>14. What is the difference between Callable and Runnable in Java?</b></p><br>
+<ul>
+    <li><code><b style="color:deeppink;">Runnable</b></code>: Does not return a result and cannot throw a checked exception.</li><br>
+    <li><code><b style="color:deeppink;">Callable</b></code>: Returns a result (via <code>Future</code>) and can throw checked exceptions.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+Callable&lt;Integer&gt; task = () -&gt; { return 123; };<br>
+ExecutorService executor = Executors.newSingleThreadExecutor();<br>
+Future&lt;Integer&gt; future = executor.submit(task);<br>
+System.out.println(future.get());<br><br>
+- - <b>Output:</b> <br>123
+</code>
+</div><br><br>
+
+<p><b>15. What are default methods in interfaces?</b></p><br>
+<p>
+    Introduced in Java 8, <code><b style="color:deeppink;">default</b></code> methods allow interfaces to have method implementations.
+    This enables interface evolution without breaking existing implementations.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+interface MyInterface {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;default void greet() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello!");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>16. What is the difference between fail-fast and fail-safe iterators in Java?</b></p><br>
+<ul>
+    <li><span class="interview-keyword">Fail-Fast</span>: These iterators throw <code><b style="color:deeppink;">ConcurrentModificationException</b></code> if the collection is modified during iteration (e.g., <code>ArrayList</code>, <code>HashMap</code>).</li><br>
+    <li><span class="interview-keyword">Fail-Safe</span>: These iterators work on a clone of the collection, so they don’t throw exceptions when the collection is modified (e.g., <code>CopyOnWriteArrayList</code>, <code>ConcurrentHashMap</code>).</li><br>
+</ul><br>
+
+<p><b>17. How does the Java memory model work?</b></p><br>
+<p>
+    The Java Memory Model (JMM) defines how threads interact through memory and what behaviors are allowed in concurrent execution.
+    It ensures visibility, ordering, and atomicity of variable access. Key components:
+</p>
+<ul>
+    <li><b>Main Memory:</b> Shared among all threads.</li><br>
+    <li><b>Working Memory:</b> Thread-local memory storing copies of variables.</li><br>
+    <li><b>Happens-Before Relationship:</b> Guarantees visibility and ordering of actions.</li><br>
+</ul><br>
+
+<p><b>18. What is the difference between String, StringBuilder, and StringBuffer?</b></p><br>
+<ul>
+    <li><b>String:</b> Immutable, thread-safe. New objects are created on modification.</li><br>
+    <li><b>StringBuilder:</b> Mutable, not thread-safe. Better for single-threaded operations.</li><br>
+    <li><b>StringBuffer:</b> Mutable, thread-safe. Suitable for multi-threaded usage but slower than <code>StringBuilder</code>.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+StringBuilder sb = new StringBuilder("Hello");<br>
+sb.append(" World");<br>
+System.out.println(sb);<br><br>
+- - <b>Output:</b> <br>Hello World
+</code>
+</div><br><br>
+
+<p><b>19. What is the use of the transient keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">transient</b></code> keyword is used to mark a variable as not serializable. When an object is serialized, transient variables are skipped.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Employee implements Serializable {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String name;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transient int salary; // will not be serialized<br>
+}
+</code>
+</div><br><br>
+
+<p><b>20. What are soft, weak, and phantom references in Java?</b></p><br>
+<ul>
+    <li><b>SoftReference:</b> Cleared only when JVM is low on memory.</li><br>
+    <li><b>WeakReference:</b> Cleared on next GC cycle, even if memory is available.</li><br>
+    <li><b>PhantomReference:</b> Used to schedule post-mortem cleanup actions. Requires a <code>ReferenceQueue</code>.</li><br>
+</ul>
+
+<p><b>Use Cases:</b> SoftReference for caches, WeakReference for mappings that shouldn’t prevent GC, PhantomReference for cleanup before GC reclaims memory.</p><br><br>
+
+<p><b>21. What is the difference between stack memory and heap memory in Java?</b></p><br>
+<ul>
+    <li><b>Stack Memory</b>: Stores primitive values and references to objects. Each thread has its own stack. Memory is allocated/deallocated in LIFO order.</li><br>
+    <li><b>Heap Memory</b>: Used for storing actual objects. Shared among all threads. Managed by the Garbage Collector.</li><br>
+</ul><br>
+
+<p><b>22. What is the volatile keyword in Java?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">volatile</b></code> keyword is used to mark a variable as being stored in main memory. All threads will read the variable's value directly from main memory, ensuring visibility but not atomicity.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class SharedObject {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:deeppink;">volatile</b> boolean flag = false;<br>
+}
+</code>
+</div><br><br>
+
+<p><b>23. How do you implement a thread-safe singleton in Java?</b></p><br>
+<p>
+    You can use <b>double-checked locking</b> with <code><b style="color:deeppink;">volatile</b></code> to implement a thread-safe singleton pattern.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+class Singleton {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private static <b style="color:deeppink;">volatile</b> Singleton instance;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private Singleton() {}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static Singleton getInstance() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (instance == null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;synchronized (Singleton.class) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (instance == null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance = new Singleton();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return instance;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</div><br><br>
+
+<p><b>24. What are method references in Java 8?</b></p><br>
+<p>
+    Method references are a shorthand syntax for calling methods in lambda expressions. They are expressed using <code><b style="color:deeppink;">::</b></code> operator and improve code readability.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+List&lt;String&gt; names = Arrays.asList("John", "Alice", "Bob");<br>
+names.forEach(System.out::<b style="color:deeppink;">println</b>);
+</code>
+</div><br><br>
+
+<p><b>25. How does Garbage Collection work in Java?</b></p><br>
+<p>
+    Java’s Garbage Collector (GC) automatically deallocates memory by removing unreachable objects. Key phases:
+</p>
+<ul>
+    <li><b>Mark:</b> Identify live objects.</li><br>
+    <li><b>Sweep:</b> Remove unreferenced objects.</li><br>
+    <li><b>Compact:</b> Rearranges memory to reduce fragmentation.</li><br>
+</ul>
+<p>
+    GC can be tuned using JVM options like <code><b style="color:deeppink;">-Xms</b></code>, <code><b style="color:deeppink;">-Xmx</b></code>, and collectors like G1, CMS, and ZGC.
+</p><br><br>
+
+<p><b>26. What is the difference between ReentrantLock and synchronized in Java?</b></p><br>
+<ul>
+    <li><b>synchronized</b>: Simpler to use, automatically releases the lock. Cannot interrupt a thread waiting for the lock. No tryLock feature.</li><br>
+    <li><b>ReentrantLock</b>: More flexible. Allows interruptible lock acquisition, tryLock(), and fairness policies. Requires manual unlock.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+ReentrantLock lock = new ReentrantLock();<br>
+lock.lock();<br>
+try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// critical section<br>
+} finally {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lock.unlock();<br>
+}
+</code>
+</div><br><br>
+
+<p><b>27. What is the Java Memory Model (JMM)?</b></p><br>
+<p>
+    The Java Memory Model defines how threads interact through memory and what behaviors are allowed in multithreaded environments. It governs visibility and ordering of variables across threads.
+    It ensures:
+</p>
+<ul>
+    <li>Atomicity, visibility, and ordering of variables.</li><br>
+    <li>Happens-before relationships (e.g., thread start happens-before its execution).</li><br>
+    <li>Rules for using <code><b style="color:deeppink;">volatile</b></code>, <code><b style="color:deeppink;">synchronized</b></code>, and <code><b style="color:deeppink;">final</b></code>.</li><br>
+</ul><br>
+
+<p><b>28. How does CompletableFuture differ from Future in Java?</b></p><br>
+<ul>
+    <li><b>Future</b>: Represents a pending result of an async computation. Limited, blocking API.</li><br>
+    <li><b>CompletableFuture</b>: Enhances Future with callbacks, chaining, and non-blocking execution using functional programming.</li><br>
+</ul>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+CompletableFuture.supplyAsync(() -> "Hello")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.thenApply(s -> s + " World")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.thenAccept(System.out::println);<br><br>
+- - <b>Output:</b> <br>Hello World
+</code>
+</div><br><br>
+
+<p><b>29. What are PhantomReferences in Java?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">PhantomReference</b></code> is one of Java’s reference types used in garbage collection. Unlike Soft or Weak references, 
+    <code>PhantomReference.get()</code> always returns <code>null</code>. It is used to perform post-mortem cleanup after an object is finalized but before memory is reclaimed.
+</p>
+
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+PhantomReference&lt;MyObject&gt; phantomRef =<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new PhantomReference<>(new MyObject(), new ReferenceQueue&lt;&gt;());
+</code>
+</div><br><br>
+
+<p><b>30. What is the difference between JNI and JNA?</b></p><br>
+<ul>
+    <li><b>JNI (Java Native Interface)</b>: A low-level API to call C/C++ code from Java. Requires native code compilation and boilerplate.</li><br>
+    <li><b>JNA (Java Native Access)</b>: High-level library that provides Java access to native shared libraries without writing JNI code.</li><br>
+</ul>
+<p>
+    JNA is easier to use for simple native integrations, whereas JNI provides greater control and performance for complex operations.
+</p><br><br>
+
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previou-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Beginner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

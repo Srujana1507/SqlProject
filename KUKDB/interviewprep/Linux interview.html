@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* footer code end hrere */
+
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-family: Arial;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK Solutions</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="pythonBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced" class="next-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+   
+                <!-- START OF Linux Interview Questions. -->
+                <h1>Linux Beginner</h1><br>
+
+<p><b>1. What is Linux?</b></p><br>
+<p>
+    Linux is an open-source operating system based on Unix. It is widely used for servers, desktops, and embedded systems.
+    It provides a robust, secure, and stable environment, and comes in many distributions like Ubuntu, CentOS, Debian, and Fedora.
+</p><br><br>
+
+<p><b>2. What is the Linux kernel?</b></p><br>
+<p>
+    The Linux kernel is the core of the Linux operating system. It manages system resources, hardware communication, and basic system operations like memory and process management.
+</p><br><br>
+
+<p><b>3. What are some common Linux distributions?</b></p><br>
+<ul>
+    <li>Ubuntu</li><br>
+    <li>Debian</li><br>
+    <li>Fedora</li><br>
+    <li>CentOS</li><br>
+    <li>Red Hat Enterprise Linux (RHEL)</li><br>
+</ul><br><br>
+
+<p><b>4. What is a shell in Linux?</b></p><br>
+<p>
+    A shell is a command-line interface that allows users to communicate with the Linux operating system. It interprets user commands and executes them. Popular shells include Bash, Zsh, and Fish.
+</p><br><br>
+
+<p><b>5. What is the difference between a command and a program in Linux?</b></p><br>
+<p>
+    A command is an instruction entered into the shell, while a program is a compiled or interpreted set of instructions stored on disk. Commands can be built into the shell or refer to external programs.
+</p><br><br>
+
+<p><b>6. What are hidden files in Linux?</b></p><br>
+<p>
+    Hidden files in Linux are files or directories that begin with a dot (.) in their name. They are not shown in normal directory listings unless you use <code>ls -a</code>. These files typically store configuration settings.
+</p><br><br>
+
+<p><b>7. Why are permissions important in Linux?</b></p><br>
+<p>
+    Permissions define which users can read, write, or execute a file or directory. This protects sensitive data and prevents unauthorized or accidental changes to system files.
+</p><br><br>
+
+<p><b>8. What is the root user in Linux?</b></p><br>
+<p>
+    The root user is the administrative superuser account in Linux. It has full control over the system, allowing unrestricted access to all files and commands. It is typically used for maintenance or configuration tasks.
+</p><br><br>
+
+
+<h1>Linux commands</h1><br>
+
+<!-- 📁 File and Directory Management -->
+<h2>📁 File and Directory Management</h2><br>
+<div class="interview-box">
+    <code>
+        <span style="color: #e91e63; font-weight: bold;">pwd</span> <span style="color: #555;"># Show current working directory</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">ls</span> <span style="color: #555;"># List files and directories</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">ls -l</span> <span style="color: #555;"># List with detailed file information</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">ls -a</span> <span style="color: #555;"># Include hidden files in list</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">cd /path/to/dir</span> <span style="color: #555;"># Change to specific directory</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">cd ..</span> <span style="color: #555;"># Go up one directory level</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">mkdir new_folder</span> <span style="color: #555;"># Create a new directory</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">touch newfile.txt</span> <span style="color: #555;"># Create an empty file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">mv oldname.txt newname.txt</span> <span style="color: #555;"># Rename a file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">mv file.txt /path/to/location/</span> <span style="color: #555;"># Move file to another location</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">cp file1.txt file2.txt</span> <span style="color: #555;"># Copy a file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">cp -r dir1/ dir2/</span> <span style="color: #555;"># Copy a directory and its contents</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">rm file.txt</span> <span style="color: #555;"># Delete a file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">rmdir empty_folder</span> <span style="color: #555;"># Remove an empty directory</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">ln -s /path/to/original symlink_name</span> <span style="color: #555;"># Create a symbolic link</span>
+    </code>
+</div><br><br>
+
+<!-- 📝 File Viewing and Editing -->
+<h2>📝 File Viewing and Editing</h2><br>
+<div class="interview-box">
+    <code>
+        <span style="color: #e91e63; font-weight: bold;">cat file.txt</span> <span style="color: #555;"># Display contents of a file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">less file.txt</span> <span style="color: #555;"># View file one page at a time</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">head -n 10 file.txt</span> <span style="color: #555;"># Show first 10 lines of a file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">tail -n 10 file.txt</span> <span style="color: #555;"># Show last 10 lines of a file</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">nano file.txt</span> <span style="color: #555;"># Edit a file in Nano editor</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">vi file.txt</span> <span style="color: #555;"># Open file in Vi editor</span>
+    </code>
+</div><br><br>
+
+<!-- ⚙️ Process Management -->
+<h2>⚙️ Process Management</h2><br>
+<div class="interview-box">
+    <code>
+        <span style="color: #e91e63; font-weight: bold;">ps aux</span> <span style="color: #555;"># Show all running processes</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">top</span> <span style="color: #555;"># Live view of CPU/memory usage</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">htop</span> <span style="color: #555;"># Enhanced version of 'top' (if installed)</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">kill PID</span> <span style="color: #555;"># Terminate a process by PID</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">kill -9 PID</span> <span style="color: #555;"># Force kill a process</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">nice -n 10 command</span> <span style="color: #555;"># Run command with altered priority</span>
+    </code>
+</div><br><br>
+
+<!-- 💻 System Information -->
+<h2>💻 System Information</h2><br>
+<div class="interview-box">
+    <code>
+        <span style="color: #e91e63; font-weight: bold;">uname -a</span> <span style="color: #555;"># Show system and kernel info</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">df -h</span> <span style="color: #555;"># Show disk usage in human-readable format</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">du -sh /path</span> <span style="color: #555;"># Show size of specific directory</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">free -m</span> <span style="color: #555;"># Show memory usage in MB</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">uptime</span> <span style="color: #555;"># Show how long the system has been running</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">hostname</span> <span style="color: #555;"># Show or set system hostname</span><br><br>
+        <span style="color: #e91e63; font-weight: bold;">date</span> <span style="color: #555;"># Show current system date and time</span>
+    </code>
+</div><br><br>
+
+<!-- 👤 User and Group Management -->
+<h2>👤 User and Group Management</h2><br>
+
+<div class="interview-box">
+    <code>
+        <b style="color:#e91e63;">whoami</b> <span style="color:gray;"># Show current logged-in user</span><br><br>
+
+        <b style="color:#e91e63;">id</b> <span style="color:gray;"># Show user ID and group ID</span><br><br>
+
+        <b style="color:#e91e63;">adduser newuser</b> <span style="color:gray;"># Add a new user</span><br><br>
+
+        <b style="color:#e91e63;">passwd newuser</b> <span style="color:gray;"># Set or change password for a user</span><br><br>
+
+        <b style="color:#e91e63;">su username</b> <span style="color:gray;"># Switch to another user</span><br><br>
+
+        <b style="color:#e91e63;">sudo command</b> <span style="color:gray;"># Run a command with superuser privileges</span><br><br>
+
+        <b style="color:#e91e63;">groups</b> <span style="color:gray;"># Show groups current user belongs to</span>
+    </code>
+</div><br><br>
+
+<!-- 🌐 Network Configuration and Monitoring -->
+<h2>🌐 Network Configuration and Monitoring</h2><br>
+
+<div class="interview-box">
+    <code>
+        <b style="color:#e91e63;">ifconfig</b> <span style="color:gray;"># Show IP and network interfaces (deprecated)</span><br><br>
+
+        <b style="color:#e91e63;">ip a</b> <span style="color:gray;"># Display IP addresses (modern replacement)</span><br><br>
+
+        <b style="color:#e91e63;">ping google.com</b> <span style="color:gray;"># Check network connectivity</span><br><br>
+
+        <b style="color:#e91e63;">netstat -tuln</b> <span style="color:gray;"># Show open ports and services</span><br><br>
+
+        <b style="color:#e91e63;">ss -tuln</b> <span style="color:gray;"># Modern alternative to netstat</span><br><br>
+
+        <b style="color:#e91e63;">hostname -I</b> <span style="color:gray;"># Show local IP address</span><br><br>
+
+        <b style="color:#e91e63;">curl http://example.com</b> <span style="color:gray;"># Fetch content from a URL</span>
+    </code>
+</div><br><br>
+
+<!-- 📦 Package Management (Debian/Ubuntu Based) -->
+<h2>📦 Package Management (Debian/Ubuntu)</h2><br>
+
+<div class="interview-box">
+    <code>
+        <b style="color:#e91e63;">sudo apt update</b> <span style="color:gray;"># Update package lists</span><br><br>
+
+        <b style="color:#e91e63;">sudo apt upgrade</b> <span style="color:gray;"># Upgrade all installed packages</span><br><br>
+
+        <b style="color:#e91e63;">sudo apt install packagename</b> <span style="color:gray;"># Install a new package</span><br><br>
+
+        <b style="color:#e91e63;">sudo apt remove packagename</b> <span style="color:gray;"># Remove a package</span><br><br>
+
+        <b style="color:#e91e63;">dpkg -l</b> <span style="color:gray;"># List all installed packages</span><br><br>
+
+        <b style="color:#e91e63;">apt-cache search keyword</b> <span style="color:gray;"># Search for a package</span>
+    </code>
+</div><br><br>
+
+<!-- 📦 Package Management (RHEL/CentOS Based) -->
+<h2>📦 Package Management (RHEL/CentOS)</h2><br>
+
+<div class="interview-box">
+    <code>
+        <b style="color:#e91e63;">sudo yum update</b> <span style="color:gray;"># Update all packages</span><br><br>
+
+        <b style="color:#e91e63;">sudo yum install packagename</b> <span style="color:gray;"># Install a package</span><br><br>
+
+        <b style="color:#e91e63;">sudo yum remove packagename</b> <span style="color:gray;"># Remove a package</span><br><br>
+
+        <b style="color:#e91e63;">rpm -qa</b> <span style="color:gray;"># List all installed RPM packages</span><br><br>
+
+        <b style="color:#e91e63;">yum search keyword</b> <span style="color:gray;"># Search for a package</span>
+    </code>
+</div><br><br>
+
+
+
+
+
+
+
+
+
+
+
+                   
+                <!-- END OF Linux Interview Questions. -->
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced" class="next-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="previou-button">Beginner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+
+                <h1>Linux Advanced</h1><br>
+
+                
+
+                <p><b>1. Explain the difference between hard link and soft link.</b></p><br>
+                <p>
+                    A hard link points directly to the inode of a file, meaning both original and link share the same data blocks. 
+                    A soft link (symbolic link) is a pointer to the file name, not the data. If the original file is deleted, the soft link becomes broken.
+                </p><br><br>
+                
+                <p><b>2. How do you change the ownership of a file?</b></p><br>
+                <p>
+                    Use the command: <code><b style="color:deeppink;">chown user:group filename</b></code>
+                </p><br><br>
+                
+                <p><b>3. How do you schedule a task using cron?</b></p><br>
+                <p>
+                    Use <code><b style="color:deeppink;">crontab -e</b></code> to edit the crontab and schedule tasks. 
+                    Syntax: <code><b style="color:deeppink;">* * * * * command</b></code> (minute, hour, day, month, weekday).
+                </p><br><br>
+                
+                <p><b>4. How can you find the top 10 memory-consuming processes?</b></p><br>
+                <p>
+                    Use: <code><b style="color:deeppink;">ps aux --sort=-%mem | head -n 10</b></code>
+                </p><br><br>
+                
+                <p><b>5. How do you find a specific string in a file?</b></p><br>
+                <p>
+                    Use the command: <code><b style="color:deeppink;">grep "string" filename</b></code>
+                </p><br><br>
+                
+                <p><b>6. How do you check which ports are open?</b></p><br>
+                <p>
+                    Use: <code><b style="color:deeppink;">netstat -tuln</b></code> or <code><b style="color:deeppink;">ss -tuln</b></code>
+                </p><br><br>
+                
+                <p><b>7. How can you archive and compress files in Linux?</b></p><br>
+                <p>
+                    Use: <code><b style="color:deeppink;">tar -czvf archive.tar.gz file_or_directory</b></code>
+                </p><br><br>
+                
+                <p><b>8. What is the purpose of the umask?</b></p><br>
+                <p>
+                    <code><b style="color:deeppink;">umask</b></code> sets default file permissions for newly created files and directories. 
+                    For example, a umask of 022 results in files being created with permission 755.
+                </p><br><br>
+                
+                <p><b>9. How do you count the number of lines, words, and characters in a file?</b></p><br>
+                <p>
+                    Use: <code><b style="color:deeppink;">wc filename</b></code> or <code><b style="color:deeppink;">wc -l</b></code> for lines, <code><b style="color:deeppink;">-w</b></code> for words, and <code><b style="color:deeppink;">-c</b></code> for characters.
+                </p><br><br>
+                
+                <p><b>10. How do you view and kill a running process?</b></p><br>
+                <p>
+                    Use <code><b style="color:deeppink;">ps aux</b></code> or <code><b style="color:deeppink;">top</b></code> to view processes. 
+                    Kill using: <code><b style="color:deeppink;">kill PID</b></code> or <code><b style="color:deeppink;">kill -9 PID</b></code> to force kill.
+                </p><br><br>
+                
+
+<p><b>11. How do you check memory usage by each process?</b></p><br>
+<p>
+    You can use the <code><b style="color:deeppink;">top</b></code> or <code><b style="color:deeppink;">htop</b></code> commands to view memory usage. 
+    For a sorted view by memory, use <code><b style="color:deeppink;">ps aux --sort=-%mem</b></code>.
+</p><br><br>
+
+<p><b>12. What is SELinux?</b></p><br>
+<p>
+    SELinux (Security-Enhanced Linux) is a Linux kernel security module that enforces access control policies. 
+    It adds another layer of security by defining which users and processes can access which files and resources.
+</p><br><br>
+
+<p><b>13. How do you secure SSH access on a Linux server?</b></p><br>
+<p>
+    Use strong passwords or SSH keys, disable root login by editing <code><b style="color:deeppink;">/etc/ssh/sshd_config</b></code>, change the default port, 
+    enable firewall rules, and use <code><b style="color:deeppink;">fail2ban</b></code> to block brute-force attacks.
+</p><br><br>
+
+<p><b>14. What is the use of the /proc directory?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">/proc</b></code> directory is a virtual filesystem providing system and process information. 
+    It contains runtime system data, including CPU, memory, and kernel parameters.
+</p><br><br>
+
+<p><b>15. How can you find which files were recently modified?</b></p><br>
+<p>
+    Use the <code><b style="color:deeppink;">find /path -type f -mtime -n</b></code> command, where <code><b style="color:deeppink;">n</b></code> is the number of days.
+</p><br><br>
+
+<p><b>16. What is the difference between TCP and UDP?</b></p><br>
+<p>
+    TCP is connection-oriented and reliable, ensuring packet delivery and order. 
+    UDP is connectionless and faster, but does not guarantee delivery or order.
+</p><br><br>
+
+<p><b>17. How do you view logs in Linux?</b></p><br>
+<p>
+    Most logs are stored in <code><b style="color:deeppink;">/var/log</b></code>. You can use <code><b style="color:deeppink;">cat</b></code>, 
+    <code><b style="color:deeppink;">less</b></code>, or <code><b style="color:deeppink;">tail -f /var/log/syslog</b></code> (or <code><b style="color:deeppink;">/var/log/messages</b></code>) to view logs.
+</p><br><br>
+
+<p><b>18. How do you add a user to a group in Linux?</b></p><br>
+<p>
+    Use the command: <code><b style="color:deeppink;">usermod -aG groupname username</b></code>
+</p><br><br>
+
+<p><b>19. What is inode in Linux?</b></p><br>
+<p>
+    An inode is a data structure that stores metadata about files, including ownership, permissions, size, and disk location, but not the filename.
+</p><br><br>
+
+<p><b>20. How do you display disk partition information?</b></p><br>
+<p>
+    Use commands like <code><b style="color:deeppink;">lsblk</b></code>, <code><b style="color:deeppink;">fdisk -l</b></code>, or <code><b style="color:deeppink;">parted -l</b></code> to view partition details.
+</p><br><br>
+
+<p><b>21. How do you check open files by a process?</b></p><br>
+<p>
+    Use: <code><b style="color:deeppink;">lsof -p PID</b></code>, replacing <code><b style="color:deeppink;">PID</b></code> with the process ID.
+</p><br><br>
+
+<p><b>22. What are sticky bits in Linux?</b></p><br>
+<p>
+    A sticky bit, when set on a directory (e.g., <code><b style="color:deeppink;">chmod +t /tmp</b></code>), 
+    allows only the file’s owner or root to delete or rename files inside it, even in shared directories.
+</p><br><br>
+
+<p><b>23. How do you check system boot time?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">uptime</b></code> or <code><b style="color:deeppink;">who -b</b></code> to see when the system last booted.
+</p><br><br>
+
+<p><b>24. How do you find large files in Linux?</b></p><br>
+<p>
+    Use: <code><b style="color:deeppink;">find / -type f -size +100M</b></code> to list files larger than 100MB.
+</p><br><br>
+
+<p><b>25. What is the difference between fork() and exec()?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">fork()</b></code> creates a new process, duplicating the parent, while 
+    <code><b style="color:deeppink;">exec()</b></code> replaces the current process memory with a new program.
+</p><br><br>
+
+<p><b>26. How do you limit memory or CPU usage of a process?</b></p><br>
+<p>
+    You can use <code><b style="color:deeppink;">ulimit</b></code> for session-based limits or cgroups for managing resource usage on a system-wide level.
+</p><br><br>
+
+<p><b>27. How do you mount a filesystem manually?</b></p><br>
+<p>
+    Use: <code><b style="color:deeppink;">mount /dev/sdX /mnt</b></code>, where <code><b style="color:deeppink;">/dev/sdX</b></code> is your device name and <code><b style="color:deeppink;">/mnt</b></code> is the mount point.
+</p><br><br>
+
+<p><b>28. What is the purpose of systemctl?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">systemctl</b></code> is a command to manage services in systems using systemd. 
+    For example, <code><b style="color:deeppink;">systemctl restart apache2</b></code> restarts the Apache web server.
+</p><br><br>
+
+<p><b>29. How do you list all users in Linux?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">cat /etc/passwd</b></code>. Each line represents a system user and includes information like username, UID, home directory, and default shell.
+</p><br><br>
+
+<p><b>30. How do you check whether a service is running?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">systemctl status service_name</b></code> or <code><b style="color:deeppink;">ps aux | grep service_name</b></code> to confirm if a service is active.
+</p><br><br>
+
+
+                                
+                            
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="previou-button">Beginner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previou-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Beginner</a>
+                </div>
+
+                <h1>Linux Expert</h1>
+                
+               
+
+<p><b>1. How does SELinux enhance Linux security?</b></p><br>
+<p>
+    SELinux (Security-Enhanced Linux) provides a mechanism for supporting access control security policies through mandatory access controls (MAC). 
+    It confines user programs and system servers to the minimum amount of privilege they require to do their jobs. 
+    This minimizes damage from misconfigurations or vulnerabilities.
+</p><br><br>
+
+<p><b>2. What is the difference between cgroups and namespaces in Linux?</b></p><br>
+<p>
+    <b>Namespaces</b> provide isolation of system resources (like PID, mount, network) between processes, while <b>cgroups</b> limit, account for, and isolate the resource usage (CPU, memory, disk I/O) of process groups.
+    They are both key components of Linux containers and used by tools like Docker and Kubernetes.
+</p><br><br>
+
+<p><b>3. How do you debug performance issues using <code><b style="color:deeppink;">perf</b></code>?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">perf</b></code> is a powerful performance analyzing tool. To record and analyze CPU cycles, use:
+    <br><code><b style="color:deeppink;">perf record -g ./my_app</b></code>
+    <br>Then view with:
+    <br><code><b style="color:deeppink;">perf report</b></code>
+    <br>This helps identify bottlenecks, hot paths, and CPU usage per function.
+</p><br><br>
+
+<p><b>4. Explain how to tune kernel parameters at runtime.</b></p><br>
+<p>
+    You can use <code><b style="color:deeppink;">sysctl</b></code> to modify kernel parameters:
+    <br><code><b style="color:deeppink;">sysctl -w net.ipv4.ip_forward=1</b></code>
+    <br>Permanent changes can be made in <code><b style="color:deeppink;">/etc/sysctl.conf</b></code> or <code><b style="color:deeppink;">/etc/sysctl.d/*.conf</b></code>.
+</p><br><br>
+
+<p><b>5. What are the main differences between ext4, XFS, and Btrfs?</b></p><br>
+<p>
+    - <b>ext4</b>: Stable and widely used, good general-purpose performance.  
+    - <b>XFS</b>: High-performance journaling file system, optimized for large files and parallel I/O.  
+    - <b>Btrfs</b>: Modern FS with features like snapshots, compression, and built-in RAID, still under active development.
+</p><br><br>
+
+<p><b>6. How do you trace system calls of a process?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">strace</b></code> to monitor system calls:
+    <br><code><b style="color:deeppink;">strace -p &lt;PID&gt;</b></code>
+    <br>This is useful for debugging issues related to file access, networking, and permissions.
+</p><br><br>
+
+<p><b>7. How does <code><b style="color:deeppink;">auditd</b></code> work in Linux security?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">auditd</b></code> is the userspace component to the Linux Auditing System. 
+    It collects information on system calls, file accesses, or command executions as per rules defined with <code><b style="color:deeppink;">auditctl</b></code>, aiding in security compliance and forensic analysis.
+</p><br><br>
+
+<p><b>8. What are hugepages in Linux and why are they used?</b></p><br>
+<p>
+    Hugepages are memory pages significantly larger than the default size (e.g., 2MB instead of 4KB). 
+    They reduce TLB (Translation Lookaside Buffer) misses and improve performance in memory-intensive applications like databases.
+</p><br><br>
+
+<p><b>9. How do you isolate CPU cores for real-time applications?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">isolcpus</b></code> kernel boot parameter to isolate specific cores, and bind processes to them using:
+    <br><code><b style="color:deeppink;">taskset -c &lt;core&gt; &lt;command&gt;</b></code>
+</p><br><br>
+
+<p><b>10. What is eBPF and how is it used in Linux?</b></p><br>
+<p>
+    eBPF (extended Berkeley Packet Filter) allows sandboxed programs to run in the kernel space safely. 
+    It’s used for tracing, monitoring, security enforcement (like XDP), and system observability without changing kernel source.
+</p><br><br>
+
+<p><b>11. How can you find memory leaks in Linux processes?</b></p><br>
+<p>
+    You can use <code><b style="color:deeppink;">valgrind</b></code> to detect memory leaks in applications:
+    <br><code><b style="color:deeppink;">valgrind --leak-check=full ./app</b></code>
+    <br>It provides detailed information about memory usage, leaks, and unfreed memory.
+</p><br><br>
+
+<p><b>12. What is NUMA and how is it managed in Linux?</b></p><br>
+<p>
+    NUMA (Non-Uniform Memory Access) is a memory design where memory access time depends on the memory location relative to the processor. 
+    Linux supports NUMA balancing and tools like <code><b style="color:deeppink;">numactl</b></code> to control CPU/memory bindings for performance tuning.
+</p><br><br>
+
+<p><b>13. How do you troubleshoot high I/O wait in Linux?</b></p><br>
+<p>
+    Use tools like <code><b style="color:deeppink;">iostat</b></code>, <code><b style="color:deeppink;">iotop</b></code>, or <code><b style="color:deeppink;">dstat</b></code> to identify I/O bottlenecks. 
+    High I/O wait means the CPU is waiting for disk operations to complete, often indicating disk performance issues.
+</p><br><br>
+
+<p><b>14. How do Linux containers work under the hood?</b></p><br>
+<p>
+    Containers use Linux features like <b>namespaces</b> for isolation (PID, net, mount) and <b>cgroups</b> for resource limitation. 
+    Tools like Docker and Podman abstract these kernel features to provide lightweight virtualization.
+</p><br><br>
+
+<p><b>15. How can you secure SSH access on a Linux server?</b></p><br>
+<p>
+    - Disable root login by setting <code><b style="color:deeppink;">PermitRootLogin no</b></code> in <code><b style="color:deeppink;">/etc/ssh/sshd_config</b></code>  
+    - Use key-based authentication  
+    - Change default port from 22  
+    - Use firewall and fail2ban to prevent brute-force attacks
+</p><br><br>
+
+<p><b>16. What is the difference between hard links and soft links?</b></p><br>
+<p>
+    - <b>Hard link</b> is a mirror copy of a file that shares the same inode. Deleting the original doesn't affect the link.  
+    - <b>Soft link</b> (symbolic) points to the filename and will break if the original file is deleted.
+</p><br><br>
+
+<p><b>17. How can you detect kernel panics or crashes in Linux?</b></p><br>
+<p>
+    Check logs via <code><b style="color:deeppink;">dmesg</b></code>, <code><b style="color:deeppink;">/var/log/messages</b></code>, or configure <code><b style="color:deeppink;">kdump</b></code> to capture crash dumps for post-mortem analysis.
+</p><br><br>
+
+<p><b>18. How does Linux handle deadlocks?</b></p><br>
+<p>
+    Linux doesn’t automatically prevent or resolve deadlocks. 
+    Developers need to implement logic to prevent them through proper locking mechanisms. Tools like <code><b style="color:deeppink;">lsof</b></code> and <code><b style="color:deeppink;">ps</b></code> help identify blocked resources.
+</p><br><br>
+
+<p><b>19. What is systemd and how is it different from SysVinit?</b></p><br>
+<p>
+    <b>systemd</b> is a modern init system used in most Linux distros. It offers parallel startup, service dependency management, and centralized logging. 
+    Unlike SysVinit, it uses unit files instead of shell scripts.
+</p><br><br>
+
+<p><b>20. How do you analyze boot performance in Linux?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">systemd-analyze</b></code> to get total boot time and <code><b style="color:deeppink;">systemd-analyze blame</b></code> to list services by time taken. 
+    This helps identify delays in the boot process.
+</p><br><br>
+<p><b>21. How can you debug system performance using perf?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">perf</b></code> is a powerful tool for performance analysis. It can trace CPU cycles, cache misses, and kernel functions. Example:
+    <br><code><b style="color:deeppink;">perf top</b></code> – shows real-time CPU usage by functions.
+</p><br><br>
+
+<p><b>22. How do you manage swap space in Linux?</b></p><br>
+<p>
+    Use the following to create and activate swap:
+    <br><code><b style="color:deeppink;">fallocate -l 1G /swapfile</b></code><br>
+    <code><b style="color:deeppink;">chmod 600 /swapfile</b></code><br>
+    <code><b style="color:deeppink;">mkswap /swapfile</b></code><br>
+    <code><b style="color:deeppink;">swapon /swapfile</b></code>
+</p><br><br>
+
+<p><b>23. What is SELinux and how does it enhance system security?</b></p><br>
+<p>
+    SELinux (Security-Enhanced Linux) enforces mandatory access control (MAC). It restricts processes based on policies even if a user is root, adding an extra layer of security.
+</p><br><br>
+
+<p><b>24. How do you trace a process system call in real time?</b></p><br>
+<p>
+    Use <code><b style="color:deeppink;">strace</b></code> to trace system calls made by a process:
+    <br><code><b style="color:deeppink;">strace -p &lt;PID&gt;</b></code>
+</p><br><br>
+
+<p><b>25. What is the difference between cron and systemd timers?</b></p><br>
+<p>
+    <b>cron</b> is the traditional scheduler using crontabs. <b>systemd timers</b> are newer and support dependency management, logging, and more flexible event handling.
+</p><br><br>
+
+<p><b>26. How can you recover a deleted file in Linux?</b></p><br>
+<p>
+    If the file was on an ext3/ext4 system, you might use tools like <code><b style="color:deeppink;">extundelete</b></code>. 
+    Recovery depends on disk usage since deletion.
+</p><br><br>
+
+<p><b>27. How do control groups (cgroups) help in resource management?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">cgroups</b></code> limit CPU, memory, and I/O for a group of processes. 
+    They’re useful in containers or when isolating resource-heavy processes. Example: Docker uses cgroups under the hood.
+</p><br><br>
+
+<p><b>28. What is the purpose of auditd in Linux?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">auditd</b></code> is the userspace component of the Linux Auditing System. 
+    It logs security-relevant events (file access, permission changes, etc.) to help track suspicious activity.
+</p><br><br>
+
+<p><b>29. How do you analyze and control network bandwidth per process?</b></p><br>
+<p>
+    Use tools like <code><b style="color:deeppink;">iftop</b></code> or <code><b style="color:deeppink;">nethogs</b></code> for real-time monitoring, or <code><b style="color:deeppink;">tc</b></code> (traffic control) for limiting bandwidth per interface/process.
+</p><br><br>
+
+<p><b>30. How do namespaces isolate containers in Linux?</b></p><br>
+<p>
+    Namespaces provide isolation of PID, network, filesystem, and more. 
+    Each container runs with its own namespace, ensuring separation from the host and other containers. 
+    Example: <code><b style="color:deeppink;">unshare --net --pid --mount</b></code>
+</p><br><br>
+
+
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previou-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Beginner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

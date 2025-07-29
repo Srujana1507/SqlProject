@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL - KUK Solutions</title>
+    <link rel="stylesheet" href="/KUK_Site_porject/KUK_abad_prod/KUKstyles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set the entire page background */
+        body {
+            /* background-image: url("./Site_Images/KUKSolutions_bkrd.png"); */
+            background-color: white;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, purple, #1d1d8f);
+            color: #fff;
+            padding: 5px;
+            text-align: left;
+            position: fixed;
+            box-shadow: 0 2px 10px #00000033;
+            /* border-radius: 20px; */
+            width: 100%;
+            /* height: auto; */
+            top: 0;
+            left: 0;
+            /* z-index: 1000; */
+        }
+
+        header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        header .kuk-solutions {
+            color: #f7fbfc;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s, font-weight 0.3s;
+            border: 2px solid transparent;
+            padding: 5px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        header nav {
+            display: inline-block;
+            /* margin-top: 10px; */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 100%;
+            background: #fff;
+        }
+
+        /* Sign Up and Log In button styling */
+        .button-container {
+            display: flex;
+            width: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+            background-color: #f0f8f0;
+            /* margin-top: 20px; */
+            width: fit-content;
+        }
+
+        .auth-button {
+            position: absolute;
+            top: 5px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* transition: background-color 0.3s ease, transform 0.2s ease; */
+            overflow: hidden;
+        }
+
+        .sign-in {
+            right: 110px;
+            background-color: #5858c5;
+            color: white;
+            border: 50px;
+            /* border-bottom-right-radius: 50px; */
+            font-weight: bold;
+        }
+
+        .sign-in:hover {
+            background-color: #5858c5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sign-up {
+            right: 10px;
+            background-color: #22da22;
+            color: white;
+            font-weight: bold;
+            /* border: 50px; */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sign-up:hover {
+            background-color: #46ca46;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* hedder end here */
+        /* content code start here */
+        .topic-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .topic-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .topic-buttons a:hover {
+            background-color: #71b5fd;
+        }
+
+        .topic-content {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .topic-content:not(.active) {
+            display: none;
+        }
+
+        .topic-content ul {
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+
+        .course-container {
+            padding: 80px;
+            display: flex;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sidebar-content {
+            /* flex: 1; */
+            padding: 20px;
+            overflow-y: auto;
+            margin-left: 120px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .sidebar-content h1 {
+            color: #0004ff;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* content start here */
+
+        /* footer code start here */
+        footer {
+            text-align: center;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footerleft {
+            position: relative;
+            margin-left: 200px;
+            /* margin-right: 10px; */
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: none;
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            color: #111;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            border-left: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .newsletter-form .subs-button:hover {
+            background-color: #00cca3;
+        }
+
+        .newsletter-form .no-spam {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .link-column {
+            flex: 1 1 150px;
+        }
+
+        .link-column h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .link-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .link-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .link-column ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        .footer-bottom a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* footer code end hrere */
+
+        .interview-keyword {
+            color: #003cff;
+            font-weight: normal;
+        }
+
+        .interview-box {
+            border: 2px solid #00dffc;
+            background-color: #ececec;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-family: Arial;
+            line-height: 1.5;
+            color: black;
+        }
+
+        .topic-content li .intervar {
+            color: rgb(255, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header section (same as in KUK Solutions main page) -->
+    <header>
+        <img src="https://img.freepik.com/premium-vector/logo-using-letters-kls-with-light-bulb-background-cable-plug-vector-illustration-flat_764382-53304.jpg?w=740"
+            alt="logo">
+        <h1 class="kuk-solutions">KUK Solutions</h1>
+        <!-- <div class="button-container"> -->
+        <a href="#signup" class="auth-button sign-up"
+            onclick="document.getElementById('signUpForm').style.display='block'" style="width:auto;">Sign Up</a>
+        <a href="#login" class="auth-button sign-in"
+            onclick="document.getElementById('logInForm').style.display='block'" style="width:auto;">Log In</a>
+        <!-- </div> -->
+
+        <nav>
+            <a href="KUK_Solutions_STG.html">Home</a>
+            <a href="KUKabout.html">About Us</a>
+            <a href="#courses" onclick="openNav()">Courses</a>
+            <a href="interviewprep.html">Interview Prep</a>
+            <!-- <a href="#blog">Blog/Articles</a> -->
+            <!-- <a href="#community">Community</a> -->
+            <a href="Kukresources.html">Resources</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#certifications">Certifications</a> -->
+            <a href="#Our services">Our Services</a>
+            <a href="#contactus">Contact Us</a>
+            <!-- <button onclick="toggleContent()">Show/Hide SQL Content</button> -->
+        </nav>
+
+    </header>
+
+    <!-- header section code END Here -->
+
+    <!-- Main content section for SQL course with sidebar and main content area -->
+    <div class="course-container">
+        <main class="sidebar-content">
+            <div class="topic-content active" data-topic="pythonBignner">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced" class="next-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+   
+                <!-- START OF Java Interview Questions. -->
+                <h1>Mongo DB Beginner</h1><br>
+                <p><b>1. What is MongoDB?</b></p><br>
+<p>
+    MongoDB is a NoSQL, document-oriented database that stores data in JSON-like BSON (Binary JSON) format. 
+    Unlike traditional relational databases, MongoDB doesn't rely on tables and rows but uses collections and documents, making it flexible and scalable.
+    It is particularly useful for applications with large-scale data, real-time analytics, or rapidly changing schemas.
+</p><br><br>
+
+<p><b>2. What is a collection in MongoDB?</b></p><br>
+<p>
+    A collection in MongoDB is analogous to a table in relational databases. 
+    It holds multiple documents and does not enforce a schema, allowing documents within the same collection to have different fields.
+    Collections are created automatically when a document is inserted for the first time.
+</p><br><br>
+
+<p><b>3. What is a document in MongoDB?</b></p><br>
+<p>
+    A document is the basic unit of data in MongoDB and is stored in BSON format. 
+    It is a set of key-value pairs, similar to a JSON object. Each document can have nested fields, arrays, and varying structures, providing flexibility.
+</p><br><br>
+
+<p><b>4. How do you insert a document in MongoDB?</b></p><br>
+<p>
+    You can use the <code><b style="color:deeppink;">insertOne()</b></code> or <code><b style="color:deeppink;">insertMany()</b></code> methods to insert documents.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.insertOne({ name: "Alice", age: 25, city: "New York" })<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged": true, "insertedId": ObjectId("...") }
+</code>
+</div><br><br>
+
+<p><b>5. How do you retrieve data in MongoDB?</b></p><br>
+<p>
+    To retrieve data from a collection, use the <code><b style="color:deeppink;">find()</b></code> method.
+    It returns a cursor to the documents that match the query criteria.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.find({ city: "New York" })<br><br>
+- - <b>Output:</b><br>
+{ "_id": ObjectId("..."), "name": "Alice", "age": 25, "city": "New York" }
+</code>
+</div><br><br>
+
+<p><b>6. What is the difference between MongoDB and MySQL?</b></p><br>
+<p>
+    - <b>Data Model</b>: MongoDB is document-oriented and schema-less, while MySQL is relational and schema-based.<br>
+    - <b>Data Storage</b>: MongoDB stores data as BSON documents in collections; MySQL stores data in rows within tables.<br>
+    - <b>Scalability</b>: MongoDB supports horizontal scaling (sharding), while MySQL primarily supports vertical scaling.<br>
+    - <b>Query Language</b>: MongoDB uses a JSON-like query language, while MySQL uses SQL.<br>
+    - <b>Transactions</b>: MySQL has full ACID-compliant transactions; MongoDB added multi-document transactions in newer versions.
+</p><br><br>
+
+<p><b>7. What are indexes in MongoDB?</b></p><br>
+<p>
+    Indexes in MongoDB improve the efficiency of search operations on collections. 
+    Without indexes, MongoDB must scan every document in a collection, which can be slow. 
+    Indexes are created on fields that are frequently used in queries to reduce query response time.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.createIndex({ name: 1 })<br><br>
+- - <b>Output:</b><br>
+{ "createdCollectionAutomatically": false, "numIndexesBefore": 1, "numIndexesAfter": 2, "ok": 1 }
+</code>
+</div><br><br>
+
+<p><b>8. What is a primary key in MongoDB?</b></p><br>
+<p>
+    Every document in MongoDB has a special field called <code><b style="color:deeppink;">_id</b></code> which uniquely identifies that document within a collection. 
+    This field is the primary key in MongoDB. If not provided explicitly, MongoDB automatically generates a unique <code><b style="color:deeppink;">ObjectId</b></code> for it.
+</p><br><br>
+
+<p><b>9. How do you update documents in MongoDB?</b></p><br>
+<p>
+    You can update documents using <code><b style="color:deeppink;">updateOne()</b></code>, <code><b style="color:deeppink;">updateMany()</b></code>, or <code><b style="color:deeppink;">replaceOne()</b></code>. 
+    The <code>$set</code> operator is often used to update specific fields.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.updateOne({ name: "Alice" }, { $set: { age: 26 } })<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged": true, "matchedCount": 1, "modifiedCount": 1 }
+</code>
+</div><br><br>
+
+<p><b>10. How do you delete documents in MongoDB?</b></p><br>
+<p>
+    Documents can be deleted using <code><b style="color:deeppink;">deleteOne()</b></code> or <code><b style="color:deeppink;">deleteMany()</b></code>. 
+    These functions remove documents that match a given condition.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.deleteOne({ name: "Alice" })<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged": true, "deletedCount": 1 }
+</code>
+</div><br><br>
+
+<p><b>11. What is aggregation in MongoDB?</b></p><br>
+<p>
+    Aggregation in MongoDB is a way of processing a large number of documents and transforming them into meaningful summarized results. 
+    It is similar to SQL’s GROUP BY clause. The most common way to perform aggregation is by using the <code><b style="color:deeppink;">aggregate()</b></code> function with a pipeline of stages like <code>$match</code>, <code>$group</code>, <code>$sort</code>, etc.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.orders.aggregate([<br>
+&nbsp;&nbsp;{ $group: { _id: "$customerId", total: { $sum: "$amount" } } }<br>
+])<br><br>
+- - <b>Output:</b><br>
+[ { "_id": "cust123", "total": 400 }, { "_id": "cust456", "total": 250 } ]
+</code>
+</div><br><br>
+
+<p><b>12. What is a replica set in MongoDB?</b></p><br>
+<p>
+    A replica set is a group of MongoDB servers that maintain the same data set to provide high availability and redundancy. 
+    It consists of one primary node and multiple secondary nodes. 
+    The primary node receives all write operations, and the secondaries replicate data from the primary. 
+    If the primary fails, one of the secondaries is automatically elected to become the new primary.
+</p><br><br>
+
+<p><b>13. What is sharding in MongoDB?</b></p><br>
+<p>
+    Sharding is the process of distributing data across multiple machines to support deployments with large data sets and high throughput. 
+    It helps in horizontal scaling by dividing the data into smaller parts called shards, which are stored in separate nodes. 
+    The <code><b style="color:deeppink;">mongos</b></code> router directs queries to the appropriate shard.
+</p><br><br>
+
+<p><b>14. What are the different data types supported by MongoDB?</b></p><br>
+<p>
+    MongoDB supports a wide range of data types including:
+    <ul>
+        <li><span class="interview-keyword">String</span></li>
+        <li><span class="interview-keyword">Number (int, long, double, decimal)</span></li>
+        <li><span class="interview-keyword">Boolean</span></li>
+        <li><span class="interview-keyword">Date</span></li>
+        <li><span class="interview-keyword">Array</span></li>
+        <li><span class="interview-keyword">Object</span></li>
+        <li><span class="interview-keyword">Null</span></li>
+        <li><span class="interview-keyword">ObjectId</span></li>
+        <li><span class="interview-keyword">Binary Data</span></li>
+    </ul>
+</p><br><br>
+
+<p><b>15. What is the use of the <code>ObjectId</code> in MongoDB?</b></p><br>
+<p>
+    <code><b style="color:deeppink;">ObjectId</b></code> is the default value for the <code>_id</code> field and serves as the primary key for each document. 
+    It is a 12-byte identifier consisting of:
+    <ul>
+        <li>4 bytes for the timestamp</li>
+        <li>5 bytes for a random value</li>
+        <li>3 bytes for an incrementing counter</li>
+    </ul>
+    This ensures uniqueness and provides some useful metadata such as the creation time of the document.
+</p><br><br>
+
+<p><b>16. How do you update a document in MongoDB?</b></p><br>
+<p>
+    You can update documents in MongoDB using the <code><b style="color:deeppink;">updateOne()</b></code>, <code><b style="color:deeppink;">updateMany()</b></code>, or <code><b style="color:deeppink;">replaceOne()</b></code> methods. 
+    These methods allow you to modify fields, add new ones, or replace entire documents. The <code>$set</code> operator is commonly used to update specific fields.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.updateOne(<br>
+&nbsp;&nbsp;{ name: "Alice" },<br>
+&nbsp;&nbsp;{ $set: { age: 30 } }<br>
+)<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+</code>
+</div><br><br>
+
+<p><b>17. What is the difference between <code>find()</code> and <code>findOne()</code> in MongoDB?</b></p><br>
+<p>
+    - <code><b style="color:deeppink;">find()</b></code>: Returns a cursor to all documents that match the query. You can iterate over the cursor to access all matching documents.
+    <br> - <code><b style="color:deeppink;">findOne()</b></code>: Returns a single document that matches the query. It stops scanning after finding the first match.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.find({ age: { $gt: 25 } })<br>
+db.users.findOne({ name: "Bob" })<br><br>
+- - <b>Output (findOne):</b><br>
+{ "_id": ObjectId("..."), "name": "Bob", "age": 28 }
+</code>
+</div><br><br>
+
+<p><b>18. How does indexing work in MongoDB?</b></p><br>
+<p>
+    Indexing in MongoDB improves the performance of queries by allowing the database to find data without scanning every document in a collection. 
+    The most common type is the single field index. You can also create compound indexes, text indexes, geospatial indexes, etc.
+    <br>Indexes are created using the <code><b style="color:deeppink;">createIndex()</b></code> method.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.createIndex({ age: 1 })<br><br>
+- - <b>Output:</b><br>
+"age_1"
+</code>
+</div><br><br>
+
+<p><b>19. What is a capped collection in MongoDB?</b></p><br>
+<p>
+    A capped collection is a fixed-size collection that maintains insertion order. When the specified size is reached, the oldest documents are automatically overwritten by newer ones.
+    <br>It is useful for logging, caching, and other use-cases where you want to keep only the most recent data.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.createCollection("logs", { capped: true, size: 1048576 })<br><br>
+- - <b>Output:</b><br>
+{ "ok" : 1 }
+</code>
+</div><br><br>
+
+<p><b>20. How do you delete documents in MongoDB?</b></p><br>
+<p>
+    You can delete documents using <code><b style="color:deeppink;">deleteOne()</b></code> or <code><b style="color:deeppink;">deleteMany()</b></code> methods.
+    <br> - <code>deleteOne()</code>: Deletes the first document that matches the filter.
+    <br> - <code>deleteMany()</code>: Deletes all documents that match the filter.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.deleteOne({ name: "Alice" })<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged" : true, "deletedCount" : 1 }
+</code>
+</div><br><br>
+
+<p><b>21. What is the aggregation framework in MongoDB?</b></p><br>
+<p>
+    The aggregation framework in MongoDB is used for data processing and transformation. It works like a data pipeline, where documents pass through multiple stages such as <code>$match</code>, <code>$group</code>, <code>$sort</code>, <code>$project</code>, etc. 
+    It is powerful for performing complex data analysis and computations directly within MongoDB.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.orders.aggregate([<br>
+&nbsp;&nbsp;{ $match: { status: "delivered" } },<br>
+&nbsp;&nbsp;{ $group: { _id: "$customerId", total: { $sum: "$amount" } } },<br>
+&nbsp;&nbsp;{ $sort: { total: -1 } }<br>
+])<br><br>
+- - <b>Output:</b><br>
+[ { "_id": 123, "total": 1500 }, { "_id": 456, "total": 1000 } ]
+</code>
+</div><br><br>
+
+<p><b>22. What is a replica set in MongoDB?</b></p><br>
+<p>
+    A replica set is a group of MongoDB servers that maintain the same data set, providing redundancy and high availability. 
+    One node is the primary that receives all write operations, and the others are secondaries that replicate data from the primary. 
+    In case the primary fails, an automatic election promotes one of the secondaries to be the new primary.
+</p><br><br>
+
+<p><b>23. What is sharding in MongoDB?</b></p><br>
+<p>
+    Sharding is the process of distributing data across multiple machines to support horizontal scaling. 
+    It helps MongoDB handle large datasets and high-throughput operations by partitioning data into smaller pieces called shards. 
+    MongoDB uses a sharding key to determine the distribution of data.
+</p><br><br>
+
+<p><b>24. What is the difference between embedded documents and referenced documents?</b></p><br>
+<p>
+    - <b>Embedded Documents</b>: Store related data in the same document. It provides fast read operations and atomicity.
+    <br> - <b>Referenced Documents</b>: Use references (ObjectId) to link documents stored in different collections. It is more normalized and scalable.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+// Embedded:<br>
+{ _id: 1, name: "John", address: { city: "NY", zip: "10001" } }<br><br>
+
+// Referenced:<br>
+{ _id: 1, name: "John", addressId: ObjectId("abc123") }<br>
+{ _id: "abc123", city: "NY", zip: "10001" }
+</code>
+</div><br><br>
+
+<p><b>25. How do you perform sorting in MongoDB?</b></p><br>
+<p>
+    MongoDB provides the <code><b style="color:deeppink;">sort()</b></code> method to order query results based on field values. 
+    Use <code>1</code> for ascending order and <code>-1</code> for descending order.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.find().sort({ age: -1 })<br><br>
+- - <b>Output:</b><br>
+Users sorted from oldest to youngest
+</code>
+</div><br><br>
+
+<p><b>26. What is the use of the <code>ObjectId</code> in MongoDB?</b></p><br>
+<p>
+    In MongoDB, every document stored in a collection requires a unique identifier, which is the <code>_id</code> field. 
+    If not provided explicitly, MongoDB generates an <code>ObjectId</code> by default. It is a 12-byte identifier consisting of:
+</p>
+<ul>
+  <li>4-byte timestamp</li>
+  <li>5-byte random value (machine + process)</li>
+  <li>3-byte incrementing counter</li>
+</ul>
+<p>
+    This structure ensures uniqueness across different machines and time, and allows for efficient indexing.
+</p><br><br>
+
+<p><b>27. How do you update a document in MongoDB?</b></p><br>
+<p>
+    MongoDB provides several update methods such as <code>updateOne()</code>, <code>updateMany()</code>, and <code>replaceOne()</code>. 
+    You can use update operators like <code>$set</code>, <code>$inc</code>, <code>$unset</code> to modify specific fields in a document.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.updateOne(<br>
+&nbsp;&nbsp;{ name: "John" },<br>
+&nbsp;&nbsp;{ $set: { age: 30 } }<br>
+)<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+</code>
+</div><br><br>
+
+<p><b>28. What is a capped collection in MongoDB?</b></p><br>
+<p>
+    A capped collection is a fixed-size collection that maintains insertion order and automatically overwrites the oldest documents when the size limit is reached. 
+    It is ideal for logging or real-time data like sensor outputs.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.createCollection("log", { capped: true, size: 100000 })
+</code>
+</div><br><br>
+
+<p><b>29. What is the use of <code>$lookup</code> in MongoDB?</b></p><br>
+<p>
+    The <code>$lookup</code> operator is used in aggregation to perform a left outer join between two collections. 
+    It allows you to fetch related documents from another collection based on a common field.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.orders.aggregate([<br>
+&nbsp;&nbsp;{ $lookup: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from: "customers",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;localField: "cust_id",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foreignField: "_id",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;as: "customer_info"<br>
+&nbsp;&nbsp;} }<br>
+])<br><br>
+- - <b>Output:</b><br>
+Each order document includes an array field <code>customer_info</code> with matched customer data.
+</code>
+</div><br><br>
+
+<p><b>30. How do you delete a document from a MongoDB collection?</b></p><br>
+<p>
+    MongoDB provides <code>deleteOne()</code> to delete a single document and <code>deleteMany()</code> to delete multiple documents that match a filter.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.users.deleteOne({ name: "John" })<br><br>
+- - <b>Output:</b><br>
+{ "acknowledged" : true, "deletedCount" : 1 }
+</code>
+</div><br><br>
+
+               
+
+
+                   
+                <!-- END OF Python Interview Questions. -->
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced" class="next-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonAdvanced">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="previou-button">Beginner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+
+                <h1>Mongo DB Advanced</h1>
+                <p><b>1. What are MongoDB indexes and how do they improve query performance?</b></p><br>
+<p>
+    Indexes in MongoDB are special data structures that store a small portion of the collection’s data set in an easily traversable form. 
+    They are used to improve the speed and efficiency of query operations by allowing MongoDB to quickly locate documents without scanning every one in a collection.
+    <br><br>MongoDB supports various types of indexes including:
+    <ul>
+        <li><b>Single Field Index</b></li>
+        <li><b>Compound Index</b></li>
+        <li><b>Multikey Index</b></li>
+        <li><b>Text Index</b></li>
+        <li><b>Hashed Index</b></li>
+        <li><b>Geospatial Index</b></li>
+    </ul>
+    However, creating too many indexes can increase write overhead and storage requirements.
+</p><br><br>
+
+<p><b>2. What is the Aggregation Framework in MongoDB?</b></p><br>
+<p>
+    The Aggregation Framework is a powerful feature in MongoDB used to process data records and return computed results. It allows for operations like filtering, grouping, sorting, reshaping, and more.
+    <br><br>It uses a pipeline approach where documents pass through stages:
+    <ul>
+        <li><b>$match</b>: Filters documents.</li>
+        <li><b>$group</b>: Groups documents by a specified identifier.</li>
+        <li><b>$project</b>: Reshapes documents by adding, removing, or renaming fields.</li>
+        <li><b>$sort</b>, <b>$limit</b>, <b>$skip</b>: For sorting and pagination.</li>
+    </ul>
+</p><br><br>
+
+<p><b>3. How does MongoDB handle replication and what is a replica set?</b></p><br>
+<p>
+    MongoDB uses replica sets to provide redundancy and high availability. A replica set is a group of mongod instances that maintain the same data set.
+    <br><br>Key components of replication:
+    <ul>
+        <li><b>Primary</b>: Handles all write operations.</li>
+        <li><b>Secondaries</b>: Replicate data from the primary and can serve read requests (if enabled).</li>
+        <li><b>Arbiter</b>: Participates in elections but does not hold data.</li>
+    </ul>
+    If the primary fails, an election is held to promote a secondary to primary automatically.
+</p><br><br>
+
+<p><b>4. What is sharding in MongoDB?</b></p><br>
+<p>
+    Sharding is the process of distributing data across multiple machines to support horizontal scaling. MongoDB uses sharding to handle large data sets and high throughput operations.
+    <br><br>Components include:
+    <ul>
+        <li><b>Shard</b>: Each holds a subset of the data.</li>
+        <li><b>Config Servers</b>: Store metadata and configuration settings.</li>
+        <li><b>Query Routers (mongos)</b>: Route client requests to appropriate shards.</li>
+    </ul>
+</p><br><br>
+
+<p><b>5. What is the difference between a primary key in SQL and <code>_id</code> in MongoDB?</b></p><br>
+<p>
+    In MongoDB, the <code>_id</code> field acts as a primary key for documents in a collection. It is a unique identifier automatically added to every document if not provided.
+    <br><br>
+    Differences from SQL primary key:
+    <ul>
+        <li><b>Required</b>: <code>_id</code> is mandatory in MongoDB documents.</li>
+        <li><b>Type</b>: It can be any type (commonly ObjectId), unlike SQL primary keys which are often numeric.</li>
+        <li><b>Uniqueness</b>: MongoDB enforces uniqueness on <code>_id</code> by default.</li>
+    </ul>
+</p><br><br>
+<p><b>6. How does MongoDB handle transactions?</b></p><br>
+<p>
+    MongoDB supports multi-document ACID transactions starting from version 4.0 for replica sets and 4.2 for sharded clusters. Transactions in MongoDB allow applications to group multiple read and write operations into a single atomic operation.
+    <br><br>
+    Key points:
+    <ul>
+        <li>Uses <code><b style="color:deeppink;">session.startTransaction()</b></code> and <code><b style="color:deeppink;">session.commitTransaction()</b></code></li>
+        <li>Ensures atomicity, consistency, isolation, and durability.</li>
+        <li>Ideal for financial or critical multi-document updates.</li>
+        <li>Impacts performance due to overhead, so use judiciously.</li>
+    </ul>
+</p><br><br>
+
+<p><b>7. What is a capped collection in MongoDB?</b></p><br>
+<p>
+    A capped collection is a fixed-size, circular collection that automatically overwrites the oldest documents when it reaches its maximum size. It preserves the insertion order and is ideal for logging and caching scenarios.
+    <br><br>
+    Features:
+    <ul>
+        <li>High insertion performance.</li>
+        <li>Maintains insertion order.</li>
+        <li>Does not support document deletion or updates that increase document size.</li>
+    </ul>
+</p><br><br>
+
+<p><b>8. What is a TTL index in MongoDB and how is it used?</b></p><br>
+<p>
+    TTL (Time-To-Live) indexes allow automatic deletion of documents after a specified time. It is useful for storing temporary data such as sessions, logs, or cache.
+    <br><br>
+    To create a TTL index:
+    <div class="interview-box">
+        <code>
+            db.sessions.createIndex({ "createdAt": 1 }, { expireAfterSeconds: 3600 })
+        </code>
+    </div>
+    <br>
+    This deletes documents 1 hour after the <code>createdAt</code> time.
+</p><br><br>
+
+<p><b>9. What is the difference between embedded and referenced documents in MongoDB?</b></p><br>
+<p>
+    MongoDB supports two main ways to model relationships between documents:
+    <ul>
+        <li><b>Embedded Documents</b>: Store related data in the same document. Better for performance and atomicity.</li>
+        <li><b>Referenced Documents</b>: Store data in separate documents and use manual references. Suitable for normalization and large related datasets.</li>
+    </ul>
+    <br>
+    Choosing between the two depends on query patterns, document size limits, and update frequency.
+</p><br><br>
+
+<p><b>10. How can you improve MongoDB query performance?</b></p><br>
+<p>
+    MongoDB query performance can be improved through:
+    <ul>
+        <li><b>Indexing</b>: Use appropriate indexes for your queries.</li>
+        <li><b>Projection</b>: Return only required fields.</li>
+        <li><b>Query Optimization</b>: Use <code><b style="color:deeppink;">explain("executionStats")</b></code> to analyze performance.</li>
+        <li><b>Schema Design</b>: Optimize schema based on access patterns.</li>
+        <li><b>Avoid $where</b>: Don’t use JavaScript-based queries unless necessary.</li>
+    </ul>
+</p><br><br>
+
+<p><b>11. What is the Aggregation Framework in MongoDB?</b></p><br>
+<p>
+    The Aggregation Framework is a powerful tool in MongoDB for data processing and transformation. It processes data records and returns computed results, similar to SQL’s <code>GROUP BY</code> operations.
+    <br><br>
+    Common aggregation stages include:
+    <ul>
+        <li><b>$match</b> – Filters documents based on conditions.</li>
+        <li><b>$group</b> – Groups documents by a specified identifier and performs accumulations.</li>
+        <li><b>$project</b> – Modifies the structure of documents.</li>
+        <li><b>$sort</b> – Sorts documents.</li>
+        <li><b>$limit</b> and <b>$skip</b> – Control the number of documents returned.</li>
+    </ul>
+</p><br><br>
+
+<p><b>12. What is the purpose of the $lookup operator?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">$lookup</b></code> operator performs a left outer join to another collection in the same database to filter in documents from the “joined” collection.
+    <br><br>
+    Example:
+    <div class="interview-box">
+        <code>
+            db.orders.aggregate([<br>
+            &nbsp;&nbsp;{ $lookup: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;from: "customers",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;localField: "customer_id",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;foreignField: "_id",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;as: "customer_info"<br>
+            &nbsp;&nbsp;} }<br>
+            ])
+        </code>
+    </div>
+</p><br><br>
+
+<p><b>13. What is a Sharded Cluster in MongoDB?</b></p><br>
+<p>
+    A sharded cluster is a method of distributing data across multiple servers or shards in MongoDB. It helps scale horizontally to handle large datasets and high-throughput applications.
+    <br><br>
+    Components:
+    <ul>
+        <li><b>Shard</b>: Stores a subset of the data.</li>
+        <li><b>Config Server</b>: Stores metadata and configuration settings.</li>
+        <li><b>Query Router (mongos)</b>: Routes queries to the appropriate shards.</li>
+    </ul>
+</p><br><br>
+
+<p><b>14. How does MongoDB handle indexing for performance?</b></p><br>
+<p>
+    MongoDB uses B-tree-based indexes to quickly locate data without scanning every document. Types of indexes include:
+    <ul>
+        <li><b>Single Field Index</b></li>
+        <li><b>Compound Index</b></li>
+        <li><b>Multikey Index</b> – For array fields</li>
+        <li><b>Text Index</b> – For full-text search</li>
+        <li><b>Hashed Index</b> – For sharding</li>
+        <li><b>Wildcard Index</b> – Indexes all fields</li>
+    </ul>
+    Use <code><b style="color:deeppink;">db.collection.getIndexes()</b></code> to list existing indexes.
+</p><br><br>
+
+<p><b>15. What is the difference between $inc and $set operators in MongoDB?</b></p><br>
+<p>
+    These are update operators used to modify document values:
+    <ul>
+        <li><b>$set</b>: Sets the value of a field. Creates the field if it doesn’t exist.</li>
+        <li><b>$inc</b>: Increments a field by a specified value. Creates the field if it doesn’t exist.</li>
+    </ul>
+    <br>
+    Example:
+    <div class="interview-box">
+        <code>
+            db.users.updateOne(<br>
+            &nbsp;&nbsp;{ name: "John" },<br>
+            &nbsp;&nbsp;{ $set: { city: "Delhi" }, $inc: { age: 1 } }<br>
+            )
+        </code>
+    </div>
+</p><br><br>
+
+<p><b>16. What are MongoDB Transactions and when are they used?</b></p><br>
+<p>
+    Transactions in MongoDB allow multiple operations on multiple documents or collections to be executed atomically. This means either all operations succeed, or none do—maintaining data consistency.
+    <br><br>
+    Transactions are mostly used in:
+    <ul>
+        <li>Financial applications (e.g., transferring money between accounts)</li>
+        <li>Systems requiring ACID compliance</li>
+        <li>Multi-document updates</li>
+    </ul>
+    They are supported in replica sets (from MongoDB 4.0) and in sharded clusters (from 4.2).
+</p><br><br>
+
+<p><b>17. What is the difference between find() and aggregate() in MongoDB?</b></p><br>
+<p>
+    <ul>
+        <li><b>find()</b>: Simple query operation used to retrieve documents matching a condition.</li>
+        <li><b>aggregate()</b>: Used for data processing and complex transformations such as grouping, filtering, reshaping, or joining.</li>
+    </ul>
+    Example:
+    <div class="interview-box">
+        <code>
+            db.users.find({ age: { $gt: 25 } })<br><br>
+            db.users.aggregate([<br>
+            &nbsp;&nbsp;{ $match: { age: { $gt: 25 } } },<br>
+            &nbsp;&nbsp;{ $group: { _id: "$city", count: { $sum: 1 } } }<br>
+            ])
+        </code>
+    </div>
+</p><br><br>
+
+<p><b>18. What are capped collections in MongoDB?</b></p><br>
+<p>
+    A capped collection is a fixed-size collection that maintains insertion order. Once the specified size is reached, it overwrites the oldest data automatically.
+    <br><br>
+    Use Cases:
+    <ul>
+        <li>Logging and audit data</li>
+        <li>Real-time metrics storage</li>
+    </ul>
+    <div class="interview-box">
+        <code>
+            db.createCollection("logs", { capped: true, size: 100000 })
+        </code>
+    </div>
+</p><br><br>
+
+<p><b>19. How does MongoDB handle schema-less design?</b></p><br>
+<p>
+    MongoDB collections do not require a fixed schema. This flexibility allows storing documents with different fields and structures in the same collection.
+    <br><br>
+    Pros:
+    <ul>
+        <li>Quick development with evolving requirements</li>
+        <li>Support for unstructured and semi-structured data</li>
+    </ul>
+    Cons:
+    <ul>
+        <li>Harder to enforce data consistency</li>
+        <li>More responsibility on application logic</li>
+    </ul>
+</p><br><br>
+
+<p><b>20. What is MongoDB Atlas?</b></p><br>
+<p>
+    MongoDB Atlas is a fully managed cloud-based database-as-a-service (DBaaS) provided by MongoDB Inc. It simplifies deployment, scaling, and management of MongoDB clusters on AWS, Azure, and GCP.
+    <br><br>
+    Features:
+    <ul>
+        <li>Automated backups and monitoring</li>
+        <li>Built-in security and compliance</li>
+        <li>Scalability and high availability</li>
+        <li>Global cluster distribution</li>
+    </ul>
+</p><br><br>
+
+<p><b>21. What is the difference between MongoDB and RDBMS?</b></p><br>
+<p>
+    MongoDB is a NoSQL database, while RDBMS (like MySQL, PostgreSQL) is a traditional relational database. Here's a comparison:
+</p>
+<ul>
+    <li><b>Schema:</b> MongoDB is schema-less; RDBMS requires predefined schemas.</li>
+    <li><b>Data Format:</b> MongoDB uses JSON-like documents; RDBMS uses tables with rows and columns.</li>
+    <li><b>Joins:</b> RDBMS supports joins natively; MongoDB uses embedding or $lookup aggregation.</li>
+    <li><b>Scalability:</b> MongoDB is horizontally scalable; RDBMS is usually vertically scalable.</li>
+    <li><b>Transactions:</b> RDBMS is transactional by design; MongoDB supports multi-document transactions since version 4.0.</li>
+</ul><br><br>
+
+<p><b>22. What is the Aggregation Pipeline in MongoDB?</b></p><br>
+<p>
+    The aggregation pipeline is a powerful framework for data aggregation modeled on data processing pipelines. Documents enter a multi-stage pipeline that transforms them and outputs aggregated results.
+</p>
+<div class="interview-box">
+    <code>
+        db.sales.aggregate([<br>
+        &nbsp;&nbsp;{ $match: { status: "A" } },<br>
+        &nbsp;&nbsp;{ $group: { _id: "$item", total: { $sum: "$amount" } } },<br>
+        &nbsp;&nbsp;{ $sort: { total: -1 } }<br>
+        ])
+    </code>
+</div>
+<p>
+    - - <b>Output:</b><br>
+    Sorted total sales by item where status is "A".
+</p><br><br>
+
+<p><b>23. How does MongoDB ensure high availability?</b></p><br>
+<p>
+    MongoDB ensures high availability using <b>Replica Sets</b>. A replica set is a group of MongoDB servers that maintain the same data set, providing automatic failover and data redundancy.
+</p>
+<ul>
+    <li>One primary node handles reads/writes.</li>
+    <li>Secondary nodes replicate data from primary.</li>
+    <li>If the primary goes down, a secondary is elected as the new primary automatically.</li>
+</ul><br><br>
+
+<p><b>24. What is Sharding in MongoDB?</b></p><br>
+<p>
+    Sharding is the process of distributing data across multiple servers to handle large datasets and high throughput. In MongoDB, it enables horizontal scaling.
+</p>
+<ul>
+    <li><b>Shard:</b> A MongoDB instance that holds a subset of data.</li>
+    <li><b>Config servers:</b> Store metadata and configuration settings for the cluster.</li>
+    <li><b>Mongos:</b> Query router that directs operations to the appropriate shard.</li>
+</ul><br><br>
+
+<p><b>25. What are indexes in MongoDB? Why are they important?</b></p><br>
+<p>
+    Indexes in MongoDB improve the performance of search queries by allowing the database to quickly locate documents without scanning every document in a collection.
+</p>
+<ul>
+    <li><b>Single Field Index</b>: Indexes one field.</li>
+    <li><b>Compound Index</b>: Indexes multiple fields.</li>
+    <li><b>Text Index</b>: Used for text search within string content.</li>
+    <li><b>Geospatial Index</b>: Used for location-based queries.</li>
+</ul>
+<div class="interview-box">
+    <code>
+        db.users.createIndex({ email: 1 })
+    </code>
+</div><br><br>
+
+<p><b>26. What is the use of the $lookup operator in MongoDB?</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">$lookup</b></code> operator performs a left outer join to another collection in the same database. It's part of the aggregation framework and is useful when you need to combine related documents.
+</p>
+<div class="interview-box">
+    <code>
+        db.orders.aggregate([<br>
+        &nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;$lookup: {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from: "customers",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localField: "cust_id",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreignField: "cust_id",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as: "customer_details"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;}<br>
+        ])
+    </code>
+</div><br><br>
+
+<p><b>27. How does MongoDB handle concurrency?</b></p><br>
+<p>
+    MongoDB uses a multi-granularity locking mechanism to ensure data consistency during concurrent access:
+</p>
+<ul>
+    <li>Uses a reader-writer lock at the document level in WiredTiger (the default storage engine).</li>
+    <li>Multiple readers can access simultaneously, but only one writer per document at a time.</li>
+    <li>Supports optimistic concurrency control using <code><b style="color:deeppink;">findAndModify</b></code> and <code><b style="color:deeppink;">$inc</b></code>.</li>
+</ul><br><br>
+
+<p><b>28. What are capped collections in MongoDB?</b></p><br>
+<p>
+    Capped collections are fixed-size collections that maintain insertion order and automatically overwrite the oldest entries when the allocated size is reached. They are ideal for logging and real-time data feeds.
+</p>
+<ul>
+    <li><b>Size-limited:</b> Set by bytes.</li>
+    <li><b>High performance:</b> Fast inserts and reads in insertion order.</li>
+</ul>
+<div class="interview-box">
+    <code>
+        db.createCollection("log_data", { capped: true, size: 100000 })
+    </code>
+</div><br><br>
+
+<p><b>29. Explain the purpose of the <code>db.currentOp()</code> command.</b></p><br>
+<p>
+    The <code><b style="color:deeppink;">db.currentOp()</b></code> command provides a snapshot of all currently running operations in the MongoDB instance. It is used to monitor long-running or stuck operations and for performance diagnostics.
+</p>
+<ul>
+    <li>Useful for identifying blocking queries.</li>
+    <li>Combined with <code><b style="color:deeppink;">db.killOp()</b></code> to terminate specific operations.</li>
+</ul><br><br>
+
+<p><b>30. What are transactions in MongoDB and how are they used?</b></p><br>
+<p>
+    Transactions in MongoDB allow multiple operations to execute in an all-or-nothing fashion, ensuring atomicity and consistency. This feature is available for replica sets (since v4.0) and sharded clusters (since v4.2).
+</p>
+<div class="interview-box">
+    <code>
+        const session = db.getMongo().startSession();<br>
+        session.startTransaction();<br><br>
+
+        try {<br>
+        &nbsp;&nbsp;session.getDatabase("store").inventory.updateOne({ item: "pen" }, { $inc: { qty: -2 } });<br>
+        &nbsp;&nbsp;session.getDatabase("store").orders.insertOne({ item: "pen", qty: 2 });<br>
+        &nbsp;&nbsp;session.commitTransaction();<br>
+        } catch (error) {<br>
+        &nbsp;&nbsp;session.abortTransaction();<br>
+        }
+    </code>
+</div><br><br>
+
+
+
+
+
+
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="previou-button">Beginner</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonExpert" class="next-button">Expert</a>
+                </div>
+            </div>
+
+            <div class="topic-content" data-topic="pythonExpert">
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previou-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Beginner</a>
+                </div>
+
+                <h1>Mongo DB Expert</h1>
+                <p><b>1. What is the difference between MongoDB's WiredTiger and MMAPv1 storage engines?</b></p><br>
+                <p>
+                    <b>WiredTiger</b> is the default storage engine in MongoDB since version 3.2. It supports document-level locking and compression. 
+                    <br><b>MMAPv1</b>, the older engine, uses memory-mapped files with collection-level locking and no compression.
+                </p>
+                <ul>
+                    <li><span class="interview-keyword">WiredTiger</span>: Better concurrency, compression support, efficient memory usage.</li>
+                    <li><span class="interview-keyword">MMAPv1</span>: Simple and fast for workloads with low concurrency.</li>
+                </ul><br><br>
+                
+                <p><b>2. How does MongoDB handle sharded cluster queries internally?</b></p><br>
+                <p>
+                    When a query is sent to a sharded MongoDB cluster:
+                </p>
+                <ul>
+                    <li>The query router (<b>mongos</b>) determines which shards to contact using the shard key.</li>
+                    <li>If the query is <b>targeted</b>, only relevant shards are queried. If it's <b>scatter-gather</b>, all shards are queried.</li>
+                    <li>Each shard processes the query locally and returns results to mongos.</li>
+                    <li>mongos merges, sorts, and returns the final response to the client.</li>
+                </ul><br><br>
+                
+                <p><b>3. What is the purpose of the <code>$lookup</code> aggregation stage in MongoDB?</b></p><br>
+                <p>
+                    <code>$lookup</code> performs a left outer join to combine documents from two collections. It's used in the aggregation pipeline to match and merge data from another collection.
+                </p>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                <code>
+                db.orders.aggregate([<br>
+                  { <b style="color:deeppink;">$lookup</b>: {<br>
+                    from: "products",<br>
+                    localField: "product_id",<br>
+                    foreignField: "_id",<br>
+                    as: "product_details"<br>
+                  }}<br>
+                ])<br><br>
+                - - <b>Output:</b> <br>
+                Orders with embedded product details from the "products" collection.
+                </code>
+                </div><br><br>
+                
+                <p><b>4. How do you create a TTL (Time To Live) index in MongoDB, and what are its use cases?</b></p><br>
+                <p>
+                    A TTL index automatically removes expired documents after a set time. Useful in session expiration, log cleanup, and cache scenarios.
+                </p>
+                <p><b>Example:</b></p>
+                <div class="interview-box">
+                <code>
+                db.sessions.createIndex(<br>
+                  { "createdAt": 1 },<br>
+                  { expireAfterSeconds: 3600 }<br>
+                )<br><br>
+                - - <b>Output:</b> <br>
+                Documents older than 1 hour will be deleted automatically by MongoDB.
+                </code>
+                </div><br><br>
+                
+                <p><b>5. Explain the concept of write concern in MongoDB and its impact on consistency.</b></p><br>
+                <p>
+                    Write concern determines the level of acknowledgment requested from MongoDB for write operations. It affects consistency and durability guarantees.
+                </p>
+                <ul>
+                    <li><b>w:1</b>: Acknowledged by primary only.</li>
+                    <li><b>w:majority</b>: Acknowledged by the majority of replica set members.</li>
+                    <li><b>wtimeout</b>: Time to wait for write acknowledgment before returning an error.</li>
+                </ul><br><br>
+
+                <p><b>6. How does MongoDB ensure high availability in a replica set?</b></p><br>
+<p>
+    MongoDB provides high availability using <b>replica sets</b>, which consist of a primary and multiple secondary nodes.
+</p>
+<ul>
+    <li>If the primary node fails, an automatic election occurs to promote a secondary to primary.</li>
+    <li>Clients automatically reconnect to the new primary with minimal downtime.</li>
+    <li>Writes always go to the primary, while reads can be configured to use secondaries based on read preferences.</li>
+</ul><br><br>
+
+<p><b>7. What is the difference between <code>$merge</code> and <code>$out</code> stages in aggregation?</b></p><br>
+<p>
+    Both stages write aggregation results to a collection, but they differ in functionality:
+</p>
+<ul>
+    <li><code><b style="color:deeppink;">$out</b></code>: Replaces or creates a collection with the aggregation result. It drops the collection if it already exists.</li>
+    <li><code><b style="color:deeppink;">$merge</b></code>: Merges results into an existing collection with more flexible modes like <b>merge</b>, <b>replace</b>, or <b>keepExisting</b>.</li>
+</ul><br><br>
+
+<p><b>8. How does MongoDB handle large data sets efficiently in aggregation pipelines?</b></p><br>
+<p>
+    MongoDB uses the following techniques for efficient aggregation on large datasets:
+</p>
+<ul>
+    <li><b>Indexes</b> are used in the initial <code>$match</code> stage to reduce input size.</li>
+    <li><b>Disk use</b> is enabled with <code>allowDiskUse: true</code> for pipelines exceeding memory limits.</li>
+    <li><b>Streaming</b> of intermediate results avoids unnecessary memory buildup.</li>
+</ul><br><br>
+
+<p><b>9. What are Change Streams in MongoDB and how are they used?</b></p><br>
+<p>
+    Change Streams allow real-time monitoring of data changes (insert, update, delete, etc.) in collections, databases, or entire clusters without polling.
+</p>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+const changeStream = db.collection("orders").watch();<br>
+changeStream.on("change", (next) => {<br>
+  console.log("Change detected:", next);<br>
+});<br><br>
+- - <b>Output:</b><br>
+Real-time event logs whenever documents in "orders" are modified.
+</code>
+</div><br><br>
+
+<p><b>10. What is the role of journaling in MongoDB?</b></p><br>
+<p>
+    Journaling in MongoDB ensures durability by recording all write operations before applying them to the data files. This allows MongoDB to recover data to a consistent state in case of crashes.
+</p>
+<ul>
+    <li>By default, journaling is enabled for 64-bit builds.</li>
+    <li>Data is flushed to disk every 100ms, and the journal is replayed during recovery.</li>
+    <li>Works in conjunction with write concern to provide strong durability guarantees.</li>
+</ul><br><br>
+
+<p><b>11. How does MongoDB support multi-document transactions?</b></p><br>
+<p>
+    MongoDB supports multi-document ACID transactions starting from version 4.0 for replica sets and 4.2+ for sharded clusters.
+</p>
+<ul>
+    <li>Transactions provide atomicity across multiple operations and documents.</li>
+    <li>They follow a similar syntax to relational databases using <code>startSession()</code>, <code>startTransaction()</code>, <code>commitTransaction()</code>, and <code>abortTransaction()</code>.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+const session = client.startSession();<br>
+session.startTransaction();<br>
+try {<br>
+  orders.insertOne({item: "Laptop"}, {session});<br>
+  payments.insertOne({status: "Paid"}, {session});<br>
+  session.commitTransaction();<br>
+} catch (e) {<br>
+  session.abortTransaction();<br>
+}<br><br>
+- - <b>Output:</b><br>
+Both inserts succeed or both are rolled back on failure.
+</code>
+</div><br><br>
+
+<p><b>12. What are MongoDB's write concern levels and how do they impact performance and durability?</b></p><br>
+<p>
+    Write concern in MongoDB defines the level of acknowledgment requested from the database after a write operation.
+</p>
+<ul>
+    <li><b>Unacknowledged (w: 0)</b>: No confirmation, fastest but unsafe.</li>
+    <li><b>Acknowledged (w: 1)</b>: Default level, confirms receipt by primary.</li>
+    <li><b>Majority (w: "majority")</b>: Ensures durability by waiting for majority of nodes to confirm write.</li>
+</ul><br><br>
+
+<p><b>13. What is a MongoDB bucket pattern and when should you use it?</b></p><br>
+<p>
+    The bucket pattern is a data modeling technique used to store multiple related records in a single document (a "bucket") to reduce read operations.
+</p>
+<ul>
+    <li>Ideal for time-series data, like logs or metrics.</li>
+    <li>Reduces the number of documents and increases read efficiency.</li>
+    <li>Must manage document size to stay within the 16MB limit.</li>
+</ul><br><br>
+
+<p><b>14. How do you optimize large-scale aggregations in sharded collections?</b></p><br>
+<p>
+    To optimize aggregations on sharded collections:
+</p>
+<ul>
+    <li>Use <code>$match</code> and <code>$project</code> stages early to reduce data transfer.</li>
+    <li>Ensure shard key is used in the query for targeted operations.</li>
+    <li>Use <code>$merge</code> to combine results efficiently.</li>
+    <li>Enable <code>allowDiskUse</code> for memory-intensive pipelines.</li>
+</ul><br><br>
+
+<p><b>15. What is the purpose of <code>$graphLookup</code> in MongoDB?</b></p><br>
+<p>
+    <code>$graphLookup</code> is an aggregation stage that allows recursive joins on a collection to model graph-style relationships.
+</p>
+<ul>
+    <li>Used for hierarchy traversal, like finding subordinates in an organization or product category trees.</li>
+    <li>Supports depth control and cycle detection.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.employees.aggregate([<br>
+  { $match: { name: "Alice" } },<br>
+  { $graphLookup: {<br>
+      from: "employees",<br>
+      startWith: "$_id",<br>
+      connectFromField: "_id",<br>
+      connectToField: "managerId",<br>
+      as: "reportingHierarchy"<br>
+  }}<br>
+])<br><br>
+- - <b>Output:</b><br>
+Nested array of all employees reporting to Alice, directly or indirectly.
+</code>
+</div><br><br>
+
+<p><b>16. How can you implement full-text search in MongoDB?</b></p><br>
+<p>
+    MongoDB provides native full-text search using text indexes. These indexes support searching for string content in documents using the <code>$text</code> operator.
+</p>
+<ul>
+    <li>Text indexes can include fields with string content and analyze them using stemming and stop-word removal.</li>
+    <li>Supports case-insensitive and language-specific search.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.articles.createIndex({ content: "text" });<br>
+db.articles.find({ $text: { $search: "database" } });<br><br>
+- - <b>Output:</b><br>
+All documents containing the word “database” in the <code>content</code> field.
+</code>
+</div><br><br>
+
+<p><b>17. What is the purpose of the <code>$merge</code> stage in MongoDB aggregation?</b></p><br>
+<p>
+    The <code>$merge</code> stage in an aggregation pipeline writes the result of the aggregation to a specified collection.
+</p>
+<ul>
+    <li>It can insert new documents or update existing ones.</li>
+    <li>Useful for ETL operations, materialized views, or merging aggregated results.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+db.sales.aggregate([<br>
+  { $group: { _id: "$product", total: { $sum: "$amount" } } },<br>
+  { $merge: "product_totals" }<br>
+])<br><br>
+- - <b>Output:</b><br>
+Aggregated totals per product are written to the <code>product_totals</code> collection.
+</code>
+</div><br><br>
+
+<p><b>18. How do you handle schema evolution in MongoDB?</b></p><br>
+<p>
+    MongoDB's flexible schema allows documents in the same collection to have different structures. However, schema evolution still requires careful planning:
+</p>
+<ul>
+    <li>Use versioning fields to track document structure versions.</li>
+    <li>Migrate old documents using update scripts or background jobs.</li>
+    <li>Validate documents using <code>$jsonSchema</code> with validation rules.</li>
+</ul><br><br>
+
+<p><b>19. What are the internal storage engines in MongoDB and how do they affect performance?</b></p><br>
+<p>
+    MongoDB primarily uses the <b>WiredTiger</b> storage engine by default, which provides:
+</p>
+<ul>
+    <li>Document-level concurrency control for high throughput.</li>
+    <li>Compression (snappy/zlib/zstd) to reduce disk usage.</li>
+    <li>Checkpointing and journaling for crash recovery.</li>
+</ul>
+<p>Other engines like <code>In-Memory</code> or <code>Encrypted</code> are available for special use cases (e.g., ephemeral data or security compliance).</p><br><br>
+
+<p><b>20. How does MongoDB ensure horizontal scalability with sharding?</b></p><br>
+<p>
+    Sharding in MongoDB allows the distribution of data across multiple servers (shards) to support horizontal scaling.
+</p>
+<ul>
+    <li>Collections are partitioned into chunks based on a shard key.</li>
+    <li>Each chunk is assigned to a shard and managed by a <code>mongos</code> query router.</li>
+    <li>MongoDB handles rebalancing, chunk migration, and distributed queries automatically.</li>
+</ul><br><br>
+
+<p><b>21. How does MongoDB’s aggregation pipeline optimize performance internally?</b></p><br>
+<p>
+    MongoDB optimizes aggregation pipelines by reordering certain stages, applying indexes early, and pushing down operations closer to the data source. Key performance features include:
+</p>
+<ul>
+    <li><b>Pipeline optimization:</b> MongoDB may merge or reorder non-dependent stages for efficiency.</li>
+    <li><b>Index usage:</b> Stages like <code>$match</code> and <code>$sort</code> can benefit from indexes when placed early.</li>
+    <li><b>Covered queries:</b> If all fields are indexed and projected, MongoDB can avoid fetching documents from disk.</li>
+</ul><br><br>
+
+<p><b>22. What is a change stream in MongoDB and how is it used?</b></p><br>
+<p>
+    Change streams allow real-time, event-driven applications by watching changes in collections or databases without polling. They rely on the <code>oplog</code> and are available only on replica sets or sharded clusters.
+</p>
+<ul>
+    <li>Use <code>watch()</code> to monitor insert, update, delete, and replace operations.</li>
+    <li>Ideal for real-time analytics, notifications, and data synchronization.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+const changeStream = db.collection.watch();<br>
+changeStream.on("change", next => {<br>
+&nbsp;&nbsp;console.log(next);<br>
+});<br><br>
+- - <b>Output:</b><br>
+A JSON change event document whenever a modification happens.
+</code>
+</div><br><br>
+
+<p><b>23. What are MongoDB buckets and how are they used in time-series collections?</b></p><br>
+<p>
+    In time-series collections, MongoDB groups measurements into internal structures called <b>buckets</b> to store time-based data efficiently. Each bucket contains:
+</p>
+<ul>
+    <li>A time range (e.g., 1 minute of sensor data).</li>
+    <li>Multiple measurements compressed together.</li>
+    <li>Meta fields for indexing and filtering.</li>
+</ul>
+<p>They improve compression, reduce write amplification, and speed up query performance.</p><br><br>
+
+<p><b>24. What is the role of election in MongoDB replication and how does it work?</b></p><br>
+<p>
+    In a MongoDB replica set, elections determine which node becomes the <b>primary</b>. When the primary fails, an election ensures availability:
+</p>
+<ul>
+    <li>Each eligible secondary can start an election.</li>
+    <li>Voting is done by all nodes using a term-based consensus.</li>
+    <li>Majority vote wins, and the new primary takes over writes.</li>
+</ul>
+<p>Automatic failover ensures high availability and minimizes downtime.</p><br><br>
+
+<p><b>25. How does MongoDB handle ACID transactions, and what are best practices?</b></p><br>
+<p>
+    MongoDB supports multi-document ACID transactions starting in version 4.0 for replica sets and 4.2 for sharded clusters. Transactions ensure atomicity, consistency, isolation, and durability.
+</p>
+<ul>
+    <li>Use <code>session.startTransaction()</code> to begin a transaction.</li>
+    <li>Keep transactions short to reduce lock contention.</li>
+    <li>Best used for related operations like transferring funds or batch updates.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+const session = client.startSession();<br>
+session.startTransaction();<br>
+try {<br>
+&nbsp;&nbsp;db.accounts.updateOne({name: "A"}, {$inc: {balance: -100}}, {session});<br>
+&nbsp;&nbsp;db.accounts.updateOne({name: "B"}, {$inc: {balance: +100}}, {session});<br>
+&nbsp;&nbsp;session.commitTransaction();<br>
+} catch (e) {<br>
+&nbsp;&nbsp;session.abortTransaction();<br>
+}<br><br>
+- - <b>Output:</b><br>
+Atomic update of both accounts or none if an error occurs.
+</code>
+</div><br><br>
+
+<p><b>26. What is snapshot isolation in MongoDB, and how does it work in transactions?</b></p><br>
+<p>
+    Snapshot isolation in MongoDB ensures that all read operations within a multi-document transaction see a consistent view of the data as it was at the start of the transaction. This avoids read anomalies like dirty reads and non-repeatable reads.
+</p>
+<ul>
+    <li>All reads within a transaction operate on a snapshot from the beginning of the transaction.</li>
+    <li>Helps maintain data consistency even if other operations modify the data concurrently.</li>
+    <li>Write conflicts are detected at commit time, not during the transaction.</li>
+</ul><br><br>
+
+<p><b>27. What is a resumable change stream and how does MongoDB support it?</b></p><br>
+<p>
+    MongoDB change streams are <b>resumable</b>, meaning you can continue watching from a specific point using a <code>resumeToken</code>. This ensures reliability in case of temporary disconnections.
+</p>
+<ul>
+    <li>Each change stream event includes a <code>_id</code> field that acts as a resume token.</li>
+    <li>You can restart the stream with the <code>resumeAfter</code> or <code>startAfter</code> option.</li>
+</ul>
+<p><b>Example:</b></p>
+<div class="interview-box">
+<code>
+const changeStream = db.collection.watch();<br>
+changeStream.on("change", next => {<br>
+&nbsp;&nbsp;const resumeToken = next._id;<br>
+&nbsp;&nbsp;// Use resumeToken to resume if needed<br>
+});<br><br>
+- - <b>Output:</b><br>
+A stream of changes that can continue seamlessly after disruptions.
+</code>
+</div><br><br>
+
+<p><b>28. How do you analyze and tune query performance in MongoDB?</b></p><br>
+<p>
+    MongoDB provides several tools and strategies to analyze and improve query performance:
+</p>
+<ul>
+    <li><b>Explain Plans:</b> Use <code>db.collection.explain()</code> to inspect how MongoDB executes a query.</li>
+    <li><b>Indexing:</b> Ensure appropriate indexes on fields used in <code>$match</code>, <code>$sort</code>, and joins.</li>
+    <li><b>Aggregation Tuning:</b> Move filtering and limiting stages early in pipelines.</li>
+    <li><b>Monitor Tools:</b> Use MongoDB Atlas Performance Advisor or <code>mongotop</code>, <code>mongostat</code>.</li>
+</ul><br><br>
+
+<p><b>29. What is hybrid index scanning in MongoDB 7.0+ and how does it help?</b></p><br>
+<p>
+    Hybrid index scanning is a feature introduced in MongoDB 7.0 that allows the query engine to merge results from multiple indexes when a single index does not satisfy the entire query efficiently.
+</p>
+<ul>
+    <li>Improves performance for complex queries with multiple indexed fields.</li>
+    <li>Allows partial scanning and deduplication of results across indexes.</li>
+    <li>Can be seen in <code>explain()</code> output with <b>IXSCAN</b> and <b>AND_HASH</b> stages.</li>
+</ul><br><br>
+
+<p><b>30. How would you secure a production-grade MongoDB deployment?</b></p><br>
+<p>
+    Securing MongoDB involves multiple layers of protection:
+</p>
+<ul>
+    <li><b>Authentication:</b> Enable access control and create users with roles using SCRAM-SHA-256 or LDAP.</li>
+    <li><b>Authorization:</b> Apply Role-Based Access Control (RBAC) to restrict actions.</li>
+    <li><b>Encryption:</b> Use TLS for in-transit data, and enable at-rest encryption (FLE or storage engine encryption).</li>
+    <li><b>Auditing:</b> Enable audit logs to track access and changes.</li>
+    <li><b>Network Security:</b> Bind MongoDB only to trusted IPs, use firewalls, and avoid exposing ports publicly.</li>
+</ul><br><br>
+
+
+
+
+                
+                
+
+
+
+                <div class="topic-buttons">
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonAdvanced"
+                        class="previou-button">Advanced</a>
+                    <a href="/interviewprep/pythoninterview.html?topic=pythonBignner" class="next-button">Beginner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- <div class="footer-top"> -->
+            <div class="logo-section">
+                <h2>KUK <span>Solutions</span></h2>
+                <p>Empowering everyday people with life-changing data skills.</p>
+                <form class="newsletter-form">
+                    <!-- <label for="email">Subscribe to the newsletter</label> -->
+                    <input type="email" id="email" placeholder="Email address" required>
+                    <button type="submit" class="subs-button">Subscribe</button>
+                </form>
+                <p class="no-spam">No spam, just helpful tips & tricks delivered directly to your inbox.</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-column">
+                <h4>LEARN</h4>
+                <ul>
+                    <li><a href="#">Self-Paced Courses</a></li>
+                    <li><a href="#">Learning Paths</a></li>
+                    <li><a href="#">Guided Projects</a></li>
+                    <li><a href="#">Cohort Learning</a></li>
+                    <li><a href="#">Crash Courses</a></li>
+                    <li><a href="#">Credentials & Badges</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>DISCOVER</h4>
+                <ul>
+                    <li><a href="#">Maven Showcase</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>PLANS</h4>
+                <ul>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Maven Blog</a></li>
+                    <li><a href="#">Data Challenges</a></li>
+                    <li><a href="#">Data Playground</a></li>
+                    <li><a href="#">Guides & Reports</a></li>
+                    <li><a href="#">Mavens Of Data</a></li>
+                    <li><a href="#">Data Literacy Assessment</a></li>
+                    <li><a href="#">Find Your Path</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Product Updates</a></li>
+                    <li><a href="#">Request A Feature</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                <h4>BUSINESS</h4>
+                <ul>
+                    <li><a href="#">Maven For Business</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Customer Stories</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© KUK Solutions | All Rights Reserved</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy</a> | <a href="#">Community Forum Policy</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <!-- JavaScript to switch content -->
+    <script>
+        document.querySelectorAll('.topic-buttons a').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Hide all topics
+                document.querySelectorAll('.topic-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the target topic
+                const targetTopic = new URL(this.href).searchParams.get('topic');
+                document.querySelector(`[data-topic="${targetTopic}"]`).classList.add('active');
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
